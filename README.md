@@ -63,7 +63,8 @@ See the [Nintendo DS decompilation guide](https://decomp.wiki/platforms/nintendo
 ## Contributing
 
 Contributions are very welcome — see **[CONTRIBUTING.md](CONTRIBUTING.md)**. The
-only hard rule: every function must pass **byte-exact verification**.
+only hard rule: every function must pass **byte-exact verification**. Progress
+per module and how to claim one is in **[PROGRESS.md](PROGRESS.md)**.
 
 ## License
 

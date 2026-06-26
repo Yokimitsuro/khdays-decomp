@@ -11,6 +11,20 @@ arrive at the matching C does not matter — by hand, with scripts, or with any
 tooling — as long as the verifier prints `>>> MATCH <<<`. The verification is the
 quality gate, so this scales to many contributors in parallel.
 
+## Claiming work
+
+Functions are grouped by **module/overlay** (`ov000`, `ov030`, …). To avoid
+duplicated effort, **claim a module before you start**:
+
+1. Check [PROGRESS.md](PROGRESS.md) for a module that isn't finished (🟡/⬜).
+2. Open or comment on a GitHub issue titled e.g. `Claim: ov030` and assign
+   yourself. Un-claim if you stop working on it.
+3. Work through that module's `func_*` functions and PR them.
+
+Collisions are harmless: byte-exact verification means only a matching `.c` is
+ever merged, so nothing breaks if two people overlap — claiming just saves
+wasted effort. Use the project Discord / decomp.me for live coordination.
+
 ## Setup
 
 You must provide your own legally-obtained copy of the game. Nothing
