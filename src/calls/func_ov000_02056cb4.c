@@ -1,5 +1,5 @@
-extern int func_0200ffc0();
-extern int func_02010128();
+extern int NNS_FndAppendListObject();
+extern int NNS_FndGetNextListObject();
 extern int func_02023660();
 
 struct info_s {
@@ -50,7 +50,7 @@ void func_ov000_02056cb4(struct obj_s *obj, int arg1, int arg2, int arg3)
     if (arg1 == 0x42)
         obj->f34 = 1;
 
-    node = (struct node_s *)func_02010128(&obj->list, 0);
+    node = (struct node_s *)NNS_FndGetNextListObject(&obj->list, 0);
     if (node) {
         do {
             if (node->f0 == arg1) {
@@ -63,7 +63,7 @@ void func_ov000_02056cb4(struct obj_s *obj, int arg1, int arg2, int arg3)
                 node->f14 = local.info->field1c;
                 break;
             }
-            node = (struct node_s *)func_02010128(&obj->list, node);
+            node = (struct node_s *)NNS_FndGetNextListObject(&obj->list, node);
         } while (node);
     }
 
@@ -77,7 +77,7 @@ void func_ov000_02056cb4(struct obj_s *obj, int arg1, int arg2, int arg3)
         node->fc = local.field20;
         node->f10 = 0;
         node->f14 = local.info->field1c;
-        func_0200ffc0(&obj->list, node);
+        NNS_FndAppendListObject(&obj->list, node);
     }
 
     if (local.info->field18 != 0) {

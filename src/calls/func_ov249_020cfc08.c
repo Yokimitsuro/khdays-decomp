@@ -1,4 +1,4 @@
-extern int func_01ff8b90();
+extern int VEC_Add();
 extern int func_02016320();
 extern int func_0202f384();
 extern int func_0203ca30();
@@ -30,7 +30,7 @@ void func_ov249_020cfc08(struct A *a0, struct B *sl) {
             work[1] = 0;
             work[2] = (i == 0) ? 0x800 : 0x1000;
             func_0202f384(work, (char *)sl + 0xa0, work);
-            func_01ff8b90(work, buf4, work);
+            VEC_Add(work, buf4, work);
             func_0203ca30(p, work);
             p += 0x2c;
         }

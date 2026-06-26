@@ -1,5 +1,5 @@
 extern int func_ov107_020cab14();
-extern int func_01ff8bc4();
+extern int VEC_Subtract();
 extern int func_01ff8d18();
 extern int func_020050b4();
 
@@ -26,7 +26,7 @@ int func_ov223_020d1240(int *arg0, struct s3 *out) {
         }
     }
 
-    func_01ff8bc4((int)r3 + 0x190, r4[2], &v);
+    VEC_Subtract((int)r3 + 0x190, r4[2], &v);
     v.b = 0;
     r6 = func_01ff8d18(&v, &v, 0);
     r6 = r6 - (((int *)(*r4)[250])[32] + (*r4)[32]);

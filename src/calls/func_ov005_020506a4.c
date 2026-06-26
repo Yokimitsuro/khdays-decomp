@@ -1,5 +1,5 @@
-extern void func_01ff8830();
-extern void func_0200ff7c();
+extern void MI_CpuFill8();
+extern void NNS_FndInitList();
 extern void func_020342e8();
 extern void func_020343cc();
 
@@ -15,7 +15,7 @@ typedef struct {
 
 void func_ov005_020506a4(void *a, void **b) {
     Struct *s = (Struct *)a;
-    func_01ff8830(s, 0, 0x100);
+    MI_CpuFill8(s, 0, 0x100);
     if (b == 0) {
         s->field248 = (void *)func_020342e8;
         s->field252 = (void *)func_020343cc;
@@ -23,7 +23,7 @@ void func_ov005_020506a4(void *a, void **b) {
         s->field248 = b[0] ? b[0] : (void *)func_020342e8;
         s->field252 = b[1] ? b[1] : (void *)func_020343cc;
     }
-    func_0200ff7c(s->field8, 0x18);
-    func_0200ff7c(s->field20, 0x18);
-    func_0200ff7c(s->field32, 0x10);
+    NNS_FndInitList(s->field8, 0x18);
+    NNS_FndInitList(s->field20, 0x18);
+    NNS_FndInitList(s->field32, 0x10);
 }

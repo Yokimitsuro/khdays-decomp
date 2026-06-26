@@ -1,6 +1,6 @@
 extern int func_02023750();
-extern int func_02010dd8();
+extern int NNS_FndAllocFromAllocator();
 
 void func_0202e198(void) {
-    func_02010dd8(func_02023750(0), 0x20);
+    NNS_FndAllocFromAllocator(func_02023750(0), 0x20);
 }

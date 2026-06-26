@@ -1,5 +1,5 @@
 extern int func_ov107_020cab14();
-extern int func_01ff8a7c();
+extern int FX_Sqrt();
 extern int func_0203c634();
 
 struct S0 {
@@ -37,7 +37,7 @@ int func_ov131_020cd220(struct This *this)
         return result;
 
     q = p->field0;
-    t = func_01ff8a7c(local);
+    t = FX_Sqrt(local);
     t = t - (((struct S0 *)result)->field80 + q->field80);
     local = t;
     if (t > p->field0->field2d8)

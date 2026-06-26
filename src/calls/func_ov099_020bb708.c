@@ -1,6 +1,6 @@
 extern int func_0202c2ac();
 extern void func_01ffd0e8();
-extern void func_01ff8b90();
+extern void VEC_Add();
 extern int func_0202c268();
 
 struct Vec3 { int x; int y; int z; };
@@ -20,10 +20,10 @@ void func_ov099_020bb708(struct Vec3 *out, char *p1, char *p2, int p3, int p4, i
             func_01ffd0e8(obj[3] - 0x800, p4, p3, &va);
             *(char *)(p2 + 0x12c) = 5;
         } else {
-            func_01ff8b90(p3, p4, &va);
+            VEC_Add(p3, p4, &va);
         }
     } else {
-        func_01ff8b90(p3, p4, &va);
+        VEC_Add(p3, p4, &va);
     }
 
     va.y += 0x1000;

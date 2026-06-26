@@ -1,5 +1,5 @@
-extern int func_020100c8();
-extern int func_02010128();
+extern int NNS_FndRemoveListObject();
+extern int NNS_FndGetNextListObject();
 extern int func_020236ac();
 extern int func_020343cc();
 
@@ -23,14 +23,14 @@ void func_ov008_0205393c(int unused, int **a, int *b) {
         return;
     }
 
-    cur = (int *)func_02010128(b, 0);
+    cur = (int *)NNS_FndGetNextListObject(b, 0);
     if (cur == 0) {
         return;
     }
 
     for (;;) {
-        next = (int *)func_02010128(b, cur);
-        func_020100c8(b, cur);
+        next = (int *)NNS_FndGetNextListObject(b, cur);
+        NNS_FndRemoveListObject(b, cur);
         func_020343cc(cur + 9);
         if (cur != 0) {
             func_020236ac(cur);

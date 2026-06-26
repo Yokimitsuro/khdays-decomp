@@ -1,4 +1,4 @@
-extern int func_01ff8a04();
+extern int FX_Inv();
 extern int func_02023eb4();
 extern int func_0203c634();
 
@@ -43,7 +43,7 @@ void func_ov250_020d14fc(Outer *o)
     t = m->field_1c + o->p0->field_2c;
     m->field_1c = t;
 
-    t = func_01ff8a04(t, 0x2aa);
+    t = FX_Inv(t, 0x2aa);
     m->p0->field_394 = t;
     if (m->p0->field_394 > 0x1000)
         m->p0->field_394 = 0x1000;

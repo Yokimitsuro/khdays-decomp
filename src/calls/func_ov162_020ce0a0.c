@@ -1,7 +1,7 @@
 extern int func_ov107_020c4924();
-extern int *func_ov107_020c9848();
+extern int *OS_IsThreadAvailable_0x020c9848();
 extern void func_01ffa724();
-extern void func_01ff8b90();
+extern void VEC_Add();
 extern void func_0203ca30();
 
 typedef struct {
@@ -22,7 +22,7 @@ void func_ov162_020ce0a0(Obj *obj) {
 
     obj->mat = *(Mat *)(obj->src + 4);
 
-    func_01ffa724(-0x300, *func_ov107_020c9848() + 0x7c, tmp);
-    func_01ff8b90((char *)&obj->mat + 16, tmp, tmp);
+    func_01ffa724(-0x300, *OS_IsThreadAvailable_0x020c9848() + 0x7c, tmp);
+    VEC_Add((char *)&obj->mat + 16, tmp, tmp);
     func_0203ca30(&obj->mat, tmp);
 }

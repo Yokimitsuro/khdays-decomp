@@ -1,4 +1,4 @@
-extern int func_01ff8bc4();
+extern int VEC_Subtract();
 extern int func_01ff8d18();
 extern int func_0203cd7c();
 extern int func_0202ea48();
@@ -42,7 +42,7 @@ int func_ov179_020d2554(Obj *obj, Vec3 *out)
     }
     na = inner->n0;
 
-    func_01ff8bc4(nb->sub, na->sub, &localA);
+    VEC_Subtract(nb->sub, na->sub, &localA);
     diff = func_01ff8d18(&localA, &localA) - nb->v80 - na->v80;
     if (diff < 0) {
         diff = 0;

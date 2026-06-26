@@ -1,4 +1,4 @@
-func_ov054_020b5a20 kind:function(arm,size=0x14) addr:0x020b5a20
+SNDi_UnlockMutex_0x020b5a20 kind:function(arm,size=0x14) addr:0x020b5a20
 func_ov054_020b5a34 kind:function(thumb,size=0x30) addr:0x020b5a34
 func_ov054_020b5a64 kind:function(thumb,size=0x3c) addr:0x020b5a64
 func_ov054_020b5aa0 kind:function(thumb,size=0x230) addr:0x020b5aa0
@@ -11,7 +11,7 @@ func_ov054_020b6024 kind:function(arm,size=0x184) addr:0x020b6024
 func_ov054_020b61a8 kind:function(arm,size=0x88) addr:0x020b61a8
 func_ov054_020b6230 kind:function(arm,size=0xac) addr:0x020b6230
 func_ov054_020b62dc kind:function(arm,size=0x2c) addr:0x020b62dc
-func_ov054_020b6308 kind:function(arm,size=0xc) addr:0x020b6308
+WM_EndKeySharing_0x020b6308 kind:function(arm,size=0xc) addr:0x020b6308
 func_ov054_020b6314 kind:function(arm,size=0x10) addr:0x020b6314
 func_ov054_020b6324 kind:function(arm,size=0x20) addr:0x020b6324
 func_ov054_020b6344 kind:function(arm,size=0x18) addr:0x020b6344

@@ -1,6 +1,6 @@
-extern int func_01ff8bc4();
+extern int VEC_Subtract();
 extern int func_01ff8d18();
-extern int func_01ff8a04();
+extern int FX_Inv();
 extern int func_02023eb4();
 extern int func_020050b4();
 
@@ -24,14 +24,14 @@ void func_ov137_020cc9e0(int *obj, Vec3 *out)
         return;
     }
 
-    func_01ff8bc4((char *)v8 + 0x74, (void *)obj[20], &local);  /* obj+0x50 */
+    VEC_Subtract((char *)v8 + 0x74, (void *)obj[20], &local);  /* obj+0x50 */
     local.y = 0;
     t = func_01ff8d18(&local, &local);
 
     v8 = (int *)obj[2];
     v0 = (int *)obj[0];
     t = t - v8[32] - v0[32];     /* -[v8+0x80] -[v0+0x80] */
-    t = func_01ff8a04(t, v0[182] < 0x1000 ? 0xf000 : v0[182]);  /* v0+0x2d8 */
+    t = FX_Inv(t, v0[182] < 0x1000 ? 0xf000 : v0[182]);  /* v0+0x2d8 */
 
     s5 = (t << 1) - 0x1000;
     if (s5 < -0x1000) s5 = -0x1000;

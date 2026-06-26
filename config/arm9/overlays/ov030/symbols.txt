@@ -1,4 +1,4 @@
-func_ov030_020b3220 kind:function(arm,size=0x14) addr:0x020b3220
+SNDi_UnlockMutex_0x020b3220 kind:function(arm,size=0x14) addr:0x020b3220
 func_ov030_020b3234 kind:function(thumb,size=0xdc) addr:0x020b3234
 func_ov030_020b3310 kind:function(thumb,size=0x64) addr:0x020b3310
 func_ov030_020b3374 kind:function(thumb,size=0x268) addr:0x020b3374

@@ -4,7 +4,7 @@ func_ov028_0208a994 kind:function(arm,size=0x74) addr:0x0208a994
 func_ov028_0208aa08 kind:function(arm,size=0x4c) addr:0x0208aa08
 func_ov028_0208aa54 kind:function(arm,size=0x24) addr:0x0208aa54
 func_ov028_0208aa78 kind:function(arm,size=0x9c) addr:0x0208aa78
-func_ov028_0208ab14 kind:function(arm,size=0xc) addr:0x0208ab14
+WM_EndKeySharing_0x0208ab14 kind:function(arm,size=0xc) addr:0x0208ab14
 func_ov028_0208ab20 kind:function(arm,size=0x58) addr:0x0208ab20
 func_ov028_0208ab78 kind:function(arm,size=0x58) addr:0x0208ab78
 data_ov028_0208abd0 kind:data(any) addr:0x0208abd0

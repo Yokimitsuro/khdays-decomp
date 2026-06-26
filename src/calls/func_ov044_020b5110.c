@@ -1,10 +1,10 @@
 extern int func_ov022_020acf14();
 extern int func_ov022_020ad114();
 extern int func_ov022_020ad0c0();
-extern int func_01ff8bc4();
-extern int func_01ff8cb8();
+extern int VEC_Subtract();
+extern int VEC_Mag();
 extern int func_01ff8d18();
-extern int func_0200526c();
+extern int FX_Atan2();
 
 struct Obj {
     char pad0[0x20];
@@ -42,12 +42,12 @@ void func_ov044_020b5110(struct Outer *outer, int sel)
     if (func_ov022_020ad114(obj) == 0) {
         return;
     }
-    func_01ff8bc4(func_ov022_020ad0c0(obj), (char *)obj + 0x8c + 0x400, local);
-    if (func_01ff8cb8(local) != 0) {
+    VEC_Subtract(func_ov022_020ad0c0(obj), (char *)obj + 0x8c + 0x400, local);
+    if (VEC_Mag(local) != 0) {
         func_01ff8d18(local, local);
     }
     {
-        unsigned short v = (unsigned short)func_0200526c(-local[0], -local[2]);
+        unsigned short v = (unsigned short)FX_Atan2(-local[0], -local[2]);
         p = (unsigned short *)obj->off20;
         if (*(int *)p & 0x20) {
             return;

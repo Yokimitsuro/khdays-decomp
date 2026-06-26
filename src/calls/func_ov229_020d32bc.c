@@ -1,7 +1,7 @@
 extern int func_0203d040();
 extern int func_0202f188();
 extern int func_0203c9d0();
-extern int func_01ff8b90();
+extern int VEC_Add();
 extern int func_01ffa724();
 extern int func_01ff8d18();
 extern int func_0202f384();
@@ -66,7 +66,7 @@ void func_ov229_020d32bc(Obj *obj)
                                obj->field0->f2c * 0xbe / 100, 0);
     func_0202f188(local28, &data_02042264, inner->f40);
     func_0203c9d0((char *)inner->n0 + 0xa0, local28);
-    func_01ff8b90(&local1c, &inner->v28, &local1c);
+    VEC_Add(&local1c, &inner->v28, &local1c);
     func_01ffa724(0xb00, &inner->v28, &inner->v28);
 
     if (func_01ff8d18(&inner->v28, local10) < 0x80) {
@@ -78,7 +78,7 @@ void func_ov229_020d32bc(Obj *obj)
     box[2] = 0x1800;
     box[3] = 0x1000;
     func_0202f384(&box[1], (char *)inner->n0 + 0xa0, &box[1]);
-    func_01ff8b90(&box[1], inner->fc, &box[1]);
+    VEC_Add(&box[1], inner->fc, &box[1]);
     box[0] = 0;
     res = (Result *)func_01fff8e8(*(int *)((char *)node4 + 0x7c), &box[1], &local1c, 0x1800);
     if (res != 0 && res->f8 == 0) {

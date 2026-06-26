@@ -1,7 +1,7 @@
-extern int func_0200f640();
-extern int func_02003c38();
+extern int CTRDGi_SendtoPxi();
+extern int OS_Terminate();
 
 void func_0200fa08(void) {
-    func_0200f640(2);
-    func_02003c38();
+    CTRDGi_SendtoPxi(2);
+    OS_Terminate();
 }

@@ -1,5 +1,5 @@
 extern int func_02032450();
-extern int func_020100c8();
+extern int NNS_FndRemoveListObject();
 extern int func_020236ac();
 
 void func_ov000_02055a8c(char *a, int *b)
@@ -21,7 +21,7 @@ void func_ov000_02055a8c(char *a, int *b)
         p++;
     }
 
-    func_020100c8(a + 0x4a38, b);
+    NNS_FndRemoveListObject(a + 0x4a38, b);
 
     if (b != 0) {
         func_020236ac();

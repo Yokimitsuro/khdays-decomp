@@ -1,5 +1,5 @@
-extern int *func_02010128();
-extern void func_0200ffc0();
+extern int *NNS_FndGetNextListObject();
+extern void NNS_FndAppendListObject();
 extern void *func_02023660();
 
 typedef struct Node {
@@ -17,7 +17,7 @@ typedef struct Obj {
 void func_ov069_020b89fc(Obj *obj, int key, int amt, int flag) {
     Node *node;
 
-    node = (Node *)func_02010128(&obj->list32, 0);
+    node = (Node *)NNS_FndGetNextListObject(&obj->list32, 0);
     if (node != 0) {
         for (;;) {
             if (node->field0 == key) {
@@ -25,7 +25,7 @@ void func_ov069_020b89fc(Obj *obj, int key, int amt, int flag) {
                 node->field8 |= flag;
                 break;
             }
-            node = (Node *)func_02010128(&obj->list32, node);
+            node = (Node *)NNS_FndGetNextListObject(&obj->list32, node);
             if (node == 0) {
                 break;
             }
@@ -41,5 +41,5 @@ void func_ov069_020b89fc(Obj *obj, int key, int amt, int flag) {
     node->field4 = amt;
     node->field8 = flag;
     node->field12 = 0;
-    func_0200ffc0(&obj->list32, node);
+    NNS_FndAppendListObject(&obj->list32, node);
 }

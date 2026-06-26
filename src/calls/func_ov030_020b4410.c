@@ -1,4 +1,4 @@
-extern int func_01ff8cb8();
+extern int VEC_Mag();
 extern int func_01ff8d18();
 extern int func_ov022_020a23a4();
 extern int func_ov022_020a1064();
@@ -56,7 +56,7 @@ void func_ov030_020b4410(int *base, Obj *obj, int unused, char *r3p)
     reqA.zero = 0;
 
     flag = 0;
-    if (func_01ff8cb8(r3p, 0x625, obj->ext, obj->b15c, 0x625, flag) != 0) {
+    if (VEC_Mag(r3p, 0x625, obj->ext, obj->b15c, 0x625, flag) != 0) {
         func_01ff8d18(r3p, &reqB.v);
     } else {
         reqB.v = *(Vec3 *)r3p;

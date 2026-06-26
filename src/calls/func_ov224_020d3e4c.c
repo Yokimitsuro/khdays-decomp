@@ -1,9 +1,9 @@
-extern int func_01ff8bc4();
+extern int VEC_Subtract();
 extern int func_020050b4();
 extern int func_01ff8d18();
 extern int func_01ffa724();
-extern int func_01ff9010();
-extern int func_01ff93bc();
+extern int MTX_RotY33_();
+extern int MTX_MultVec33();
 extern int func_0203c634();
 extern short data_0203d210[];
 
@@ -49,7 +49,7 @@ void func_ov224_020d3e4c(struct top *a)
 
     struct sub *sub0;
 
-    func_01ff8bc4((char *)r4->f0 + 0x190, r4->f8, s24);
+    VEC_Subtract((char *)r4->f0 + 0x190, r4->f8, s24);
     r4->f58 = func_020050b4(s24[0], s24[2]);
     sub0 = r4->f0;
     diff = func_01ff8d18(s24, s24) - sub0->f80;
@@ -60,8 +60,8 @@ void func_ov224_020d3e4c(struct top *a)
         long long p = (long long)r4->f58 * 0x28be60db9391LL + 0x80000000000LL;
         int h = (int)(p >> 32);
         int idx = (int)((unsigned)h << 4 >> 16) >> 4;
-        func_01ff9010(s0, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);
-        func_01ff93bc(r4->f0->f3fc + 0x2c, s0, r4->f14);
+        MTX_RotY33_(s0, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);
+        MTX_MultVec33(r4->f0->f3fc + 0x2c, s0, r4->f14);
     }
 
     if (diff < 0x2000) {

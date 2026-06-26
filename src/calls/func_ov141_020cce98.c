@@ -1,5 +1,5 @@
 extern int *func_ov107_020cab14();
-extern int func_01ff8a7c();
+extern int FX_Sqrt();
 extern void func_0203c634();
 
 void func_ov141_020cce98(int *a)
@@ -17,7 +17,7 @@ void func_ov141_020cce98(int *a)
         return;
 
     c = ((int **)b)[0];
-    x = func_01ff8a7c(local);
+    x = FX_Sqrt(local);
     local = x - (c[0x20] + r7[0x20]);
     if (local > ((int **)b)[0][0xb6])
         return;

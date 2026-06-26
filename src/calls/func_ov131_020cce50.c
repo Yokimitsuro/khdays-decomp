@@ -3,7 +3,7 @@ extern int func_0202f188();
 extern int func_0202ed60();
 extern int func_0202ef54();
 extern int func_0203c9d0();
-extern int func_01ff86fc();
+extern int INITi_CpuClear32_0x01ff86fc();
 
 typedef struct { int a, b, c; } Vec3;
 
@@ -59,5 +59,5 @@ void func_ov131_020cce50(Obj *obj)
     }
 
     *(Vec3 *)((char *)inner->n0 + 0xf0) = inner->v18;
-    func_01ff86fc(0, &inner->v18, 0xc);
+    INITi_CpuClear32_0x01ff86fc(0, &inner->v18, 0xc);
 }

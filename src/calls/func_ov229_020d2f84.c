@@ -1,5 +1,5 @@
 extern int func_ov107_020cab14();
-extern int func_01ff8bc4();
+extern int VEC_Subtract();
 extern int func_01ff8d18();
 extern int func_020050b4();
 
@@ -57,7 +57,7 @@ int func_ov229_020d2f84(Param *param)
         }
     }
 
-    func_01ff8bc4(&p3bc->v190, &obj->vb0, &local);
+    VEC_Subtract(&p3bc->v190, &obj->vb0, &local);
     diff = func_01ff8d18(&local, &local);
     obj = wrap->obj;
     diff = diff - (obj->v4a0 + obj->p3bc->v80);
