@@ -5,16 +5,33 @@
 import json, glob, os, re
 from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 done = set(os.path.splitext(os.path.basename(f))[0]
            for f in glob.glob(os.path.join(ROOT, "src", "auto", "*.c")) +
                     glob.glob(os.path.join(ROOT, "src", "calls", "*.c")))
 
+def load_funcs():
+    """(name, size, unit). Usa func_index.json en local; en CI parsea config/."""
+    fi = os.path.join(ROOT, "build", "func_index.json")
+    out = []
+    if os.path.exists(fi):
+        for name, d in json.load(open(fi)).items():
+            m = re.search(r"@(ov\d+|main|itcm|dtcm)", d["module"])
+            out.append((name, d["size"], m.group(1) if m else d["module"]))
+    else:
+        for sp in glob.glob(os.path.join(ROOT, "config", "**", "symbols.txt"), recursive=True):
+            p = sp.replace("\\", "/")
+            mo = re.search(r"overlays/(ov\d+)", p)
+            unit = mo.group(1) if mo else ("itcm" if "/itcm/" in p else
+                   "dtcm" if "/dtcm/" in p else "main")
+            for line in open(sp, encoding="utf-8", errors="replace"):
+                m = re.match(r"(\S+)\s+kind:function\([^)]*size=0x([0-9a-fA-F]+)", line)
+                if m:
+                    out.append((m.group(1), int(m.group(2), 16), unit))
+    return out
+
 units = defaultdict(list)   # unit -> [(name, size, matched)]
-for name, d in idx.items():
-    m = re.search(r"@(ov\d+|main|itcm|dtcm)", d["module"])
-    unit = m.group(1) if m else d["module"]
-    units[unit].append((name, d["size"], name in done))
+for name, size, unit in load_funcs():
+    units[unit].append((name, size, name in done))
 
 def measures(funcs):
     total = sum(s for _, s, _ in funcs)
@@ -48,6 +65,7 @@ agg = measures(allfuncs)
 agg["totalUnits"] = len(units)
 agg["completeUnits"] = sum(1 for u in report_units if u["metadata"]["complete"])
 report = {"measures": agg, "units": report_units, "version": 5, "categories": []}
+os.makedirs(os.path.join(ROOT, "build"), exist_ok=True)
 json.dump(report, open(os.path.join(ROOT, "build", "report.json"), "w"))
 print("report.json -> %d unidades, %.2f%% code (%d/%d bytes)" %
       (len(units), agg["matchedCodePercent"], agg["matchedCode"], agg["totalCode"]))
