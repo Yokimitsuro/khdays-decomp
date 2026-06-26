@@ -1,0 +1,41 @@
+# ── Game ROM & anything derived from it (COPYRIGHT — never commit) ────────────
+*.nds
+/dsd_extract/
+/extract/
+/asm/
+/build/*.json
+
+# ── Build artifacts (regenerated locally) ─────────────────────────────────────
+/build/delinks/
+/build/obj/
+/build/_test/
+/build/build/
+*.o
+*.elf
+*.lcf
+*.bin
+
+# ── Toolchain — each contributor provides their own (see CONTRIBUTING.md) ─────
+/tools/mwccarm/
+/tools/dsd.exe
+/tools/ds-decomp-src/
+/tools/_cw/
+*.exe
+*.dll
+
+# ── Local / one-off setup scripts & notes ─────────────────────────────────────
+/SETUP_MWCCARM.md
+/recon.py
+/decompress.py
+/diffcheck.py
+/scan_overlays.py
+/src/test.c
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.png
+*.jpg
+*.zip
+/pc_theater/
+.DS_Store

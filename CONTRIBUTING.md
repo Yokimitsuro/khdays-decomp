@@ -1,0 +1,68 @@
+# Contributing
+
+Thanks for helping decompile *Kingdom Hearts 358/2 Days*! The workflow is simple:
+pick a function, write C that compiles to the **exact same bytes** as the
+original, and open a PR.
+
+## The one rule: byte-exact
+
+A function is only accepted when it passes byte-exact verification. **How** you
+arrive at the matching C does not matter — by hand, with scripts, or with any
+tooling — as long as the verifier prints `>>> MATCH <<<`. The verification is the
+quality gate, so this scales to many contributors in parallel.
+
+## Setup
+
+You must provide your own legally-obtained copy of the game. Nothing
+copyrighted is distributed here.
+
+1. **Python deps:** `pip install capstone pyelftools ndspy`
+2. **`dsd`** (DS extraction/delinking): download from
+   [AetiasHax/ds-decomp releases](https://github.com/AetiasHax/ds-decomp/releases)
+   → `tools/dsd.exe`.
+3. **`mwccarm` 3.0 build 139** (CodeWarrior for Nintendo DS 2.0 SP2 compiler).
+   The DS decomp community documents how to obtain it; for browser-based matching
+   without a local install, [decomp.me](https://decomp.me) hosts it server-side.
+   Place the binaries under `tools/mwccarm/3.0_patch4/`.
+4. **`arm-none-eabi-as`** (Arm GNU Toolchain / devkitARM) on PATH.
+5. **Extract your ROM** with `dsd`:
+   ```sh
+   tools/dsd.exe rom extract --rom days.nds --output-path dsd_extract/
+   tools/dsd.exe init --rom-config dsd_extract/config.yaml --output-path config/ \
+       --build-path build/ --allow-unknown-function-calls
+   tools/dsd.exe delink --config-path config/arm9/config.yaml
+   tools/dsd.exe dis --config-path config/arm9/config.yaml --asm-path asm/
+   ```
+   > Note: `--allow-unknown-function-calls` is required, otherwise `init` aborts
+   > on a known analysis edge case.
+6. Generate the candidate lists: `python tools/find_candidates.py` and
+   `python tools/find_calls.py`.
+
+## Decompiling a function
+
+1. **Claim it** first (open an issue or claim it on the tracker) so nobody
+   duplicates the work.
+2. Get its data and the verify command:
+   ```sh
+   python tools/getcand.py func_XXXXXXXX
+   ```
+   It prints the mode, the disassembly (with callee names for functions that make
+   calls), where to write the `.c`, and the exact `verify_cmd`.
+3. Write your C to `src/auto/<name>.c` (no external calls) or
+   `src/calls/<name>.c` (declare callees as `extern int func_X();`).
+4. Run the printed `verify_cmd`. Iterate until `>>> MATCH <<<`.
+5. Open a PR with just your new `.c` file(s).
+
+## Notes
+
+- Some functions are hand-written assembly idioms (e.g. `ldm/stm` with
+  writeback, branch-off-flags) that the compiler will not reproduce from C —
+  leave those as-is.
+- Compile flags are pinned in `tools/match.py`; don't change them.
+- Keep C minimal and readable; rename symbols/struct fields in `config/` as you
+  understand them.
+
+## Scope reminder
+
+This is a matching decompilation, not a port. Do not add ROM data, assets, or
+any copyrighted material to the repository.
