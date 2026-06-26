@@ -18,12 +18,20 @@ identical** to the original game code.
 
 | | |
 |---|---|
-| Functions matched (byte-exact) | **2,550** / ~23,240 (~11.0%) |
+| Functions matched (byte-exact, in `src/`) | **2,550** / ~23,240 (~11.0%) |
+| NitroSDK functions identified by byte-match | **+979** / ~23,240 (~4.2%) |
+| Total functions named or decompiled | **~3,529** / ~23,240 (~15.2%) |
 | Region | EU (`YKGP`) |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 |
 
 Every committed function is verified byte-exact against the original — see
 [CONTRIBUTING.md](CONTRIBUTING.md).
+
+The 979 NitroSDK identifications come from compiling reference SDK source
+(via `pret/pokediamond`) with our `mwccarm` and matching the produced bytes
+against `build/func_index.json`. They are *named* rather than re-decompiled
+into `src/`. See [sdk/README.md](sdk/README.md) for the workflow and
+per-module match rates.
 
 ## Repository layout
 
@@ -33,6 +41,7 @@ src/calls/    decompiled functions that call other functions
 config/        dsd project config (symbols / delinks / relocs per module)
 macros/        assembler macros (function.inc)
 tools/         Python tooling (extraction, matching, candidate finders)
+sdk/           NitroSDK byte-match identification harness (see sdk/README.md)
 build/         manifests (decompiled.txt); build output is git-ignored
 ```
 
