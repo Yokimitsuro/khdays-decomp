@@ -53,6 +53,21 @@ copyrighted is distributed here.
 4. Run the printed `verify_cmd`. Iterate until `>>> MATCH <<<`.
 5. Open a PR with just your new `.c` file(s).
 
+## Contributing via decomp.me (no local setup)
+
+Don't want to install the toolchain? Use [decomp.me](https://decomp.me) — it runs
+the compiler in your browser.
+
+1. Generate the scratch fields for a function:
+   ```sh
+   python tools/decompme.py func_XXXXXXXX
+   ```
+2. Open <https://decomp.me/new>, pick **Nintendo DS** and compiler
+   **3.0 build 139 (MW 2.0sp2p4)**, then paste the printed flags, diff label,
+   target assembly, and context.
+3. Click **Create scratch**, write your C in the editor, and iterate to 100%.
+4. Open a PR with the matching C (or just share the scratch link).
+
 ## Notes
 
 - Some functions are hand-written assembly idioms (e.g. `ldm/stm` with
