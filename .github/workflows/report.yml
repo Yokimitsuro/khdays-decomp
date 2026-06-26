@@ -18,5 +18,5 @@ jobs:
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: report
+          name: YKGP_report
           path: build/report.json
