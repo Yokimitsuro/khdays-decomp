@@ -69,5 +69,5 @@ agg["completeUnits"] = sum(1 for u in report_units if u["metadata"]["complete"])
 report = {"measures": agg, "units": report_units, "version": 2, "categories": []}
 os.makedirs(os.path.join(ROOT, "build"), exist_ok=True)
 json.dump(report, open(os.path.join(ROOT, "build", "report.json"), "w"))
-print("report.json -> %d unidades, %.2f%% code (%d/%d bytes)" %
+print("report.json -> %d unidades, %.2f%% code (%s/%s bytes)" %
       (len(units), agg["matchedCodePercent"], agg["matchedCode"], agg["totalCode"]))
