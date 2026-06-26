@@ -37,15 +37,17 @@ def measures(funcs):
     total = sum(s for _, s, _ in funcs)
     matched = sum(s for _, s, m in funcs if m)
     tf = len(funcs); mf = sum(1 for _, _, m in funcs if m)
+    pct = 100.0 * matched / total if total else 100.0
+    # protobuf-JSON: uint64 fields go as STRINGS; uint32 + floats as numbers
     return {
-        "fuzzyMatchPercent": 100.0 * matched / total if total else 100.0,
-        "totalCode": total, "matchedCode": matched,
-        "matchedCodePercent": 100.0 * matched / total if total else 100.0,
-        "totalData": 0, "matchedData": 0, "matchedDataPercent": 100.0,
+        "fuzzyMatchPercent": pct,
+        "totalCode": str(total), "matchedCode": str(matched),
+        "matchedCodePercent": pct,
+        "totalData": "0", "matchedData": "0", "matchedDataPercent": 100.0,
         "totalFunctions": tf, "matchedFunctions": mf,
         "matchedFunctionsPercent": 100.0 * mf / tf if tf else 100.0,
-        "completeCode": matched, "completeCodePercent": 100.0 * matched / total if total else 100.0,
-        "completeData": 0, "completeDataPercent": 100.0,
+        "completeCode": str(matched), "completeCodePercent": pct,
+        "completeData": "0", "completeDataPercent": 100.0,
     }
 
 report_units = []
@@ -55,7 +57,7 @@ for unit in sorted(units):
         "name": unit,
         "measures": measures(funcs),
         "sections": [],
-        "functions": [{"name": n, "size": s, "fuzzyMatchPercent": 100.0 if m else 0.0}
+        "functions": [{"name": n, "size": str(s), "fuzzyMatchPercent": 100.0 if m else 0.0}
                       for n, s, m in funcs],
         "metadata": {"moduleName": unit, "complete": all(m for _, _, m in funcs)},
     })
@@ -64,7 +66,7 @@ allfuncs = [f for u in units.values() for f in u]
 agg = measures(allfuncs)
 agg["totalUnits"] = len(units)
 agg["completeUnits"] = sum(1 for u in report_units if u["metadata"]["complete"])
-report = {"measures": agg, "units": report_units, "version": 5, "categories": []}
+report = {"measures": agg, "units": report_units, "version": 2, "categories": []}
 os.makedirs(os.path.join(ROOT, "build"), exist_ok=True)
 json.dump(report, open(os.path.join(ROOT, "build", "report.json"), "w"))
 print("report.json -> %d unidades, %.2f%% code (%d/%d bytes)" %
