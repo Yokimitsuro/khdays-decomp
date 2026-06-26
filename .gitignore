@@ -39,3 +39,18 @@ __pycache__/
 *.zip
 /pc_theater/
 .DS_Store
+
+# ── SDK identification harness ────────────────────────────────────────────────
+# Third-party SDK source (pokediamond NitroSDK decomp) — re-stage locally, not redistributed
+/scratch/
+/sdk/src/
+/sdk/build/*
+!/sdk/build/names.json
+# pokediamond headers (third-party) — only commit the small stubs WE wrote
+/sdk/include/*.h
+/sdk/include/nitro/
+!/sdk/include/code32.h
+!/sdk/include/code16.h
+!/sdk/include/function_target.h
+!/sdk/include/main.h
+!/sdk/include/mmap.h
