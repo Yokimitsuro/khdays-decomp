@@ -18,7 +18,7 @@ identical** to the original game code.
 
 | | |
 |---|---|
-| Functions matched (byte-exact) | **209** / ~23,240 (~0.9%) |
+| Functions matched (byte-exact) | **2,217** / ~23,240 (~9.5%) |
 | Region | EU (`YKGP`) |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 |
 
