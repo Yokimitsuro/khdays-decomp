@@ -1,4 +1,4 @@
-int func_0201fbd0(const unsigned char *s1, const unsigned char *s2, unsigned int n) {
+int strncmp(const unsigned char *s1, const unsigned char *s2, unsigned int n) {
     if (n != 0) {
         do {
             unsigned char b = *s2++;

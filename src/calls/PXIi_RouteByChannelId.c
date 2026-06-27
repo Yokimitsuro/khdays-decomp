@@ -1,6 +1,6 @@
 extern int func_0200cd40(int arg);
 
-int func_0200cebc(int arg0)
+int PXIi_RouteByChannelId(int arg0)
 {
     int v;
     switch (arg0) {

@@ -12,7 +12,7 @@ struct List {
     int count;          /* offset 0x20 */
 };
 
-asm void func_01fffc5c(struct List *list)
+asm void NNSi_FndDestroyDoubleList(struct List *list)
 {
     stmdb sp!, {r3, r4, r5, lr}
     mov r5, r0

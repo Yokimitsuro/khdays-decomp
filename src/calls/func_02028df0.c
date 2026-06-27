@@ -1,4 +1,4 @@
-extern int func_0201fbd0(void *a, void *b, int n);
+extern int strncmp(void *a, void *b, int n);
 
 asm void *func_02028df0(void *p, void *key)
 {
@@ -15,7 +15,7 @@ loop:
     mov r0, r6
     mov r1, sb
     mov r2, r4
-    bl func_0201fbd0
+    bl strncmp
     cmp r0, #0
     moveq r0, #0x14
     mlaeq r0, r5, r0, r7

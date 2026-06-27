@@ -1,6 +1,6 @@
 extern int func_020093e8(int a, int b, int c, int d, int e);
 
-asm void func_0200d138(int arg0)
+asm void PXIi_SendCommand(int arg0)
 {
     stmdb sp!, {r4, r5, r6, lr}
     mov r6, r0

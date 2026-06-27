@@ -63,6 +63,7 @@ NNS_FndInitListWithOffset0
 NNSi_AllocFromHeadOfExpHeap
 NNSi_AllocFromTailOfExpHeap
 NNSi_FndAllocFromDefaultExpHeap
+NNSi_FndDestroyDoubleList
 NNSi_FndFinalizeHeap
 NNSi_FndFreeFromDefaultHeap
 NNSi_FndGetAllocatorForDefaultHeap
@@ -101,6 +102,11 @@ OSi_TryShutdown
 OSi_VBlankInterruptHandler
 OSi_WaitOnExitProc
 OsCountZeroBits
+PXIi_RequestCmd0x65
+PXIi_RouteByChannelId
+PXIi_SendCmd0x64
+PXIi_SendCommand
+PXIi_TryLock
 RemoveMBlock
 SND_ClearChannelBit
 SND_CountWaitingCommand
@@ -109,6 +115,7 @@ SND_GetWaveDataCount
 SND_RegisterSeq
 SND_SetActiveSlotSwap
 SND_SetTrackPan
+SNDi_BroadcastChannelOp
 SNDi_FreeVoiceChannel
 SNDi_ProcessEntry
 SNDi_ProcessEntryAlt
@@ -212,10 +219,10 @@ func_01ffd0e8
 func_01ffe3c8
 func_01ffeba0
 func_01fff75c
+func_01fff774
 func_01fffa60
 func_01fffac0
 func_01fffc24
-func_01fffc5c
 func_01fffd70
 func_01fffd8c
 func_01fffdac
@@ -225,6 +232,7 @@ func_02000b64
 func_02000f1c
 func_02000f48
 func_02001030
+func_02001054
 func_02001138
 func_02001a94
 func_02001dec
@@ -273,19 +281,16 @@ func_0200afa8
 func_0200c2c8
 func_0200c5fc
 func_0200c694
-func_0200ca7c
 func_0200cab8
 func_0200caf8
 func_0200cb40
-func_0200cda0
+func_0200cd40
 func_0200ce0c
-func_0200ce34
 func_0200ce94
-func_0200cebc
 func_0200cf10
 func_0200cfb4
 func_0200d0b0
-func_0200d138
+func_0200d4bc
 func_0200d4d8
 func_0200d5a8
 func_0200d5c0
@@ -401,6 +406,7 @@ func_0201891c
 func_020191e0
 func_02019594
 func_02019b68
+func_02019bf0
 func_02019c20
 func_02019c74
 func_02019cb8
@@ -417,6 +423,7 @@ func_0201a0fc
 func_0201a110
 func_0201a124
 func_0201a150
+func_0201a170
 func_0201a1a0
 func_0201a1c0
 func_0201a1e4
@@ -481,6 +488,7 @@ func_0201c354
 func_0201c39c
 func_0201c464
 func_0201c830
+func_0201cac0
 func_0201cb1c
 func_0201cb3c
 func_0201cb64
@@ -524,7 +532,6 @@ func_0201f6b0
 func_0201f70c
 func_0201f750
 func_0201f79c
-func_0201fbd0
 func_020203b0
 func_020207f0
 func_020207f4
@@ -544,6 +551,7 @@ func_02022360
 func_02022434
 func_020224b4
 func_02022654
+func_02022fe4
 func_02023008
 func_02023604
 func_020236f8
@@ -559,6 +567,7 @@ func_020242f8
 func_02024368
 func_020245c4
 func_0202461c
+func_02024924
 func_02024ae0
 func_02024b04
 func_02024fe8
@@ -576,6 +585,8 @@ func_02028d90
 func_02028df0
 func_02029250
 func_0202926c
+func_020292a4
+func_020292d8
 func_02029438
 func_02029444
 func_0202947c
@@ -608,12 +619,14 @@ func_0202df30
 func_0202e0ec
 func_0202e198
 func_0202e1b0
+func_0202e3c4
 func_0202e3f4
 func_0202e4f4
 func_0202e53c
 func_0202e5c4
 func_0202e5cc
 func_0202e5d8
+func_0202e5e8
 func_0202e618
 func_0202e944
 func_0202ea14
@@ -646,6 +659,7 @@ func_02030670
 func_02030694
 func_020306b4
 func_0203070c
+func_02030788
 func_020307f0
 func_02030988
 func_02030a2c
@@ -687,8 +701,8 @@ func_02032838
 func_0203358c
 func_020335a4
 func_02033bfc
-func_02033ca0
 func_02033ef8
+func_0203409c
 func_020343ec
 func_020352c0
 func_020352cc
@@ -706,6 +720,7 @@ func_0203bec0
 func_0203bf44
 func_0203bf60
 func_0203c054
+func_0203c1b0
 func_0203c3f8
 func_0203c3fc
 func_0203c400
@@ -3000,4 +3015,5 @@ func_ov302_020cc33c
 func_ov302_020cc350
 func_ov302_020cc364
 strlen
+strncmp
 strncpy
