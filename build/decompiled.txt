@@ -182,6 +182,7 @@ func_0200ca7c
 func_0200cab8
 func_0200caf8
 func_0200d4d8
+func_0200d608
 func_0200e164
 func_0200f050
 func_0200f1f4
@@ -387,6 +388,7 @@ func_0202ff8c
 func_0202ff98
 func_0202ffa4
 func_0202ffb0
+func_02030094
 func_020303b4
 func_02030550
 func_02030610
