@@ -7,19 +7,35 @@ from elftools.elf.elffile import ELFFile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 N = int(sys.argv[1]) if len(sys.argv)>1 else 30
 
+# Detect thumb mode: symbol value LSB or sym['st_info']['mips_isa']? On ARM,
+# thumb funcs are tagged via STT_FUNC + st_value odd OR via $t mapping symbol.
+# Easier: detect from raw bytes (thumb stubs have 'bx lr' = '7047' suffix when arm
+# stubs have '1eff2fe1'). We'll read the func bytes from the delink and check.
+import json
+INDEX_PATH = os.path.join(ROOT, "build", "func_index.json")
+INDEX = json.load(open(INDEX_PATH)) if os.path.isfile(INDEX_PATH) else {}
+
 # Build addr -> delink_path index by scanning all delinks
 addr2delink = {}
 addr2sym = {}
+sym_is_thumb = {}
 for f in os.listdir(os.path.join(ROOT, "build", "delinks")):
     if not f.endswith(".o"): continue
     p = os.path.join(ROOT, "build", "delinks", f)
     e = ELFFile(open(p, "rb"))
     st = e.get_section_by_name(".symtab")
     if not st: continue
+    # also collect $t / $a mapping symbols
+    thumb_addrs = set()
+    for sym in st.iter_symbols():
+        if sym.name == "$t":
+            thumb_addrs.add(sym["st_value"] & ~1)
     for sym in st.iter_symbols():
         if sym["st_info"]["type"]=="STT_FUNC" and sym.name and not sym.name.startswith("$") and sym["st_size"]>0:
             addr2delink[sym.name] = p
             addr2sym[sym.name] = sym["st_value"] & ~1
+            # detect thumb: st_value LSB set (the dsd ELF convention)
+            sym_is_thumb[sym.name] = bool(sym["st_value"] & 1) or (sym["st_value"] & ~1) in thumb_addrs
 
 pool=[]
 for d in ("src/auto","src/calls"):
@@ -31,13 +47,14 @@ for d in ("src/auto","src/calls"):
             pool.append((os.path.join(dp,fn), sym))
 
 random.seed(7)
-sample = random.sample(pool, min(N, len(pool)))
+sample = pool if N == 0 else random.sample(pool, min(N, len(pool)))
 ok=fail=0
 fails=[]
 for cpath, sym in sample:
     delink = addr2delink[sym]
-    r = subprocess.run(["python", os.path.join(ROOT,"tools","match.py"), cpath, "--obj", delink, "--func", sym],
-                       capture_output=True, text=True, env=dict(os.environ))
+    cmd = ["python", os.path.join(ROOT,"tools","match.py"), cpath, "--obj", delink, "--func", sym]
+    if sym_is_thumb.get(sym): cmd.append("--thumb")
+    r = subprocess.run(cmd, capture_output=True, text=True, env=dict(os.environ))
     out = r.stdout + r.stderr
     if ">>> MATCH <<<" in out: ok+=1
     else:
