@@ -1,6 +1,6 @@
 extern unsigned char data_027e0000[];
 
-asm void func_020014b8(void)
+asm void OSi_InitStackChecker(void)
 {
     ldr ip, =data_027e0000
     ldr r3, =0xfddb597d

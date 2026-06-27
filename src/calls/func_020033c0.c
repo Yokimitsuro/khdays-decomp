@@ -1,6 +1,6 @@
 extern unsigned int OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(unsigned int);
-extern void func_020030c4(int);
+extern void OSi_ClearAlarmBit(int);
 
 typedef struct {
     unsigned short active;
@@ -13,7 +13,7 @@ void func_020033c0(void)
     unsigned int irq = OS_DisableInterrupts();
 
     if (data_02044674.active != 0) {
-        func_020030c4(1);
+        OSi_ClearAlarmBit(1);
         data_02044674.active = 0;
     }
 

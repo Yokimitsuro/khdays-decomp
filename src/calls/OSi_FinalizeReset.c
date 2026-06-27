@@ -3,7 +3,7 @@ extern void func_01ff8330(void);
 
 extern volatile unsigned short data_02044694;
 
-void func_01ff82fc(void)
+void OSi_FinalizeReset(void)
 {
     while (data_02044694 == 0) { }
     *(volatile unsigned short *)0x04000208 = 0;

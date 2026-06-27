@@ -6,7 +6,7 @@ typedef int BOOL;
 extern void MI_StopDma(u32 dmaNo);
 extern void OS_Terminate(void);
 extern void func_0200386c(u32 count);
-extern u32  func_0200d088(void);
+extern u32  OSi_TryShutdown(void);
 extern void CARDi_SendtoPxi(u32 data, u32 wait);
 
 void func_0200f284(void)
@@ -20,7 +20,7 @@ void func_0200f284(void)
 
     if ((*(volatile u16 *)0x027fffa8 & 0x8000) >> 15) {
         u32 res;
-        while ((res = func_0200d088()) == 4) {
+        while ((res = OSi_TryShutdown()) == 4) {
             func_0200386c(0xa3a47);
         }
         if (res == 0) {

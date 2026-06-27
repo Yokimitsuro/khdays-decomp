@@ -5,7 +5,7 @@ extern void MI_StopDma(int channel);
 extern void OS_SetIrqMask(unsigned int mask);
 extern void OS_ResetRequestIrqMask(unsigned int mask);
 extern void OSi_SendToPxi(unsigned int data);
-extern void func_01ff82fc(void);
+extern void OSi_FinalizeReset(void);
 
 asm void func_02003948(int arg0)
 {
@@ -44,6 +44,6 @@ _skip:
     ldr r1, =0x800
     sub r0, r0, r1
     mov sp, r0
-    bl func_01ff82fc
+    bl OSi_FinalizeReset
     ldmia sp!, {r4, pc}
 }

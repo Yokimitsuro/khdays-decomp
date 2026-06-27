@@ -1,5 +1,5 @@
 extern void *NNSi_FndAllocFromDefaultExpHeap(unsigned int size);
-extern void *func_02023684(unsigned int a, unsigned int b);
+extern void *NNS_FndAllocFromDefaultExpHeapEx(unsigned int a, unsigned int b);
 extern void func_02014148(void *a, void *b, int c, int d, int e);
 extern void func_02030094(void *a, void *b, int c);
 extern void MI_CpuFill8(void *dest, unsigned char value, unsigned int size);
@@ -22,7 +22,7 @@ void *func_0202fff8(S0202fff8 *a0, int a1)
     int mode;
 
     MI_CpuFill8(obj, 0, 0x24);
-    buf = func_02023684(a0->field_c, 0x20);
+    buf = NNS_FndAllocFromDefaultExpHeapEx(a0->field_c, 0x20);
     *((void **)obj + 8) = buf;
     MIi_CpuClearFast(0, *((void **)obj + 8), a0->field_c);
     mode = a0->field_38 ? 8 : 4;

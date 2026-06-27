@@ -1,4 +1,4 @@
-asm void func_020027d0(void) {
+asm void OSi_CancelDma0(void) {
     mov     r12, #0x04000000
     ldr     r1, [r12, #0x208]
     str     r12, [r12, #0x208]

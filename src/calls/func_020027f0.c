@@ -1,9 +1,9 @@
 extern void WM_EndKeySharing_0x0200926c();
 extern void OSi_InitVramExclusive();
 extern void OS_InitLock();
-extern void func_020014b8();
+extern void OSi_InitStackChecker();
 extern void func_0200f6d8();
-extern void func_020027d0();
+extern void OSi_CancelDma0();
 extern void OS_InitIrqTable();
 extern void func_02001ba4();
 extern void MI_Init();
@@ -22,7 +22,7 @@ void func_020027f0(void)
     OS_InitLock();
     OS_InitArenaEx();
     OS_InitIrqTable();
-    func_020014b8();
+    OSi_InitStackChecker();
     func_02002ea4();
     MI_Init();
     func_020037a0();
@@ -32,5 +32,5 @@ void func_020027f0(void)
     func_0200f6d8();
     CARD_Init();
     func_0200cb40();
-    func_020027d0();
+    OSi_CancelDma0();
 }

@@ -1,6 +1,6 @@
 extern void OS_Terminate(void);
 extern void func_020110f4(void *);
-extern void func_02011304(void *);
+extern void GFXi_SaveStateTo(void *);
 
 typedef struct {
     unsigned char pad0[0xa1d0];
@@ -17,7 +17,7 @@ unsigned char func_0202c440(void) {
     S *s = data_0204c208;
     if (s->counter < 0x10) {
         func_020110f4(&s->arr1[s->counter]);
-        func_02011304(&s->arr2[s->counter]);
+        GFXi_SaveStateTo(&s->arr2[s->counter]);
         s->counter++;
     } else {
         OS_Terminate();

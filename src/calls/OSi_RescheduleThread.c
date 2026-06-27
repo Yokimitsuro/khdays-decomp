@@ -9,7 +9,7 @@ typedef void (*OSSwitchThreadCallback)(void *from, void *to);
 extern BOOL OS_SaveContext(OSContext *context);
 extern void OS_LoadContext(OSContext *context);
 extern int OS_GetProcMode(void);
-extern void *func_02001ff0(void);
+extern void *OSi_SelectThread(void);
 
 struct Globals {
     /* +0x00 */ OSSwitchThreadCallback systemCallback;
@@ -52,7 +52,7 @@ void OSi_RescheduleThread(void) {
 
     curPtr = (void **)data_0204430c.currentThreadPtr;
     cur = *curPtr;
-    next = func_02001ff0();
+    next = OSi_SelectThread();
 
     if (cur == next || next == 0) return;
 

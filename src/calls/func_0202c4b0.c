@@ -1,8 +1,8 @@
 extern void OS_Terminate(void);
 extern void func_02011134(void *);
 extern void func_02011320(void *);
-extern void func_0202b9f4(unsigned short);
-extern void func_0202bc0c(unsigned short);
+extern void SNDi_ProcessEntry(unsigned short);
+extern void SNDi_ProcessEntryAlt(unsigned short);
 
 typedef struct Entry {
     unsigned char pad0[8];
@@ -38,9 +38,9 @@ void func_0202c4b0(void) {
     for (i = 0; i < 0x40; i++) {
         flags = e->flags;
         if ((flags & 4) && e->threshold >= s->counter && !(flags & 0x40)) {
-            func_0202b9f4((unsigned short)i);
+            SNDi_ProcessEntry((unsigned short)i);
             if (e->flags & 2) {
-                func_0202bc0c((unsigned short)i);
+                SNDi_ProcessEntryAlt((unsigned short)i);
             }
         }
         e = (Entry *)((unsigned char *)e + 0x184);
