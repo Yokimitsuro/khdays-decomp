@@ -72,6 +72,22 @@ computed against the EU dump above.
 6. Generate the candidate lists: `python tools/find_candidates.py` and
    `python tools/find_calls.py`.
 
+## Verifying the full ROM round-trip
+
+To confirm your setup is complete (and that the project as a whole still
+rebuilds the original game), use:
+
+```sh
+bash tools/rebuild_rom.sh
+```
+
+This invokes `dsd rom build` and compares the rebuilt `built.nds` against your
+`days.nds`. Expected output: **4 bytes differ** — the secure-area CRC at
+`0x6C/0x6D` and the header CRC at `0x15E/0x15F`. Those are computed by the
+DS firmware from the actual image content; they're non-functional and the
+rebuilt ROM boots and plays identically. Anything more than 4 bytes means
+something is broken in the extraction or build configuration.
+
 ## Decompiling a function
 
 1. **Claim it** first (open an issue or claim it on the tracker) so nobody
