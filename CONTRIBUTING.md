@@ -30,6 +30,26 @@ wasted effort. Use the project Discord / decomp.me for live coordination.
 You must provide your own legally-obtained copy of the game. Nothing
 copyrighted is distributed here.
 
+### Reference ROM
+
+This project targets one specific ROM dump. If your `days.nds` doesn't match
+these hashes, addresses won't line up and `dsd` extraction will produce a
+different config.
+
+| | |
+|---|---|
+| File | `days.nds` |
+| Size | 268,435,456 bytes (256 MiB) |
+| Region | EU (gamecode `YKGP`, maker `GD` = Square Enix) |
+| SHA-1   | `6fae8f5bbe80114b4e2535260eab5f4d0fc8a844` |
+| SHA-256 | `1ecf5e7a41a2ae48e7c5fd3f678e5a79e854d843f1a1fa3a952a41b14e51ec4f` |
+| MD5     | `6eac99ad1f77920bdafbc71fd6418cc8` |
+
+Verify with `sha1sum days.nds`. If your dump differs (e.g. a NA/JP region,
+trimmed dump, or scrubbed copy), this project is not directly usable —
+addresses in `config/`, `func_index.json`, and every committed `.c` were
+computed against the EU dump above.
+
 1. **Python deps:** `pip install capstone pyelftools ndspy`
 2. **`dsd`** (DS extraction/delinking): download from
    [AetiasHax/ds-decomp releases](https://github.com/AetiasHax/ds-decomp/releases)
