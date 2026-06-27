@@ -152,12 +152,14 @@ func_02001138
 func_02001dec
 func_02001e0c
 func_02001e68
+func_02001ea0
 func_02001f10
 func_02002198
 func_020021d0
 func_02002204
 func_0200233c
 func_020027f0
+func_0200302c
 func_02003284
 func_02003380
 func_020033c0
@@ -169,6 +171,7 @@ func_02005418
 func_02008158
 func_02008180
 func_02008458
+func_02008788
 func_020089e8
 func_02008a14
 func_02008aa0
@@ -253,6 +256,7 @@ func_02014ee4
 func_02014eec
 func_020158e0
 func_02015b70
+func_02015c38
 func_020163cc
 func_02016948
 func_02017078
@@ -294,6 +298,7 @@ func_0201b8cc
 func_0201bb38
 func_0201bb6c
 func_0201bba8
+func_0201c254
 func_0201c2ac
 func_0201c2d4
 func_0201c304
@@ -312,6 +317,7 @@ func_0201e050
 func_0201e078
 func_0201e07c
 func_0201e098
+func_0201e09c
 func_0201e12c
 func_0201e1a0
 func_0201e1b8
@@ -415,6 +421,7 @@ func_0203281c
 func_02032838
 func_0203358c
 func_02033ef8
+func_020343ec
 func_020352c0
 func_02035d3c
 func_02035f84
