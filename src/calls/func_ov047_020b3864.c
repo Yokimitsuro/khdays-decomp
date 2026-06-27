@@ -1,0 +1,26 @@
+extern void func_0202a634(void *arg0, void *arg1, int arg2, int arg3);
+extern void func_ov047_020b3a3c(void *arg);
+extern int data_ov047_020b4380;
+extern void *data_ov047_020b4340;
+
+asm void func_ov047_020b3864(void *arg)
+{
+    stmfd   sp!, {r4, lr}
+    ldr     r0, =data_ov047_020b4380
+    mov     r3, #0
+    ldr     r4, [r0]
+    ldr     r1, =data_ov047_020b4340
+    add     r0, r4, #0xc50
+    add     r2, r4, #0x2000
+    add     r0, r0, #0x2000
+    str     r3, [r2, #0xc50]
+    str     r3, [r0, #0x10]
+    ldrb    r3, [r4, #9]
+    add     r0, r0, #0x14
+    mov     r2, #1
+    add     r3, r3, #7
+    bl      func_0202a634
+    mov     r0, r4
+    bl      func_ov047_020b3a3c
+    ldmfd   sp!, {r4, pc}
+}
