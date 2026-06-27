@@ -238,6 +238,7 @@ func_020122fc
 func_0201232c
 func_02012480
 func_020124d8
+func_02013e10
 func_02013ffc
 func_020149b0
 func_02014b5c
@@ -278,6 +279,7 @@ func_0201a62c
 func_0201a6c8
 func_0201a718
 func_0201a76c
+func_0201a7a4
 func_0201a890
 func_0201a8e0
 func_0201abe0
@@ -329,6 +331,7 @@ func_020207f4
 func_02020974
 func_02020978
 func_02020988
+func_02020e20
 func_020219b4
 func_02021ed8
 func_02022148
@@ -411,6 +414,7 @@ func_02032800
 func_0203281c
 func_02032838
 func_0203358c
+func_02033ef8
 func_020352c0
 func_02035d3c
 func_02035f84
