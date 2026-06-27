@@ -176,6 +176,7 @@ WM_EndKeySharing_0x020d5bdc
 WM_EndKeySharing_0x020d5c78
 abs
 func_01ff80b8
+func_01ff82fc
 func_01ff8330
 func_01ff8410
 func_01ff85d0
@@ -200,11 +201,13 @@ func_02000b64
 func_02000f1c
 func_02000f48
 func_02001138
+func_020014b8
 func_02001dec
 func_02001e0c
 func_02001e68
 func_02001ea0
 func_02001f10
+func_02001ff0
 func_02002198
 func_020021d0
 func_02002204
@@ -277,6 +280,7 @@ func_02010154
 func_0201098c
 func_020109c8
 func_02010b48
+func_02010c00
 func_02010ccc
 func_02010ce4
 func_02010d24
@@ -321,12 +325,14 @@ func_020122fc
 func_0201232c
 func_02012480
 func_020124d8
+func_02012904
 func_02012b98
 func_02012e90
 func_020132d8
 func_02013340
 func_02013e10
 func_02013ffc
+func_02014148
 func_020149b0
 func_02014b5c
 func_02014e18
@@ -339,6 +345,7 @@ func_02014ed0
 func_02014ee4
 func_02014eec
 func_02015630
+func_0201571c
 func_020158e0
 func_02015b70
 func_02015c38
@@ -383,6 +390,7 @@ func_0201a80c
 func_0201a890
 func_0201a8e0
 func_0201a940
+func_0201aa18
 func_0201abe0
 func_0201ac34
 func_0201ac50
@@ -398,6 +406,7 @@ func_0201b0ec
 func_0201b168
 func_0201b3c0
 func_0201b6a4
+func_0201b6cc
 func_0201b6f4
 func_0201b7c0
 func_0201b7e0
@@ -447,6 +456,7 @@ func_0201e07c
 func_0201e098
 func_0201e09c
 func_0201e12c
+func_0201e16c
 func_0201e1a0
 func_0201e1b8
 func_0201e374
@@ -482,6 +492,7 @@ func_0202223c
 func_02022434
 func_02023008
 func_02023604
+func_02023684
 func_020236f8
 func_02023a3c
 func_02023a44
@@ -574,16 +585,21 @@ func_02030694
 func_0203070c
 func_020307f0
 func_02030988
+func_02030ccc
 func_02030f58
 func_02030fcc
 func_0203112c
 func_02031228
 func_02031240
+func_0203158c
 func_02031618
 func_02031930
+func_02031ac4
+func_02031c30
 func_02031d90
 func_02031e30
 func_02032288
+func_02032334
 func_02032364
 func_02032428
 func_02032494
