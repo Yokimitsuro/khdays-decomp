@@ -2548,3 +2548,7 @@ func_ov302_020cc144
 func_ov302_020cc33c
 func_ov302_020cc350
 func_ov302_020cc364
+func_020027f0
+func_0201e470
+func_0201e4a8
+func_0203358c
