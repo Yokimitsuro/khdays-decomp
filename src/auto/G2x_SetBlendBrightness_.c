@@ -1,10 +1,10 @@
-void G2x_SetBlendBrightness_(unsigned short *r0, int r1, int r2)
+void G2x_SetBlendBrightness_(unsigned short *dst, unsigned int attr, int value)
 {
-    if (r2 < 0) {
-        r0[0] = (unsigned short)(r1 | 0xc0);
-        r0[2] = (unsigned short)(-r2);
-        return;
+    if (value < 0) {
+        dst[0] = attr | 0xc0;
+        dst[2] = -value;
+    } else {
+        dst[0] = attr | 0x80;
+        dst[2] = value;
     }
-    r0[0] = (unsigned short)(r1 | 0x80);
-    r0[2] = (unsigned short)r2;
 }

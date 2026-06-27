@@ -1,6 +1,11 @@
-extern int MI_CpuCopy8();
+extern void MI_CpuCopy8(void);
 
-int FSi_ReadMemoryCore(int a, int b, int c, int d) {
-    MI_CpuCopy8(c, b, d);
-    return 0;
+asm int FSi_ReadMemoryCore(void)
+{
+    stmdb sp!, {r3, lr}
+    mov r0, r2
+    mov r2, r3
+    bl MI_CpuCopy8
+    mov r0, #0
+    ldmia sp!, {r3, pc}
 }

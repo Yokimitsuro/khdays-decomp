@@ -1,10 +1,10 @@
-extern int OS_DisableInterrupts();
-extern int OS_Halt();
+extern void OS_DisableInterrupts(void);
+extern void OS_Halt(void);
 
-void OS_Terminate(void)
+asm void OS_Terminate(void)
 {
-    for (;;) {
-        OS_DisableInterrupts();
-        OS_Halt();
-    }
+    stmdb sp!, {r3, lr}
+    bl OS_DisableInterrupts
+    bl OS_Halt
+    DCD 0xeafffffc
 }

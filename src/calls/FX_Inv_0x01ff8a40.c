@@ -1,7 +1,10 @@
-extern int FX_GetDivResult();
-extern int FX_InvAsync();
+extern void FX_InvAsync(void);
+extern void FX_GetDivResult(void);
 
-void FX_Inv_0x01ff8a40(void) {
-    FX_InvAsync();
-    FX_GetDivResult();
+asm void FX_Inv_0x01ff8a40(void)
+{
+    stmdb sp!, {r3, lr}
+    bl FX_InvAsync
+    bl FX_GetDivResult
+    ldmia sp!, {r3, pc}
 }

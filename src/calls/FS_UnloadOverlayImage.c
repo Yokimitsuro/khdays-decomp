@@ -1,6 +1,9 @@
-extern int FS_EndOverlay();
+extern void FS_EndOverlay(void);
 
-int FS_UnloadOverlayImage(void) {
-    FS_EndOverlay();
-    return 1;
+asm int FS_UnloadOverlayImage(void)
+{
+    stmdb sp!, {r3, lr}
+    bl FS_EndOverlay
+    mov r0, #1
+    ldmia sp!, {r3, pc}
 }

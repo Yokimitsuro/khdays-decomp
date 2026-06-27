@@ -1,13 +1,13 @@
 typedef struct {
     int field0;
     int field1;
-    int ptr_val;   /* offset 8 */
+    int ptr_val;
     int pad3;
     int pad4;
     int pad5;
     int pad6;
     union {
-        unsigned int word;      /* offset 0x1c */
+        unsigned int word;
         struct {
             unsigned int lo : 24;
             unsigned int flag : 1;

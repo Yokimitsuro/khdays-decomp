@@ -1,14 +1,19 @@
-struct Node {
-    struct Node *prev;
-    struct Node *next;
-};
+typedef struct Unk02002c0c {
+    struct Unk02002c0c *next;
+    struct Unk02002c0c *prev;
+} Unk02002c0c;
 
-struct Node *DLExtract(struct Node *ret, struct Node *node)
+Unk02002c0c *DLExtract(Unk02002c0c *tail, Unk02002c0c *node)
 {
-    if (node->next != 0)
+    if (node->prev != 0) {
+        node->prev->next = node->next;
+    }
+
+    if (node->next == 0) {
+        tail = node->prev;
+    } else {
         node->next->prev = node->prev;
-    if (node->prev == 0)
-        return node->next;
-    node->prev->next = node->next;
-    return ret;
+    }
+
+    return tail;
 }

@@ -1,6 +1,6 @@
-extern int func_02023750();
+extern int NNSi_FndGetAllocatorForDefaultHeap();
 extern int NNS_FndFreeToAllocator();
 
 void func_0202e1b0(void *ptr) {
-    NNS_FndFreeToAllocator(func_02023750(0), ptr);
+    NNS_FndFreeToAllocator(NNSi_FndGetAllocatorForDefaultHeap(0), ptr);
 }

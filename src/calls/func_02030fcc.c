@@ -1,6 +1,6 @@
-extern int func_02023c00();
+extern int NNSi_FndGetCurrentRootHeap();
 
 int func_02030fcc(void) {
-    func_02023c00();
+    NNSi_FndGetCurrentRootHeap();
     return 0;
 }

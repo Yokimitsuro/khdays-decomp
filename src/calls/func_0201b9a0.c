@@ -1,4 +1,4 @@
-extern void *func_02010bcc(int heap, unsigned int size, unsigned int align);
+extern void *NNS_FndAllocFromExpHeapEx_0x02010bcc(int heap, unsigned int size, unsigned int align);
 extern void *NNS_FndGetPrevListObject(void *list, void *object);
 extern void NNS_FndAppendListObject(void *list, void *object);
 
@@ -19,7 +19,7 @@ void *func_0201b9a0(Obj *obj, unsigned int size, int a2, int a3, int a4)
 {
     Node *node;
 
-    node = (Node *)func_02010bcc(obj->heap, ((size + 0x1f) & ~0x1f) + 0x20, 0x20);
+    node = (Node *)NNS_FndAllocFromExpHeapEx_0x02010bcc(obj->heap, ((size + 0x1f) & ~0x1f) + 0x20, 0x20);
     if (node == 0) {
         return 0;
     }

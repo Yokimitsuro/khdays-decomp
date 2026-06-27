@@ -1,5 +1,5 @@
 extern void *NNS_FndGetNextListObject(void *list, void *object);
-extern void func_020236ac(void *p);
+extern void NNSi_FndFreeFromDefaultHeap(void *p);
 
 typedef struct {
     char _00[0x20];
@@ -22,11 +22,11 @@ void func_0202ffbc(Obj0202ffbc *self)
         next = NNS_FndGetNextListObject(&self->list, obj);
 
         if (((Obj0202ffbc *)obj)->sub != 0) {
-            func_020236ac(((Obj0202ffbc *)obj)->sub);
+            NNSi_FndFreeFromDefaultHeap(((Obj0202ffbc *)obj)->sub);
             ((Obj0202ffbc *)obj)->sub = zero;
         }
         if (obj != 0) {
-            func_020236ac(obj);
+            NNSi_FndFreeFromDefaultHeap(obj);
         }
         obj = next;
     } while (next != 0);

@@ -1,6 +1,7 @@
-int NNS_FndGetPrevListObject(unsigned short *r0, char *r1)
+void *NNS_FndGetPrevListObject(char *base, char *table)
 {
-    if (r1 == 0)
-        return ((int *)r0)[1];
-    return *(int *)(r1 + r0[5]);
+    if (table == 0) {
+        return *(void **)(base + 4);
+    }
+    return *(void **)(table + *(unsigned short *)(base + 0xa));
 }

@@ -1,6 +1,9 @@
-int NNS_FndGetNextListObject(int *r0, int r1)
+asm void *NNS_FndGetNextListObject(void *base, void *table)
 {
-    if (r1 == 0)
-        return *r0;
-    return *(int *)(r1 + *(unsigned short *)((char *)r0 + 0xa) + 4);
+    cmp r1, #0
+    ldreq r0, [r0]
+    ldrneh r0, [r0, #0xa]
+    addne r0, r1, r0
+    ldrne r0, [r0, #4]
+    bx lr
 }

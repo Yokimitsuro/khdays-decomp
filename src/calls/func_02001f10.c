@@ -1,7 +1,7 @@
 extern int OS_DisableInterrupts();
 extern void OS_RestoreInterrupts(int mask);
 extern void OSi_InsertLinkToQueue(void *arg0, void *arg1);
-extern void func_02001adc();
+extern void OSi_RescheduleThread();
 extern void **data_0204430c[];
 
 void func_02001f10(void *arg0) {
@@ -15,6 +15,6 @@ void func_02001f10(void *arg0) {
         OSi_InsertLinkToQueue(arg0, ptr);
     }
     ((int *)ptr)[0x19] = 0;
-    func_02001adc();
+    OSi_RescheduleThread();
     OS_RestoreInterrupts(mask);
 }

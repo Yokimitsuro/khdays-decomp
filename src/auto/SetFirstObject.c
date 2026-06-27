@@ -1,16 +1,17 @@
-struct S {
-    void *p0;       /* 0x00 */
-    void *p4;       /* 0x04 */
-    unsigned short h8;  /* 0x08 */
-    unsigned short ha;  /* 0x0a */
-};
+typedef struct List0200ff94 {
+    void *head;
+    void *tail;
+    unsigned short count;
+    unsigned short offset;
+} List0200ff94;
 
-void SetFirstObject(struct S *r0, char *r1)
+void SetFirstObject(List0200ff94 *list, void *node)
 {
-    unsigned short off = r0->ha;
-    *(int *)(r1 + off + 4) = 0;
-    *(int *)(r1 + off) = 0;
-    r0->p0 = r1;
-    r0->p4 = r1;
-    r0->h8++;
+    char *link = (char *)node + list->offset;
+
+    *(void **)(link + 4) = 0;
+    *(void **)link = 0;
+    list->head = node;
+    list->tail = node;
+    list->count++;
 }

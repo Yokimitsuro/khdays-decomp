@@ -1,4 +1,4 @@
-extern void *func_02010bcc(int arg0, unsigned int size, unsigned int align);
+extern void *NNS_FndAllocFromExpHeapEx_0x02010bcc(int arg0, unsigned int size, unsigned int align);
 extern void func_0201bb28(void *p);
 extern void NNS_FndAppendListObject(void *list, void *object);
 
@@ -9,7 +9,7 @@ typedef struct {
 
 int func_0201bb6c(X0201bb6c *p)
 {
-    void *object = func_02010bcc(p->heap, 0x14, 4);
+    void *object = NNS_FndAllocFromExpHeapEx_0x02010bcc(p->heap, 0x14, 4);
 
     if (object == 0)
         return 0;

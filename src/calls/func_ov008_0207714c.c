@@ -1,6 +1,6 @@
 extern int func_0201ef9c();
 extern int func_02011988();
-extern int func_020236ac();
+extern int NNSi_FndFreeFromDefaultHeap();
 
 int func_ov008_0207714c(int a0, int (*fp)()) {
     int *local;
@@ -13,5 +13,5 @@ int func_ov008_0207714c(int a0, int (*fp)()) {
     if (r4 == 0) {
         return ret;
     }
-    return func_020236ac(r4);
+    return NNSi_FndFreeFromDefaultHeap(r4);
 }

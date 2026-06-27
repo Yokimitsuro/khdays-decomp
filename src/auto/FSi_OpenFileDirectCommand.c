@@ -1,8 +1,8 @@
-int FSi_OpenFileDirectCommand(int *p)
+int FSi_OpenFileDirectCommand(int *param)
 {
-    p[9] = p[12];
-    p[11] = p[12];
-    p[10] = p[13];
-    p[8] = p[14];
+    param[9] = param[12];
+    param[11] = param[12];
+    param[10] = param[13];
+    param[8] = param[14];
     return 0;
 }

@@ -1,6 +1,9 @@
-extern int func_0203617c();
+extern void func_0203617c(void);
 
-int FS_UnloadOverlayImage_0x020362ec(void) {
-    func_0203617c();
-    return 1;
+asm int FS_UnloadOverlayImage_0x020362ec(void)
+{
+    stmdb sp!, {r3, lr}
+    bl func_0203617c
+    mov r0, #1
+    ldmia sp!, {r3, pc}
 }

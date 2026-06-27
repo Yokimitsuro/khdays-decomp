@@ -1,6 +1,6 @@
 extern int FS_SeekFile(void *file, int offset, int origin);
 extern int OS_UnlockByWord_0x0200ae4c(void *file, void *buf, int size);
-extern void func_01ff8110(int r);
+extern void FSi_WaitForCardThread(int r);
 
 typedef struct Entry {
     int base;
@@ -52,7 +52,7 @@ int func_0201b6f4(int idx, char *buf, int total, int off) {
             if (rem == 0) break;
             ret = FS_SeekFile(&g->fs, e->base + off, 0);
             if (ret == 0) return -1;
-            func_01ff8110(ret);
+            FSi_WaitForCardThread(ret);
             n = OS_UnlockByWord_0x0200ae4c(&g->fs, buf, rem);
             if (n < 0) return n;
             copied += n;

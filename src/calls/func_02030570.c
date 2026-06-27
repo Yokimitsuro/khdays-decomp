@@ -1,4 +1,4 @@
-extern void *func_02023c00(void);
+extern void *NNSi_FndGetCurrentRootHeap(void);
 extern int func_02030670(void);
 extern int func_02030694(void);
 extern int func_020306b4(void);
@@ -15,7 +15,7 @@ typedef struct {
 
 int func_02030570(void)
 {
-    Obj02030570 *obj = (Obj02030570 *)func_02023c00();
+    Obj02030570 *obj = (Obj02030570 *)NNSi_FndGetCurrentRootHeap();
     int flag = 0;
 
     if (func_02030670() != 0 && func_02030694() != 0) {

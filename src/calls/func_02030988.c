@@ -9,7 +9,7 @@ struct Foo {
     u32 _6c;
 };
 
-extern struct Foo *func_02023c00(void);
+extern struct Foo *NNSi_FndGetCurrentRootHeap(void);
 extern u32 CARD_GetResultCode_0x0203065c(void);
 extern void func_020308a0(void);
 extern void func_02030ccc(void);
@@ -26,7 +26,7 @@ void (*func_02030988(void))(void)
     u32 r;
     int i;
 
-    p = func_02023c00();
+    p = NNSi_FndGetCurrentRootHeap();
     data_0204c22c = p;
     CARD_GetResultCode_0x0203065c();
     func_020308a0();

@@ -1,20 +1,31 @@
-void *InsertMBlock(int *r0, int *r1, int *r2)
-{
-    int *r3;
+typedef struct InsertMBlock_node {
+    char pad[8];
+    struct InsertMBlock_node *prev;
+    struct InsertMBlock_node *next;
+} InsertMBlock_node;
 
-    r1[2] = (int)r2;
-    if (r2 != 0) {
-        r3 = (int *)r2[3];
-        r2[3] = (int)r1;
+typedef struct {
+    InsertMBlock_node *head;
+    InsertMBlock_node *tail;
+} InsertMBlock_list;
+
+InsertMBlock_node *InsertMBlock(InsertMBlock_list *list, InsertMBlock_node *node, InsertMBlock_node *prev)
+{
+    InsertMBlock_node *next;
+
+    node->prev = prev;
+    if (prev != 0) {
+        next = prev->next;
+        prev->next = node;
     } else {
-        r3 = (int *)r0[0];
-        r0[0] = (int)r1;
+        next = list->head;
+        list->head = node;
     }
-    r1[3] = (int)r3;
-    if (r3 != 0) {
-        r3[2] = (int)r1;
+    node->next = next;
+    if (next != 0) {
+        next->prev = node;
     } else {
-        r0[1] = (int)r1;
+        list->tail = node;
     }
-    return r1;
+    return node;
 }

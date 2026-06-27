@@ -1,6 +1,6 @@
 extern int NNS_FndAppendListObject();
 extern int NNS_FndGetNextListObject();
-extern int func_02023660();
+extern int NNSi_FndAllocFromDefaultExpHeap();
 
 struct info_s {
     int f0;
@@ -68,7 +68,7 @@ void func_ov000_02056cb4(struct obj_s *obj, int arg1, int arg2, int arg3)
     }
 
     if (node == 0) {
-        node = (struct node_s *)func_02023660(0x24);
+        node = (struct node_s *)NNSi_FndAllocFromDefaultExpHeap(0x24);
         node->f0 = arg1;
         if (local.info->field18 == 0)
             arg2 = -1;

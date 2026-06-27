@@ -1,12 +1,12 @@
-void MTX_RotX33_(int *p, int a, int b)
+void MTX_RotX33_(int *mtx, int sinv, int cosv)
 {
-	p[0] = 0x1000;
-	p[1] = 0;
-	p[2] = 0;
-	p[3] = 0;
-	p[4] = b;
-	p[5] = a;
-	p[6] = 0;
-	p[7] = -a;
-	p[8] = b;
+    mtx[0] = 0x1000;
+    mtx[1] = 0;
+    mtx[2] = 0;
+    mtx[3] = 0;
+    mtx[4] = cosv;
+    mtx[5] = sinv;
+    mtx[6] = 0;
+    mtx[7] = -sinv;
+    mtx[8] = cosv;
 }

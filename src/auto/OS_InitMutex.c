@@ -1,7 +1,7 @@
-void OS_InitMutex(int *p)
+void OS_InitMutex(int *mutex)
 {
-    p[1] = 0;
-    p[0] = 0;
-    p[2] = 0;
-    p[3] = 0;
+    mutex[1] = 0;
+    mutex[0] = 0;
+    mutex[2] = 0;
+    mutex[3] = 0;
 }

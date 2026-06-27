@@ -1,6 +1,6 @@
 extern int *NNS_FndGetNextListObject();
 extern void NNS_FndAppendListObject();
-extern void *func_02023660();
+extern void *NNSi_FndAllocFromDefaultExpHeap();
 
 typedef struct Node {
     int field0;
@@ -42,7 +42,7 @@ void func_ov009_0204f020(Obj *obj, int key, int amt16, int amt20, int flag8) {
     }
 
     if (node == 0) {
-        node = (Node *)func_02023660(36);
+        node = (Node *)NNSi_FndAllocFromDefaultExpHeap(36);
         node->field0 = key;
         node->field16 = amt16;
         node->field20 = amt20;

@@ -1,8 +1,6 @@
-typedef struct { int x; int y; int z; } Vec3;
-
-void VEC_Subtract(Vec3 *a, Vec3 *b, Vec3 *out)
+void VEC_Subtract(int *a, int *b, int *out)
 {
-    out->x = a->x - b->x;
-    out->y = a->y - b->y;
-    out->z = a->z - b->z;
+    out[0] = a[0] - b[0];
+    out[1] = a[1] - b[1];
+    out[2] = a[2] - b[2];
 }

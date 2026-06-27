@@ -1,6 +1,6 @@
 extern int NNS_FndRemoveListObject();
 extern int NNS_FndGetNextListObject();
-extern int func_020236ac();
+extern int NNSi_FndFreeFromDefaultHeap();
 extern int func_020343cc();
 
 void func_ov005_02050bfc(int unused, int **a, int *b) {
@@ -33,7 +33,7 @@ void func_ov005_02050bfc(int unused, int **a, int *b) {
         NNS_FndRemoveListObject(b, cur);
         func_020343cc(cur + 9);
         if (cur != 0) {
-            func_020236ac(cur);
+            NNSi_FndFreeFromDefaultHeap(cur);
         }
         cur = next;
         if (next == 0) {

@@ -1,4 +1,4 @@
-extern void *func_02023660(unsigned int size);
+extern void *NNSi_FndAllocFromDefaultExpHeap(unsigned int size);
 extern void *func_02023684(unsigned int a, unsigned int b);
 extern void func_02014148(void *a, void *b, int c, int d, int e);
 extern void func_02030094(void *a, void *b, int c);
@@ -17,7 +17,7 @@ typedef struct {
 
 void *func_0202fff8(S0202fff8 *a0, int a1)
 {
-    void *obj = func_02023660(0x24);
+    void *obj = NNSi_FndAllocFromDefaultExpHeap(0x24);
     void *buf;
     int mode;
 

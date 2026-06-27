@@ -1,13 +1,7 @@
-struct S {
-    int a;
-    int b;
-    short c;
-    short d;
-};
-
-void NNS_FndInitList(struct S *p, short val) {
-    p->a = 0;
-    p->b = 0;
-    p->c = 0;
-    p->d = val;
+void NNS_FndInitList(void *list, unsigned short offset)
+{
+    ((int *)list)[0] = 0;
+    ((int *)list)[1] = 0;
+    ((unsigned short *)list)[4] = 0;
+    ((unsigned short *)list)[5] = offset;
 }

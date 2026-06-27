@@ -1,4 +1,4 @@
-extern int func_020236ac();
+extern int NNSi_FndFreeFromDefaultHeap();
 
 struct S {
     int unk0;
@@ -10,7 +10,7 @@ struct S {
 void func_ov000_020567c0(int a0, struct S *a1) {
     a1->unkc = 0;
     if (a1->unk4 != 0) {
-        func_020236ac(a1->unk4);
+        NNSi_FndFreeFromDefaultHeap(a1->unk4);
         a1->unk4 = 0;
     }
 }

@@ -1,16 +1,10 @@
-unsigned short *GXx_SetMasterBrightness_(unsigned short *p, int v)
+void GXx_SetMasterBrightness_(unsigned short *dst, int value)
 {
-	if (v == 0) {
-		*p = 0;
-		return p;
-	}
-	if (v > 0) {
-		v |= 0x4000;
-		*p = (unsigned short)v;
-	} else {
-		v = -v;
-		v |= 0x8000;
-		*p = (unsigned short)v;
-	}
-	return p;
+    if (value == 0) {
+        *dst = 0;
+    } else if (value > 0) {
+        *dst = value | 0x4000;
+    } else {
+        *dst = -value | 0x8000;
+    }
 }

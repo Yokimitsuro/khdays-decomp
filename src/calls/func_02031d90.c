@@ -5,7 +5,7 @@ struct Node {
     struct Node *next;
 };
 
-extern struct Node *func_02023660(int size);
+extern struct Node *NNSi_FndAllocFromDefaultExpHeap(int size);
 extern void func_02011f3c(void *);
 extern void func_02011f68(void *);
 extern void MI_CpuFill8(void *dst, int val, u32 n);
@@ -18,7 +18,7 @@ int func_02031d90(void *a, void *b)
     int count;
 
     count = 0;
-    node = func_02023660(0x64);
+    node = NNSi_FndAllocFromDefaultExpHeap(0x64);
     func_02011f3c((char *)node + 0x34);
     func_02011f68((char *)node + 0x20);
     MI_CpuFill8(node, 0, 0x20);

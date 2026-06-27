@@ -1,10 +1,8 @@
-struct S {
-    int a;
-    int b;
-};
+void GetRegionOfMBlock(void **out, char *node)
+{
+    unsigned short offset = (*(unsigned short *)(node + 2) >> 8) & 0x7f;
+    char *base = node + 0x10;
 
-void GetRegionOfMBlock(struct S *out, unsigned int p) {
-    unsigned short h = *(unsigned short *)(p + 2);
-    out->a = p - (unsigned short)((h >> 8) & 0x7f);
-    out->b = *(int *)(p + 4) + (p + 0x10);
+    out[0] = node - offset;
+    out[1] = (void *)(*(int *)(node + 4) + (int)base);
 }

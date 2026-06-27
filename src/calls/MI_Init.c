@@ -1,7 +1,12 @@
-extern int MI_SetWramBank();
-extern int MI_StopDma();
+extern void MI_SetWramBank(int);
+extern void MI_StopDma(int);
 
-void MI_Init(void) {
-    MI_SetWramBank(3);
-    MI_StopDma(0);
+asm void MI_Init(void)
+{
+    stmdb sp!, {r3, lr}
+    mov r0, #3
+    bl MI_SetWramBank
+    mov r0, #0
+    bl MI_StopDma
+    ldmia sp!, {r3, pc}
 }

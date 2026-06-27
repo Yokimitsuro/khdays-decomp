@@ -1,6 +1,6 @@
 extern void MI_CpuFill8();
 extern void NNS_FndInitList();
-extern void *func_02023660();
+extern void *NNSi_FndAllocFromDefaultExpHeap();
 
 typedef struct {
     int field0;
@@ -26,9 +26,9 @@ void func_ov000_0205647c(void *a, int *b) {
     s->field56 = b[2];
     s->field60 = b[3];
     s->field64 = b[4];
-    s->field12 = func_02023660(56 * b[0]);
-    s->field16 = func_02023660(48 * b[1]);
-    s->field20 = func_02023660(16 * b[2]);
+    s->field12 = NNSi_FndAllocFromDefaultExpHeap(56 * b[0]);
+    s->field16 = NNSi_FndAllocFromDefaultExpHeap(48 * b[1]);
+    s->field20 = NNSi_FndAllocFromDefaultExpHeap(16 * b[2]);
     MI_CpuFill8(s->field12, 0, 56 * b[0]);
     MI_CpuFill8(s->field16, 0, 48 * b[1]);
     MI_CpuFill8(s->field20, 0, 16 * b[2]);

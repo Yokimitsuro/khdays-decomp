@@ -2,7 +2,7 @@ extern int MI_CpuFill8();
 extern int INITi_CpuClear32_0x01ff86fc();
 extern int NNS_FndRemoveListObject();
 extern int *NNS_FndGetNextListObject();
-extern int func_020236ac();
+extern int NNSi_FndFreeFromDefaultHeap();
 
 void func_ov009_02050570(char *r4) {
     int *r5;
@@ -20,7 +20,7 @@ void func_ov009_02050570(char *r4) {
             r6 = NNS_FndGetNextListObject(r4 + 8, r5);
             NNS_FndRemoveListObject(r4 + 8, r5);
             if (r5 != 0) {
-                func_020236ac(r5);
+                NNSi_FndFreeFromDefaultHeap(r5);
             }
             r5 = r6;
         } while (r6 != 0);
@@ -32,7 +32,7 @@ void func_ov009_02050570(char *r4) {
             r6 = NNS_FndGetNextListObject(r4 + 0x14, r5);
             NNS_FndRemoveListObject(r4 + 0x14, r5);
             if (r5 != 0) {
-                func_020236ac(r5);
+                NNSi_FndFreeFromDefaultHeap(r5);
             }
             r5 = r6;
         } while (r6 != 0);
@@ -44,7 +44,7 @@ void func_ov009_02050570(char *r4) {
             r6 = NNS_FndGetNextListObject(r4 + 0x20, r5);
             NNS_FndRemoveListObject(r4 + 0x20, r5);
             if (r5 != 0) {
-                func_020236ac(r5);
+                NNSi_FndFreeFromDefaultHeap(r5);
             }
             r5 = r6;
         } while (r6 != 0);

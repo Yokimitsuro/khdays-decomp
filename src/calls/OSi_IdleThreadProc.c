@@ -1,9 +1,10 @@
-extern int OS_EnableInterrupts();
-extern int OS_Halt();
+extern void OS_EnableInterrupts(void);
+extern void OS_Halt(void);
 
-void OSi_IdleThreadProc(void) {
-    OS_EnableInterrupts();
-    for (;;) {
-        OS_Halt();
-    }
+asm void OSi_IdleThreadProc(void)
+{
+    stmdb sp!, {r3, lr}
+    bl OS_EnableInterrupts
+    bl OS_Halt
+    DCD 0xeafffffd
 }

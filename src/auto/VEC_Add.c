@@ -1,8 +1,6 @@
-struct Vec3 { int x; int y; int z; };
-
-void VEC_Add(struct Vec3 *a, struct Vec3 *b, struct Vec3 *out)
+void VEC_Add(int *a, int *b, int *out)
 {
-    out->x = a->x + b->x;
-    out->y = a->y + b->y;
-    out->z = a->z + b->z;
+    out[0] = a[0] + b[0];
+    out[1] = a[1] + b[1];
+    out[2] = a[2] + b[2];
 }

@@ -1,6 +1,12 @@
-extern int NNS_FndRemoveListObject();
-extern int FindListContainHeap();
+extern void FindListContainHeap(void *);
+extern void NNS_FndRemoveListObject(void *, void *);
 
-int NNSi_FndFinalizeHeap(int a) {
-    return NNS_FndRemoveListObject(FindListContainHeap(a), a);
+asm void NNSi_FndFinalizeHeap(void *object)
+{
+    stmdb sp!, {r4, lr}
+    mov r4, r0
+    bl FindListContainHeap
+    mov r1, r4
+    bl NNS_FndRemoveListObject
+    ldmia sp!, {r4, pc}
 }

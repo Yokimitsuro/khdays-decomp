@@ -1,28 +1,26 @@
-struct Node {
-    int unk0;
-    int unk4;
-    struct Node *next;
-    struct Node *prev;
-};
+typedef struct Link020102ec {
+    int pad0;
+    int pad4;
+    struct Link020102ec *prev;
+    struct Link020102ec *next;
+} Link020102ec;
 
-struct List {
-    struct Node *head;
-    struct Node *tail;
-};
+Link020102ec *RemoveMBlock(Link020102ec **list, Link020102ec *node)
+{
+    Link020102ec *prev = node->prev;
+    Link020102ec *next = node->next;
 
-struct Node *RemoveMBlock(struct List *list, struct Node *node) {
-    struct Node *next = node->next;
-    struct Node *prev = node->prev;
-
-    if (next)
-        next->prev = prev;
-    else
-        list->head = prev;
-
-    if (prev)
+    if (prev != 0) {
         prev->next = next;
-    else
-        list->tail = next;
+    } else {
+        list[0] = next;
+    }
 
-    return next;
+    if (next != 0) {
+        next->prev = prev;
+    } else {
+        list[1] = prev;
+    }
+
+    return prev;
 }

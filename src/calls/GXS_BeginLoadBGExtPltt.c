@@ -1,7 +1,11 @@
-extern int GX_DisableBankForSubBGExtPltt();
+extern int GX_DisableBankForSubBGExtPltt(void);
+extern int data_020446f0[];
 
-extern int data_020446f0;
-
-void GXS_BeginLoadBGExtPltt(void) {
-    data_020446f0 = GX_DisableBankForSubBGExtPltt();
+asm void GXS_BeginLoadBGExtPltt(void)
+{
+    stmdb sp!, {r3, lr}
+    bl GX_DisableBankForSubBGExtPltt
+    ldr r1, =data_020446f0
+    str r0, [r1]
+    ldmia sp!, {r3, pc}
 }

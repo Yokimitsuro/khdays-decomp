@@ -4,11 +4,11 @@ extern int OS_EnableIrqMask(int mask);
 extern void GX_VBlankIntr(int enable);
 
 extern char data_027e0088[];
-extern void func_01ff8000(void);
+extern void OSi_VBlankInterruptHandler(void);
 
 void func_02000f1c(void) {
     MI_CpuFill8(data_027e0088, 0, 0x88);
-    OS_SetIrqFunction(1, func_01ff8000);
+    OS_SetIrqFunction(1, OSi_VBlankInterruptHandler);
     OS_EnableIrqMask(1);
     GX_VBlankIntr(1);
 }

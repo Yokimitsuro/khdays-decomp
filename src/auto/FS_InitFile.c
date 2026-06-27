@@ -5,6 +5,6 @@ void FS_InitFile(int *p)
     p[7] = 0;
     p[6] = 0;
     p[2] = 0;
-    p[4] = 0xe;
+    p[4] = 14;
     p[3] = 0;
 }
