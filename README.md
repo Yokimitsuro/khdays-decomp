@@ -18,7 +18,7 @@ identical** to the original game code.
 
 | | |
 |---|---|
-| Functions matched (byte-exact, in `src/`) | **3,253** / ~23,240 (~14.0%) |
+| Functions matched (byte-exact, in `src/`) | **3,264** / ~23,240 (~14.0%) |
 | NitroSDK functions identified by byte-match | **+979** / ~23,240 (~4.2%) |
 | Total functions named or decompiled | **~4,232** / ~23,240 (~18.2%) |
 | Region | EU (`YKGP`) |

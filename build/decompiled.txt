@@ -3251,3 +3251,9 @@ func_ov010_0204ce60
 func_ov020_0207fd28
 func_ov234_020cc95c
 func_ov234_020ccf80
+func_ov294_020d2454
+func_ov294_020d1e44
+func_ov294_020d1c4c
+func_ov294_020d1a24
+func_ov294_020d2008
+func_ov007_0204cb80
