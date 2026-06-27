@@ -3227,3 +3227,6 @@ func_ov031_020b3534
 func_ov031_020b3c60
 func_ov031_020b4120
 func_ov031_020b4630
+func_ov001_0204cbb4
+func_ov001_0204cccc
+func_ov001_0204cd7c
