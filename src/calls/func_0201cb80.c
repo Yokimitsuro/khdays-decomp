@@ -1,4 +1,4 @@
-extern void func_0201d088(void *p, int a);
+extern void SNDi_FreeVoiceChannel(void *p, int a);
 extern char data_0204b62c[];
 
 asm void func_0201cb80(int a)
@@ -14,7 +14,7 @@ loop:
     beq skip
     mov r0, r5
     mov r1, r6
-    bl func_0201d088
+    bl SNDi_FreeVoiceChannel
 skip:
     add r4, r4, #1
     cmp r4, #4

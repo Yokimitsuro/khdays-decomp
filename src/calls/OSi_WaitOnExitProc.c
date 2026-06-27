@@ -1,6 +1,6 @@
 extern int OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(int);
-extern void func_02001a34(void *);
+extern void OSi_InsertThreadByPriority(void *);
 extern void OSi_RescheduleThread(void);
 
 typedef struct Node {
@@ -42,7 +42,7 @@ int OSi_WaitOnExitProc(Node *target, int newval)
             prev->next = target->next;
         }
         target->value = newval;
-        func_02001a34(target);
+        OSi_InsertThreadByPriority(target);
         OSi_RescheduleThread();
     }
     OS_RestoreInterrupts(intr);

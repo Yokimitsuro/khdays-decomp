@@ -1,4 +1,4 @@
-extern void func_0201d088(void *);
+extern void SNDi_FreeVoiceChannel(void *);
 
 asm void func_0201cb64(void *object)
 {
@@ -7,6 +7,6 @@ asm void func_0201cb64(void *object)
     cmp r2, #0
     ldmeqia sp!, {r3, pc}
     ldr r0, [r0]
-    bl func_0201d088
+    bl SNDi_FreeVoiceChannel
     ldmia sp!, {r3, pc}
 }

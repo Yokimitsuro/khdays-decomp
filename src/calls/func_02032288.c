@@ -2,7 +2,7 @@ extern void INITi_CpuClear32_0x01ff86fc(unsigned int data, void *dst, unsigned i
 extern int func_02031ac4(void);
 extern void func_02031af4(void *dst, int a, int b, int c);
 extern void *func_02031c30(void *a, int b);
-extern void func_02031ee0(void *a, void *b);
+extern void NNS_FndAppendDoubleListObject(void *a, void *b);
 
 int func_02032288(void *a0, int a1, int a2) {
     int idx;
@@ -31,7 +31,7 @@ int func_02032288(void *a0, int a1, int a2) {
     func_02031af4(p + 0x14, *(int *)(q + 0x10), *(int *)(q + 0xc), a1);
 
     *(int *)(p + 0x6c) = *(short *)(q + 0x60);
-    func_02031ee0(a0, p);
+    NNS_FndAppendDoubleListObject(a0, p);
 
     return idx;
 }

@@ -12,7 +12,7 @@ struct S {
     void (*x168)(void *);
 };
 
-void func_0201d178(struct S *p)
+void OSi_DestroyThread(struct S *p)
 {
     char *q;
     if (((p->flags << 31) >> 31) == 0) return;

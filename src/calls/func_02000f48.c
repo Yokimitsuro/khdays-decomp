@@ -1,6 +1,6 @@
 extern int OS_DisableIrqMask();
 extern int OS_EnableIrqMask();
-extern int func_0201f9ec();
+extern int strncpy();
 
 extern int data_027e0088[];
 extern char data_027e0090[];
@@ -23,7 +23,7 @@ void func_02000f48(int a, int b, int c, int d) {
         slot += 0x20;
     }
 
-    func_0201f9ec(slot + 4, b, 0x10);
+    strncpy(slot + 4, b, 0x10);
     *(int *)slot = 1;
     *(int *)(slot + 0x14) = c;
     *(int *)(slot + 0x18) = 0;

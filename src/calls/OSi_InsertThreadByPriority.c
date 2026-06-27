@@ -1,6 +1,6 @@
 extern char data_0204430c[];
 
-asm void func_02001a34(void *node)
+asm void OSi_InsertThreadByPriority(void *node)
 {
     stmdb sp!, {r3, lr}
     ldr r1, =data_0204430c

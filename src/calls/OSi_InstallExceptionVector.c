@@ -1,7 +1,7 @@
 extern void OSi_ExceptionHandler(void);
 extern char data_020445b4[];
 
-void func_02002ea4(void)
+void OSi_InstallExceptionVector(void)
 {
     unsigned int v = *(volatile unsigned int *)0x027FFD9Cu;
     if (v >= 0x02600000u && v < 0x02800000u) {

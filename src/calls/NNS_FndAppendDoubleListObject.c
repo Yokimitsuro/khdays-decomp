@@ -3,7 +3,7 @@ struct Node {
     struct Node *next;
 };
 
-void func_02031ee0(struct Node **head, struct Node *node)
+void NNS_FndAppendDoubleListObject(struct Node **head, struct Node *node)
 {
     struct Node *tail = *head;
     if (tail == 0) {

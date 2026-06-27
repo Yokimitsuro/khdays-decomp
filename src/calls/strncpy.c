@@ -1,4 +1,4 @@
-asm char *func_0201f9ec(char *dst, const char *src, int n)
+asm char *strncpy(char *dst, const char *src, int n)
 {
     stmdb sp!, {r3, lr}
     mov lr, r0

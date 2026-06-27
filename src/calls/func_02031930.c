@@ -3,7 +3,7 @@ typedef unsigned int u32;
 extern void DC_FlushRange(const void *addr, u32 size);
 extern void GX_LoadOAM(const void *src, u32 offset, u32 size);
 extern void GXS_LoadOAM(const void *src, u32 offset, u32 size);
-extern void func_02011640(u32 engine, u32 zero, void *oam, u32 size);
+extern void GFXi_EnqueueCommand(u32 engine, u32 zero, void *oam, u32 size);
 
 struct OamCtrl {
     char pad0[0x608];
@@ -43,7 +43,7 @@ void func_02031930(char *self, int flag) {
                         ((struct OamCtrl *)(self + 0x4000))->count * 8);
         }
     } else {
-        func_02011640(((struct OamCtrl *)(self + 0x4000))->engine, 0,
+        GFXi_EnqueueCommand(((struct OamCtrl *)(self + 0x4000))->engine, 0,
                       self + 0x238 + 0x4400,
                       ((struct OamCtrl *)(self + 0x4000))->count * 8);
     }

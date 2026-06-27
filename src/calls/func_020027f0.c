@@ -9,7 +9,7 @@ extern void func_02001ba4();
 extern void MI_Init();
 extern void func_02003894();
 extern void func_0200cb40();
-extern void func_02002ea4();
+extern void OSi_InstallExceptionVector();
 extern void OS_InitArenaEx();
 extern void CARD_Init();
 extern void func_020037a0();
@@ -23,7 +23,7 @@ void func_020027f0(void)
     OS_InitArenaEx();
     OS_InitIrqTable();
     OSi_InitStackChecker();
-    func_02002ea4();
+    OSi_InstallExceptionVector();
     MI_Init();
     func_020037a0();
     OSi_InitVramExclusive();

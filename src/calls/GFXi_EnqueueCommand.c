@@ -16,7 +16,7 @@ struct Q {
     int x10;
 };
 
-int func_02011640(void *a, int b, int c, int d)
+int GFXi_EnqueueCommand(void *a, int b, int c, int d)
 {
     struct Node *n;
     struct Q *q = (struct Q *)data_02047370;

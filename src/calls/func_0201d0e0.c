@@ -1,7 +1,7 @@
 extern void OS_LockMutex(void *mutex);
 extern void OS_UnlockMutex(void *mutex);
 extern void func_0201ac34(void *p);
-extern void func_0201d178(void *p);
+extern void OSi_DestroyThread(void *p);
 
 extern char data_0204b608[];
 extern char *data_0204ad8c[];
@@ -26,7 +26,7 @@ void func_0201d0e0(struct S *p) {
     if ((p->flags << 31) >> 31) {
         p->cb(p);
     }
-    func_0201d178(p);
+    OSi_DestroyThread(p);
     OS_UnlockMutex(data_0204b608);
     q = data_0204ad8c[1];
     if (q) {

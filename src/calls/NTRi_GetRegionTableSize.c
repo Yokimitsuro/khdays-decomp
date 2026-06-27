@@ -4,7 +4,7 @@ struct H {
     unsigned char x18;
 };
 
-int func_02014a5c(const unsigned char *region, struct H *hdr)
+int NTRi_GetRegionTableSize(const unsigned char *region, struct H *hdr)
 {
     int v;
     if (region == 0 || hdr == 0) return 0;

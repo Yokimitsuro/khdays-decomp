@@ -8,7 +8,7 @@ struct S {
     int x150;
 };
 
-void func_0201d088(struct S *p, int a)
+void SNDi_FreeVoiceChannel(struct S *p, int a)
 {
     if (((p->flags << 30) >> 31) == 0) {
         func_0201d0e0(p);
