@@ -94,13 +94,18 @@ def format_disasm(items, rel_by_off):
 
 def main():
     n_want = int(sys.argv[1]) if len(sys.argv)>1 else 16
-    # pool: undecompiled, callees all SDK, reasonable size
+    mode = sys.argv[2] if len(sys.argv)>2 else "all_sdk"   # all_sdk | any_sdk
+    # pool: undecompiled, callees ≥1 SDK (mode dependent), reasonable size
     pool=[]
     for c in CALLS:
         fn=c["name"]
         if display(fn) in DONE: continue
         callees=set(c["callees"])
-        if not callees or not callees.issubset(SDK_KNOWN): continue
+        if not callees: continue
+        if mode == "all_sdk":
+            if not callees.issubset(SDK_KNOWN): continue
+        else:  # any_sdk
+            if not (callees & SDK_KNOWN): continue
         if c["ninstr"]<6 or c["ninstr"]>25: continue
         if fn not in sym_to_delink: continue
         pool.append(c)
