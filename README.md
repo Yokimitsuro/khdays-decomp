@@ -18,9 +18,9 @@ identical** to the original game code.
 
 | | |
 |---|---|
-| Functions matched (byte-exact, in `src/`) | **3,264** / ~23,240 (~14.0%) |
-| NitroSDK functions identified by byte-match | **+979** / ~23,240 (~4.2%) |
-| Total functions named or decompiled | **~4,232** / ~23,240 (~18.2%) |
+| Functions matched (byte-exact, in `src/`) | **3,184** / ~23,217 (~13.7%) |
+| NitroSDK functions identified by byte-match | **+979** / ~23,217 (~4.2%) |
+| Total functions named or decompiled | **~4,163** / ~23,217 (~17.9%) |
 | Region | EU (`YKGP`) |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 |
 

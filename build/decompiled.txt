@@ -3257,3 +3257,12 @@ func_ov294_020d1c4c
 func_ov294_020d1a24
 func_ov294_020d2008
 func_ov007_0204cb80
+func_ov031_020b3270
+func_ov031_020b3e00
+func_ov031_020b4200
+func_ov019_0207fa94
+func_ov295_020d4274
+func_ov295_020d3c64
+func_ov295_020d3a6c
+func_ov295_020d3844
+func_ov295_020d3e28
