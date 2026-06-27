@@ -106,7 +106,7 @@ def main():
             if not callees.issubset(SDK_KNOWN): continue
         else:  # any_sdk
             if not (callees & SDK_KNOWN): continue
-        if c["ninstr"]<6 or c["ninstr"]>35: continue
+        if c["ninstr"]<6 or c["ninstr"]>40: continue
         if fn not in sym_to_delink: continue
         pool.append(c)
     pool.sort(key=lambda c: c["ninstr"])  # easiest first
