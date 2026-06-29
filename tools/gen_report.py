@@ -8,6 +8,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 done = set(os.path.splitext(os.path.basename(f))[0]
            for f in glob.glob(os.path.join(ROOT, "src", "auto", "*.c")) +
                     glob.glob(os.path.join(ROOT, "src", "calls", "*.c")))
+done_unit_addrs = set()
+for name in done:
+    m = re.match(r"func_(ov\d+)_([0-9a-fA-F]{8})$", name)
+    if m:
+        done_unit_addrs.add((m.group(1), int(m.group(2), 16)))
+
+def addr_suffix(name):
+    m = re.search(r"(?:^func_(?:ov\d+_)?|_0x)([0-9a-fA-F]{8})$", name)
+    return int(m.group(1), 16) if m else None
+
+def is_done(name, unit):
+    addr = addr_suffix(name)
+    return name in done or (addr is not None and (unit, addr) in done_unit_addrs)
 
 def load_funcs():
     """(name, size, unit). Usa func_index.json en local; en CI parsea config/."""
@@ -31,7 +44,7 @@ def load_funcs():
 
 units = defaultdict(list)   # unit -> [(name, size, matched)]
 for name, size, unit in load_funcs():
-    units[unit].append((name, size, name in done))
+    units[unit].append((name, size, is_done(name, unit)))
 
 def measures(funcs):
     total = sum(s for _, s, _ in funcs)
