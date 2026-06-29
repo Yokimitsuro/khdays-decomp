@@ -27,7 +27,7 @@ Auto-generated. Pick a module that isn't finished, **claim it** (see
 | 🟡 ov017 | 8 | 45 | 18% |
 | ✅ ov019 | 5 | 5 | 100% |
 | ✅ ov020 | 11 | 11 | 100% |
-| 🟡 ov021 | 2 | 31 | 6% |
+| ✅ ov021 | 31 | 31 | 100% |
 | 🟡 ov022 | 9 | 758 | 1% |
 | 🟡 ov023 | 1 | 224 | 0% |
 | 🟡 ov024 | 7 | 118 | 6% |
@@ -118,7 +118,7 @@ Auto-generated. Pick a module that isn't finished, **claim it** (see
 | 🟡 ov115 | 11 | 47 | 23% |
 | 🟡 ov116 | 8 | 47 | 17% |
 | ✅ ov117 | 39 | 39 | 100% |
-| 🟡 ov118 | 10 | 39 | 26% |
+| ✅ ov118 | 39 | 39 | 100% |
 | 🟡 ov119 | 5 | 56 | 9% |
 | 🟡 ov120 | 9 | 40 | 22% |
 | 🟡 ov121 | 9 | 40 | 22% |
@@ -303,4 +303,4 @@ Auto-generated. Pick a module that isn't finished, **claim it** (see
 | ✅ ov300 | 3 | 3 | 100% |
 | ✅ ov301 | 18 | 18 | 100% |
 | ✅ ov302 | 25 | 25 | 100% |
-| **TOTAL** | **4164** | **23217** | **17.9%** |
+| **TOTAL** | **4222** | **23217** | **18.2%** |
