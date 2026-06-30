@@ -1,0 +1,35 @@
+extern void func_01ffa724(void);
+extern void func_ov297_020d4168(void);
+extern void func_0203c634(void);
+
+asm void func_ov297_020d5184(void)
+{
+    dcd     0xe92d4038
+    dcd     0xe1a05000
+    dcd     0xe5954004
+    dcd     0xe284c01c
+    dcd     0xe2843010
+    dcd     0xe89c0007
+    dcd     0xe8830007
+    dcd     0xe1a0100c
+    dcd     0xe1a0200c
+    dcd     0xe3a00c0b
+    bl      func_01ffa724
+    dcd     0xe1a00005
+    bl      func_ov297_020d4168
+    dcd     0xe5940000
+    dcd     0xe5d0017a
+    dcd     0xe1a00f00
+    dcd     0xe1b00fa0
+    dcd     0x13a00001
+    dcd     0x15840088
+    dcd     0xe5940004
+    dcd     0xe5d000ad
+    dcd     0xe3500000
+    dcd     0x18bd8038
+    dcd     0xe1d512d0
+    dcd     0xe1a00005
+    dcd     0xe3a02000
+    bl      func_0203c634
+    dcd     0xe8bd8038
+}
