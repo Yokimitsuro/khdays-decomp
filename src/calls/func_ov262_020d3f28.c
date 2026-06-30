@@ -1,8 +1,6 @@
-asm void func_ov262_020d3f28(void)
+void func_ov262_020d3f28(void *self, int value)
 {
-    dcd     0xe58013a8
-    dcd     0xe3a01005
-    dcd     0xe5c011c9
-    dcd     0xe5c011c7
-    dcd     0xe12fff1e
+    *(int *)((char *)self + 0x3a8) = value;
+    *(unsigned char *)((char *)self + 0x1c9) = 5;
+    *(unsigned char *)((char *)self + 0x1c7) = 5;
 }

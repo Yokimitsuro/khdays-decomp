@@ -1,8 +1,5 @@
-asm void func_ov097_020bb210(void)
+void func_ov097_020bb210(void *self)
 {
-    dcd     0xe3a01001
-    dcd     0xe5801000
-    dcd     0xe3a01000
-    dcd     0xe580110c
-    dcd     0xe12fff1e
+    *(int *)self = 1;
+    *(int *)((char *)self + 0x10c) = 0;
 }
