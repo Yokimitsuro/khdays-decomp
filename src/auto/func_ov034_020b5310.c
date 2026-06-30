@@ -1,6 +1,4 @@
-asm void func_ov034_020b5310(void)
+void func_ov034_020b5310(void *unused, void *self)
 {
-    mov     r0, #0
-    str     r0, [r1, #0x24]
-    bx      lr
+    *(int *)((char *)self + 0x24) = 0;
 }

@@ -1,6 +1,4 @@
-asm void func_ov017_0207fe18(void)
+void *func_ov017_0207fe18(void *self)
 {
-    dcd     0xe5900008
-    dcd     0xe5900088
-    dcd     0xe12fff1e
+    return *(void **)((char *)*(void **)((char *)self + 8) + 0x88);
 }
