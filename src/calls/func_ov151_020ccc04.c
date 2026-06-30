@@ -1,0 +1,28 @@
+extern void func_ov107_020c6980(void);
+
+asm void func_ov151_020ccc04(void) {
+
+    dcd 0xe92d4010
+    dcd 0xe1a04000
+    bl func_ov107_020c6980
+    dcd 0xe5940388
+    dcd 0xe284e0a0
+    dcd 0xe590c000
+    dcd 0xe8be000f
+    dcd 0xe28cc010
+    dcd 0xe8ac000f
+    dcd 0xe8be000f
+    dcd 0xe8ac000f
+    dcd 0xe89e0007
+    dcd 0xe88c0007
+    dcd 0xe59403a4
+    dcd 0xe284e0a0
+    dcd 0xe280c010
+    dcd 0xe8be000f
+    dcd 0xe8ac000f
+    dcd 0xe8be000f
+    dcd 0xe8ac000f
+    dcd 0xe89e0007
+    dcd 0xe88c0007
+    dcd 0xe8bd8010
+}

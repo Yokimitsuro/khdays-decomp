@@ -1,0 +1,54 @@
+extern void data_ov152_020d64b4(void);
+extern void func_01ffa724(void);
+extern void func_0202f384(void);
+extern void func_0203c634(void);
+extern void func_ov107_020c9f48(void);
+
+asm void func_ov152_020d5e24(void) {
+
+    dcd 0xe92d4070
+    dcd 0xe24dd010
+    dcd 0xe1a05000
+    dcd 0xe5954004
+    dcd 0xe28d1004
+    dcd 0xe5940000
+    dcd 0xe59003cc
+    bl func_ov107_020c9f48
+    dcd 0xe5941000
+    dcd 0xe1a06000
+    dcd 0xe28d2004
+    dcd 0xe2840018
+    dcd 0xe28110a0
+    bl func_0202f384
+    dcd 0xe2841018
+    dcd 0xe1a00006
+    dcd 0xe1a02001
+    bl func_01ffa724
+    dcd 0xe5940048
+    dcd 0xe5d00000
+    dcd 0xe3500000
+    dcd 0x128dd010
+    dcd 0x18bd8070
+    dcd 0xe59f004c
+    dcd 0xe28d1000
+    dcd 0xe1d020b2
+    dcd 0xe1d000b0
+    dcd 0xe1cd20b2
+    dcd 0xe1cd00b0
+    dcd 0xe5940000
+    dcd 0xe5903024
+    dcd 0xe3530000
+    dcd 0x0a000001
+    dcd 0xe3a02004
+    dcd 0xe12fff33
+    dcd 0xe5940000
+    dcd 0xe3a01002
+    dcd 0xe5c011c7
+    dcd 0xe1d512d0
+    dcd 0xe1a00005
+    dcd 0xe3a02000
+    bl func_0203c634
+    dcd 0xe28dd010
+    dcd 0xe8bd8070
+    dcd data_ov152_020d64b4
+}
