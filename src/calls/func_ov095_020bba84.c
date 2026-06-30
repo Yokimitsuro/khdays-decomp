@@ -1,9 +1,6 @@
-asm void func_ov095_020bba84(void)
+int func_ov095_020bba84(void *unused, void *self)
 {
-    dcd     0xe3a00004
-    dcd     0xe5c10002
-    dcd     0xe3a00a03
-    dcd     0xe5810004
-    dcd     0xe3a00000
-    dcd     0xe12fff1e
+    *(unsigned char *)((char *)self + 2) = 4;
+    *(int *)((char *)self + 4) = 0x3000;
+    return 0;
 }
