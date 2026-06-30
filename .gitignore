@@ -4,6 +4,7 @@
 /extract/
 /asm/
 /build/*.json
+/build/progress_audit.md
 
 # ── Build artifacts (regenerated locally) ─────────────────────────────────────
 /build/delinks/
