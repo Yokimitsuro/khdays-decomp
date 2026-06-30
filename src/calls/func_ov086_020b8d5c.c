@@ -1,6 +1,4 @@
-asm void func_ov086_020b8d5c(void)
+void func_ov086_020b8d5c(void *unused, void *self)
 {
-    dcd     0xe3a00000
-    dcd     0xe5810358
-    dcd     0xe12fff1e
+    *(int *)((char *)self + 0x358) = 0;
 }
