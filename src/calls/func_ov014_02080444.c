@@ -1,8 +1,7 @@
-asm void *func_ov014_02080444(void *r0)
+void *func_ov014_02080444(void *self)
 {
-    ldrh    r1, [r0, #0x12]
-    tst     r1, #8
-    ldrne   r0, [r0, #0x28]
-    moveq   r0, #0
-    bx      lr
+    if (*(unsigned short *)((char *)self + 0x12) & 8) {
+        return *(void **)((char *)self + 0x28);
+    }
+    return 0;
 }
