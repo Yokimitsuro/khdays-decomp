@@ -1,5 +1,4 @@
-asm void func_ov298_020d3ca8(void)
+void func_ov298_020d3ca8(void *self, int unused, int value)
 {
-    dcd     0xe5802398
-    dcd     0xe12fff1e
+    *(int *)((char *)self + 0x398) = value;
 }

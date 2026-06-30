@@ -1,5 +1,4 @@
-asm void func_ov302_020cc718(void)
+unsigned short func_ov302_020cc718(void *self)
 {
-    ldrh    r0, [r0, #0x10]
-    bx      lr
+    return *(unsigned short *)((char *)self + 0x10);
 }

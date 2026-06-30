@@ -51,11 +51,12 @@ def load_function_index():
         )
         with symbols_path.open(encoding="utf-8", errors="replace") as f:
             for line in f:
-                match = re.match(r"(\S+)\s+kind:function\([^)]*size=0x([0-9a-fA-F]+)", line)
+                match = re.match(r"(\S+)\s+kind:function\((arm|thumb),[^)]*size=0x([0-9a-fA-F]+)", line)
                 if match:
                     index[match.group(1)] = {
                         "module": module,
-                        "size": int(match.group(2), 16),
+                        "mode": match.group(2),
+                        "size": int(match.group(3), 16),
                     }
     return index
 
@@ -150,6 +151,7 @@ def classify_functions():
             "name": name,
             "unit": unit,
             "size": int(info.get("size", 0)),
+            "mode": info.get("mode"),
             "category": category,
             "source": path,
             "sdk_name": sdk_names.get(name) or sdk_names_by_addr.get(addr),
