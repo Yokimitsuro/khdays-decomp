@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Generate progress audit
+        run: python tools/audit_progress.py
       - name: Generate progress report
         run: python tools/gen_report.py
       - name: Upload report
@@ -20,3 +22,10 @@ jobs:
         with:
           name: YKGP_report
           path: build/report.json
+      - name: Upload progress audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: YKGP_progress_audit
+          path: |
+            build/progress_audit.json
+            build/progress_audit.md

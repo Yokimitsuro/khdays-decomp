@@ -33,6 +33,32 @@ def load_json(path, default):
         return json.load(f)
 
 
+def load_function_index():
+    index = load_json(ROOT / "build" / "func_index.json", None)
+    if index is not None:
+        return index
+
+    index = {}
+    for symbols_path in (ROOT / "config").glob("**/symbols.txt"):
+        path_text = str(symbols_path).replace("\\", "/")
+        ov_match = re.search(r"overlays/(ov\d+)", path_text)
+        module = (
+            f"overlay@{ov_match.group(1)}" if ov_match
+            else "itcm@itcm" if "/itcm/" in path_text
+            else "dtcm@dtcm" if "/dtcm/" in path_text
+            else "main@main"
+        )
+        with symbols_path.open(encoding="utf-8", errors="replace") as f:
+            for line in f:
+                match = re.match(r"(\S+)\s+kind:function\([^)]*size=0x([0-9a-fA-F]+)", line)
+                if match:
+                    index[match.group(1)] = {
+                        "module": module,
+                        "size": int(match.group(2), 16),
+                    }
+    return index
+
+
 def unit_from_module(module):
     match = re.search(r"@(ov\d+|main|itcm|dtcm)", module)
     return match.group(1) if match else module
@@ -86,7 +112,7 @@ def sdk_name_map():
 
 
 def classify_functions():
-    index = load_json(ROOT / "build" / "func_index.json", {})
+    index = load_function_index()
     sdk_names = sdk_name_map()
     sources_by_name, sources_by_unit_addr, sources_by_addr, unmapped_sources = load_sources()
 
