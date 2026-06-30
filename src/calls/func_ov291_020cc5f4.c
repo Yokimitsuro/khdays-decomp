@@ -1,7 +1,5 @@
-asm void func_ov291_020cc5f4(void)
+int func_ov291_020cc5f4(void *self, int value)
 {
-    dcd     0xe5902214
-    dcd     0xe3a00001
-    dcd     0xe582102c
-    dcd     0xe12fff1e
+    *(int *)((char *)*(void **)((char *)self + 0x214) + 0x2c) = value;
+    return 1;
 }
