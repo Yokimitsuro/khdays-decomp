@@ -34,8 +34,9 @@ def load_json(path, default):
 
 
 def load_function_index():
+    use_func_index = os.environ.get("KHDAYS_PROGRESS_USE_FUNC_INDEX") == "1"
     index = load_json(ROOT / "build" / "func_index.json", None)
-    if index is not None:
+    if index is not None and use_func_index:
         return index
 
     index = {}
@@ -114,6 +115,12 @@ def sdk_name_map():
 def classify_functions():
     index = load_function_index()
     sdk_names = sdk_name_map()
+    sdk_names_by_addr = {
+        addr: sdk_name
+        for sdk_func, sdk_name in sdk_names.items()
+        for addr in [addr_suffix(sdk_func)]
+        if addr is not None
+    }
     sources_by_name, sources_by_unit_addr, sources_by_addr, unmapped_sources = load_sources()
 
     functions = []
@@ -132,7 +139,7 @@ def classify_functions():
             category = source["category"]
             path = source["path"]
             source_hits.add(path)
-        elif name in sdk_names:
+        elif name in sdk_names or addr in sdk_names_by_addr:
             category = "sdk_identified"
             path = None
         else:
@@ -145,7 +152,7 @@ def classify_functions():
             "size": int(info.get("size", 0)),
             "category": category,
             "source": path,
-            "sdk_name": sdk_names.get(name),
+            "sdk_name": sdk_names.get(name) or sdk_names_by_addr.get(addr),
         })
 
     mapped_paths = {f["source"] for f in functions if f["source"]}

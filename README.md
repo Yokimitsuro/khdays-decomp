@@ -22,11 +22,11 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **2,991** / ~23,217 (~12.9%) | Functions implemented in C and verified byte-exact |
-| Inline ASM / ASM stub matched functions | **6,948** / ~23,217 (~29.9%) | Temporary ASM-based placeholders; useful for matching, not counted as C decompilation |
-| SDK/library byte-match identifications | **611** / ~23,217 (~2.6%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **12,667** / ~23,217 (~54.6%) | Functions known to the project but not implemented as C |
-| Total known functions | **23,217** | Function index for the EU `YKGP` target |
+| Real C-decompiled matched functions | **3,094** / ~23,159 (~13.4%) | Functions implemented in C and verified byte-exact |
+| Inline ASM / ASM stub matched functions | **6,878** / ~23,159 (~29.7%) | Temporary ASM-based placeholders; useful for matching, not counted as C decompilation |
+| SDK/library byte-match identifications | **194** / ~23,159 (~0.8%) | NitroSDK or library functions identified separately by byte matching |
+| Named but not decompiled | **12,993** / ~23,159 (~56.1%) | Functions known to the project but not implemented as C |
+| Total known functions | **23,159** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | |
 

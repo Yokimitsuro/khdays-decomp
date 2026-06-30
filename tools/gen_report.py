@@ -6,7 +6,7 @@ ASM stubs, inline ASM placeholders, SDK identifications, and named-only symbols
 are deliberately excluded from the main matched progress calculation.
 """
 import json
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 
 import audit_progress
@@ -45,11 +45,9 @@ def measures(funcs):
 def main():
     audited_functions, _unknown_sources = audit_progress.classify_functions()
     units = defaultdict(list)
-    category_counts = Counter()
 
     for func in audited_functions:
         category = func["category"]
-        category_counts[category] += 1
         units[func["unit"]].append({
             "name": func["name"],
             "size": func["size"],
@@ -75,7 +73,6 @@ def main():
             "metadata": {
                 "moduleName": unit,
                 "complete": all(func["matched"] for func in funcs),
-                "progressPolicy": "Only real C implementations count as matched.",
             },
         })
 
@@ -88,16 +85,7 @@ def main():
         "measures": aggregate,
         "units": report_units,
         "version": 2,
-        "categories": [
-            {"id": "game_c", "name": "Real C decompilation"},
-            {"id": "asm_stubs", "name": "ASM stubs excluded from C progress"},
-            {"id": "sdk", "name": "SDK/library identifications"},
-            {"id": "named_only", "name": "Named but not decompiled"},
-        ],
-        "metadata": {
-            "progressPolicy": "ASM stubs and SDK identifications are excluded from matched C progress.",
-            "categoryCounts": dict(sorted(category_counts.items())),
-        },
+        "categories": [],
     }
 
     build_dir = ROOT / "build"
