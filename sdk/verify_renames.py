@@ -77,9 +77,11 @@ def verify_one(cpath):
     return True, "ok"
 
 def main():
+    from _src_roots import src_roots
     pool=[]
-    for d in ("src/auto","src/calls"):
+    for d in src_roots(ROOT):
         dp=os.path.join(ROOT,d)
+        if not os.path.isdir(dp): continue
         for f in os.listdir(dp):
             if f.endswith(".c") and not f.startswith("func_"):
                 pool.append(os.path.join(dp,f))

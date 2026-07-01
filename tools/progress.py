@@ -30,7 +30,7 @@ def status_mark(c_count, total):
 
 
 def main():
-    functions, _unknown_sources = audit_progress.classify_functions()
+    functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
     stats = defaultdict(Counter)
 
     for func in functions:

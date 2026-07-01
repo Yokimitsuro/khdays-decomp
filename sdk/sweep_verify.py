@@ -37,9 +37,11 @@ for f in os.listdir(os.path.join(ROOT, "build", "delinks")):
             # detect thumb: st_value LSB set (the dsd ELF convention)
             sym_is_thumb[sym.name] = bool(sym["st_value"] & 1) or (sym["st_value"] & ~1) in thumb_addrs
 
+from _src_roots import src_roots
 pool=[]
-for d in ("src/auto","src/calls"):
+for d in src_roots(ROOT):
     dp = os.path.join(ROOT, d)
+    if not os.path.isdir(dp): continue
     for fn in os.listdir(dp):
         if not fn.endswith(".c"): continue
         sym = fn[:-2]

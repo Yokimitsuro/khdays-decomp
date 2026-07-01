@@ -11,8 +11,9 @@ INDEX = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 # files still named func_X). For renamed files we'd need the full apply_names
 # logic; let's just handle func_XXXXX-named files for safety.
 
+from _src_roots import src_roots
 bad = []
-for d in ("src/auto", "src/calls"):
+for d in src_roots(ROOT):
     dp = os.path.join(ROOT, d)
     if not os.path.isdir(dp): continue
     for f in os.listdir(dp):

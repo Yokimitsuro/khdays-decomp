@@ -113,6 +113,9 @@ broken in the extraction or build configuration.
    ```
 3. Write C to `src/auto/<name>.c` for no external calls, or
    `src/calls/<name>.c` when the function calls other functions.
+   If the only match you can produce right now is inline/handwritten ASM,
+   put it under `src/asm_stubs/auto/` or `src/asm_stubs/calls/` instead —
+   ASM stubs do not count as C decompilation progress.
 4. Run the printed `verify_cmd`. Iterate until `>>> MATCH <<<`.
 5. Open a PR with just your new source file(s).
 

@@ -23,9 +23,9 @@ identifications are not counted as real C decompilation.
 | Category | Count | Meaning |
 |---|---:|---|
 | Real C-decompiled matched functions | **3,166** / ~23,159 (~13.7%) | Functions implemented in C and verified byte-exact |
-| Inline ASM / ASM stub matched functions | **6,806** / ~23,159 (~29.4%) | Temporary ASM-based placeholders; useful for matching, not counted as C decompilation |
-| SDK/library byte-match identifications | **194** / ~23,159 (~0.8%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **12,993** / ~23,159 (~56.1%) | Functions known to the project but not implemented as C |
+| Inline ASM / ASM stub matched functions | **6,806** / ~23,159 (~29.4%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
+| SDK/library byte-match identifications | **565** / ~23,159 (~2.4%) | NitroSDK or library functions identified separately by byte matching |
+| Named but not decompiled | **12,622** / ~23,159 (~54.5%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,159** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | |
@@ -49,14 +49,21 @@ workflow.
 ## Repository layout
 
 ```text
-src/auto/     matched leaf functions; may include early bootstrap ASM stubs
-src/calls/    matched functions with calls; may include early bootstrap ASM stubs
-config/       dsd project config (symbols / delinks / relocs per module)
-macros/       assembler macros (function.inc)
-tools/        Python tooling (extraction, matching, candidate finders)
-sdk/          NitroSDK byte-match identification harness (see sdk/README.md)
-build/        generated manifests and reports; build output is git-ignored
+src/auto/           real C leaf functions (byte-exact, no external calls)
+src/calls/          real C functions with calls (byte-exact)
+src/asm_stubs/auto/   ASM / inline-asm bootstrap stubs, leaf functions
+src/asm_stubs/calls/  ASM / inline-asm bootstrap stubs with calls
+config/             dsd project config (symbols / delinks / relocs per module)
+macros/             assembler macros (function.inc)
+tools/              Python tooling (extraction, matching, candidate finders)
+sdk/                NitroSDK byte-match identification harness (see sdk/README.md)
+build/              generated manifests and reports; build output is git-ignored
 ```
+
+Files under `src/asm_stubs/` may match the original bytes, but they are
+temporary ASM-based matches (`asm void`, `__asm`, hand-written ARM) that were
+used to bootstrap the project. They are counted separately from real C
+decompilation progress, see [docs/PROGRESS_POLICY.md](docs/PROGRESS_POLICY.md).
 
 The ROM, the extracted data (`dsd_extract/`, `asm/`), build artifacts, and the
 proprietary toolchain are intentionally **not** tracked; see `.gitignore`.

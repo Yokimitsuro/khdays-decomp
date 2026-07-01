@@ -43,7 +43,7 @@ def measures(funcs):
 
 
 def main():
-    audited_functions, _unknown_sources = audit_progress.classify_functions()
+    audited_functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
     units = defaultdict(list)
 
     for func in audited_functions:
