@@ -33,16 +33,33 @@ CFLAGS = [
 ]
 
 def discover_modules():
-    """Modules to build. Scoped to ov000 (byte-exact via
-    tools/patch_align.py fix for THUMB sh_addralign). Multi-module
-    extension still leaves a small drift when many main-module .c
-    files are included — task #26 investigation captured a partial fix
-    but not the complete root cause."""
+    """Every module that has a delinks.txt and at least one matched
+    source file. Multi-module builds are byte-exact after tightening the
+    LCF alignment from 4 down to 2 (see tools/_run_mwld.py) — mwld's
+    default ALIGNALL(4) was inserting padding at every THUMB function
+    at a 2-aligned offset."""
     modules = []
     cfg_root = ROOT / "config" / "arm9"
-    ov000 = cfg_root / "overlays" / "ov000"
-    if (ov000 / "delinks.txt").exists():
-        modules.append(ov000)
+    for name in ("", "itcm", "dtcm"):
+        d = cfg_root / name if name else cfg_root
+        if (d / "delinks.txt").exists():
+            modules.append(d)
+    ov_cfg = cfg_root / "overlays"
+    ov_src = ROOT / "src" / "overlays"
+    if ov_cfg.is_dir():
+        for ov_dir in sorted(ov_cfg.iterdir()):
+            if not (ov_dir / "delinks.txt").exists():
+                continue
+            src_ov = ov_src / ov_dir.name
+            if not src_ov.exists():
+                continue
+            has_c = any(
+                p.is_file()
+                for sub in ("auto", "calls", "asm_stubs/auto", "asm_stubs/calls")
+                for p in (src_ov / sub).glob("*.c") if (src_ov / sub).exists()
+            )
+            if has_c:
+                modules.append(ov_dir)
     return modules
 
 
@@ -89,8 +106,12 @@ def emit_ninja(ninja_path: Path, src_files):
         f"python = {py}",
         "",
         "rule mwcc",
+        # file_modes.json flips a file between ARM and THUMB — recompile when it
+        # changes so an old .o built without -thumb doesn't shadow the correct
+        # THUMB output.
         "  command = $python tools/_run_mwcc.py $out $in",
         "  description = MWCC $in",
+        "  restat = 1",
         "",
         "rule mwld",
         "  command = $python tools/_run_mwld.py $out $lcf $out.rsp",
@@ -101,13 +122,16 @@ def emit_ninja(ninja_path: Path, src_files):
     ]
 
     compiled_objs = []
+    modes_dep = rel(BUILD / "file_modes.json")
     for src in src_files:
         # Match objdiff.json's expected base_path layout.
         obj_path = COMPILE_OUT / Path(src).with_suffix(".o")
         obj_path.parent.mkdir(parents=True, exist_ok=True)
         obj = rel(obj_path)
         compiled_objs.append(obj)
-        lines.append(f"build {obj}: mwcc {src}")
+        # Implicit dep on file_modes.json so a mode flip (arm <-> thumb)
+        # invalidates any cached .o for this file.
+        lines.append(f"build {obj}: mwcc {src} | {modes_dep}")
 
     lines.append("")
     lines.append("build compile: phony " + " ".join(compiled_objs))

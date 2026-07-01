@@ -41,11 +41,22 @@ for p in raw:
         objs_rel.append(p)
 Path(rsp).write_text("\n".join(objs_rel) + "\n", encoding="utf-8", newline="\n")
 
-# Patch every input .o so its `.text` sh_addralign is 2 instead of 4.
-# mwld pads inputs to their declared sh_addralign, so a THUMB function
-# with sh_size=2 sitting in an .o with sh_addralign=4 gets 2 bytes of
-# padding inserted at the input boundary, breaking byte-exactness for
-# any adjacent THUMB code at a 2-aligned offset. See tools/patch_align.py.
+# Patch the LCF: mwld's `ALIGNALL(4)` inside every SECTIONS block forces
+# each input .o's .text to a 4-byte boundary. That aligns THUMB functions
+# at 2-aligned offsets to 4, inserting 2 bytes of padding at every such
+# boundary and cascading pointer/BL offsets throughout the module. Reduce
+# to `ALIGNALL(2)` — THUMB minimum — which preserves the original layout
+# byte-for-byte.
+lcf_text = Path(lcf).read_text(encoding="utf-8")
+if "ALIGNALL(4);" in lcf_text:
+    Path(lcf).write_text(
+        lcf_text.replace("ALIGNALL(4);", "ALIGNALL(2);"),
+        encoding="utf-8",
+        newline="\n",
+    )
+
+# Belt-and-suspenders: also lower per-.o sh_addralign so a future mwld
+# refactor that consults the input alignment doesn't reintroduce the drift.
 patch_script = ROOT / "tools" / "patch_align.py"
 subprocess.run([sys.executable, str(patch_script)], check=True)
 
