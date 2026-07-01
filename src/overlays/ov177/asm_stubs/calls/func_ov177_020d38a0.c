@@ -12,7 +12,7 @@ extern void func_ov177_020d5a90(void);
 extern void func_0203355c(void);
 extern void data_ov177_020d62f8(void);
 extern void func_ov177_020d3bbc(void);
-extern void WM_EndKeySharing_0x020d3bfc(void);
+extern void WM_EndKeySharing_ov177_0x020d3bfc(void);
 extern void func_ov177_020d3c58(void);
 extern void func_ov177_020d3fdc(void);
 extern void func_ov177_020d3c08(void);
@@ -213,7 +213,7 @@ asm void func_ov177_020d38a0(void)
     dcd     0xe8bd8078
     dcd     data_ov177_020d62f8
     dcd     func_ov177_020d3bbc
-    dcd     WM_EndKeySharing_0x020d3bfc
+    dcd     WM_EndKeySharing_ov177_0x020d3bfc
     dcd     func_ov177_020d3c58
     dcd     func_ov177_020d3fdc
     dcd     func_ov177_020d3c08

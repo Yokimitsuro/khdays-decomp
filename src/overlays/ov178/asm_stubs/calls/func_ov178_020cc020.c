@@ -1,4 +1,4 @@
-extern void WM_EndKeySharing_0x020cc384(void);
+extern void WM_EndKeySharing_ov178_0x020cc384(void);
 extern void data_02041dc8(void);
 extern void data_ov178_020cee70(void);
 extern void data_ov178_020ceeac(void);
@@ -215,7 +215,7 @@ asm void func_ov178_020cc020(void) {
     dcd 0xe8bd8070
     dcd data_ov178_020cee70
     dcd func_ov178_020cc344
-    dcd WM_EndKeySharing_0x020cc384
+    dcd WM_EndKeySharing_ov178_0x020cc384
     dcd func_ov178_020cc3e0
     dcd func_ov178_020cc848
     dcd func_ov178_020cc390

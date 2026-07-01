@@ -33,12 +33,12 @@ CFLAGS = [
 ]
 
 def discover_modules():
-    """Modules to build. Currently scoped to ov000 (green path); extending
-    past ov000 requires solving shared-overlay code duplication first
-    (many overlays contain identical library-like code at the same
-    address and each overlay needs its own per-file source copy for the
-    dsd delink pipeline).
-    """
+    """Modules to build. Scoped to ov000 (known byte-exact path). Multi-
+    module extension is possible mechanically — configure.py can walk
+    every module with a src file — but the resulting byte layout is not
+    yet byte-exact against the base ROM (linker orders per-file .o's
+    slightly differently than the original single-gap fallback), so we
+    keep the green ov000-only path for now."""
     modules = []
     cfg_root = ROOT / "config" / "arm9"
     ov000 = cfg_root / "overlays" / "ov000"

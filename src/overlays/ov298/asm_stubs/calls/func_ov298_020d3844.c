@@ -10,8 +10,8 @@ extern void func_ov298_020d3a54(void);
 extern void func_ov298_020d3acc(void);
 extern void func_ov298_020d3cb0(void);
 extern void func_ov298_020d3ca8(void);
-extern void WM_EndKeySharing_0x020d3ab4(void);
-extern void WM_EndKeySharing_0x020d3ac0(void);
+extern void WM_EndKeySharing_ov298_0x020d3ab4(void);
+extern void WM_EndKeySharing_ov298_0x020d3ac0(void);
 extern void func_ov298_020d3d0c(void);
 extern void data_ov298_020d54e8(void);
 extern void func_ov298_020d3bcc(void);
@@ -134,8 +134,8 @@ asm void func_ov298_020d3844(void)
     dcd     func_ov298_020d3cb0
     dcd     0xfffff116
     dcd     func_ov298_020d3ca8
-    dcd     WM_EndKeySharing_0x020d3ab4
-    dcd     WM_EndKeySharing_0x020d3ac0
+    dcd     WM_EndKeySharing_ov298_0x020d3ab4
+    dcd     WM_EndKeySharing_ov298_0x020d3ac0
     dcd     func_ov298_020d3d0c
     dcd     data_ov298_020d54e8
     dcd     func_ov298_020d3bcc
