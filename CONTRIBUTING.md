@@ -91,6 +91,34 @@ were computed against the EU dump above.
 6. Generate the candidate lists: `python tools/find_candidates.py` and
    `python tools/find_calls.py`.
 
+## Building and verifying byte-exact modules
+
+The `dsd` + `mwccarm` + `mwldarm` pipeline is wired via ninja. From the
+project root, after the setup above:
+
+```sh
+python tools/configure.py       # gen delinks, dsd delink, dsd lcf, build.ninja
+ninja                            # compile matched .c + mwld link -> build/arm9.elf
+tools/dsd.exe check modules --config-path config/arm9/config.yaml -f
+tools/dsd.exe rom config --elf build/arm9.elf --config config/arm9/config.yaml
+tools/dsd.exe rom build --config build/build/rom_config.yaml --rom build/days.nds
+```
+
+`dsd check modules` compares each built per-module `.bin` against the base ROM
+and exits non-zero if any module is not byte-exact. Currently ov000 is fully
+byte-exact under this pipeline; extending to every module is a pending task
+(#25 in the tracker — per-file `.o` layout adds a few bytes of shift versus
+the single-gap fallback).
+
+If you're new to a function, refresh the mismatch table before iterating:
+
+```sh
+python tools/refresh_mismatches.py   # compiles everything, records what diverges
+```
+
+This regenerates `build/known_mismatches.txt`, which `gen_delinks.py` reads to
+keep faulty decomps out of the link (dsd fills their gap with original bytes).
+
 ## Verifying the full ROM round-trip
 
 To confirm your setup is complete and that the project as a whole still rebuilds

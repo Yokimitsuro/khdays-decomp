@@ -33,12 +33,10 @@ CFLAGS = [
 ]
 
 def discover_modules():
-    """Modules to build. Scoped to ov000 (known byte-exact path). Multi-
-    module extension is possible mechanically — configure.py can walk
-    every module with a src file — but the resulting byte layout is not
-    yet byte-exact against the base ROM (linker orders per-file .o's
-    slightly differently than the original single-gap fallback), so we
-    keep the green ov000-only path for now."""
+    """Modules to build. Scoped to ov000 (known byte-exact path).
+    Multi-module extension is scaffolded but not yet byte-exact — the
+    per-file .o layout adds ~64 bytes vs the single-gap fallback,
+    shifting every embedded pointer at link time (task #25)."""
     modules = []
     cfg_root = ROOT / "config" / "arm9"
     ov000 = cfg_root / "overlays" / "ov000"
