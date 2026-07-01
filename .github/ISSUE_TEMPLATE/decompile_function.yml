@@ -1,0 +1,33 @@
+name: Decompile function
+description: Claim or submit work for a single function
+title: "[decomp] func_XXXXXXXX"
+labels: ["decompilation"]
+body:
+  - type: input
+    id: function
+    attributes:
+      label: Function
+      description: Function name or address
+      placeholder: func_02012345
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Current status
+      options:
+        - Not started
+        - Researching
+        - Non-matching C
+        - Matching C
+        - ASM stub only
+        - SDK/library identification
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Relevant callers, callees, structs, globals, or Ghidra observations

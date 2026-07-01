@@ -34,7 +34,17 @@ def parse_func_key(k):
 
 
 def build_rename_map():
-    """func_X (clave names.json) -> nombre final unico para symbols.txt y src/."""
+    """func_X (clave names.json) -> nombre final unico para symbols.txt y src/.
+
+    Regla de desambiguacion:
+      - Si el nombre SDK es unico entre func_X: uso limpio.
+      - Si varias direcciones distintas comparten el nombre SDK: primera limpia,
+        el resto con sufijo `_0xADDR`.
+      - Si varios overlays comparten la MISMA direccion con el mismo nombre SDK
+        (codigo compartido tipo `SNDi_UnlockMutex_0x020b3220` presente en
+        ov030..ov049): TODOS reciben sufijo `_ovXXX_0xADDR` para que el linker
+        no vea nombres duplicados globalmente.
+    """
     counts = Counter(NAMES.values())
     # group func_X by SDK name to apply suffix policy per group
     by_name = defaultdict(list)
@@ -49,24 +59,50 @@ def build_rename_map():
         by_name[v].append((addr, k))
     out = {}
     for sdk_name, lst in by_name.items():
-        lst.sort()  # by addr ascending
         if len(lst) == 1:
             out[lst[0][1]] = sdk_name
-        else:
-            out[lst[0][1]] = sdk_name
-            for addr, k in lst[1:]:
-                out[k] = "%s_0x%08x" % (sdk_name, addr)
+            continue
+        # Group by addr so we can detect shared-overlay copies.
+        by_addr = defaultdict(list)
+        for addr, k in lst:
+            by_addr[addr].append(k)
+        first_taken = False
+        for addr in sorted(by_addr):
+            ks = sorted(by_addr[addr], key=lambda k: parse_func_key(k)[0] or "")
+            if len(ks) == 1:
+                k = ks[0]
+                if not first_taken:
+                    out[k] = sdk_name
+                    first_taken = True
+                else:
+                    out[k] = "%s_0x%08x" % (sdk_name, addr)
+            else:
+                # Multiple func_X entries share this address, one per overlay.
+                # Each must get a globally-unique name; overlay prefix does it.
+                for k in ks:
+                    ov, _ = parse_func_key(k)
+                    if ov:
+                        out[k] = "%s_%s_0x%08x" % (sdk_name, ov, addr)
+                    else:
+                        # Should not happen (main-module can't share addr with
+                        # itself), but be defensive.
+                        out[k] = "%s_0x%08x" % (sdk_name, addr)
     return out
 
 
-def rewrite_symbols_txt(path, addr2name):
+def rewrite_symbols_txt(path, addr2name, owned_name_re):
+    """Rewrite each function line whose current name is either `func_X` or a
+    name we know we generated previously (matches owned_name_re). Human-edited
+    names (that don't match those patterns) are left alone.
+    """
     with open(path) as f: lines = f.readlines()
     changed = 0
     for i, ln in enumerate(lines):
         m = re.match(r"^(\S+)\s+(.*\baddr:0x([0-9a-fA-F]+)\b.*)$", ln.rstrip())
         if not m: continue
         old = m.group(1); rest = m.group(2); addr = int(m.group(3), 16)
-        if not old.startswith("func_"): continue
+        if not (old.startswith("func_") or owned_name_re.match(old)):
+            continue
         new = addr2name.get(addr)
         if not new or new == old: continue
         lines[i] = "%s %s\n" % (new, rest)
@@ -102,21 +138,30 @@ def main():
             p = os.path.join(ov_root, ov, "symbols.txt")
             if os.path.isfile(p): sym_files.append((ov, p))
 
+    # Regex that recognizes names we generated ourselves: an SDK base name
+    # (from names.json values) optionally suffixed with _ovXXX and _0xADDR.
+    sdk_names = sorted(set(NAMES.values()), key=len, reverse=True)
+    owned_name_re = re.compile(
+        r"^(?:" + "|".join(re.escape(n) for n in sdk_names) +
+        r")(?:_ov\d+)?(?:_0x[0-9a-fA-F]{8})?$"
+    ) if sdk_names else re.compile(r"^$a")  # never-match fallback
+
     total_sym = 0
     for ov, path in sym_files:
         # filter map to addresses owned by this scope
         scope = {}
         for (scope_ov, addr), n in addr2name.items():
             if scope_ov == ov: scope[addr] = n
-        c = rewrite_symbols_txt(path, scope)
+        c = rewrite_symbols_txt(path, scope, owned_name_re)
         if c: print("  symbols %-25s  %d renames" % (os.path.relpath(path, ROOT), c))
         total_sym += c
     print("TOTAL symbols.txt renames:", total_sym)
 
-    # 2) Rewrite src/auto and src/calls
+    # 2) Rewrite src/auto, src/calls, and their asm_stubs counterparts
     src_touched = 0
     src_renamed_files = 0
-    for d in ("src/auto", "src/calls"):
+    from _src_roots import src_roots as _sr
+    for d in _sr(ROOT):
         dp = os.path.join(ROOT, d)
         if not os.path.isdir(dp): continue
         for fn in os.listdir(dp):
