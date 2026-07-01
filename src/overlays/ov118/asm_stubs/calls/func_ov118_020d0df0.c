@@ -52,7 +52,7 @@ asm void func_ov118_020d0df0(void)
     dcd     0x08bd8078
     dcd     0xe59d2008
     dcd     0xe59d1000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5841064
     dcd     0xe5840068
     dcd     0xe2840064
@@ -67,7 +67,7 @@ asm void func_ov118_020d0df0(void)
     dcd     0xe2841064
     dcd     0xe1a02001
     bl      func_01ffa724
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840060
     dcd     0xe5940044
     dcd     0xe59f2040

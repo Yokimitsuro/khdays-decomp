@@ -48,7 +48,7 @@ asm void func_ov053_020b5e0c(void)
     dcd     0x0a00000c
     dcd     0xe1a01004
     bl      func_ov053_020b7b10
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840010
     dcd     0xea000007
     dcd     0xe59716bc

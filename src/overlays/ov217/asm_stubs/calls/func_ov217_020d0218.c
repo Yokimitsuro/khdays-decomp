@@ -8,7 +8,7 @@ asm void func_ov217_020d0218(void) {
     dcd 0xe1a05000
     dcd 0xe2850fe2
     bl func_0202a440
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5850394
     dcd 0xe5950384
     bl func_0203c7e8

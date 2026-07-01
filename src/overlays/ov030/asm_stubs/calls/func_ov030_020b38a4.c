@@ -19,7 +19,7 @@ asm void func_ov030_020b38a4(void)
     dcd     0xe28d3000
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2842098
     dcd     0xe58d0004
     dcd     0xe2820b01
@@ -61,7 +61,7 @@ asm void func_ov030_020b38a4(void)
     dcd     0xe5842464
     dcd     0xe3811000
     dcd     0xe5801404
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd018
     dcd     0xe8bd8010
 }

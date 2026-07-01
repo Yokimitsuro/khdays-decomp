@@ -49,7 +49,7 @@ asm void func_ov240_020cf8c0(void)
     dcd     0xe2803074
     dcd     0xe3a0200d
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840038
     dcd     0xe1d512d0
     dcd     0xe59f2010

@@ -22,7 +22,7 @@ asm void func_ov130_020cd1bc(void)
     dcd     0xe5841030
     dcd     0xe5840034
     dcd     0xe584001c
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c40041
     dcd     0xe1a00005
     bl      func_ov130_020cc468

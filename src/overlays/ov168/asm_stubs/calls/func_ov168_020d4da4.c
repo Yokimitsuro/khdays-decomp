@@ -12,7 +12,7 @@ asm void func_ov168_020d4da4(void)
     dcd     0xe5940000
     dcd     0xe1a02001
     bl      func_ov107_020c9264
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_02023eb4
     dcd     0xe2800078
     dcd     0xe5840054

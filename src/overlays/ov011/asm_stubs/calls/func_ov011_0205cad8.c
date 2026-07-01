@@ -14,9 +14,9 @@ asm void func_ov011_0205cad8(void)
     dcd     0x1a000001
     bl      func_ov011_0205c884
     dcd     0xe8bd8008
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_ov011_0205c6fc
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_ov011_0205c6fc
     dcd     0xe8bd8008
     dcd     data_ov011_0205e960

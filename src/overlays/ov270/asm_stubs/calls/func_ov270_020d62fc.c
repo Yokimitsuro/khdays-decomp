@@ -39,7 +39,7 @@ asm void func_ov270_020d62fc(void)
     dcd     0xe3a02008
     dcd     0xe2833014
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c80053
     dcd     0xe59d0008
     dcd     0xe5981030
@@ -129,7 +129,7 @@ asm void func_ov270_020d62fc(void)
     dcd     0xe28d10bc
     dcd     0xe3a02014
     dcd     0xe12fff33
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c80051
     dcd     0xe5d80050
     dcd     0xe2800001
@@ -142,7 +142,7 @@ asm void func_ov270_020d62fc(void)
     dcd     0xe28d3038
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f433c
     dcd     0xe28d3028
     dcd     0xe58d000c
@@ -303,7 +303,7 @@ asm void func_ov270_020d62fc(void)
     dcd     0xe797010a
     dcd     0xe5d8e051
     dcd     0xe5d0c1b4
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe3a01e16
     dcd     0xe18e0c10
     dcd     0xe5c80051

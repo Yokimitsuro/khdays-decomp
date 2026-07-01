@@ -7,7 +7,7 @@ asm void func_ov157_020d0318(void)
     dcd     0xe92d4038
     dcd     0xe1a05000
     dcd     0xe5954004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840028
     dcd     0xe5942000
     dcd     0xe2843018
@@ -49,7 +49,7 @@ asm void func_ov157_020d0318(void)
     dcd     0xe3a00c05
     bl      func_01ffa724
     dcd     0xe5d41024
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f2018
     dcd     0xe3c11001
     dcd     0xe5c41024

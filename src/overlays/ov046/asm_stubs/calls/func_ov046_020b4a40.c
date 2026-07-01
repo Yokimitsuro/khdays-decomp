@@ -3,10 +3,10 @@ extern void func_02023930(void);
 
 asm void func_ov046_020b4a40(void)
 {
-    dcd     0xe59fc008
+    ldr ip, [pc, #8]
     dcd     0xe1a01000
     dcd     0xe59f0004
-    dcd     0xe12fff1c
+    bx  ip
     dcd     func_02023930
     dcd     data_ov046_020b4aa0
 }

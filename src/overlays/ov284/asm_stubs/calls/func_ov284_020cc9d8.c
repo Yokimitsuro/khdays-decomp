@@ -31,7 +31,7 @@ asm void func_ov284_020cc9d8(void)
     dcd     0xe5840010
     dcd     0xe5940000
     dcd     0xe5942010
-    dcd     0xe59f100c
+    ldr r1, [pc, #12]
     dcd     0xe28000a0
     bl      func_0203c9b4
     dcd     0xe8bd8010

@@ -33,7 +33,7 @@ asm void func_ov115_020cc9bc(void)
     dcd     0xe1510000
     dcd     0xba00002e
     dcd     0xe28d1088
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5810000
     dcd     0xe5810004
     dcd     0xe5810008
@@ -77,7 +77,7 @@ asm void func_ov115_020cc9bc(void)
     dcd     0xe288100c
     dcd     0xe2800004
     bl      func_0203ca30
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c8001c
     dcd     0xe5d8001c
     dcd     0xe3500001

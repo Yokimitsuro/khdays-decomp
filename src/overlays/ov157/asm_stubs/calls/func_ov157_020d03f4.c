@@ -345,7 +345,7 @@ asm void func_ov157_020d03f4(void)
     dcd     0xe5935004
     bl      func_01ffa724
     dcd     0xe5971000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe5913080
     dcd     0xe595007c
@@ -406,7 +406,7 @@ asm void func_ov157_020d03f4(void)
     dcd     0xe1811a00
     dcd     0xe587100c
     dcd     0xe5971000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5d1117a
     dcd     0xe1a01f81
     dcd     0xe1b01fa1

@@ -14,7 +14,7 @@ asm void func_ov123_020cc2a0(void)
     dcd     0xe5d50003
     dcd     0xe3500000
     dcd     0x1a000015
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe58d0004
     dcd     0xe5961398

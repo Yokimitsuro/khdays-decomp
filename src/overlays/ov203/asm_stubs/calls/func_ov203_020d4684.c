@@ -61,7 +61,7 @@ asm void func_ov203_020d4684(void) {
     dcd 0xe8940007
     dcd 0xe8830007
     dcd 0xe1a01004
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe3a0200c
     bl INITi_CpuClear32_0x01ff86fc
     dcd 0xe28dd020

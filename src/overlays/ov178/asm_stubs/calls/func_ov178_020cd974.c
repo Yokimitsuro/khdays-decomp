@@ -34,7 +34,7 @@ asm void func_ov178_020cd974(void) {
     dcd 0xe28d2000
     dcd 0xe2811074
     bl VEC_Subtract
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe28d0000
     dcd 0xe594500c

@@ -38,7 +38,7 @@ asm void func_ov094_020bb5f0(void)
     dcd     0xe1a00005
     dcd     0xe2861f46
     bl      func_ov094_020bb894
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840000
     dcd     0xe8bd8070
     dcd     data_ov094_020bc240

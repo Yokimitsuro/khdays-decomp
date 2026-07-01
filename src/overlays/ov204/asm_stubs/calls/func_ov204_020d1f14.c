@@ -248,7 +248,7 @@ asm void func_ov204_020d1f14(void) {
     dcd 0xe28d10ec
     dcd 0xe28d20f8
     bl VEC_Subtract
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d00fc
     dcd 0xe28d00f8
     dcd 0xe1a01000
@@ -362,7 +362,7 @@ asm void func_ov204_020d1f14(void) {
     bl func_ov107_020c38ac
     dcd 0xe3500000
     dcd 0x0a00007a
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe28d2054
     dcd 0xe1a01000
     dcd 0xe8a20003
@@ -509,7 +509,7 @@ asm void func_ov204_020d1f14(void) {
     dcd 0xe3a0100a
     dcd 0xe3a02001
     bl func_ov107_020c9264
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe28ddf47
     dcd 0xe5c40045
     dcd 0xe8bd8ff0

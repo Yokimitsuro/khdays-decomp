@@ -87,7 +87,7 @@ asm void func_ov136_020d1d24(void)
     dcd     0xe59613a4
     dcd     0xe581000c
     dcd     0xea00000b
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe3a02001
     dcd     0xe58d2004

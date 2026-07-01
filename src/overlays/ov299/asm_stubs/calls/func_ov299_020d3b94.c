@@ -30,7 +30,7 @@ asm void func_ov299_020d3b94(void)
     dcd     0xe28d3020
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe59d1000
     dcd     0xe3a00002
@@ -71,7 +71,7 @@ asm void func_ov299_020d3b94(void)
     bl      func_01fffde0
     dcd     0xe5902000
     dcd     0xe5901004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe0011000
     dcd     0xe2022801
     dcd     0xe1510000

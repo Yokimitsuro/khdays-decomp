@@ -37,7 +37,7 @@ asm void func_ov198_020cfc4c(void) {
     dcd 0xe2843fe9
     dcd 0xe8900007
     dcd 0xe8830007
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58403e4
     dcd 0xe5d500ad
     dcd 0xe3500000
@@ -95,7 +95,7 @@ asm void func_ov198_020cfc4c(void) {
     dcd 0xe2843e3b
     dcd 0xe8950007
     dcd 0xe8830007
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe58403e4
     dcd 0xe28dd054
     dcd 0xe8bd8078

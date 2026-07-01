@@ -13,7 +13,7 @@ asm void func_ov220_020d1e10(void) {
     dcd 0x0a000003
     dcd 0xe594003c
     bl func_0203c650
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58403d0
     dcd 0xe2840c01
     dcd 0xe1d00cd6
@@ -23,7 +23,7 @@ asm void func_ov220_020d1e10(void) {
     dcd 0x0a000003
     dcd 0xe594003c
     bl func_0203c650
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58403d8
     dcd 0xe1a00004
     bl func_ov107_020c7ca4

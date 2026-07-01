@@ -12,7 +12,7 @@ asm void func_ov291_020cc550(void)
     dcd     0xe3500000
     dcd     0x0a000002
     bl      func_0203d194
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58603a0
     dcd     0xe1a00005
     bl      func_0203d15c

@@ -93,9 +93,9 @@ asm void func_ov188_020ce254(void)
     dcd     0xe0861181
     dcd     0xe58103cc
     dcd     0xea000023
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0004
     dcd     0xe0861181
     dcd     0xe596003c
@@ -121,13 +121,13 @@ asm void func_ov188_020ce254(void)
     dcd     0x0a000003
     dcd     0xe596003c
     bl      func_0203c650
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58603e4
     dcd     0xe59603c4
     dcd     0xe3500000
     dcd     0x0a000002
     bl      func_ov107_020cb100
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58603c4
     dcd     0xe1a00006
     dcd     0xe1a01005

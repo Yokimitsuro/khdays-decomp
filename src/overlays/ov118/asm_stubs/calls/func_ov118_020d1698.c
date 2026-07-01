@@ -25,7 +25,7 @@ asm void func_ov118_020d1698(void)
     dcd     0xe1811a00
     dcd     0xe0540001
     dcd     0xe5830068
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x58bd8010
     dcd     0xe5931000
     dcd     0xe5d1117a

@@ -12,7 +12,7 @@ asm void func_ov145_020ce3e8(void)
     dcd     0xe5c13026
     dcd     0xe59033bc
     dcd     0xe5c13025
-    dcd     0xe59fc000
-    dcd     0xe12fff1c
+    ldr ip, [pc, #0]
+    bx  ip
     dcd     func_ov107_020c7a90
 }

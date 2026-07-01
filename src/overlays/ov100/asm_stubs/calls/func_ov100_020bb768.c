@@ -32,10 +32,10 @@ asm void func_ov100_020bb768(void)
     dcd     0xe3a01002
     dcd     0xe3a02000
     bl      func_01fff774
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584010c
     dcd     0xe5840110
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c40000
     dcd     0xe8bd8010
 }

@@ -13,6 +13,6 @@ asm void func_ov239_020cc424(void)
     dcd     0x13510007
     dcd     0x13a01007
     dcd     0x15c011c7
-    dcd     0xe12fff1c
+    bx  ip
     dcd     func_ov107_020c7ca4
 }

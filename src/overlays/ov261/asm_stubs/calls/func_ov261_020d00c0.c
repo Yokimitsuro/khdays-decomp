@@ -82,7 +82,7 @@ asm void func_ov261_020d00c0(void)
     dcd     0xe1a01c01
     dcd     0xe1821821
     dcd     0xe1c016b0
-    dcd     0xe59fc000
-    dcd     0xe12fff1c
+    ldr ip, [pc, #0]
+    bx  ip
     dcd     func_ov107_020c7ca4
 }

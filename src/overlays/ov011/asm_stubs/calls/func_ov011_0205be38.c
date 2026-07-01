@@ -14,7 +14,7 @@ asm void func_ov011_0205be38(void)
     dcd     0xe59f21e4
     dcd     0xe59f11e4
     dcd     0xe5924004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5840004
     dcd     0xe5920004
     dcd     0xe59f31d4
@@ -113,7 +113,7 @@ asm void func_ov011_0205be38(void)
     bl      G2x_SetBlendBrightness_
     dcd     0xe59f1068
     dcd     0xe59f2068
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_02000f48
     dcd     0xe59f0060
     dcd     0xe3a02000

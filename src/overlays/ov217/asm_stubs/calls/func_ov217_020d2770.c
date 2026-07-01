@@ -40,7 +40,7 @@ asm void func_ov217_020d2770(void) {
     dcd 0xe59c008c
     dcd 0xe1520000
     dcd 0xbafffff5
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5840004
     dcd 0xe1d512d0
     dcd 0xe59f200c

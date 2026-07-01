@@ -3,9 +3,9 @@ extern void func_ov094_020bc0d4(void);
 
 asm void SNDi_UnlockMutex_ov094_0x020ba7c0(void)
 {
-    dcd     0xe59fc004
+    ldr ip, [pc, #4]
     dcd     0xe59f0004
-    dcd     0xe12fff1c
+    bx  ip
     dcd     srand_0x0208875c
     dcd     func_ov094_020bc0d4
 }

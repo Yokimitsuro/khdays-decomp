@@ -34,7 +34,7 @@ asm void func_ov276_020d198c(void) {
     bl func_02023eb4
     dcd 0xe350002d
     dcd 0x2a00000a
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe584005c
     dcd 0xe5940000
     dcd 0xe3a01004

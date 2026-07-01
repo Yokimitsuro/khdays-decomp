@@ -71,7 +71,7 @@ asm void func_ov189_020d1164(void)
     dcd     0xe19e30f3
     dcd     0xe0441001
     dcd     0xe0414000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe3a00d12
     dcd     0xe28d1000

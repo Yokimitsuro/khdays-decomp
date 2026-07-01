@@ -74,7 +74,7 @@ asm void func_ov124_020d0e64(void)
     dcd     0xe1811a00
     dcd     0xe1833a02
     dcd     0xe0537001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x41a07000
     dcd     0xe1a06009
     dcd     0xea000047

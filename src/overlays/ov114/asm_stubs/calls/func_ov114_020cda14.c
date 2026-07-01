@@ -16,7 +16,7 @@ asm void func_ov114_020cda14(void)
     dcd     0xe8940009
     dcd     0xe3a02004
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840044
     dcd     0xe5c40049
     dcd     0xe1d512d0

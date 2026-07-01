@@ -39,7 +39,7 @@ asm void func_ov165_020d474c(void) {
     dcd 0xe3a01004
     dcd 0xe3a03001
     bl func_0203b9fc
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5840008
     dcd 0xe1d512d0
     dcd 0xe59f200c

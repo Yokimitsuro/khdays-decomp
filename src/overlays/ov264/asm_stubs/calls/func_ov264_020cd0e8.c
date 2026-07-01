@@ -8,7 +8,7 @@ asm void func_ov264_020cd0e8(void) {
     dcd 0xe5820050
     dcd 0xe3500000
     dcd 0xca000009
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5820050
     dcd 0xe5920008
     dcd 0xe3500000
@@ -16,8 +16,8 @@ asm void func_ov264_020cd0e8(void) {
     dcd 0xe5920000
     dcd 0xe3a01006
     dcd 0xe5c011c7
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe12fff1e
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe12fff1e
 }

@@ -20,7 +20,7 @@ asm void func_ov293_020d26d8(void)
     dcd     0xe0c31392
     dcd     0xe08030c3
     dcd     0xe5843014
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840040
     dcd     0xe1d512d0
     dcd     0xe59f200c

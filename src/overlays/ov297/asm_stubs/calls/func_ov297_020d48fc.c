@@ -15,7 +15,7 @@ asm void func_ov297_020d48fc(void)
     bl      func_ov107_020c9264
     dcd     0xe3a00c09
     dcd     0xe5840050
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840088
     dcd     0xe5942030
     dcd     0xe5941028

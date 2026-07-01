@@ -43,7 +43,7 @@ asm void func_ov130_020ccf5c(void)
     dcd     0xe1a00080
     dcd     0xe19110f0
     dcd     0xe5842018
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584001c
     dcd     0xe5841020
     dcd     0xe2841018

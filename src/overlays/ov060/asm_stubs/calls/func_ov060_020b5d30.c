@@ -25,7 +25,7 @@ asm void func_ov060_020b5d30(void)
     dcd     0x0a00000d
     dcd     0xe1a00006
     bl      func_ov060_020b6470
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5860664
     dcd     0xea000008
     dcd     0xe59506bc
@@ -35,7 +35,7 @@ asm void func_ov060_020b5d30(void)
     bl      func_ov060_020b6470
     dcd     0xe2860e22
     bl      func_ov060_020b6aa0
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5860664
     dcd     0xe1a00005
     dcd     0xe1a01004

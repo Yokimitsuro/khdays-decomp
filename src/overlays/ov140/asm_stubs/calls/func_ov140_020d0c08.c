@@ -56,7 +56,7 @@ asm void func_ov140_020d0c08(void)
     dcd     0xe1a03823
     dcd     0xe1a03243
     dcd     0xe1a06083
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe59fe080
     dcd     0xe1a03086

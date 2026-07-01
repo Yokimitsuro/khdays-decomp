@@ -7,7 +7,7 @@ asm void func_ov099_020bafcc(void)
     dcd     0xe92d4008
     dcd     0xe28020a8
     dcd     0xe3510022
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x0a000002
     dcd     0xe3510023
     dcd     0x0a000005

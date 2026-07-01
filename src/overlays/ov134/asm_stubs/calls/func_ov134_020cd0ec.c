@@ -34,7 +34,7 @@ asm void func_ov134_020cd0ec(void)
     dcd     0xe2800e19
     dcd     0xe28110b0
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0010
     dcd     0xe28d000c
     dcd     0xe5945000

@@ -11,7 +11,7 @@ asm void func_ov145_020cf26c(void)
     bl      func_ov145_020ce78c
     dcd     0xe3500000
     dcd     0x0a000009
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe584004c
     dcd     0xe5940000
     dcd     0xe3a01004

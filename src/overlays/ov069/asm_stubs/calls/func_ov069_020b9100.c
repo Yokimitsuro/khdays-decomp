@@ -104,7 +104,7 @@ asm void func_ov069_020b9100(void)
     dcd     0xe1a02644
     bl      func_ov069_020b8a90
     dcd     0xea000006
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0000
     dcd     0xe591101c
     dcd     0xe1a0000a

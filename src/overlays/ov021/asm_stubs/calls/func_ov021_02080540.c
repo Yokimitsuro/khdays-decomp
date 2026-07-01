@@ -40,7 +40,7 @@ asm void func_ov021_02080540(void)
     dcd     0xe1d11bdc
     dcd     0xe1510000
     dcd     0x1a000003
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a0100f
     bl      func_02033b24
     dcd     0xe8bd8010
@@ -53,7 +53,7 @@ asm void func_ov021_02080540(void)
     bl      func_01fffe14
     bl      func_ov022_020881f8
     dcd     0xe1a02000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1a03000
     dcd     0xe3a0100f
     bl      func_02033d0c

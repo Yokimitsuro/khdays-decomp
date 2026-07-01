@@ -43,7 +43,7 @@ asm void func_ov014_0207fbf0(void)
     dcd     0x0a000005
     dcd     0xe5d611b1
     dcd     0xe28dd00c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3811001
     dcd     0xe5c611b1
     dcd     0xe8bd8078

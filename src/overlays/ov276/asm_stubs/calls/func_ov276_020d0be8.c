@@ -38,9 +38,9 @@ asm void func_ov276_020d0be8(void) {
     bl func_02023eb4
     dcd 0xe3500032
     dcd 0x2a00000c
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe584005c
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5840054
     dcd 0xe5940000
     dcd 0xe3a01004
@@ -61,6 +61,6 @@ asm void func_ov276_020d0be8(void) {
     dcd 0xe1500001
     dcd 0x13a00001
     dcd 0x18bd80f8
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe8bd80f8
 }

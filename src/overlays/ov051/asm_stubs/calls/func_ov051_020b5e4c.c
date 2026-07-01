@@ -36,15 +36,15 @@ asm void func_ov051_020b5e4c(void)
     dcd     0x13a00000
     dcd     0x15840004
     dcd     0x1a000002
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5840004
     dcd     0xe3a05033
     dcd     0xe3a0602f
     dcd     0xea000004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5840004
     dcd     0xea000001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840004
     dcd     0xe1a00007
     dcd     0xe1a01006

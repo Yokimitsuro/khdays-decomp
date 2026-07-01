@@ -76,7 +76,7 @@ asm void func_ov121_020cf4d4(void)
     dcd     0xe3500eff
     dcd     0xba00007f
     dcd     0xe28d9060
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f4234
     dcd     0xe28d3028
     dcd     0xe1a0a009
@@ -182,7 +182,7 @@ asm void func_ov121_020cf4d4(void)
     dcd     0xe7950108
     dcd     0xe5d6204d
     dcd     0xe1d010b2
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1a0300a
     dcd     0xe1820110
     dcd     0xe5c6004d

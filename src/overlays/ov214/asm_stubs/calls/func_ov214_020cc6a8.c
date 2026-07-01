@@ -65,7 +65,7 @@ asm void func_ov214_020cc6a8(void) {
     dcd 0xea000050
     dcd 0xe3a00003
     dcd 0xe58d0000
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe0861181
     dcd 0xe596003c
@@ -112,11 +112,11 @@ asm void func_ov214_020cc6a8(void) {
     dcd 0xe1a00006
     bl func_ov107_020c0b14
     dcd 0xea000022
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe3510002
     dcd 0x03a02000
     dcd 0xe58d0000
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0x13a02004
     dcd 0xe58d0004
     dcd 0xe0861181

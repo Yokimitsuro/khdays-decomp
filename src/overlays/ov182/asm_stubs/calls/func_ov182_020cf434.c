@@ -83,7 +83,7 @@ asm void func_ov182_020cf434(void)
     dcd     0xe1a00080
     dcd     0xe19110f0
     dcd     0xe5842028
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584002c
     dcd     0xe59f00ec
     dcd     0xe5841030

@@ -80,7 +80,7 @@ asm void func_ov175_020cda70(void)
     dcd     0xe3a00065
     bl      func_02023eb4
     dcd     0xe2801000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584005c
     dcd     0xe351003c
     dcd     0xaa000004

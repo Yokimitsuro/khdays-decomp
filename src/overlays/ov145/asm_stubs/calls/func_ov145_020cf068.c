@@ -17,7 +17,7 @@ asm void func_ov145_020cf068(void)
     dcd     0xe3100001
     dcd     0x028dd00c
     dcd     0x08bd8030
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840044
     dcd     0xe5840048
     dcd     0xe584004c
@@ -51,7 +51,7 @@ asm void func_ov145_020cf068(void)
     dcd     0xe284300c
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840040
     dcd     0xe5940000
     dcd     0xe2801feb
@@ -70,7 +70,7 @@ asm void func_ov145_020cf068(void)
     bl      func_020050b4
     dcd     0xe5840034
     dcd     0xe5840030
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe584004c
     dcd     0xe5940000
     dcd     0xe3a01007

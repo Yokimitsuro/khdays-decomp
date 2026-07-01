@@ -91,7 +91,7 @@ asm void func_ov261_020d04f0(void)
     dcd     0xe3c228ff
     dcd     0xe1a01c01
     dcd     0xe1821421
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5861000
     dcd     0xe8bd8ff8
     dcd     0xe2800001

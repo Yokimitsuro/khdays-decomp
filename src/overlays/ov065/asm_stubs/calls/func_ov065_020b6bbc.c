@@ -18,7 +18,7 @@ asm void func_ov065_020b6bbc(void)
     dcd     0xbafffff7
     dcd     0xe3540000
     dcd     0x08bd8038
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe3a01000
     dcd     0xe5840000
     dcd     0xe1a03001

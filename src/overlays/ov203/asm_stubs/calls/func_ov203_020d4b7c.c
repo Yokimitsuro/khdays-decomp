@@ -35,7 +35,7 @@ asm void func_ov203_020d4b7c(void) {
     dcd 0xe2800e19
     dcd 0xe28110b0
     bl VEC_Subtract
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0010
     dcd 0xe28d000c
     dcd 0xe1a01000

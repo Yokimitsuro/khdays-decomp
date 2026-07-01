@@ -25,7 +25,7 @@ asm void func_ov135_020d1694(void)
     dcd     0xe5940030
     dcd     0xe3500e33
     dcd     0xba000006
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c40040
     dcd     0xe5940000
     dcd     0xe594303c

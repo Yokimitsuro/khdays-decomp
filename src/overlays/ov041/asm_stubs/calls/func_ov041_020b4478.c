@@ -109,13 +109,13 @@ asm void func_ov041_020b4478(void)
     dcd     0xe5871000
     dcd     0xe3800901
     dcd     0xe5870004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5870058
     dcd     0xe28d0018
     dcd     0xe28d3000
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2872098
     dcd     0xe58d0004
     dcd     0xe2820b01

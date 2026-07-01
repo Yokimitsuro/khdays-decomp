@@ -62,9 +62,9 @@ asm void func_ov115_020cc398(void)
     dcd     0xea00007b
     dcd     0xea00007a
     dcd     0xea00005d
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe596139c
     dcd     0xe596238c

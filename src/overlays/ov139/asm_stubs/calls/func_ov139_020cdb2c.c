@@ -36,14 +36,14 @@ asm void func_ov139_020cdb2c(void)
     dcd     0xe3a0100c
     dcd     0xe3a02000
     bl      func_ov107_020c9264
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c40054
     dcd     0xe5940000
     dcd     0xe594304c
     dcd     0xe59f1028
     dcd     0xe3a02006
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c40055
     dcd     0xe584003c
     dcd     0xe1a00005

@@ -77,7 +77,7 @@ asm void func_ov270_020d4be4(void)
     dcd     0xe1a01081
     dcd     0xe0404002
     dcd     0xe59f20fc
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe19230f3
     dcd     0xe19220f1
     dcd     0xe58d0004

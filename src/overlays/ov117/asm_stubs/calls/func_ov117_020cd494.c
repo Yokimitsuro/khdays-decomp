@@ -48,7 +48,7 @@ asm void func_ov117_020cd494(void)
     dcd     0xe1b00fa0
     dcd     0x028dd014
     dcd     0x08bd8030
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840038
     dcd     0xe5944000
     dcd     0xe59f203c

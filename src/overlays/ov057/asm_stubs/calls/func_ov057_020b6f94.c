@@ -53,7 +53,7 @@ asm void func_ov057_020b6f94(void)
     dcd     0xe28d3000
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2872098
     dcd     0xe58d0004
     dcd     0xe2820b01

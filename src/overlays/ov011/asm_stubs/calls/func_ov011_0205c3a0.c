@@ -13,15 +13,15 @@ asm void func_ov011_0205c3a0(void)
     dcd     0xe92d4ff0
     dcd     0xe24dd00c
     bl      func_ov011_0205cad8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a01001
     bl      func_ov011_0205bb58
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1a01000
     bl      func_ov011_0205bb58
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_ov011_0205cff0
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_ov011_0205cff0
     dcd     0xe3a08000
     dcd     0xe59f51f8

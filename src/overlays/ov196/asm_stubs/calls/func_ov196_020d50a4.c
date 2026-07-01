@@ -38,7 +38,7 @@ asm void func_ov196_020d50a4(void)
     dcd     0xe3a02004
     dcd     0xe2833014
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c80053
     dcd     0xe59d0008
     dcd     0xe5981030
@@ -110,13 +110,13 @@ asm void func_ov196_020d50a4(void)
     dcd     0xe28d1088
     dcd     0xe3a02014
     dcd     0xe12fff33
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c80050
     dcd     0xe5981030
     dcd     0xe59f02bc
     dcd     0xe1510000
     dcd     0xba00009b
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f42b0
     dcd     0xe28d3028
     dcd     0xe58d000c

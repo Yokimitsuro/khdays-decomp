@@ -13,7 +13,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe92d4ff8
     dcd     0xe24dd050
     dcd     0xe1a0a000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1a05001
     dcd     0xe3520000
     dcd     0xe58d0008
@@ -48,7 +48,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe28d5018
     dcd     0xe28d0030
     dcd     0xe7903107
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1d320b2
     dcd     0xe5da1030
     dcd     0xe1a00210
@@ -63,7 +63,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe1a00006
     dcd     0xe1a01005
     bl      func_01ff8d18
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0028
     dcd     0xe1a00006
     dcd     0xe1a01006
@@ -77,7 +77,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe1a02006
     bl      func_01ffa724
     dcd     0xe59a1000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d6000
     dcd     0xe58d0004
     dcd     0xe28d0030
@@ -99,7 +99,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe28d1040
     dcd     0xe1a02005
     bl      VEC_Add
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe8950007
     dcd     0xe8840007
@@ -107,7 +107,7 @@ asm void func_ov239_020cc778(void)
     dcd     0xe3a01003
     dcd     0xe894000c
     bl      func_ov107_020c0b90
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5da1030
     dcd     0xe58d0008
     dcd     0xe1810009

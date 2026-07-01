@@ -57,7 +57,7 @@ asm void func_ov184_020d38fc(void)
     dcd     0xe0802242
     dcd     0xe5842020
     dcd     0xe594e000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1de36b0
     dcd     0xe59f1048
     dcd     0xe3a02007

@@ -18,7 +18,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe0820102
     dcd     0xe58d1000
     dcd     0xe0831000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0010
     dcd     0xe59d0000
     dcd     0xe3a020a0
@@ -48,7 +48,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xbafffff3
     dcd     0xe1d622f2
     dcd     0xe3a01001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d20b8
     dcd     0xe5962018
     dcd     0xe58d10c4
@@ -85,7 +85,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe58d2010
     bl      NNS_FndAppendListObject
     dcd     0xe1d411b6
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe3510000
     dcd     0xda0000de
@@ -109,10 +109,10 @@ asm void func_ov069_020b9734(void)
     dcd     0xe3a09001
     dcd     0xe1811a39
     dcd     0xe2409020
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1811910
     dcd     0xe0021001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1510000
     dcd     0x01530005
     dcd     0x0a0000b5
@@ -136,7 +136,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe3a09001
     dcd     0xe1811a39
     dcd     0xe2409020
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1811910
     dcd     0xe1820001
     dcd     0xe58300d0
@@ -166,7 +166,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe3500004
     dcd     0x1a00001e
     dcd     0xe1d932f2
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28d20b8
     dcd     0xe5921000
     dcd     0xe1530001
@@ -193,7 +193,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe7801002
     dcd     0xe5990018
     dcd     0xe5830004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe583000c
     dcd     0xea000065
     dcd     0xe1d902f2
@@ -283,7 +283,7 @@ asm void func_ov069_020b9734(void)
     dcd     0xe59a1008
     dcd     0xe0810000
     dcd     0xe58a0008
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58a000c
     dcd     0xe5990018
     dcd     0xe3500001

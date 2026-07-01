@@ -13,7 +13,7 @@ asm void func_ov087_020b8dfc(void)
     dcd     0xe2821004
     dcd     0xe584110c
     bl      func_ov087_020b8f4c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840120
     dcd     0xe8bd8010
     dcd     data_ov087_020b9be0

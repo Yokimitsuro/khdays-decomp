@@ -48,15 +48,15 @@ asm void func_ov003_0204e9d8(void)
     dcd     0xba00002f
     dcd     0xe3520000
     dcd     0x1a000005
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5810764
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840774
     dcd     0xe59f60f4
     dcd     0xea000027
     dcd     0xe3520003
     dcd     0x0a000025
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5810764
     dcd     0xe1a00008
     dcd     0xe3a01000

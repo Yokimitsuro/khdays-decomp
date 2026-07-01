@@ -147,7 +147,7 @@ asm void func_ov123_020cdbf8(void)
     dcd     0xe3100004
     dcd     0x1a000085
     dcd     0xe28d2068
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1a03002
     dcd     0xe1a01000
     dcd     0xe8a30003

@@ -71,7 +71,7 @@ asm void func_ov076_020b891c(void)
     dcd     0xe1cd04b0
     dcd     0xe1cd23bc
     dcd     0xe1d521d9
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a01002
     dcd     0xe58d1048
     dcd     0xe58d2044
@@ -91,7 +91,7 @@ asm void func_ov076_020b891c(void)
     dcd     0x158d0050
     dcd     0xe1a00006
     bl      func_ov022_02091324
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd05c
     dcd     0xe8bd8078
     dcd     data_ov076_020b9be4

@@ -41,7 +41,7 @@ asm void func_ov011_0205c5e4(void)
     dcd     0xe19200b0
     dcd     0xe1510000
     dcd     0x3a000013
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_02034014
     dcd     0xe3500000
     dcd     0x1a00000f
@@ -51,7 +51,7 @@ asm void func_ov011_0205c5e4(void)
     dcd     0xe3500001
     dcd     0x1a000002
     dcd     0xe59f1068
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_02000fb4
     dcd     0xe59f0054
     dcd     0xe5901004

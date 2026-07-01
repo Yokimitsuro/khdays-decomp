@@ -40,6 +40,6 @@ asm void func_ov003_0204f69c(void)
     dcd     0xe8bd8010
     dcd     0xe1a00004
     bl      func_ov003_0204ef68
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe8bd8010
 }

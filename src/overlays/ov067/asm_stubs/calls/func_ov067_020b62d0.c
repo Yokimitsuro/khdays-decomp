@@ -57,7 +57,7 @@ asm void func_ov067_020b62d0(void)
     dcd     0x18bd8030
     dcd     0xe3a00003
     dcd     0xe5c5047a
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c5047b
     dcd     0xe28dd00c
     dcd     0xe8bd8030

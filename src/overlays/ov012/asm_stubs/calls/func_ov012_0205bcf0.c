@@ -28,7 +28,7 @@ asm void func_ov012_0205bcf0(void)
     dcd     0x08bd8008
     dcd     0xe3a01000
     dcd     0xe580106c
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8008
     dcd     0xe3510001
     dcd     0xba000007

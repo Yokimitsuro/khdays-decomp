@@ -10,7 +10,7 @@ asm void func_ov149_020ceee4(void) {
     dcd 0xe5910014
     dcd 0xe3500080
     dcd 0xa8bd8010
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5810030
     dcd 0xe5910000
     dcd 0xe3a01002

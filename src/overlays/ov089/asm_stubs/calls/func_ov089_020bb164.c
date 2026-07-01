@@ -81,7 +81,7 @@ asm void func_ov089_020bb164(void)
     dcd     0xe5851000
     dcd     0xe3800901
     dcd     0xe5850004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5850058
     dcd     0xe28d000c
     dcd     0xe28dc000
@@ -119,7 +119,7 @@ asm void func_ov089_020bb164(void)
     dcd     0xe1a02001
     dcd     0xe2800004
     bl      func_01fff774
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58507b0
     dcd     0xe5d50694
     dcd     0xe3c00002

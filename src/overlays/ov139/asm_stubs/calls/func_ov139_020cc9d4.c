@@ -16,6 +16,6 @@ asm void func_ov139_020cc9d4(void)
     dcd     0xe3500000
     dcd     0x13a00001
     dcd     0x18bd8008
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe8bd8008
 }

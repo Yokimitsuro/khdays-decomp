@@ -35,7 +35,7 @@ asm void func_ov116_020d0538(void)
     dcd     0xe5940000
     dcd     0xe3a01000
     bl      func_0203c7ac
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840018
     dcd     0xe5c4001c
     dcd     0xe1a00005

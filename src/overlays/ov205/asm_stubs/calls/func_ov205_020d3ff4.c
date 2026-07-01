@@ -14,6 +14,6 @@ asm void func_ov205_020d3ff4(void) {
     dcd 0x112fff1e
     dcd 0xe3a0000a
     dcd 0xe5c201c7
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe12fff1e
 }

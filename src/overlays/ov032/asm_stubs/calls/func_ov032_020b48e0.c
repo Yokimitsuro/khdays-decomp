@@ -14,7 +14,7 @@ asm void func_ov032_020b48e0(void)
     dcd     0xe2860fbe
     dcd     0xe5914000
     dcd     0xe2805a02
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c50334
     dcd     0xe5d60009
     dcd     0xe3a01003

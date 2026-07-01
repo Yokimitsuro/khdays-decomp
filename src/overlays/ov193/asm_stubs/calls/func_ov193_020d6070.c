@@ -8,7 +8,7 @@ asm void func_ov193_020d6070(void) {
     dcd 0xe92d4038
     dcd 0xe1a05000
     dcd 0xe5954004
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5840040
     dcd 0xe5840024
     dcd 0xe5942000

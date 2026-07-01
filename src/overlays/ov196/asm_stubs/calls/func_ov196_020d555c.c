@@ -12,7 +12,7 @@ asm void func_ov196_020d555c(void)
     dcd     0xe5950000
     dcd     0xe3a02000
     bl      func_ov107_020c9264
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c50050
     dcd     0xe5850030
     dcd     0xe5950044
@@ -25,7 +25,7 @@ asm void func_ov196_020d555c(void)
     dcd     0x03a00003
     dcd     0x13a00001
     dcd     0xe585004c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c50051
     dcd     0xe5c50053
     dcd     0xe5850054

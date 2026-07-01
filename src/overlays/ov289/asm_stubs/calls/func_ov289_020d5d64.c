@@ -64,7 +64,7 @@ asm void func_ov289_020d5d64(void)
     dcd     0xe28000b0
     dcd     0xe2811e19
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584002c
     dcd     0xea000005
     dcd     0xe3a00801
@@ -108,7 +108,7 @@ asm void func_ov289_020d5d64(void)
     dcd     0xe5d40055
     dcd     0xe2200001
     dcd     0xe5c40055
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd83f8
     dcd     data_ov289_020d7134
     dcd     0x0000015b

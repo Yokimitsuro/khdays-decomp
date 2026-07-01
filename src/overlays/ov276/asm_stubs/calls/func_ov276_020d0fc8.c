@@ -75,7 +75,7 @@ asm void func_ov276_020d0fc8(void) {
     dcd 0xe594100c
     dcd 0xe1a02000
     bl VEC_Add
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0000
     dcd 0xe595007c
     dcd 0xe59f3084

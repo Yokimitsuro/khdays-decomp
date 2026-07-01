@@ -66,7 +66,7 @@ asm void func_ov163_020ce2b0(void) {
     dcd 0xe3500000
     dcd 0x0a000002
     bl func_ov107_020cb100
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58403d0
     dcd 0xe1a00004
     bl func_ov107_020c7ca4

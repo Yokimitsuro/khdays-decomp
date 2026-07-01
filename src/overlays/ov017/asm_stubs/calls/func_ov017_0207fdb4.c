@@ -17,10 +17,10 @@ asm void func_ov017_0207fdb4(void)
     bl      func_ov002_020766e0
     dcd     0xe3500000
     dcd     0x0a000004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c404da
     dcd     0xe28dd010
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe8bd8010
     dcd     0xe3a00008
     dcd     0xe28dd010

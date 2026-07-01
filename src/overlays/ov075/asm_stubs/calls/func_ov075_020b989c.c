@@ -8,6 +8,6 @@ asm void func_ov075_020b989c(void)
     dcd     0xe3a02000
     dcd     0xe283000c
     dcd     0xe5812c80
-    dcd     0xe12fff1c
+    bx  ip
     dcd     func_0202a7dc
 }

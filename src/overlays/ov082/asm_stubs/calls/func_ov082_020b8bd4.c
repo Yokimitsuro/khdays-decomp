@@ -47,7 +47,7 @@ asm void func_ov082_020b8bd4(void)
     dcd     0xba00009b
     dcd     0xe3a00003
     dcd     0xe5c7012c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5870130
     dcd     0xea000096
     dcd     0xe3a01000
@@ -87,7 +87,7 @@ asm void func_ov082_020b8bd4(void)
     dcd     0xe28d2038
     bl      VEC_Add
     dcd     0xe59f11d4
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d1000
     dcd     0xe58d0004
     dcd     0xe28d0038
@@ -149,7 +149,7 @@ asm void func_ov082_020b8bd4(void)
     bl      func_01ffa724
     dcd     0xe3a00004
     dcd     0xe5c7012c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5870130
     dcd     0xea000030
     dcd     0xe28720a4

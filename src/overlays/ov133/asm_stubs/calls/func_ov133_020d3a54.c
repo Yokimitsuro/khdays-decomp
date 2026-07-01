@@ -30,7 +30,7 @@ asm void func_ov133_020d3a54(void)
     dcd     0xe5930030
     dcd     0xe3500002
     dcd     0x1a000005
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5830024
     dcd     0xe583002c
     dcd     0xe5830030

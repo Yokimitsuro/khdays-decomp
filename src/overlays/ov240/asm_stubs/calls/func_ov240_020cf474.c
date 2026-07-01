@@ -90,7 +90,7 @@ asm void func_ov240_020cf474(void)
     dcd     0x1a000003
     dcd     0xe3800010
     dcd     0xe5c4003e
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c4003c
     dcd     0xe1a00004
     dcd     0xe3a01001
@@ -107,7 +107,7 @@ asm void func_ov240_020cf474(void)
     dcd     0x1a000003
     dcd     0xe3800020
     dcd     0xe5c4003e
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c4003c
     dcd     0xe1a00004
     dcd     0xe3a01001

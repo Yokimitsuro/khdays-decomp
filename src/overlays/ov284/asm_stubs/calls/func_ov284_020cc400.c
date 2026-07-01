@@ -24,9 +24,9 @@ asm void func_ov284_020cc400(void)
     dcd     0xea000037
     dcd     0xea000036
     dcd     0xea000027
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0004
     dcd     0xe59613b0
     dcd     0xe59623a4
@@ -64,7 +64,7 @@ asm void func_ov284_020cc400(void)
     dcd     0xe59613b0
     dcd     0xe5810014
     dcd     0xea00000d
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe58d0004
     dcd     0xe59613b0

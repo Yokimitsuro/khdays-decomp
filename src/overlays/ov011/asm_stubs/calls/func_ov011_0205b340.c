@@ -244,7 +244,7 @@ asm void func_ov011_0205b340(void)
     dcd     0xe5d90008
     dcd     0xe1a00e00
     dcd     0xe1b00e20
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x1a000002
     dcd     0xe3a01002
     bl      func_02033fb4

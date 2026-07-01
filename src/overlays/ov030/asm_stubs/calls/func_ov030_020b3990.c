@@ -95,7 +95,7 @@ asm void func_ov030_020b3990(void)
     dcd     0xe2010000
     dcd     0xe3500000
     dcd     0x03530000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x1a00002b
     dcd     0xe1820000
     dcd     0xe5890000

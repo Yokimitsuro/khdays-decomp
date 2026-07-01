@@ -39,7 +39,7 @@ asm void func_ov121_020cf11c(void)
     dcd     0x0a000001
     dcd     0xe3a02004
     dcd     0xe12fff33
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c4004c
     dcd     0xe5941040
     dcd     0xe59f02ac

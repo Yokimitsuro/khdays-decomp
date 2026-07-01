@@ -54,12 +54,12 @@ asm void func_ov219_020d00e8(void)
     dcd     0xe0010000
     dcd     0xe3800001
     dcd     0xe5850024
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840050
     dcd     0xe5940000
     dcd     0xe3a01006
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd83f8
     dcd     0xe2870c02
     dcd     0xe1d021fa
@@ -142,7 +142,7 @@ asm void func_ov219_020d00e8(void)
     dcd     0xe5940000
     dcd     0xe3a01006
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd83f8
     dcd     data_ov219_020d18a4
     dcd     0x00000136

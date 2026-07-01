@@ -164,7 +164,7 @@ asm void func_ov204_020d1930(void) {
     dcd 0xe5941000
     dcd 0xe28d2040
     dcd 0xe58d2000
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe28d0084
     dcd 0xe7900105

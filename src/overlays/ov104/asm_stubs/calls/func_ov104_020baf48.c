@@ -46,7 +46,7 @@ asm void func_ov104_020baf48(void)
     dcd     0xe5842464
     dcd     0xe3811000
     dcd     0xe5801404
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd00c
     dcd     0xe8bd8018
 }

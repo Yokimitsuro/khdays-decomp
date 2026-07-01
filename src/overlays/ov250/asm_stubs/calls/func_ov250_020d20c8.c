@@ -179,7 +179,7 @@ asm void func_ov250_020d20c8(void)
     dcd     0xe28d3030
     dcd     0xe3a02005
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840078
     dcd     0xe5840080
     dcd     0xe2855001
@@ -221,7 +221,7 @@ asm void func_ov250_020d20c8(void)
     dcd     0xe3500000
     dcd     0xa28dd068
     dcd     0xa8bd8ff8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c40050
     dcd     0xe5940000
     dcd     0xe3a0100f

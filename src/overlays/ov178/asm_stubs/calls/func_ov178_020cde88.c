@@ -63,7 +63,7 @@ asm void func_ov178_020cde88(void) {
     dcd 0xe1a02001
     dcd 0xe3a00c03
     bl func_01ffa724
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe58d0004
     dcd 0xe59f0040
     dcd 0xe24d3008
@@ -73,7 +73,7 @@ asm void func_ov178_020cde88(void) {
     dcd 0xe893000c
     dcd 0xe3a01008
     bl func_ov107_020c0b90
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5c50086
     dcd 0xe1d612d0
     dcd 0xe59f2018

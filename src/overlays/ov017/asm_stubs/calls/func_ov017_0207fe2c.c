@@ -87,7 +87,7 @@ asm void func_ov017_0207fe2c(void)
     dcd     0xe1d805d8
     dcd     0xe3500000
     dcd     0x0a00000d
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840268
     dcd     0xe5840264
     dcd     0xe5840260
@@ -184,7 +184,7 @@ asm void func_ov017_0207fe2c(void)
     dcd     0xe3100004
     dcd     0x0a000012
     dcd     0xe28d1004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c10000
     dcd     0xe5c10001
     dcd     0xe5c10002
@@ -308,7 +308,7 @@ asm void func_ov017_0207fe2c(void)
     dcd     0x0a000001
     dcd     0xe2840d0f
     bl      func_0202aa9c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd018
     dcd     0xe8bd8ff8
     dcd     0x00001333

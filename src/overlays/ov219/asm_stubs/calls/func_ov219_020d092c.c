@@ -79,7 +79,7 @@ asm void func_ov219_020d092c(void)
     dcd     0xe3a02b02
     dcd     0xe0922480
     dcd     0xe1833ba0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe0a30000
     dcd     0xe1a02622
     dcd     0xe1822a00

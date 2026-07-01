@@ -94,9 +94,9 @@ asm void func_ov081_020b90d4(void)
     dcd     0x1a000003
     dcd     0xe3a00003
     dcd     0xe5c4047a
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c4047b
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd024
     dcd     0xe8bd80f0
 }

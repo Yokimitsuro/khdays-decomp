@@ -54,7 +54,7 @@ asm void func_ov215_020d14ec(void) {
     dcd 0xe59f20a0
     dcd 0xe59f30a0
     dcd 0xe0889297
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe0288397
     dcd 0xe1a0efc7

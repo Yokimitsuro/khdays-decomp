@@ -44,7 +44,7 @@ asm void func_ov094_020babb8(void)
     dcd     0xe5823004
     dcd     0xe3a0102f
     dcd     0xea000002
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5820004
     dcd     0xe3a01032
     dcd     0xe5952664

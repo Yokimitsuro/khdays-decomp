@@ -101,7 +101,7 @@ asm void func_ov292_020d3c38(void)
     dcd     0xe3100902
     dcd     0x13a00005
     dcd     0x15c101c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe28dd004
     dcd     0xe8bd8078
     dcd     data_ov292_020d48b8

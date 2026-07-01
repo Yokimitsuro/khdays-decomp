@@ -22,7 +22,7 @@ asm void func_ov276_020d13b8(void) {
     dcd 0xe5940000
     dcd 0xe3a01000
     bl func_ov276_020d0cdc
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe584004c
     dcd 0xe1d512d0
     dcd 0xe59f200c

@@ -76,7 +76,7 @@ asm void func_ov203_020d3b78(void) {
     dcd 0xe3a01000
     dcd 0xe5820024
     dcd 0xe58d1000
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe58d0004
     dcd 0xe59613dc
     dcd 0xe596003c

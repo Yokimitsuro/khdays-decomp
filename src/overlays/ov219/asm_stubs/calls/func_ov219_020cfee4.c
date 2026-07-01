@@ -36,11 +36,11 @@ asm void func_ov219_020cfee4(void)
     dcd     0xe0861181
     dcd     0xe58103c8
     dcd     0xea00001c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3520002
     dcd     0x03a03004
     dcd     0xe58d0000
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0004
     dcd     0xe0861182
     dcd     0x13a03000

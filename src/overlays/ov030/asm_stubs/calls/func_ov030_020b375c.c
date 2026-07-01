@@ -15,7 +15,7 @@ asm void func_ov030_020b375c(void)
     dcd     0xe1a04000
     dcd     0xe5d23000
     dcd     0xe2842ecb
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3130004
     dcd     0x1a000006
     dcd     0xe594c000
@@ -37,7 +37,7 @@ asm void func_ov030_020b375c(void)
     dcd     0xe1a00004
     dcd     0xe3a0101b
     dcd     0xe12fff32
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840058
     dcd     0xe594047c
     dcd     0xe3500000

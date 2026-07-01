@@ -137,7 +137,7 @@ asm void func_ov032_020b3994(void)
     dcd     0x158d0020
     dcd     0xe1a00007
     bl      func_ov022_02091324
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd05c
     dcd     0xe8bd80f0
     dcd     data_0203d210

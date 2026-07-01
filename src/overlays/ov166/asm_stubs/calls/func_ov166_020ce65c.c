@@ -13,7 +13,7 @@ asm void func_ov166_020ce65c(void)
     dcd     0xe5943008
     dcd     0xe3a02005
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840028
     dcd     0xe5942000
     dcd     0xe284c018

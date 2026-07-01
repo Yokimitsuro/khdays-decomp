@@ -14,16 +14,16 @@ asm void func_ov012_0205ad1c(void)
     dcd     0xe3e0000f
     bl      func_0201e3cc
     bl      func_0201e1d0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a01001
     bl      func_ov024_0208462c
     dcd     0xe3a01000
     dcd     0xe1a02001
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_020056b4
     dcd     0xe3a00003
     bl      GX_SetBankForBG
-    dcd     0xe3a00000
+    mov r0, #0
     bl      GX_SetBankForBGExtPltt
     dcd     0xe59f007c
     dcd     0xe3a03301

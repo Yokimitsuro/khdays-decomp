@@ -23,7 +23,7 @@ asm void func_ov195_020cfecc(void)
     dcd     0xe8940007
     dcd     0xe88e0007
     dcd     0xe1a0000c
-    dcd     0xe59f1004
+    ldr r1, [pc, #4]
     bl      func_0203ca9c
     dcd     0xe8bd8038
     dcd     0x00002199

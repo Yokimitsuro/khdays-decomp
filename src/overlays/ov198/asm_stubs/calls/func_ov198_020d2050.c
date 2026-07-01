@@ -102,7 +102,7 @@ asm void func_ov198_020d2050(void) {
     dcd 0xe1580009
     dcd 0xbaffffce
     dcd 0xea00005d
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe28d203c
     dcd 0xe1a01000
     dcd 0xe8a20003
@@ -218,7 +218,7 @@ asm void func_ov198_020d2050(void) {
     dcd 0xe590007c
     bl func_01fff920
     dcd 0xe3500000
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0x0a000010
     dcd 0xe58d0004
     dcd 0xe5970004
@@ -249,7 +249,7 @@ asm void func_ov198_020d2050(void) {
     dcd 0xe5900008
     dcd 0xe3500000
     dcd 0x1a000011
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe5970004
     dcd 0xe24d3008
@@ -285,7 +285,7 @@ asm void func_ov198_020d2050(void) {
     dcd 0xe5d001c4
     dcd 0xe310000a
     dcd 0x1a000009
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe5970004
     dcd 0xe24d3008

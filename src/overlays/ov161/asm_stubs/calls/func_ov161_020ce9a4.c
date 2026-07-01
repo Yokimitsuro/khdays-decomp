@@ -84,7 +84,7 @@ asm void func_ov161_020ce9a4(void) {
     dcd 0xe5981000
     dcd 0xe28d20e0
     dcd 0xe58d2000
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0004
     dcd 0xe28d0f42
     dcd 0xe7900104
@@ -189,7 +189,7 @@ asm void func_ov161_020ce9a4(void) {
     dcd 0xe1833012
     dcd 0xe2410020
     dcd 0xe1833032
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe0000132
     dcd 0xe2031001
     dcd 0xe3500000
@@ -228,7 +228,7 @@ asm void func_ov161_020ce9a4(void) {
     bl func_ov107_020c3504
     dcd 0xe3500000
     dcd 0x0a000045
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe1a0200b
     dcd 0xe1a01000
     dcd 0xe8a20003
@@ -284,7 +284,7 @@ asm void func_ov161_020ce9a4(void) {
     dcd 0xe3500000
     dcd 0x0a00000e
     dcd 0xe1da10b2
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe3a02001
     dcd 0xe1a03110
     dcd 0xe2610020

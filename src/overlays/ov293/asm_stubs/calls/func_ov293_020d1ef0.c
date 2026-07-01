@@ -33,7 +33,7 @@ asm void func_ov293_020d1ef0(void)
     dcd     0x0a000003
     dcd     0xe3a00007
     dcd     0xe5c101c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe3520006
     dcd     0x03a00000
@@ -56,7 +56,7 @@ asm void func_ov293_020d1ef0(void)
     dcd     0xe5940000
     dcd     0xe3a01005
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe2870c02
     dcd     0xe1d021fa
@@ -147,7 +147,7 @@ asm void func_ov293_020d1ef0(void)
     dcd     0xe1a00007
     dcd     0xe1a02822
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     data_ov293_020d3660
     dcd     0x0000011a

@@ -5,7 +5,7 @@ extern void func_ov011_0205cb18(void);
 asm void func_ov011_0205ae14(void)
 {
     dcd     0xe92d4008
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_02034014
     dcd     0xe3500000
     dcd     0x13a00000

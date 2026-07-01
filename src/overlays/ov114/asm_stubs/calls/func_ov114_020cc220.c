@@ -4,7 +4,7 @@ asm void func_ov114_020cc220(void)
     dcd     0xe24dd028
     dcd     0xe28dc000
     dcd     0xe1a0e000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1a0200c
     dcd     0xe1a01000
     dcd     0xe8a20003

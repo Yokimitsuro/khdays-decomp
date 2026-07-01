@@ -37,7 +37,7 @@ asm void func_ov144_020cc600(void)
     dcd     0x13500007
     dcd     0x1a000006
     dcd     0xe598238c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe592105c
     dcd     0xe3811002
     dcd     0xe582105c

@@ -12,6 +12,6 @@ asm void func_ov012_0205b3a4(void)
     dcd     0xe592000c
     dcd     0xe5922008
     bl      GX_LoadBGPltt
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8008
 }

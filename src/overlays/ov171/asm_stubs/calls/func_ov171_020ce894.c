@@ -18,7 +18,7 @@ asm void func_ov171_020ce894(void)
     dcd     0xe2800e39
     dcd     0xe890000f
     dcd     0xe88c000f
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840030
     dcd     0xe5840034
     dcd     0xe2840030
@@ -27,7 +27,7 @@ asm void func_ov171_020ce894(void)
     dcd     0xe1a02000
     dcd     0xe5843038
     bl      func_0202f384
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840048
     dcd     0xe5942000
     dcd     0xe284303c

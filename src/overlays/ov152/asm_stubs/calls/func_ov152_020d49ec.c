@@ -14,7 +14,7 @@ asm void func_ov152_020d49ec(void) {
     dcd 0xe24dd028
     dcd 0xe1a04000
     dcd 0xe5945004
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5951000
     dcd 0xe3a07b01
     dcd 0xe5916004
@@ -58,7 +58,7 @@ asm void func_ov152_020d49ec(void) {
     dcd 0xe5950028
     dcd 0xe1a02001
     bl func_01ffa724
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5850034
     dcd 0xe5951000
     dcd 0xe5950008

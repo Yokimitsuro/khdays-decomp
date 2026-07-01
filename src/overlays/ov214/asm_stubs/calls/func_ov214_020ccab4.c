@@ -49,7 +49,7 @@ asm void func_ov214_020ccab4(void) {
     dcd 0x03a00001
     dcd 0x05870020
     dcd 0xea000001
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5870020
     dcd 0xe5940000
     dcd 0xe2800c01
@@ -73,7 +73,7 @@ asm void func_ov214_020ccab4(void) {
     dcd 0xe3800001
     dcd 0xe5870024
     dcd 0xe28dd010
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe8bd83f8
     dcd 0xe2890c02
     dcd 0xe1d021fa
@@ -138,9 +138,9 @@ asm void func_ov214_020ccab4(void) {
     dcd 0xe3a01003
     dcd 0xe5c011c7
     dcd 0xe28dd010
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe8bd83f8
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe5c40074
     dcd 0xe5941000
     dcd 0xe2811c01
@@ -201,9 +201,9 @@ asm void func_ov214_020ccab4(void) {
     dcd 0xe3a01000
     dcd 0xe5841018
     dcd 0xe584001c
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe5c40073
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe28dd010
     dcd 0xe8bd83f8
     dcd data_ov214_020cec1c

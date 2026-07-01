@@ -16,7 +16,7 @@ asm void func_ov145_020ce950(void)
     dcd     0xe92d4ff8
     dcd     0xe24dd048
     dcd     0xe5907004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0008
     dcd     0xe59d2008
     dcd     0xe5973000
@@ -94,7 +94,7 @@ asm void func_ov145_020ce950(void)
     dcd     0xe1a02005
     dcd     0xe2811074
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0034
     dcd     0xe1a00005
     dcd     0xe1a01005
@@ -104,7 +104,7 @@ asm void func_ov145_020ce950(void)
     dcd     0xe28d1024
     dcd     0xe1a02005
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0034
     dcd     0xe1a00005
     dcd     0xe1a01005
@@ -136,7 +136,7 @@ asm void func_ov145_020ce950(void)
     bl      func_01fffde0
     dcd     0xe5902000
     dcd     0xe5901004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe0011000
     dcd     0xe2022801
     dcd     0xe1510000

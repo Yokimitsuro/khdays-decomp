@@ -22,17 +22,17 @@ asm void func_ov012_0205b4b0(void)
     dcd     0xba000009
     dcd     0xe3a02301
     dcd     0xe5921000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3c11c1f
     dcd     0xe5821000
     dcd     0xe5c30bf0
     dcd     0xe2400010
     dcd     0xe5830bf4
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8038
     dcd     0xe26c0000
     dcd     0xe5830bf4
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe8bd8038
     dcd     0xe35c0010
     dcd     0xba00000a
@@ -43,15 +43,15 @@ asm void func_ov012_0205b4b0(void)
     dcd     0xe3c11c1f
     dcd     0xe1810400
     dcd     0xe5830000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe1c305b0
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8038
     dcd     0xe59f0010
     dcd     0xe26c3010
     dcd     0xe58dc000
     bl      G2x_SetBlendAlpha_
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe8bd8038
     dcd     0x04000050
 }

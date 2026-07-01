@@ -89,7 +89,7 @@ asm void func_ov198_020d0438(void) {
     dcd 0x15940000
     dcd 0x13a01006
     dcd 0x15c011c7
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe8bd80f8
     dcd data_ov198_020d24d4
 }

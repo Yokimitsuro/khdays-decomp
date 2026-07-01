@@ -38,7 +38,7 @@ asm void func_ov220_020d3614(void) {
     dcd 0xe5940004
     dcd 0xe3a01000
     dcd 0xe5c010a8
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe5c4003e
     dcd 0xe5940004
     dcd 0xe5d000ad

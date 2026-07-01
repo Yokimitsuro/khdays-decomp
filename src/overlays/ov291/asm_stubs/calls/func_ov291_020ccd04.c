@@ -9,6 +9,6 @@ asm void func_ov291_020ccd04(void)
     dcd     0xe5c131c7
     dcd     0xe3a02000
     dcd     0xe1d012d0
-    dcd     0xe12fff1c
+    bx  ip
     dcd     func_0203c634
 }

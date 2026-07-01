@@ -139,7 +139,7 @@ asm void func_ov124_020cfc04(void)
     dcd     0xe3a01004
     dcd     0xe3a02001
     bl      func_ov107_020c92b0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a04b02
     dcd     0xe58d000c
     dcd     0xe58d0014

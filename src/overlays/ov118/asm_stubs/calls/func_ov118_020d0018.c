@@ -101,6 +101,6 @@ asm void func_ov118_020d0018(void)
     dcd     0xe1a00007
     dcd     0xe3a01e12
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
 }

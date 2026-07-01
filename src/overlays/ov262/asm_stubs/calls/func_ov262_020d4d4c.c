@@ -68,7 +68,7 @@ asm void func_ov262_020d4d4c(void)
     dcd     0xe284200c
     dcd     0xe5843034
     bl      func_0202f240
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840040
     dcd     0xe1d512d0
     dcd     0xe59f200c

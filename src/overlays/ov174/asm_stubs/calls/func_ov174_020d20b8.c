@@ -23,7 +23,7 @@ asm void func_ov174_020d20b8(void)
     dcd     0xe2800074
     dcd     0xe2811074
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840030
     dcd     0xe284002c
     dcd     0xe1a01000

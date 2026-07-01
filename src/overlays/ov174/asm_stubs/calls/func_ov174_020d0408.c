@@ -63,7 +63,7 @@ asm void func_ov174_020d0408(void)
     dcd     0xe5940000
     dcd     0xe3a01007
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe5940000
     dcd     0xe2800c01
@@ -74,7 +74,7 @@ asm void func_ov174_020d0408(void)
     dcd     0x03a00000
     dcd     0x05860020
     dcd     0xea000001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5860020
     dcd     0xe1a00007
     dcd     0xe1a01006
@@ -94,7 +94,7 @@ asm void func_ov174_020d0408(void)
     dcd     0xe5940000
     dcd     0xe3a0100c
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe2870c02
     dcd     0xe1d021fa
@@ -164,7 +164,7 @@ asm void func_ov174_020d0408(void)
     dcd     0x0a000003
     dcd     0xe3a0000a
     dcd     0xe5c101c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe2870c02
     dcd     0xe1d001fa
@@ -185,7 +185,7 @@ asm void func_ov174_020d0408(void)
     dcd     0x05c101c7
     dcd     0x13a0000c
     dcd     0x15c101c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     data_ov174_020d28e8
     dcd     0x00000141

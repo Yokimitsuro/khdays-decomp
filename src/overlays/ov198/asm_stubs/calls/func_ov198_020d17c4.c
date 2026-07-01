@@ -16,7 +16,7 @@ asm void func_ov198_020d17c4(void) {
     dcd 0xe594100c
     dcd 0xe2800e19
     bl VEC_Subtract
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe58d0000
     dcd 0xe28d1004
     dcd 0xe1a00004

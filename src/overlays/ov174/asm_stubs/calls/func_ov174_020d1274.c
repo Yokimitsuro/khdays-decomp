@@ -88,7 +88,7 @@ asm void func_ov174_020d1274(void)
     dcd     0xe59f007c
     dcd     0xe1a01101
     dcd     0xe19010f1
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3510000
     dcd     0xc3a01a01
     dcd     0xd2401a01

@@ -129,7 +129,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe3a00901
     dcd     0xe3a01001
     bl      func_02011174
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe3a01000
     dcd     0xe1a02000
     bl      func_020056b4
@@ -309,7 +309,7 @@ asm void func_ov003_0204d98c(void)
     bl      func_0202accc
     dcd     0xe084010a
     dcd     0xe2801a01
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5810290
     dcd     0xe59f15d4
     dcd     0xe1a00009
@@ -337,7 +337,7 @@ asm void func_ov003_0204d98c(void)
     bl      func_0202accc
     dcd     0xe084010a
     dcd     0xe2801a01
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe581078c
     dcd     0xe1d420b0
     dcd     0xe28aa001
@@ -384,7 +384,7 @@ asm void func_ov003_0204d98c(void)
     bl      func_ov003_0204d308
     dcd     0xe2840fee
     dcd     0xe2801b05
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a02c06
     bl      MIi_CpuClear16
     dcd     0xe3e03000
@@ -413,7 +413,7 @@ asm void func_ov003_0204d98c(void)
     bl      DC_FlushRange
     dcd     0xe2842a01
     dcd     0xe5921dc8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5915008
     dcd     0xe3a03000
     dcd     0xe58d5000
@@ -421,13 +421,13 @@ asm void func_ov003_0204d98c(void)
     bl      func_02024a6c
     dcd     0xe2840a01
     dcd     0xe5901dc4
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5913010
     dcd     0xe3a02000
     bl      func_02024ae0
     dcd     0xe2840fee
     dcd     0xe2801b05
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe3a02000
     dcd     0xe3a03c06
     bl      func_0202497c
@@ -451,7 +451,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe3a02000
     dcd     0xe3a03c06
     bl      func_0202497c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe2840f76
     dcd     0xe2800b07
@@ -494,7 +494,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe5913008
     dcd     0xe3a02000
     bl      func_02024b04
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe2840f79
     dcd     0xe2800b07
@@ -526,7 +526,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe3a02a01
     bl      func_02024ae0
     bl      func_020115b8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0000
     dcd     0xe2402002
     dcd     0xe2840edf
@@ -573,7 +573,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe0837282
     dcd     0xe0806281
     dcd     0xe1a09288
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1a01007
     dcd     0xe1a02009
     dcd     0xe3a03d12
@@ -585,7 +585,7 @@ asm void func_ov003_0204d98c(void)
     bl      func_020249b0
     dcd     0xe28a0001
     dcd     0xe1a07280
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1a01006
     dcd     0xe1a02007
     dcd     0xe3a03020
@@ -639,7 +639,7 @@ asm void func_ov003_0204d98c(void)
     dcd     0xe1a03002
     bl      func_02013484
     bl      func_020115b8
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_02033500
     dcd     0xe59f00b4
     bl      func_0203355c
@@ -672,7 +672,7 @@ asm void func_ov003_0204d98c(void)
     bl      func_02024d68
     dcd     0xe59f1048
     dcd     0xe59f2048
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_02000f48
     dcd     0xe59f0040
     dcd     0xe28dd028

@@ -363,7 +363,7 @@ asm void func_ov289_020d641c(void)
     dcd     0xe5970000
     dcd     0xe3a01000
     dcd     0xe5801394
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe28dd054
     dcd     0xe5870058
     dcd     0xe8bd8ff0

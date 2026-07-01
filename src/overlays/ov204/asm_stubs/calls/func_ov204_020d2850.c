@@ -20,7 +20,7 @@ asm void func_ov204_020d2850(void) {
     dcd 0xe584002c
     dcd 0xe1500001
     dcd 0xba000006
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe5c40045
     dcd 0xe5940000
     dcd 0xe5943024
@@ -40,7 +40,7 @@ asm void func_ov204_020d2850(void) {
     dcd 0xe3a0100e
     dcd 0xe3a02000
     bl func_ov107_020c9264
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe584002c
     dcd 0xe5c40044
     dcd 0xe5840058

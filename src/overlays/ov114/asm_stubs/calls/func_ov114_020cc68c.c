@@ -6,9 +6,9 @@ asm void func_ov114_020cc68c(void)
     dcd     0xe1d01cd6
     dcd     0xe351000c
     dcd     0x1a000003
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c201c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe12fff1e
     dcd     0xe1d00cd7
     dcd     0xe350000b
@@ -24,6 +24,6 @@ asm void func_ov114_020cc68c(void)
     dcd     0x1351000a
     dcd     0x03a0000b
     dcd     0x05c201c7
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe12fff1e
 }

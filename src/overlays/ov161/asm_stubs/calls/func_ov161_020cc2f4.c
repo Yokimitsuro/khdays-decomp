@@ -77,7 +77,7 @@ asm void func_ov161_020cc2f4(void) {
     dcd 0xe3a01000
     dcd 0xe5820024
     dcd 0xe58d1000
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe58d0004
     dcd 0xe59613c4
     dcd 0xe596003c

@@ -16,8 +16,8 @@ asm void func_ov012_0205c1d4(void)
     dcd     0x13a00001
     dcd     0x03a00000
     dcd     0xe12fff1e
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe12fff1e
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe12fff1e
 }

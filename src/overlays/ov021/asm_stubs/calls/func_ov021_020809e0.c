@@ -97,7 +97,7 @@ asm void func_ov021_020809e0(void)
     dcd     0x0a000001
     dcd     0xe284001c
     bl      func_0202aa9c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd008
     dcd     0xe8bd8010
     dcd     data_0204c240

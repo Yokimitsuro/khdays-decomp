@@ -69,7 +69,7 @@ asm void func_ov036_020b39b0(void)
     dcd     0xe3a01000
     dcd     0xe3500002
     dcd     0x15841010
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584000c
     dcd     0xe8bd8038
     dcd     data_ov036_020b4f40

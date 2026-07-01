@@ -120,7 +120,7 @@ asm void func_ov034_020b4510(void)
     dcd     0xe28d3000
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2882098
     dcd     0xe58d0004
     dcd     0xe2820b01

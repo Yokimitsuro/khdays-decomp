@@ -91,7 +91,7 @@ asm void func_ov127_020cc75c(void)
     dcd     0x18bd80f8
     dcd     0xe3a01003
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     data_ov127_020cd744
 }

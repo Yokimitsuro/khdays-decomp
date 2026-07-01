@@ -7,7 +7,7 @@ asm void func_ov123_020cdb38(void)
     dcd     0xe92d4010
     dcd     0xe1a04000
     dcd     0xe5943004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5830024
     dcd     0xe5830028
     dcd     0xe5932000

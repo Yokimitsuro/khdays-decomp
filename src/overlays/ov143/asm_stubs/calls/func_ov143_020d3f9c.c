@@ -101,7 +101,7 @@ asm void func_ov143_020d3f9c(void) {
     dcd 0xe1a00007
     dcd 0xe1a02822
     bl func_ov107_020c5af8
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe8bd80f8
     dcd 0x0000011e
 }

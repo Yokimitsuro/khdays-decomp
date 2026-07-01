@@ -51,10 +51,10 @@ asm void func_ov297_020d4308(void)
     dcd     0xe350000b
     dcd     0x0a000003
     dcd     0xea000005
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c40091
     dcd     0xea000004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c40091
     dcd     0xea000001
     dcd     0xe3e00000

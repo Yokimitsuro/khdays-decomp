@@ -30,7 +30,7 @@ asm void func_ov240_020cf0c8(void)
     dcd     0xe59f10f0
     dcd     0xe3a0200a
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c4003e
     dcd     0xe5940004
     dcd     0xe5d000ad
@@ -73,7 +73,7 @@ asm void func_ov240_020cf0c8(void)
     dcd     0xe3a01005
     dcd     0xe3a02000
     bl      func_ov107_020c9264
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe28d0008
     dcd     0xe24d3008

@@ -25,7 +25,7 @@ asm void func_ov081_020b8d00(void)
     dcd     0xe2800030
     dcd     0xe3a02000
     bl      func_ov022_020911f0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f11b8
     dcd     0xe3a03c01
     dcd     0xe28150d3
@@ -101,7 +101,7 @@ asm void func_ov081_020b8d00(void)
     dcd     0xe3a010c7
     dcd     0xe28d2f42
     dcd     0xe1c213b8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d00fc
     dcd     0xe28d1008
     dcd     0xe1c10fba

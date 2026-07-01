@@ -24,7 +24,7 @@ asm void func_ov069_020b876c(void)
     bl      MI_CpuFill8
     bl      func_ov069_020b8704
     dcd     0xe3500000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0x028dd030
     dcd     0x058a0010
     dcd     0x08bd8ff8
@@ -34,7 +34,7 @@ asm void func_ov069_020b876c(void)
     bl      func_020235d0
     dcd     0xe1a04000
     dcd     0xe59f10f0
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_0201e470
     dcd     0xe28d000c
     dcd     0xe28d1000
@@ -90,7 +90,7 @@ asm void func_ov069_020b876c(void)
     dcd     0xe28d000c
     bl      func_ov302_020cc6ac
     dcd     0xe59f1010
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_0201e4a8
     dcd     0xe28dd030
     dcd     0xe8bd8ff8

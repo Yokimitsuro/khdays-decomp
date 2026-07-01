@@ -6,7 +6,7 @@ extern void data_ov069_020ba7fa(void);
 asm void func_ov069_020b8704(void)
 {
     dcd     0xe92d4008
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a01009
     bl      func_020235d0
     dcd     0xe1a00800

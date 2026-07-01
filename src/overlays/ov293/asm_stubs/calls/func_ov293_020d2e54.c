@@ -80,7 +80,7 @@ asm void func_ov293_020d2e54(void)
     dcd     0xe1510000
     dcd     0xca00007f
     dcd     0xe28d906c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f423c
     dcd     0xe28d3028
     dcd     0xe1a0a009
@@ -186,7 +186,7 @@ asm void func_ov293_020d2e54(void)
     dcd     0xe7950108
     dcd     0xe5d62051
     dcd     0xe1d010b2
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1a0300a
     dcd     0xe1820110
     dcd     0xe5c60051
@@ -212,7 +212,7 @@ asm void func_ov293_020d2e54(void)
     dcd     0xe3500000
     dcd     0x128dd094
     dcd     0x18bd8ff0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5860014
     dcd     0xe286001c
     dcd     0xe2863028

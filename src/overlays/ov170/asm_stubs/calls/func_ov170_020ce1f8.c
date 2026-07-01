@@ -60,7 +60,7 @@ asm void func_ov170_020ce1f8(void)
     dcd     0xea000057
     dcd     0xea000023
     dcd     0xea00002d
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe58d0004
     dcd     0xe596139c

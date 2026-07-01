@@ -27,7 +27,7 @@ asm void func_ov012_0205ade8(void)
     bl      NNSi_FndGetCurrentRootHeap
     dcd     0xe1a07000
     dcd     0xe59f1204
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_0201e470
     bl      func_ov012_0205ad1c
     dcd     0xe59f01f8
@@ -139,7 +139,7 @@ asm void func_ov012_0205ade8(void)
     bl      func_02020c7c
     dcd     0xe1d710b2
     dcd     0xe2872902
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3811001
     dcd     0xe1c710b2
     dcd     0xe59f105c

@@ -59,6 +59,6 @@ asm void func_ov012_0205bc08(void)
     dcd     0xe5801068
     dcd     0xea000000
     bl      func_ov012_0205bbac
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8008
 }

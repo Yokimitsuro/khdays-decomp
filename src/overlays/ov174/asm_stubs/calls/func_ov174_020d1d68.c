@@ -73,7 +73,7 @@ asm void func_ov174_020d1d68(void)
     dcd     0xe1a01006
     dcd     0xe1a02005
     bl      VEC_Add
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe8950007
     dcd     0xe8840007

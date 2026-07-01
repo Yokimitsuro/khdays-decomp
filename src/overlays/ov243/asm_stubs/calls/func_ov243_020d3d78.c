@@ -97,7 +97,7 @@ asm void func_ov243_020d3d78(void)
     dcd     0xe28d1028
     dcd     0xe1a02004
     bl      VEC_Subtract
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0020
     dcd     0xe1a00004
     dcd     0xe1a01004

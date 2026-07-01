@@ -14,7 +14,7 @@ asm void func_ov038_020b3b04(void)
     dcd     0xe3500000
     dcd     0x08bd8010
     bl      func_02033e48
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840550
     dcd     0xe8bd8010
     dcd     data_ov038_020b4ca0

@@ -18,7 +18,7 @@ asm void func_ov011_0205d324(void)
     bl      func_0201e374
     dcd     0xe3e0000f
     bl      func_0201e3cc
-    dcd     0xe3a00001
+    mov r0, #1
     bl      GX_SetBankForBG
     dcd     0xe3a00002
     bl      GX_SetBankForOBJ
@@ -30,7 +30,7 @@ asm void func_ov011_0205d324(void)
     bl      GX_SetBankForSubOBJ
     dcd     0xe3a00080
     bl      GX_SetBankForSubBGExtPltt
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe3a01000
     dcd     0xe1a02001
     bl      func_020056b4
@@ -38,7 +38,7 @@ asm void func_ov011_0205d324(void)
     dcd     0xe3a0c301
     dcd     0xe1d130b0
     dcd     0xe59f216c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2033043
     dcd     0xe3833080
     dcd     0xe1c130b0

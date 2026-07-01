@@ -24,7 +24,7 @@ asm void func_ov240_020cf294(void)
     dcd     0xe59f1054
     dcd     0xe3a02004
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c4003e
     dcd     0xe5940004
     dcd     0xe5d000ad
@@ -37,7 +37,7 @@ asm void func_ov240_020cf294(void)
     dcd     0xe5940000
     dcd     0xe3a01001
     bl      func_ov240_020ce8d4
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840038
     dcd     0xe1d512d0
     dcd     0xe59f200c

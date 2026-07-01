@@ -15,7 +15,7 @@ asm void func_ov264_020cc968(void) {
     dcd 0xe1a07001
     dcd 0xe1a06002
     bl func_0202a440
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe585000c
     dcd 0xe5941078
     dcd 0xe2840020

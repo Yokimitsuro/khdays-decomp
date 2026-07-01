@@ -15,7 +15,7 @@ asm void func_ov012_0205b214(void)
     dcd     0xe3500001
     dcd     0x18bd8008
     dcd     0xe3a01002
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5821bdc
     bl      func_ov024_02084df4
     dcd     0xe8bd8008

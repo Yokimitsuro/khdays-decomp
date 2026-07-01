@@ -50,7 +50,7 @@ asm void func_ov124_020d0b2c(void)
     dcd     0xe1a01000
     bl      func_01ff8d18
     dcd     0xe59d6004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe584002c
     dcd     0xe5941000
     dcd     0xe59f206c

@@ -2,9 +2,9 @@ extern void func_ov044_020b4908(void);
 
 asm void func_ov044_020b3aa4(void)
 {
-    dcd     0xe59fc008
+    ldr ip, [pc, #8]
     dcd     0xe28000a8
     dcd     0xe2800b0b
-    dcd     0xe12fff1c
+    bx  ip
     dcd     func_ov044_020b4908
 }

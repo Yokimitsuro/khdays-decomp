@@ -12,7 +12,7 @@ asm void func_ov298_020d4124(void)
     dcd     0xe5904004
     dcd     0xe3a01a01
     dcd     0xe5841010
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840014
     dcd     0xe5841018
     dcd     0xe5942034

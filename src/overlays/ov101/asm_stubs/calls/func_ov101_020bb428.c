@@ -131,7 +131,7 @@ asm void func_ov101_020bb428(void)
     dcd     0xe1cd06b6
     dcd     0xea000003
     dcd     0xe3a01b09
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe1cd16b6
     dcd     0xe58d007c
     dcd     0xe28d1054

@@ -94,7 +94,7 @@ asm void func_ov124_020d01b0(void)
     dcd     0xe1a00006
     dcd     0xe1a02822
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8070
     dcd     0x00000115
 }

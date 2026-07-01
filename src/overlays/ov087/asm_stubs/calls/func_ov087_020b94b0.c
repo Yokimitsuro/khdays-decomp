@@ -12,7 +12,7 @@ asm void func_ov087_020b94b0(void)
     dcd     0xe5821118
     dcd     0xe3a01022
     dcd     0xe582311c
-    dcd     0xe12fff1c
+    bx  ip
     dcd     data_ov087_020b9be0
     dcd     func_ov022_020a35f4
 }

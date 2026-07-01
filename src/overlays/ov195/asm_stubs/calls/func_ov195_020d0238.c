@@ -24,10 +24,10 @@ asm void func_ov195_020d0238(void)
     dcd     0x03a00002
     dcd     0x05850020
     dcd     0xea000004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5850020
     dcd     0xea000001
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5850020
     dcd     0xe1a00007
     dcd     0xe1a01005
@@ -51,7 +51,7 @@ asm void func_ov195_020d0238(void)
     dcd     0xe5940000
     dcd     0xe3a01005
     dcd     0xe5c011c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
     dcd     0xe2870c02
     dcd     0xe1d021fa
@@ -152,6 +152,6 @@ asm void func_ov195_020d0238(void)
     dcd     0xe1a00007
     dcd     0xe3a01f4d
     bl      func_ov107_020c5af8
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd80f8
 }

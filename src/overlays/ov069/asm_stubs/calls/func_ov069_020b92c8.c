@@ -134,7 +134,7 @@ asm void func_ov069_020b92c8(void)
     dcd     0x05900014
     dcd     0xe5850074
     dcd     0xea000004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe585002c
     dcd     0xe59d0014
     dcd     0xe5900014
@@ -219,7 +219,7 @@ asm void func_ov069_020b92c8(void)
     dcd     0xe3a01013
     dcd     0xe3a0300e
     dcd     0xe12fff36
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe58d0000
     dcd     0xe5981008
     dcd     0xe598200c

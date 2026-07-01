@@ -31,7 +31,7 @@ asm void func_ov204_020d1518(void) {
     dcd 0xe59f1024
     dcd 0xe3a02007
     bl func_ov107_020c5af8
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5c40044
     dcd 0xe584002c
     dcd 0xe1d512d0

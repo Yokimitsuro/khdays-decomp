@@ -20,10 +20,10 @@ asm void func_ov156_020ce220(void)
     dcd     0xe1a02001
     dcd     0xe5c53024
     bl      func_01ffa724
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5850028
     dcd     0xe3a00b02
     dcd     0xe58402e4
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8038
 }

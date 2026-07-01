@@ -54,7 +54,7 @@ asm void func_ov262_020d402c(void)
     dcd     0xe5910014
     dcd     0xe1570000
     dcd     0xbaffffe1
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe28a1049
     dcd     0xe28d000c

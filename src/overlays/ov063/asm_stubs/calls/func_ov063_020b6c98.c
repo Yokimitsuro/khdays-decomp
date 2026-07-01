@@ -49,9 +49,9 @@ asm void func_ov063_020b6c98(void)
     dcd     0xea000003
     dcd     0xe3560a4b
     dcd     0x1a000001
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xea000000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3500000
     dcd     0x028dd07c
     dcd     0x08bd83f0
@@ -202,7 +202,7 @@ asm void func_ov063_020b6c98(void)
     dcd     0x128dd07c
     dcd     0x18bd83f0
     dcd     0xe5951000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3110801
     dcd     0x03a01003
     dcd     0x05c5147a

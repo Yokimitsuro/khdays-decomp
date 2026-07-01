@@ -10,6 +10,6 @@ asm void func_ov220_020d2194(void) {
     dcd 0x112fff1e
     dcd 0xe3a0000c
     dcd 0xe5c201c7
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe12fff1e
 }

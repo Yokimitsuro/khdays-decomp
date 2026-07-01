@@ -18,11 +18,11 @@ asm void func_ov143_020d5534(void) {
     dcd 0xe2600000
     dcd 0xe1a02001
     bl func_01ffa724
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe5840020
     dcd 0xe3a01000
     dcd 0xe5841024
     dcd 0xe8bd8010
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe8bd8010
 }

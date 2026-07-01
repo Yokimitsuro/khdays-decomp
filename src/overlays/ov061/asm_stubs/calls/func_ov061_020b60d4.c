@@ -24,7 +24,7 @@ asm void func_ov061_020b60d4(void)
     dcd     0xe59f1434
     dcd     0xe1a0a000
     dcd     0xe5911000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0000
     dcd     0xe281002c
     dcd     0xe2806b0b
@@ -64,13 +64,13 @@ asm void func_ov061_020b60d4(void)
     dcd     0xe58a1000
     dcd     0xe3800901
     dcd     0xe58a0004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58a0058
     dcd     0xe28d0090
     dcd     0xe28d3010
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28a2098
     dcd     0xe58d0014
     dcd     0xe2820b01
@@ -220,7 +220,7 @@ asm void func_ov061_020b60d4(void)
     dcd     0xe2888001
     dcd     0xe1580007
     dcd     0xbaffffcc
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5860004
     dcd     0xe59a1668
     dcd     0xe1a0000a

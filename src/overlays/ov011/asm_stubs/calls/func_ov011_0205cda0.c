@@ -100,7 +100,7 @@ asm void func_ov011_0205cda0(void)
     dcd     0xe1a01088
     dcd     0xe19010b1
     dcd     0xe58d4000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe1a03005
     dcd     0xe287004c

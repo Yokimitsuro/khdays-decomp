@@ -81,7 +81,7 @@ asm void func_ov198_020d0c2c(void) {
     bl func_020050b4
     dcd 0xe5840038
     dcd 0xe5840034
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5840040
     dcd 0xe5c40045
     dcd 0xe1d512d0

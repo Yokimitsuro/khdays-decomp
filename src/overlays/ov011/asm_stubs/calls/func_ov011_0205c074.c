@@ -24,7 +24,7 @@ asm void func_ov011_0205c074(void)
     dcd     0xe59f10d0
     dcd     0xe2422002
     dcd     0xe3a0c000
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe183c0b2
     bl      func_02000fb4
     dcd     0xe59f00ac

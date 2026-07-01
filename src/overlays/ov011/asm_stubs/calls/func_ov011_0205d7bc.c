@@ -63,7 +63,7 @@ asm void func_ov011_0205d7bc(void)
     dcd     0xe3a02c06
     bl      MIi_CpuClearFast
     dcd     0xe59f11c4
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5911004
     dcd     0xe3a02b02
     dcd     0xe2811fa5
@@ -130,22 +130,22 @@ asm void func_ov011_0205d7bc(void)
     bl      GFXi_EnqueueCommand
     bl      G2_GetBG1CharPtr
     dcd     0xe1a01000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a02903
     bl      MIi_CpuClearFast
     bl      G2S_GetBG1CharPtr
     dcd     0xe1a01000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a02903
     bl      MIi_CpuClearFast
     bl      G2_GetBG1ScrPtr
     dcd     0xe1a01000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a02b02
     bl      MIi_CpuClearFast
     bl      G2S_GetBG1ScrPtr
     dcd     0xe1a01000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3a02b02
     bl      MIi_CpuClearFast
     dcd     0xe59f207c

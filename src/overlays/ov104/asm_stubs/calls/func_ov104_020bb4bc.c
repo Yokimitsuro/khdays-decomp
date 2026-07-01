@@ -13,7 +13,7 @@ asm void func_ov104_020bb4bc(void)
     dcd     0xe2821004
     dcd     0xe584110c
     bl      func_ov104_020bb60c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840120
     dcd     0xe8bd8010
     dcd     data_ov104_020bc2a0

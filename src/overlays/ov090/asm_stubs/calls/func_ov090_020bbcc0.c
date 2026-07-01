@@ -91,7 +91,7 @@ asm void func_ov090_020bbcc0(void)
     dcd     0xe5960024
     dcd     0xe3100004
     dcd     0x0a000001
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5850004
     dcd     0xe5950004
     dcd     0xe3500000
@@ -104,9 +104,9 @@ asm void func_ov090_020bbcc0(void)
     dcd     0x1a000003
     dcd     0xe3a00003
     dcd     0xe5c6047a
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5c6047b
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5850008
     dcd     0xe3e01802
     dcd     0xe5962004
@@ -122,7 +122,7 @@ asm void func_ov090_020bbcc0(void)
     dcd     0x1a000001
     dcd     0xe2810004
     bl      func_0202af2c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5860058
     dcd     0xe5961000
     dcd     0xe5960004

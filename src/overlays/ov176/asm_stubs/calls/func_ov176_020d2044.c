@@ -17,7 +17,7 @@ asm void func_ov176_020d2044(void)
     dcd     0x0a000011
     dcd     0xe3100010
     dcd     0x0a00000f
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe58d0004
     dcd     0xe5940004
     dcd     0xe24d3008
@@ -31,9 +31,9 @@ asm void func_ov176_020d2044(void)
     dcd     0xe3a01000
     dcd     0xe5c011c7
     dcd     0xe28dd008
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8010
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd008
     dcd     0xe8bd8010
 }

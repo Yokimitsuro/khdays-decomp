@@ -50,7 +50,7 @@ asm void func_ov151_020ce3cc(void) {
     dcd 0xe3a03000
     dcd 0xe59c43c8
     dcd 0xe1a02003
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe7941102
     dcd 0xe2822001
     dcd 0xe1d116b0

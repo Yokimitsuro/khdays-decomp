@@ -44,7 +44,7 @@ asm void func_ov035_020b355c(void)
     dcd     0xe3a02000
     bl      func_ov022_020a4490
     dcd     0xea00001b
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5840000
     dcd     0xe59806bc
     dcd     0xe1500007

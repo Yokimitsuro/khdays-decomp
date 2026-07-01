@@ -44,7 +44,7 @@ asm void func_ov191_020d11d4(void) {
     dcd 0xe3a02004
     dcd 0xe12fff33
     dcd 0xe28d1004
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe5810000
     dcd 0xe5810004
     dcd 0xe5810008

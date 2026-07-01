@@ -10,7 +10,7 @@ asm void func_ov055_020b7368(void)
     dcd     0xe5900008
     dcd     0xe3500000
     dcd     0xc5820004
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5820008
     dcd     0xe12fff1e
 }

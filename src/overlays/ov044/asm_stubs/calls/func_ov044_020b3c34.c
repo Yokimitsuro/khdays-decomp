@@ -8,7 +8,7 @@ asm void func_ov044_020b3c34(void)
     bl      func_ov044_020b3c7c
     dcd     0xe3a00005
     dcd     0xe5c4012c
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840130
     dcd     0xe8bd8010
 }

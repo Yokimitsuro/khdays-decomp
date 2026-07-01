@@ -58,9 +58,9 @@ asm void func_ov145_020ce78c(void)
     dcd     0xe8940007
     dcd     0xe8830007
     dcd     0xe28dd018
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8038
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe28dd018
     dcd     0xe8bd8038
 }

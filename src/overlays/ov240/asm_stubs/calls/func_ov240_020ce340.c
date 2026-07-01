@@ -39,7 +39,7 @@ asm void func_ov240_020ce340(void)
     dcd     0x03a00001
     dcd     0x05850020
     dcd     0xea000001
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5850020
     dcd     0xe5841040
     dcd     0xe2850004
@@ -65,7 +65,7 @@ asm void func_ov240_020ce340(void)
     dcd     0xe3a01008
     dcd     0xe5c011c7
     dcd     0xe28dd004
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe8bd8078
     dcd     0xe2860c02
     dcd     0xe1d021fa
@@ -137,7 +137,7 @@ asm void func_ov240_020ce340(void)
     dcd     0x0a000001
     dcd     0xe3a00008
     dcd     0xe5c101c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe28dd004
     dcd     0xe8bd8078
     dcd     data_ov240_020cfb60

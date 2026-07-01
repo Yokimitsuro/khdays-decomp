@@ -6,9 +6,9 @@ asm void func_ov284_020cc770(void)
     dcd     0xe1d01cd6
     dcd     0xe3510009
     dcd     0x1a000003
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c201c7
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe12fff1e
     dcd     0xe1d00cd7
     dcd     0xe3500008
@@ -21,6 +21,6 @@ asm void func_ov284_020cc770(void)
     dcd     0xe3510002
     dcd     0x03a00008
     dcd     0x05c201c7
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe12fff1e
 }

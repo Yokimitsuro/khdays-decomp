@@ -56,7 +56,7 @@ asm void func_ov144_020cbfc4(void)
     dcd     0xe28d1000
     dcd     0xe2800030
     bl      func_0203ca30
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5850024
     dcd     0xe5c50092
     dcd     0xe28dd03c

@@ -12,7 +12,7 @@ asm void func_ov011_0205b034(void)
 {
     dcd     0xe92d4008
     dcd     0xe59f1170
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_0201e4a8
     dcd     0xe59f0168
     dcd     0xe5901004
@@ -96,7 +96,7 @@ asm void func_ov011_0205b034(void)
     bl      func_020235e8
     dcd     0xe3a01009
     dcd     0xe2812f57
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_020235e8
     dcd     0xe3a00009
     dcd     0xe3a01000

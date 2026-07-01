@@ -57,7 +57,7 @@ asm void func_ov157_020cef8c(void)
     dcd     0xe5940000
     dcd     0xe594300c
     bl      func_ov107_020c5af8
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe584002c
     dcd     0xe1d512d0
     dcd     0xe59f2008

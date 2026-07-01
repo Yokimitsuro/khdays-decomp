@@ -13,7 +13,7 @@ asm void func_ov094_020bb7d4(void)
     dcd     0xea000004
     dcd     0xea000006
     dcd     0xea000008
-    dcd     0xe3a00001
+    mov r0, #1
     dcd     0xe5860000
     dcd     0xea000007
     dcd     0xe3a00003

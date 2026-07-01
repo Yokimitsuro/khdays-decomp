@@ -18,14 +18,14 @@ asm void func_ov003_0204e384(void)
     bl      NNSi_FndGetCurrentRootHeap
     dcd     0xe1a0b000
     dcd     0xe59f111c
-    dcd     0xe3a00001
+    mov r0, #1
     bl      func_02000fb4
     bl      func_0200c5fc
     dcd     0xe3a00004
     bl      func_0200ca50
     dcd     0xe3a00004
     bl      func_0200ca68
-    dcd     0xe3a00000
+    mov r0, #0
     bl      func_02033500
     dcd     0xe28b0a01
     dcd     0xe5900dbc

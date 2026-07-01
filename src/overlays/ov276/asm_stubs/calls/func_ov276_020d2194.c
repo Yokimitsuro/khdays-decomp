@@ -32,7 +32,7 @@ asm void func_ov276_020d2194(void) {
     dcd 0xe893000c
     dcd 0xe3a01003
     bl func_ov107_020c0b90
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe584004c
     dcd 0xe5c40061
     dcd 0xe5c40062

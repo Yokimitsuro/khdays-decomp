@@ -27,7 +27,7 @@ asm void func_ov139_020ce218(void)
     dcd     0xe284302c
     dcd     0xe8900007
     dcd     0xe8830007
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840030
     dcd     0xe284002c
     dcd     0xe1a01000
@@ -40,7 +40,7 @@ asm void func_ov139_020ce218(void)
     dcd     0xe8830007
     dcd     0xe3a00b02
     dcd     0xe5840038
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c40054
     dcd     0xe584003c
     dcd     0xe5940000

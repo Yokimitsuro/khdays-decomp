@@ -12,7 +12,7 @@ asm void func_ov297_020d4240(void)
     dcd     0xe5904004
     dcd     0xe3a01a01
     dcd     0xe5841010
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840014
     dcd     0xe5841018
     dcd     0xe5942034

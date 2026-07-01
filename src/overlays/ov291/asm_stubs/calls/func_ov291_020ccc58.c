@@ -11,7 +11,7 @@ asm void func_ov291_020ccc58(void)
     dcd     0xe1a00c20
     dcd     0xe3100001
     dcd     0x08bd8038
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5840024
     dcd     0xe584002c
     dcd     0xe5940000

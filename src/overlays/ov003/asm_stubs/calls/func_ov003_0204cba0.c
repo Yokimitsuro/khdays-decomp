@@ -31,7 +31,7 @@ asm void func_ov003_0204cba0(void)
     dcd     0x0a0000ae
     dcd     0xe3a02301
     dcd     0xe5921000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3c11c1f
     dcd     0xe3811c05
     dcd     0xe5821000
@@ -180,7 +180,7 @@ asm void func_ov003_0204cba0(void)
     dcd     0xe5810000
     dcd     0xea000009
     dcd     0xe59f2364
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5921000
     dcd     0xe3c11c1f
     dcd     0xe3811c09
@@ -337,7 +337,7 @@ asm void func_ov003_0204cba0(void)
     dcd     0xea000006
     dcd     0xe3a02301
     dcd     0xe5921000
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3c11c1f
     dcd     0xe3811c09
     dcd     0xe5821000
@@ -357,7 +357,7 @@ asm void func_ov003_0204cba0(void)
     dcd     0xe1c210b6
     bl      GX_SetBankForSubBG
     dcd     0xe59f10b4
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe2413050
     dcd     0xe1c100b0
     dcd     0xe5930000

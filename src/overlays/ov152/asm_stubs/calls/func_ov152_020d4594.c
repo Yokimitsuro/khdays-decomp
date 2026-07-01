@@ -68,9 +68,9 @@ asm void func_ov152_020d4594(void) {
     dcd 0xe3a01000
     dcd 0xe5c011c7
     dcd 0xe28dd01c
-    dcd 0xe3a00001
+    mov r0, #1
     dcd 0xe8bd8018
-    dcd 0xe3a00000
+    mov r0, #0
     dcd 0xe28dd01c
     dcd 0xe8bd8018
     dcd data_ov152_020d6498

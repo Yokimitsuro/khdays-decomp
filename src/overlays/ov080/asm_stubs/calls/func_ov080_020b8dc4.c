@@ -58,7 +58,7 @@ asm void func_ov080_020b8dc4(void)
     dcd     0xe5970020
     dcd     0xe1a01007
     dcd     0xe1d028b0
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe59f30fc
     dcd     0xe58d0070
     dcd     0xe2420902

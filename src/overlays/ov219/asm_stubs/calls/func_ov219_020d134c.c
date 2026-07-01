@@ -75,7 +75,7 @@ asm void func_ov219_020d134c(void)
     dcd     0xe3a00a4b
     dcd     0xe5840014
     dcd     0xe5941018
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe3510000
     dcd     0xda000011
     dcd     0xe1a02000
@@ -96,7 +96,7 @@ asm void func_ov219_020d134c(void)
     dcd     0xe594e018
     dcd     0xe150000e
     dcd     0xbafffff1
-    dcd     0xe3a00000
+    mov r0, #0
     dcd     0xe5c4003e
     dcd     0xe1d512d0
     dcd     0xe59f201c
