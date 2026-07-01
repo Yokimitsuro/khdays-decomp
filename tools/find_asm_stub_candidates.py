@@ -87,7 +87,7 @@ def main():
     parser.add_argument("--json", action="store_true", help="write JSON instead of Markdown table")
     args = parser.parse_args()
 
-    functions, _unknown = audit_progress.classify_functions()
+    functions, *_rest = audit_progress.classify_functions()
     index = load_func_index()
     by_unit_addr, by_addr = build_index_maps(index)
     rows = []
