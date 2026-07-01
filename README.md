@@ -22,9 +22,9 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **3,821** / ~23,240 (~16.4% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **234,536** / 4,728,790 (~4.96% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. |
-| Inline ASM / ASM stub matched functions | **6,232** / ~23,240 (~26.8%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
+| Real C-decompiled matched functions | **3,855** / ~23,240 (~16.6% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **236,928** / 4,728,790 (~5.01% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. |
+| Inline ASM / ASM stub matched functions | **6,198** / ~23,240 (~26.7%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
 | SDK/library byte-match identifications | **565** / ~23,240 (~2.4%) | NitroSDK or library functions identified separately by byte matching |
 | Named but not decompiled | **12,622** / ~23,240 (~54.3%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
