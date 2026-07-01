@@ -105,10 +105,31 @@ tools/dsd.exe rom build --config build/build/rom_config.yaml --rom build/days.nd
 ```
 
 `dsd check modules` compares each built per-module `.bin` against the base ROM
-and exits non-zero if any module is not byte-exact. Currently ov000 is fully
-byte-exact under this pipeline; extending to every module is a pending task
-(#25 in the tracker — per-file `.o` layout adds a few bytes of shift versus
-the single-gap fallback).
+and exits non-zero if any module is not byte-exact. Baseline as of this
+writing: **269 modules OK / 37 modules FAIL / 306 total**. The 37 failing
+overlays share a documented residual — a 2-4 byte BL vs. BLX encoding drift
+per overlay (79 bytes total across ~4.7 MB, 99.998%) that comes from mode
+selection in `mwld` when the target function's ARM/THUMB mode is lost
+between the compiled `.o` and the linked ELF. See
+[project-khdays-blx-followup](../.claude/projects/E--KH-3582-decomp/memory/project_khdays_blx_followup.md)
+if you're picking this up.
+
+For per-function byte-parity while iterating, compare the compiled `.o`
+against the `dsd` delink output directly — this is faster than a full
+module rebuild and catches the failure right at the function boundary:
+
+```sh
+# after `ninja`, given a src/overlays/ov030/calls/func_ov030_020b3e84.c
+python -c "
+o = open('build/delinks/src/overlays/ov030/asm_stubs/calls/func_ov030_020b3e84.o', 'rb').read()
+n = open('build/link/func_ov030_020b3e84.o', 'rb').read()
+print(f'byte-exact: {o == n}  size: {len(o)}={len(n)}')
+"
+```
+
+Note the delink path still points to `asm_stubs/calls/` even after you've
+moved the source out of there — dsd keys the delink by *address*, not
+path, so the reference `.o` stays put.
 
 If you're new to a function, refresh the mismatch table before iterating:
 
@@ -161,6 +182,59 @@ Avoid as first targets:
 - functions relying on unknown structs
 - functions with complex overlays
 - functions that only "match" by copying assembly
+
+## Batching similar patterns
+
+A lot of the outstanding asm_stubs are structural repetitions of the same
+pattern across many overlays (per-overlay registrar trampolines,
+`InstantiateClass(&data_ovNNN_XXXX, arg)` wrappers, `ov107_RegisterHandler`
+callback registrations, etc.). When you find one, the fastest path is:
+
+1. **Fingerprint the shape**: tokenize the asm_stub body to `dcd` / `bl` /
+   `mov` / etc., then search other overlays for the same shape.
+2. **Decode the varying parts**: per-file constants are usually
+   `ADD Rn, Rn, #imm` offsets, `MOV Rn, #imm` immediates, or the raw
+   `dcd` at the tail of the function (the literal pool address of a
+   callback / data ref).
+3. **Emit a template C** parameterised by those constants. The 4-byte
+   ARM opcode is deterministic enough that once one file byte-matches
+   from a candidate C body, every other file with the same shape will
+   match too — verify a few samples via the `.o` byte-compare above
+   before committing the batch.
+4. **One commit per pattern**. Explain the semantic in the commit
+   message (what the function actually does, which registers/fields it
+   touches, what the callee ecosystem looks like). Progress that
+   nobody can read later is not progress.
+
+Don't batch faster than you understand. If a shape has variations you
+can't explain, split it into sub-shapes rather than papering over.
+
+## Ghidra integration
+
+The project ships against Ghidra 11.2.1 and the community
+`com.xebyte/GhidraMCP` plugin (v5.14.2 at time of writing) for scripted
+sync. See
+[project-khdays-mcp-setup](../.claude/projects/E--KH-3582-decomp/memory/project_khdays_mcp_setup.md)
+for the current bridge/plugin config and one important pitfall: every
+write-path endpoint (`rename_function_by_address`, `rename_or_label`,
+`set_global`) currently emits a Java `NullPointerException` naming
+`Program.endTransaction(int, boolean)` even when the mutation applies
+cleanly — treat the NPE as *"probable success, verify"* and read back
+via `get_function_by_address` or `audit_global`.
+
+The project convention for Ghidra names:
+
+- Functions: `func_ov<NNN>_<addr>` for still-unnamed decomp targets;
+  a semantic name (e.g. `ov107_RegisterHandler`, `InstantiateClass`)
+  once its behaviour is understood, always paired with a plate comment.
+- Globals: `g_` + Hungarian prefix (`dw`/`n`/`p`/`sz`/`ab`/`pfn`) +
+  a descriptive name. `undefined*` types are rejected — pass a concrete
+  Ghidra type (`byte` with `array_length`, `pointer *`, `pointer * *`,
+  etc.) via `set_global`.
+
+Keep Ghidra names in sync with the repo names as you decompile — a
+one-name-per-symbol convention across both sides makes future queries
+readable.
 
 ## Contributing via decomp.me
 
