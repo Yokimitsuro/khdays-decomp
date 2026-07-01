@@ -1,4 +1,4 @@
-int func_ov137_020cc99c(char *obj) {
+int func_ov138_020d05dc(char *obj) {
     char *base = *(char **)(*(char **)(obj + 0x214));
     int s = *(signed char *)(base + 0x1c6);
     /* goto forces cmp;cmpne over the range-opt (sub;cmp #1) for s==6||s==7 */
