@@ -1,0 +1,13 @@
+extern void DestroyInstance(int *obj);
+extern void func_ov107_020c9eac(int v);
+extern void func_ov107_020c68ec(char *obj);
+
+void func_ov281_020cc3dc(char *obj) {
+    int i;
+    DestroyInstance(*(int **)(obj + 0x384));
+    func_ov107_020c9eac(*(int *)(obj + 0x3c0));
+    for (i = 0; i < 4; i++) {
+        DestroyInstance(*(int **)(obj + i * 8 + 0x3c8));
+    }
+    func_ov107_020c68ec(obj);
+}
