@@ -1,86 +1,176 @@
 #!/usr/bin/env python3
-"""Genera un report.json en formato objdiff (para decomp.dev) a partir de
-   nuestros datos verificados: tamanos por funcion + cuales estan hechas.
-   No necesita build. Unidades = overlays/modulos."""
-import json, glob, os, re
+"""Generate an objdiff/decomp.dev report with honest C progress.
+
+Only functions classified as ``c_decompiled_matched`` are reported as complete.
+ASM stubs, inline ASM placeholders, SDK identifications, and named-only symbols
+are deliberately excluded from the main matched progress calculation.
+
+Emits `progress_categories` per unit so decomp.dev can show separate bars
+for NitroSDK identifications, per-overlay progress, and main-module code.
+"""
+import json
+import re
 from collections import defaultdict
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-done = set(os.path.splitext(os.path.basename(f))[0]
-           for f in glob.glob(os.path.join(ROOT, "src", "auto", "*.c")) +
-                    glob.glob(os.path.join(ROOT, "src", "calls", "*.c")))
-done_unit_addrs = set()
-for name in done:
-    m = re.match(r"func_(ov\d+)_([0-9a-fA-F]{8})$", name)
-    if m:
-        done_unit_addrs.add((m.group(1), int(m.group(2), 16)))
+from pathlib import Path
 
-def addr_suffix(name):
-    m = re.search(r"(?:^func_(?:ov\d+_)?|_0x)([0-9a-fA-F]{8})$", name)
-    return int(m.group(1), 16) if m else None
+import audit_progress
 
-def is_done(name, unit):
-    addr = addr_suffix(name)
-    return name in done or (addr is not None and (unit, addr) in done_unit_addrs)
+ROOT = Path(__file__).resolve().parents[1]
 
-def load_funcs():
-    """(name, size, unit). Usa func_index.json en local; en CI parsea config/."""
-    fi = os.path.join(ROOT, "build", "func_index.json")
-    out = []
-    if os.path.exists(fi):
-        for name, d in json.load(open(fi)).items():
-            m = re.search(r"@(ov\d+|main|itcm|dtcm)", d["module"])
-            out.append((name, d["size"], m.group(1) if m else d["module"]))
-    else:
-        for sp in glob.glob(os.path.join(ROOT, "config", "**", "symbols.txt"), recursive=True):
-            p = sp.replace("\\", "/")
-            mo = re.search(r"overlays/(ov\d+)", p)
-            unit = mo.group(1) if mo else ("itcm" if "/itcm/" in p else
-                   "dtcm" if "/dtcm/" in p else "main")
-            for line in open(sp, encoding="utf-8", errors="replace"):
-                m = re.match(r"(\S+)\s+kind:function\([^)]*size=0x([0-9a-fA-F]+)", line)
-                if m:
-                    out.append((m.group(1), int(m.group(2), 16), unit))
-    return out
 
-units = defaultdict(list)   # unit -> [(name, size, matched)]
-for name, size, unit in load_funcs():
-    units[unit].append((name, size, is_done(name, unit)))
+# Category IDs used by decomp.dev's report. Human-friendly names in
+# CATEGORY_LABELS below.
+def category_for_source(src_path, unit):
+    """Map a source file path to its objdiff progress category id.
+    Falls back on the unit name (from the symbol index) when there is no
+    source file yet — so named-only functions still land in the right
+    per-overlay or main bucket."""
+    if src_path:
+        s = src_path.replace("\\", "/")
+        m = re.match(r"^libs/(msl|nitro)/([^/]+)/", s)
+        if m:
+            return f"{m.group(1)}/{m.group(2)}"
+        m = re.match(r"^src/overlays/(ov\d+)/", s)
+        if m:
+            return f"overlays/{m.group(1)}"
+        if s.startswith("src/"):
+            return "main"
+    # Fall back on unit id from the symbol index.
+    if unit and unit.startswith("ov"):
+        return f"overlays/{unit}"
+    if unit in ("main", "itcm", "dtcm"):
+        return "main"
+    return "unknown"
+
+
+CATEGORY_LABELS = {
+    "main": "Main + ITCM + DTCM",
+    "unknown": "Unknown / uncategorized",
+}
+# libs/nitro/<mod> and libs/msl/c become "NitroSDK: <mod>" etc.
+NITRO_NICE = {
+    "wm": "Wireless (WM)", "snd": "Sound (SND)", "os": "OS", "nns": "NNS",
+    "mtx": "Matrix (MTX)", "fs": "Filesystem (FS)", "fx": "Fixed-point (FX)",
+    "gx": "Graphics (GX)", "mi": "Memory intrinsics (MI)", "pxi": "PXI",
+    "card": "CARD", "nitro": "NitroSDK (misc)",
+}
+
 
 def measures(funcs):
-    total = sum(s for _, s, _ in funcs)
-    matched = sum(s for _, s, m in funcs if m)
-    tf = len(funcs); mf = sum(1 for _, _, m in funcs if m)
-    pct = 100.0 * matched / total if total else 100.0
-    # protobuf-JSON: uint64 fields go as STRINGS; uint32 + floats as numbers
+    total = sum(func["size"] for func in funcs)
+    matched = sum(func["size"] for func in funcs if func["matched"])
+    total_functions = len(funcs)
+    matched_functions = sum(1 for func in funcs if func["matched"])
+    percent = 100.0 * matched / total if total else 100.0
+
+    # protobuf-JSON: uint64 fields are strings; uint32 and floats are numbers.
     return {
-        "fuzzyMatchPercent": pct,
-        "totalCode": str(total), "matchedCode": str(matched),
-        "matchedCodePercent": pct,
-        "totalData": "0", "matchedData": "0", "matchedDataPercent": 100.0,
-        "totalFunctions": tf, "matchedFunctions": mf,
-        "matchedFunctionsPercent": 100.0 * mf / tf if tf else 100.0,
-        "completeCode": str(matched), "completeCodePercent": pct,
-        "completeData": "0", "completeDataPercent": 100.0,
+        "fuzzyMatchPercent": percent,
+        "totalCode": str(total),
+        "matchedCode": str(matched),
+        "matchedCodePercent": percent,
+        "totalData": "0",
+        "matchedData": "0",
+        "matchedDataPercent": 100.0,
+        "totalFunctions": total_functions,
+        "matchedFunctions": matched_functions,
+        "matchedFunctionsPercent": (
+            100.0 * matched_functions / total_functions if total_functions else 100.0
+        ),
+        "completeCode": str(matched),
+        "completeCodePercent": percent,
+        "completeData": "0",
+        "completeDataPercent": 100.0,
     }
 
-report_units = []
-for unit in sorted(units):
-    funcs = sorted(units[unit], key=lambda x: x[0])
-    report_units.append({
-        "name": unit,
-        "measures": measures(funcs),
-        "sections": [],
-        "functions": [{"name": n, "size": str(s), "fuzzyMatchPercent": 100.0 if m else 0.0}
-                      for n, s, m in funcs],
-        "metadata": {"moduleName": unit, "complete": all(m for _, _, m in funcs)},
-    })
 
-allfuncs = [f for u in units.values() for f in u]
-agg = measures(allfuncs)
-agg["totalUnits"] = len(units)
-agg["completeUnits"] = sum(1 for u in report_units if u["metadata"]["complete"])
-report = {"measures": agg, "units": report_units, "version": 2, "categories": []}
-os.makedirs(os.path.join(ROOT, "build"), exist_ok=True)
-json.dump(report, open(os.path.join(ROOT, "build", "report.json"), "w"))
-print("report.json -> %d unidades, %.2f%% code (%s/%s bytes)" %
-      (len(units), agg["matchedCodePercent"], agg["matchedCode"], agg["totalCode"]))
+def main():
+    audited_functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
+    units = defaultdict(list)
+
+    for func in audited_functions:
+        category = func["category"]
+        pc = category_for_source(func.get("source"), func.get("unit"))
+        units[func["unit"]].append({
+            "name": func["name"],
+            "size": func["size"],
+            "category": category,
+            "progress_category": pc,
+            "matched": category == "c_decompiled_matched",
+        })
+
+    report_units = []
+    all_categories = set()
+    for unit in sorted(units):
+        funcs = sorted(units[unit], key=lambda item: item["name"])
+        # Attribute unit to the most-common progress category among its
+        # functions (usually just one — overlays are self-contained).
+        cat_count = defaultdict(int)
+        for f in funcs:
+            cat_count[f["progress_category"]] += f["size"] or 1
+        unit_cats = sorted(cat_count, key=cat_count.get, reverse=True)
+        primary = unit_cats[0] if unit_cats else "unknown"
+        all_categories.update(unit_cats)
+        report_units.append({
+            "name": unit,
+            "measures": measures(funcs),
+            "sections": [],
+            "functions": [
+                {
+                    "name": func["name"],
+                    "size": str(func["size"]),
+                    "fuzzyMatchPercent": 100.0 if func["matched"] else 0.0,
+                }
+                for func in funcs
+            ],
+            "metadata": {
+                "moduleName": unit,
+                "complete": all(func["matched"] for func in funcs),
+                "progressCategories": [primary],
+            },
+        })
+
+    all_funcs = [func for funcs in units.values() for func in funcs]
+    aggregate = measures(all_funcs)
+    aggregate["totalUnits"] = len(units)
+    aggregate["completeUnits"] = sum(1 for unit in report_units if unit["metadata"]["complete"])
+
+    def label_for(cat_id):
+        if cat_id in CATEGORY_LABELS:
+            return CATEGORY_LABELS[cat_id]
+        if cat_id.startswith("nitro/"):
+            return "NitroSDK: " + NITRO_NICE.get(cat_id.split("/", 1)[1], cat_id.split("/", 1)[1])
+        if cat_id.startswith("msl/"):
+            return "MSL: " + cat_id.split("/", 1)[1]
+        if cat_id.startswith("overlays/ov"):
+            return "Overlay " + cat_id.split("/ov", 1)[1]
+        return cat_id
+
+    categories = [
+        {"id": cid, "name": label_for(cid)}
+        for cid in sorted(all_categories)
+    ]
+
+    report = {
+        "measures": aggregate,
+        "units": report_units,
+        "version": 2,
+        "categories": categories,
+    }
+
+    build_dir = ROOT / "build"
+    build_dir.mkdir(exist_ok=True)
+    with (build_dir / "report.json").open("w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2, sort_keys=True)
+        f.write("\n")
+
+    print(
+        "report.json -> "
+        f"{len(units)} unidades, {aggregate['matchedCodePercent']:.2f}% C code "
+        f"({aggregate['matchedCode']}/{aggregate['totalCode']} bytes), "
+        f"{aggregate['matchedFunctions']}/{aggregate['totalFunctions']} funcs"
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,4 +1,4 @@
-SNDi_UnlockMutex_0x020b8100 kind:function(arm,size=0x14) addr:0x020b8100
+SNDi_UnlockMutex_ov087_0x020b8100 kind:function(arm,size=0x14) addr:0x020b8100
 func_ov087_020b8114 kind:function(thumb,size=0x68) addr:0x020b8114
 func_ov087_020b817c kind:function(thumb,size=0x60) addr:0x020b817c
 func_ov087_020b81dc kind:function(thumb,size=0x23c) addr:0x020b81dc

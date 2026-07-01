@@ -4,12 +4,24 @@
 /extract/
 /asm/
 /build/*.json
+/build/progress_audit.md
+/build/objects.txt
+/build/file_modes.json
+/build/*.xMAP
+/build/*.sav
+!/build/known_mismatches.txt
 
 # ── Build artifacts (regenerated locally) ─────────────────────────────────────
 /build/delinks/
 /build/obj/
 /build/_test/
 /build/build/
+/build/link/
+/build/src/
+/build.ninja
+/.ninja_deps
+/.ninja_log
+/objdiff.json
 *.o
 *.elf
 *.lcf
