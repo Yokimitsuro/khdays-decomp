@@ -41,6 +41,14 @@ for p in raw:
         objs_rel.append(p)
 Path(rsp).write_text("\n".join(objs_rel) + "\n", encoding="utf-8", newline="\n")
 
+# Patch every input .o so its `.text` sh_addralign is 2 instead of 4.
+# mwld pads inputs to their declared sh_addralign, so a THUMB function
+# with sh_size=2 sitting in an .o with sh_addralign=4 gets 2 bytes of
+# padding inserted at the input boundary, breaking byte-exactness for
+# any adjacent THUMB code at a 2-aligned offset. See tools/patch_align.py.
+patch_script = ROOT / "tools" / "patch_align.py"
+subprocess.run([sys.executable, str(patch_script)], check=True)
+
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
 # Flags mirrored from Yotona/twewy/tools/configure.py — the only DS decomp
 # using dsd that actually links a full ROM. -nodead disables dead-code

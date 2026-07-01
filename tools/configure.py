@@ -33,10 +33,11 @@ CFLAGS = [
 ]
 
 def discover_modules():
-    """Modules to build. Scoped to ov000 (known byte-exact path).
-    Multi-module extension is scaffolded but not yet byte-exact — the
-    per-file .o layout adds ~64 bytes vs the single-gap fallback,
-    shifting every embedded pointer at link time (task #25)."""
+    """Modules to build. Scoped to ov000 (byte-exact via
+    tools/patch_align.py fix for THUMB sh_addralign). Multi-module
+    extension still leaves a small drift when many main-module .c
+    files are included — task #26 investigation captured a partial fix
+    but not the complete root cause."""
     modules = []
     cfg_root = ROOT / "config" / "arm9"
     ov000 = cfg_root / "overlays" / "ov000"
