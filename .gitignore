@@ -5,6 +5,10 @@
 /asm/
 /build/*.json
 /build/progress_audit.md
+/build/objects.txt
+/build/file_modes.json
+/build/*.xMAP
+/build/*.sav
 !/build/known_mismatches.txt
 
 # ── Build artifacts (regenerated locally) ─────────────────────────────────────
