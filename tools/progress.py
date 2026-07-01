@@ -2,6 +2,8 @@
 """Generate PROGRESS.md with transparent progress categories."""
 from collections import Counter, defaultdict
 from pathlib import Path
+import glob
+import os
 import re
 
 import audit_progress
@@ -27,6 +29,33 @@ def status_mark(c_count, total):
     if c_count:
         return "PART"
     return "TODO"
+
+
+_SYM_RE = re.compile(r"(\S+)\s+kind:function\(\w+,\s*size=(0x[0-9a-fA-F]+)\)\s+addr:")
+
+
+def compute_byte_progress():
+    """Return (c_bytes, total_bytes) summed across every module's symbols.txt."""
+    c_names = set()
+    for path in glob.glob(str(ROOT / "src" / "**" / "*.c"), recursive=True):
+        if "asm_stubs" in path:
+            continue
+        c_names.add(os.path.basename(path)[:-2])  # strip .c
+
+    total_bytes = 0
+    c_bytes = 0
+    for sym_path in glob.glob(str(ROOT / "config" / "arm9" / "**" / "symbols.txt"), recursive=True):
+        with open(sym_path, encoding="utf-8") as fh:
+            for line in fh:
+                m = _SYM_RE.match(line)
+                if not m:
+                    continue
+                name = m.group(1)
+                size = int(m.group(2), 16)
+                total_bytes += size
+                if name in c_names:
+                    c_bytes += size
+    return c_bytes, total_bytes
 
 
 def main():
@@ -84,11 +113,30 @@ def main():
         )
     )
 
+    c_bytes, total_bytes = compute_byte_progress()
+    byte_pct = 100.0 * c_bytes / total_bytes if total_bytes else 0.0
+    lines.extend(
+        [
+            "",
+            "## Byte progress",
+            "",
+            "Function-count percentages count each decomp'd function equally,",
+            "which inflates progress when the decomp'd set is dominated by small",
+            "trampolines and wrappers. The byte-based percentage below is closer",
+            "to how decomp.dev reports progress:",
+            "",
+            "| C matched bytes | Total known bytes | % |",
+            "|---:|---:|---:|",
+            f"| **{c_bytes:,}** | **{total_bytes:,}** | **{byte_pct:.2f}%** |",
+        ]
+    )
+
     (ROOT / "PROGRESS.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print(
         "PROGRESS.md -> "
         f"C={c_total}/{total} ({100.0 * c_total / total:.1f}%), "
-        f"ASM={totals['asm_stub_matched']}, SDK={totals['sdk_identified']}"
+        f"ASM={totals['asm_stub_matched']}, SDK={totals['sdk_identified']}, "
+        f"bytes={c_bytes:,}/{total_bytes:,} ({byte_pct:.2f}%)"
     )
 
 
