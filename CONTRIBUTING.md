@@ -209,33 +209,6 @@ callback registrations, etc.). When you find one, the fastest path is:
 Don't batch faster than you understand. If a shape has variations you
 can't explain, split it into sub-shapes rather than papering over.
 
-## Ghidra integration
-
-The project ships against Ghidra 11.2.1 and the community
-`com.xebyte/GhidraMCP` plugin (v5.14.2 at time of writing) for scripted
-sync. See
-[project-khdays-mcp-setup](../.claude/projects/E--KH-3582-decomp/memory/project_khdays_mcp_setup.md)
-for the current bridge/plugin config and one important pitfall: every
-write-path endpoint (`rename_function_by_address`, `rename_or_label`,
-`set_global`) currently emits a Java `NullPointerException` naming
-`Program.endTransaction(int, boolean)` even when the mutation applies
-cleanly — treat the NPE as *"probable success, verify"* and read back
-via `get_function_by_address` or `audit_global`.
-
-The project convention for Ghidra names:
-
-- Functions: `func_ov<NNN>_<addr>` for still-unnamed decomp targets;
-  a semantic name (e.g. `ov107_RegisterHandler`, `InstantiateClass`)
-  once its behaviour is understood, always paired with a plate comment.
-- Globals: `g_` + Hungarian prefix (`dw`/`n`/`p`/`sz`/`ab`/`pfn`) +
-  a descriptive name. `undefined*` types are rejected — pass a concrete
-  Ghidra type (`byte` with `array_length`, `pointer *`, `pointer * *`,
-  etc.) via `set_global`.
-
-Keep Ghidra names in sync with the repo names as you decompile — a
-one-name-per-symbol convention across both sides makes future queries
-readable.
-
 ## Contributing via decomp.me
 
 Do not want to install the toolchain? Use [decomp.me](https://decomp.me); it
