@@ -1,0 +1,10 @@
+extern void func_ov107_020c9264();
+extern void func_0203c634(void *obj, int idx, void *value);
+extern void func_ov132_020cf110(void);
+void func_ov132_020cf0b0(int *node) {
+    int v = *(int *)(*node + 0x2c) * 0x1e;
+    int *state = (int *)node[1];
+    state[5] = v / 30;
+    func_ov107_020c9264(*state, 8, 0);
+    func_0203c634(node, *(signed char *)(node + 8), func_ov132_020cf110);
+}
