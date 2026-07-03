@@ -1,5 +1,5 @@
-extern void func_ov022_02091228();extern void func_020236ac();
+extern void func_ov022_02091228();extern void NNSi_FndFreeFromDefaultHeap();
 void func_ov055_020b7434(int p) {
     func_ov022_02091228(*(int *)(p + 0x2644));
-    func_020236ac(*(int *)(p + 0x2644));
+    NNSi_FndFreeFromDefaultHeap(*(int *)(p + 0x2644));
 }

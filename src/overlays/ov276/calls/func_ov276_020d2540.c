@@ -1,5 +1,5 @@
 extern void func_01ffa724();
-extern void func_01ff8bc4();
+extern void VEC_Subtract();
 extern void func_ov107_020c5c54();
 extern void func_ov107_020c9264();
 extern void func_ov276_020d0cdc();
@@ -16,7 +16,7 @@ void func_ov276_020d2540(int *node) {
         vec[1] = 0;
         vec[2] = (int)data_0203d210[angle * 2 + 1];
         func_01ffa724(*(int *)(*state + 0x480), vec, vec);
-        func_01ff8bc4(state[2] + 0x190, vec, vec);
+        VEC_Subtract(state[2] + 0x190, vec, vec);
         func_ov107_020c5c54(*state, vec);
         state[2] = 0;
     }

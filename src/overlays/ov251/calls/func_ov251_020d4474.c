@@ -1,6 +1,6 @@
 struct bf { unsigned b : 8; };
 extern int func_ov107_020cab14();
-extern void func_01ff8bc4();
+extern void VEC_Subtract();
 extern int func_020050b4();
 extern void func_ov107_020c9264();
 extern void func_0203c634(void *obj, int idx, void *value);
@@ -12,7 +12,7 @@ void func_ov251_020d4474(int *node) {
     if (t != 0) {
         int buf[3];
         int a;
-        func_01ff8bc4(t + 0x190, state[1], buf);
+        VEC_Subtract(t + 0x190, state[1], buf);
         a = func_020050b4(buf[0], buf[2]);
         state[6] = a;
         state[5] = a;

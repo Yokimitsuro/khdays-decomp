@@ -1,5 +1,5 @@
 extern int func_ov107_020cab14();
-extern void func_01ff8bc4();
+extern void VEC_Subtract();
 extern int func_020050b4();
 extern void func_ov107_020c9264();
 extern void func_ov107_020c9ee8();
@@ -16,7 +16,7 @@ void func_ov269_020d404c(int *node) {
         int t = func_ov107_020cab14(*state, 0);
         state[2] = t;
         if (t != 0) {
-            func_01ff8bc4(t + 0x190, *state + 0xb0, buf);
+            VEC_Subtract(t + 0x190, *state + 0xb0, buf);
             state[4] = func_020050b4(buf[0], buf[2]);
         }
     }

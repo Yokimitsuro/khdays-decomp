@@ -1,6 +1,6 @@
 extern void func_ov261_020d0348();
 extern void func_0202f384();
-extern void func_01ff8bc4();
+extern void VEC_Subtract();
 extern void func_01ff8d18();
 extern int func_01ff8bf8();
 extern void func_ov107_020c5af8();
@@ -18,7 +18,7 @@ void func_ov261_020d0c0c(int *node) {
         unsigned int b28[3], b1c[3];
         func_ov261_020d0348(state + 7, sub + 0x74, state[1]);
         func_0202f384(b1c, state + 3, data_02042258);
-        func_01ff8bc4(sub + 0x74, state[1], b28);
+        VEC_Subtract(sub + 0x74, state[1], b28);
         func_01ff8d18(b28, b28);
         if ((int)func_01ff8bf8(b1c, b28) > 0xf00) {
             state[0x10] = 0;

@@ -1,5 +1,5 @@
-extern void func_01ff9010();
-extern void func_01ff93bc();
+extern void MTX_RotY33_();
+extern void MTX_MultVec33();
 extern void func_ov240_020ce5c4();
 extern void func_0203c634(void *obj, int idx, void *value);
 extern short data_0203d210[];
@@ -8,8 +8,8 @@ void func_ov240_020cf334(int *node) {
     int mtx[9];
     int angle = (int)(((unsigned)(((long long)(int)(unsigned)state[4] * 0x28be60db9391LL +
                        0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
-    func_01ff9010(mtx, (int)data_0203d210[angle * 2], (int)data_0203d210[angle * 2 + 1]);
-    func_01ff93bc(*(int *)(*state + 0x398) + 0x2c, mtx, state + 5);
+    MTX_RotY33_(mtx, (int)data_0203d210[angle * 2], (int)data_0203d210[angle * 2 + 1]);
+    MTX_MultVec33(*(int *)(*state + 0x398) + 0x2c, mtx, state + 5);
     {
         int t = state[0xe] + *(int *)(*node + 0x2c);
         state[0xe] = t;

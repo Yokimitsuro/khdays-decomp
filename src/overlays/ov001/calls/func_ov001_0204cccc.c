@@ -1,6 +1,6 @@
 typedef struct { unsigned long long x, mul, add; } Rand64;
 typedef struct { unsigned x, mul, add; } Rand32;
-extern void func_02003b68(unsigned *buf);
+extern void OS_GetLowEntropyData(unsigned *buf);
 extern Rand32 data_0204c168;
 extern Rand64 data_0204c174;
 static inline void initRand64(Rand64 *c, unsigned long long seed) {
@@ -18,7 +18,7 @@ void func_ov001_0204cccc(void) {
     unsigned r;
     unsigned long long x;
     int i;
-    func_02003b68(buf);
+    OS_GetLowEntropyData(buf);
     for (i = 0; i < 8; i++) {
         unsigned v = buf[i];
         unsigned tmp;
