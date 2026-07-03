@@ -99,20 +99,25 @@ project root, after the setup above:
 ```sh
 python tools/configure.py       # gen delinks, dsd delink, dsd lcf, build.ninja
 ninja                            # compile matched .c + mwld link -> build/arm9.elf
+ninja build/arm9.elf            # arm9.elf is NOT in the default target set
 tools/dsd.exe check modules --config-path config/arm9/config.yaml -f
-tools/dsd.exe rom config --elf build/arm9.elf --config config/arm9/config.yaml
-tools/dsd.exe rom build --config build/build/rom_config.yaml --rom build/days.nds
+bash tools/build_rom.sh          # pack build/days.nds from the patched bins + verify
 ```
 
 `dsd check modules` compares each built per-module `.bin` against the base ROM
-and exits non-zero if any module is not byte-exact. Baseline as of this
-writing: **269 modules OK / 37 modules FAIL / 306 total**. The 37 failing
-overlays share a documented residual — a 2-4 byte BL vs. BLX encoding drift
-per overlay (79 bytes total across ~4.7 MB, 99.998%) that comes from mode
-selection in `mwld` when the target function's ARM/THUMB mode is lost
-between the compiled `.o` and the linked ELF. See
+and exits non-zero if any module is not byte-exact. Baseline: **306 / 306
+modules byte-exact**. The old BL-vs-BLX overlay drift is repaired post-link by
+`tools/fix_interwork.py` (auto-run inside `tools/_run_mwld.py`), so `ninja
+build/arm9.elf` alone yields byte-exact module bins.
+
+`tools/build_rom.sh` then runs `dsd rom config` + `dsd rom build` to pack
+`build/days.nds` from those patched bins, restoring the per-overlay `signed`
+flag that `dsd rom config` drops (it can't recover it from the ELF). The packed
+ROM matches the reference dump to **4 non-functional CRC bytes** (0x6C/0x6D
+secure-area CRC, 0x15E/0x15F header CRC) — the DS firmware recomputes those from
+image content. See
 [project-khdays-blx-followup](../.claude/projects/E--KH-3582-decomp/memory/project_khdays_blx_followup.md)
-if you're picking this up.
+for the full pipeline history.
 
 For per-function byte-parity while iterating, compare the compiled `.o`
 against the `dsd` delink output directly — this is faster than a full
