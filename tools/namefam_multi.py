@@ -41,5 +41,7 @@ L+=["]","ok=0;miss=[]","for sp,ad in DATA:","    a=af.getAddressSpace(sp).getAdd
 "    for i in range(Ls.size()):","        e=Ls.get(i); s=e.getClass().getDeclaredField('status'); s.setAccessible(True)",
 "        if str(s.get(e))=='NOT_DONE':","            try: p.endTransaction(base+i,True)","            except: pass",
 "try: p.getDomainFile().save(monitor); print('SAVED_OK')","except:","    import sys; print('FAIL'+str(sys.exc_info()[1]))"]
-open("C:/Users/Yokimitsuro/ghidra_scripts/NameFam.py","w",newline="\n").write("\n".join(L)+"\n")
+_gsdir=os.environ.get("GHIDRA_SCRIPTS_DIR",os.path.expanduser("~/ghidra_scripts"))
+os.makedirs(_gsdir,exist_ok=True)
+open(os.path.join(_gsdir,"NameFam.py"),"w",newline="\n").write("\n".join(L)+"\n")
 print("members:",len(mem))
