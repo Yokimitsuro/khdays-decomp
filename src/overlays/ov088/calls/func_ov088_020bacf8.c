@@ -3,7 +3,7 @@ extern int func_ov022_020ad0c0(int this);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void func_01ff8d18(void *a, void *b);
-extern int func_0200526c(int x, int z);
+extern int FX_Atan2(int x, int z);
 extern void func_ov088_020bb7a0(void);
 
 void *func_ov088_020bacf8(int this, int param_2) {
@@ -23,7 +23,7 @@ void *func_ov088_020bacf8(int this, int param_2) {
             if (VEC_Mag(local) != 0) {
                 func_01ff8d18(local, local);
             }
-            angle = (unsigned short)func_0200526c(-local[0], -local[2]);
+            angle = (unsigned short)FX_Atan2(-local[0], -local[2]);
             obj = *(int **)(this + 0x20);
             if ((*obj & 0x20) == 0) {
                 *(short *)((int)obj + 0x80) = angle + 0x8000;

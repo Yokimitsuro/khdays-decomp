@@ -68,6 +68,13 @@ env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
 cmd = [
     str(MWLDARM),
     "-proc", "arm946e",
+    # NOTE: mwld's -interworking pass resolves BL-vs-BLX per final VIRTUAL
+    # ADDRESS; NDS overlays overlap in address space, so a same-address
+    # function of the other mode in a sibling overlay can poison the decision
+    # (e.g. ov035 call to ARM func_ov035_020b3a30 linked as thumb BL because
+    # THUMB func_ov043_020b3a18 covers 0x020b3a30 in the overlapping ov043).
+    # tools/fix_interwork.py repairs those sites post-link from the config
+    # symbols.txt modes (ground truth), verified against the original ROM.
     "-interworking",
     "-map", "closure,unused",
     "-msgstyle", "gcc",
@@ -78,4 +85,15 @@ cmd = [
     lcf,
     f"@{rsp}",
 ]
-sys.exit(subprocess.run(cmd, env=env, cwd=str(ROOT)).returncode)
+rc = subprocess.run(cmd, env=env, cwd=str(ROOT)).returncode
+if rc == 0:
+    # Post-link interworking repair (see tools/fix_interwork.py header):
+    # mwld's address-based BL/BLX decisions are poisoned by the overlapping
+    # overlay address space of the monolithic link. Recompute every call
+    # reloc from config symbols.txt and patch the module bins (only where
+    # the recomputed bytes equal the original ROM bytes).
+    rc = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "fix_interwork.py"), "--write"],
+        cwd=str(ROOT),
+    ).returncode
+sys.exit(rc)

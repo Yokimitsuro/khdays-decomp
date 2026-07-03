@@ -57,10 +57,14 @@ def _load_known_mismatches():
     candidate before deciding which are broken)."""
     if os.environ.get("KHDAYS_NO_EXCLUDE") == "1":
         return set()
-    p = ROOT / "build" / "known_mismatches.txt"
-    if not p.exists():
-        return set()
-    return {ln.strip() for ln in p.read_text().splitlines() if ln.strip()}
+    # Prefer the freshly-regenerated build copy; fall back to the committed
+    # config copy so a fresh clone / wiped build dir keeps the exclusions.
+    for p in (ROOT / "build" / "known_mismatches.txt",
+              ROOT / "config" / "arm9" / "known_mismatches.txt"):
+        if p.exists():
+            return {ln.strip() for ln in p.read_text().splitlines()
+                    if ln.strip()}
+    return set()
 
 
 KNOWN_MISMATCH = _load_known_mismatches()

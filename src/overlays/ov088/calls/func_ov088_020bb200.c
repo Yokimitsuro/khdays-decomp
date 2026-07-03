@@ -1,4 +1,4 @@
-extern void func_01ff87e0(int a, int b);
+extern void MI_Copy48B(int a, int b);
 extern void func_02016b60(int a, int b, int c);
 extern void func_01ff9f00(int tag, int *buf, int count);
 extern void func_0201571c(void);
@@ -15,10 +15,10 @@ void func_ov088_020bb200(int this, int entry, int p3) {
     case 6:
         switch (*(int *)entry) {
         case 0:
-            func_01ff87e0(this + 0x528, entry + 0x88);
+            MI_Copy48B(this + 0x528, entry + 0x88);
             break;
         case 1:
-            func_01ff87e0(this + 0x558, entry + 0x88);
+            MI_Copy48B(this + 0x558, entry + 0x88);
             break;
         }
         func_02016b60(*(int *)(entry + 0x80), 2, p3 + 5);

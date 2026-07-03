@@ -60,13 +60,14 @@ def main():
         if not ok:
             mismatches.append((rel_c, msg))
 
+    body = "\n".join(path for path, _msg in sorted(mismatches)) + "\n"
     out = ROOT / "build" / "known_mismatches.txt"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(
-        "\n".join(path for path, _msg in sorted(mismatches)) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    out.write_text(body, encoding="utf-8", newline="\n")
+    # Committed copy: survives a wiped build dir / fresh clone (gen_delinks
+    # falls back to it).
+    (ROOT / "config" / "arm9" / "known_mismatches.txt").write_text(
+        body, encoding="utf-8", newline="\n")
     print(f"wrote {out.relative_to(ROOT)}  ({len(mismatches)} mismatches)")
     for path, msg in mismatches[:15]:
         print(f"  {path}  ({msg})")
