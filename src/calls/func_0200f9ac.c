@@ -1,4 +1,4 @@
-extern void func_02003c38(void);
+extern void OS_Terminate(void);
 extern void func_0200fa08(void);
 extern int data_02046d50[];
 
@@ -13,6 +13,6 @@ void func_0200f9ac(int param_1, unsigned param_2) {
         if (result != 0) func_0200fa08();
         data_02046d50[3] = 1;
     } else {
-        func_02003c38();
+        OS_Terminate();
     }
 }
