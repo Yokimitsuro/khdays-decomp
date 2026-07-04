@@ -3,3 +3,27 @@
     .ctor       start:0x020d3698 end:0x020d3698 kind:rodata align:4
     .data       start:0x020d36a0 end:0x020d3700 kind:data align:32
     .bss        start:0x020d3700 end:0x020d3700 kind:bss align:32
+
+src/overlays/ov232/calls/func_ov232_020d00f4.c:
+    complete
+    .text       start:0x020d00f4 end:0x020d0118
+
+src/overlays/ov232/auto/func_ov232_020d0d1c.c:
+    complete
+    .text       start:0x020d0d1c end:0x020d0d58
+
+src/overlays/ov232/calls/func_ov232_020d0ebc.c:
+    complete
+    .text       start:0x020d0ebc end:0x020d0ef4
+
+src/overlays/ov232/calls/func_ov232_020d2ec8.c:
+    complete
+    .text       start:0x020d2ec8 end:0x020d2ee4
+
+src/overlays/ov232/auto/func_ov232_020d2ee4.c:
+    complete
+    .text       start:0x020d2ee4 end:0x020d2f1c
+
+src/overlays/ov232/calls/func_ov232_020d3180.c:
+    complete
+    .text       start:0x020d3180 end:0x020d31b8

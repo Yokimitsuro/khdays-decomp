@@ -3,3 +3,83 @@
     .ctor       start:0x020d691c end:0x020d691c kind:rodata align:4
     .data       start:0x020d6920 end:0x020d6960 kind:data align:32
     .bss        start:0x020d6960 end:0x020d6960 kind:bss align:32
+
+src/overlays/ov229/calls/func_ov229_020d1a28.c:
+    complete
+    .text       start:0x020d1a28 end:0x020d1b18
+
+src/overlays/ov229/calls/func_ov229_020d1f04.c:
+    complete
+    .text       start:0x020d1f04 end:0x020d1f5c
+
+src/overlays/ov229/calls/func_ov229_020d1f5c.c:
+    complete
+    .text       start:0x020d1f5c end:0x020d1fd0
+
+src/overlays/ov229/calls/func_ov229_020d1fd0.c:
+    complete
+    .text       start:0x020d1fd0 end:0x020d200c
+
+src/overlays/ov229/calls/func_ov229_020d200c.c:
+    complete
+    .text       start:0x020d200c end:0x020d2048
+
+src/overlays/ov229/calls/func_ov229_020d22b4.c:
+    complete
+    .text       start:0x020d22b4 end:0x020d243c
+
+src/overlays/ov229/auto/func_ov229_020d2a9c.c:
+    complete
+    .text       start:0x020d2a9c end:0x020d2ac8
+
+src/overlays/ov229/auto/func_ov229_020d2ac8.c:
+    complete
+    .text       start:0x020d2ac8 end:0x020d2af8
+
+src/overlays/ov229/calls/func_ov229_020d2f70.c:
+    complete
+    .text       start:0x020d2f70 end:0x020d2f84
+
+src/overlays/ov229/calls/func_ov229_020d2f84.c:
+    complete
+    .text       start:0x020d2f84 end:0x020d302c
+
+src/overlays/ov229/calls/func_ov229_020d32bc.c:
+    complete
+    .text       start:0x020d32bc end:0x020d3450
+
+src/overlays/ov229/calls/func_ov229_020d3710.c:
+    complete
+    .text       start:0x020d3710 end:0x020d3850
+
+src/overlays/ov229/calls/func_ov229_020d4b5c.c:
+    complete
+    .text       start:0x020d4b5c end:0x020d4b90
+
+src/overlays/ov229/calls/func_ov229_020d5854.c:
+    complete
+    .text       start:0x020d5854 end:0x020d5888
+
+src/overlays/ov229/calls/func_ov229_020d5950.c:
+    complete
+    .text       start:0x020d5950 end:0x020d5970
+
+src/overlays/ov229/calls/func_ov229_020d5a38.c:
+    complete
+    .text       start:0x020d5a38 end:0x020d5acc
+
+src/overlays/ov229/calls/func_ov229_020d5e14.c:
+    complete
+    .text       start:0x020d5e14 end:0x020d5e38
+
+src/overlays/ov229/calls/func_ov229_020d5e38.c:
+    complete
+    .text       start:0x020d5e38 end:0x020d5e70
+
+src/overlays/ov229/calls/func_ov229_020d5ee8.c:
+    complete
+    .text       start:0x020d5ee8 end:0x020d5f80
+
+src/overlays/ov229/calls/func_ov229_020d62c8.c:
+    complete
+    .text       start:0x020d62c8 end:0x020d6300

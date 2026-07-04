@@ -3,3 +3,207 @@
     .ctor       start:0x020d62a8 end:0x020d62a8 kind:rodata align:4
     .data       start:0x020d62c0 end:0x020d6300 kind:data align:32
     .bss        start:0x020d6300 end:0x020d6300 kind:bss align:32
+
+src/overlays/ov143/calls/func_ov143_020d37a0.c:
+    complete
+    .text       start:0x020d37a0 end:0x020d37b8
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d37b8.c:
+    complete
+    .text       start:0x020d37b8 end:0x020d3844
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d3844.c:
+    complete
+    .text       start:0x020d3844 end:0x020d3ab8
+
+src/overlays/ov143/calls/func_ov143_020d3b00.c:
+    complete
+    .text       start:0x020d3b00 end:0x020d3b48
+
+src/overlays/ov143/calls/func_ov143_020d3b48.c:
+    complete
+    .text       start:0x020d3b48 end:0x020d3b78
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d3b78.c:
+    complete
+    .text       start:0x020d3b78 end:0x020d3dd4
+
+src/overlays/ov143/calls/func_ov143_020d3dd4.c:
+    complete
+    .text       start:0x020d3dd4 end:0x020d3dfc
+
+src/overlays/ov143/calls/func_ov143_020d3dfc.c:
+    complete
+    .text       start:0x020d3dfc end:0x020d3e24
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d3e24.c:
+    complete
+    .text       start:0x020d3e24 end:0x020d3f50
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d3f9c.c:
+    complete
+    .text       start:0x020d3f9c end:0x020d4130
+
+src/overlays/ov143/auto/func_ov143_020d4130.c:
+    complete
+    .text       start:0x020d4130 end:0x020d4160
+
+src/overlays/ov143/calls/func_ov143_020d4160.c:
+    complete
+    .text       start:0x020d4160 end:0x020d4234
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4234.c:
+    complete
+    .text       start:0x020d4234 end:0x020d43c4
+
+src/overlays/ov143/calls/func_ov143_020d43c4.c:
+    complete
+    .text       start:0x020d43c4 end:0x020d445c
+
+src/overlays/ov143/calls/func_ov143_020d445c.c:
+    complete
+    .text       start:0x020d445c end:0x020d44c4
+
+src/overlays/ov143/calls/func_ov143_020d44c4.c:
+    complete
+    .text       start:0x020d44c4 end:0x020d4500
+
+src/overlays/ov143/calls/func_ov143_020d4500.c:
+    complete
+    .text       start:0x020d4500 end:0x020d459c
+
+src/overlays/ov143/calls/func_ov143_020d459c.c:
+    complete
+    .text       start:0x020d459c end:0x020d4664
+
+src/overlays/ov143/calls/func_ov143_020d4664.c:
+    complete
+    .text       start:0x020d4664 end:0x020d4698
+
+src/overlays/ov143/calls/func_ov143_020d4698.c:
+    complete
+    .text       start:0x020d4698 end:0x020d4718
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4718.c:
+    complete
+    .text       start:0x020d4718 end:0x020d47a4
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d47a4.c:
+    complete
+    .text       start:0x020d47a4 end:0x020d4940
+
+src/overlays/ov143/calls/func_ov143_020d4988.c:
+    complete
+    .text       start:0x020d4988 end:0x020d4a5c
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4a5c.c:
+    complete
+    .text       start:0x020d4a5c end:0x020d4b30
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4b30.c:
+    complete
+    .text       start:0x020d4b30 end:0x020d4be4
+
+src/overlays/ov143/calls/func_ov143_020d4be4.c:
+    complete
+    .text       start:0x020d4be4 end:0x020d4c98
+
+src/overlays/ov143/calls/func_ov143_020d4c98.c:
+    complete
+    .text       start:0x020d4c98 end:0x020d4d1c
+
+src/overlays/ov143/calls/func_ov143_020d4d1c.c:
+    complete
+    .text       start:0x020d4d1c end:0x020d4de0
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4de0.c:
+    complete
+    .text       start:0x020d4de0 end:0x020d4ea8
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d4ea8.c:
+    complete
+    .text       start:0x020d4ea8 end:0x020d4f6c
+
+src/overlays/ov143/calls/func_ov143_020d4f6c.c:
+    complete
+    .text       start:0x020d4f6c end:0x020d5030
+
+src/overlays/ov143/calls/func_ov143_020d5030.c:
+    complete
+    .text       start:0x020d5030 end:0x020d5104
+
+src/overlays/ov143/calls/func_ov143_020d5104.c:
+    complete
+    .text       start:0x020d5104 end:0x020d5138
+
+src/overlays/ov143/calls/func_ov143_020d5138.c:
+    complete
+    .text       start:0x020d5138 end:0x020d51ec
+
+src/overlays/ov143/calls/func_ov143_020d51ec.c:
+    complete
+    .text       start:0x020d51ec end:0x020d522c
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d5260.c:
+    complete
+    .text       start:0x020d5260 end:0x020d5408
+
+src/overlays/ov143/calls/func_ov143_020d5448.c:
+    complete
+    .text       start:0x020d5448 end:0x020d5480
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d5480.c:
+    complete
+    .text       start:0x020d5480 end:0x020d5534
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d5534.c:
+    complete
+    .text       start:0x020d5534 end:0x020d5590
+
+src/overlays/ov143/calls/func_ov143_020d55dc.c:
+    complete
+    .text       start:0x020d55dc end:0x020d5684
+
+src/overlays/ov143/calls/func_ov143_020d5684.c:
+    complete
+    .text       start:0x020d5684 end:0x020d56fc
+
+src/overlays/ov143/auto/func_ov143_020d56fc.c:
+    complete
+    .text       start:0x020d56fc end:0x020d5714
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d5714.c:
+    complete
+    .text       start:0x020d5714 end:0x020d57c4
+
+src/overlays/ov143/calls/func_ov143_020d57c4.c:
+    complete
+    .text       start:0x020d57c4 end:0x020d57fc
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d57fc.c:
+    complete
+    .text       start:0x020d57fc end:0x020d5ab0
+
+src/overlays/ov143/asm_stubs/calls/func_ov143_020d5ab0.c:
+    complete
+    .text       start:0x020d5ab0 end:0x020d5fec
+
+src/overlays/ov143/calls/func_ov143_020d5fec.c:
+    complete
+    .text       start:0x020d5fec end:0x020d60d0
+
+src/overlays/ov143/calls/func_ov143_020d60d0.c:
+    complete
+    .text       start:0x020d60d0 end:0x020d613c
+
+src/overlays/ov143/calls/func_ov143_020d613c.c:
+    complete
+    .text       start:0x020d613c end:0x020d61e4
+
+src/overlays/ov143/auto/func_ov143_020d61e4.c:
+    complete
+    .text       start:0x020d61e4 end:0x020d621c
+
+src/overlays/ov143/calls/func_ov143_020d621c.c:
+    complete
+    .text       start:0x020d621c end:0x020d623c

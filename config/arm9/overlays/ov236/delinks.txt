@@ -3,3 +3,39 @@
     .ctor       start:0x020d649c end:0x020d649c kind:rodata align:4
     .data       start:0x020d64a0 end:0x020d6520 kind:data align:32
     .bss        start:0x020d6520 end:0x020d6520 kind:bss align:32
+
+src/overlays/ov236/calls/func_ov236_020cfaf0.c:
+    complete
+    .text       start:0x020cfaf0 end:0x020cfb2c
+
+src/overlays/ov236/auto/func_ov236_020cfb88.c:
+    complete
+    .text       start:0x020cfb88 end:0x020cfb9c
+
+src/overlays/ov236/calls/func_ov236_020d21c0.c:
+    complete
+    .text       start:0x020d21c0 end:0x020d21fc
+
+src/overlays/ov236/auto/func_ov236_020d2258.c:
+    complete
+    .text       start:0x020d2258 end:0x020d225c
+
+src/overlays/ov236/calls/func_ov236_020d40a0.c:
+    complete
+    .text       start:0x020d40a0 end:0x020d40dc
+
+src/overlays/ov236/auto/func_ov236_020d4138.c:
+    complete
+    .text       start:0x020d4138 end:0x020d413c
+
+src/overlays/ov236/auto/func_ov236_020d5efc.c:
+    complete
+    .text       start:0x020d5efc end:0x020d5f14
+
+src/overlays/ov236/calls/func_ov236_020d5f14.c:
+    complete
+    .text       start:0x020d5f14 end:0x020d5f34
+
+src/overlays/ov236/auto/func_ov236_020d6068.c:
+    complete
+    .text       start:0x020d6068 end:0x020d6094

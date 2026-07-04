@@ -3,3 +3,39 @@
     .ctor       start:0x020cf514 end:0x020cf514 kind:rodata align:4
     .data       start:0x020cf520 end:0x020cf540 kind:data align:32
     .bss        start:0x020cf540 end:0x020cf540 kind:bss align:32
+
+src/overlays/ov146/auto/func_ov146_020cc7dc.c:
+    complete
+    .text       start:0x020cc7dc end:0x020cc808
+
+src/overlays/ov146/auto/func_ov146_020cc808.c:
+    complete
+    .text       start:0x020cc808 end:0x020cc838
+
+src/overlays/ov146/calls/func_ov146_020cd0a4.c:
+    complete
+    .text       start:0x020cd0a4 end:0x020cd0d8
+
+src/overlays/ov146/calls/func_ov146_020cd7bc.c:
+    complete
+    .text       start:0x020cd7bc end:0x020cd7f0
+
+src/overlays/ov146/auto/func_ov146_020ce684.c:
+    complete
+    .text       start:0x020ce684 end:0x020ce694
+
+src/overlays/ov146/auto/func_ov146_020ced18.c:
+    complete
+    .text       start:0x020ced18 end:0x020ced1c
+
+src/overlays/ov146/auto/func_ov146_020cf0cc.c:
+    complete
+    .text       start:0x020cf0cc end:0x020cf134
+
+src/overlays/ov146/auto/func_ov146_020cf3cc.c:
+    complete
+    .text       start:0x020cf3cc end:0x020cf3d0
+
+src/overlays/ov146/auto/func_ov146_020cf3d0.c:
+    complete
+    .text       start:0x020cf3d0 end:0x020cf3d4

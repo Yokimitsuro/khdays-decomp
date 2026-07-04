@@ -3,3 +3,55 @@
     .ctor       start:0x020d2ff0 end:0x020d2ff0 kind:rodata align:4
     .data       start:0x020d3000 end:0x020d3020 kind:data align:32
     .bss        start:0x020d3020 end:0x020d3020 kind:bss align:32
+
+src/overlays/ov138/calls/func_ov138_020d017c.c:
+    complete
+    .text       start:0x020d017c end:0x020d01a4
+
+src/overlays/ov138/calls/func_ov138_020d01a4.c:
+    complete
+    .text       start:0x020d01a4 end:0x020d01cc
+
+src/overlays/ov138/auto/func_ov138_020d05dc.c:
+    complete
+    .text       start:0x020d05dc end:0x020d0620
+
+src/overlays/ov138/calls/func_ov138_020d0d44.c:
+    complete
+    .text       start:0x020d0d44 end:0x020d0d78
+
+src/overlays/ov138/calls/func_ov138_020d11e4.c:
+    complete
+    .text       start:0x020d11e4 end:0x020d1250
+
+src/overlays/ov138/calls/func_ov138_020d12c0.c:
+    complete
+    .text       start:0x020d12c0 end:0x020d133c
+
+src/overlays/ov138/auto/func_ov138_020d1e74.c:
+    complete
+    .text       start:0x020d1e74 end:0x020d1eac
+
+src/overlays/ov138/calls/func_ov138_020d2530.c:
+    complete
+    .text       start:0x020d2530 end:0x020d2570
+
+src/overlays/ov138/calls/func_ov138_020d2730.c:
+    complete
+    .text       start:0x020d2730 end:0x020d2760
+
+src/overlays/ov138/calls/func_ov138_020d2760.c:
+    complete
+    .text       start:0x020d2760 end:0x020d2798
+
+src/overlays/ov138/calls/func_ov138_020d280c.c:
+    complete
+    .text       start:0x020d280c end:0x020d2868
+
+src/overlays/ov138/auto/func_ov138_020d29d4.c:
+    complete
+    .text       start:0x020d29d4 end:0x020d29ec
+
+src/overlays/ov138/calls/func_ov138_020d2a9c.c:
+    complete
+    .text       start:0x020d2a9c end:0x020d2ad4

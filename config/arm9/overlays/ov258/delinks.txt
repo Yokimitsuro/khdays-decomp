@@ -3,3 +3,39 @@
     .ctor       start:0x020d1850 end:0x020d1850 kind:rodata align:4
     .data       start:0x020d1860 end:0x020d1900 kind:data align:32
     .bss        start:0x020d1900 end:0x020d1900 kind:bss align:32
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc4f0.c:
+    complete
+    .text       start:0x020cc4f0 end:0x020cc4fc
+
+src/overlays/ov258/calls/func_ov258_020cdb80.c:
+    complete
+    .text       start:0x020cdb80 end:0x020cdbb8
+
+src/overlays/ov258/calls/func_ov258_020cfcf4.c:
+    complete
+    .text       start:0x020cfcf4 end:0x020cfd20
+
+src/overlays/ov258/calls/func_ov258_020cfed8.c:
+    complete
+    .text       start:0x020cfed8 end:0x020cfef4
+
+src/overlays/ov258/auto/func_ov258_020d07e8.c:
+    complete
+    .text       start:0x020d07e8 end:0x020d0800
+
+src/overlays/ov258/auto/func_ov258_020d0ba4.c:
+    complete
+    .text       start:0x020d0ba4 end:0x020d0bbc
+
+src/overlays/ov258/auto/func_ov258_020d0fc8.c:
+    complete
+    .text       start:0x020d0fc8 end:0x020d0fe0
+
+src/overlays/ov258/auto/func_ov258_020d15f4.c:
+    complete
+    .text       start:0x020d15f4 end:0x020d1618
+
+src/overlays/ov258/calls/func_ov258_020d16d4.c:
+    complete
+    .text       start:0x020d16d4 end:0x020d16f4

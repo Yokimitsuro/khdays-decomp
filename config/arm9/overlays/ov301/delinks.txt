@@ -2,3 +2,75 @@
     .ctor       start:0x020cc74c end:0x020cc74c kind:rodata align:4
     .data       start:0x020cc760 end:0x020cc780 kind:data align:32
     .bss        start:0x020cc780 end:0x020cc780 kind:bss align:32
+
+src/overlays/ov301/calls/func_ov301_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc15c
+
+src/overlays/ov301/calls/func_ov301_020cc15c.c:
+    complete
+    .text       start:0x020cc15c end:0x020cc178
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc178.c:
+    complete
+    .text       start:0x020cc178 end:0x020cc1d8
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc1d8.c:
+    complete
+    .text       start:0x020cc1d8 end:0x020cc1e4
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc1e4.c:
+    complete
+    .text       start:0x020cc1e4 end:0x020cc1f0
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc1f0.c:
+    complete
+    .text       start:0x020cc1f0 end:0x020cc240
+
+src/overlays/ov301/calls/func_ov301_020cc240.c:
+    complete
+    .text       start:0x020cc240 end:0x020cc28c
+
+src/overlays/ov301/auto/func_ov301_020cc28c.c:
+    complete
+    .text       start:0x020cc28c end:0x020cc2a4
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc2a4.c:
+    complete
+    .text       start:0x020cc2a4 end:0x020cc338
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc338.c:
+    complete
+    .text       start:0x020cc338 end:0x020cc458
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc458.c:
+    complete
+    .text       start:0x020cc458 end:0x020cc63c
+
+src/overlays/ov301/calls/func_ov301_020cc63c.c:
+    complete
+    .text       start:0x020cc63c end:0x020cc6a4
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc6a4.c:
+    complete
+    .text       start:0x020cc6a4 end:0x020cc6f8
+
+src/overlays/ov301/auto/func_ov301_020cc6f8.c:
+    complete
+    .text       start:0x020cc6f8 end:0x020cc6fc
+
+src/overlays/ov301/asm_stubs/calls/func_ov301_020cc6fc.c:
+    complete
+    .text       start:0x020cc6fc end:0x020cc748
+
+src/overlays/ov301/auto/func_ov301_020cc748.c:
+    complete
+    .text       start:0x020cc748 end:0x020cc74c

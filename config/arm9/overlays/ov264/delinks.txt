@@ -3,3 +3,199 @@
     .ctor       start:0x020cec08 end:0x020cec08 kind:rodata align:4
     .data       start:0x020cec20 end:0x020cec40 kind:data align:32
     .bss        start:0x020cec40 end:0x020cec40 kind:bss align:32
+
+src/overlays/ov264/calls/func_ov264_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc8
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cbfc8.c:
+    complete
+    .text       start:0x020cbfc8 end:0x020cc09c
+
+src/overlays/ov264/calls/func_ov264_020cc09c.c:
+    complete
+    .text       start:0x020cc09c end:0x020cc1fc
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cc1fc.c:
+    complete
+    .text       start:0x020cc1fc end:0x020cc5c4
+
+src/overlays/ov264/calls/func_ov264_020cc5c4.c:
+    complete
+    .text       start:0x020cc5c4 end:0x020cc61c
+
+src/overlays/ov264/calls/func_ov264_020cc61c.c:
+    complete
+    .text       start:0x020cc61c end:0x020cc64c
+
+src/overlays/ov264/calls/func_ov264_020cc64c.c:
+    complete
+    .text       start:0x020cc64c end:0x020cc6a8
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cc6a8.c:
+    complete
+    .text       start:0x020cc6a8 end:0x020cc8e4
+
+src/overlays/ov264/calls/func_ov264_020cc8e4.c:
+    complete
+    .text       start:0x020cc8e4 end:0x020cc968
+
+src/overlays/ov264/calls/func_ov264_020cc968.c:
+    complete
+    .text       start:0x020cc968 end:0x020cc9e0
+
+src/overlays/ov264/calls/func_ov264_020cc9e0.c:
+    complete
+    .text       start:0x020cc9e0 end:0x020cca58
+
+src/overlays/ov264/calls/func_ov264_020cca58.c:
+    complete
+    .text       start:0x020cca58 end:0x020ccab4
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020ccab4.c:
+    complete
+    .text       start:0x020ccab4 end:0x020ccde8
+
+src/overlays/ov264/auto/func_ov264_020ccde8.c:
+    complete
+    .text       start:0x020ccde8 end:0x020cce14
+
+src/overlays/ov264/auto/func_ov264_020cce14.c:
+    complete
+    .text       start:0x020cce14 end:0x020cce44
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cce44.c:
+    complete
+    .text       start:0x020cce44 end:0x020cd0e8
+
+src/overlays/ov264/auto/func_ov264_020cd0e8.c:
+    complete
+    .text       start:0x020cd0e8 end:0x020cd138
+
+src/overlays/ov264/calls/func_ov264_020cd138.c:
+    complete
+    .text       start:0x020cd138 end:0x020cd198
+
+src/overlays/ov264/calls/func_ov264_020cd198.c:
+    complete
+    .text       start:0x020cd198 end:0x020cd250
+
+src/overlays/ov264/calls/func_ov264_020cd250.c:
+    complete
+    .text       start:0x020cd250 end:0x020cd3d8
+
+src/overlays/ov264/calls/func_ov264_020cd3d8.c:
+    complete
+    .text       start:0x020cd3d8 end:0x020cd4bc
+
+src/overlays/ov264/calls/func_ov264_020cd4bc.c:
+    complete
+    .text       start:0x020cd4bc end:0x020cd524
+
+src/overlays/ov264/calls/func_ov264_020cd524.c:
+    complete
+    .text       start:0x020cd524 end:0x020cd59c
+
+src/overlays/ov264/calls/func_ov264_020cd59c.c:
+    complete
+    .text       start:0x020cd59c end:0x020cd668
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cd668.c:
+    complete
+    .text       start:0x020cd668 end:0x020cd700
+
+src/overlays/ov264/calls/func_ov264_020cd700.c:
+    complete
+    .text       start:0x020cd700 end:0x020cd734
+
+src/overlays/ov264/calls/func_ov264_020cd734.c:
+    complete
+    .text       start:0x020cd734 end:0x020cd78c
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cd78c.c:
+    complete
+    .text       start:0x020cd78c end:0x020cd848
+
+src/overlays/ov264/calls/func_ov264_020cd848.c:
+    complete
+    .text       start:0x020cd848 end:0x020cd8ac
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cd8ac.c:
+    complete
+    .text       start:0x020cd8ac end:0x020cda04
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cda04.c:
+    complete
+    .text       start:0x020cda04 end:0x020cdac0
+
+src/overlays/ov264/calls/func_ov264_020cdac0.c:
+    complete
+    .text       start:0x020cdac0 end:0x020cdb34
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cdb34.c:
+    complete
+    .text       start:0x020cdb34 end:0x020cdcf0
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cdcf0.c:
+    complete
+    .text       start:0x020cdcf0 end:0x020cdde4
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cdde4.c:
+    complete
+    .text       start:0x020cdde4 end:0x020cdf24
+
+src/overlays/ov264/calls/func_ov264_020cdf24.c:
+    complete
+    .text       start:0x020cdf24 end:0x020cdf68
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020cdf68.c:
+    complete
+    .text       start:0x020cdf68 end:0x020ce5cc
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020ce5cc.c:
+    complete
+    .text       start:0x020ce5cc end:0x020ce664
+
+src/overlays/ov264/calls/func_ov264_020ce664.c:
+    complete
+    .text       start:0x020ce664 end:0x020ce728
+
+src/overlays/ov264/calls/func_ov264_020ce728.c:
+    complete
+    .text       start:0x020ce728 end:0x020ce748
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020ce748.c:
+    complete
+    .text       start:0x020ce748 end:0x020ce840
+
+src/overlays/ov264/calls/func_ov264_020ce840.c:
+    complete
+    .text       start:0x020ce840 end:0x020ce8d4
+
+src/overlays/ov264/asm_stubs/calls/func_ov264_020ce908.c:
+    complete
+    .text       start:0x020ce908 end:0x020ce9fc
+
+src/overlays/ov264/calls/func_ov264_020ce9fc.c:
+    complete
+    .text       start:0x020ce9fc end:0x020cea48
+
+src/overlays/ov264/calls/func_ov264_020cea48.c:
+    complete
+    .text       start:0x020cea48 end:0x020ceab4
+
+src/overlays/ov264/auto/func_ov264_020ceab4.c:
+    complete
+    .text       start:0x020ceab4 end:0x020ceb10
+
+src/overlays/ov264/calls/func_ov264_020ceb10.c:
+    complete
+    .text       start:0x020ceb10 end:0x020cebc0
+
+src/overlays/ov264/auto/func_ov264_020cebc0.c:
+    complete
+    .text       start:0x020cebc0 end:0x020cebc4

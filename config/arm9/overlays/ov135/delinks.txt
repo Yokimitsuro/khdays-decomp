@@ -3,3 +3,155 @@
     .ctor       start:0x020d1c00 end:0x020d1c00 kind:rodata align:4
     .data       start:0x020d1c20 end:0x020d1c60 kind:data align:32
     .bss        start:0x020d1c60 end:0x020d1c60 kind:bss align:32
+
+src/overlays/ov135/calls/func_ov135_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020cfc04.c:
+    complete
+    .text       start:0x020cfc04 end:0x020cfe68
+
+src/overlays/ov135/calls/func_ov135_020cfe68.c:
+    complete
+    .text       start:0x020cfe68 end:0x020cfeb0
+
+src/overlays/ov135/calls/func_ov135_020cfeb0.c:
+    complete
+    .text       start:0x020cfeb0 end:0x020cfed4
+
+src/overlays/ov135/calls/func_ov135_020cfed4.c:
+    complete
+    .text       start:0x020cfed4 end:0x020cff04
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020cff04.c:
+    complete
+    .text       start:0x020cff04 end:0x020d0088
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0088.c:
+    complete
+    .text       start:0x020d0088 end:0x020d0184
+
+src/overlays/ov135/calls/func_ov135_020d0184.c:
+    complete
+    .text       start:0x020d0184 end:0x020d01e0
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d01e0.c:
+    complete
+    .text       start:0x020d01e0 end:0x020d0438
+
+src/overlays/ov135/auto/func_ov135_020d0438.c:
+    complete
+    .text       start:0x020d0438 end:0x020d0468
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0468.c:
+    complete
+    .text       start:0x020d0468 end:0x020d052c
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d052c.c:
+    complete
+    .text       start:0x020d052c end:0x020d06d4
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d06d4.c:
+    complete
+    .text       start:0x020d06d4 end:0x020d076c
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d076c.c:
+    complete
+    .text       start:0x020d076c end:0x020d07e0
+
+src/overlays/ov135/calls/func_ov135_020d07e0.c:
+    complete
+    .text       start:0x020d07e0 end:0x020d081c
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d081c.c:
+    complete
+    .text       start:0x020d081c end:0x020d08e4
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d08e4.c:
+    complete
+    .text       start:0x020d08e4 end:0x020d09ac
+
+src/overlays/ov135/calls/func_ov135_020d09ac.c:
+    complete
+    .text       start:0x020d09ac end:0x020d09e0
+
+src/overlays/ov135/calls/func_ov135_020d09e0.c:
+    complete
+    .text       start:0x020d09e0 end:0x020d0a60
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0a60.c:
+    complete
+    .text       start:0x020d0a60 end:0x020d0bc8
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0bc8.c:
+    complete
+    .text       start:0x020d0bc8 end:0x020d0c38
+
+src/overlays/ov135/calls/func_ov135_020d0c38.c:
+    complete
+    .text       start:0x020d0c38 end:0x020d0cb4
+
+src/overlays/ov135/calls/func_ov135_020d0cb4.c:
+    complete
+    .text       start:0x020d0cb4 end:0x020d0d2c
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0d2c.c:
+    complete
+    .text       start:0x020d0d2c end:0x020d0ee8
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d0ee8.c:
+    complete
+    .text       start:0x020d0ee8 end:0x020d1060
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d1060.c:
+    complete
+    .text       start:0x020d1060 end:0x020d1128
+
+src/overlays/ov135/calls/func_ov135_020d1128.c:
+    complete
+    .text       start:0x020d1128 end:0x020d116c
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d116c.c:
+    complete
+    .text       start:0x020d116c end:0x020d15a0
+
+src/overlays/ov135/calls/func_ov135_020d15a0.c:
+    complete
+    .text       start:0x020d15a0 end:0x020d15d4
+
+src/overlays/ov135/calls/func_ov135_020d15d4.c:
+    complete
+    .text       start:0x020d15d4 end:0x020d1618
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d1618.c:
+    complete
+    .text       start:0x020d1618 end:0x020d1694
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d1694.c:
+    complete
+    .text       start:0x020d1694 end:0x020d1974
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d1974.c:
+    complete
+    .text       start:0x020d1974 end:0x020d19d0
+
+src/overlays/ov135/calls/func_ov135_020d19d0.c:
+    complete
+    .text       start:0x020d19d0 end:0x020d1a38
+
+src/overlays/ov135/calls/func_ov135_020d1a84.c:
+    complete
+    .text       start:0x020d1a84 end:0x020d1ad0
+
+src/overlays/ov135/calls/func_ov135_020d1ad0.c:
+    complete
+    .text       start:0x020d1ad0 end:0x020d1b04
+
+src/overlays/ov135/asm_stubs/calls/func_ov135_020d1b04.c:
+    complete
+    .text       start:0x020d1b04 end:0x020d1bb8

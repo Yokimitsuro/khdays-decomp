@@ -3,3 +3,43 @@
     .ctor       start:0x020d2a90 end:0x020d2a90 kind:rodata align:4
     .data       start:0x020d2aa0 end:0x020d2ae0 kind:data align:32
     .bss        start:0x020d2ae0 end:0x020d2ae0 kind:bss align:32
+
+src/overlays/ov260/calls/func_ov260_020d0978.c:
+    complete
+    .text       start:0x020d0978 end:0x020d09a4
+
+src/overlays/ov260/calls/func_ov260_020d0c28.c:
+    complete
+    .text       start:0x020d0c28 end:0x020d0c60
+
+src/overlays/ov260/calls/func_ov260_020d0c60.c:
+    complete
+    .text       start:0x020d0c60 end:0x020d0c98
+
+src/overlays/ov260/calls/func_ov260_020d1228.c:
+    complete
+    .text       start:0x020d1228 end:0x020d1260
+
+src/overlays/ov260/calls/func_ov260_020d1a60.c:
+    complete
+    .text       start:0x020d1a60 end:0x020d1a98
+
+src/overlays/ov260/calls/func_ov260_020d1e78.c:
+    complete
+    .text       start:0x020d1e78 end:0x020d1eb0
+
+src/overlays/ov260/calls/func_ov260_020d2510.c:
+    complete
+    .text       start:0x020d2510 end:0x020d252c
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d252c.c:
+    complete
+    .text       start:0x020d252c end:0x020d2538
+
+src/overlays/ov260/calls/func_ov260_020d2538.c:
+    complete
+    .text       start:0x020d2538 end:0x020d25d0
+
+src/overlays/ov260/auto/func_ov260_020d25d0.c:
+    complete
+    .text       start:0x020d25d0 end:0x020d25e0

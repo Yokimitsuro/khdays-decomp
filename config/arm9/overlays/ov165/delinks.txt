@@ -3,3 +3,203 @@
     .ctor       start:0x020d4b08 end:0x020d4b08 kind:rodata align:4
     .data       start:0x020d4b20 end:0x020d4b60 kind:data align:32
     .bss        start:0x020d4b60 end:0x020d4b60 kind:bss align:32
+
+src/overlays/ov165/calls/func_ov165_020d1980.c:
+    complete
+    .text       start:0x020d1980 end:0x020d1998
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d1998.c:
+    complete
+    .text       start:0x020d1998 end:0x020d1a24
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d1a24.c:
+    complete
+    .text       start:0x020d1a24 end:0x020d1c74
+
+src/overlays/ov165/calls/func_ov165_020d1c74.c:
+    complete
+    .text       start:0x020d1c74 end:0x020d1cbc
+
+src/overlays/ov165/calls/func_ov165_020d1cbc.c:
+    complete
+    .text       start:0x020d1cbc end:0x020d1ce0
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d1ce0.c:
+    complete
+    .text       start:0x020d1ce0 end:0x020d1d6c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d1d6c.c:
+    complete
+    .text       start:0x020d1d6c end:0x020d1ec0
+
+src/overlays/ov165/calls/func_ov165_020d1ec0.c:
+    complete
+    .text       start:0x020d1ec0 end:0x020d1ef0
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d1ef0.c:
+    complete
+    .text       start:0x020d1ef0 end:0x020d1ffc
+
+src/overlays/ov165/calls/func_ov165_020d1ffc.c:
+    complete
+    .text       start:0x020d1ffc end:0x020d20dc
+
+src/overlays/ov165/calls/func_ov165_020d20dc.c:
+    complete
+    .text       start:0x020d20dc end:0x020d2290
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2290.c:
+    complete
+    .text       start:0x020d2290 end:0x020d22ec
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d22ec.c:
+    complete
+    .text       start:0x020d22ec end:0x020d25f4
+
+src/overlays/ov165/auto/func_ov165_020d25f4.c:
+    complete
+    .text       start:0x020d25f4 end:0x020d2638
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2638.c:
+    complete
+    .text       start:0x020d2638 end:0x020d2734
+
+src/overlays/ov165/calls/func_ov165_020d2734.c:
+    complete
+    .text       start:0x020d2734 end:0x020d28f4
+
+src/overlays/ov165/calls/func_ov165_020d28f4.c:
+    complete
+    .text       start:0x020d28f4 end:0x020d29d0
+
+src/overlays/ov165/calls/func_ov165_020d29d0.c:
+    complete
+    .text       start:0x020d29d0 end:0x020d2a38
+
+src/overlays/ov165/calls/func_ov165_020d2a38.c:
+    complete
+    .text       start:0x020d2a38 end:0x020d2a74
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2a74.c:
+    complete
+    .text       start:0x020d2a74 end:0x020d2b3c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2b3c.c:
+    complete
+    .text       start:0x020d2b3c end:0x020d2c04
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2c04.c:
+    complete
+    .text       start:0x020d2c04 end:0x020d2c64
+
+src/overlays/ov165/calls/func_ov165_020d2c64.c:
+    complete
+    .text       start:0x020d2c64 end:0x020d2cc4
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2cc4.c:
+    complete
+    .text       start:0x020d2cc4 end:0x020d2d34
+
+src/overlays/ov165/calls/func_ov165_020d2d34.c:
+    complete
+    .text       start:0x020d2d34 end:0x020d2d94
+
+src/overlays/ov165/calls/func_ov165_020d2dd8.c:
+    complete
+    .text       start:0x020d2dd8 end:0x020d2f80
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d2fb4.c:
+    complete
+    .text       start:0x020d2fb4 end:0x020d3038
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3038.c:
+    complete
+    .text       start:0x020d3038 end:0x020d3224
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3224.c:
+    complete
+    .text       start:0x020d3224 end:0x020d3294
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3294.c:
+    complete
+    .text       start:0x020d3294 end:0x020d3310
+
+src/overlays/ov165/calls/func_ov165_020d3310.c:
+    complete
+    .text       start:0x020d3310 end:0x020d337c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d337c.c:
+    complete
+    .text       start:0x020d337c end:0x020d3448
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3448.c:
+    complete
+    .text       start:0x020d3448 end:0x020d38dc
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d38dc.c:
+    complete
+    .text       start:0x020d38dc end:0x020d3990
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d39c4.c:
+    complete
+    .text       start:0x020d39c4 end:0x020d3a6c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3a6c.c:
+    complete
+    .text       start:0x020d3a6c end:0x020d3b18
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3b18.c:
+    complete
+    .text       start:0x020d3b18 end:0x020d3c28
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3c28.c:
+    complete
+    .text       start:0x020d3c28 end:0x020d3df4
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d3df4.c:
+    complete
+    .text       start:0x020d3df4 end:0x020d455c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d455c.c:
+    complete
+    .text       start:0x020d455c end:0x020d45f8
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d45f8.c:
+    complete
+    .text       start:0x020d45f8 end:0x020d46ac
+
+src/overlays/ov165/calls/func_ov165_020d46f4.c:
+    complete
+    .text       start:0x020d46f4 end:0x020d474c
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d474c.c:
+    complete
+    .text       start:0x020d474c end:0x020d47f8
+
+src/overlays/ov165/auto/func_ov165_020d47f8.c:
+    complete
+    .text       start:0x020d47f8 end:0x020d4834
+
+src/overlays/ov165/asm_stubs/calls/func_ov165_020d4834.c:
+    complete
+    .text       start:0x020d4834 end:0x020d4898
+
+src/overlays/ov165/calls/func_ov165_020d48e0.c:
+    complete
+    .text       start:0x020d48e0 end:0x020d4928
+
+src/overlays/ov165/calls/func_ov165_020d4928.c:
+    complete
+    .text       start:0x020d4928 end:0x020d49a8
+
+src/overlays/ov165/auto/func_ov165_020d49a8.c:
+    complete
+    .text       start:0x020d49a8 end:0x020d49d0
+
+src/overlays/ov165/calls/func_ov165_020d4a14.c:
+    complete
+    .text       start:0x020d4a14 end:0x020d4a74
+
+src/overlays/ov165/calls/func_ov165_020d4a74.c:
+    complete
+    .text       start:0x020d4a74 end:0x020d4a94

@@ -3,3 +3,215 @@
     .ctor       start:0x020cf2d8 end:0x020cf2d8 kind:rodata align:4
     .data       start:0x020cf2e0 end:0x020cf320 kind:data align:32
     .bss        start:0x020cf320 end:0x020cf320 kind:bss align:32
+
+src/overlays/ov161/calls/func_ov161_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc214
+
+src/overlays/ov161/calls/func_ov161_020cc25c.c:
+    complete
+    .text       start:0x020cc25c end:0x020cc280
+
+src/overlays/ov161/calls/func_ov161_020cc280.c:
+    complete
+    .text       start:0x020cc280 end:0x020cc2f4
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cc2f4.c:
+    complete
+    .text       start:0x020cc2f4 end:0x020cc47c
+
+src/overlays/ov161/calls/func_ov161_020cc47c.c:
+    complete
+    .text       start:0x020cc47c end:0x020cc4ac
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cc4ac.c:
+    complete
+    .text       start:0x020cc4ac end:0x020cc5f4
+
+src/overlays/ov161/calls/func_ov161_020cc63c.c:
+    complete
+    .text       start:0x020cc63c end:0x020cc694
+
+src/overlays/ov161/calls/func_ov161_020cc694.c:
+    complete
+    .text       start:0x020cc694 end:0x020cc740
+
+src/overlays/ov161/auto/func_ov161_020cc740.c:
+    complete
+    .text       start:0x020cc740 end:0x020cc77c
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cc77c.c:
+    complete
+    .text       start:0x020cc77c end:0x020cc7e0
+
+src/overlays/ov161/calls/func_ov161_020cc828.c:
+    complete
+    .text       start:0x020cc828 end:0x020cc870
+
+src/overlays/ov161/calls/func_ov161_020cc870.c:
+    complete
+    .text       start:0x020cc870 end:0x020cc8f0
+
+src/overlays/ov161/auto/func_ov161_020cc8f0.c:
+    complete
+    .text       start:0x020cc8f0 end:0x020cc918
+
+src/overlays/ov161/calls/func_ov161_020cc95c.c:
+    complete
+    .text       start:0x020cc95c end:0x020cc9bc
+
+src/overlays/ov161/calls/func_ov161_020cc9bc.c:
+    complete
+    .text       start:0x020cc9bc end:0x020cc9dc
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cca24.c:
+    complete
+    .text       start:0x020cca24 end:0x020ccaa0
+
+src/overlays/ov161/calls/func_ov161_020ccaa0.c:
+    complete
+    .text       start:0x020ccaa0 end:0x020ccac8
+
+src/overlays/ov161/auto/func_ov161_020ccac8.c:
+    complete
+    .text       start:0x020ccac8 end:0x020ccafc
+
+src/overlays/ov161/calls/func_ov161_020ccafc.c:
+    complete
+    .text       start:0x020ccafc end:0x020ccb50
+
+src/overlays/ov161/calls/func_ov161_020ccb50.c:
+    complete
+    .text       start:0x020ccb50 end:0x020ccc30
+
+src/overlays/ov161/calls/func_ov161_020ccc30.c:
+    complete
+    .text       start:0x020ccc30 end:0x020ccde4
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020ccde4.c:
+    complete
+    .text       start:0x020ccde4 end:0x020cce40
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cce40.c:
+    complete
+    .text       start:0x020cce40 end:0x020cd0f0
+
+src/overlays/ov161/auto/func_ov161_020cd0f0.c:
+    complete
+    .text       start:0x020cd0f0 end:0x020cd134
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cd134.c:
+    complete
+    .text       start:0x020cd134 end:0x020cd230
+
+src/overlays/ov161/calls/func_ov161_020cd230.c:
+    complete
+    .text       start:0x020cd230 end:0x020cd3f0
+
+src/overlays/ov161/calls/func_ov161_020cd3f0.c:
+    complete
+    .text       start:0x020cd3f0 end:0x020cd4cc
+
+src/overlays/ov161/calls/func_ov161_020cd4cc.c:
+    complete
+    .text       start:0x020cd4cc end:0x020cd534
+
+src/overlays/ov161/calls/func_ov161_020cd534.c:
+    complete
+    .text       start:0x020cd534 end:0x020cd570
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cd570.c:
+    complete
+    .text       start:0x020cd570 end:0x020cd638
+
+src/overlays/ov161/calls/func_ov161_020cd638.c:
+    complete
+    .text       start:0x020cd638 end:0x020cd700
+
+src/overlays/ov161/calls/func_ov161_020cd700.c:
+    complete
+    .text       start:0x020cd700 end:0x020cd760
+
+src/overlays/ov161/calls/func_ov161_020cd760.c:
+    complete
+    .text       start:0x020cd760 end:0x020cd7c0
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cd7c0.c:
+    complete
+    .text       start:0x020cd7c0 end:0x020cd830
+
+src/overlays/ov161/calls/func_ov161_020cd830.c:
+    complete
+    .text       start:0x020cd830 end:0x020cd890
+
+src/overlays/ov161/calls/func_ov161_020cd8d4.c:
+    complete
+    .text       start:0x020cd8d4 end:0x020cda7c
+
+src/overlays/ov161/calls/func_ov161_020cda7c.c:
+    complete
+    .text       start:0x020cda7c end:0x020cdab0
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cdab0.c:
+    complete
+    .text       start:0x020cdab0 end:0x020cdb34
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cdb34.c:
+    complete
+    .text       start:0x020cdb34 end:0x020cdd20
+
+src/overlays/ov161/calls/func_ov161_020cdd20.c:
+    complete
+    .text       start:0x020cdd20 end:0x020cdd90
+
+src/overlays/ov161/calls/func_ov161_020cdd90.c:
+    complete
+    .text       start:0x020cdd90 end:0x020cde0c
+
+src/overlays/ov161/calls/func_ov161_020cde0c.c:
+    complete
+    .text       start:0x020cde0c end:0x020cde78
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cde78.c:
+    complete
+    .text       start:0x020cde78 end:0x020cdf44
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cdf44.c:
+    complete
+    .text       start:0x020cdf44 end:0x020ce3dc
+
+src/overlays/ov161/calls/func_ov161_020ce3dc.c:
+    complete
+    .text       start:0x020ce3dc end:0x020ce490
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020ce4c4.c:
+    complete
+    .text       start:0x020ce4c4 end:0x020ce56c
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020ce56c.c:
+    complete
+    .text       start:0x020ce56c end:0x020ce7d8
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020ce7d8.c:
+    complete
+    .text       start:0x020ce7d8 end:0x020ce9a4
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020ce9a4.c:
+    complete
+    .text       start:0x020ce9a4 end:0x020cf110
+
+src/overlays/ov161/asm_stubs/calls/func_ov161_020cf110.c:
+    complete
+    .text       start:0x020cf110 end:0x020cf1ac
+
+src/overlays/ov161/calls/func_ov161_020cf1ac.c:
+    complete
+    .text       start:0x020cf1ac end:0x020cf260

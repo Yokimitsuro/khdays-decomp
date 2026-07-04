@@ -3,3 +3,39 @@
     .ctor       start:0x020d481c end:0x020d481c kind:rodata align:4
     .data       start:0x020d4820 end:0x020d48a0 kind:data align:32
     .bss        start:0x020d48a0 end:0x020d48a0 kind:bss align:32
+
+src/overlays/ov208/calls/func_ov208_020d0628.c:
+    complete
+    .text       start:0x020d0628 end:0x020d0694
+
+src/overlays/ov208/auto/func_ov208_020d0e5c.c:
+    complete
+    .text       start:0x020d0e5c end:0x020d0ea4
+
+src/overlays/ov208/calls/func_ov208_020d1640.c:
+    complete
+    .text       start:0x020d1640 end:0x020d167c
+
+src/overlays/ov208/calls/func_ov208_020d180c.c:
+    complete
+    .text       start:0x020d180c end:0x020d1840
+
+src/overlays/ov208/calls/func_ov208_020d3974.c:
+    complete
+    .text       start:0x020d3974 end:0x020d39d8
+
+src/overlays/ov208/auto/func_ov208_020d3b40.c:
+    complete
+    .text       start:0x020d3b40 end:0x020d3ba8
+
+src/overlays/ov208/calls/func_ov208_020d3c30.c:
+    complete
+    .text       start:0x020d3c30 end:0x020d3cc8
+
+src/overlays/ov208/auto/func_ov208_020d3f6c.c:
+    complete
+    .text       start:0x020d3f6c end:0x020d3f70
+
+src/overlays/ov208/calls/func_ov208_020d4754.c:
+    complete
+    .text       start:0x020d4754 end:0x020d4784

@@ -3,3 +3,23 @@
     .ctor       start:0x020d2660 end:0x020d2660 kind:rodata align:4
     .data       start:0x020d2680 end:0x020d2700 kind:data align:32
     .bss        start:0x020d2700 end:0x020d2700 kind:bss align:32
+
+src/overlays/ov256/calls/func_ov256_020d04f4.c:
+    complete
+    .text       start:0x020d04f4 end:0x020d0510
+
+src/overlays/ov256/calls/func_ov256_020d0510.c:
+    complete
+    .text       start:0x020d0510 end:0x020d0548
+
+src/overlays/ov256/auto/func_ov256_020d0e44.c:
+    complete
+    .text       start:0x020d0e44 end:0x020d0e5c
+
+src/overlays/ov256/auto/func_ov256_020d13d0.c:
+    complete
+    .text       start:0x020d13d0 end:0x020d13e0
+
+src/overlays/ov256/auto/func_ov256_020d1560.c:
+    complete
+    .text       start:0x020d1560 end:0x020d1564

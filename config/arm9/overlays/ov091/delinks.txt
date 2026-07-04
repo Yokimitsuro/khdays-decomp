@@ -3,3 +3,123 @@
     .ctor       start:0x020bc17c end:0x020bc17c kind:rodata align:4
     .data       start:0x020bc180 end:0x020bc240 kind:data align:32
     .bss        start:0x020bc240 end:0x020bc260 kind:bss align:32
+
+libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov091_0x020ba7c0.c:
+    complete
+    .text       start:0x020ba7c0 end:0x020ba7d4
+
+src/overlays/ov091/calls/func_ov091_020ba7d4.c:
+    complete
+    .text       start:0x020ba7d4 end:0x020ba804
+
+src/overlays/ov091/calls/func_ov091_020ba804.c:
+    complete
+    .text       start:0x020ba804 end:0x020ba840
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020ba840.c:
+    complete
+    .text       start:0x020ba840 end:0x020baa70
+
+src/overlays/ov091/calls/func_ov091_020baa70.c:
+    complete
+    .text       start:0x020baa70 end:0x020baadc
+
+src/overlays/ov091/auto/func_ov091_020baadc.c:
+    complete
+    .text       start:0x020baadc end:0x020baafc
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020baafc.c:
+    complete
+    .text       start:0x020baafc end:0x020bac80
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bac80.c:
+    complete
+    .text       start:0x020bac80 end:0x020bad8c
+
+src/overlays/ov091/calls/func_ov091_020bad8c.c:
+    complete
+    .text       start:0x020bad8c end:0x020badc4
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020badc4.c:
+    complete
+    .text       start:0x020badc4 end:0x020baf48
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020baf48.c:
+    complete
+    .text       start:0x020baf48 end:0x020bafd0
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bafd0.c:
+    complete
+    .text       start:0x020bafd0 end:0x020bb07c
+
+src/overlays/ov091/calls/func_ov091_020bb07c.c:
+    complete
+    .text       start:0x020bb07c end:0x020bb0a8
+
+libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020bb0a8.c:
+    complete
+    .text       start:0x020bb0a8 end:0x020bb0b4
+
+src/overlays/ov091/calls/func_ov091_020bb0b4.c:
+    complete
+    .text       start:0x020bb0b4 end:0x020bb0c4
+
+src/overlays/ov091/calls/func_ov091_020bb0e4.c:
+    complete
+    .text       start:0x020bb0e4 end:0x020bb0fc
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb0fc.c:
+    complete
+    .text       start:0x020bb0fc end:0x020bb1b8
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb1b8.c:
+    complete
+    .text       start:0x020bb1b8 end:0x020bb22c
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb22c.c:
+    complete
+    .text       start:0x020bb22c end:0x020bb2e4
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb2e4.c:
+    complete
+    .text       start:0x020bb2e4 end:0x020bb490
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb490.c:
+    complete
+    .text       start:0x020bb490 end:0x020bb618
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb618.c:
+    complete
+    .text       start:0x020bb618 end:0x020bb7dc
+
+src/overlays/ov091/calls/func_ov091_020bb7dc.c:
+    complete
+    .text       start:0x020bb7dc end:0x020bb810
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb810.c:
+    complete
+    .text       start:0x020bb810 end:0x020bb868
+
+src/overlays/ov091/calls/func_ov091_020bb868.c:
+    complete
+    .text       start:0x020bb868 end:0x020bb8cc
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bb8cc.c:
+    complete
+    .text       start:0x020bb8cc end:0x020bba0c
+
+src/overlays/ov091/calls/func_ov091_020bba0c.c:
+    complete
+    .text       start:0x020bba0c end:0x020bba74
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bba74.c:
+    complete
+    .text       start:0x020bba74 end:0x020bbdcc
+
+src/overlays/ov091/asm_stubs/calls/func_ov091_020bbdcc.c:
+    complete
+    .text       start:0x020bbdcc end:0x020bc0e8
+
+src/overlays/ov091/calls/func_ov091_020bc0e8.c:
+    complete
+    .text       start:0x020bc0e8 end:0x020bc100

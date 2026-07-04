@@ -2,3 +2,59 @@
     .ctor       start:0x020d615c end:0x020d615c kind:rodata align:4
     .data       start:0x020d6160 end:0x020d6180 kind:data align:32
     .bss        start:0x020d6180 end:0x020d6180 kind:bss align:32
+
+src/overlays/ov296/calls/func_ov296_020d55c0.c:
+    complete
+    .text       start:0x020d55c0 end:0x020d55d8
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d55d8.c:
+    complete
+    .text       start:0x020d55d8 end:0x020d5664
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d5664.c:
+    complete
+    .text       start:0x020d5664 end:0x020d57c0
+
+src/overlays/ov296/calls/func_ov296_020d57c0.c:
+    complete
+    .text       start:0x020d57c0 end:0x020d57dc
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d57dc.c:
+    complete
+    .text       start:0x020d57dc end:0x020d5840
+
+src/overlays/ov296/calls/func_ov296_020d5840.c:
+    complete
+    .text       start:0x020d5840 end:0x020d588c
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d588c.c:
+    complete
+    .text       start:0x020d588c end:0x020d59e4
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d59e4.c:
+    complete
+    .text       start:0x020d59e4 end:0x020d5a84
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d5a84.c:
+    complete
+    .text       start:0x020d5a84 end:0x020d5b90
+
+src/overlays/ov296/auto/func_ov296_020d5b90.c:
+    complete
+    .text       start:0x020d5b90 end:0x020d5b94
+
+src/overlays/ov296/calls/func_ov296_020d5b94.c:
+    complete
+    .text       start:0x020d5b94 end:0x020d5bd4
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d5bd4.c:
+    complete
+    .text       start:0x020d5bd4 end:0x020d5c48
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d5c48.c:
+    complete
+    .text       start:0x020d5c48 end:0x020d6094
+
+src/overlays/ov296/asm_stubs/calls/func_ov296_020d6094.c:
+    complete
+    .text       start:0x020d6094 end:0x020d615c

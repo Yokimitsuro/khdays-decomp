@@ -3,3 +3,43 @@
     .ctor       start:0x020d0424 end:0x020d0424 kind:rodata align:4
     .data       start:0x020d0440 end:0x020d0460 kind:data align:32
     .bss        start:0x020d0460 end:0x020d0460 kind:bss align:32
+
+src/overlays/ov125/calls/func_ov125_020cc2f8.c:
+    complete
+    .text       start:0x020cc2f8 end:0x020cc354
+
+src/overlays/ov125/calls/func_ov125_020cc354.c:
+    complete
+    .text       start:0x020cc354 end:0x020cc384
+
+src/overlays/ov125/auto/func_ov125_020cca20.c:
+    complete
+    .text       start:0x020cca20 end:0x020cca50
+
+src/overlays/ov125/auto/func_ov125_020ce55c.c:
+    complete
+    .text       start:0x020ce55c end:0x020ce594
+
+src/overlays/ov125/auto/func_ov125_020ce594.c:
+    complete
+    .text       start:0x020ce594 end:0x020ce5b0
+
+src/overlays/ov125/calls/func_ov125_020cf7f0.c:
+    complete
+    .text       start:0x020cf7f0 end:0x020cf830
+
+src/overlays/ov125/calls/func_ov125_020cf9a0.c:
+    complete
+    .text       start:0x020cf9a0 end:0x020cf9bc
+
+src/overlays/ov125/calls/func_ov125_020cf9bc.c:
+    complete
+    .text       start:0x020cf9bc end:0x020cf9f4
+
+src/overlays/ov125/auto/func_ov125_020cfbcc.c:
+    complete
+    .text       start:0x020cfbcc end:0x020cfbe4
+
+src/overlays/ov125/calls/func_ov125_020cfc94.c:
+    complete
+    .text       start:0x020cfc94 end:0x020cfccc

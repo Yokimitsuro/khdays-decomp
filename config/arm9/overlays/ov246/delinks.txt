@@ -3,3 +3,55 @@
     .ctor       start:0x020d3114 end:0x020d3114 kind:rodata align:4
     .data       start:0x020d3120 end:0x020d3140 kind:data align:32
     .bss        start:0x020d3140 end:0x020d3140 kind:bss align:32
+
+src/overlays/ov246/calls/func_ov246_020d0174.c:
+    complete
+    .text       start:0x020d0174 end:0x020d019c
+
+src/overlays/ov246/calls/func_ov246_020d019c.c:
+    complete
+    .text       start:0x020d019c end:0x020d01c4
+
+src/overlays/ov246/auto/func_ov246_020d05d0.c:
+    complete
+    .text       start:0x020d05d0 end:0x020d0614
+
+src/overlays/ov246/calls/func_ov246_020d0d10.c:
+    complete
+    .text       start:0x020d0d10 end:0x020d0d44
+
+src/overlays/ov246/calls/func_ov246_020d11a8.c:
+    complete
+    .text       start:0x020d11a8 end:0x020d1214
+
+src/overlays/ov246/calls/func_ov246_020d1284.c:
+    complete
+    .text       start:0x020d1284 end:0x020d1300
+
+src/overlays/ov246/calls/func_ov246_020d1adc.c:
+    complete
+    .text       start:0x020d1adc end:0x020d1b1c
+
+src/overlays/ov246/calls/func_ov246_020d1cf0.c:
+    complete
+    .text       start:0x020d1cf0 end:0x020d1d20
+
+src/overlays/ov246/calls/func_ov246_020d1d20.c:
+    complete
+    .text       start:0x020d1d20 end:0x020d1d58
+
+src/overlays/ov246/calls/func_ov246_020d1dd0.c:
+    complete
+    .text       start:0x020d1dd0 end:0x020d1e2c
+
+src/overlays/ov246/auto/func_ov246_020d1f98.c:
+    complete
+    .text       start:0x020d1f98 end:0x020d1fb0
+
+src/overlays/ov246/calls/func_ov246_020d2060.c:
+    complete
+    .text       start:0x020d2060 end:0x020d2098
+
+src/overlays/ov246/auto/func_ov246_020d29fc.c:
+    complete
+    .text       start:0x020d29fc end:0x020d2a34

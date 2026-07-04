@@ -3,3 +3,203 @@
     .ctor       start:0x020d368c end:0x020d368c kind:rodata align:4
     .data       start:0x020d36a0 end:0x020d36c0 kind:data align:32
     .bss        start:0x020d36c0 end:0x020d36c0 kind:bss align:32
+
+src/overlays/ov204/calls/func_ov204_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020cfc04.c:
+    complete
+    .text       start:0x020cfc04 end:0x020cfe08
+
+src/overlays/ov204/calls/func_ov204_020cfe50.c:
+    complete
+    .text       start:0x020cfe50 end:0x020cfec0
+
+src/overlays/ov204/calls/func_ov204_020cfec0.c:
+    complete
+    .text       start:0x020cfec0 end:0x020cfef0
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020cfef0.c:
+    complete
+    .text       start:0x020cfef0 end:0x020d0100
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d014c.c:
+    complete
+    .text       start:0x020d014c end:0x020d03b4
+
+src/overlays/ov204/auto/func_ov204_020d03b4.c:
+    complete
+    .text       start:0x020d03b4 end:0x020d03f4
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d03f4.c:
+    complete
+    .text       start:0x020d03f4 end:0x020d04c8
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d04c8.c:
+    complete
+    .text       start:0x020d04c8 end:0x020d069c
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d069c.c:
+    complete
+    .text       start:0x020d069c end:0x020d0750
+
+src/overlays/ov204/calls/func_ov204_020d0750.c:
+    complete
+    .text       start:0x020d0750 end:0x020d0790
+
+src/overlays/ov204/calls/func_ov204_020d0790.c:
+    complete
+    .text       start:0x020d0790 end:0x020d07f8
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d07f8.c:
+    complete
+    .text       start:0x020d07f8 end:0x020d0860
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d0860.c:
+    complete
+    .text       start:0x020d0860 end:0x020d092c
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d092c.c:
+    complete
+    .text       start:0x020d092c end:0x020d09f4
+
+src/overlays/ov204/calls/func_ov204_020d09f4.c:
+    complete
+    .text       start:0x020d09f4 end:0x020d0a28
+
+src/overlays/ov204/calls/func_ov204_020d0a28.c:
+    complete
+    .text       start:0x020d0a28 end:0x020d0a84
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d0a84.c:
+    complete
+    .text       start:0x020d0a84 end:0x020d0d20
+
+src/overlays/ov204/calls/func_ov204_020d0d20.c:
+    complete
+    .text       start:0x020d0d20 end:0x020d0db4
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d0db4.c:
+    complete
+    .text       start:0x020d0db4 end:0x020d0f2c
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d0f2c.c:
+    complete
+    .text       start:0x020d0f2c end:0x020d1044
+
+src/overlays/ov204/calls/func_ov204_020d1044.c:
+    complete
+    .text       start:0x020d1044 end:0x020d1130
+
+src/overlays/ov204/calls/func_ov204_020d1130.c:
+    complete
+    .text       start:0x020d1130 end:0x020d1164
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1164.c:
+    complete
+    .text       start:0x020d1164 end:0x020d11fc
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d11fc.c:
+    complete
+    .text       start:0x020d11fc end:0x020d1278
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1278.c:
+    complete
+    .text       start:0x020d1278 end:0x020d1340
+
+src/overlays/ov204/calls/func_ov204_020d1340.c:
+    complete
+    .text       start:0x020d1340 end:0x020d13b0
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d13b0.c:
+    complete
+    .text       start:0x020d13b0 end:0x020d1420
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1420.c:
+    complete
+    .text       start:0x020d1420 end:0x020d14a0
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d14a0.c:
+    complete
+    .text       start:0x020d14a0 end:0x020d1518
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1518.c:
+    complete
+    .text       start:0x020d1518 end:0x020d15a4
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d15a4.c:
+    complete
+    .text       start:0x020d15a4 end:0x020d188c
+
+src/overlays/ov204/calls/func_ov204_020d188c.c:
+    complete
+    .text       start:0x020d188c end:0x020d1930
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1930.c:
+    complete
+    .text       start:0x020d1930 end:0x020d1d54
+
+src/overlays/ov204/calls/func_ov204_020d1dd4.c:
+    complete
+    .text       start:0x020d1dd4 end:0x020d1e20
+
+src/overlays/ov204/calls/func_ov204_020d1e20.c:
+    complete
+    .text       start:0x020d1e20 end:0x020d1e54
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1e54.c:
+    complete
+    .text       start:0x020d1e54 end:0x020d1f14
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d1f14.c:
+    complete
+    .text       start:0x020d1f14 end:0x020d2728
+
+src/overlays/ov204/calls/func_ov204_020d2728.c:
+    complete
+    .text       start:0x020d2728 end:0x020d275c
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d275c.c:
+    complete
+    .text       start:0x020d275c end:0x020d2810
+
+src/overlays/ov204/calls/func_ov204_020d2810.c:
+    complete
+    .text       start:0x020d2810 end:0x020d2850
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d2850.c:
+    complete
+    .text       start:0x020d2850 end:0x020d2904
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d2904.c:
+    complete
+    .text       start:0x020d2904 end:0x020d2b54
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d2b54.c:
+    complete
+    .text       start:0x020d2b54 end:0x020d2da4
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d2da4.c:
+    complete
+    .text       start:0x020d2da4 end:0x020d2ff4
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d2ff4.c:
+    complete
+    .text       start:0x020d2ff4 end:0x020d30e0
+
+src/overlays/ov204/calls/func_ov204_020d30e0.c:
+    complete
+    .text       start:0x020d30e0 end:0x020d3114
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d3114.c:
+    complete
+    .text       start:0x020d3114 end:0x020d330c
+
+src/overlays/ov204/asm_stubs/calls/func_ov204_020d330c.c:
+    complete
+    .text       start:0x020d330c end:0x020d35c4

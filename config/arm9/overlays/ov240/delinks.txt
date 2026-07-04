@@ -3,3 +3,167 @@
     .ctor       start:0x020cfb64 end:0x020cfb64 kind:rodata align:4
     .data       start:0x020cfb80 end:0x020cfbc0 kind:data align:32
     .bss        start:0x020cfbc0 end:0x020cfbc0 kind:bss align:32
+
+src/overlays/ov240/calls/func_ov240_020cdd40.c:
+    complete
+    .text       start:0x020cdd40 end:0x020cdd58
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cdd58.c:
+    complete
+    .text       start:0x020cdd58 end:0x020cdde4
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cdde4.c:
+    complete
+    .text       start:0x020cdde4 end:0x020ce07c
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce07c.c:
+    complete
+    .text       start:0x020ce07c end:0x020ce0c4
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce0c4.c:
+    complete
+    .text       start:0x020ce0c4 end:0x020ce138
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce138.c:
+    complete
+    .text       start:0x020ce138 end:0x020ce2ac
+
+src/overlays/ov240/calls/func_ov240_020ce2ac.c:
+    complete
+    .text       start:0x020ce2ac end:0x020ce2e4
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce2e4.c:
+    complete
+    .text       start:0x020ce2e4 end:0x020ce340
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce340.c:
+    complete
+    .text       start:0x020ce340 end:0x020ce568
+
+src/overlays/ov240/auto/func_ov240_020ce568.c:
+    complete
+    .text       start:0x020ce568 end:0x020ce594
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce5c4.c:
+    complete
+    .text       start:0x020ce5c4 end:0x020ce804
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce804.c:
+    complete
+    .text       start:0x020ce804 end:0x020ce8d4
+
+src/overlays/ov240/calls/func_ov240_020ce8d4.c:
+    complete
+    .text       start:0x020ce8d4 end:0x020ce8e8
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce8e8.c:
+    complete
+    .text       start:0x020ce8e8 end:0x020ce97c
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ce97c.c:
+    complete
+    .text       start:0x020ce97c end:0x020cea34
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cea34.c:
+    complete
+    .text       start:0x020cea34 end:0x020cebec
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cebec.c:
+    complete
+    .text       start:0x020cebec end:0x020cec88
+
+src/overlays/ov240/calls/func_ov240_020cec88.c:
+    complete
+    .text       start:0x020cec88 end:0x020cecf0
+
+src/overlays/ov240/calls/func_ov240_020cecf0.c:
+    complete
+    .text       start:0x020cecf0 end:0x020ced2c
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ced2c.c:
+    complete
+    .text       start:0x020ced2c end:0x020cedbc
+
+src/overlays/ov240/calls/func_ov240_020cedbc.c:
+    complete
+    .text       start:0x020cedbc end:0x020cee04
+
+src/overlays/ov240/calls/func_ov240_020cee04.c:
+    complete
+    .text       start:0x020cee04 end:0x020cee40
+
+src/overlays/ov240/calls/func_ov240_020cee40.c:
+    complete
+    .text       start:0x020cee40 end:0x020cee7c
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cee7c.c:
+    complete
+    .text       start:0x020cee7c end:0x020ceee0
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020ceee0.c:
+    complete
+    .text       start:0x020ceee0 end:0x020cf004
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf004.c:
+    complete
+    .text       start:0x020cf004 end:0x020cf0c8
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf0c8.c:
+    complete
+    .text       start:0x020cf0c8 end:0x020cf208
+
+src/overlays/ov240/calls/func_ov240_020cf208.c:
+    complete
+    .text       start:0x020cf208 end:0x020cf250
+
+src/overlays/ov240/calls/func_ov240_020cf250.c:
+    complete
+    .text       start:0x020cf250 end:0x020cf294
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf294.c:
+    complete
+    .text       start:0x020cf294 end:0x020cf334
+
+src/overlays/ov240/calls/func_ov240_020cf334.c:
+    complete
+    .text       start:0x020cf334 end:0x020cf424
+
+src/overlays/ov240/calls/func_ov240_020cf424.c:
+    complete
+    .text       start:0x020cf424 end:0x020cf474
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf474.c:
+    complete
+    .text       start:0x020cf474 end:0x020cf6e0
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf6e0.c:
+    complete
+    .text       start:0x020cf6e0 end:0x020cf74c
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf74c.c:
+    complete
+    .text       start:0x020cf74c end:0x020cf7a8
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf7a8.c:
+    complete
+    .text       start:0x020cf7a8 end:0x020cf8a0
+
+src/overlays/ov240/calls/func_ov240_020cf8a0.c:
+    complete
+    .text       start:0x020cf8a0 end:0x020cf8c0
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf8c0.c:
+    complete
+    .text       start:0x020cf8c0 end:0x020cf998
+
+src/overlays/ov240/asm_stubs/calls/func_ov240_020cf998.c:
+    complete
+    .text       start:0x020cf998 end:0x020cfa2c
+
+src/overlays/ov240/calls/func_ov240_020cfa2c.c:
+    complete
+    .text       start:0x020cfa2c end:0x020cfa6c
+
+src/overlays/ov240/calls/func_ov240_020cfa6c.c:
+    complete
+    .text       start:0x020cfa6c end:0x020cfb60

@@ -2,3 +2,31 @@
     .ctor       start:0x0207fea8 end:0x0207fea8 kind:rodata align:4
     .data       start:0x0207fec0 end:0x0207fee0 kind:data align:32
     .bss        start:0x0207fee0 end:0x0207fee0 kind:bss align:32
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fa40.c:
+    complete
+    .text       start:0x0207fa40 end:0x0207fba4
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fba4.c:
+    complete
+    .text       start:0x0207fba4 end:0x0207fbe4
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fbe4.c:
+    complete
+    .text       start:0x0207fbe4 end:0x0207fc2c
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fc2c.c:
+    complete
+    .text       start:0x0207fc2c end:0x0207fd2c
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fd2c.c:
+    complete
+    .text       start:0x0207fd2c end:0x0207fe40
+
+src/overlays/ov013/asm_stubs/calls/func_ov013_0207fe40.c:
+    complete
+    .text       start:0x0207fe40 end:0x0207fe98
+
+src/overlays/ov013/calls/func_ov013_0207fe98.c:
+    complete
+    .text       start:0x0207fe98 end:0x0207fea6

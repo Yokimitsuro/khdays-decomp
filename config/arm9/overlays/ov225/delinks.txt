@@ -3,3 +3,79 @@
     .ctor       start:0x020d50cc end:0x020d50cc kind:rodata align:4
     .data       start:0x020d50e0 end:0x020d5140 kind:data align:32
     .bss        start:0x020d5140 end:0x020d5140 kind:bss align:32
+
+src/overlays/ov225/calls/func_ov225_020cfc08.c:
+    complete
+    .text       start:0x020cfc08 end:0x020cfd80
+
+src/overlays/ov225/calls/func_ov225_020d0214.c:
+    complete
+    .text       start:0x020d0214 end:0x020d026c
+
+src/overlays/ov225/calls/func_ov225_020d026c.c:
+    complete
+    .text       start:0x020d026c end:0x020d0290
+
+src/overlays/ov225/calls/func_ov225_020d0290.c:
+    complete
+    .text       start:0x020d0290 end:0x020d02d4
+
+src/overlays/ov225/calls/func_ov225_020d02d4.c:
+    complete
+    .text       start:0x020d02d4 end:0x020d0318
+
+src/overlays/ov225/calls/func_ov225_020d05c4.c:
+    complete
+    .text       start:0x020d05c4 end:0x020d0630
+
+src/overlays/ov225/auto/func_ov225_020d09ac.c:
+    complete
+    .text       start:0x020d09ac end:0x020d09d8
+
+src/overlays/ov225/auto/func_ov225_020d09d8.c:
+    complete
+    .text       start:0x020d09d8 end:0x020d0a08
+
+src/overlays/ov225/calls/func_ov225_020d0f08.c:
+    complete
+    .text       start:0x020d0f08 end:0x020d0f1c
+
+src/overlays/ov225/calls/func_ov225_020d127c.c:
+    complete
+    .text       start:0x020d127c end:0x020d133c
+
+src/overlays/ov225/calls/func_ov225_020d1b68.c:
+    complete
+    .text       start:0x020d1b68 end:0x020d1bb8
+
+src/overlays/ov225/calls/func_ov225_020d1d14.c:
+    complete
+    .text       start:0x020d1d14 end:0x020d1da8
+
+src/overlays/ov225/auto/func_ov225_020d22b0.c:
+    complete
+    .text       start:0x020d22b0 end:0x020d22f0
+
+src/overlays/ov225/calls/func_ov225_020d353c.c:
+    complete
+    .text       start:0x020d353c end:0x020d3570
+
+src/overlays/ov225/calls/func_ov225_020d3f54.c:
+    complete
+    .text       start:0x020d3f54 end:0x020d3f74
+
+src/overlays/ov225/calls/func_ov225_020d404c.c:
+    complete
+    .text       start:0x020d404c end:0x020d40e0
+
+src/overlays/ov225/calls/func_ov225_020d4110.c:
+    complete
+    .text       start:0x020d4110 end:0x020d4224
+
+src/overlays/ov225/calls/func_ov225_020d4538.c:
+    complete
+    .text       start:0x020d4538 end:0x020d459c
+
+src/overlays/ov225/auto/func_ov225_020d4b10.c:
+    complete
+    .text       start:0x020d4b10 end:0x020d4b14

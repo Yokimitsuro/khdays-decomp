@@ -3,3 +3,195 @@
     .ctor       start:0x020cefc8 end:0x020cefc8 kind:rodata align:4
     .data       start:0x020cefe0 end:0x020cf020 kind:data align:32
     .bss        start:0x020cf020 end:0x020cf020 kind:bss align:32
+
+src/overlays/ov194/calls/func_ov194_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc244
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cc28c.c:
+    complete
+    .text       start:0x020cc28c end:0x020cc2e8
+
+src/overlays/ov194/calls/func_ov194_020cc2e8.c:
+    complete
+    .text       start:0x020cc2e8 end:0x020cc318
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cc318.c:
+    complete
+    .text       start:0x020cc318 end:0x020cc4a0
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cc4a0.c:
+    complete
+    .text       start:0x020cc4a0 end:0x020cc59c
+
+src/overlays/ov194/calls/func_ov194_020cc59c.c:
+    complete
+    .text       start:0x020cc59c end:0x020cc5f8
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cc5f8.c:
+    complete
+    .text       start:0x020cc5f8 end:0x020cc854
+
+src/overlays/ov194/auto/func_ov194_020cc854.c:
+    complete
+    .text       start:0x020cc854 end:0x020cc884
+
+src/overlays/ov194/calls/func_ov194_020cc884.c:
+    complete
+    .text       start:0x020cc884 end:0x020cc948
+
+src/overlays/ov194/calls/func_ov194_020cc948.c:
+    complete
+    .text       start:0x020cc948 end:0x020ccb78
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020ccb78.c:
+    complete
+    .text       start:0x020ccb78 end:0x020ccc2c
+
+src/overlays/ov194/calls/func_ov194_020ccc2c.c:
+    complete
+    .text       start:0x020ccc2c end:0x020ccc9c
+
+src/overlays/ov194/calls/func_ov194_020ccc9c.c:
+    complete
+    .text       start:0x020ccc9c end:0x020cccd8
+
+src/overlays/ov194/calls/func_ov194_020cccd8.c:
+    complete
+    .text       start:0x020cccd8 end:0x020ccda4
+
+src/overlays/ov194/calls/func_ov194_020ccda4.c:
+    complete
+    .text       start:0x020ccda4 end:0x020cce6c
+
+src/overlays/ov194/calls/func_ov194_020cce6c.c:
+    complete
+    .text       start:0x020cce6c end:0x020ccecc
+
+src/overlays/ov194/calls/func_ov194_020ccecc.c:
+    complete
+    .text       start:0x020ccecc end:0x020ccf2c
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020ccf2c.c:
+    complete
+    .text       start:0x020ccf2c end:0x020cd220
+
+src/overlays/ov194/calls/func_ov194_020cd220.c:
+    complete
+    .text       start:0x020cd220 end:0x020cd290
+
+src/overlays/ov194/calls/func_ov194_020cd290.c:
+    complete
+    .text       start:0x020cd290 end:0x020cd318
+
+src/overlays/ov194/calls/func_ov194_020cd318.c:
+    complete
+    .text       start:0x020cd318 end:0x020cd390
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cd390.c:
+    complete
+    .text       start:0x020cd390 end:0x020cd578
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cd578.c:
+    complete
+    .text       start:0x020cd578 end:0x020cd710
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cd710.c:
+    complete
+    .text       start:0x020cd710 end:0x020cd7d8
+
+src/overlays/ov194/calls/func_ov194_020cd7d8.c:
+    complete
+    .text       start:0x020cd7d8 end:0x020cd824
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cd824.c:
+    complete
+    .text       start:0x020cd824 end:0x020cdc7c
+
+src/overlays/ov194/calls/func_ov194_020cdc7c.c:
+    complete
+    .text       start:0x020cdc7c end:0x020cdcdc
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cdcdc.c:
+    complete
+    .text       start:0x020cdcdc end:0x020cdd54
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cdd54.c:
+    complete
+    .text       start:0x020cdd54 end:0x020cde54
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cde54.c:
+    complete
+    .text       start:0x020cde54 end:0x020ce1c8
+
+src/overlays/ov194/calls/func_ov194_020ce1c8.c:
+    complete
+    .text       start:0x020ce1c8 end:0x020ce230
+
+src/overlays/ov194/calls/func_ov194_020ce27c.c:
+    complete
+    .text       start:0x020ce27c end:0x020ce2c8
+
+src/overlays/ov194/calls/func_ov194_020ce2c8.c:
+    complete
+    .text       start:0x020ce2c8 end:0x020ce2fc
+
+src/overlays/ov194/calls/func_ov194_020ce2fc.c:
+    complete
+    .text       start:0x020ce2fc end:0x020ce3b0
+
+src/overlays/ov194/calls/func_ov194_020ce3b0.c:
+    complete
+    .text       start:0x020ce3b0 end:0x020ce460
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020ce460.c:
+    complete
+    .text       start:0x020ce460 end:0x020ce570
+
+src/overlays/ov194/calls/func_ov194_020ce570.c:
+    complete
+    .text       start:0x020ce570 end:0x020ce620
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020ce620.c:
+    complete
+    .text       start:0x020ce620 end:0x020ce730
+
+src/overlays/ov194/calls/func_ov194_020ce730.c:
+    complete
+    .text       start:0x020ce730 end:0x020ce77c
+
+src/overlays/ov194/calls/func_ov194_020ce77c.c:
+    complete
+    .text       start:0x020ce77c end:0x020ce7fc
+
+src/overlays/ov194/calls/func_ov194_020ce7fc.c:
+    complete
+    .text       start:0x020ce7fc end:0x020ce848
+
+src/overlays/ov194/calls/func_ov194_020ce848.c:
+    complete
+    .text       start:0x020ce848 end:0x020ce8c8
+
+src/overlays/ov194/calls/func_ov194_020ce8c8.c:
+    complete
+    .text       start:0x020ce8c8 end:0x020ce934
+
+src/overlays/ov194/calls/func_ov194_020ce934.c:
+    complete
+    .text       start:0x020ce934 end:0x020ce9b4
+
+src/overlays/ov194/calls/func_ov194_020ce9b4.c:
+    complete
+    .text       start:0x020ce9b4 end:0x020cea00
+
+src/overlays/ov194/asm_stubs/calls/func_ov194_020cea00.c:
+    complete
+    .text       start:0x020cea00 end:0x020cef4c

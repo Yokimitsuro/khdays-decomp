@@ -3,3 +3,203 @@
     .ctor       start:0x020d2c04 end:0x020d2c04 kind:rodata align:4
     .data       start:0x020d2c20 end:0x020d2c60 kind:data align:32
     .bss        start:0x020d2c60 end:0x020d2c60 kind:bss align:32
+
+src/overlays/ov276/calls/func_ov276_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc08
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020cfc08.c:
+    complete
+    .text       start:0x020cfc08 end:0x020cfcf8
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020cfcf8.c:
+    complete
+    .text       start:0x020cfcf8 end:0x020d00c0
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d00c0.c:
+    complete
+    .text       start:0x020d00c0 end:0x020d0118
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0118.c:
+    complete
+    .text       start:0x020d0118 end:0x020d0194
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d0194.c:
+    complete
+    .text       start:0x020d0194 end:0x020d01a0
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d01a0.c:
+    complete
+    .text       start:0x020d01a0 end:0x020d01ac
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d01ac.c:
+    complete
+    .text       start:0x020d01ac end:0x020d0374
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0374.c:
+    complete
+    .text       start:0x020d0374 end:0x020d044c
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d044c.c:
+    complete
+    .text       start:0x020d044c end:0x020d0504
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0504.c:
+    complete
+    .text       start:0x020d0504 end:0x020d0560
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0560.c:
+    complete
+    .text       start:0x020d0560 end:0x020d08f8
+
+src/overlays/ov276/auto/func_ov276_020d08f8.c:
+    complete
+    .text       start:0x020d08f8 end:0x020d0924
+
+src/overlays/ov276/auto/func_ov276_020d0924.c:
+    complete
+    .text       start:0x020d0924 end:0x020d0954
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0954.c:
+    complete
+    .text       start:0x020d0954 end:0x020d0be8
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0be8.c:
+    complete
+    .text       start:0x020d0be8 end:0x020d0cdc
+
+src/overlays/ov276/calls/func_ov276_020d0cdc.c:
+    complete
+    .text       start:0x020d0cdc end:0x020d0cf0
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0cf0.c:
+    complete
+    .text       start:0x020d0cf0 end:0x020d0d98
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0d98.c:
+    complete
+    .text       start:0x020d0d98 end:0x020d0e28
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0e28.c:
+    complete
+    .text       start:0x020d0e28 end:0x020d0fc8
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d0fc8.c:
+    complete
+    .text       start:0x020d0fc8 end:0x020d1160
+
+src/overlays/ov276/calls/func_ov276_020d1160.c:
+    complete
+    .text       start:0x020d1160 end:0x020d11c8
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d11c8.c:
+    complete
+    .text       start:0x020d11c8 end:0x020d1254
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1254.c:
+    complete
+    .text       start:0x020d1254 end:0x020d1334
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1334.c:
+    complete
+    .text       start:0x020d1334 end:0x020d13b8
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d13b8.c:
+    complete
+    .text       start:0x020d13b8 end:0x020d1420
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1420.c:
+    complete
+    .text       start:0x020d1420 end:0x020d1560
+
+src/overlays/ov276/calls/func_ov276_020d1560.c:
+    complete
+    .text       start:0x020d1560 end:0x020d159c
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d159c.c:
+    complete
+    .text       start:0x020d159c end:0x020d1738
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1738.c:
+    complete
+    .text       start:0x020d1738 end:0x020d1808
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1808.c:
+    complete
+    .text       start:0x020d1808 end:0x020d198c
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d198c.c:
+    complete
+    .text       start:0x020d198c end:0x020d1b44
+
+src/overlays/ov276/calls/func_ov276_020d1b44.c:
+    complete
+    .text       start:0x020d1b44 end:0x020d1c3c
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1c3c.c:
+    complete
+    .text       start:0x020d1c3c end:0x020d1d14
+
+src/overlays/ov276/calls/func_ov276_020d1d14.c:
+    complete
+    .text       start:0x020d1d14 end:0x020d1df8
+
+src/overlays/ov276/calls/func_ov276_020d1df8.c:
+    complete
+    .text       start:0x020d1df8 end:0x020d1ee4
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d1ee4.c:
+    complete
+    .text       start:0x020d1ee4 end:0x020d2194
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d2194.c:
+    complete
+    .text       start:0x020d2194 end:0x020d2230
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d2230.c:
+    complete
+    .text       start:0x020d2230 end:0x020d2540
+
+src/overlays/ov276/calls/func_ov276_020d2540.c:
+    complete
+    .text       start:0x020d2540 end:0x020d2644
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d2644.c:
+    complete
+    .text       start:0x020d2644 end:0x020d275c
+
+src/overlays/ov276/calls/func_ov276_020d275c.c:
+    complete
+    .text       start:0x020d275c end:0x020d27a8
+
+src/overlays/ov276/calls/func_ov276_020d27a8.c:
+    complete
+    .text       start:0x020d27a8 end:0x020d27dc
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d27dc.c:
+    complete
+    .text       start:0x020d27dc end:0x020d28a4
+
+src/overlays/ov276/calls/func_ov276_020d28a4.c:
+    complete
+    .text       start:0x020d28a4 end:0x020d28c4
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d28c4.c:
+    complete
+    .text       start:0x020d28c4 end:0x020d298c
+
+src/overlays/ov276/calls/func_ov276_020d298c.c:
+    complete
+    .text       start:0x020d298c end:0x020d2a20
+
+src/overlays/ov276/calls/func_ov276_020d2a20.c:
+    complete
+    .text       start:0x020d2a20 end:0x020d2a60
+
+src/overlays/ov276/asm_stubs/calls/func_ov276_020d2a60.c:
+    complete
+    .text       start:0x020d2a60 end:0x020d2b88

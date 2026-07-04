@@ -3,3 +3,163 @@
     .ctor       start:0x020cdfd0 end:0x020cdfd0 kind:rodata align:4
     .data       start:0x020cdfe0 end:0x020ce000 kind:data align:32
     .bss        start:0x020ce000 end:0x020ce000 kind:bss align:32
+
+src/overlays/ov114/calls/func_ov114_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc184
+
+src/overlays/ov114/calls/func_ov114_020cc184.c:
+    complete
+    .text       start:0x020cc184 end:0x020cc1c4
+
+src/overlays/ov114/calls/func_ov114_020cc1c4.c:
+    complete
+    .text       start:0x020cc1c4 end:0x020cc220
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc220.c:
+    complete
+    .text       start:0x020cc220 end:0x020cc284
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc284.c:
+    complete
+    .text       start:0x020cc284 end:0x020cc398
+
+src/overlays/ov114/calls/func_ov114_020cc398.c:
+    complete
+    .text       start:0x020cc398 end:0x020cc3c8
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc3c8.c:
+    complete
+    .text       start:0x020cc3c8 end:0x020cc444
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc490.c:
+    complete
+    .text       start:0x020cc490 end:0x020cc68c
+
+src/overlays/ov114/auto/func_ov114_020cc68c.c:
+    complete
+    .text       start:0x020cc68c end:0x020cc6f4
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc6f4.c:
+    complete
+    .text       start:0x020cc6f4 end:0x020cc98c
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cc98c.c:
+    complete
+    .text       start:0x020cc98c end:0x020cca68
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cca68.c:
+    complete
+    .text       start:0x020cca68 end:0x020ccc64
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020ccc64.c:
+    complete
+    .text       start:0x020ccc64 end:0x020ccd24
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020ccd24.c:
+    complete
+    .text       start:0x020ccd24 end:0x020ccd98
+
+src/overlays/ov114/calls/func_ov114_020ccd98.c:
+    complete
+    .text       start:0x020ccd98 end:0x020ccdd4
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020ccdd4.c:
+    complete
+    .text       start:0x020ccdd4 end:0x020cce9c
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cce9c.c:
+    complete
+    .text       start:0x020cce9c end:0x020ccf28
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020ccf74.c:
+    complete
+    .text       start:0x020ccf74 end:0x020cd114
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd148.c:
+    complete
+    .text       start:0x020cd148 end:0x020cd2b0
+
+src/overlays/ov114/calls/func_ov114_020cd2b0.c:
+    complete
+    .text       start:0x020cd2b0 end:0x020cd2ec
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd2ec.c:
+    complete
+    .text       start:0x020cd2ec end:0x020cd37c
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd37c.c:
+    complete
+    .text       start:0x020cd37c end:0x020cd560
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd560.c:
+    complete
+    .text       start:0x020cd560 end:0x020cd77c
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd77c.c:
+    complete
+    .text       start:0x020cd77c end:0x020cd800
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd800.c:
+    complete
+    .text       start:0x020cd800 end:0x020cd8a8
+
+src/overlays/ov114/calls/func_ov114_020cd8a8.c:
+    complete
+    .text       start:0x020cd8a8 end:0x020cd8f8
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd8f8.c:
+    complete
+    .text       start:0x020cd8f8 end:0x020cd97c
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cd97c.c:
+    complete
+    .text       start:0x020cd97c end:0x020cd9e0
+
+src/overlays/ov114/calls/func_ov114_020cd9e0.c:
+    complete
+    .text       start:0x020cd9e0 end:0x020cda14
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cda14.c:
+    complete
+    .text       start:0x020cda14 end:0x020cda68
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cda68.c:
+    complete
+    .text       start:0x020cda68 end:0x020cdb14
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cdb14.c:
+    complete
+    .text       start:0x020cdb14 end:0x020cdc04
+
+src/overlays/ov114/calls/func_ov114_020cdc04.c:
+    complete
+    .text       start:0x020cdc04 end:0x020cdc48
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cdc48.c:
+    complete
+    .text       start:0x020cdc48 end:0x020cdda4
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cdda4.c:
+    complete
+    .text       start:0x020cdda4 end:0x020cde70
+
+src/overlays/ov114/calls/func_ov114_020cde70.c:
+    complete
+    .text       start:0x020cde70 end:0x020cdeac
+
+src/overlays/ov114/asm_stubs/calls/func_ov114_020cdeac.c:
+    complete
+    .text       start:0x020cdeac end:0x020cdf3c
+
+src/overlays/ov114/calls/func_ov114_020cdf3c.c:
+    complete
+    .text       start:0x020cdf3c end:0x020cdfb4

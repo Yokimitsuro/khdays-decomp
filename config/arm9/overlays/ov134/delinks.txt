@@ -3,3 +3,155 @@
     .ctor       start:0x020cdfc0 end:0x020cdfc0 kind:rodata align:4
     .data       start:0x020cdfe0 end:0x020ce020 kind:data align:32
     .bss        start:0x020ce020 end:0x020ce020 kind:bss align:32
+
+src/overlays/ov134/calls/func_ov134_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc228
+
+src/overlays/ov134/calls/func_ov134_020cc228.c:
+    complete
+    .text       start:0x020cc228 end:0x020cc270
+
+src/overlays/ov134/calls/func_ov134_020cc270.c:
+    complete
+    .text       start:0x020cc270 end:0x020cc294
+
+src/overlays/ov134/calls/func_ov134_020cc294.c:
+    complete
+    .text       start:0x020cc294 end:0x020cc2c4
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cc2c4.c:
+    complete
+    .text       start:0x020cc2c4 end:0x020cc448
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cc448.c:
+    complete
+    .text       start:0x020cc448 end:0x020cc544
+
+src/overlays/ov134/calls/func_ov134_020cc544.c:
+    complete
+    .text       start:0x020cc544 end:0x020cc5a0
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cc5a0.c:
+    complete
+    .text       start:0x020cc5a0 end:0x020cc7f8
+
+src/overlays/ov134/auto/func_ov134_020cc7f8.c:
+    complete
+    .text       start:0x020cc7f8 end:0x020cc828
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cc828.c:
+    complete
+    .text       start:0x020cc828 end:0x020cc8ec
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cc8ec.c:
+    complete
+    .text       start:0x020cc8ec end:0x020cca94
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cca94.c:
+    complete
+    .text       start:0x020cca94 end:0x020ccb2c
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020ccb2c.c:
+    complete
+    .text       start:0x020ccb2c end:0x020ccba0
+
+src/overlays/ov134/calls/func_ov134_020ccba0.c:
+    complete
+    .text       start:0x020ccba0 end:0x020ccbdc
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020ccbdc.c:
+    complete
+    .text       start:0x020ccbdc end:0x020ccca4
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020ccca4.c:
+    complete
+    .text       start:0x020ccca4 end:0x020ccd6c
+
+src/overlays/ov134/calls/func_ov134_020ccd6c.c:
+    complete
+    .text       start:0x020ccd6c end:0x020ccda0
+
+src/overlays/ov134/calls/func_ov134_020ccda0.c:
+    complete
+    .text       start:0x020ccda0 end:0x020cce20
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cce20.c:
+    complete
+    .text       start:0x020cce20 end:0x020ccf88
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020ccf88.c:
+    complete
+    .text       start:0x020ccf88 end:0x020ccff8
+
+src/overlays/ov134/calls/func_ov134_020ccff8.c:
+    complete
+    .text       start:0x020ccff8 end:0x020cd074
+
+src/overlays/ov134/calls/func_ov134_020cd074.c:
+    complete
+    .text       start:0x020cd074 end:0x020cd0ec
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cd0ec.c:
+    complete
+    .text       start:0x020cd0ec end:0x020cd2a8
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cd2a8.c:
+    complete
+    .text       start:0x020cd2a8 end:0x020cd420
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cd420.c:
+    complete
+    .text       start:0x020cd420 end:0x020cd4e8
+
+src/overlays/ov134/calls/func_ov134_020cd4e8.c:
+    complete
+    .text       start:0x020cd4e8 end:0x020cd52c
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cd52c.c:
+    complete
+    .text       start:0x020cd52c end:0x020cd960
+
+src/overlays/ov134/calls/func_ov134_020cd960.c:
+    complete
+    .text       start:0x020cd960 end:0x020cd994
+
+src/overlays/ov134/calls/func_ov134_020cd994.c:
+    complete
+    .text       start:0x020cd994 end:0x020cd9d8
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cd9d8.c:
+    complete
+    .text       start:0x020cd9d8 end:0x020cda54
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cda54.c:
+    complete
+    .text       start:0x020cda54 end:0x020cdd34
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cdd34.c:
+    complete
+    .text       start:0x020cdd34 end:0x020cdd90
+
+src/overlays/ov134/calls/func_ov134_020cdd90.c:
+    complete
+    .text       start:0x020cdd90 end:0x020cddf8
+
+src/overlays/ov134/calls/func_ov134_020cde44.c:
+    complete
+    .text       start:0x020cde44 end:0x020cde90
+
+src/overlays/ov134/calls/func_ov134_020cde90.c:
+    complete
+    .text       start:0x020cde90 end:0x020cdec4
+
+src/overlays/ov134/asm_stubs/calls/func_ov134_020cdec4.c:
+    complete
+    .text       start:0x020cdec4 end:0x020cdf78

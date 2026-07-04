@@ -2,3 +2,59 @@
     .ctor       start:0x020d251c end:0x020d251c kind:rodata align:4
     .data       start:0x020d2520 end:0x020d2540 kind:data align:32
     .bss        start:0x020d2540 end:0x020d2540 kind:bss align:32
+
+src/overlays/ov294/calls/func_ov294_020d1980.c:
+    complete
+    .text       start:0x020d1980 end:0x020d1998
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1998.c:
+    complete
+    .text       start:0x020d1998 end:0x020d1a24
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1a24.c:
+    complete
+    .text       start:0x020d1a24 end:0x020d1b80
+
+src/overlays/ov294/calls/func_ov294_020d1b80.c:
+    complete
+    .text       start:0x020d1b80 end:0x020d1b9c
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1b9c.c:
+    complete
+    .text       start:0x020d1b9c end:0x020d1c00
+
+src/overlays/ov294/calls/func_ov294_020d1c00.c:
+    complete
+    .text       start:0x020d1c00 end:0x020d1c4c
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1c4c.c:
+    complete
+    .text       start:0x020d1c4c end:0x020d1da4
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1da4.c:
+    complete
+    .text       start:0x020d1da4 end:0x020d1e44
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1e44.c:
+    complete
+    .text       start:0x020d1e44 end:0x020d1f50
+
+src/overlays/ov294/auto/func_ov294_020d1f50.c:
+    complete
+    .text       start:0x020d1f50 end:0x020d1f54
+
+src/overlays/ov294/calls/func_ov294_020d1f54.c:
+    complete
+    .text       start:0x020d1f54 end:0x020d1f94
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d1f94.c:
+    complete
+    .text       start:0x020d1f94 end:0x020d2008
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d2008.c:
+    complete
+    .text       start:0x020d2008 end:0x020d2454
+
+src/overlays/ov294/asm_stubs/calls/func_ov294_020d2454.c:
+    complete
+    .text       start:0x020d2454 end:0x020d251c

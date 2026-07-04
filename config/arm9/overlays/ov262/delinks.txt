@@ -2,3 +2,139 @@
     .ctor       start:0x020d51ac end:0x020d51ac kind:rodata align:4
     .data       start:0x020d51c0 end:0x020d5200 kind:data align:32
     .bss        start:0x020d5200 end:0x020d5200 kind:bss align:32
+
+src/overlays/ov262/calls/func_ov262_020d37a0.c:
+    complete
+    .text       start:0x020d37a0 end:0x020d37b8
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d37b8.c:
+    complete
+    .text       start:0x020d37b8 end:0x020d3844
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3844.c:
+    complete
+    .text       start:0x020d3844 end:0x020d3aec
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3aec.c:
+    complete
+    .text       start:0x020d3aec end:0x020d3b80
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3b80.c:
+    complete
+    .text       start:0x020d3b80 end:0x020d3bd0
+
+src/overlays/ov262/calls/func_ov262_020d3bd0.c:
+    complete
+    .text       start:0x020d3bd0 end:0x020d3c00
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3c00.c:
+    complete
+    .text       start:0x020d3c00 end:0x020d3c60
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3c60.c:
+    complete
+    .text       start:0x020d3c60 end:0x020d3d00
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3d00.c:
+    complete
+    .text       start:0x020d3d00 end:0x020d3e4c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3e4c.c:
+    complete
+    .text       start:0x020d3e4c end:0x020d3ec8
+
+src/overlays/ov262/auto/func_ov262_020d3ec8.c:
+    complete
+    .text       start:0x020d3ec8 end:0x020d3ee8
+
+src/overlays/ov262/calls/func_ov262_020d3ee8.c:
+    complete
+    .text       start:0x020d3ee8 end:0x020d3f08
+
+src/overlays/ov262/calls/func_ov262_020d3f08.c:
+    complete
+    .text       start:0x020d3f08 end:0x020d3f28
+
+src/overlays/ov262/calls/func_ov262_020d3f28.c:
+    complete
+    .text       start:0x020d3f28 end:0x020d3f3c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d3f88.c:
+    complete
+    .text       start:0x020d3f88 end:0x020d402c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d402c.c:
+    complete
+    .text       start:0x020d402c end:0x020d4130
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4130.c:
+    complete
+    .text       start:0x020d4130 end:0x020d4340
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4340.c:
+    complete
+    .text       start:0x020d4340 end:0x020d4458
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4458.c:
+    complete
+    .text       start:0x020d4458 end:0x020d4560
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4560.c:
+    complete
+    .text       start:0x020d4560 end:0x020d4648
+
+src/overlays/ov262/calls/func_ov262_020d4648.c:
+    complete
+    .text       start:0x020d4648 end:0x020d4688
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4688.c:
+    complete
+    .text       start:0x020d4688 end:0x020d4728
+
+src/overlays/ov262/calls/func_ov262_020d4728.c:
+    complete
+    .text       start:0x020d4728 end:0x020d4768
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4768.c:
+    complete
+    .text       start:0x020d4768 end:0x020d47f0
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d47f0.c:
+    complete
+    .text       start:0x020d47f0 end:0x020d484c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d484c.c:
+    complete
+    .text       start:0x020d484c end:0x020d4918
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4918.c:
+    complete
+    .text       start:0x020d4918 end:0x020d49c0
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d49c0.c:
+    complete
+    .text       start:0x020d49c0 end:0x020d4a8c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4a8c.c:
+    complete
+    .text       start:0x020d4a8c end:0x020d4bd0
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4bd0.c:
+    complete
+    .text       start:0x020d4bd0 end:0x020d4d4c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4d4c.c:
+    complete
+    .text       start:0x020d4d4c end:0x020d4e6c
+
+src/overlays/ov262/asm_stubs/calls/func_ov262_020d4e6c.c:
+    complete
+    .text       start:0x020d4e6c end:0x020d50ac
+
+src/overlays/ov262/calls/func_ov262_020d50ac.c:
+    complete
+    .text       start:0x020d50ac end:0x020d50fc
+
+src/overlays/ov262/calls/func_ov262_020d50fc.c:
+    complete
+    .text       start:0x020d50fc end:0x020d51ac

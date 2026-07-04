@@ -3,3 +3,147 @@
     .ctor       start:0x020b7298 end:0x020b7298 kind:rodata align:4
     .data       start:0x020b72a0 end:0x020b7340 kind:data align:32
     .bss        start:0x020b7340 end:0x020b7360 kind:bss align:32
+
+libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov065_0x020b5a20.c:
+    complete
+    .text       start:0x020b5a20 end:0x020b5a34
+
+src/overlays/ov065/calls/func_ov065_020b5a34.c:
+    complete
+    .text       start:0x020b5a34 end:0x020b5a5c
+
+src/overlays/ov065/calls/func_ov065_020b5a5c.c:
+    complete
+    .text       start:0x020b5a5c end:0x020b5a90
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b5a90.c:
+    complete
+    .text       start:0x020b5a90 end:0x020b5c88
+
+src/overlays/ov065/calls/func_ov065_020b5c88.c:
+    complete
+    .text       start:0x020b5c88 end:0x020b5cf4
+
+src/overlays/ov065/auto/func_ov065_020b5cf4.c:
+    complete
+    .text       start:0x020b5cf4 end:0x020b5d08
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b5d08.c:
+    complete
+    .text       start:0x020b5d08 end:0x020b5e2c
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b5e2c.c:
+    complete
+    .text       start:0x020b5e2c end:0x020b5f70
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b5f70.c:
+    complete
+    .text       start:0x020b5f70 end:0x020b60b8
+
+src/overlays/ov065/calls/func_ov065_020b60b8.c:
+    complete
+    .text       start:0x020b60b8 end:0x020b60ec
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b60ec.c:
+    complete
+    .text       start:0x020b60ec end:0x020b6174
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6174.c:
+    complete
+    .text       start:0x020b6174 end:0x020b6214
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6214.c:
+    complete
+    .text       start:0x020b6214 end:0x020b6270
+
+libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020b6270.c:
+    complete
+    .text       start:0x020b6270 end:0x020b627c
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b627c.c:
+    complete
+    .text       start:0x020b627c end:0x020b637c
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b637c.c:
+    complete
+    .text       start:0x020b637c end:0x020b63d4
+
+src/overlays/ov065/calls/func_ov065_020b63d4.c:
+    complete
+    .text       start:0x020b63d4 end:0x020b6438
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6438.c:
+    complete
+    .text       start:0x020b6438 end:0x020b6594
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6594.c:
+    complete
+    .text       start:0x020b6594 end:0x020b6688
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6688.c:
+    complete
+    .text       start:0x020b6688 end:0x020b6888
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6888.c:
+    complete
+    .text       start:0x020b6888 end:0x020b6944
+
+src/overlays/ov065/calls/func_ov065_020b6944.c:
+    complete
+    .text       start:0x020b6944 end:0x020b6984
+
+src/overlays/ov065/calls/func_ov065_020b6984.c:
+    complete
+    .text       start:0x020b6984 end:0x020b6998
+
+src/overlays/ov065/calls/func_ov065_020b6998.c:
+    complete
+    .text       start:0x020b6998 end:0x020b69a4
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b69a4.c:
+    complete
+    .text       start:0x020b69a4 end:0x020b6ae8
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6ae8.c:
+    complete
+    .text       start:0x020b6ae8 end:0x020b6b68
+
+src/overlays/ov065/calls/func_ov065_020b6b68.c:
+    complete
+    .text       start:0x020b6b68 end:0x020b6bbc
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6bbc.c:
+    complete
+    .text       start:0x020b6bbc end:0x020b6c5c
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6c5c.c:
+    complete
+    .text       start:0x020b6c5c end:0x020b6ce8
+
+src/overlays/ov065/calls/func_ov065_020b6ce8.c:
+    complete
+    .text       start:0x020b6ce8 end:0x020b6d04
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6d04.c:
+    complete
+    .text       start:0x020b6d04 end:0x020b6e08
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6e08.c:
+    complete
+    .text       start:0x020b6e08 end:0x020b6e2c
+
+src/overlays/ov065/calls/func_ov065_020b6e2c.c:
+    complete
+    .text       start:0x020b6e2c end:0x020b6e94
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b6e94.c:
+    complete
+    .text       start:0x020b6e94 end:0x020b7024
+
+src/overlays/ov065/asm_stubs/calls/func_ov065_020b7024.c:
+    complete
+    .text       start:0x020b7024 end:0x020b7240
+
+src/overlays/ov065/calls/func_ov065_020b7240.c:
+    complete
+    .text       start:0x020b7240 end:0x020b7258

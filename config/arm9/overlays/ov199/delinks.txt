@@ -3,3 +3,39 @@
     .ctor       start:0x020d6124 end:0x020d6124 kind:rodata align:4
     .data       start:0x020d6140 end:0x020d6160 kind:data align:32
     .bss        start:0x020d6160 end:0x020d6160 kind:bss align:32
+
+src/overlays/ov199/calls/func_ov199_020d3fe4.c:
+    complete
+    .text       start:0x020d3fe4 end:0x020d401c
+
+src/overlays/ov199/auto/func_ov199_020d41d8.c:
+    complete
+    .text       start:0x020d41d8 end:0x020d4204
+
+src/overlays/ov199/auto/func_ov199_020d4204.c:
+    complete
+    .text       start:0x020d4204 end:0x020d4234
+
+src/overlays/ov199/calls/func_ov199_020d4830.c:
+    complete
+    .text       start:0x020d4830 end:0x020d486c
+
+src/overlays/ov199/calls/func_ov199_020d50e8.c:
+    complete
+    .text       start:0x020d50e8 end:0x020d511c
+
+src/overlays/ov199/calls/func_ov199_020d5270.c:
+    complete
+    .text       start:0x020d5270 end:0x020d5290
+
+src/overlays/ov199/calls/func_ov199_020d5774.c:
+    complete
+    .text       start:0x020d5774 end:0x020d57ac
+
+src/overlays/ov199/calls/func_ov199_020d57ac.c:
+    complete
+    .text       start:0x020d57ac end:0x020d57e4
+
+src/overlays/ov199/auto/func_ov199_020d5c00.c:
+    complete
+    .text       start:0x020d5c00 end:0x020d5c04

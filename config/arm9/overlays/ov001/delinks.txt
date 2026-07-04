@@ -1,3 +1,35 @@
     .text       start:0x0204cac0 end:0x0204cfe4 kind:code align:32
     .ctor       start:0x0204cfe4 end:0x0204cfe4 kind:rodata align:4
     .bss        start:0x0204d000 end:0x0204d000 kind:bss align:32
+
+src/overlays/ov001/calls/func_ov001_0204cac0.c:
+    complete
+    .text       start:0x0204cac0 end:0x0204cb30
+
+src/overlays/ov001/calls/func_ov001_0204cb30.c:
+    complete
+    .text       start:0x0204cb30 end:0x0204cb6c
+
+src/overlays/ov001/calls/func_ov001_0204cb6c.c:
+    complete
+    .text       start:0x0204cb6c end:0x0204cbb4
+
+src/overlays/ov001/calls/func_ov001_0204cbb4.c:
+    complete
+    .text       start:0x0204cbb4 end:0x0204cccc
+
+src/overlays/ov001/calls/func_ov001_0204cccc.c:
+    complete
+    .text       start:0x0204cccc end:0x0204cd7c
+
+src/overlays/ov001/calls/func_ov001_0204cd7c.c:
+    complete
+    .text       start:0x0204cd7c end:0x0204ce40
+
+src/overlays/ov001/asm_stubs/calls/func_ov001_0204ce40.c:
+    complete
+    .text       start:0x0204ce40 end:0x0204cf5c
+
+src/overlays/ov001/calls/func_ov001_0204cf5c.c:
+    complete
+    .text       start:0x0204cf5c end:0x0204cfe4

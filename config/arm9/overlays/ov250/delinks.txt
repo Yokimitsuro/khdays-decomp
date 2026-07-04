@@ -3,3 +3,187 @@
     .ctor       start:0x020d28ec end:0x020d28ec kind:rodata align:4
     .data       start:0x020d2900 end:0x020d2940 kind:data align:32
     .bss        start:0x020d2940 end:0x020d2940 kind:bss align:32
+
+src/overlays/ov250/calls/func_ov250_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020cfc04.c:
+    complete
+    .text       start:0x020cfc04 end:0x020cfe64
+
+src/overlays/ov250/calls/func_ov250_020cfe64.c:
+    complete
+    .text       start:0x020cfe64 end:0x020cfeac
+
+src/overlays/ov250/calls/func_ov250_020cfeac.c:
+    complete
+    .text       start:0x020cfeac end:0x020cfed0
+
+src/overlays/ov250/calls/func_ov250_020cfed0.c:
+    complete
+    .text       start:0x020cfed0 end:0x020cff00
+
+src/overlays/ov250/auto/func_ov250_020cff00.c:
+    complete
+    .text       start:0x020cff00 end:0x020cff64
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020cff64.c:
+    complete
+    .text       start:0x020cff64 end:0x020d0088
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d0088.c:
+    complete
+    .text       start:0x020d0088 end:0x020d00f0
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d013c.c:
+    complete
+    .text       start:0x020d013c end:0x020d0394
+
+src/overlays/ov250/auto/func_ov250_020d0394.c:
+    complete
+    .text       start:0x020d0394 end:0x020d03fc
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d03fc.c:
+    complete
+    .text       start:0x020d03fc end:0x020d04d8
+
+src/overlays/ov250/calls/func_ov250_020d04d8.c:
+    complete
+    .text       start:0x020d04d8 end:0x020d06d0
+
+src/overlays/ov250/calls/func_ov250_020d06d0.c:
+    complete
+    .text       start:0x020d06d0 end:0x020d0784
+
+src/overlays/ov250/calls/func_ov250_020d0784.c:
+    complete
+    .text       start:0x020d0784 end:0x020d07f8
+
+src/overlays/ov250/calls/func_ov250_020d07f8.c:
+    complete
+    .text       start:0x020d07f8 end:0x020d0834
+
+src/overlays/ov250/calls/func_ov250_020d0834.c:
+    complete
+    .text       start:0x020d0834 end:0x020d08fc
+
+src/overlays/ov250/calls/func_ov250_020d08fc.c:
+    complete
+    .text       start:0x020d08fc end:0x020d0988
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d09d4.c:
+    complete
+    .text       start:0x020d09d4 end:0x020d0c00
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d0c34.c:
+    complete
+    .text       start:0x020d0c34 end:0x020d0d54
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d0d54.c:
+    complete
+    .text       start:0x020d0d54 end:0x020d0eac
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d0eac.c:
+    complete
+    .text       start:0x020d0eac end:0x020d0fcc
+
+src/overlays/ov250/calls/func_ov250_020d0fcc.c:
+    complete
+    .text       start:0x020d0fcc end:0x020d1000
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d1068.c:
+    complete
+    .text       start:0x020d1068 end:0x020d1298
+
+src/overlays/ov250/calls/func_ov250_020d1298.c:
+    complete
+    .text       start:0x020d1298 end:0x020d14fc
+
+src/overlays/ov250/calls/func_ov250_020d14fc.c:
+    complete
+    .text       start:0x020d14fc end:0x020d15a0
+
+src/overlays/ov250/calls/func_ov250_020d15a0.c:
+    complete
+    .text       start:0x020d15a0 end:0x020d160c
+
+src/overlays/ov250/calls/func_ov250_020d160c.c:
+    complete
+    .text       start:0x020d160c end:0x020d1690
+
+src/overlays/ov250/calls/func_ov250_020d1690.c:
+    complete
+    .text       start:0x020d1690 end:0x020d16f4
+
+src/overlays/ov250/calls/func_ov250_020d16f4.c:
+    complete
+    .text       start:0x020d16f4 end:0x020d1728
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d1728.c:
+    complete
+    .text       start:0x020d1728 end:0x020d17f4
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d17f4.c:
+    complete
+    .text       start:0x020d17f4 end:0x020d1848
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d1848.c:
+    complete
+    .text       start:0x020d1848 end:0x020d1b08
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d1b08.c:
+    complete
+    .text       start:0x020d1b08 end:0x020d1c2c
+
+src/overlays/ov250/calls/func_ov250_020d1c2c.c:
+    complete
+    .text       start:0x020d1c2c end:0x020d1c70
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d1c70.c:
+    complete
+    .text       start:0x020d1c70 end:0x020d1fcc
+
+src/overlays/ov250/calls/func_ov250_020d1fcc.c:
+    complete
+    .text       start:0x020d1fcc end:0x020d2038
+
+src/overlays/ov250/calls/func_ov250_020d2038.c:
+    complete
+    .text       start:0x020d2038 end:0x020d20c8
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d20c8.c:
+    complete
+    .text       start:0x020d20c8 end:0x020d2440
+
+src/overlays/ov250/calls/func_ov250_020d2440.c:
+    complete
+    .text       start:0x020d2440 end:0x020d24a0
+
+src/overlays/ov250/calls/func_ov250_020d24a0.c:
+    complete
+    .text       start:0x020d24a0 end:0x020d24fc
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d24fc.c:
+    complete
+    .text       start:0x020d24fc end:0x020d25e0
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d25e0.c:
+    complete
+    .text       start:0x020d25e0 end:0x020d26d0
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d26d0.c:
+    complete
+    .text       start:0x020d26d0 end:0x020d276c
+
+src/overlays/ov250/asm_stubs/calls/func_ov250_020d27a0.c:
+    complete
+    .text       start:0x020d27a0 end:0x020d2818
+
+src/overlays/ov250/calls/func_ov250_020d2818.c:
+    complete
+    .text       start:0x020d2818 end:0x020d2890

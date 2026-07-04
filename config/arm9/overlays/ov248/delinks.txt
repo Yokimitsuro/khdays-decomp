@@ -3,3 +3,75 @@
     .ctor       start:0x020d0c0c end:0x020d0c0c kind:rodata align:4
     .data       start:0x020d0c20 end:0x020d0c60 kind:data align:32
     .bss        start:0x020d0c60 end:0x020d0c60 kind:bss align:32
+
+src/overlays/ov248/calls/func_ov248_020cbfc8.c:
+    complete
+    .text       start:0x020cbfc8 end:0x020cc0b8
+
+src/overlays/ov248/calls/func_ov248_020cc4a4.c:
+    complete
+    .text       start:0x020cc4a4 end:0x020cc4fc
+
+src/overlays/ov248/calls/func_ov248_020cc4fc.c:
+    complete
+    .text       start:0x020cc4fc end:0x020cc570
+
+src/overlays/ov248/calls/func_ov248_020cc570.c:
+    complete
+    .text       start:0x020cc570 end:0x020cc5ac
+
+src/overlays/ov248/calls/func_ov248_020cc5ac.c:
+    complete
+    .text       start:0x020cc5ac end:0x020cc5e8
+
+src/overlays/ov248/calls/func_ov248_020cc854.c:
+    complete
+    .text       start:0x020cc854 end:0x020cc9dc
+
+src/overlays/ov248/auto/func_ov248_020cd03c.c:
+    complete
+    .text       start:0x020cd03c end:0x020cd068
+
+src/overlays/ov248/auto/func_ov248_020cd068.c:
+    complete
+    .text       start:0x020cd068 end:0x020cd098
+
+src/overlays/ov248/calls/func_ov248_020cd510.c:
+    complete
+    .text       start:0x020cd510 end:0x020cd524
+
+src/overlays/ov248/calls/func_ov248_020cd524.c:
+    complete
+    .text       start:0x020cd524 end:0x020cd5cc
+
+src/overlays/ov248/calls/func_ov248_020cd85c.c:
+    complete
+    .text       start:0x020cd85c end:0x020cd9f0
+
+src/overlays/ov248/calls/func_ov248_020cdcb0.c:
+    complete
+    .text       start:0x020cdcb0 end:0x020cddf0
+
+src/overlays/ov248/calls/func_ov248_020cf0fc.c:
+    complete
+    .text       start:0x020cf0fc end:0x020cf130
+
+src/overlays/ov248/calls/func_ov248_020cfe84.c:
+    complete
+    .text       start:0x020cfe84 end:0x020cfeb8
+
+src/overlays/ov248/calls/func_ov248_020cff80.c:
+    complete
+    .text       start:0x020cff80 end:0x020cffa0
+
+src/overlays/ov248/calls/func_ov248_020d0068.c:
+    complete
+    .text       start:0x020d0068 end:0x020d00fc
+
+src/overlays/ov248/calls/func_ov248_020d079c.c:
+    complete
+    .text       start:0x020d079c end:0x020d07d4
+
+src/overlays/ov248/calls/func_ov248_020d0b28.c:
+    complete
+    .text       start:0x020d0b28 end:0x020d0b58

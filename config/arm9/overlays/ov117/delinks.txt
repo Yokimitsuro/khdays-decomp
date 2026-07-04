@@ -3,3 +3,143 @@
     .ctor       start:0x020cdc44 end:0x020cdc44 kind:rodata align:4
     .data       start:0x020cdc60 end:0x020cdc80 kind:data align:32
     .bss        start:0x020cdc80 end:0x020cdc80 kind:bss align:32
+
+src/overlays/ov117/calls/func_ov117_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc150
+
+src/overlays/ov117/calls/func_ov117_020cc150.c:
+    complete
+    .text       start:0x020cc150 end:0x020cc16c
+
+src/overlays/ov117/calls/func_ov117_020cc16c.c:
+    complete
+    .text       start:0x020cc16c end:0x020cc1c8
+
+src/overlays/ov117/calls/func_ov117_020cc1c8.c:
+    complete
+    .text       start:0x020cc1c8 end:0x020cc1e4
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cc1e4.c:
+    complete
+    .text       start:0x020cc1e4 end:0x020cc258
+
+src/overlays/ov117/calls/func_ov117_020cc258.c:
+    complete
+    .text       start:0x020cc258 end:0x020cc270
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cc270.c:
+    complete
+    .text       start:0x020cc270 end:0x020cc354
+
+src/overlays/ov117/calls/func_ov117_020cc354.c:
+    complete
+    .text       start:0x020cc354 end:0x020cc38c
+
+src/overlays/ov117/calls/func_ov117_020cc38c.c:
+    complete
+    .text       start:0x020cc38c end:0x020cc3d8
+
+src/overlays/ov117/auto/func_ov117_020cc568.c:
+    complete
+    .text       start:0x020cc568 end:0x020cc5c0
+
+src/overlays/ov117/calls/func_ov117_020cc5c0.c:
+    complete
+    .text       start:0x020cc5c0 end:0x020cc5fc
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cc5fc.c:
+    complete
+    .text       start:0x020cc5fc end:0x020cc6e8
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cc6e8.c:
+    complete
+    .text       start:0x020cc6e8 end:0x020cc8f8
+
+src/overlays/ov117/calls/func_ov117_020cc9fc.c:
+    complete
+    .text       start:0x020cc9fc end:0x020cca64
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020ccafc.c:
+    complete
+    .text       start:0x020ccafc end:0x020ccbcc
+
+src/overlays/ov117/calls/func_ov117_020ccbcc.c:
+    complete
+    .text       start:0x020ccbcc end:0x020ccc2c
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020ccc2c.c:
+    complete
+    .text       start:0x020ccc2c end:0x020cccb4
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cccb4.c:
+    complete
+    .text       start:0x020cccb4 end:0x020ccdc0
+
+src/overlays/ov117/calls/func_ov117_020ccdc0.c:
+    complete
+    .text       start:0x020ccdc0 end:0x020ccdf4
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020ccdf4.c:
+    complete
+    .text       start:0x020ccdf4 end:0x020ccf38
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020ccf38.c:
+    complete
+    .text       start:0x020ccf38 end:0x020ccfb4
+
+src/overlays/ov117/calls/func_ov117_020ccfb4.c:
+    complete
+    .text       start:0x020ccfb4 end:0x020cd08c
+
+src/overlays/ov117/calls/func_ov117_020cd08c.c:
+    complete
+    .text       start:0x020cd08c end:0x020cd154
+
+src/overlays/ov117/calls/func_ov117_020cd154.c:
+    complete
+    .text       start:0x020cd154 end:0x020cd1b0
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cd1b0.c:
+    complete
+    .text       start:0x020cd1b0 end:0x020cd2f4
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cd2f4.c:
+    complete
+    .text       start:0x020cd2f4 end:0x020cd494
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cd494.c:
+    complete
+    .text       start:0x020cd494 end:0x020cd594
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cd698.c:
+    complete
+    .text       start:0x020cd698 end:0x020cd78c
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cd78c.c:
+    complete
+    .text       start:0x020cd78c end:0x020cda58
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cda58.c:
+    complete
+    .text       start:0x020cda58 end:0x020cdae8
+
+src/overlays/ov117/asm_stubs/calls/func_ov117_020cdae8.c:
+    complete
+    .text       start:0x020cdae8 end:0x020cdb7c
+
+src/overlays/ov117/calls/func_ov117_020cdb7c.c:
+    complete
+    .text       start:0x020cdb7c end:0x020cdbb0
+
+src/overlays/ov117/calls/func_ov117_020cdbb0.c:
+    complete
+    .text       start:0x020cdbb0 end:0x020cdc28

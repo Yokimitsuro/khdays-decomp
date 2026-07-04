@@ -3,3 +3,35 @@
     .ctor       start:0x020d1c00 end:0x020d1c00 kind:rodata align:4
     .data       start:0x020d1c20 end:0x020d1ce0 kind:data align:32
     .bss        start:0x020d1ce0 end:0x020d1d00 kind:bss align:32
+
+src/overlays/ov237/auto/func_ov237_020cc840.c:
+    complete
+    .text       start:0x020cc840 end:0x020cc8a8
+
+src/overlays/ov237/auto/func_ov237_020cd550.c:
+    complete
+    .text       start:0x020cd550 end:0x020cd554
+
+src/overlays/ov237/calls/func_ov237_020cfe70.c:
+    complete
+    .text       start:0x020cfe70 end:0x020cfea4
+
+src/overlays/ov237/calls/func_ov237_020d0a20.c:
+    complete
+    .text       start:0x020d0a20 end:0x020d0a4c
+
+src/overlays/ov237/calls/func_ov237_020d0c4c.c:
+    complete
+    .text       start:0x020d0c4c end:0x020d0c68
+
+src/overlays/ov237/calls/func_ov237_020d0c68.c:
+    complete
+    .text       start:0x020d0c68 end:0x020d0ca0
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d0ca0.c:
+    complete
+    .text       start:0x020d0ca0 end:0x020d0cac
+
+src/overlays/ov237/auto/func_ov237_020d0e88.c:
+    complete
+    .text       start:0x020d0e88 end:0x020d0ea0

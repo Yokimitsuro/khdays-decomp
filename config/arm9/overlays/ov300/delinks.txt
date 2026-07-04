@@ -2,3 +2,15 @@
     .ctor       start:0x020cbfc8 end:0x020cbfc8 kind:rodata align:4
     .data       start:0x020cbfe0 end:0x020cc000 kind:data align:32
     .bss        start:0x020cc000 end:0x020cc000 kind:bss align:32
+
+src/overlays/ov300/calls/func_ov300_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov300/asm_stubs/calls/func_ov300_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov300/auto/func_ov300_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cbfc8

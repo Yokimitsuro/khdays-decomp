@@ -2,3 +2,7 @@
     .ctor       start:0x020bf9f4 end:0x020bf9f4 kind:rodata align:4
     .data       start:0x020bfa00 end:0x020bfa20 kind:data align:32
     .bss        start:0x020bfa20 end:0x020c0680 kind:bss align:32
+
+src/overlays/ov105/calls/func_ov105_020bf24c.c:
+    complete
+    .text       start:0x020bf24c end:0x020bf25c

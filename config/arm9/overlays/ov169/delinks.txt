@@ -3,3 +3,215 @@
     .ctor       start:0x020cee58 end:0x020cee58 kind:rodata align:4
     .data       start:0x020cee60 end:0x020cee80 kind:data align:32
     .bss        start:0x020cee80 end:0x020cee80 kind:bss align:32
+
+src/overlays/ov169/calls/func_ov169_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov169/calls/func_ov169_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc020
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cc020.c:
+    complete
+    .text       start:0x020cc020 end:0x020cc33c
+
+libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_ov169_0x020cc37c.c:
+    complete
+    .text       start:0x020cc37c end:0x020cc388
+
+src/overlays/ov169/calls/func_ov169_020cc388.c:
+    complete
+    .text       start:0x020cc388 end:0x020cc3b0
+
+src/overlays/ov169/calls/func_ov169_020cc3b0.c:
+    complete
+    .text       start:0x020cc3b0 end:0x020cc3d8
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cc3d8.c:
+    complete
+    .text       start:0x020cc3d8 end:0x020cc620
+
+src/overlays/ov169/calls/func_ov169_020cc620.c:
+    complete
+    .text       start:0x020cc620 end:0x020cc650
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cc650.c:
+    complete
+    .text       start:0x020cc650 end:0x020cc788
+
+src/overlays/ov169/calls/func_ov169_020cc788.c:
+    complete
+    .text       start:0x020cc788 end:0x020cc7e4
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cc7e4.c:
+    complete
+    .text       start:0x020cc7e4 end:0x020cca08
+
+src/overlays/ov169/auto/func_ov169_020cca08.c:
+    complete
+    .text       start:0x020cca08 end:0x020cca34
+
+src/overlays/ov169/calls/func_ov169_020cca34.c:
+    complete
+    .text       start:0x020cca34 end:0x020ccacc
+
+src/overlays/ov169/auto/func_ov169_020ccacc.c:
+    complete
+    .text       start:0x020ccacc end:0x020ccb0c
+
+src/overlays/ov169/calls/func_ov169_020ccb0c.c:
+    complete
+    .text       start:0x020ccb0c end:0x020ccbf8
+
+src/overlays/ov169/calls/func_ov169_020ccbf8.c:
+    complete
+    .text       start:0x020ccbf8 end:0x020ccde4
+
+src/overlays/ov169/calls/func_ov169_020ccde4.c:
+    complete
+    .text       start:0x020ccde4 end:0x020cce84
+
+src/overlays/ov169/calls/func_ov169_020cce84.c:
+    complete
+    .text       start:0x020cce84 end:0x020cceec
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cceec.c:
+    complete
+    .text       start:0x020cceec end:0x020ccf70
+
+src/overlays/ov169/calls/func_ov169_020ccf70.c:
+    complete
+    .text       start:0x020ccf70 end:0x020cd03c
+
+src/overlays/ov169/calls/func_ov169_020cd03c.c:
+    complete
+    .text       start:0x020cd03c end:0x020cd114
+
+src/overlays/ov169/calls/func_ov169_020cd114.c:
+    complete
+    .text       start:0x020cd114 end:0x020cd148
+
+src/overlays/ov169/calls/func_ov169_020cd148.c:
+    complete
+    .text       start:0x020cd148 end:0x020cd1d4
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cd1d4.c:
+    complete
+    .text       start:0x020cd1d4 end:0x020cd554
+
+src/overlays/ov169/calls/func_ov169_020cd554.c:
+    complete
+    .text       start:0x020cd554 end:0x020cd598
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cd598.c:
+    complete
+    .text       start:0x020cd598 end:0x020cd790
+
+src/overlays/ov169/calls/func_ov169_020cd790.c:
+    complete
+    .text       start:0x020cd790 end:0x020cd7cc
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cd7cc.c:
+    complete
+    .text       start:0x020cd7cc end:0x020cd998
+
+src/overlays/ov169/calls/func_ov169_020cd998.c:
+    complete
+    .text       start:0x020cd998 end:0x020cda08
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cda08.c:
+    complete
+    .text       start:0x020cda08 end:0x020cdb84
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cdb84.c:
+    complete
+    .text       start:0x020cdb84 end:0x020cdc20
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cdc20.c:
+    complete
+    .text       start:0x020cdc20 end:0x020cddec
+
+src/overlays/ov169/calls/func_ov169_020cde54.c:
+    complete
+    .text       start:0x020cde54 end:0x020cdf48
+
+src/overlays/ov169/calls/func_ov169_020cdf48.c:
+    complete
+    .text       start:0x020cdf48 end:0x020ce034
+
+src/overlays/ov169/calls/func_ov169_020ce034.c:
+    complete
+    .text       start:0x020ce034 end:0x020ce0d4
+
+src/overlays/ov169/calls/func_ov169_020ce0d4.c:
+    complete
+    .text       start:0x020ce0d4 end:0x020ce168
+
+src/overlays/ov169/calls/func_ov169_020ce168.c:
+    complete
+    .text       start:0x020ce168 end:0x020ce1a8
+
+src/overlays/ov169/calls/func_ov169_020ce1a8.c:
+    complete
+    .text       start:0x020ce1a8 end:0x020ce1dc
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020ce1dc.c:
+    complete
+    .text       start:0x020ce1dc end:0x020ce33c
+
+src/overlays/ov169/calls/func_ov169_020ce33c.c:
+    complete
+    .text       start:0x020ce33c end:0x020ce358
+
+src/overlays/ov169/calls/func_ov169_020ce358.c:
+    complete
+    .text       start:0x020ce358 end:0x020ce390
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020ce390.c:
+    complete
+    .text       start:0x020ce390 end:0x020ce39c
+
+src/overlays/ov169/calls/func_ov169_020ce39c.c:
+    complete
+    .text       start:0x020ce39c end:0x020ce424
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020ce424.c:
+    complete
+    .text       start:0x020ce424 end:0x020ce5a8
+
+src/overlays/ov169/calls/func_ov169_020ce5f4.c:
+    complete
+    .text       start:0x020ce5f4 end:0x020ce69c
+
+src/overlays/ov169/calls/func_ov169_020ce69c.c:
+    complete
+    .text       start:0x020ce69c end:0x020ce714
+
+src/overlays/ov169/auto/func_ov169_020ce714.c:
+    complete
+    .text       start:0x020ce714 end:0x020ce72c
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020ce72c.c:
+    complete
+    .text       start:0x020ce72c end:0x020ce7dc
+
+src/overlays/ov169/calls/func_ov169_020ce7dc.c:
+    complete
+    .text       start:0x020ce7dc end:0x020ce814
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020ce814.c:
+    complete
+    .text       start:0x020ce814 end:0x020cea4c
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020cea4c.c:
+    complete
+    .text       start:0x020cea4c end:0x020ceda8
+
+src/overlays/ov169/asm_stubs/calls/func_ov169_020ceda8.c:
+    complete
+    .text       start:0x020ceda8 end:0x020cee44

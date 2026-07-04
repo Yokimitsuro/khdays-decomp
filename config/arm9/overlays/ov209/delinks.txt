@@ -3,3 +3,39 @@
     .ctor       start:0x020d663c end:0x020d663c kind:rodata align:4
     .data       start:0x020d6640 end:0x020d66c0 kind:data align:32
     .bss        start:0x020d66c0 end:0x020d66c0 kind:bss align:32
+
+src/overlays/ov209/calls/func_ov209_020d2448.c:
+    complete
+    .text       start:0x020d2448 end:0x020d24b4
+
+src/overlays/ov209/auto/func_ov209_020d2c7c.c:
+    complete
+    .text       start:0x020d2c7c end:0x020d2cc4
+
+src/overlays/ov209/calls/func_ov209_020d3460.c:
+    complete
+    .text       start:0x020d3460 end:0x020d349c
+
+src/overlays/ov209/calls/func_ov209_020d362c.c:
+    complete
+    .text       start:0x020d362c end:0x020d3660
+
+src/overlays/ov209/calls/func_ov209_020d5794.c:
+    complete
+    .text       start:0x020d5794 end:0x020d57f8
+
+src/overlays/ov209/auto/func_ov209_020d5960.c:
+    complete
+    .text       start:0x020d5960 end:0x020d59c8
+
+src/overlays/ov209/calls/func_ov209_020d5a50.c:
+    complete
+    .text       start:0x020d5a50 end:0x020d5ae8
+
+src/overlays/ov209/auto/func_ov209_020d5d8c.c:
+    complete
+    .text       start:0x020d5d8c end:0x020d5d90
+
+src/overlays/ov209/calls/func_ov209_020d6574.c:
+    complete
+    .text       start:0x020d6574 end:0x020d65a4

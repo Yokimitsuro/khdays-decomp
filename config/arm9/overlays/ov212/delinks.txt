@@ -3,3 +3,79 @@
     .ctor       start:0x020d2160 end:0x020d2160 kind:rodata align:4
     .data       start:0x020d2180 end:0x020d2200 kind:data align:32
     .bss        start:0x020d2200 end:0x020d2200 kind:bss align:32
+
+src/overlays/ov212/auto/func_ov212_020cbfc8.c:
+    complete
+    .text       start:0x020cbfc8 end:0x020cbffc
+
+src/overlays/ov212/auto/func_ov212_020cd5d8.c:
+    complete
+    .text       start:0x020cd5d8 end:0x020cd5ec
+
+src/overlays/ov212/auto/func_ov212_020cd5ec.c:
+    complete
+    .text       start:0x020cd5ec end:0x020cd60c
+
+src/overlays/ov212/auto/func_ov212_020cd60c.c:
+    complete
+    .text       start:0x020cd60c end:0x020cd63c
+
+src/overlays/ov212/auto/func_ov212_020cd63c.c:
+    complete
+    .text       start:0x020cd63c end:0x020cd66c
+
+src/overlays/ov212/auto/func_ov212_020cda8c.c:
+    complete
+    .text       start:0x020cda8c end:0x020cdab8
+
+src/overlays/ov212/auto/func_ov212_020cdab8.c:
+    complete
+    .text       start:0x020cdab8 end:0x020cdae8
+
+src/overlays/ov212/auto/func_ov212_020cdae8.c:
+    complete
+    .text       start:0x020cdae8 end:0x020cdb1c
+
+src/overlays/ov212/calls/func_ov212_020cf830.c:
+    complete
+    .text       start:0x020cf830 end:0x020cf864
+
+src/overlays/ov212/calls/func_ov212_020d0700.c:
+    complete
+    .text       start:0x020d0700 end:0x020d0720
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d0c3c.c:
+    complete
+    .text       start:0x020d0c3c end:0x020d0c48
+
+src/overlays/ov212/auto/func_ov212_020d11fc.c:
+    complete
+    .text       start:0x020d11fc end:0x020d1200
+
+src/overlays/ov212/auto/func_ov212_020d18b4.c:
+    complete
+    .text       start:0x020d18b4 end:0x020d18c0
+
+src/overlays/ov212/auto/func_ov212_020d18c0.c:
+    complete
+    .text       start:0x020d18c0 end:0x020d192c
+
+src/overlays/ov212/auto/func_ov212_020d1c70.c:
+    complete
+    .text       start:0x020d1c70 end:0x020d1c80
+
+src/overlays/ov212/auto/func_ov212_020d1c80.c:
+    complete
+    .text       start:0x020d1c80 end:0x020d1c90
+
+src/overlays/ov212/auto/func_ov212_020d1c90.c:
+    complete
+    .text       start:0x020d1c90 end:0x020d1cf4
+
+src/overlays/ov212/auto/func_ov212_020d1e7c.c:
+    complete
+    .text       start:0x020d1e7c end:0x020d1e80
+
+src/overlays/ov212/auto/func_ov212_020d1ef0.c:
+    complete
+    .text       start:0x020d1ef0 end:0x020d1ef4

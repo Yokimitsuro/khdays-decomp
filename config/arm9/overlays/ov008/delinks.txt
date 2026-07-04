@@ -3,3 +3,575 @@
     .ctor       start:0x0208ff88 end:0x0208ff88 kind:rodata align:4
     .data       start:0x0208ffa0 end:0x02090f00 kind:data align:32
     .bss        start:0x02090f00 end:0x02090fc0 kind:bss align:32
+
+src/overlays/ov008/auto/func_ov008_0204fc74.c:
+    complete
+    .text       start:0x0204fc74 end:0x0204fd04
+
+src/overlays/ov008/auto/func_ov008_0204fd48.c:
+    complete
+    .text       start:0x0204fd48 end:0x0204fd80
+
+src/overlays/ov008/auto/func_ov008_02050f04.c:
+    complete
+    .text       start:0x02050f04 end:0x02050f08
+
+src/overlays/ov008/calls/func_ov008_020511b0.c:
+    complete
+    .text       start:0x020511b0 end:0x020511c8
+
+src/overlays/ov008/auto/func_ov008_020512e0.c:
+    complete
+    .text       start:0x020512e0 end:0x02051300
+
+src/overlays/ov008/auto/func_ov008_02051b5c.c:
+    complete
+    .text       start:0x02051b5c end:0x02051bac
+
+src/overlays/ov008/auto/func_ov008_02051bac.c:
+    complete
+    .text       start:0x02051bac end:0x02051c58
+
+src/overlays/ov008/auto/func_ov008_02051c58.c:
+    complete
+    .text       start:0x02051c58 end:0x02051c5c
+
+src/overlays/ov008/calls/func_ov008_02051c5c.c:
+    complete
+    .text       start:0x02051c5c end:0x02051cf0
+
+src/overlays/ov008/calls/func_ov008_02051cf0.c:
+    complete
+    .text       start:0x02051cf0 end:0x02051df8
+
+src/overlays/ov008/auto/func_ov008_020520d4.c:
+    complete
+    .text       start:0x020520d4 end:0x0205221c
+
+src/overlays/ov008/auto/func_ov008_02052314.c:
+    complete
+    .text       start:0x02052314 end:0x02052360
+
+src/overlays/ov008/calls/func_ov008_02053200.c:
+    complete
+    .text       start:0x02053200 end:0x02053320
+
+src/overlays/ov008/auto/func_ov008_02053320.c:
+    complete
+    .text       start:0x02053320 end:0x020533e4
+
+src/overlays/ov008/calls/func_ov008_020533e4.c:
+    complete
+    .text       start:0x020533e4 end:0x02053464
+
+src/overlays/ov008/calls/func_ov008_0205393c.c:
+    complete
+    .text       start:0x0205393c end:0x020539f0
+
+src/overlays/ov008/calls/func_ov008_02053d7c.c:
+    complete
+    .text       start:0x02053d7c end:0x02053de8
+
+src/overlays/ov008/auto/func_ov008_02054764.c:
+    complete
+    .text       start:0x02054764 end:0x0205476a
+
+src/overlays/ov008/auto/func_ov008_0205477c.c:
+    complete
+    .text       start:0x0205477c end:0x02054788
+
+src/overlays/ov008/calls/func_ov008_02054788.c:
+    complete
+    .text       start:0x02054788 end:0x020547d8
+
+src/overlays/ov008/auto/func_ov008_020547d8.c:
+    complete
+    .text       start:0x020547d8 end:0x020547e4
+
+src/overlays/ov008/auto/func_ov008_020547e4.c:
+    complete
+    .text       start:0x020547e4 end:0x02054810
+
+src/overlays/ov008/auto/func_ov008_02054810.c:
+    complete
+    .text       start:0x02054810 end:0x02054820
+
+src/overlays/ov008/calls/func_ov008_02054820.c:
+    complete
+    .text       start:0x02054820 end:0x02054858
+
+src/overlays/ov008/calls/func_ov008_02054858.c:
+    complete
+    .text       start:0x02054858 end:0x0205489c
+
+src/overlays/ov008/auto/func_ov008_0205489c.c:
+    complete
+    .text       start:0x0205489c end:0x020548a4
+
+src/overlays/ov008/calls/func_ov008_02054ba4.c:
+    complete
+    .text       start:0x02054ba4 end:0x02054c08
+
+src/overlays/ov008/calls/func_ov008_02054c08.c:
+    complete
+    .text       start:0x02054c08 end:0x02054c44
+
+src/overlays/ov008/calls/func_ov008_02054c80.c:
+    complete
+    .text       start:0x02054c80 end:0x02054cc4
+
+src/overlays/ov008/auto/func_ov008_02054e24.c:
+    complete
+    .text       start:0x02054e24 end:0x02054e4c
+
+src/overlays/ov008/auto/func_ov008_02054e4c.c:
+    complete
+    .text       start:0x02054e4c end:0x02054e74
+
+src/overlays/ov008/auto/func_ov008_02054f74.c:
+    complete
+    .text       start:0x02054f74 end:0x02054fb0
+
+src/overlays/ov008/auto/func_ov008_02054fb0.c:
+    complete
+    .text       start:0x02054fb0 end:0x02055000
+
+src/overlays/ov008/auto/func_ov008_02055000.c:
+    complete
+    .text       start:0x02055000 end:0x02055040
+
+src/overlays/ov008/auto/func_ov008_02055040.c:
+    complete
+    .text       start:0x02055040 end:0x02055084
+
+src/overlays/ov008/auto/func_ov008_02055084.c:
+    complete
+    .text       start:0x02055084 end:0x020550c0
+
+src/overlays/ov008/calls/func_ov008_020550c0.c:
+    complete
+    .text       start:0x020550c0 end:0x02055134
+
+src/overlays/ov008/auto/func_ov008_020555dc.c:
+    complete
+    .text       start:0x020555dc end:0x02055608
+
+src/overlays/ov008/calls/func_ov008_02055708.c:
+    complete
+    .text       start:0x02055708 end:0x02055738
+
+src/overlays/ov008/calls/func_ov008_020557b0.c:
+    complete
+    .text       start:0x020557b0 end:0x020557dc
+
+src/overlays/ov008/auto/func_ov008_02055808.c:
+    complete
+    .text       start:0x02055808 end:0x02055864
+
+src/overlays/ov008/auto/func_ov008_02055864.c:
+    complete
+    .text       start:0x02055864 end:0x0205586c
+
+src/overlays/ov008/auto/func_ov008_0205586c.c:
+    complete
+    .text       start:0x0205586c end:0x02055874
+
+src/overlays/ov008/auto/func_ov008_0205589c.c:
+    complete
+    .text       start:0x0205589c end:0x020558b8
+
+src/overlays/ov008/auto/func_ov008_020558f4.c:
+    complete
+    .text       start:0x020558f4 end:0x02055910
+
+src/overlays/ov008/auto/func_ov008_02055a1c.c:
+    complete
+    .text       start:0x02055a1c end:0x02055a34
+
+src/overlays/ov008/calls/func_ov008_02055a34.c:
+    complete
+    .text       start:0x02055a34 end:0x02055a8c
+
+src/overlays/ov008/auto/func_ov008_02055a8c.c:
+    complete
+    .text       start:0x02055a8c end:0x02055aec
+
+src/overlays/ov008/auto/func_ov008_02055c08.c:
+    complete
+    .text       start:0x02055c08 end:0x02055c24
+
+src/overlays/ov008/auto/func_ov008_02055c40.c:
+    complete
+    .text       start:0x02055c40 end:0x02055c4c
+
+src/overlays/ov008/auto/func_ov008_02055c84.c:
+    complete
+    .text       start:0x02055c84 end:0x02055cbc
+
+src/overlays/ov008/auto/func_ov008_02055db8.c:
+    complete
+    .text       start:0x02055db8 end:0x02055dbc
+
+src/overlays/ov008/calls/func_ov008_02055dbc.c:
+    complete
+    .text       start:0x02055dbc end:0x02055dcc
+
+src/overlays/ov008/calls/func_ov008_02055e00.c:
+    complete
+    .text       start:0x02055e00 end:0x02055e44
+
+src/overlays/ov008/calls/func_ov008_02055f8c.c:
+    complete
+    .text       start:0x02055f8c end:0x02055ff8
+
+src/overlays/ov008/auto/func_ov008_02055ff8.c:
+    complete
+    .text       start:0x02055ff8 end:0x02056024
+
+src/overlays/ov008/auto/func_ov008_02056024.c:
+    complete
+    .text       start:0x02056024 end:0x02056048
+
+src/overlays/ov008/auto/func_ov008_0205621c.c:
+    complete
+    .text       start:0x0205621c end:0x02056230
+
+src/overlays/ov008/auto/func_ov008_02056230.c:
+    complete
+    .text       start:0x02056230 end:0x02056244
+
+src/overlays/ov008/auto/func_ov008_02056244.c:
+    complete
+    .text       start:0x02056244 end:0x02056268
+
+src/overlays/ov008/auto/func_ov008_020566ec.c:
+    complete
+    .text       start:0x020566ec end:0x020566f4
+
+src/overlays/ov008/auto/func_ov008_02056bbc.c:
+    complete
+    .text       start:0x02056bbc end:0x02056bc0
+
+src/overlays/ov008/auto/func_ov008_020599a0.c:
+    complete
+    .text       start:0x020599a0 end:0x020599a4
+
+src/overlays/ov008/auto/func_ov008_02059c78.c:
+    complete
+    .text       start:0x02059c78 end:0x02059c86
+
+src/overlays/ov008/auto/func_ov008_02059e88.c:
+    complete
+    .text       start:0x02059e88 end:0x02059eb0
+
+src/overlays/ov008/auto/func_ov008_0205a890.c:
+    complete
+    .text       start:0x0205a890 end:0x0205a8c4
+
+src/overlays/ov008/calls/func_ov008_0205b974.c:
+    complete
+    .text       start:0x0205b974 end:0x0205b988
+
+src/overlays/ov008/auto/func_ov008_0205db98.c:
+    complete
+    .text       start:0x0205db98 end:0x0205dbcc
+
+src/overlays/ov008/calls/func_ov008_02067060.c:
+    complete
+    .text       start:0x02067060 end:0x02067074
+
+src/overlays/ov008/calls/func_ov008_02067074.c:
+    complete
+    .text       start:0x02067074 end:0x02067088
+
+src/overlays/ov008/calls/func_ov008_02067088.c:
+    complete
+    .text       start:0x02067088 end:0x0206709c
+
+src/overlays/ov008/calls/func_ov008_0206709c.c:
+    complete
+    .text       start:0x0206709c end:0x020670b0
+
+src/overlays/ov008/calls/func_ov008_020670b0.c:
+    complete
+    .text       start:0x020670b0 end:0x020670c4
+
+src/overlays/ov008/calls/func_ov008_020670c4.c:
+    complete
+    .text       start:0x020670c4 end:0x020670d8
+
+src/overlays/ov008/calls/func_ov008_020670d8.c:
+    complete
+    .text       start:0x020670d8 end:0x020670ec
+
+src/overlays/ov008/calls/func_ov008_020670ec.c:
+    complete
+    .text       start:0x020670ec end:0x02067100
+
+src/overlays/ov008/auto/func_ov008_02067100.c:
+    complete
+    .text       start:0x02067100 end:0x02067104
+
+src/overlays/ov008/auto/func_ov008_02067104.c:
+    complete
+    .text       start:0x02067104 end:0x02067108
+
+src/overlays/ov008/auto/func_ov008_02067698.c:
+    complete
+    .text       start:0x02067698 end:0x020676a0
+
+libs/nitro/fx/calls/FX_Inv_0x020676a0.c:
+    complete
+    .text       start:0x020676a0 end:0x020676b0
+
+src/overlays/ov008/auto/func_ov008_020676b0.c:
+    complete
+    .text       start:0x020676b0 end:0x020676b4
+
+src/overlays/ov008/auto/func_ov008_020678d4.c:
+    complete
+    .text       start:0x020678d4 end:0x02067970
+
+src/overlays/ov008/calls/func_ov008_02068120.c:
+    complete
+    .text       start:0x02068120 end:0x020681b0
+
+src/overlays/ov008/auto/func_ov008_02069a34.c:
+    complete
+    .text       start:0x02069a34 end:0x02069a64
+
+src/overlays/ov008/auto/func_ov008_02069b38.c:
+    complete
+    .text       start:0x02069b38 end:0x02069b60
+
+src/overlays/ov008/auto/func_ov008_0206a76c.c:
+    complete
+    .text       start:0x0206a76c end:0x0206a788
+
+src/overlays/ov008/auto/func_ov008_0206e1fc.c:
+    complete
+    .text       start:0x0206e1fc end:0x0206e200
+
+src/overlays/ov008/auto/func_ov008_0206f8d0.c:
+    complete
+    .text       start:0x0206f8d0 end:0x0206f8dc
+
+src/overlays/ov008/auto/func_ov008_0206fb2c.c:
+    complete
+    .text       start:0x0206fb2c end:0x0206fb34
+
+src/overlays/ov008/auto/func_ov008_0206fb34.c:
+    complete
+    .text       start:0x0206fb34 end:0x0206fb4c
+
+src/overlays/ov008/auto/func_ov008_0206fe4c.c:
+    complete
+    .text       start:0x0206fe4c end:0x0206fe50
+
+src/overlays/ov008/calls/func_ov008_020723d4.c:
+    complete
+    .text       start:0x020723d4 end:0x02072418
+
+src/overlays/ov008/auto/func_ov008_0207410c.c:
+    complete
+    .text       start:0x0207410c end:0x02074118
+
+src/overlays/ov008/auto/func_ov008_020742ec.c:
+    complete
+    .text       start:0x020742ec end:0x020742f4
+
+src/overlays/ov008/auto/func_ov008_020742f4.c:
+    complete
+    .text       start:0x020742f4 end:0x0207430c
+
+src/overlays/ov008/auto/func_ov008_02074b10.c:
+    complete
+    .text       start:0x02074b10 end:0x02074b4c
+
+src/overlays/ov008/calls/func_ov008_0207714c.c:
+    complete
+    .text       start:0x0207714c end:0x02077190
+
+src/overlays/ov008/auto/func_ov008_02077ee4.c:
+    complete
+    .text       start:0x02077ee4 end:0x02077f00
+
+src/overlays/ov008/auto/func_ov008_02077f00.c:
+    complete
+    .text       start:0x02077f00 end:0x02077f1c
+
+src/overlays/ov008/auto/func_ov008_020782c0.c:
+    complete
+    .text       start:0x020782c0 end:0x020782c8
+
+libs/nitro/fx/calls/FX_Inv_0x020782c8.c:
+    complete
+    .text       start:0x020782c8 end:0x020782d8
+
+src/overlays/ov008/auto/func_ov008_020782d8.c:
+    complete
+    .text       start:0x020782d8 end:0x020782dc
+
+src/overlays/ov008/auto/func_ov008_02078364.c:
+    complete
+    .text       start:0x02078364 end:0x02078390
+
+src/overlays/ov008/calls/func_ov008_02078940.c:
+    complete
+    .text       start:0x02078940 end:0x02078954
+
+src/overlays/ov008/calls/func_ov008_02079274.c:
+    complete
+    .text       start:0x02079274 end:0x0207928c
+
+src/overlays/ov008/auto/func_ov008_0207aac8.c:
+    complete
+    .text       start:0x0207aac8 end:0x0207aad0
+
+src/overlays/ov008/auto/func_ov008_0207aad0.c:
+    complete
+    .text       start:0x0207aad0 end:0x0207aad8
+
+src/overlays/ov008/auto/func_ov008_0207ab08.c:
+    complete
+    .text       start:0x0207ab08 end:0x0207ab10
+
+src/overlays/ov008/calls/func_ov008_0207b138.c:
+    complete
+    .text       start:0x0207b138 end:0x0207b14c
+
+src/overlays/ov008/calls/func_ov008_0207bb78.c:
+    complete
+    .text       start:0x0207bb78 end:0x0207bb90
+
+src/overlays/ov008/calls/func_ov008_0207bbbc.c:
+    complete
+    .text       start:0x0207bbbc end:0x0207bbd4
+
+src/overlays/ov008/auto/func_ov008_0207bcd8.c:
+    complete
+    .text       start:0x0207bcd8 end:0x0207bcdc
+
+src/overlays/ov008/auto/func_ov008_0207d5cc.c:
+    complete
+    .text       start:0x0207d5cc end:0x0207d5d0
+
+src/overlays/ov008/auto/func_ov008_0207d5d0.c:
+    complete
+    .text       start:0x0207d5d0 end:0x0207d5d8
+
+src/overlays/ov008/auto/func_ov008_020810b0.c:
+    complete
+    .text       start:0x020810b0 end:0x020810b4
+
+src/overlays/ov008/auto/func_ov008_02081148.c:
+    complete
+    .text       start:0x02081148 end:0x0208114c
+
+src/overlays/ov008/auto/func_ov008_02081428.c:
+    complete
+    .text       start:0x02081428 end:0x0208142c
+
+src/overlays/ov008/auto/func_ov008_0208142c.c:
+    complete
+    .text       start:0x0208142c end:0x02081430
+
+src/overlays/ov008/auto/func_ov008_02081458.c:
+    complete
+    .text       start:0x02081458 end:0x0208145c
+
+src/overlays/ov008/auto/func_ov008_02081544.c:
+    complete
+    .text       start:0x02081544 end:0x02081570
+
+src/overlays/ov008/auto/func_ov008_02081570.c:
+    complete
+    .text       start:0x02081570 end:0x02081574
+
+src/overlays/ov008/auto/func_ov008_0208a058.c:
+    complete
+    .text       start:0x0208a058 end:0x0208a078
+
+src/overlays/ov008/auto/func_ov008_0208b0bc.c:
+    complete
+    .text       start:0x0208b0bc end:0x0208b0d0
+
+src/overlays/ov008/auto/func_ov008_0208b870.c:
+    complete
+    .text       start:0x0208b870 end:0x0208b890
+
+src/overlays/ov008/auto/func_ov008_0208bef4.c:
+    complete
+    .text       start:0x0208bef4 end:0x0208c120
+
+src/overlays/ov008/auto/func_ov008_0208c120.c:
+    complete
+    .text       start:0x0208c120 end:0x0208c34c
+
+src/overlays/ov008/auto/func_ov008_0208c34c.c:
+    complete
+    .text       start:0x0208c34c end:0x0208c578
+
+src/overlays/ov008/auto/func_ov008_0208c578.c:
+    complete
+    .text       start:0x0208c578 end:0x0208c7a4
+
+src/overlays/ov008/auto/func_ov008_0208c7a4.c:
+    complete
+    .text       start:0x0208c7a4 end:0x0208c9d0
+
+src/overlays/ov008/auto/func_ov008_0208c9d0.c:
+    complete
+    .text       start:0x0208c9d0 end:0x0208cbfc
+
+src/overlays/ov008/auto/func_ov008_0208cbfc.c:
+    complete
+    .text       start:0x0208cbfc end:0x0208ce28
+
+src/overlays/ov008/auto/func_ov008_0208ce28.c:
+    complete
+    .text       start:0x0208ce28 end:0x0208d054
+
+src/overlays/ov008/auto/func_ov008_0208d054.c:
+    complete
+    .text       start:0x0208d054 end:0x0208d280
+
+src/overlays/ov008/auto/func_ov008_0208d280.c:
+    complete
+    .text       start:0x0208d280 end:0x0208d4ac
+
+src/overlays/ov008/auto/func_ov008_0208d4ac.c:
+    complete
+    .text       start:0x0208d4ac end:0x0208d6d8
+
+src/overlays/ov008/auto/func_ov008_0208d6d8.c:
+    complete
+    .text       start:0x0208d6d8 end:0x0208d904
+
+src/overlays/ov008/auto/func_ov008_0208d904.c:
+    complete
+    .text       start:0x0208d904 end:0x0208db30
+
+src/overlays/ov008/auto/func_ov008_0208db30.c:
+    complete
+    .text       start:0x0208db30 end:0x0208dd5c
+
+src/overlays/ov008/auto/func_ov008_0208dd5c.c:
+    complete
+    .text       start:0x0208dd5c end:0x0208df88
+
+src/overlays/ov008/auto/func_ov008_0208df88.c:
+    complete
+    .text       start:0x0208df88 end:0x0208e1b4
+
+src/overlays/ov008/auto/func_ov008_0208e1b4.c:
+    complete
+    .text       start:0x0208e1b4 end:0x0208e3e0
+
+src/overlays/ov008/auto/func_ov008_0208e3e0.c:
+    complete
+    .text       start:0x0208e3e0 end:0x0208e60c
+
+src/overlays/ov008/auto/func_ov008_0208e650.c:
+    complete
+    .text       start:0x0208e650 end:0x0208e66c

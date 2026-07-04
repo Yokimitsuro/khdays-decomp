@@ -3,3 +3,83 @@
     .ctor       start:0x020d50f8 end:0x020d50f8 kind:rodata align:4
     .data       start:0x020d5100 end:0x020d5160 kind:data align:32
     .bss        start:0x020d5160 end:0x020d5160 kind:bss align:32
+
+src/overlays/ov223/calls/func_ov223_020cfc08.c:
+    complete
+    .text       start:0x020cfc08 end:0x020cfd80
+
+src/overlays/ov223/calls/func_ov223_020d020c.c:
+    complete
+    .text       start:0x020d020c end:0x020d0264
+
+src/overlays/ov223/calls/func_ov223_020d0264.c:
+    complete
+    .text       start:0x020d0264 end:0x020d0288
+
+src/overlays/ov223/calls/func_ov223_020d0288.c:
+    complete
+    .text       start:0x020d0288 end:0x020d02cc
+
+src/overlays/ov223/calls/func_ov223_020d02cc.c:
+    complete
+    .text       start:0x020d02cc end:0x020d0310
+
+src/overlays/ov223/calls/func_ov223_020d05bc.c:
+    complete
+    .text       start:0x020d05bc end:0x020d0628
+
+src/overlays/ov223/auto/func_ov223_020d0970.c:
+    complete
+    .text       start:0x020d0970 end:0x020d099c
+
+src/overlays/ov223/auto/func_ov223_020d099c.c:
+    complete
+    .text       start:0x020d099c end:0x020d09cc
+
+src/overlays/ov223/calls/func_ov223_020d0ecc.c:
+    complete
+    .text       start:0x020d0ecc end:0x020d0ee0
+
+src/overlays/ov223/calls/func_ov223_020d1240.c:
+    complete
+    .text       start:0x020d1240 end:0x020d1300
+
+src/overlays/ov223/calls/func_ov223_020d1b10.c:
+    complete
+    .text       start:0x020d1b10 end:0x020d1b60
+
+src/overlays/ov223/calls/func_ov223_020d1cbc.c:
+    complete
+    .text       start:0x020d1cbc end:0x020d1d50
+
+src/overlays/ov223/auto/func_ov223_020d2258.c:
+    complete
+    .text       start:0x020d2258 end:0x020d2298
+
+src/overlays/ov223/calls/func_ov223_020d3090.c:
+    complete
+    .text       start:0x020d3090 end:0x020d30c4
+
+src/overlays/ov223/calls/func_ov223_020d3aa8.c:
+    complete
+    .text       start:0x020d3aa8 end:0x020d3ac8
+
+src/overlays/ov223/calls/func_ov223_020d3ba0.c:
+    complete
+    .text       start:0x020d3ba0 end:0x020d3c34
+
+src/overlays/ov223/calls/func_ov223_020d3c64.c:
+    complete
+    .text       start:0x020d3c64 end:0x020d3d78
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020d405c.c:
+    complete
+    .text       start:0x020d405c end:0x020d4068
+
+src/overlays/ov223/auto/func_ov223_020d4ab4.c:
+    complete
+    .text       start:0x020d4ab4 end:0x020d4ab8
+
+src/overlays/ov223/auto/func_ov223_020d4ef0.c:
+    complete
+    .text       start:0x020d4ef0 end:0x020d4f5c

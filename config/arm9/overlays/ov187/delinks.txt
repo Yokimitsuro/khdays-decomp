@@ -3,3 +3,63 @@
     .ctor       start:0x020d711c end:0x020d711c kind:rodata align:4
     .data       start:0x020d7120 end:0x020d7140 kind:data align:32
     .bss        start:0x020d7140 end:0x020d7140 kind:bss align:32
+
+src/overlays/ov187/calls/func_ov187_020d3ab8.c:
+    complete
+    .text       start:0x020d3ab8 end:0x020d3b14
+
+src/overlays/ov187/calls/func_ov187_020d415c.c:
+    complete
+    .text       start:0x020d415c end:0x020d4198
+
+src/overlays/ov187/calls/func_ov187_020d4e40.c:
+    complete
+    .text       start:0x020d4e40 end:0x020d4f08
+
+src/overlays/ov187/calls/func_ov187_020d4f9c.c:
+    complete
+    .text       start:0x020d4f9c end:0x020d4fd0
+
+src/overlays/ov187/calls/func_ov187_020d5388.c:
+    complete
+    .text       start:0x020d5388 end:0x020d5400
+
+src/overlays/ov187/calls/func_ov187_020d5618.c:
+    complete
+    .text       start:0x020d5618 end:0x020d5634
+
+src/overlays/ov187/calls/func_ov187_020d5634.c:
+    complete
+    .text       start:0x020d5634 end:0x020d5690
+
+src/overlays/ov187/calls/func_ov187_020d5690.c:
+    complete
+    .text       start:0x020d5690 end:0x020d56ac
+
+src/overlays/ov187/auto/func_ov187_020d5a30.c:
+    complete
+    .text       start:0x020d5a30 end:0x020d5a88
+
+src/overlays/ov187/calls/func_ov187_020d5a88.c:
+    complete
+    .text       start:0x020d5a88 end:0x020d5ac4
+
+src/overlays/ov187/calls/func_ov187_020d6094.c:
+    complete
+    .text       start:0x020d6094 end:0x020d60f4
+
+src/overlays/ov187/calls/func_ov187_020d647c.c:
+    complete
+    .text       start:0x020d647c end:0x020d6554
+
+src/overlays/ov187/calls/func_ov187_020d6554.c:
+    complete
+    .text       start:0x020d6554 end:0x020d661c
+
+src/overlays/ov187/calls/func_ov187_020d7044.c:
+    complete
+    .text       start:0x020d7044 end:0x020d7078
+
+src/overlays/ov187/calls/func_ov187_020d7078.c:
+    complete
+    .text       start:0x020d7078 end:0x020d70f0

@@ -3,3 +3,55 @@
     .ctor       start:0x020cf574 end:0x020cf574 kind:rodata align:4
     .data       start:0x020cf580 end:0x020cf5a0 kind:data align:32
     .bss        start:0x020cf5a0 end:0x020cf5a0 kind:bss align:32
+
+src/overlays/ov158/calls/func_ov158_020cc548.c:
+    complete
+    .text       start:0x020cc548 end:0x020cc570
+
+src/overlays/ov158/calls/func_ov158_020cc570.c:
+    complete
+    .text       start:0x020cc570 end:0x020cc598
+
+src/overlays/ov158/auto/func_ov158_020cc9a4.c:
+    complete
+    .text       start:0x020cc9a4 end:0x020cc9e8
+
+src/overlays/ov158/calls/func_ov158_020cd104.c:
+    complete
+    .text       start:0x020cd104 end:0x020cd138
+
+src/overlays/ov158/calls/func_ov158_020cd59c.c:
+    complete
+    .text       start:0x020cd59c end:0x020cd608
+
+src/overlays/ov158/calls/func_ov158_020cd678.c:
+    complete
+    .text       start:0x020cd678 end:0x020cd6f4
+
+src/overlays/ov158/auto/func_ov158_020ce250.c:
+    complete
+    .text       start:0x020ce250 end:0x020ce288
+
+src/overlays/ov158/calls/func_ov158_020ce960.c:
+    complete
+    .text       start:0x020ce960 end:0x020ce9a0
+
+src/overlays/ov158/calls/func_ov158_020ceb74.c:
+    complete
+    .text       start:0x020ceb74 end:0x020ceba4
+
+src/overlays/ov158/calls/func_ov158_020ceba4.c:
+    complete
+    .text       start:0x020ceba4 end:0x020cebdc
+
+src/overlays/ov158/calls/func_ov158_020cec50.c:
+    complete
+    .text       start:0x020cec50 end:0x020cecac
+
+src/overlays/ov158/auto/func_ov158_020cee18.c:
+    complete
+    .text       start:0x020cee18 end:0x020cee30
+
+src/overlays/ov158/calls/func_ov158_020ceee0.c:
+    complete
+    .text       start:0x020ceee0 end:0x020cef18

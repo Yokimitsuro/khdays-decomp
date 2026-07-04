@@ -3,3 +3,135 @@
     .ctor       start:0x020b4cb0 end:0x020b4cb0 kind:rodata align:4
     .data       start:0x020b4cc0 end:0x020b4dc0 kind:data align:32
     .bss        start:0x020b4dc0 end:0x020b4de0 kind:bss align:32
+
+libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov031_0x020b3220.c:
+    complete
+    .text       start:0x020b3220 end:0x020b3234
+
+src/overlays/ov031/calls/func_ov031_020b3234.c:
+    complete
+    .text       start:0x020b3234 end:0x020b325c
+
+src/overlays/ov031/calls/func_ov031_020b325c.c:
+    complete
+    .text       start:0x020b325c end:0x020b3270
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b3270.c:
+    complete
+    .text       start:0x020b3270 end:0x020b34b0
+
+src/overlays/ov031/calls/func_ov031_020b34b0.c:
+    complete
+    .text       start:0x020b34b0 end:0x020b350c
+
+src/overlays/ov031/auto/func_ov031_020b350c.c:
+    complete
+    .text       start:0x020b350c end:0x020b3534
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b3534.c:
+    complete
+    .text       start:0x020b3534 end:0x020b3610
+
+src/overlays/ov031/calls/func_ov031_020b3610.c:
+    complete
+    .text       start:0x020b3610 end:0x020b3728
+
+src/overlays/ov031/calls/func_ov031_020b3728.c:
+    complete
+    .text       start:0x020b3728 end:0x020b3758
+
+src/overlays/ov031/calls/func_ov031_020b3758.c:
+    complete
+    .text       start:0x020b3758 end:0x020b3830
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b3830.c:
+    complete
+    .text       start:0x020b3830 end:0x020b38e0
+
+src/overlays/ov031/calls/func_ov031_020b38e0.c:
+    complete
+    .text       start:0x020b38e0 end:0x020b395c
+
+src/overlays/ov031/calls/func_ov031_020b395c.c:
+    complete
+    .text       start:0x020b395c end:0x020b39d4
+
+src/overlays/ov031/calls/func_ov031_020b39d4.c:
+    complete
+    .text       start:0x020b39d4 end:0x020b3a00
+
+src/overlays/ov031/calls/func_ov031_020b3a00.c:
+    complete
+    .text       start:0x020b3a00 end:0x020b3a20
+
+src/overlays/ov031/auto/func_ov031_020b3a20.c:
+    complete
+    .text       start:0x020b3a20 end:0x020b3a38
+
+src/overlays/ov031/calls/func_ov031_020b3a38.c:
+    complete
+    .text       start:0x020b3a38 end:0x020b3a9c
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b3a9c.c:
+    complete
+    .text       start:0x020b3a9c end:0x020b3c60
+
+src/overlays/ov031/calls/func_ov031_020b3c60.c:
+    complete
+    .text       start:0x020b3c60 end:0x020b3d30
+
+src/overlays/ov031/calls/func_ov031_020b3d30.c:
+    complete
+    .text       start:0x020b3d30 end:0x020b3dbc
+
+src/overlays/ov031/calls/func_ov031_020b3dbc.c:
+    complete
+    .text       start:0x020b3dbc end:0x020b3e00
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b3e00.c:
+    complete
+    .text       start:0x020b3e00 end:0x020b408c
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b408c.c:
+    complete
+    .text       start:0x020b408c end:0x020b4120
+
+src/overlays/ov031/calls/func_ov031_020b4120.c:
+    complete
+    .text       start:0x020b4120 end:0x020b4200
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b4200.c:
+    complete
+    .text       start:0x020b4200 end:0x020b453c
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b453c.c:
+    complete
+    .text       start:0x020b453c end:0x020b4630
+
+src/overlays/ov031/calls/func_ov031_020b4630.c:
+    complete
+    .text       start:0x020b4630 end:0x020b4694
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b4694.c:
+    complete
+    .text       start:0x020b4694 end:0x020b4820
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b4820.c:
+    complete
+    .text       start:0x020b4820 end:0x020b4930
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b4930.c:
+    complete
+    .text       start:0x020b4930 end:0x020b4a08
+
+src/overlays/ov031/calls/func_ov031_020b4a08.c:
+    complete
+    .text       start:0x020b4a08 end:0x020b4b08
+
+src/overlays/ov031/asm_stubs/calls/func_ov031_020b4b08.c:
+    complete
+    .text       start:0x020b4b08 end:0x020b4c2c
+
+src/overlays/ov031/calls/func_ov031_020b4c2c.c:
+    complete
+    .text       start:0x020b4c2c end:0x020b4c44

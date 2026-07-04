@@ -3,3 +3,11 @@
     .ctor       start:0x020b7ff4 end:0x020b7ff4 kind:rodata align:4
     .data       start:0x020b8000 end:0x020b80e0 kind:data align:32
     .bss        start:0x020b80e0 end:0x020b8100 kind:bss align:32
+
+libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov062_0x020b5a20.c:
+    complete
+    .text       start:0x020b5a20 end:0x020b5a34
+
+src/overlays/ov062/calls/func_ov062_020b6324.c:
+    complete
+    .text       start:0x020b6324 end:0x020b634c

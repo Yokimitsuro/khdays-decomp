@@ -3,3 +3,19 @@
     .ctor       start:0x020d35a0 end:0x020d35a0 kind:rodata align:4
     .data       start:0x020d35c0 end:0x020d3620 kind:data align:32
     .bss        start:0x020d3620 end:0x020d3620 kind:bss align:32
+
+src/overlays/ov279/auto/func_ov279_020d0610.c:
+    complete
+    .text       start:0x020d0610 end:0x020d0640
+
+src/overlays/ov279/calls/func_ov279_020d102c.c:
+    complete
+    .text       start:0x020d102c end:0x020d1060
+
+src/overlays/ov279/calls/func_ov279_020d16c4.c:
+    complete
+    .text       start:0x020d16c4 end:0x020d16f8
+
+src/overlays/ov279/auto/func_ov279_020d3488.c:
+    complete
+    .text       start:0x020d3488 end:0x020d348c

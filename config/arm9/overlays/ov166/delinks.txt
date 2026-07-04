@@ -3,3 +3,207 @@
     .ctor       start:0x020ceae0 end:0x020ceae0 kind:rodata align:4
     .data       start:0x020ceb00 end:0x020ceb20 kind:data align:32
     .bss        start:0x020ceb20 end:0x020ceb20 kind:bss align:32
+
+src/overlays/ov166/calls/func_ov166_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov166/calls/func_ov166_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc020
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cc020.c:
+    complete
+    .text       start:0x020cc020 end:0x020cc33c
+
+src/overlays/ov166/calls/func_ov166_020cc33c.c:
+    complete
+    .text       start:0x020cc33c end:0x020cc37c
+
+libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_ov166_0x020cc37c.c:
+    complete
+    .text       start:0x020cc37c end:0x020cc388
+
+src/overlays/ov166/calls/func_ov166_020cc388.c:
+    complete
+    .text       start:0x020cc388 end:0x020cc3b0
+
+src/overlays/ov166/calls/func_ov166_020cc3b0.c:
+    complete
+    .text       start:0x020cc3b0 end:0x020cc3d8
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cc3d8.c:
+    complete
+    .text       start:0x020cc3d8 end:0x020cc5f4
+
+src/overlays/ov166/calls/func_ov166_020cc5f4.c:
+    complete
+    .text       start:0x020cc5f4 end:0x020cc624
+
+src/overlays/ov166/calls/func_ov166_020cc75c.c:
+    complete
+    .text       start:0x020cc75c end:0x020cc7b8
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cc7b8.c:
+    complete
+    .text       start:0x020cc7b8 end:0x020cc9dc
+
+src/overlays/ov166/auto/func_ov166_020cc9dc.c:
+    complete
+    .text       start:0x020cc9dc end:0x020cca08
+
+src/overlays/ov166/calls/func_ov166_020cca08.c:
+    complete
+    .text       start:0x020cca08 end:0x020ccaa0
+
+src/overlays/ov166/auto/func_ov166_020ccaa0.c:
+    complete
+    .text       start:0x020ccaa0 end:0x020ccae0
+
+src/overlays/ov166/calls/func_ov166_020ccae0.c:
+    complete
+    .text       start:0x020ccae0 end:0x020ccbcc
+
+src/overlays/ov166/calls/func_ov166_020ccbcc.c:
+    complete
+    .text       start:0x020ccbcc end:0x020ccdb8
+
+src/overlays/ov166/calls/func_ov166_020ccdb8.c:
+    complete
+    .text       start:0x020ccdb8 end:0x020cce58
+
+src/overlays/ov166/calls/func_ov166_020cce58.c:
+    complete
+    .text       start:0x020cce58 end:0x020ccec0
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020ccec0.c:
+    complete
+    .text       start:0x020ccec0 end:0x020ccf44
+
+src/overlays/ov166/calls/func_ov166_020ccf44.c:
+    complete
+    .text       start:0x020ccf44 end:0x020cd010
+
+src/overlays/ov166/calls/func_ov166_020cd010.c:
+    complete
+    .text       start:0x020cd010 end:0x020cd0e8
+
+src/overlays/ov166/calls/func_ov166_020cd0e8.c:
+    complete
+    .text       start:0x020cd0e8 end:0x020cd11c
+
+src/overlays/ov166/calls/func_ov166_020cd11c.c:
+    complete
+    .text       start:0x020cd11c end:0x020cd1a8
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cd1a8.c:
+    complete
+    .text       start:0x020cd1a8 end:0x020cd524
+
+src/overlays/ov166/calls/func_ov166_020cd524.c:
+    complete
+    .text       start:0x020cd524 end:0x020cd568
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cd568.c:
+    complete
+    .text       start:0x020cd568 end:0x020cd75c
+
+src/overlays/ov166/calls/func_ov166_020cd75c.c:
+    complete
+    .text       start:0x020cd75c end:0x020cd798
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cd798.c:
+    complete
+    .text       start:0x020cd798 end:0x020cd964
+
+src/overlays/ov166/calls/func_ov166_020cd964.c:
+    complete
+    .text       start:0x020cd964 end:0x020cd9d4
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cd9d4.c:
+    complete
+    .text       start:0x020cd9d4 end:0x020cdb50
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cdb50.c:
+    complete
+    .text       start:0x020cdb50 end:0x020cdbec
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020cdbec.c:
+    complete
+    .text       start:0x020cdbec end:0x020cddb8
+
+src/overlays/ov166/calls/func_ov166_020cde20.c:
+    complete
+    .text       start:0x020cde20 end:0x020cdf14
+
+src/overlays/ov166/calls/func_ov166_020cdf14.c:
+    complete
+    .text       start:0x020cdf14 end:0x020ce000
+
+src/overlays/ov166/calls/func_ov166_020ce000.c:
+    complete
+    .text       start:0x020ce000 end:0x020ce0a0
+
+src/overlays/ov166/calls/func_ov166_020ce0a0.c:
+    complete
+    .text       start:0x020ce0a0 end:0x020ce134
+
+src/overlays/ov166/calls/func_ov166_020ce134.c:
+    complete
+    .text       start:0x020ce134 end:0x020ce174
+
+src/overlays/ov166/calls/func_ov166_020ce174.c:
+    complete
+    .text       start:0x020ce174 end:0x020ce1a8
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020ce1a8.c:
+    complete
+    .text       start:0x020ce1a8 end:0x020ce308
+
+src/overlays/ov166/calls/func_ov166_020ce308.c:
+    complete
+    .text       start:0x020ce308 end:0x020ce324
+
+src/overlays/ov166/calls/func_ov166_020ce324.c:
+    complete
+    .text       start:0x020ce324 end:0x020ce35c
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020ce35c.c:
+    complete
+    .text       start:0x020ce35c end:0x020ce368
+
+src/overlays/ov166/calls/func_ov166_020ce368.c:
+    complete
+    .text       start:0x020ce368 end:0x020ce3f0
+
+src/overlays/ov166/calls/func_ov166_020ce43c.c:
+    complete
+    .text       start:0x020ce43c end:0x020ce4e4
+
+src/overlays/ov166/calls/func_ov166_020ce4e4.c:
+    complete
+    .text       start:0x020ce4e4 end:0x020ce55c
+
+src/overlays/ov166/auto/func_ov166_020ce55c.c:
+    complete
+    .text       start:0x020ce55c end:0x020ce574
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020ce574.c:
+    complete
+    .text       start:0x020ce574 end:0x020ce624
+
+src/overlays/ov166/calls/func_ov166_020ce624.c:
+    complete
+    .text       start:0x020ce624 end:0x020ce65c
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020ce65c.c:
+    complete
+    .text       start:0x020ce65c end:0x020ce744
+
+src/overlays/ov166/asm_stubs/calls/func_ov166_020ce744.c:
+    complete
+    .text       start:0x020ce744 end:0x020cead0

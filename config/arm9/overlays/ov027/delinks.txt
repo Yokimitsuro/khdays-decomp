@@ -3,3 +3,7 @@
     .ctor       start:0x02083ed0 end:0x02083ed0 kind:rodata align:4
     .data       start:0x02083ee0 end:0x02084360 kind:data align:32
     .bss        start:0x02084360 end:0x02084380 kind:bss align:32
+
+src/overlays/ov027/auto/func_ov027_02083164.c:
+    complete
+    .text       start:0x02083164 end:0x02083168

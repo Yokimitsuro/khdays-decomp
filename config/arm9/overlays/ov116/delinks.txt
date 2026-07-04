@@ -3,3 +3,179 @@
     .ctor       start:0x020d27bc end:0x020d27bc kind:rodata align:4
     .data       start:0x020d27c0 end:0x020d27e0 kind:data align:32
     .bss        start:0x020d27e0 end:0x020d27e0 kind:bss align:32
+
+src/overlays/ov116/calls/func_ov116_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov116/calls/func_ov116_020cfc04.c:
+    complete
+    .text       start:0x020cfc04 end:0x020cfc60
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020cfc60.c:
+    complete
+    .text       start:0x020cfc60 end:0x020cff74
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cffb4.c:
+    complete
+    .text       start:0x020cffb4 end:0x020cffc0
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cffc0.c:
+    complete
+    .text       start:0x020cffc0 end:0x020cffcc
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cffcc.c:
+    complete
+    .text       start:0x020cffcc end:0x020cffd8
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020cffd8.c:
+    complete
+    .text       start:0x020cffd8 end:0x020d02ac
+
+src/overlays/ov116/calls/func_ov116_020d02ac.c:
+    complete
+    .text       start:0x020d02ac end:0x020d02dc
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d02dc.c:
+    complete
+    .text       start:0x020d02dc end:0x020d0478
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d0478.c:
+    complete
+    .text       start:0x020d0478 end:0x020d0538
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d0538.c:
+    complete
+    .text       start:0x020d0538 end:0x020d05d4
+
+src/overlays/ov116/calls/func_ov116_020d05d4.c:
+    complete
+    .text       start:0x020d05d4 end:0x020d05fc
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d05fc.c:
+    complete
+    .text       start:0x020d05fc end:0x020d0a1c
+
+src/overlays/ov116/calls/func_ov116_020d0a1c.c:
+    complete
+    .text       start:0x020d0a1c end:0x020d0a78
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d0a78.c:
+    complete
+    .text       start:0x020d0a78 end:0x020d0c98
+
+src/overlays/ov116/auto/func_ov116_020d0c98.c:
+    complete
+    .text       start:0x020d0c98 end:0x020d0cc4
+
+src/overlays/ov116/calls/func_ov116_020d0cc4.c:
+    complete
+    .text       start:0x020d0cc4 end:0x020d0d5c
+
+src/overlays/ov116/auto/func_ov116_020d0d5c.c:
+    complete
+    .text       start:0x020d0d5c end:0x020d0d7c
+
+src/overlays/ov116/calls/func_ov116_020d0d7c.c:
+    complete
+    .text       start:0x020d0d7c end:0x020d0e68
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d0e68.c:
+    complete
+    .text       start:0x020d0e68 end:0x020d1068
+
+src/overlays/ov116/calls/func_ov116_020d1068.c:
+    complete
+    .text       start:0x020d1068 end:0x020d1108
+
+src/overlays/ov116/calls/func_ov116_020d1108.c:
+    complete
+    .text       start:0x020d1108 end:0x020d1170
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1170.c:
+    complete
+    .text       start:0x020d1170 end:0x020d11f4
+
+src/overlays/ov116/calls/func_ov116_020d11f4.c:
+    complete
+    .text       start:0x020d11f4 end:0x020d12c0
+
+src/overlays/ov116/calls/func_ov116_020d12c0.c:
+    complete
+    .text       start:0x020d12c0 end:0x020d1398
+
+src/overlays/ov116/calls/func_ov116_020d1398.c:
+    complete
+    .text       start:0x020d1398 end:0x020d13cc
+
+src/overlays/ov116/calls/func_ov116_020d13cc.c:
+    complete
+    .text       start:0x020d13cc end:0x020d1458
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1458.c:
+    complete
+    .text       start:0x020d1458 end:0x020d17ec
+
+src/overlays/ov116/calls/func_ov116_020d17ec.c:
+    complete
+    .text       start:0x020d17ec end:0x020d1830
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1830.c:
+    complete
+    .text       start:0x020d1830 end:0x020d1a24
+
+src/overlays/ov116/calls/func_ov116_020d1a24.c:
+    complete
+    .text       start:0x020d1a24 end:0x020d1a60
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1a60.c:
+    complete
+    .text       start:0x020d1a60 end:0x020d1c2c
+
+src/overlays/ov116/calls/func_ov116_020d1c2c.c:
+    complete
+    .text       start:0x020d1c2c end:0x020d1c9c
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1c9c.c:
+    complete
+    .text       start:0x020d1c9c end:0x020d1e4c
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1e4c.c:
+    complete
+    .text       start:0x020d1e4c end:0x020d1f24
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d1f24.c:
+    complete
+    .text       start:0x020d1f24 end:0x020d2048
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d2048.c:
+    complete
+    .text       start:0x020d2048 end:0x020d221c
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d221c.c:
+    complete
+    .text       start:0x020d221c end:0x020d22f0
+
+src/overlays/ov116/asm_stubs/calls/func_ov116_020d22f0.c:
+    complete
+    .text       start:0x020d22f0 end:0x020d23fc
+
+src/overlays/ov116/calls/func_ov116_020d2464.c:
+    complete
+    .text       start:0x020d2464 end:0x020d2558
+
+src/overlays/ov116/calls/func_ov116_020d2558.c:
+    complete
+    .text       start:0x020d2558 end:0x020d2644
+
+src/overlays/ov116/calls/func_ov116_020d2644.c:
+    complete
+    .text       start:0x020d2644 end:0x020d26e4
+
+src/overlays/ov116/calls/func_ov116_020d26e4.c:
+    complete
+    .text       start:0x020d26e4 end:0x020d2778

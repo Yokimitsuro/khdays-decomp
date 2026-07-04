@@ -3,3 +3,27 @@
     .ctor       start:0x020d36b0 end:0x020d36b0 kind:rodata align:4
     .data       start:0x020d36c0 end:0x020d3720 kind:data align:32
     .bss        start:0x020d3720 end:0x020d3720 kind:bss align:32
+
+src/overlays/ov265/calls/func_ov265_020d00f4.c:
+    complete
+    .text       start:0x020d00f4 end:0x020d0118
+
+src/overlays/ov265/auto/func_ov265_020d0d30.c:
+    complete
+    .text       start:0x020d0d30 end:0x020d0d6c
+
+src/overlays/ov265/calls/func_ov265_020d0ed0.c:
+    complete
+    .text       start:0x020d0ed0 end:0x020d0f08
+
+src/overlays/ov265/calls/func_ov265_020d2ee4.c:
+    complete
+    .text       start:0x020d2ee4 end:0x020d2f00
+
+src/overlays/ov265/auto/func_ov265_020d2f00.c:
+    complete
+    .text       start:0x020d2f00 end:0x020d2f38
+
+src/overlays/ov265/calls/func_ov265_020d3198.c:
+    complete
+    .text       start:0x020d3198 end:0x020d31d0

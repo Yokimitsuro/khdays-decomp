@@ -3,3 +3,23 @@
     .ctor       start:0x0207fd48 end:0x0207fd48 kind:rodata align:4
     .data       start:0x0207fd60 end:0x0207fd80 kind:data align:32
     .bss        start:0x0207fd80 end:0x0207fd80 kind:bss align:32
+
+src/overlays/ov019/asm_stubs/calls/func_ov019_0207fa40.c:
+    complete
+    .text       start:0x0207fa40 end:0x0207fa94
+
+src/overlays/ov019/asm_stubs/calls/func_ov019_0207fa94.c:
+    complete
+    .text       start:0x0207fa94 end:0x0207fc88
+
+src/overlays/ov019/asm_stubs/calls/func_ov019_0207fc88.c:
+    complete
+    .text       start:0x0207fc88 end:0x0207fcbe
+
+src/overlays/ov019/asm_stubs/calls/func_ov019_0207fcc0.c:
+    complete
+    .text       start:0x0207fcc0 end:0x0207fcda
+
+src/overlays/ov019/asm_stubs/calls/func_ov019_0207fcdc.c:
+    complete
+    .text       start:0x0207fcdc end:0x0207fd40

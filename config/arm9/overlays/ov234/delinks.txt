@@ -3,3 +3,87 @@
     .ctor       start:0x020cd108 end:0x020cd108 kind:rodata align:4
     .data       start:0x020cd120 end:0x020cd140 kind:data align:32
     .bss        start:0x020cd140 end:0x020cd140 kind:bss align:32
+
+src/overlays/ov234/calls/func_ov234_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc1d8
+
+src/overlays/ov234/calls/func_ov234_020cc1d8.c:
+    complete
+    .text       start:0x020cc1d8 end:0x020cc1fc
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc1fc.c:
+    complete
+    .text       start:0x020cc1fc end:0x020cc25c
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc25c.c:
+    complete
+    .text       start:0x020cc25c end:0x020cc268
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc268.c:
+    complete
+    .text       start:0x020cc268 end:0x020cc274
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc274.c:
+    complete
+    .text       start:0x020cc274 end:0x020cc4e0
+
+src/overlays/ov234/calls/func_ov234_020cc4e0.c:
+    complete
+    .text       start:0x020cc4e0 end:0x020cc518
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc518.c:
+    complete
+    .text       start:0x020cc518 end:0x020cc574
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc574.c:
+    complete
+    .text       start:0x020cc574 end:0x020cc864
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc864.c:
+    complete
+    .text       start:0x020cc864 end:0x020cc95c
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cc95c.c:
+    complete
+    .text       start:0x020cc95c end:0x020cca84
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020cca84.c:
+    complete
+    .text       start:0x020cca84 end:0x020ccedc
+
+src/overlays/ov234/calls/func_ov234_020ccedc.c:
+    complete
+    .text       start:0x020ccedc end:0x020ccef4
+
+src/overlays/ov234/calls/func_ov234_020ccef4.c:
+    complete
+    .text       start:0x020ccef4 end:0x020ccf4c
+
+src/overlays/ov234/calls/func_ov234_020ccf4c.c:
+    complete
+    .text       start:0x020ccf4c end:0x020ccf64
+
+src/overlays/ov234/auto/func_ov234_020ccf64.c:
+    complete
+    .text       start:0x020ccf64 end:0x020ccf68
+
+src/overlays/ov234/calls/func_ov234_020ccf68.c:
+    complete
+    .text       start:0x020ccf68 end:0x020ccf80
+
+src/overlays/ov234/asm_stubs/calls/func_ov234_020ccf80.c:
+    complete
+    .text       start:0x020ccf80 end:0x020cd0d4
+
+src/overlays/ov234/calls/func_ov234_020cd0d4.c:
+    complete
+    .text       start:0x020cd0d4 end:0x020cd100

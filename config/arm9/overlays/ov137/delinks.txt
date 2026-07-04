@@ -3,3 +3,55 @@
     .ctor       start:0x020cf3b0 end:0x020cf3b0 kind:rodata align:4
     .data       start:0x020cf3c0 end:0x020cf3e0 kind:data align:32
     .bss        start:0x020cf3e0 end:0x020cf3e0 kind:bss align:32
+
+src/overlays/ov137/calls/func_ov137_020cc53c.c:
+    complete
+    .text       start:0x020cc53c end:0x020cc564
+
+src/overlays/ov137/calls/func_ov137_020cc564.c:
+    complete
+    .text       start:0x020cc564 end:0x020cc58c
+
+src/overlays/ov137/auto/func_ov137_020cc99c.c:
+    complete
+    .text       start:0x020cc99c end:0x020cc9e0
+
+src/overlays/ov137/calls/func_ov137_020cd104.c:
+    complete
+    .text       start:0x020cd104 end:0x020cd138
+
+src/overlays/ov137/calls/func_ov137_020cd5a4.c:
+    complete
+    .text       start:0x020cd5a4 end:0x020cd610
+
+src/overlays/ov137/calls/func_ov137_020cd680.c:
+    complete
+    .text       start:0x020cd680 end:0x020cd6fc
+
+src/overlays/ov137/auto/func_ov137_020ce234.c:
+    complete
+    .text       start:0x020ce234 end:0x020ce26c
+
+src/overlays/ov137/calls/func_ov137_020ce8f0.c:
+    complete
+    .text       start:0x020ce8f0 end:0x020ce930
+
+src/overlays/ov137/calls/func_ov137_020ceaf0.c:
+    complete
+    .text       start:0x020ceaf0 end:0x020ceb20
+
+src/overlays/ov137/calls/func_ov137_020ceb20.c:
+    complete
+    .text       start:0x020ceb20 end:0x020ceb58
+
+src/overlays/ov137/calls/func_ov137_020cebcc.c:
+    complete
+    .text       start:0x020cebcc end:0x020cec28
+
+src/overlays/ov137/auto/func_ov137_020ced94.c:
+    complete
+    .text       start:0x020ced94 end:0x020cedac
+
+src/overlays/ov137/calls/func_ov137_020cee5c.c:
+    complete
+    .text       start:0x020cee5c end:0x020cee94

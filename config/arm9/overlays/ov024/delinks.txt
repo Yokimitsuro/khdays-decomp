@@ -3,3 +3,51 @@
     .ctor       start:0x020938f0 end:0x020938f0 kind:rodata align:4
     .data       start:0x02093900 end:0x02093a20 kind:data align:32
     .bss        start:0x02093a20 end:0x0209bb60 kind:bss align:32
+
+src/overlays/ov024/auto/func_ov024_020831d4.c:
+    complete
+    .text       start:0x020831d4 end:0x020831dc
+
+src/overlays/ov024/auto/func_ov024_020835f8.c:
+    complete
+    .text       start:0x020835f8 end:0x02083600
+
+src/overlays/ov024/calls/func_ov024_02084f98.c:
+    complete
+    .text       start:0x02084f98 end:0x02084fac
+
+src/overlays/ov024/auto/func_ov024_020850e0.c:
+    complete
+    .text       start:0x020850e0 end:0x020850e4
+
+src/overlays/ov024/calls/func_ov024_020850e4.c:
+    complete
+    .text       start:0x020850e4 end:0x020850f8
+
+src/overlays/ov024/calls/func_ov024_02085140.c:
+    complete
+    .text       start:0x02085140 end:0x02085154
+
+src/overlays/ov024/auto/func_ov024_02085868.c:
+    complete
+    .text       start:0x02085868 end:0x02085870
+
+src/overlays/ov024/auto/func_ov024_02085870.c:
+    complete
+    .text       start:0x02085870 end:0x02085878
+
+src/overlays/ov024/auto/func_ov024_02085878.c:
+    complete
+    .text       start:0x02085878 end:0x0208589c
+
+src/overlays/ov024/auto/func_ov024_02085c7c.c:
+    complete
+    .text       start:0x02085c7c end:0x02085c8c
+
+src/overlays/ov024/auto/func_ov024_02086000.c:
+    complete
+    .text       start:0x02086000 end:0x02086004
+
+src/overlays/ov024/auto/func_ov024_020865d0.c:
+    complete
+    .text       start:0x020865d0 end:0x020865d8

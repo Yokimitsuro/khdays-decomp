@@ -3,3 +3,15 @@
     .ctor       start:0x020d450c end:0x020d450c kind:rodata align:4
     .data       start:0x020d4520 end:0x020d45e0 kind:data align:32
     .bss        start:0x020d45e0 end:0x020d45e0 kind:bss align:32
+
+src/overlays/ov252/auto/func_ov252_020d2f54.c:
+    complete
+    .text       start:0x020d2f54 end:0x020d2f6c
+
+src/overlays/ov252/auto/func_ov252_020d3454.c:
+    complete
+    .text       start:0x020d3454 end:0x020d346c
+
+src/overlays/ov252/auto/func_ov252_020d3cf8.c:
+    complete
+    .text       start:0x020d3cf8 end:0x020d3d10

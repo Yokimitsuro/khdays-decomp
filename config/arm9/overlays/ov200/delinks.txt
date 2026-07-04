@@ -3,3 +3,47 @@
     .ctor       start:0x020d1850 end:0x020d1850 kind:rodata align:4
     .data       start:0x020d1860 end:0x020d1880 kind:data align:32
     .bss        start:0x020d1880 end:0x020d1880 kind:bss align:32
+
+src/overlays/ov200/calls/func_ov200_020ce134.c:
+    complete
+    .text       start:0x020ce134 end:0x020ce190
+
+src/overlays/ov200/calls/func_ov200_020ce190.c:
+    complete
+    .text       start:0x020ce190 end:0x020ce1c8
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020ce638.c:
+    complete
+    .text       start:0x020ce638 end:0x020ce644
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020ce644.c:
+    complete
+    .text       start:0x020ce644 end:0x020ce650
+
+src/overlays/ov200/auto/func_ov200_020ce8c4.c:
+    complete
+    .text       start:0x020ce8c4 end:0x020ce8f0
+
+src/overlays/ov200/calls/func_ov200_020cefdc.c:
+    complete
+    .text       start:0x020cefdc end:0x020cf010
+
+src/overlays/ov200/auto/func_ov200_020d0508.c:
+    complete
+    .text       start:0x020d0508 end:0x020d0540
+
+src/overlays/ov200/auto/func_ov200_020d0540.c:
+    complete
+    .text       start:0x020d0540 end:0x020d055c
+
+src/overlays/ov200/auto/func_ov200_020d055c.c:
+    complete
+    .text       start:0x020d055c end:0x020d0574
+
+src/overlays/ov200/auto/func_ov200_020d0574.c:
+    complete
+    .text       start:0x020d0574 end:0x020d057c
+
+src/overlays/ov200/auto/func_ov200_020d1708.c:
+    complete
+    .text       start:0x020d1708 end:0x020d1768

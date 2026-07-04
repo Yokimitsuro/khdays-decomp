@@ -3,3 +3,191 @@
     .ctor       start:0x020cecac end:0x020cecac kind:rodata align:4
     .data       start:0x020cecc0 end:0x020cece0 kind:data align:32
     .bss        start:0x020cece0 end:0x020cece0 kind:bss align:32
+
+src/overlays/ov173/calls/func_ov173_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov173/calls/func_ov173_020cbfc4.c:
+    complete
+    .text       start:0x020cbfc4 end:0x020cc020
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cc020.c:
+    complete
+    .text       start:0x020cc020 end:0x020cc330
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc370.c:
+    complete
+    .text       start:0x020cc370 end:0x020cc37c
+
+libs/nitro/wm/calls/WM_EndKeySharing_0x020cc388.c:
+    complete
+    .text       start:0x020cc388 end:0x020cc394
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cc394.c:
+    complete
+    .text       start:0x020cc394 end:0x020cc5dc
+
+src/overlays/ov173/calls/func_ov173_020cc5dc.c:
+    complete
+    .text       start:0x020cc5dc end:0x020cc60c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cc60c.c:
+    complete
+    .text       start:0x020cc60c end:0x020cc76c
+
+src/overlays/ov173/calls/func_ov173_020cc76c.c:
+    complete
+    .text       start:0x020cc76c end:0x020cc7c8
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cc7c8.c:
+    complete
+    .text       start:0x020cc7c8 end:0x020ccaa8
+
+src/overlays/ov173/auto/func_ov173_020ccaa8.c:
+    complete
+    .text       start:0x020ccaa8 end:0x020ccad4
+
+src/overlays/ov173/calls/func_ov173_020ccad4.c:
+    complete
+    .text       start:0x020ccad4 end:0x020ccb6c
+
+src/overlays/ov173/auto/func_ov173_020ccb6c.c:
+    complete
+    .text       start:0x020ccb6c end:0x020ccb74
+
+src/overlays/ov173/calls/func_ov173_020ccb74.c:
+    complete
+    .text       start:0x020ccb74 end:0x020ccc60
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ccc60.c:
+    complete
+    .text       start:0x020ccc60 end:0x020cce9c
+
+src/overlays/ov173/calls/func_ov173_020cce9c.c:
+    complete
+    .text       start:0x020cce9c end:0x020ccf3c
+
+src/overlays/ov173/calls/func_ov173_020ccf3c.c:
+    complete
+    .text       start:0x020ccf3c end:0x020ccfa4
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ccfa4.c:
+    complete
+    .text       start:0x020ccfa4 end:0x020cd028
+
+src/overlays/ov173/calls/func_ov173_020cd028.c:
+    complete
+    .text       start:0x020cd028 end:0x020cd0f4
+
+src/overlays/ov173/calls/func_ov173_020cd0f4.c:
+    complete
+    .text       start:0x020cd0f4 end:0x020cd1cc
+
+src/overlays/ov173/calls/func_ov173_020cd1cc.c:
+    complete
+    .text       start:0x020cd1cc end:0x020cd200
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cd200.c:
+    complete
+    .text       start:0x020cd200 end:0x020cd28c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cd28c.c:
+    complete
+    .text       start:0x020cd28c end:0x020cd5f0
+
+src/overlays/ov173/calls/func_ov173_020cd5f0.c:
+    complete
+    .text       start:0x020cd5f0 end:0x020cd634
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cd634.c:
+    complete
+    .text       start:0x020cd634 end:0x020cd7f4
+
+src/overlays/ov173/calls/func_ov173_020cd7f4.c:
+    complete
+    .text       start:0x020cd7f4 end:0x020cd830
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cd830.c:
+    complete
+    .text       start:0x020cd830 end:0x020cda14
+
+src/overlays/ov173/calls/func_ov173_020cda14.c:
+    complete
+    .text       start:0x020cda14 end:0x020cda84
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cda84.c:
+    complete
+    .text       start:0x020cda84 end:0x020cdbec
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cdbec.c:
+    complete
+    .text       start:0x020cdbec end:0x020cdccc
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cdccc.c:
+    complete
+    .text       start:0x020cdccc end:0x020cde8c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cde8c.c:
+    complete
+    .text       start:0x020cde8c end:0x020cdf2c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020cdf2c.c:
+    complete
+    .text       start:0x020cdf2c end:0x020ce004
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce004.c:
+    complete
+    .text       start:0x020ce004 end:0x020ce128
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce128.c:
+    complete
+    .text       start:0x020ce128 end:0x020ce300
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce300.c:
+    complete
+    .text       start:0x020ce300 end:0x020ce36c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce36c.c:
+    complete
+    .text       start:0x020ce36c end:0x020ce478
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce478.c:
+    complete
+    .text       start:0x020ce478 end:0x020ce52c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce52c.c:
+    complete
+    .text       start:0x020ce52c end:0x020ce66c
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce66c.c:
+    complete
+    .text       start:0x020ce66c end:0x020ce7ac
+
+src/overlays/ov173/asm_stubs/calls/func_ov173_020ce7ac.c:
+    complete
+    .text       start:0x020ce7ac end:0x020ce8e8
+
+src/overlays/ov173/calls/func_ov173_020ce8e8.c:
+    complete
+    .text       start:0x020ce8e8 end:0x020ce91c
+
+src/overlays/ov173/calls/func_ov173_020ce984.c:
+    complete
+    .text       start:0x020ce984 end:0x020cea78
+
+src/overlays/ov173/calls/func_ov173_020cea78.c:
+    complete
+    .text       start:0x020cea78 end:0x020ceb64
+
+src/overlays/ov173/calls/func_ov173_020ceb64.c:
+    complete
+    .text       start:0x020ceb64 end:0x020cec04
+
+src/overlays/ov173/calls/func_ov173_020cec04.c:
+    complete
+    .text       start:0x020cec04 end:0x020cec98
