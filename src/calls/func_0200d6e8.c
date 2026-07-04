@@ -1,13 +1,11 @@
-extern int func_0200d674();
-extern void func_0200dce0();
-extern void func_0200dcf0();
-extern char data_02046438[];
+extern int func_0200d674(int a, void *b, int c);
+extern void func_0200dce0(void);
+extern void func_0200dcf0(void);
+extern int data_02046438[];
 
-int func_0200d6e8(int arg0) {
-    int r = func_0200d674(arg0, func_0200dce0, 0);
-    *(int *)(data_02046438 + 0x2c) = r;
-    if (r == 0) {
-        func_0200dcf0();
-    }
-    return *(int *)(data_02046438 + 0x2c);
+int func_0200d6e8(int param_1) {
+    int r = func_0200d674(param_1, func_0200dce0, 0);
+    data_02046438[0xb] = r;
+    if (r == 0) func_0200dcf0();
+    return data_02046438[0xb];
 }
