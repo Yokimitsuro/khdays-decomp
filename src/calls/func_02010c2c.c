@@ -1,8 +1,8 @@
-extern int *func_02010a94(void *a, int b, int c);
+extern int *NNSi_AllocFromHeadOfExpHeap(void *a, int b, int c);
 
 int func_02010c2c(int param_1, int param_2) {
     int old = *(int *)(param_1 + 0x24);
-    int *node = func_02010a94((void *)(param_1 + 0x24), 0x10, 4);
+    int *node = NNSi_AllocFromHeadOfExpHeap((void *)(param_1 + 0x24), 0x10, 4);
     if (node != 0) {
         node[0] = param_2;
         node[1] = old;
