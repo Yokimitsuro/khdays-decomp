@@ -22,11 +22,11 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **5,533** / ~23,240 (~23.8% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **465,526** / 4,728,790 (~9.84% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. |
-| Inline ASM / ASM stub matched functions | **4,782** / ~23,240 (~20.6%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
-| SDK/library byte-match identifications | **562** / ~23,240 (~2.4%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **12,363** / ~23,240 (~53.2%) | Functions known to the project but not implemented as C |
+| Real C-decompiled matched functions | **5,739** / ~23,240 (~24.7% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **505,832** / 4,728,790 (~10.70% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. |
+| Inline ASM / ASM stub matched functions | **4,324** / ~23,240 (~18.6%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
+| SDK/library byte-match identifications | **572** / ~23,240 (~2.5%) | NitroSDK or library functions identified separately by byte matching |
+| Named but not decompiled | **12,605** / ~23,240 (~54.2%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | |
