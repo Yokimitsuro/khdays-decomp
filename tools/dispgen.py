@@ -41,7 +41,14 @@ for i,x in enumerate(hdr):
     else:
         mo=re.match(r'ldr (r\d+), \[r\d+, #(0x3[0-9a-f][0-9a-f])\]$', x)
         if mo and i+1<len(hdr) and re.match(r'ldr r\d+, \['+mo.group(1)+r', #8\]$', hdr[i+1]):
-            blk=' '.join(hdr[i:i+9]); op='|= 1' if re.search(r'orr r\d+, r\d+, #1\b',blk) else '&= ~1'
+            blk=' '.join(hdr[i:i+9])
+            # the real op is right after `lsr rV,rV,#0x18` (index i+4): orr rV,rV,#K (|=K) or bic rV,rV,#K (&=~K)
+            opins = hdr[i+4] if i+4 < len(hdr) else ''
+            m_orr = re.match(r'orr r\d+, r\d+, #(0x[0-9a-f]+|\d+)$', opins)
+            m_bic = re.match(r'bic r\d+, r\d+, #(0x[0-9a-f]+|\d+)$', opins)
+            if m_orr: op = f'|= {hex(int(m_orr.group(1),0))}'
+            elif m_bic: op = f'&= ~{hex(int(m_bic.group(1),0))}'
+            else: op = '|= 1' if re.search(r'orr r\d+, r\d+, #1\b',blk) else '&= ~1'
             body_ops.append(('bf', mo.group(2), op))
 L=["struct bf { unsigned b : 8; };","struct hw60 { unsigned short lo : 8, hi : 8; };",
    "extern void func_0203c634(void *obj, int idx, void *value);"]
