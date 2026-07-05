@@ -1,32 +1,49 @@
-/* func_ov181_020ce664 (x6 family: ov182/183/184/250/251) — NON-MATCHING.
- * Semantically byte-exact except ONE scheduling tie: the hw60 hi-byte clear
- * (`->hi &= ~0x40`) emits `bic lr,lr,#0xff00` 4 instructions too early. The
- * original delays clearing the destination high byte until after the source
- * byte is masked (it hoists the state[0x6c]=0 zero + SetIndexedSlot arg loads
- * into that window instead); mwcc schedules the bic greedily-first. Every
- * value-computation spelling tried (struct bitfield, explicit-shift with the
- * (u&~0xff00) operand first/last, (unsigned short)-cast to force the 16-bit
- * mask) reproduces the exact bytes but not the bic position — the known hw60
- * bic-position tie (cf. ov269_020d382c). asm stub stays byte-exact via dsd. */
-struct b1 { unsigned char b:1; };
-struct hw { unsigned short lo:8, hi:8; };
-struct v3 { int x, y, z; };
+/* NONMATCHING: equivalent C, single-instruction scheduler tie (count=6, 228B).
+ * Byte-exact EXCEPT the placement of `bic lr, lr, #0xff00` (the `x & ~0xff00`
+ * low-byte-keep of the hw60 config): the original issues it LATE (right before
+ * the final orr), mwcc issues it EARLY (after the first lsl of the high-byte
+ * chain). x lands in lr both ways (ip/callback/this are pre-live); purely the
+ * list-scheduler slotting the independent bic into the dependent shift chain.
+ * No C reorder (hb temp, lo temp, operand swap, inline) moves it.
+ * NOTE: the 64-bit fixed-point scale MATCHED -- `holder->0x7c -= (int)((((long
+ * long)m << 7) + 0x800) >> 12)` with m = (*this)->0x2c * 0x1e reproduces the
+ * mul/asr/adds/adc/lsr/orr lowering exactly (un-defers the fixed-point class).
+ * Semantics: copy Vec3 holder+0x78->holder+0x54; holder->0x7c -= scale; guard
+ * node->0x17a bit0 else return; func_ov107_020c9264(node,0x12,0); func_ov107_
+ * 020c9ee8((*holder)->0x390,0,0); hw60 node->0x60 hi-byte &= ~0x40; holder->
+ * 0x6c=0; holder->0x51 &= ~2; advance(this,(s8)0x20, func_ov181_020ce748). */
+extern int func_ov107_020c9264();
+extern int func_ov107_020c9ee8();
+extern int func_0203c634();
+extern int func_ov181_020ce748();
 
-extern void func_ov107_020c9264(int a, int b, int c);
-extern void func_ov107_020c9ee8(int a, int b, int c);
-extern void func_0203c634(int node, int slot, void *cb);
-extern void func_ov181_020ce748(void);
+struct Vec3 { int x, y, z; };
 
-void func_ov181_020ce664(int node) {
-    int state = *(int *)(node + 4);
-    *(struct v3 *)(state + 0x54) = *(struct v3 *)(state + 0x78);
-    *(int *)(state + 0x7c) -=
-        (int)((0x800 + ((long long)(*(int *)(*(int *)node + 0x2c) * 30) << 7)) >> 12);
-    if (!((struct b1 *)(*(int *)state + 0x17a))->b) return;
-    func_ov107_020c9264(*(int *)state, 0x12, 0);
-    func_ov107_020c9ee8(*(int *)(*(int *)state + 0x390), 0, 0);
-    ((struct hw *)(*(int *)state + 0x60))->hi &= ~0x40;
-    *(int *)(state + 0x6c) = 0;
-    *(unsigned char *)(state + 0x51) &= ~2;
-    func_0203c634(node, *(signed char *)(node + 0x20), &func_ov181_020ce748);
+void func_ov181_020ce664(int this_) {
+    int holder = *(int *)(this_ + 4);
+    int node;
+    int m;
+    unsigned int x;
+
+    *(struct Vec3 *)(holder + 0x54) = *(struct Vec3 *)(holder + 0x78);
+
+    m = *(int *)(*(int *)this_ + 0x2c) * 0x1e;
+    *(int *)(holder + 0x7c) -= (int)((((long long)m << 7) + 0x800) >> 12);
+
+    node = *(int *)holder;
+    if (((unsigned)(*(unsigned char *)(node + 0x17a) << 31) >> 31) == 0) return;
+
+    func_ov107_020c9264(node, 0x12, 0);
+    func_ov107_020c9ee8(*(int *)(*(int *)holder + 0x390), 0, 0);
+
+    node = *(int *)holder;
+    x = *(unsigned short *)(node + 0x60);
+    {
+        unsigned int hb =
+            (((unsigned int)(unsigned short)(((x << 16) >> 24) & ~0x40)) << 24) >> 16;
+        *(unsigned short *)(node + 0x60) = (x & ~0xff00) | hb;
+    }
+    *(int *)(holder + 0x6c) = 0;
+    *(unsigned char *)(holder + 0x51) &= ~2;
+    func_0203c634(this_, *(signed char *)(this_ + 0x20), func_ov181_020ce748);
 }
