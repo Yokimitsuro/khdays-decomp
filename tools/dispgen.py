@@ -33,19 +33,20 @@ for i,x in enumerate(hdr):
     if '#0x60' in x and x.startswith('ldrh'):
         blk=' '.join(hdr[i:i+9])
         # first bic/orr that is NOT the 0xff00 high-byte-clear mask = the real op (decimal or hex imm)
-        cand=[(op,int(v,0)) for op,v in re.findall(r'(bic|orr) r\d+, r\d+, #(0x[0-9a-f]+|\d+)', blk) if int(v,0)!=0xff00]
+        cand=[(op,int(v,0)) for op,v in re.findall(r'(bic|orr) (?:r\d+|ip|lr), (?:r\d+|ip|lr), #(0x[0-9a-f]+|\d+)', blk) if int(v,0)!=0xff00]
         if cand: body_ops.append(('hw60', cand[0][0], cand[0][1]))
     elif '#0xae' in x and x.startswith('ldrh'):
-        blk=' '.join(hdr[i:i+3]); mm=re.search(r'bic r\d+, r\d+, #(0x[0-9a-f]+|\d+)', blk)
+        blk=' '.join(hdr[i:i+3]); mm=re.search(r'bic (?:r\d+|ip|lr), (?:r\d+|ip|lr), #(0x[0-9a-f]+|\d+)', blk)
         if mm: body_ops.append(('ae', int(mm.group(1),0)))
     else:
-        mo=re.match(r'ldr (r\d+), \[r\d+, #(0x3[0-9a-f][0-9a-f])\]$', x)
-        if mo and i+1<len(hdr) and re.match(r'ldr r\d+, \['+mo.group(1)+r', #8\]$', hdr[i+1]):
+        # base/dest regs may be ip or lr, not just rN (mwcc uses ip for the 0x388 slot load)
+        mo=re.match(r'ldr (r\d+|ip|lr), \[r\d+, #(0x3[0-9a-f][0-9a-f])\]$', x)
+        if mo and i+1<len(hdr) and re.match(r'ldr (?:r\d+|ip|lr), \['+re.escape(mo.group(1))+r', #8\]$', hdr[i+1]):
             blk=' '.join(hdr[i:i+9])
             # the real op is right after `lsr rV,rV,#0x18` (index i+4): orr rV,rV,#K (|=K) or bic rV,rV,#K (&=~K)
             opins = hdr[i+4] if i+4 < len(hdr) else ''
-            m_orr = re.match(r'orr r\d+, r\d+, #(0x[0-9a-f]+|\d+)$', opins)
-            m_bic = re.match(r'bic r\d+, r\d+, #(0x[0-9a-f]+|\d+)$', opins)
+            m_orr = re.match(r'orr (?:r\d+|ip|lr), (?:r\d+|ip|lr), #(0x[0-9a-f]+|\d+)$', opins)
+            m_bic = re.match(r'bic (?:r\d+|ip|lr), (?:r\d+|ip|lr), #(0x[0-9a-f]+|\d+)$', opins)
             if m_orr: op = f'|= {hex(int(m_orr.group(1),0))}'
             elif m_bic: op = f'&= ~{hex(int(m_bic.group(1),0))}'
             else: op = '|= 1' if re.search(r'orr r\d+, r\d+, #1\b',blk) else '&= ~1'
