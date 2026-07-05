@@ -1,4 +1,4 @@
-extern int func_01ff8a04(int a, int b);
+extern int FX_Inv(int a, int b);
 extern void func_0203c634();
 
 void func_ov183_020d2548(int this_) {
@@ -6,7 +6,7 @@ void func_ov183_020d2548(int this_) {
     int holder = *(int *)(this_ + 4);
     int t = *(int *)(holder + 0x1c) + *(int *)(field0 + 0x2c);
     *(int *)(holder + 0x1c) = t;
-    *(int *)(*(int *)holder + 0x394) = 0x1000 - func_01ff8a04(t, 0x555);
+    *(int *)(*(int *)holder + 0x394) = 0x1000 - FX_Inv(t, 0x555);
     if (*(int *)(*(int *)holder + 0x394) < 0xcc) {
         *(int *)(*(int *)holder + 0x394) = 0xcc;
     }
