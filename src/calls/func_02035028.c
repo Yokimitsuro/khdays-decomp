@@ -1,5 +1,5 @@
 extern void func_020350b0();
-extern void func_020236ac();
+extern void NNSi_FndFreeFromDefaultHeap();
 int func_02035028(int *param_1)
 {
     short *p = (short *)*param_1;
@@ -11,7 +11,7 @@ int func_02035028(int *param_1)
     if (*(int *)(p + 4) != 0)
         func_020350b0((int *)(p + 4), (int)*p);
     if (*(short *)*param_1 >= 0) {
-        func_020236ac((short *)*param_1);
+        NNSi_FndFreeFromDefaultHeap((short *)*param_1);
         *param_1 = 0;
     }
     return 1;
