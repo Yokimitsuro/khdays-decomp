@@ -1,0 +1,9 @@
+extern int func_ov025_0208503c();
+extern int func_ov025_02084798();
+extern int func_02033b78();
+
+void func_ov025_0208c3c4(int arg0) {
+    func_ov025_0208503c(arg0);
+    func_ov025_02084798(-1, -1);
+    func_02033b78(0, 1);
+}
