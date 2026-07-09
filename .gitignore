@@ -43,6 +43,9 @@
 /scan_overlays.py
 /src/test.c
 
+# ── Local staging / scratch (not committed) ───────────────────────────────────
+/staging/
+
 # ── Misc ──────────────────────────────────────────────────────────────────────
 __pycache__/
 *.pyc
