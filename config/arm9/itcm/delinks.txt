@@ -113,6 +113,10 @@ src/auto/func_01ff9d84.c:
     complete
     .text       start:0x01ff9d84 end:0x01ff9d90
 
+src/calls/func_01ffa13c.c:
+    complete
+    .text       start:0x01ffa13c end:0x01ffa1b8
+
 src/auto/func_01ffa42c.c:
     complete
     .text       start:0x01ffa42c end:0x01ffa450
@@ -140,6 +144,10 @@ src/calls/func_01ffd0e8.c:
 src/calls/func_01ffe3c8.c:
     complete
     .text       start:0x01ffe3c8 end:0x01ffe460
+
+src/calls/func_01ffe460.c:
+    complete
+    .text       start:0x01ffe460 end:0x01ffe4f4
 
 src/calls/func_01ffeba0.c:
     complete
@@ -173,13 +181,17 @@ src/calls/func_01fff948.c:
     complete
     .text       start:0x01fff948 end:0x01fff974
 
-src/asm_stubs/calls/func_01fff99c.c:
+src/calls/func_01fff99c.c:
     complete
     .text       start:0x01fff99c end:0x01fff9b8
 
 src/calls/func_01fff9b8.c:
     complete
     .text       start:0x01fff9b8 end:0x01fffa04
+
+src/calls/func_01fffa04.c:
+    complete
+    .text       start:0x01fffa04 end:0x01fffa60
 
 src/calls/func_01fffa60.c:
     complete
@@ -201,7 +213,7 @@ src/asm_stubs/calls/func_01fffca8.c:
     complete
     .text       start:0x01fffca8 end:0x01fffd0c
 
-src/asm_stubs/calls/func_01fffd0c.c:
+src/calls/func_01fffd0c.c:
     complete
     .text       start:0x01fffd0c end:0x01fffd70
 

@@ -8,7 +8,7 @@ src/overlays/ov298/calls/func_ov298_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d37b8.c:
+src/overlays/ov298/calls/func_ov298_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
@@ -44,7 +44,7 @@ src/overlays/ov298/calls/func_ov298_020d3ca8.c:
     complete
     .text       start:0x020d3ca8 end:0x020d3cb0
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d3cb0.c:
+src/overlays/ov298/calls/func_ov298_020d3cb0.c:
     complete
     .text       start:0x020d3cb0 end:0x020d3d0c
 
@@ -60,7 +60,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d404c.c:
     complete
     .text       start:0x020d404c end:0x020d40e4
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d40e4.c:
+src/overlays/ov298/calls/func_ov298_020d40e4.c:
     complete
     .text       start:0x020d40e4 end:0x020d4124
 
@@ -72,7 +72,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d4200.c:
     complete
     .text       start:0x020d4200 end:0x020d42f8
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d42f8.c:
+src/overlays/ov298/calls/func_ov298_020d42f8.c:
     complete
     .text       start:0x020d42f8 end:0x020d4484
 
@@ -84,11 +84,11 @@ src/overlays/ov298/calls/func_ov298_020d45a8.c:
     complete
     .text       start:0x020d45a8 end:0x020d4610
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4610.c:
+src/overlays/ov298/calls/func_ov298_020d4610.c:
     complete
     .text       start:0x020d4610 end:0x020d467c
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d467c.c:
+src/overlays/ov298/calls/func_ov298_020d467c.c:
     complete
     .text       start:0x020d467c end:0x020d46d0
 
@@ -96,7 +96,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d46d0.c:
     complete
     .text       start:0x020d46d0 end:0x020d47c0
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d47c0.c:
+src/overlays/ov298/calls/func_ov298_020d47c0.c:
     complete
     .text       start:0x020d47c0 end:0x020d4834
 
@@ -108,7 +108,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d4cb0.c:
     complete
     .text       start:0x020d4cb0 end:0x020d4da4
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4da4.c:
+src/overlays/ov298/calls/func_ov298_020d4da4.c:
     complete
     .text       start:0x020d4da4 end:0x020d4e1c
 
@@ -116,7 +116,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d4e1c.c:
     complete
     .text       start:0x020d4e1c end:0x020d4ea0
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4ea0.c:
+src/overlays/ov298/calls/func_ov298_020d4ea0.c:
     complete
     .text       start:0x020d4ea0 end:0x020d4f28
 
@@ -132,7 +132,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d510c.c:
     complete
     .text       start:0x020d510c end:0x020d51fc
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d51fc.c:
+src/overlays/ov298/calls/func_ov298_020d51fc.c:
     complete
     .text       start:0x020d51fc end:0x020d5258
 
@@ -144,7 +144,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d53c4.c:
     complete
     .text       start:0x020d53c4 end:0x020d5484
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d5484.c:
+src/overlays/ov298/calls/func_ov298_020d5484.c:
     complete
     .text       start:0x020d5484 end:0x020d54cc
 

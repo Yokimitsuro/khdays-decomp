@@ -16,7 +16,7 @@ src/overlays/ov156/asm_stubs/calls/func_ov156_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc334
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020cc334.c:
+src/overlays/ov156/calls/func_ov156_020cc334.c:
     complete
     .text       start:0x020cc334 end:0x020cc37c
 
@@ -60,7 +60,7 @@ src/overlays/ov156/calls/func_ov156_020ccd54.c:
     complete
     .text       start:0x020ccd54 end:0x020cce4c
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020cce4c.c:
+src/overlays/ov156/calls/func_ov156_020cce4c.c:
     complete
     .text       start:0x020cce4c end:0x020ccff8
 
@@ -88,6 +88,10 @@ src/overlays/ov156/calls/func_ov156_020cd328.c:
     complete
     .text       start:0x020cd328 end:0x020cd388
 
+src/overlays/ov156/calls/func_ov156_020cd388.c:
+    complete
+    .text       start:0x020cd388 end:0x020cd3bc
+
 src/overlays/ov156/asm_stubs/calls/func_ov156_020cd3bc.c:
     complete
     .text       start:0x020cd3bc end:0x020cd500
@@ -99,6 +103,10 @@ src/overlays/ov156/calls/func_ov156_020cd500.c:
 src/overlays/ov156/asm_stubs/calls/func_ov156_020cd59c.c:
     complete
     .text       start:0x020cd59c end:0x020cd758
+
+src/overlays/ov156/calls/func_ov156_020cd758.c:
+    complete
+    .text       start:0x020cd758 end:0x020cd78c
 
 src/overlays/ov156/calls/func_ov156_020cd78c.c:
     complete
@@ -148,7 +156,7 @@ src/overlays/ov156/calls/func_ov156_020ce16c.c:
     complete
     .text       start:0x020ce16c end:0x020ce220
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020ce220.c:
+src/calls/func_ov156_020ce220.c:
     complete
     .text       start:0x020ce220 end:0x020ce280
 
@@ -156,7 +164,7 @@ src/overlays/ov156/calls/func_ov156_020ce2cc.c:
     complete
     .text       start:0x020ce2cc end:0x020ce374
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020ce374.c:
+src/overlays/ov156/calls/func_ov156_020ce374.c:
     complete
     .text       start:0x020ce374 end:0x020ce3f8
 
@@ -164,7 +172,7 @@ src/overlays/ov156/auto/func_ov156_020ce3f8.c:
     complete
     .text       start:0x020ce3f8 end:0x020ce410
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020ce410.c:
+src/overlays/ov156/calls/func_ov156_020ce410.c:
     complete
     .text       start:0x020ce410 end:0x020ce4c0
 

@@ -20,6 +20,10 @@ src/overlays/ov173/asm_stubs/calls/func_ov173_020cc020.c:
     complete
     .text       start:0x020cc020 end:0x020cc330
 
+src/overlays/ov173/calls/func_ov173_020cc330.c:
+    complete
+    .text       start:0x020cc330 end:0x020cc370
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cc370.c:
     complete
     .text       start:0x020cc370 end:0x020cc37c
@@ -64,7 +68,7 @@ src/overlays/ov173/calls/func_ov173_020ccb74.c:
     complete
     .text       start:0x020ccb74 end:0x020ccc60
 
-src/overlays/ov173/asm_stubs/calls/func_ov173_020ccc60.c:
+src/overlays/ov173/calls/func_ov173_020ccc60.c:
     complete
     .text       start:0x020ccc60 end:0x020cce9c
 
@@ -148,7 +152,7 @@ src/overlays/ov173/asm_stubs/calls/func_ov173_020ce128.c:
     complete
     .text       start:0x020ce128 end:0x020ce300
 
-src/overlays/ov173/asm_stubs/calls/func_ov173_020ce300.c:
+src/overlays/ov173/calls/func_ov173_020ce300.c:
     complete
     .text       start:0x020ce300 end:0x020ce36c
 
@@ -156,7 +160,7 @@ src/overlays/ov173/asm_stubs/calls/func_ov173_020ce36c.c:
     complete
     .text       start:0x020ce36c end:0x020ce478
 
-src/overlays/ov173/asm_stubs/calls/func_ov173_020ce478.c:
+src/calls/func_ov173_020ce478.c:
     complete
     .text       start:0x020ce478 end:0x020ce52c
 
@@ -175,6 +179,14 @@ src/overlays/ov173/asm_stubs/calls/func_ov173_020ce7ac.c:
 src/overlays/ov173/calls/func_ov173_020ce8e8.c:
     complete
     .text       start:0x020ce8e8 end:0x020ce91c
+
+src/overlays/ov173/calls/func_ov173_020ce91c.c:
+    complete
+    .text       start:0x020ce91c end:0x020ce950
+
+src/overlays/ov173/calls/func_ov173_020ce950.c:
+    complete
+    .text       start:0x020ce950 end:0x020ce984
 
 src/overlays/ov173/calls/func_ov173_020ce984.c:
     complete

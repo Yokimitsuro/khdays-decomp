@@ -128,7 +128,7 @@ src/overlays/ov084/asm_stubs/calls/func_ov084_020b93e4.c:
     complete
     .text       start:0x020b93e4 end:0x020b94e8
 
-src/overlays/ov084/asm_stubs/calls/func_ov084_020b94e8.c:
+src/overlays/ov084/auto/func_ov084_020b94e8.c:
     complete
     .text       start:0x020b94e8 end:0x020b950c
 

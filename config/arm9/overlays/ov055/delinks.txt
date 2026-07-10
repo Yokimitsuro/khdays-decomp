@@ -48,11 +48,11 @@ src/overlays/ov055/asm_stubs/calls/func_ov055_020b5fec.c:
     complete
     .text       start:0x020b5fec end:0x020b609c
 
-src/overlays/ov055/asm_stubs/calls/func_ov055_020b609c.c:
+src/overlays/ov055/calls/func_ov055_020b609c.c:
     complete
     .text       start:0x020b609c end:0x020b60e4
 
-src/overlays/ov055/asm_stubs/calls/func_ov055_020b60e4.c:
+src/overlays/ov055/calls/func_ov055_020b60e4.c:
     complete
     .text       start:0x020b60e4 end:0x020b6128
 
@@ -63,6 +63,10 @@ libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020b6128.c:
 src/overlays/ov055/asm_stubs/calls/func_ov055_020b6134.c:
     complete
     .text       start:0x020b6134 end:0x020b6190
+
+src/overlays/ov055/calls/func_ov055_020b6190.c:
+    complete
+    .text       start:0x020b6190 end:0x020b61b0
 
 src/overlays/ov055/asm_stubs/calls/func_ov055_020b61b0.c:
     complete
@@ -104,7 +108,7 @@ src/overlays/ov055/asm_stubs/calls/func_ov055_020b69e8.c:
     complete
     .text       start:0x020b69e8 end:0x020b6a5c
 
-src/overlays/ov055/asm_stubs/calls/func_ov055_020b6a5c.c:
+src/overlays/ov055/calls/func_ov055_020b6a5c.c:
     complete
     .text       start:0x020b6a5c end:0x020b6aa8
 
@@ -116,7 +120,7 @@ src/overlays/ov055/asm_stubs/calls/func_ov055_020b6ee8.c:
     complete
     .text       start:0x020b6ee8 end:0x020b717c
 
-src/overlays/ov055/asm_stubs/calls/func_ov055_020b717c.c:
+src/overlays/ov055/calls/func_ov055_020b717c.c:
     complete
     .text       start:0x020b717c end:0x020b71bc
 

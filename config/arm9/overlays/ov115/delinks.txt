@@ -20,6 +20,10 @@ src/overlays/ov115/asm_stubs/calls/func_ov115_020cc020.c:
     complete
     .text       start:0x020cc020 end:0x020cc334
 
+src/overlays/ov115/calls/func_ov115_020cc334.c:
+    complete
+    .text       start:0x020cc334 end:0x020cc374
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cc374.c:
     complete
     .text       start:0x020cc374 end:0x020cc380
@@ -84,7 +88,7 @@ src/overlays/ov115/calls/func_ov115_020cd13c.c:
     complete
     .text       start:0x020cd13c end:0x020cd228
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020cd228.c:
+src/overlays/ov115/calls/func_ov115_020cd228.c:
     complete
     .text       start:0x020cd228 end:0x020cd428
 
@@ -159,6 +163,14 @@ src/overlays/ov115/asm_stubs/calls/func_ov115_020ce5dc.c:
 src/overlays/ov115/asm_stubs/calls/func_ov115_020ce6b0.c:
     complete
     .text       start:0x020ce6b0 end:0x020ce7bc
+
+src/overlays/ov115/calls/func_ov115_020ce7bc.c:
+    complete
+    .text       start:0x020ce7bc end:0x020ce7f0
+
+src/overlays/ov115/calls/func_ov115_020ce7f0.c:
+    complete
+    .text       start:0x020ce7f0 end:0x020ce824
 
 src/overlays/ov115/calls/func_ov115_020ce824.c:
     complete

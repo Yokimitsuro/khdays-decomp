@@ -8,7 +8,7 @@ libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov056_0x020b5a20.c:
     complete
     .text       start:0x020b5a20 end:0x020b5a34
 
-src/overlays/ov056/asm_stubs/calls/func_ov056_020b5a34.c:
+src/overlays/ov056/calls/func_ov056_020b5a34.c:
     complete
     .text       start:0x020b5a34 end:0x020b5a5c
 

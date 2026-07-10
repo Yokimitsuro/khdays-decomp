@@ -20,6 +20,10 @@ src/overlays/ov116/asm_stubs/calls/func_ov116_020cfc60.c:
     complete
     .text       start:0x020cfc60 end:0x020cff74
 
+src/overlays/ov116/calls/func_ov116_020cff74.c:
+    complete
+    .text       start:0x020cff74 end:0x020cffb4
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cffb4.c:
     complete
     .text       start:0x020cffb4 end:0x020cffc0
@@ -84,7 +88,7 @@ src/overlays/ov116/calls/func_ov116_020d0d7c.c:
     complete
     .text       start:0x020d0d7c end:0x020d0e68
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020d0e68.c:
+src/overlays/ov116/calls/func_ov116_020d0e68.c:
     complete
     .text       start:0x020d0e68 end:0x020d1068
 
@@ -96,7 +100,7 @@ src/overlays/ov116/calls/func_ov116_020d1108.c:
     complete
     .text       start:0x020d1108 end:0x020d1170
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020d1170.c:
+src/overlays/ov116/calls/func_ov116_020d1170.c:
     complete
     .text       start:0x020d1170 end:0x020d11f4
 
@@ -163,6 +167,10 @@ src/overlays/ov116/asm_stubs/calls/func_ov116_020d221c.c:
 src/overlays/ov116/asm_stubs/calls/func_ov116_020d22f0.c:
     complete
     .text       start:0x020d22f0 end:0x020d23fc
+
+src/overlays/ov116/calls/func_ov116_020d23fc.c:
+    complete
+    .text       start:0x020d23fc end:0x020d2430
 
 src/overlays/ov116/calls/func_ov116_020d2464.c:
     complete

@@ -16,6 +16,10 @@ src/overlays/ov123/asm_stubs/calls/func_ov123_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc254
 
+src/overlays/ov123/calls/func_ov123_020cc254.c:
+    complete
+    .text       start:0x020cc254 end:0x020cc294
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cc294.c:
     complete
     .text       start:0x020cc294 end:0x020cc2a0
@@ -44,6 +48,10 @@ src/overlays/ov123/calls/func_ov123_020cc518.c:
     complete
     .text       start:0x020cc518 end:0x020cc524
 
+src/overlays/ov123/calls/func_ov123_020cc524.c:
+    complete
+    .text       start:0x020cc524 end:0x020cc570
+
 src/overlays/ov123/asm_stubs/calls/func_ov123_020cc570.c:
     complete
     .text       start:0x020cc570 end:0x020cc6e8
@@ -52,7 +60,7 @@ src/overlays/ov123/asm_stubs/calls/func_ov123_020cc718.c:
     complete
     .text       start:0x020cc718 end:0x020cc7e8
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc7e8.c:
+src/overlays/ov123/calls/func_ov123_020cc7e8.c:
     complete
     .text       start:0x020cc7e8 end:0x020cc948
 
@@ -68,7 +76,7 @@ src/overlays/ov123/calls/func_ov123_020cca58.c:
     complete
     .text       start:0x020cca58 end:0x020cca94
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cca94.c:
+src/calls/func_ov123_020cca94.c:
     complete
     .text       start:0x020cca94 end:0x020ccb34
 
@@ -88,7 +96,7 @@ src/overlays/ov123/asm_stubs/calls/func_ov123_020ccc84.c:
     complete
     .text       start:0x020ccc84 end:0x020cce74
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cce74.c:
+src/overlays/ov123/calls/func_ov123_020cce74.c:
     complete
     .text       start:0x020cce74 end:0x020cceec
 
@@ -96,15 +104,19 @@ src/overlays/ov123/asm_stubs/calls/func_ov123_020cceec.c:
     complete
     .text       start:0x020cceec end:0x020cd018
 
+src/overlays/ov123/calls/func_ov123_020cd018.c:
+    complete
+    .text       start:0x020cd018 end:0x020cd04c
+
 src/overlays/ov123/calls/func_ov123_020cd04c.c:
     complete
     .text       start:0x020cd04c end:0x020cd0a8
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd0a8.c:
+src/overlays/ov123/calls/func_ov123_020cd0a8.c:
     complete
     .text       start:0x020cd0a8 end:0x020cd170
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd170.c:
+src/overlays/ov123/calls/func_ov123_020cd170.c:
     complete
     .text       start:0x020cd170 end:0x020cd224
 
@@ -136,11 +148,11 @@ src/overlays/ov123/calls/func_ov123_020cd760.c:
     complete
     .text       start:0x020cd760 end:0x020cd814
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd814.c:
+src/calls/func_ov123_020cd814.c:
     complete
     .text       start:0x020cd814 end:0x020cd870
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd870.c:
+src/calls/func_ov123_020cd870.c:
     complete
     .text       start:0x020cd870 end:0x020cd8cc
 
@@ -152,7 +164,7 @@ src/overlays/ov123/calls/func_ov123_020cd974.c:
     complete
     .text       start:0x020cd974 end:0x020cd9ec
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd9ec.c:
+src/calls/func_ov123_020cd9ec.c:
     complete
     .text       start:0x020cd9ec end:0x020cda50
 
@@ -164,7 +176,7 @@ src/overlays/ov123/calls/func_ov123_020cdae4.c:
     complete
     .text       start:0x020cdae4 end:0x020cdb38
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cdb38.c:
+src/calls/func_ov123_020cdb38.c:
     complete
     .text       start:0x020cdb38 end:0x020cdbf8
 

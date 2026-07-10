@@ -36,7 +36,7 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020cc474.c:
     complete
     .text       start:0x020cc474 end:0x020cc50c
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cc50c.c:
+src/overlays/ov120/calls/func_ov120_020cc50c.c:
     complete
     .text       start:0x020cc50c end:0x020cc568
 
@@ -52,11 +52,11 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020cc7d0.c:
     complete
     .text       start:0x020cc7d0 end:0x020cc898
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cc898.c:
+src/overlays/ov120/calls/func_ov120_020cc898.c:
     complete
     .text       start:0x020cc898 end:0x020cca40
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cca40.c:
+src/overlays/ov120/calls/func_ov120_020cca40.c:
     complete
     .text       start:0x020cca40 end:0x020ccab4
 
@@ -68,11 +68,11 @@ src/overlays/ov120/calls/func_ov120_020ccb1c.c:
     complete
     .text       start:0x020ccb1c end:0x020ccb58
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020ccb58.c:
+src/calls/func_ov120_020ccb58.c:
     complete
     .text       start:0x020ccb58 end:0x020ccc3c
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020ccc3c.c:
+src/overlays/ov120/calls/func_ov120_020ccc3c.c:
     complete
     .text       start:0x020ccc3c end:0x020ccd04
 
@@ -96,15 +96,15 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020ccf6c.c:
     complete
     .text       start:0x020ccf6c end:0x020cd1a0
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd1a0.c:
+src/overlays/ov120/calls/func_ov120_020cd1a0.c:
     complete
     .text       start:0x020cd1a0 end:0x020cd210
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd210.c:
+src/overlays/ov120/calls/func_ov120_020cd210.c:
     complete
     .text       start:0x020cd210 end:0x020cd2a0
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd2a0.c:
+src/overlays/ov120/calls/func_ov120_020cd2a0.c:
     complete
     .text       start:0x020cd2a0 end:0x020cd2fc
 
@@ -112,7 +112,7 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020cd2fc.c:
     complete
     .text       start:0x020cd2fc end:0x020cd638
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd638.c:
+src/overlays/ov120/calls/func_ov120_020cd638.c:
     complete
     .text       start:0x020cd638 end:0x020cd6b4
 
@@ -120,7 +120,7 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020cd6b4.c:
     complete
     .text       start:0x020cd6b4 end:0x020cd9f8
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd9f8.c:
+src/overlays/ov120/calls/func_ov120_020cd9f8.c:
     complete
     .text       start:0x020cd9f8 end:0x020cda58
 
@@ -128,7 +128,7 @@ src/overlays/ov120/calls/func_ov120_020cda58.c:
     complete
     .text       start:0x020cda58 end:0x020cda8c
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cda8c.c:
+src/calls/func_ov120_020cda8c.c:
     complete
     .text       start:0x020cda8c end:0x020cdaf8
 
@@ -136,7 +136,7 @@ src/overlays/ov120/asm_stubs/calls/func_ov120_020cdaf8.c:
     complete
     .text       start:0x020cdaf8 end:0x020cdb80
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cdb80.c:
+src/overlays/ov120/calls/func_ov120_020cdb80.c:
     complete
     .text       start:0x020cdb80 end:0x020cdbf4
 
@@ -148,14 +148,18 @@ src/overlays/ov120/calls/func_ov120_020cdcb0.c:
     complete
     .text       start:0x020cdcb0 end:0x020cdcf0
 
+src/overlays/ov120/calls/func_ov120_020cdcf0.c:
+    complete
+    .text       start:0x020cdcf0 end:0x020cdd34
+
 src/overlays/ov120/calls/func_ov120_020cdd34.c:
     complete
     .text       start:0x020cdd34 end:0x020cdd68
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cdd68.c:
+src/overlays/ov120/calls/func_ov120_020cdd68.c:
     complete
     .text       start:0x020cdd68 end:0x020cde30
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cde30.c:
+src/overlays/ov120/calls/func_ov120_020cde30.c:
     complete
     .text       start:0x020cde30 end:0x020cdee4

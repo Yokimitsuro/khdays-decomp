@@ -8,7 +8,7 @@ src/overlays/ov239/calls/func_ov239_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cbf38.c:
+src/overlays/ov239/calls/func_ov239_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -16,7 +16,7 @@ src/overlays/ov239/asm_stubs/calls/func_ov239_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc234
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cc234.c:
+src/overlays/ov239/calls/func_ov239_020cc234.c:
     complete
     .text       start:0x020cc234 end:0x020cc27c
 
@@ -36,7 +36,7 @@ src/overlays/ov239/calls/func_ov239_020cc458.c:
     complete
     .text       start:0x020cc458 end:0x020cc490
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cc490.c:
+src/overlays/ov239/calls/func_ov239_020cc490.c:
     complete
     .text       start:0x020cc490 end:0x020cc4ec
 
@@ -60,7 +60,7 @@ src/overlays/ov239/asm_stubs/calls/func_ov239_020cc94c.c:
     complete
     .text       start:0x020cc94c end:0x020cc9f0
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cc9f0.c:
+src/overlays/ov239/calls/func_ov239_020cc9f0.c:
     complete
     .text       start:0x020cc9f0 end:0x020cca38
 
@@ -72,7 +72,7 @@ src/overlays/ov239/asm_stubs/calls/func_ov239_020ccad0.c:
     complete
     .text       start:0x020ccad0 end:0x020ccb88
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020ccb88.c:
+src/overlays/ov239/calls/func_ov239_020ccb88.c:
     complete
     .text       start:0x020ccb88 end:0x020ccd28
 
@@ -116,7 +116,7 @@ src/overlays/ov239/calls/func_ov239_020cd14c.c:
     complete
     .text       start:0x020cd14c end:0x020cd190
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cd190.c:
+src/calls/func_ov239_020cd190.c:
     complete
     .text       start:0x020cd190 end:0x020cd224
 
@@ -144,7 +144,7 @@ src/overlays/ov239/asm_stubs/calls/func_ov239_020cd7b4.c:
     complete
     .text       start:0x020cd7b4 end:0x020cd830
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020cd830.c:
+src/overlays/ov239/calls/func_ov239_020cd830.c:
     complete
     .text       start:0x020cd830 end:0x020cd88c
 

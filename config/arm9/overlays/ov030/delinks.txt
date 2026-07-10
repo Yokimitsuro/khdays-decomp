@@ -88,7 +88,7 @@ src/overlays/ov030/auto/func_ov030_020b4024.c:
     complete
     .text       start:0x020b4024 end:0x020b4048
 
-src/overlays/ov030/asm_stubs/calls/func_ov030_020b40c0.c:
+src/overlays/ov030/calls/func_ov030_020b40c0.c:
     complete
     .text       start:0x020b40c0 end:0x020b43c0
 

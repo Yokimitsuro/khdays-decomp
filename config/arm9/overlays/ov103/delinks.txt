@@ -52,6 +52,10 @@ src/overlays/ov103/asm_stubs/calls/func_ov103_020baed4.c:
     complete
     .text       start:0x020baed4 end:0x020baf94
 
+src/overlays/ov103/calls/func_ov103_020baf94.c:
+    complete
+    .text       start:0x020baf94 end:0x020bafc8
+
 src/overlays/ov103/calls/func_ov103_020bafc8.c:
     complete
     .text       start:0x020bafc8 end:0x020baffc

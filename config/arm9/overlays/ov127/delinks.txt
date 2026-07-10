@@ -60,7 +60,7 @@ src/overlays/ov127/asm_stubs/calls/func_ov127_020cc8c4.c:
     complete
     .text       start:0x020cc8c4 end:0x020cc988
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cc988.c:
+src/overlays/ov127/calls/func_ov127_020cc988.c:
     complete
     .text       start:0x020cc988 end:0x020ccb10
 
@@ -76,17 +76,25 @@ src/overlays/ov127/calls/func_ov127_020ccc84.c:
     complete
     .text       start:0x020ccc84 end:0x020cccc8
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cccc8.c:
+src/overlays/ov127/calls/func_ov127_020cccc8.c:
     complete
     .text       start:0x020cccc8 end:0x020ccd94
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020ccd94.c:
+src/overlays/ov127/calls/func_ov127_020ccd94.c:
     complete
     .text       start:0x020ccd94 end:0x020cce5c
 
 src/overlays/ov127/calls/func_ov127_020cce5c.c:
     complete
     .text       start:0x020cce5c end:0x020cce90
+
+src/overlays/ov127/calls/func_ov127_020cce90.c:
+    complete
+    .text       start:0x020cce90 end:0x020ccec4
+
+src/overlays/ov127/calls/func_ov127_020ccec4.c:
+    complete
+    .text       start:0x020ccec4 end:0x020ccf04
 
 src/overlays/ov127/calls/func_ov127_020ccf04.c:
     complete
@@ -96,7 +104,7 @@ src/overlays/ov127/asm_stubs/calls/func_ov127_020ccf5c.c:
     complete
     .text       start:0x020ccf5c end:0x020cd15c
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cd15c.c:
+src/overlays/ov127/calls/func_ov127_020cd15c.c:
     complete
     .text       start:0x020cd15c end:0x020cd1c0
 
@@ -107,6 +115,14 @@ src/overlays/ov127/asm_stubs/calls/func_ov127_020cd1c0.c:
 src/overlays/ov127/asm_stubs/calls/func_ov127_020cd24c.c:
     complete
     .text       start:0x020cd24c end:0x020cd2c0
+
+src/overlays/ov127/calls/func_ov127_020cd2c0.c:
+    complete
+    .text       start:0x020cd2c0 end:0x020cd300
+
+src/overlays/ov127/calls/func_ov127_020cd300.c:
+    complete
+    .text       start:0x020cd300 end:0x020cd334
 
 src/overlays/ov127/calls/func_ov127_020cd334.c:
     complete
@@ -120,7 +136,7 @@ src/overlays/ov127/calls/func_ov127_020cd410.c:
     complete
     .text       start:0x020cd410 end:0x020cd4d0
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cd4d0.c:
+src/overlays/ov127/calls/func_ov127_020cd4d0.c:
     complete
     .text       start:0x020cd4d0 end:0x020cd5a0
 
@@ -128,6 +144,6 @@ src/overlays/ov127/asm_stubs/calls/func_ov127_020cd5a0.c:
     complete
     .text       start:0x020cd5a0 end:0x020cd694
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cd694.c:
+src/overlays/ov127/calls/func_ov127_020cd694.c:
     complete
     .text       start:0x020cd694 end:0x020cd744

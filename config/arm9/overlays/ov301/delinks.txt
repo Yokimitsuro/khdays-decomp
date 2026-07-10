@@ -7,7 +7,7 @@ src/overlays/ov301/calls/func_ov301_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cbf38.c:
+src/overlays/ov301/calls/func_ov301_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -31,7 +31,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc1e4.c:
     complete
     .text       start:0x020cc1e4 end:0x020cc1f0
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc1f0.c:
+src/overlays/ov301/calls/func_ov301_020cc1f0.c:
     complete
     .text       start:0x020cc1f0 end:0x020cc240
 
@@ -43,7 +43,7 @@ src/overlays/ov301/auto/func_ov301_020cc28c.c:
     complete
     .text       start:0x020cc28c end:0x020cc2a4
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc2a4.c:
+src/overlays/ov301/calls/func_ov301_020cc2a4.c:
     complete
     .text       start:0x020cc2a4 end:0x020cc338
 
@@ -59,7 +59,7 @@ src/overlays/ov301/calls/func_ov301_020cc63c.c:
     complete
     .text       start:0x020cc63c end:0x020cc6a4
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc6a4.c:
+src/overlays/ov301/calls/func_ov301_020cc6a4.c:
     complete
     .text       start:0x020cc6a4 end:0x020cc6f8
 

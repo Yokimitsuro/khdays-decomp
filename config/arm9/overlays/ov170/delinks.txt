@@ -20,6 +20,10 @@ src/overlays/ov170/asm_stubs/calls/func_ov170_020cde40.c:
     complete
     .text       start:0x020cde40 end:0x020ce15c
 
+src/overlays/ov170/calls/func_ov170_020ce15c.c:
+    complete
+    .text       start:0x020ce15c end:0x020ce19c
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020ce19c.c:
     complete
     .text       start:0x020ce19c end:0x020ce1a8
@@ -136,6 +140,14 @@ src/overlays/ov170/asm_stubs/calls/func_ov170_020cfa40.c:
     complete
     .text       start:0x020cfa40 end:0x020cfc0c
 
+src/overlays/ov170/calls/func_ov170_020cfc0c.c:
+    complete
+    .text       start:0x020cfc0c end:0x020cfc40
+
+src/overlays/ov170/calls/func_ov170_020cfc40.c:
+    complete
+    .text       start:0x020cfc40 end:0x020cfc74
+
 src/overlays/ov170/calls/func_ov170_020cfc74.c:
     complete
     .text       start:0x020cfc74 end:0x020cfd68
@@ -184,6 +196,10 @@ src/overlays/ov170/asm_stubs/calls/func_ov170_020d0244.c:
     complete
     .text       start:0x020d0244 end:0x020d03c8
 
+src/overlays/ov170/calls/func_ov170_020d03c8.c:
+    complete
+    .text       start:0x020d03c8 end:0x020d0414
+
 src/overlays/ov170/calls/func_ov170_020d0414.c:
     complete
     .text       start:0x020d0414 end:0x020d04bc
@@ -196,7 +212,7 @@ src/overlays/ov170/auto/func_ov170_020d0534.c:
     complete
     .text       start:0x020d0534 end:0x020d054c
 
-src/overlays/ov170/asm_stubs/calls/func_ov170_020d054c.c:
+src/overlays/ov170/calls/func_ov170_020d054c.c:
     complete
     .text       start:0x020d054c end:0x020d05fc
 

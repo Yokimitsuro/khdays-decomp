@@ -8,7 +8,7 @@ src/overlays/ov284/calls/func_ov284_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cbf38.c:
+src/overlays/ov284/calls/func_ov284_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -40,6 +40,10 @@ src/overlays/ov284/calls/func_ov284_020cc5b0.c:
     complete
     .text       start:0x020cc5b0 end:0x020cc5d0
 
+src/overlays/ov284/calls/func_ov284_020cc5d0.c:
+    complete
+    .text       start:0x020cc5d0 end:0x020cc61c
+
 src/overlays/ov284/asm_stubs/calls/func_ov284_020cc61c.c:
     complete
     .text       start:0x020cc61c end:0x020cc770
@@ -52,7 +56,7 @@ src/overlays/ov284/asm_stubs/calls/func_ov284_020cc7cc.c:
     complete
     .text       start:0x020cc7cc end:0x020cc86c
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cc86c.c:
+src/overlays/ov284/calls/func_ov284_020cc86c.c:
     complete
     .text       start:0x020cc86c end:0x020cc9d8
 
@@ -68,7 +72,7 @@ src/overlays/ov284/calls/func_ov284_020cca9c.c:
     complete
     .text       start:0x020cca9c end:0x020ccad8
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020ccad8.c:
+src/calls/func_ov284_020ccad8.c:
     complete
     .text       start:0x020ccad8 end:0x020ccb30
 
@@ -76,7 +80,7 @@ src/overlays/ov284/asm_stubs/calls/func_ov284_020ccb30.c:
     complete
     .text       start:0x020ccb30 end:0x020ccba0
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020ccba0.c:
+src/overlays/ov284/calls/func_ov284_020ccba0.c:
     complete
     .text       start:0x020ccba0 end:0x020ccbfc
 
@@ -104,6 +108,10 @@ src/overlays/ov284/asm_stubs/calls/func_ov284_020cd178.c:
     complete
     .text       start:0x020cd178 end:0x020cd1e8
 
+src/overlays/ov284/calls/func_ov284_020cd1e8.c:
+    complete
+    .text       start:0x020cd1e8 end:0x020cd21c
+
 src/overlays/ov284/asm_stubs/calls/func_ov284_020cd21c.c:
     complete
     .text       start:0x020cd21c end:0x020cd294
@@ -120,6 +128,6 @@ src/overlays/ov284/auto/func_ov284_020cd508.c:
     complete
     .text       start:0x020cd508 end:0x020cd55c
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cd55c.c:
+src/overlays/ov284/calls/func_ov284_020cd55c.c:
     complete
     .text       start:0x020cd55c end:0x020cd594

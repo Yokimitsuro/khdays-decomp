@@ -59,9 +59,13 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cc970.c:
     complete
     .text       start:0x020cc970 end:0x020cca50
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cca50.c:
+src/calls/func_ov144_020cca50.c:
     complete
     .text       start:0x020cca50 end:0x020ccabc
+
+src/overlays/ov144/calls/func_ov144_020ccabc.c:
+    complete
+    .text       start:0x020ccabc end:0x020ccb08
 
 src/overlays/ov144/auto/func_ov144_020ccb08.c:
     complete
@@ -71,7 +75,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020ccb34.c:
     complete
     .text       start:0x020ccb34 end:0x020ccda0
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020ccda0.c:
+src/calls/func_ov144_020ccda0.c:
     complete
     .text       start:0x020ccda0 end:0x020cce0c
 
@@ -99,7 +103,7 @@ src/overlays/ov144/calls/func_ov144_020cd41c.c:
     complete
     .text       start:0x020cd41c end:0x020cd450
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cd450.c:
+src/overlays/ov144/calls/func_ov144_020cd450.c:
     complete
     .text       start:0x020cd450 end:0x020cd4e4
 
@@ -107,7 +111,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cd4e4.c:
     complete
     .text       start:0x020cd4e4 end:0x020cd560
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cd560.c:
+src/overlays/ov144/calls/func_ov144_020cd560.c:
     complete
     .text       start:0x020cd560 end:0x020cd5b8
 
@@ -119,7 +123,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cd820.c:
     complete
     .text       start:0x020cd820 end:0x020cd928
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cd928.c:
+src/calls/func_ov144_020cd928.c:
     complete
     .text       start:0x020cd928 end:0x020cd9ac
 
@@ -127,7 +131,11 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cd9ac.c:
     complete
     .text       start:0x020cd9ac end:0x020cda10
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cda44.c:
+src/overlays/ov144/calls/func_ov144_020cda10.c:
+    complete
+    .text       start:0x020cda10 end:0x020cda44
+
+src/overlays/ov144/calls/func_ov144_020cda44.c:
     complete
     .text       start:0x020cda44 end:0x020cda9c
 
@@ -143,6 +151,6 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cdb70.c:
     complete
     .text       start:0x020cdb70 end:0x020cdc2c
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cdc2c.c:
+src/overlays/ov144/calls/func_ov144_020cdc2c.c:
     complete
     .text       start:0x020cdc2c end:0x020cdcc0

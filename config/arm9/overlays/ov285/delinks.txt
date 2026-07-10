@@ -7,7 +7,7 @@ src/overlays/ov285/calls/func_ov285_020d1980.c:
     complete
     .text       start:0x020d1980 end:0x020d1998
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d1998.c:
+src/overlays/ov285/calls/func_ov285_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
@@ -43,7 +43,7 @@ src/overlays/ov285/asm_stubs/calls/func_ov285_020d1cec.c:
     complete
     .text       start:0x020d1cec end:0x020d1db0
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d1db0.c:
+src/overlays/ov285/calls/func_ov285_020d1db0.c:
     complete
     .text       start:0x020d1db0 end:0x020d1ef8
 
@@ -59,7 +59,7 @@ src/overlays/ov285/calls/func_ov285_020d1ff4.c:
     complete
     .text       start:0x020d1ff4 end:0x020d2030
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d2030.c:
+src/calls/func_ov285_020d2030.c:
     complete
     .text       start:0x020d2030 end:0x020d20f8
 
@@ -87,10 +87,10 @@ src/overlays/ov285/asm_stubs/calls/func_ov285_020d23f0.c:
     complete
     .text       start:0x020d23f0 end:0x020d25cc
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d25cc.c:
+src/overlays/ov285/calls/func_ov285_020d25cc.c:
     complete
     .text       start:0x020d25cc end:0x020d2694
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d2694.c:
+src/overlays/ov285/calls/func_ov285_020d2694.c:
     complete
     .text       start:0x020d2694 end:0x020d2748

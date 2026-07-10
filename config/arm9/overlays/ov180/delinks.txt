@@ -20,6 +20,10 @@ src/overlays/ov180/asm_stubs/calls/func_ov180_020d38a0.c:
     complete
     .text       start:0x020d38a0 end:0x020d3bc4
 
+src/overlays/ov180/calls/func_ov180_020d3bc4.c:
+    complete
+    .text       start:0x020d3bc4 end:0x020d3c04
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d3c04.c:
     complete
     .text       start:0x020d3c04 end:0x020d3c10
@@ -68,7 +72,7 @@ src/overlays/ov180/calls/func_ov180_020d444c.c:
     complete
     .text       start:0x020d444c end:0x020d4538
 
-src/overlays/ov180/asm_stubs/calls/func_ov180_020d4538.c:
+src/overlays/ov180/calls/func_ov180_020d4538.c:
     complete
     .text       start:0x020d4538 end:0x020d4738
 
@@ -176,6 +180,10 @@ src/overlays/ov180/calls/func_ov180_020d5fc0.c:
     complete
     .text       start:0x020d5fc0 end:0x020d5fdc
 
+src/overlays/ov180/calls/func_ov180_020d5fdc.c:
+    complete
+    .text       start:0x020d5fdc end:0x020d6010
+
 src/overlays/ov180/asm_stubs/calls/func_ov180_020d6010.c:
     complete
     .text       start:0x020d6010 end:0x020d60e4
@@ -204,7 +212,7 @@ src/overlays/ov180/calls/func_ov180_020d6268.c:
     complete
     .text       start:0x020d6268 end:0x020d6274
 
-src/overlays/ov180/asm_stubs/calls/func_ov180_020d6274.c:
+src/overlays/ov180/calls/func_ov180_020d6274.c:
     complete
     .text       start:0x020d6274 end:0x020d62d0
 
@@ -220,7 +228,7 @@ src/overlays/ov180/auto/func_ov180_020d63f0.c:
     complete
     .text       start:0x020d63f0 end:0x020d63f4
 
-src/overlays/ov180/asm_stubs/calls/func_ov180_020d63f4.c:
+src/calls/func_ov180_020d63f4.c:
     complete
     .text       start:0x020d63f4 end:0x020d6460
 

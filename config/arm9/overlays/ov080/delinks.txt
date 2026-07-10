@@ -32,7 +32,7 @@ src/overlays/ov080/asm_stubs/calls/func_ov080_020b8410.c:
     complete
     .text       start:0x020b8410 end:0x020b8508
 
-src/overlays/ov080/asm_stubs/calls/func_ov080_020b8508.c:
+src/overlays/ov080/calls/func_ov080_020b8508.c:
     complete
     .text       start:0x020b8508 end:0x020b854c
 
@@ -52,7 +52,7 @@ src/overlays/ov080/asm_stubs/calls/func_ov080_020b864c.c:
     complete
     .text       start:0x020b864c end:0x020b8720
 
-src/overlays/ov080/asm_stubs/calls/func_ov080_020b8720.c:
+src/overlays/ov080/calls/func_ov080_020b8720.c:
     complete
     .text       start:0x020b8720 end:0x020b8768
 
@@ -64,7 +64,7 @@ src/overlays/ov080/asm_stubs/calls/func_ov080_020b8918.c:
     complete
     .text       start:0x020b8918 end:0x020b8aa8
 
-src/overlays/ov080/asm_stubs/calls/func_ov080_020b8aa8.c:
+src/overlays/ov080/calls/func_ov080_020b8aa8.c:
     complete
     .text       start:0x020b8aa8 end:0x020b8af0
 

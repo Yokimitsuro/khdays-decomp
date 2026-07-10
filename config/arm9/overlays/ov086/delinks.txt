@@ -52,6 +52,10 @@ src/overlays/ov086/asm_stubs/calls/func_ov086_020b8814.c:
     complete
     .text       start:0x020b8814 end:0x020b88d4
 
+src/overlays/ov086/calls/func_ov086_020b88d4.c:
+    complete
+    .text       start:0x020b88d4 end:0x020b8908
+
 src/overlays/ov086/calls/func_ov086_020b8908.c:
     complete
     .text       start:0x020b8908 end:0x020b893c

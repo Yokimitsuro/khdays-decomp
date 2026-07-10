@@ -48,7 +48,7 @@ src/overlays/ov132/calls/func_ov132_020ce4ac.c:
     complete
     .text       start:0x020ce4ac end:0x020ce660
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020ce660.c:
+src/overlays/ov132/calls/func_ov132_020ce660.c:
     complete
     .text       start:0x020ce660 end:0x020ce6bc
 
@@ -80,7 +80,7 @@ src/overlays/ov132/calls/func_ov132_020cedb4.c:
     complete
     .text       start:0x020cedb4 end:0x020cedf0
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020cedf0.c:
+src/calls/func_ov132_020cedf0.c:
     complete
     .text       start:0x020cedf0 end:0x020ceeb8
 
@@ -103,6 +103,10 @@ src/overlays/ov132/asm_stubs/calls/func_ov132_020cf040.c:
 src/overlays/ov132/calls/func_ov132_020cf0b0.c:
     complete
     .text       start:0x020cf0b0 end:0x020cf110
+
+src/overlays/ov132/calls/func_ov132_020cf110.c:
+    complete
+    .text       start:0x020cf110 end:0x020cf154
 
 src/overlays/ov132/calls/func_ov132_020cf154.c:
     complete
@@ -144,6 +148,10 @@ src/overlays/ov132/calls/func_ov132_020cfc58.c:
     complete
     .text       start:0x020cfc58 end:0x020cfd0c
 
+src/overlays/ov132/calls/func_ov132_020cfd0c.c:
+    complete
+    .text       start:0x020cfd0c end:0x020cfd40
+
 src/overlays/ov132/asm_stubs/calls/func_ov132_020cfd40.c:
     complete
     .text       start:0x020cfd40 end:0x020cfe14
@@ -160,7 +168,7 @@ src/overlays/ov132/asm_stubs/calls/func_ov132_020d00d4.c:
     complete
     .text       start:0x020d00d4 end:0x020d0814
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020d0814.c:
+src/overlays/ov132/calls/func_ov132_020d0814.c:
     complete
     .text       start:0x020d0814 end:0x020d08dc
 
@@ -180,7 +188,7 @@ src/overlays/ov132/auto/func_ov132_020d0adc.c:
     complete
     .text       start:0x020d0adc end:0x020d0b18
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020d0b18.c:
+src/overlays/ov132/calls/func_ov132_020d0b18.c:
     complete
     .text       start:0x020d0b18 end:0x020d0b7c
 
@@ -195,6 +203,10 @@ src/overlays/ov132/calls/func_ov132_020d0c0c.c:
 src/overlays/ov132/auto/func_ov132_020d0c8c.c:
     complete
     .text       start:0x020d0c8c end:0x020d0cb4
+
+src/overlays/ov132/calls/func_ov132_020d0cb4.c:
+    complete
+    .text       start:0x020d0cb4 end:0x020d0cf8
 
 src/overlays/ov132/calls/func_ov132_020d0cf8.c:
     complete

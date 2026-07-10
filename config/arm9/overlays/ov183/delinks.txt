@@ -36,6 +36,10 @@ src/overlays/ov183/asm_stubs/calls/func_ov183_020cff1c.c:
     complete
     .text       start:0x020cff1c end:0x020d0040
 
+src/overlays/ov183/calls/func_ov183_020d0040.c:
+    complete
+    .text       start:0x020d0040 end:0x020d008c
+
 src/overlays/ov183/asm_stubs/calls/func_ov183_020d008c.c:
     complete
     .text       start:0x020d008c end:0x020d02dc
@@ -80,6 +84,10 @@ src/overlays/ov183/asm_stubs/calls/func_ov183_020d0ba4.c:
     complete
     .text       start:0x020d0ba4 end:0x020d0dec
 
+src/overlays/ov183/calls/func_ov183_020d0dec.c:
+    complete
+    .text       start:0x020d0dec end:0x020d0e20
+
 src/overlays/ov183/asm_stubs/calls/func_ov183_020d0e20.c:
     complete
     .text       start:0x020d0e20 end:0x020d0f40
@@ -95,6 +103,14 @@ src/overlays/ov183/asm_stubs/calls/func_ov183_020d1098.c:
 src/overlays/ov183/calls/func_ov183_020d11b8.c:
     complete
     .text       start:0x020d11b8 end:0x020d11ec
+
+src/overlays/ov183/calls/func_ov183_020d11ec.c:
+    complete
+    .text       start:0x020d11ec end:0x020d1220
+
+src/overlays/ov183/calls/func_ov183_020d1220.c:
+    complete
+    .text       start:0x020d1220 end:0x020d1254
 
 src/overlays/ov183/asm_stubs/calls/func_ov183_020d1254.c:
     complete
@@ -124,11 +140,11 @@ src/overlays/ov183/calls/func_ov183_020d18e0.c:
     complete
     .text       start:0x020d18e0 end:0x020d1914
 
-src/overlays/ov183/asm_stubs/calls/func_ov183_020d1914.c:
+src/overlays/ov183/calls/func_ov183_020d1914.c:
     complete
     .text       start:0x020d1914 end:0x020d19e0
 
-src/overlays/ov183/asm_stubs/calls/func_ov183_020d19e0.c:
+src/overlays/ov183/calls/func_ov183_020d19e0.c:
     complete
     .text       start:0x020d19e0 end:0x020d1a34
 
@@ -180,7 +196,11 @@ src/overlays/ov183/asm_stubs/calls/func_ov183_020d2478.c:
     complete
     .text       start:0x020d2478 end:0x020d2514
 
-src/overlays/ov183/asm_stubs/calls/func_ov183_020d2548.c:
+src/overlays/ov183/calls/func_ov183_020d2514.c:
+    complete
+    .text       start:0x020d2514 end:0x020d2548
+
+src/overlays/ov183/calls/func_ov183_020d2548.c:
     complete
     .text       start:0x020d2548 end:0x020d25c0
 

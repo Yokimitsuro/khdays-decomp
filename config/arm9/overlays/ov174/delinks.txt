@@ -20,6 +20,10 @@ src/overlays/ov174/asm_stubs/calls/func_ov174_020cfc60.c:
     complete
     .text       start:0x020cfc60 end:0x020cff70
 
+src/overlays/ov174/calls/func_ov174_020cff70.c:
+    complete
+    .text       start:0x020cff70 end:0x020cffb0
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cffb0.c:
     complete
     .text       start:0x020cffb0 end:0x020cffbc
@@ -64,7 +68,7 @@ src/overlays/ov174/calls/func_ov174_020d07b4.c:
     complete
     .text       start:0x020d07b4 end:0x020d08a0
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d08a0.c:
+src/overlays/ov174/calls/func_ov174_020d08a0.c:
     complete
     .text       start:0x020d08a0 end:0x020d0adc
 
@@ -148,7 +152,7 @@ src/overlays/ov174/asm_stubs/calls/func_ov174_020d1d68.c:
     complete
     .text       start:0x020d1d68 end:0x020d1f40
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d1f40.c:
+src/overlays/ov174/calls/func_ov174_020d1f40.c:
     complete
     .text       start:0x020d1f40 end:0x020d1fac
 
@@ -156,7 +160,7 @@ src/overlays/ov174/asm_stubs/calls/func_ov174_020d1fac.c:
     complete
     .text       start:0x020d1fac end:0x020d20b8
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d20b8.c:
+src/calls/func_ov174_020d20b8.c:
     complete
     .text       start:0x020d20b8 end:0x020d216c
 
@@ -175,6 +179,14 @@ src/overlays/ov174/asm_stubs/calls/func_ov174_020d23ec.c:
 src/overlays/ov174/calls/func_ov174_020d2528.c:
     complete
     .text       start:0x020d2528 end:0x020d255c
+
+src/overlays/ov174/calls/func_ov174_020d255c.c:
+    complete
+    .text       start:0x020d255c end:0x020d2590
+
+src/overlays/ov174/calls/func_ov174_020d2590.c:
+    complete
+    .text       start:0x020d2590 end:0x020d25c4
 
 src/overlays/ov174/calls/func_ov174_020d25c4.c:
     complete

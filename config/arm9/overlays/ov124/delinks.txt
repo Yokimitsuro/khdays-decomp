@@ -16,6 +16,10 @@ src/overlays/ov124/asm_stubs/calls/func_ov124_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfe94
 
+src/overlays/ov124/calls/func_ov124_020cfe94.c:
+    complete
+    .text       start:0x020cfe94 end:0x020cfed4
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cfed4.c:
     complete
     .text       start:0x020cfed4 end:0x020cfee0
@@ -44,6 +48,10 @@ src/overlays/ov124/calls/func_ov124_020d0158.c:
     complete
     .text       start:0x020d0158 end:0x020d0164
 
+src/overlays/ov124/calls/func_ov124_020d0164.c:
+    complete
+    .text       start:0x020d0164 end:0x020d01b0
+
 src/overlays/ov124/asm_stubs/calls/func_ov124_020d01b0.c:
     complete
     .text       start:0x020d01b0 end:0x020d0328
@@ -52,7 +60,7 @@ src/overlays/ov124/asm_stubs/calls/func_ov124_020d0358.c:
     complete
     .text       start:0x020d0358 end:0x020d0428
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d0428.c:
+src/overlays/ov124/calls/func_ov124_020d0428.c:
     complete
     .text       start:0x020d0428 end:0x020d0588
 
@@ -68,7 +76,7 @@ src/overlays/ov124/calls/func_ov124_020d0698.c:
     complete
     .text       start:0x020d0698 end:0x020d06d4
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d06d4.c:
+src/calls/func_ov124_020d06d4.c:
     complete
     .text       start:0x020d06d4 end:0x020d0774
 
@@ -88,7 +96,7 @@ src/overlays/ov124/asm_stubs/calls/func_ov124_020d08c4.c:
     complete
     .text       start:0x020d08c4 end:0x020d0ab4
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d0ab4.c:
+src/overlays/ov124/calls/func_ov124_020d0ab4.c:
     complete
     .text       start:0x020d0ab4 end:0x020d0b2c
 
@@ -96,15 +104,19 @@ src/overlays/ov124/asm_stubs/calls/func_ov124_020d0b2c.c:
     complete
     .text       start:0x020d0b2c end:0x020d0c58
 
+src/overlays/ov124/calls/func_ov124_020d0c58.c:
+    complete
+    .text       start:0x020d0c58 end:0x020d0c8c
+
 src/overlays/ov124/calls/func_ov124_020d0c8c.c:
     complete
     .text       start:0x020d0c8c end:0x020d0ce8
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d0ce8.c:
+src/overlays/ov124/calls/func_ov124_020d0ce8.c:
     complete
     .text       start:0x020d0ce8 end:0x020d0db0
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d0db0.c:
+src/overlays/ov124/calls/func_ov124_020d0db0.c:
     complete
     .text       start:0x020d0db0 end:0x020d0e64
 
@@ -136,11 +148,11 @@ src/overlays/ov124/calls/func_ov124_020d13a0.c:
     complete
     .text       start:0x020d13a0 end:0x020d1454
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d1454.c:
+src/calls/func_ov124_020d1454.c:
     complete
     .text       start:0x020d1454 end:0x020d14b0
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d14b0.c:
+src/calls/func_ov124_020d14b0.c:
     complete
     .text       start:0x020d14b0 end:0x020d150c
 
@@ -152,7 +164,7 @@ src/overlays/ov124/calls/func_ov124_020d15b4.c:
     complete
     .text       start:0x020d15b4 end:0x020d162c
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d162c.c:
+src/calls/func_ov124_020d162c.c:
     complete
     .text       start:0x020d162c end:0x020d1690
 
@@ -164,7 +176,7 @@ src/overlays/ov124/calls/func_ov124_020d1724.c:
     complete
     .text       start:0x020d1724 end:0x020d1778
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d1778.c:
+src/calls/func_ov124_020d1778.c:
     complete
     .text       start:0x020d1778 end:0x020d1838
 

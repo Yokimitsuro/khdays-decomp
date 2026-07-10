@@ -64,6 +64,10 @@ src/overlays/ov074/calls/func_ov074_020b89f4.c:
     complete
     .text       start:0x020b89f4 end:0x020b8a04
 
+src/overlays/ov074/calls/func_ov074_020b8a04.c:
+    complete
+    .text       start:0x020b8a04 end:0x020b8a24
+
 src/overlays/ov074/calls/func_ov074_020b8a24.c:
     complete
     .text       start:0x020b8a24 end:0x020b8a3c
@@ -72,7 +76,7 @@ src/overlays/ov074/asm_stubs/calls/func_ov074_020b8a3c.c:
     complete
     .text       start:0x020b8a3c end:0x020b8af8
 
-src/overlays/ov074/asm_stubs/calls/func_ov074_020b8af8.c:
+src/overlays/ov074/calls/func_ov074_020b8af8.c:
     complete
     .text       start:0x020b8af8 end:0x020b8b6c
 

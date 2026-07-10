@@ -7,7 +7,7 @@ src/overlays/ov300/calls/func_ov300_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov300/asm_stubs/calls/func_ov300_020cbf38.c:
+src/overlays/ov300/calls/func_ov300_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 

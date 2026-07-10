@@ -8,13 +8,17 @@ src/overlays/ov205/calls/func_ov205_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d37b8.c:
+src/overlays/ov205/calls/func_ov205_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
 src/overlays/ov205/asm_stubs/calls/func_ov205_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d3a48
+
+src/overlays/ov205/calls/func_ov205_020d3a48.c:
+    complete
+    .text       start:0x020d3a48 end:0x020d3a90
 
 src/overlays/ov205/calls/func_ov205_020d3a90.c:
     complete
@@ -28,6 +32,10 @@ src/overlays/ov205/asm_stubs/calls/func_ov205_020d3b30.c:
     complete
     .text       start:0x020d3b30 end:0x020d3d40
 
+src/overlays/ov205/calls/func_ov205_020d3d40.c:
+    complete
+    .text       start:0x020d3d40 end:0x020d3d8c
+
 src/overlays/ov205/asm_stubs/calls/func_ov205_020d3d8c.c:
     complete
     .text       start:0x020d3d8c end:0x020d3ff4
@@ -40,7 +48,7 @@ src/overlays/ov205/asm_stubs/calls/func_ov205_020d4034.c:
     complete
     .text       start:0x020d4034 end:0x020d4108
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4108.c:
+src/overlays/ov205/calls/func_ov205_020d4108.c:
     complete
     .text       start:0x020d4108 end:0x020d42dc
 
@@ -56,15 +64,15 @@ src/overlays/ov205/calls/func_ov205_020d43d0.c:
     complete
     .text       start:0x020d43d0 end:0x020d4438
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4438.c:
+src/overlays/ov205/calls/func_ov205_020d4438.c:
     complete
     .text       start:0x020d4438 end:0x020d44a0
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d44a0.c:
+src/overlays/ov205/calls/func_ov205_020d44a0.c:
     complete
     .text       start:0x020d44a0 end:0x020d456c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d456c.c:
+src/overlays/ov205/calls/func_ov205_020d456c.c:
     complete
     .text       start:0x020d456c end:0x020d4634
 
@@ -104,11 +112,11 @@ src/overlays/ov205/asm_stubs/calls/func_ov205_020d4da4.c:
     complete
     .text       start:0x020d4da4 end:0x020d4e3c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4e3c.c:
+src/overlays/ov205/calls/func_ov205_020d4e3c.c:
     complete
     .text       start:0x020d4e3c end:0x020d4eb8
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4eb8.c:
+src/overlays/ov205/calls/func_ov205_020d4eb8.c:
     complete
     .text       start:0x020d4eb8 end:0x020d4f80
 
@@ -116,19 +124,19 @@ src/overlays/ov205/calls/func_ov205_020d4f80.c:
     complete
     .text       start:0x020d4f80 end:0x020d4ff0
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4ff0.c:
+src/overlays/ov205/calls/func_ov205_020d4ff0.c:
     complete
     .text       start:0x020d4ff0 end:0x020d5060
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d5060.c:
+src/calls/func_ov205_020d5060.c:
     complete
     .text       start:0x020d5060 end:0x020d50e0
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d50e0.c:
+src/overlays/ov205/calls/func_ov205_020d50e0.c:
     complete
     .text       start:0x020d50e0 end:0x020d5158
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d5158.c:
+src/calls/func_ov205_020d5158.c:
     complete
     .text       start:0x020d5158 end:0x020d51e4
 
@@ -143,6 +151,14 @@ src/overlays/ov205/calls/func_ov205_020d54cc.c:
 src/overlays/ov205/asm_stubs/calls/func_ov205_020d5570.c:
     complete
     .text       start:0x020d5570 end:0x020d5994
+
+src/overlays/ov205/calls/func_ov205_020d5994.c:
+    complete
+    .text       start:0x020d5994 end:0x020d59c8
+
+src/overlays/ov205/calls/func_ov205_020d59c8.c:
+    complete
+    .text       start:0x020d59c8 end:0x020d5a14
 
 src/overlays/ov205/calls/func_ov205_020d5a14.c:
     complete
@@ -164,7 +180,7 @@ src/overlays/ov205/calls/func_ov205_020d6368.c:
     complete
     .text       start:0x020d6368 end:0x020d639c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d639c.c:
+src/overlays/ov205/calls/func_ov205_020d639c.c:
     complete
     .text       start:0x020d639c end:0x020d6450
 
@@ -172,7 +188,7 @@ src/overlays/ov205/calls/func_ov205_020d6450.c:
     complete
     .text       start:0x020d6450 end:0x020d6490
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6490.c:
+src/calls/func_ov205_020d6490.c:
     complete
     .text       start:0x020d6490 end:0x020d6544
 

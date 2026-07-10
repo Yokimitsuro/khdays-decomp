@@ -16,6 +16,10 @@ src/overlays/ov140/asm_stubs/calls/func_ov140_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfe00
 
+src/overlays/ov140/calls/func_ov140_020cfe00.c:
+    complete
+    .text       start:0x020cfe00 end:0x020cfe48
+
 src/overlays/ov140/calls/func_ov140_020cfe48.c:
     complete
     .text       start:0x020cfe48 end:0x020cfeb8
@@ -28,6 +32,10 @@ src/overlays/ov140/asm_stubs/calls/func_ov140_020cfee8.c:
     complete
     .text       start:0x020cfee8 end:0x020cffd8
 
+src/overlays/ov140/calls/func_ov140_020cffd8.c:
+    complete
+    .text       start:0x020cffd8 end:0x020d0024
+
 src/overlays/ov140/asm_stubs/calls/func_ov140_020d0024.c:
     complete
     .text       start:0x020d0024 end:0x020d0294
@@ -36,15 +44,15 @@ src/overlays/ov140/auto/func_ov140_020d0294.c:
     complete
     .text       start:0x020d0294 end:0x020d02d4
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d02d4.c:
+src/overlays/ov140/calls/func_ov140_020d02d4.c:
     complete
     .text       start:0x020d02d4 end:0x020d03a8
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d03a8.c:
+src/overlays/ov140/calls/func_ov140_020d03a8.c:
     complete
     .text       start:0x020d03a8 end:0x020d0560
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d0560.c:
+src/overlays/ov140/calls/func_ov140_020d0560.c:
     complete
     .text       start:0x020d0560 end:0x020d0614
 
@@ -60,11 +68,11 @@ src/overlays/ov140/calls/func_ov140_020d06bc.c:
     complete
     .text       start:0x020d06bc end:0x020d06f8
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d06f8.c:
+src/overlays/ov140/calls/func_ov140_020d06f8.c:
     complete
     .text       start:0x020d06f8 end:0x020d07c4
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d07c4.c:
+src/overlays/ov140/calls/func_ov140_020d07c4.c:
     complete
     .text       start:0x020d07c4 end:0x020d088c
 
@@ -92,19 +100,23 @@ src/overlays/ov140/asm_stubs/calls/func_ov140_020d0d54.c:
     complete
     .text       start:0x020d0d54 end:0x020d0e64
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d0e64.c:
+src/overlays/ov140/calls/func_ov140_020d0e64.c:
     complete
     .text       start:0x020d0e64 end:0x020d0f24
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d0f58.c:
+src/overlays/ov140/calls/func_ov140_020d0f24.c:
+    complete
+    .text       start:0x020d0f24 end:0x020d0f58
+
+src/calls/func_ov140_020d0f58.c:
     complete
     .text       start:0x020d0f58 end:0x020d0ff4
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d0ff4.c:
+src/overlays/ov140/calls/func_ov140_020d0ff4.c:
     complete
     .text       start:0x020d0ff4 end:0x020d1070
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d1070.c:
+src/overlays/ov140/calls/func_ov140_020d1070.c:
     complete
     .text       start:0x020d1070 end:0x020d1138
 
@@ -112,19 +124,19 @@ src/overlays/ov140/calls/func_ov140_020d1138.c:
     complete
     .text       start:0x020d1138 end:0x020d11e4
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d11e4.c:
+src/overlays/ov140/calls/func_ov140_020d11e4.c:
     complete
     .text       start:0x020d11e4 end:0x020d1280
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d1280.c:
+src/calls/func_ov140_020d1280.c:
     complete
     .text       start:0x020d1280 end:0x020d1324
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d1324.c:
+src/overlays/ov140/calls/func_ov140_020d1324.c:
     complete
     .text       start:0x020d1324 end:0x020d13c8
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d13c8.c:
+src/overlays/ov140/calls/func_ov140_020d13c8.c:
     complete
     .text       start:0x020d13c8 end:0x020d145c
 
@@ -139,6 +151,14 @@ src/overlays/ov140/calls/func_ov140_020d176c.c:
 src/overlays/ov140/asm_stubs/calls/func_ov140_020d182c.c:
     complete
     .text       start:0x020d182c end:0x020d1d2c
+
+src/overlays/ov140/calls/func_ov140_020d1d2c.c:
+    complete
+    .text       start:0x020d1d2c end:0x020d1d60
+
+src/overlays/ov140/calls/func_ov140_020d1d60.c:
+    complete
+    .text       start:0x020d1d60 end:0x020d1dac
 
 src/overlays/ov140/calls/func_ov140_020d1dac.c:
     complete
@@ -160,6 +180,6 @@ src/overlays/ov140/calls/func_ov140_020d2728.c:
     complete
     .text       start:0x020d2728 end:0x020d2788
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d2788.c:
+src/overlays/ov140/calls/func_ov140_020d2788.c:
     complete
     .text       start:0x020d2788 end:0x020d283c

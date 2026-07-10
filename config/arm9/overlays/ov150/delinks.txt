@@ -16,6 +16,10 @@ src/overlays/ov150/asm_stubs/calls/func_ov150_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfe74
 
+src/overlays/ov150/calls/func_ov150_020cfe74.c:
+    complete
+    .text       start:0x020cfe74 end:0x020cfebc
+
 src/overlays/ov150/calls/func_ov150_020cfebc.c:
     complete
     .text       start:0x020cfebc end:0x020cff04
@@ -40,6 +44,10 @@ src/overlays/ov150/asm_stubs/calls/func_ov150_020d01e0.c:
     complete
     .text       start:0x020d01e0 end:0x020d030c
 
+src/overlays/ov150/calls/func_ov150_020d030c.c:
+    complete
+    .text       start:0x020d030c end:0x020d0358
+
 src/overlays/ov150/asm_stubs/calls/func_ov150_020d0358.c:
     complete
     .text       start:0x020d0358 end:0x020d04f4
@@ -52,7 +60,7 @@ src/overlays/ov150/calls/func_ov150_020d0524.c:
     complete
     .text       start:0x020d0524 end:0x020d05f8
 
-src/overlays/ov150/asm_stubs/calls/func_ov150_020d05f8.c:
+src/overlays/ov150/calls/func_ov150_020d05f8.c:
     complete
     .text       start:0x020d05f8 end:0x020d0788
 
@@ -92,6 +100,10 @@ src/overlays/ov150/asm_stubs/calls/func_ov150_020d0b68.c:
     complete
     .text       start:0x020d0b68 end:0x020d0d04
 
+src/overlays/ov150/calls/func_ov150_020d0d04.c:
+    complete
+    .text       start:0x020d0d04 end:0x020d0d4c
+
 src/overlays/ov150/calls/func_ov150_020d0d4c.c:
     complete
     .text       start:0x020d0d4c end:0x020d0e20
@@ -116,7 +128,7 @@ src/overlays/ov150/calls/func_ov150_020d10e0.c:
     complete
     .text       start:0x020d10e0 end:0x020d11a4
 
-src/overlays/ov150/asm_stubs/calls/func_ov150_020d11a4.c:
+src/overlays/ov150/calls/func_ov150_020d11a4.c:
     complete
     .text       start:0x020d11a4 end:0x020d126c
 
@@ -168,6 +180,10 @@ src/overlays/ov150/asm_stubs/calls/func_ov150_020d18f8.c:
     complete
     .text       start:0x020d18f8 end:0x020d1a20
 
+src/overlays/ov150/calls/func_ov150_020d1a20.c:
+    complete
+    .text       start:0x020d1a20 end:0x020d1a6c
+
 src/overlays/ov150/calls/func_ov150_020d1a6c.c:
     complete
     .text       start:0x020d1a6c end:0x020d1b14
@@ -180,7 +196,7 @@ src/overlays/ov150/auto/func_ov150_020d1b8c.c:
     complete
     .text       start:0x020d1b8c end:0x020d1ba4
 
-src/overlays/ov150/asm_stubs/calls/func_ov150_020d1ba4.c:
+src/overlays/ov150/calls/func_ov150_020d1ba4.c:
     complete
     .text       start:0x020d1ba4 end:0x020d1c54
 

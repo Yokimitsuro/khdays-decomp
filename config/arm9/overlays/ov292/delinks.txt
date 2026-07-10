@@ -8,7 +8,7 @@ src/overlays/ov292/calls/func_ov292_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d37b8.c:
+src/overlays/ov292/calls/func_ov292_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
@@ -40,7 +40,7 @@ src/overlays/ov292/asm_stubs/calls/func_ov292_020d3b64.c:
     complete
     .text       start:0x020d3b64 end:0x020d3bdc
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d3bdc.c:
+src/overlays/ov292/calls/func_ov292_020d3bdc.c:
     complete
     .text       start:0x020d3bdc end:0x020d3c38
 
@@ -64,7 +64,7 @@ src/overlays/ov292/asm_stubs/calls/func_ov292_020d4030.c:
     complete
     .text       start:0x020d4030 end:0x020d4124
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d4124.c:
+src/overlays/ov292/calls/func_ov292_020d4124.c:
     complete
     .text       start:0x020d4124 end:0x020d42b8
 
@@ -80,7 +80,7 @@ src/overlays/ov292/calls/func_ov292_020d438c.c:
     complete
     .text       start:0x020d438c end:0x020d43dc
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d43dc.c:
+src/overlays/ov292/calls/func_ov292_020d43dc.c:
     complete
     .text       start:0x020d43dc end:0x020d44a8
 
@@ -96,7 +96,7 @@ src/overlays/ov292/calls/func_ov292_020d455c.c:
     complete
     .text       start:0x020d455c end:0x020d4580
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d4580.c:
+src/overlays/ov292/calls/func_ov292_020d4580.c:
     complete
     .text       start:0x020d4580 end:0x020d45bc
 
@@ -104,11 +104,11 @@ libs/nitro/nns/asm_stubs/calls/AllocatorFreeForExpHeap_0x020d45bc.c:
     complete
     .text       start:0x020d45bc end:0x020d45cc
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d45cc.c:
+src/overlays/ov292/calls/func_ov292_020d45cc.c:
     complete
     .text       start:0x020d45cc end:0x020d4610
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d4610.c:
+src/overlays/ov292/calls/func_ov292_020d4610.c:
     complete
     .text       start:0x020d4610 end:0x020d4654
 
@@ -120,10 +120,10 @@ src/overlays/ov292/asm_stubs/calls/func_ov292_020d4698.c:
     complete
     .text       start:0x020d4698 end:0x020d4784
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d4784.c:
+src/calls/func_ov292_020d4784.c:
     complete
     .text       start:0x020d4784 end:0x020d4824
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d4824.c:
+src/overlays/ov292/calls/func_ov292_020d4824.c:
     complete
     .text       start:0x020d4824 end:0x020d48b8

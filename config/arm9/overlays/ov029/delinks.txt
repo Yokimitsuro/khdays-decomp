@@ -8,6 +8,6 @@ src/overlays/ov029/asm_stubs/calls/func_ov029_020b2ee0.c:
     complete
     .text       start:0x020b2ee0 end:0x020b2f40
 
-src/overlays/ov029/asm_stubs/calls/func_ov029_020b2f40.c:
+src/overlays/ov029/calls/func_ov029_020b2f40.c:
     complete
     .text       start:0x020b2f40 end:0x020b2f70

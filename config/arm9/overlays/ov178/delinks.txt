@@ -20,6 +20,10 @@ src/overlays/ov178/asm_stubs/calls/func_ov178_020cc020.c:
     complete
     .text       start:0x020cc020 end:0x020cc344
 
+src/overlays/ov178/calls/func_ov178_020cc344.c:
+    complete
+    .text       start:0x020cc344 end:0x020cc384
+
 libs/nitro/wm/calls/WM_EndKeySharing_ov178_0x020cc384.c:
     complete
     .text       start:0x020cc384 end:0x020cc390
@@ -68,7 +72,7 @@ src/overlays/ov178/calls/func_ov178_020ccbcc.c:
     complete
     .text       start:0x020ccbcc end:0x020cccb8
 
-src/overlays/ov178/asm_stubs/calls/func_ov178_020cccb8.c:
+src/overlays/ov178/calls/func_ov178_020cccb8.c:
     complete
     .text       start:0x020cccb8 end:0x020cceb8
 
@@ -176,6 +180,10 @@ src/overlays/ov178/calls/func_ov178_020ce740.c:
     complete
     .text       start:0x020ce740 end:0x020ce75c
 
+src/overlays/ov178/calls/func_ov178_020ce75c.c:
+    complete
+    .text       start:0x020ce75c end:0x020ce790
+
 src/overlays/ov178/asm_stubs/calls/func_ov178_020ce790.c:
     complete
     .text       start:0x020ce790 end:0x020ce864
@@ -204,7 +212,7 @@ src/overlays/ov178/calls/func_ov178_020ce9e8.c:
     complete
     .text       start:0x020ce9e8 end:0x020ce9f4
 
-src/overlays/ov178/asm_stubs/calls/func_ov178_020ce9f4.c:
+src/overlays/ov178/calls/func_ov178_020ce9f4.c:
     complete
     .text       start:0x020ce9f4 end:0x020cea50
 
@@ -220,7 +228,7 @@ src/overlays/ov178/auto/func_ov178_020ceb70.c:
     complete
     .text       start:0x020ceb70 end:0x020ceb74
 
-src/overlays/ov178/asm_stubs/calls/func_ov178_020ceb74.c:
+src/calls/func_ov178_020ceb74.c:
     complete
     .text       start:0x020ceb74 end:0x020cebe0
 

@@ -32,6 +32,14 @@ src/overlays/ov147/asm_stubs/calls/func_ov147_020cc480.c:
     complete
     .text       start:0x020cc480 end:0x020cc500
 
+src/overlays/ov147/calls/func_ov147_020cc500.c:
+    complete
+    .text       start:0x020cc500 end:0x020cc53c
+
+src/overlays/ov147/calls/func_ov147_020cc53c.c:
+    complete
+    .text       start:0x020cc53c end:0x020cc578
+
 src/overlays/ov147/asm_stubs/calls/func_ov147_020cc578.c:
     complete
     .text       start:0x020cc578 end:0x020cc648
@@ -44,7 +52,7 @@ src/overlays/ov147/calls/func_ov147_020cc76c.c:
     complete
     .text       start:0x020cc76c end:0x020cc7a4
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cc7a4.c:
+src/overlays/ov147/calls/func_ov147_020cc7a4.c:
     complete
     .text       start:0x020cc7a4 end:0x020cc800
 
@@ -60,7 +68,7 @@ src/overlays/ov147/auto/func_ov147_020cc990.c:
     complete
     .text       start:0x020cc990 end:0x020cc9c0
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cc9c0.c:
+src/overlays/ov147/calls/func_ov147_020cc9c0.c:
     complete
     .text       start:0x020cc9c0 end:0x020cca28
 
@@ -76,7 +84,7 @@ src/overlays/ov147/asm_stubs/calls/func_ov147_020ccc30.c:
     complete
     .text       start:0x020ccc30 end:0x020ccce8
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020ccce8.c:
+src/overlays/ov147/calls/func_ov147_020ccce8.c:
     complete
     .text       start:0x020ccce8 end:0x020cce70
 
@@ -108,7 +116,7 @@ src/overlays/ov147/calls/func_ov147_020cd32c.c:
     complete
     .text       start:0x020cd32c end:0x020cd368
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cd368.c:
+src/calls/func_ov147_020cd368.c:
     complete
     .text       start:0x020cd368 end:0x020cd3cc
 
@@ -116,7 +124,7 @@ src/overlays/ov147/asm_stubs/calls/func_ov147_020cd3cc.c:
     complete
     .text       start:0x020cd3cc end:0x020cd4a4
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cd4a4.c:
+src/overlays/ov147/calls/func_ov147_020cd4a4.c:
     complete
     .text       start:0x020cd4a4 end:0x020cd50c
 
@@ -144,11 +152,15 @@ src/overlays/ov147/calls/func_ov147_020cd874.c:
     complete
     .text       start:0x020cd874 end:0x020cd8a8
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cd8dc.c:
+src/overlays/ov147/calls/func_ov147_020cd8a8.c:
+    complete
+    .text       start:0x020cd8a8 end:0x020cd8dc
+
+src/overlays/ov147/calls/func_ov147_020cd8dc.c:
     complete
     .text       start:0x020cd8dc end:0x020cd938
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cd938.c:
+src/calls/func_ov147_020cd938.c:
     complete
     .text       start:0x020cd938 end:0x020cd9fc
 
@@ -156,11 +168,11 @@ src/overlays/ov147/calls/func_ov147_020cd9fc.c:
     complete
     .text       start:0x020cd9fc end:0x020cda1c
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cda1c.c:
+src/calls/func_ov147_020cda1c.c:
     complete
     .text       start:0x020cda1c end:0x020cdabc
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020cdabc.c:
+src/overlays/ov147/calls/func_ov147_020cdabc.c:
     complete
     .text       start:0x020cdabc end:0x020cdb50
 
@@ -179,6 +191,10 @@ src/overlays/ov147/asm_stubs/calls/func_ov147_020cdc18.c:
 src/overlays/ov147/asm_stubs/calls/func_ov147_020cdc9c.c:
     complete
     .text       start:0x020cdc9c end:0x020cdd00
+
+src/overlays/ov147/calls/func_ov147_020cdd00.c:
+    complete
+    .text       start:0x020cdd00 end:0x020cdd34
 
 src/overlays/ov147/asm_stubs/calls/func_ov147_020cdd34.c:
     complete
@@ -200,9 +216,13 @@ src/overlays/ov147/calls/func_ov147_020ce068.c:
     complete
     .text       start:0x020ce068 end:0x020ce09c
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020ce09c.c:
+src/calls/func_ov147_020ce09c.c:
     complete
     .text       start:0x020ce09c end:0x020ce100
+
+src/overlays/ov147/calls/func_ov147_020ce100.c:
+    complete
+    .text       start:0x020ce100 end:0x020ce14c
 
 src/overlays/ov147/calls/func_ov147_020ce14c.c:
     complete
@@ -212,7 +232,7 @@ src/overlays/ov147/calls/func_ov147_020ce1f4.c:
     complete
     .text       start:0x020ce1f4 end:0x020ce26c
 
-src/overlays/ov147/asm_stubs/calls/func_ov147_020ce26c.c:
+src/calls/func_ov147_020ce26c.c:
     complete
     .text       start:0x020ce26c end:0x020ce2d0
 

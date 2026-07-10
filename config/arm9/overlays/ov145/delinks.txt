@@ -59,9 +59,13 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020ce78c.c:
     complete
     .text       start:0x020ce78c end:0x020ce86c
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020ce86c.c:
+src/calls/func_ov145_020ce86c.c:
     complete
     .text       start:0x020ce86c end:0x020ce8d8
+
+src/overlays/ov145/calls/func_ov145_020ce8d8.c:
+    complete
+    .text       start:0x020ce8d8 end:0x020ce924
 
 src/overlays/ov145/auto/func_ov145_020ce924.c:
     complete
@@ -99,7 +103,7 @@ src/overlays/ov145/calls/func_ov145_020cf238.c:
     complete
     .text       start:0x020cf238 end:0x020cf26c
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cf26c.c:
+src/overlays/ov145/calls/func_ov145_020cf26c.c:
     complete
     .text       start:0x020cf26c end:0x020cf300
 
@@ -107,7 +111,7 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020cf300.c:
     complete
     .text       start:0x020cf300 end:0x020cf37c
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cf37c.c:
+src/overlays/ov145/calls/func_ov145_020cf37c.c:
     complete
     .text       start:0x020cf37c end:0x020cf3d4
 
@@ -119,7 +123,7 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020cf63c.c:
     complete
     .text       start:0x020cf63c end:0x020cf744
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cf744.c:
+src/calls/func_ov145_020cf744.c:
     complete
     .text       start:0x020cf744 end:0x020cf7c4
 
@@ -127,7 +131,11 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020cf7c4.c:
     complete
     .text       start:0x020cf7c4 end:0x020cf828
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cf85c.c:
+src/overlays/ov145/calls/func_ov145_020cf828.c:
+    complete
+    .text       start:0x020cf828 end:0x020cf85c
+
+src/overlays/ov145/calls/func_ov145_020cf85c.c:
     complete
     .text       start:0x020cf85c end:0x020cf8b4
 
@@ -143,6 +151,6 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020cf988.c:
     complete
     .text       start:0x020cf988 end:0x020cfa44
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cfa44.c:
+src/overlays/ov145/calls/func_ov145_020cfa44.c:
     complete
     .text       start:0x020cfa44 end:0x020cfad8

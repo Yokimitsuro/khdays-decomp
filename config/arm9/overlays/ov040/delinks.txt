@@ -52,6 +52,10 @@ src/overlays/ov040/asm_stubs/calls/func_ov040_020b3868.c:
     complete
     .text       start:0x020b3868 end:0x020b3968
 
+src/overlays/ov040/calls/func_ov040_020b3968.c:
+    complete
+    .text       start:0x020b3968 end:0x020b399c
+
 src/overlays/ov040/calls/func_ov040_020b399c.c:
     complete
     .text       start:0x020b399c end:0x020b39c0
@@ -72,7 +76,7 @@ src/overlays/ov040/asm_stubs/calls/func_ov040_020b3a54.c:
     complete
     .text       start:0x020b3a54 end:0x020b3b58
 
-src/overlays/ov040/asm_stubs/calls/func_ov040_020b3b58.c:
+src/overlays/ov040/calls/func_ov040_020b3b58.c:
     complete
     .text       start:0x020b3b58 end:0x020b3bcc
 

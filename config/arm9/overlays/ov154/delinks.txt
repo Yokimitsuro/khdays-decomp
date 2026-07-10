@@ -72,6 +72,10 @@ src/overlays/ov154/asm_stubs/calls/func_ov154_020d04d4.c:
     complete
     .text       start:0x020d04d4 end:0x020d05fc
 
+src/overlays/ov154/calls/func_ov154_020d05fc.c:
+    complete
+    .text       start:0x020d05fc end:0x020d0648
+
 src/overlays/ov154/calls/func_ov154_020d0648.c:
     complete
     .text       start:0x020d0648 end:0x020d06f0
@@ -84,7 +88,7 @@ src/overlays/ov154/auto/func_ov154_020d0768.c:
     complete
     .text       start:0x020d0768 end:0x020d0780
 
-src/overlays/ov154/asm_stubs/calls/func_ov154_020d0780.c:
+src/overlays/ov154/calls/func_ov154_020d0780.c:
     complete
     .text       start:0x020d0780 end:0x020d0830
 
@@ -100,6 +104,10 @@ src/overlays/ov154/asm_stubs/calls/func_ov154_020d0938.c:
     complete
     .text       start:0x020d0938 end:0x020d0f30
 
+src/overlays/ov154/calls/func_ov154_020d0f30.c:
+    complete
+    .text       start:0x020d0f30 end:0x020d0f7c
+
 src/overlays/ov154/asm_stubs/calls/func_ov154_020d0f7c.c:
     complete
     .text       start:0x020d0f7c end:0x020d10b0
@@ -112,7 +120,7 @@ src/overlays/ov154/asm_stubs/calls/func_ov154_020d10e0.c:
     complete
     .text       start:0x020d10e0 end:0x020d11b0
 
-src/overlays/ov154/asm_stubs/calls/func_ov154_020d11b0.c:
+src/overlays/ov154/calls/func_ov154_020d11b0.c:
     complete
     .text       start:0x020d11b0 end:0x020d1310
 
@@ -128,7 +136,7 @@ src/overlays/ov154/calls/func_ov154_020d13fc.c:
     complete
     .text       start:0x020d13fc end:0x020d1438
 
-src/overlays/ov154/asm_stubs/calls/func_ov154_020d1438.c:
+src/overlays/ov154/calls/func_ov154_020d1438.c:
     complete
     .text       start:0x020d1438 end:0x020d1504
 
@@ -148,15 +156,19 @@ src/overlays/ov154/asm_stubs/calls/func_ov154_020d165c.c:
     complete
     .text       start:0x020d165c end:0x020d1848
 
+src/overlays/ov154/calls/func_ov154_020d1848.c:
+    complete
+    .text       start:0x020d1848 end:0x020d187c
+
 src/overlays/ov154/calls/func_ov154_020d187c.c:
     complete
     .text       start:0x020d187c end:0x020d18d8
 
-src/overlays/ov154/asm_stubs/calls/func_ov154_020d18d8.c:
+src/overlays/ov154/calls/func_ov154_020d18d8.c:
     complete
     .text       start:0x020d18d8 end:0x020d19a0
 
-src/overlays/ov154/asm_stubs/calls/func_ov154_020d19a0.c:
+src/overlays/ov154/calls/func_ov154_020d19a0.c:
     complete
     .text       start:0x020d19a0 end:0x020d1a54
 
