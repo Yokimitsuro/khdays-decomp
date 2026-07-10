@@ -28,7 +28,7 @@ src/overlays/ov003/asm_stubs/calls/func_ov003_0204d264.c:
     complete
     .text       start:0x0204d264 end:0x0204d308
 
-src/overlays/ov003/asm_stubs/calls/func_ov003_0204d308.c:
+src/overlays/ov003/calls/func_ov003_0204d308.c:
     complete
     .text       start:0x0204d308 end:0x0204d3b0
 
