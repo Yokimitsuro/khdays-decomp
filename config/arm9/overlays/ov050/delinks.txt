@@ -116,7 +116,7 @@ src/overlays/ov050/asm_stubs/calls/func_ov050_020b6e94.c:
     complete
     .text       start:0x020b6e94 end:0x020b7020
 
-src/overlays/ov050/asm_stubs/calls/func_ov050_020b7020.c:
+src/overlays/ov050/calls/func_ov050_020b7020.c:
     complete
     .text       start:0x020b7020 end:0x020b7130
 
@@ -128,7 +128,7 @@ src/overlays/ov050/calls/func_ov050_020b7208.c:
     complete
     .text       start:0x020b7208 end:0x020b7308
 
-src/overlays/ov050/asm_stubs/calls/func_ov050_020b7308.c:
+src/overlays/ov050/calls/func_ov050_020b7308.c:
     complete
     .text       start:0x020b7308 end:0x020b742c
 
