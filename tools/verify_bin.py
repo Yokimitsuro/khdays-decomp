@@ -8,8 +8,9 @@ import sys, os, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from match import compile_c, text_relocs
 
-# overlay base addresses (from list_segments)
-OV_BASE = {"003": 0x0204cac0}
+# overlay base addresses (from list_segments / delinks.txt .text start)
+OV_BASE = {"003": 0x0204cac0, "010": 0x0204cac0, "013": 0x0207fa40,
+           "019": 0x0207fa40, "029": 0x020b2ee0, "302": 0x020cbf20}
 
 def main():
     cpath, name, ov = sys.argv[1], sys.argv[2], sys.argv[3]
