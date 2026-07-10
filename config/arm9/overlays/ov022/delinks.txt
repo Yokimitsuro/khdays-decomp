@@ -40,6 +40,10 @@ src/overlays/ov022/calls/func_ov022_02083844.c:
     complete
     .text       start:0x02083844 end:0x02083878
 
+src/overlays/ov022/calls/func_ov022_02083904.c:
+    complete
+    .text       start:0x02083904 end:0x0208398c
+
 src/overlays/ov022/calls/func_ov022_02083ce4.c:
     complete
     .text       start:0x02083ce4 end:0x02083cfc
@@ -211,6 +215,10 @@ src/overlays/ov022/calls/func_ov022_02086f24.c:
 src/overlays/ov022/calls/func_ov022_02087298.c:
     complete
     .text       start:0x02087298 end:0x020872d0
+
+src/overlays/ov022/calls/func_ov022_020872d0.c:
+    complete
+    .text       start:0x020872d0 end:0x02087344
 
 src/overlays/ov022/calls/func_ov022_02087344.c:
     complete
@@ -707,6 +715,10 @@ src/overlays/ov022/calls/func_ov022_02093400.c:
 src/overlays/ov022/calls/func_ov022_02093900.c:
     complete
     .text       start:0x02093900 end:0x0209398c
+
+src/overlays/ov022/calls/func_ov022_0209398c.c:
+    complete
+    .text       start:0x0209398c end:0x02093a1c
 
 src/overlays/ov022/calls/func_ov022_02093a7c.c:
     complete
