@@ -123,15 +123,17 @@ def emit_ninja(ninja_path: Path, src_files):
 
     compiled_objs = []
     modes_dep = rel(BUILD / "file_modes.json")
+    compilers_dep = rel(BUILD / "file_compilers.json")
     for src in src_files:
         # Match objdiff.json's expected base_path layout.
         obj_path = COMPILE_OUT / Path(src).with_suffix(".o")
         obj_path.parent.mkdir(parents=True, exist_ok=True)
         obj = rel(obj_path)
         compiled_objs.append(obj)
-        # Implicit dep on file_modes.json so a mode flip (arm <-> thumb)
-        # invalidates any cached .o for this file.
-        lines.append(f"build {obj}: mwcc {src} | {modes_dep}")
+        # Implicit deps on file_modes.json (arm <-> thumb flips) and
+        # file_compilers.json (per-file compiler-version overrides) so either
+        # change invalidates any cached .o for this file.
+        lines.append(f"build {obj}: mwcc {src} | {modes_dep} {compilers_dep}")
 
     lines.append("")
     lines.append("build compile: phony " + " ".join(compiled_objs))
@@ -177,6 +179,14 @@ def run(*cmd, cwd=None):
 def main():
     LINK.mkdir(parents=True, exist_ok=True)
     (BUILD / "build").mkdir(parents=True, exist_ok=True)
+
+    # Publish the checked-in per-file compiler-override map (a few precompiled
+    # middleware TUs, e.g. the ov028 crypto core, build with an older mwcc) to
+    # build/ where _run_mwcc.py reads it. Always write it (empty {} if absent)
+    # so the ninja implicit dep resolves.
+    src_compilers = ROOT / "config" / "arm9" / "file_compilers.json"
+    compilers_text = src_compilers.read_text(encoding="utf-8") if src_compilers.exists() else "{}\n"
+    (BUILD / "file_compilers.json").write_text(compilers_text, encoding="utf-8", newline="\n")
 
     for module_dir in MODULES:
         rel = module_dir.relative_to(ROOT)

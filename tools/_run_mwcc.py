@@ -21,19 +21,34 @@ FLAGS = [
     "-inline", "on,noauto", "-Cpp_exceptions", "off", "-gccext,on",
 ]
 
-# Look up thumb/arm mode per-source-file from the sidecar map that
-# gen_delinks.py produces.
+# Path of this source file relative to the repo root — used for both the
+# thumb/arm mode map and the per-file compiler override map.
 out_path = Path(sys.argv[1])
 src_path = Path(sys.argv[2])
+rel = src_path.resolve().relative_to(ROOT).as_posix()
+
+# Look up thumb/arm mode per-source-file from the sidecar map that
+# gen_delinks.py produces.
 modes_path = ROOT / "build" / "file_modes.json"
 extra = []
 if modes_path.exists():
     modes = json.loads(modes_path.read_text(encoding="utf-8"))
-    rel = src_path.resolve().relative_to(ROOT).as_posix()
     if modes.get(rel) == "thumb":
         extra.append("-thumb")
 
+# Per-file compiler override: a few translation units are precompiled middleware
+# built with an older CodeWarrior (e.g. the ov028 anti-tamper crypto core, which
+# only byte-matches under mwcc 1.2 sp4). configure.py writes build/file_compilers.json
+# mapping such source files to a tools/mwccarm/<ver> directory.
+mwcc_bin = MWCCARM
+comp_path = ROOT / "build" / "file_compilers.json"
+if comp_path.exists():
+    cmap = json.loads(comp_path.read_text(encoding="utf-8"))
+    ver = cmap.get(rel)
+    if ver:
+        mwcc_bin = ROOT / "tools" / "mwccarm" / ver / "mwccarm.exe"
+
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
 sys.exit(subprocess.run(
-    [str(MWCCARM), *FLAGS, *extra, "-o", str(out_path), str(src_path)], env=env
+    [str(mwcc_bin), *FLAGS, *extra, "-o", str(out_path), str(src_path)], env=env
 ).returncode)
