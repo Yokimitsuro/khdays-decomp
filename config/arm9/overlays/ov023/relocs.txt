@@ -8,9 +8,9 @@ from:0x020829c0 kind:load to:0x02082a44 module:overlay(23)
 from:0x020829c8 kind:arm_call to:0x02023c00 module:main
 from:0x020829d0 kind:arm_call to:0x02023ad0 module:main
 from:0x020829e0 kind:arm_call to:0x0201e470 module:main
-from:0x020829e8 kind:arm_call to:0x0208b040 module:none
-from:0x020829f8 kind:arm_call to:0x0208b490 module:none
-from:0x02082a20 kind:arm_call to:0x0208b200 module:none
+from:0x020829e8 kind:arm_call to:0x0208b040 module:overlay(28)
+from:0x020829f8 kind:arm_call to:0x0208b490 module:overlay(28)
+from:0x02082a20 kind:arm_call to:0x0208b200 module:overlay(28)
 from:0x02082a2c kind:arm_call to:0x0201e4a8 module:main
 from:0x02082a38 kind:load to:0x02082c5c module:overlay(23)
 from:0x02082a3c kind:load to:0x0208a000 module:overlay(23)

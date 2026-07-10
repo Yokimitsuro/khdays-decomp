@@ -9,4 +9,10 @@ func_ov028_0208ab20 kind:function(arm,size=0x58) addr:0x0208ab20
 func_ov028_0208ab78 kind:function(arm,size=0x58) addr:0x0208ab78
 data_ov028_0208abd0 kind:data(any) addr:0x0208abd0
 data_ov028_0208af30 kind:data(any) addr:0x0208af30
+func_ov028_0208b040 kind:data(any) addr:0x0208b040
+func_ov028_0208b120 kind:data(any) addr:0x0208b120
+func_ov028_0208b200 kind:data(any) addr:0x0208b200
+func_ov028_0208b2e0 kind:data(any) addr:0x0208b2e0
+func_ov028_0208b3c0 kind:data(any) addr:0x0208b3c0
+func_ov028_0208b490 kind:data(any) addr:0x0208b490
 data_ov028_0208b560 kind:data(any) addr:0x0208b560

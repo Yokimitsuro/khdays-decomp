@@ -52,12 +52,29 @@ about to execute. `0x0208a8ac` re-encrypts on the way out.
   (ov005, ov028, ov039, ov058, ov078, ov095, ov115, ov116, ...), i.e. the anti-tamper
   subsystem is used game-wide, not just here.
 
-## Consequence for ov001
+## Consequence for ov001 (RESOLVED 2026-07-10 — the encryption never blocked the link)
 
-`func_ov001_0204ce40` (sound-heap bootstrap) calls three of these encrypted ov028
-functions (`0x0208b490`, `b200`, `b040`). It cannot be compiled to linkable matched C
-because those callees are not code in the static image — the `bl`s are `module:none`.
-This is a toolchain/format limit rooted in the game's protection, not a codegen tie.
-ov001 is 7/8 matched; the 8th stays as its asm stub. The separate literal-pool `0x1c`
-issue (an absolute lock-id symbol) is real but secondary and would only matter once
-the callees were linkable.
+`func_ov001_0204ce40` (`ov001_CreateMainAndSubHeaps`, a heap bootstrap — NOT sound
+related) calls five of these encrypted ov028 functions (`0x0208b490`, `b200`, `b040`,
+`b120`, `b2e0`). The earlier conclusion here — "it cannot be compiled to linkable
+matched C because those callees are not code in the static image" — was **wrong**.
+
+A `bl` does not need its target to be *code*; it needs an **address**. dsd resolves a
+relocation via `first_at_address()`, which accepts any symbol kind. Those six ov028
+entry points simply had no symbol (they sat unnamed inside the `data_ov028_0208af30`
+blob), so dsd emitted the calls as `module:none` — an analysis gap, not a property of
+the binary. Naming the six addresses as `kind:data(any)` symbols (which auto-size, so
+**not one byte moves**, and the region stays `.rodata`) lets dsd resolve all 17
+cross-overlay relocs to `module:overlay(28)`. mwld then emits a plain `bl` to an
+`STT_OBJECT` symbol in `.rodata` — no veneer, no decryption. The encrypted 2456-byte
+block is reproduced verbatim from the ROM, exactly as before.
+
+The literal-pool `0x1c` was likewise not an "absolute lock-id" mystery: it is
+`FS_OVERLAY_ID(ov028)` = 28 = ov028's own id, the stock NitroSDK idiom, and dsd already
+emits `OVERLAY_28_ID = 28` into `arm9.lcf` with a first-class `kind:overlay_id`
+relocation (which must *stay* `module:none` per dsd's rules).
+
+**ov001 is now 8/8 — the third 100% module (after ov290, ov300).** The same fix
+resolved the other 12 `module:none` relocs (ov000/ov004/ov005/ov023), so those callers
+are now decompilable too. See `staging/ov001/README.md` for the end-to-end evidence
+(object match, `dsd delink` exit 0, an isolated mwld link byte-identical to the ROM).

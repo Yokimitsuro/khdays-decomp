@@ -874,12 +874,12 @@ from:0x02054b64 kind:arm_call_thumb to:0x020235a8 module:main
 from:0x02054b88 kind:arm_call_thumb to:0x020235a8 module:main
 from:0x02054c0c kind:arm_call_thumb to:0x020235a8 module:main
 from:0x02054c34 kind:arm_call to:0x0201e470 module:main
-from:0x02054c3c kind:arm_call to:0x0208b3c0 module:none
+from:0x02054c3c kind:arm_call to:0x0208b3c0 module:overlay(28)
 from:0x02054c60 kind:arm_call_thumb to:0x020235d0 module:main
 from:0x02054c88 kind:arm_call_thumb to:0x020235e8 module:main
 from:0x02054ca4 kind:arm_call_thumb to:0x020235d0 module:main
-from:0x02054cbc kind:arm_call to:0x0208b040 module:none
-from:0x02054ccc kind:arm_call to:0x0208b200 module:none
+from:0x02054cbc kind:arm_call to:0x0208b040 module:overlay(28)
+from:0x02054ccc kind:arm_call to:0x0208b200 module:overlay(28)
 from:0x02054cec kind:arm_call_thumb to:0x020235e8 module:main
 from:0x02054cf8 kind:arm_call to:0x0201e4a8 module:main
 from:0x02054dac kind:load to:0x0204be18 module:main
