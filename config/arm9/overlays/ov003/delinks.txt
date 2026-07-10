@@ -8,11 +8,11 @@ src/overlays/ov003/calls/func_ov003_0204cac0.c:
     complete
     .text       start:0x0204cac0 end:0x0204cadc
 
-src/overlays/ov003/asm_stubs/calls/func_ov003_0204cadc.c:
+src/overlays/ov003/calls/func_ov003_0204cadc.c:
     complete
     .text       start:0x0204cadc end:0x0204cb44
 
-src/overlays/ov003/asm_stubs/calls/func_ov003_0204cb44.c:
+src/overlays/ov003/calls/func_ov003_0204cb44.c:
     complete
     .text       start:0x0204cb44 end:0x0204cba0
 
