@@ -1,0 +1,25 @@
+extern void func_020340d0(int arg0);
+extern int func_01fffe14(void);
+extern int func_01fffde0(unsigned int arg0);
+extern void func_ov022_020884ec(unsigned int arg0);
+extern void func_ov022_02086638(int arg0, int arg1);
+extern void func_ov022_02083c08(int arg0);
+extern void func_ov002_0205193c(void);
+extern int data_0204be04;
+extern int data_ov022_020b2e60;
+extern void func_ov022_02083530(void);
+
+int func_ov022_020834d8(void) {
+    unsigned int u;
+    int e;
+    if (*(unsigned char *)&data_0204be04 != 0) return 0;
+    func_020340d0(1);
+    u = func_01fffe14();
+    e = func_01fffde0(u);
+    *(int *)(*(int *)&data_ov022_020b2e60 + 0x30) = *(int *)(e + 0x2668);
+    func_ov022_020884ec(u);
+    func_ov022_02086638(*(int *)(*(int *)&data_ov022_020b2e60 + 8), 1);
+    func_ov022_02083c08(1);
+    func_ov002_0205193c();
+    return (int)func_ov022_02083530;
+}

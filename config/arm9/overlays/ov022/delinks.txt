@@ -16,6 +16,10 @@ src/overlays/ov022/calls/func_ov022_020831dc.c:
     complete
     .text       start:0x020831dc end:0x02083204
 
+src/overlays/ov022/calls/func_ov022_020834d8.c:
+    complete
+    .text       start:0x020834d8 end:0x02083530
+
 src/overlays/ov022/calls/func_ov022_020836f8.c:
     complete
     .text       start:0x020836f8 end:0x02083714
@@ -104,6 +108,10 @@ src/overlays/ov022/calls/func_ov022_020840c8.c:
     complete
     .text       start:0x020840c8 end:0x020840e0
 
+src/overlays/ov022/calls/func_ov022_020840e0.c:
+    complete
+    .text       start:0x020840e0 end:0x020840fc
+
 src/overlays/ov022/calls/func_ov022_020847f0.c:
     complete
     .text       start:0x020847f0 end:0x02084810
@@ -171,6 +179,10 @@ src/overlays/ov022/auto/func_ov022_02086888.c:
 src/overlays/ov022/calls/func_ov022_020869f4.c:
     complete
     .text       start:0x020869f4 end:0x02086a24
+
+src/overlays/ov022/calls/func_ov022_02086d0c.c:
+    complete
+    .text       start:0x02086d0c end:0x02086d60
 
 src/overlays/ov022/calls/func_ov022_02086d60.c:
     complete
@@ -576,6 +588,10 @@ src/overlays/ov022/auto/func_ov022_02092e08.c:
     complete
     .text       start:0x02092e08 end:0x02092e2c
 
+src/overlays/ov022/calls/func_ov022_02092e4c.c:
+    complete
+    .text       start:0x02092e4c end:0x02092e8c
+
 src/overlays/ov022/auto/func_ov022_02092ff0.c:
     complete
     .text       start:0x02092ff0 end:0x02093008
@@ -760,6 +776,10 @@ src/overlays/ov022/calls/func_ov022_0209ca88.c:
     complete
     .text       start:0x0209ca88 end:0x0209cac0
 
+src/overlays/ov022/calls/func_ov022_0209cc68.c:
+    complete
+    .text       start:0x0209cc68 end:0x0209ccb0
+
 src/overlays/ov022/calls/func_ov022_0209ccb0.c:
     complete
     .text       start:0x0209ccb0 end:0x0209ccf4
@@ -783,6 +803,10 @@ src/overlays/ov022/calls/func_ov022_0209d278.c:
 src/overlays/ov022/auto/func_ov022_0209d7a4.c:
     complete
     .text       start:0x0209d7a4 end:0x0209d7c0
+
+src/overlays/ov022/calls/func_ov022_0209f0b8.c:
+    complete
+    .text       start:0x0209f0b8 end:0x0209f118
 
 src/overlays/ov022/calls/func_ov022_0209fb50.c:
     complete
