@@ -1,6 +1,6 @@
 extern int func_ov028_0208ab78(int key, int data, int out, int nbytes);
-extern void func_02002778(unsigned int addr, int size);
-extern void func_020027b4(unsigned int addr, int size);
+extern void DC_FlushRange(unsigned int addr, int size);
+extern void IC_InvalidateRange(unsigned int addr, int size);
 
 /* Anti-tamper DECRYPTOR (MATCHED). Rebuilds a 16-byte XOR key from the 4-byte
  * marker at ctx[-1] (byte i%4, inverted at i%15==0), finds the encrypted run
@@ -28,6 +28,6 @@ void func_ov028_0208a7e0(unsigned int *ctx) {
     w = *ctx;
     while (marker != w) { n++; w = ctx[n]; }
     if (n != 0) func_ov028_0208ab78((int)key, (int)ctx, (int)ctx, n << 2);
-    func_02002778((unsigned int)ctx, n << 2);
-    func_020027b4((unsigned int)ctx, n << 2);
+    DC_FlushRange((unsigned int)ctx, n << 2);
+    IC_InvalidateRange((unsigned int)ctx, n << 2);
 }

@@ -1,6 +1,6 @@
 extern int func_ov028_0208ab20(int key, int data, int out, int nbytes);
-extern void func_02002778(unsigned int addr, int size);
-extern void func_020027b4(unsigned int addr, int size);
+extern void DC_FlushRange(unsigned int addr, int size);
+extern void IC_InvalidateRange(unsigned int addr, int size);
 
 void func_ov028_0208a8ac(unsigned int *ctx) {
     unsigned char key[16];
@@ -30,6 +30,6 @@ void func_ov028_0208a8ac(unsigned int *ctx) {
         w = ctx[i + 1];
     }
     if (i != 0) func_ov028_0208ab20((int)key, (int)(ctx + 1), (int)(ctx + 1), i << 2);
-    func_02002778((unsigned int)(ctx + 1), i << 2);
-    func_020027b4((unsigned int)(ctx + 1), i << 2);
+    DC_FlushRange((unsigned int)(ctx + 1), i << 2);
+    IC_InvalidateRange((unsigned int)(ctx + 1), i << 2);
 }
