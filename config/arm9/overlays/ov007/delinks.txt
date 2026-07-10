@@ -8,7 +8,7 @@ src/overlays/ov007/calls/func_ov007_0204cac0.c:
     complete
     .text       start:0x0204cac0 end:0x0204cb80
 
-src/overlays/ov007/asm_stubs/calls/func_ov007_0204cb80.c:
+src/overlays/ov007/calls/func_ov007_0204cb80.c:
     complete
     .text       start:0x0204cb80 end:0x0204ce30
 
