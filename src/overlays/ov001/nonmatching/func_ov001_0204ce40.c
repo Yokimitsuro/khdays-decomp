@@ -1,15 +1,18 @@
 /* NONMATCHING — semantically-equivalent C, kept out of the byte-exact build.
  *
- * Why it can't match with our toolchain: the original loads the constant 0x1c
- * via `ldr r4,[pc,#0x10c]` from the literal pool (no reloc) and holds it in a
- * callee-saved register across the whole function. Empirically probed EVERY
- * mwccarm we have (1.2 base..sp4, 2.0 base..sp2p4, 3.0_136, 3.0_patch4) at
- * -O0/-O1/-O2/-O3/-O4/-O4,p, as int and as pointer constant: they ALWAYS emit
- * `mov r1,#0x1c` (encodable immediate), never a pool load. Conclusion: in the
- * original source 0x1c was a LINKER-ASSIGNED ABSOLUTE SYMBOL (an SDK lock id),
- * so the compiler saw an opaque address constant; dsd cannot re-derive a reloc
- * from the small integer. Matching would need an absolute symbol in the LCF +
- * final-ROM-level validation. The asm stub stays authoritative for linking.
+ * The real blocker (found 2026-07-10, see docs/ov028_encrypted_code.md): this
+ * function makes three cross-overlay calls to ov028 at 0x0208b490 / 0x0208b200 /
+ * 0x0208b040, which are SELF-DECRYPTING ANTI-TAMPER functions. In the static ROM
+ * their bodies are encrypted (they don't decode as ARM), so dsd cannot attribute
+ * the calls to a module and emits them as `module:none` raw `bl`s with no reloc.
+ * You cannot link a matched C .c against a target that isn't code on disk, so the
+ * asm stub stays authoritative. This is a format/protection limit, not a codegen
+ * tie — it affects 17 module:none relocs across ov000/ov001/ov004/ov005/ov023.
+ *
+ * Secondary issue (real but moot until the above is solvable): the constant 0x1c
+ * loads via `ldr r4,[pc,#0x10c]` from the pool (no reloc). mwcc always emits
+ * `mov r1,#0x1c` for a literal; only referencing the ADDRESS of an extern symbol
+ * forces the pool load. In the original 0x1c was a linker-absolute lock id.
  *
  * Semantics: sound-heap bootstrap. Under lock id 0x1c: if func_0208b490 says a
  * (streaming?) player exists, allocate 0xC8000 bytes (16-aligned) for it; then
