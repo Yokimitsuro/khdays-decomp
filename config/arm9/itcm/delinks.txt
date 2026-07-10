@@ -69,6 +69,10 @@ src/calls/func_01ff8a50.c:
     complete
     .text       start:0x01ff8a50 end:0x01ff8a7c
 
+src/auto/func_01ff8ab0.c:
+    complete
+    .text       start:0x01ff8ab0 end:0x01ff8ad4
+
 libs/nitro/fx/auto/VEC_Add.c:
     complete
     .text       start:0x01ff8b90 end:0x01ff8bc4
@@ -141,6 +145,10 @@ src/calls/func_01ffd0e8.c:
     complete
     .text       start:0x01ffd0e8 end:0x01ffd144
 
+src/auto/func_01ffd144.c:
+    complete
+    .text       start:0x01ffd144 end:0x01ffd184
+
 src/calls/func_01ffe3c8.c:
     complete
     .text       start:0x01ffe3c8 end:0x01ffe460
@@ -181,6 +189,14 @@ src/calls/func_01fff948.c:
     complete
     .text       start:0x01fff948 end:0x01fff974
 
+src/calls/func_01fff974.c:
+    complete
+    .text       start:0x01fff974 end:0x01fff988
+
+src/calls/func_01fff988.c:
+    complete
+    .text       start:0x01fff988 end:0x01fff99c
+
 src/calls/func_01fff99c.c:
     complete
     .text       start:0x01fff99c end:0x01fff9b8
@@ -200,6 +216,10 @@ src/calls/func_01fffa60.c:
 src/asm_stubs/calls/func_01fffac0.c:
     complete
     .text       start:0x01fffac0 end:0x01fffaf4
+
+src/calls/func_01fffbf4.c:
+    complete
+    .text       start:0x01fffbf4 end:0x01fffc24
 
 src/auto/func_01fffc24.c:
     complete
@@ -232,6 +252,10 @@ src/auto/func_01fffdac.c:
 src/auto/func_01fffdc4.c:
     complete
     .text       start:0x01fffdc4 end:0x01fffde0
+
+src/calls/func_01fffde0.c:
+    complete
+    .text       start:0x01fffde0 end:0x01fffe14
 
 src/asm_stubs/calls/func_01fffe14.c:
     complete
