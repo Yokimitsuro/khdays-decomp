@@ -1,6 +1,7 @@
+/* Set display mode (DISPCNT bits 8-12) to mode 0x800 on both 2D engines. */
 void func_ov008_02081544(void) {
-    volatile int *a = (volatile int *)0x4000000;
-    volatile int *b = (volatile int *)0x4001000;
-    *a = (*a & ~0x1f00) | 0x800;
-    *b = (*b & ~0x1f00) | 0x800;
+    volatile int *reg_dispcnt_a = (volatile int *)0x04000000;
+    volatile int *reg_dispcnt_b = (volatile int *)0x04001000;
+    *reg_dispcnt_a = (*reg_dispcnt_a & ~0x1f00) | 0x800;
+    *reg_dispcnt_b = (*reg_dispcnt_b & ~0x1f00) | 0x800;
 }

@@ -23,8 +23,9 @@ int func_ov010_0204ce60(void) {
         }
         break;
     case 2: {
-        unsigned short pressed = (unsigned short)(((*(volatile unsigned short *)0x04000130 |
-                                                    *(volatile unsigned short *)0x027fffa8) ^ 0x2fff) & 0x2fff);
+        volatile unsigned short *reg_keyinput = (volatile unsigned short *)0x04000130;
+        volatile unsigned short *reg_extkeyin = (volatile unsigned short *)0x027fffa8; /* ARM7 X/Y+hinge */
+        unsigned short pressed = (unsigned short)(((*reg_keyinput | *reg_extkeyin) ^ 0x2fff) & 0x2fff);
         if (pressed & 1) {
             *(int *)(root + 0x78) = 3;
         }

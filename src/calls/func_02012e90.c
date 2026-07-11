@@ -44,7 +44,8 @@ void func_02012e90(u32 a, BgData *bg, Rect *r) {
     if ((s32)a > 3) {
         a = 0x06200000;
     } else {
-        a = ((*(volatile u32 *)0x04000000) & 0x07000000) >> 24 << 16;
+        volatile u32 *reg_dispcnt = (volatile u32 *)0x04000000; /* VRAM block = bits 24-26 */
+        a = ((*reg_dispcnt) & 0x07000000) >> 24 << 16;
         a += 0x06000000;
     }
 

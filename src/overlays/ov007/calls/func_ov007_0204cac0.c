@@ -18,19 +18,20 @@ void func_ov007_0204cac0(void) {
     GX_SetBankForBGExtPltt(0x20);
     GX_SetBankForOBJ(2);
     {
-        volatile unsigned int *reg = (volatile unsigned int *)0x04000000;
+        volatile unsigned int *reg_dispcnt = (volatile unsigned int *)0x04000000;
 
-        reg[0] = reg[0] & 0xffcfffef | 0x10 | 0x200000;
-        *(volatile unsigned short *)((char *)reg + 0xa) =
-            *(volatile unsigned short *)((char *)reg + 0xa) & 0x43 | 0x90;
-        *(volatile unsigned short *)((char *)reg + 0xc) =
-            *(volatile unsigned short *)((char *)reg + 0xc) & 0x43 | 0x104;
+        reg_dispcnt[0] = reg_dispcnt[0] & 0xffcfffef | 0x10 | 0x200000;
+        *(volatile unsigned short *)((char *)reg_dispcnt + 0xa) =
+            *(volatile unsigned short *)((char *)reg_dispcnt + 0xa) & 0x43 | 0x90;
+        *(volatile unsigned short *)((char *)reg_dispcnt + 0xc) =
+            *(volatile unsigned short *)((char *)reg_dispcnt + 0xc) & 0x43 | 0x104;
+        /* POWCNT1: bit15 = swap top/bottom LCD */
         *(volatile unsigned short *)0x04000304 =
             *(volatile unsigned short *)0x04000304 | 0x8000;
-        reg[0] = reg[0] & ~0x1f00 | 0x1600;
-        *(volatile unsigned short *)((char *)reg + 0xa) =
-            *(volatile unsigned short *)((char *)reg + 0xa) & ~3 | 1;
-        *(volatile unsigned short *)((char *)reg + 0xc) =
-            *(volatile unsigned short *)((char *)reg + 0xc) & ~3;
+        reg_dispcnt[0] = reg_dispcnt[0] & ~0x1f00 | 0x1600;
+        *(volatile unsigned short *)((char *)reg_dispcnt + 0xa) =
+            *(volatile unsigned short *)((char *)reg_dispcnt + 0xa) & ~3 | 1;
+        *(volatile unsigned short *)((char *)reg_dispcnt + 0xc) =
+            *(volatile unsigned short *)((char *)reg_dispcnt + 0xc) & ~3;
     }
 }
