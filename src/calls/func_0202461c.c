@@ -1,18 +1,17 @@
+/* Program BG1CNT engine B (0x0400100a) for a BG ext-palette slot. */
 extern int GX_GetBankForBGExtPltt(int arg);
 
-void func_0202461c(int arg0, int arg1, int arg2, int arg3) {
-    int bank = GX_GetBankForBGExtPltt(arg0);
-    int bit;
+void func_0202461c(int size, int colorMode, int screenBase, int charBase) {
+    int bank = GX_GetBankForBGExtPltt(size);
+    int extPal;
     if (bank == 0x20 || bank == 0x10 || bank == 0x60) {
-        bit = 0;
+        extPal = 0;
     } else {
-        bit = 1;
+        extPal = 1;
     }
-    *(volatile unsigned short *)0x400100a =
-        (*(volatile unsigned short *)0x400100a & 0x43)
-        | (arg0 << 14)
-        | (arg1 << 7)
-        | (arg2 << 8)
-        | (arg3 << 2)
-        | (bit << 13);
+    {
+        volatile unsigned short *reg_bg1cnt_b = (volatile unsigned short *)0x0400100a;
+        *reg_bg1cnt_b = (*reg_bg1cnt_b & 0x43)
+            | (size << 14) | (colorMode << 7) | (screenBase << 8) | (charBase << 2) | (extPal << 13);
+    }
 }

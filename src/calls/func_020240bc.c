@@ -1,4 +1,6 @@
-void func_020240bc(int arg0, int arg1, int arg2, int arg3, int arg4) {
-    *(unsigned short *)0x04001008 = *(unsigned short *)0x04001008 & 0x43
-        | (arg0 << 0xe) | (arg1 << 7) | (arg2 << 8) | (arg3 << 2) | (arg4 << 0xd);
+/* Set BG0CNT engine B (0x04001008), preserving priority + mosaic (0x43). */
+void func_020240bc(int size, int colorMode, int screenBase, int charBase, int extPal) {
+    volatile unsigned short *reg_bg0cnt_b = (volatile unsigned short *)0x04001008;
+    *reg_bg0cnt_b = *reg_bg0cnt_b & 0x43
+        | (size << 0xe) | (colorMode << 7) | (screenBase << 8) | (charBase << 2) | (extPal << 0xd);
 }
