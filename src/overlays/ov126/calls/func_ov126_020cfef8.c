@@ -3,7 +3,7 @@ struct row8 { int p; int pad; };
 extern void func_0203c7e8(int a);
 extern void func_0203d194(int a);
 extern void func_ov107_020c68ec(int a);
-void func_ov125_020cc2b8(int param_1) {
+void func_ov126_020cfef8(int param_1) {
     int i;
     func_0203c7e8(*(int *)(param_1 + 0x384));
     for (i = 0; i < 9; i++)
