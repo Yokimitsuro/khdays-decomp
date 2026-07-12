@@ -1,0 +1,13 @@
+/* Unless the busy byte at *(child+4)+0xad is set, play the anim (ov107 mode 5,1), run the
+ * local setup (mode 0) and register the handler. */
+extern void func_ov107_020c9264(int a, int b, int c);
+extern void func_ov266_020cfecc(int a, int b);
+extern int func_0203c634(int a, int b, void *handler);
+extern void func_ov266_020d272c(int);
+void func_ov266_020d26dc(int param_1) {
+    int child = *(int *)(param_1 + 4);
+    if (*(unsigned char *)(*(int *)(child + 4) + 0xad) != 0) return;
+    func_ov107_020c9264(*(int *)child, 5, 1);
+    func_ov266_020cfecc(*(int *)child, 0);
+    func_0203c634(param_1, *(signed char *)(param_1 + 0x20), (void *)&func_ov266_020d272c);
+}
