@@ -1,7 +1,11 @@
-/* Equivalent, readable C. NOT byte-exact: 4B over. mwcc colors `frame` into r1
- * and `ret` into r0 where the ROM uses r0/r1, plus a different schedule of the
- * root+0x30 address materialization. Register-coloring + scheduling tie — no mwcc
- * generation matches (verify_sweep). Stub keeps the blob byte-exact. */
+/* Equivalent, readable C. NOT byte-exact: register-coloring tie. The ROM keeps
+ * `frame` in r0 and `ret` in r1 (with a trailing `mov r0,r1`), because the B-button
+ * input read at the tail clobbers r0; mwcc-139/136/2.0/dsi instead pin the return
+ * value `ret` to r0 and read the input into r1 (both valid, saves the mov -> 4B short).
+ * IMPROVED over the prior nonmatching: `v` is `int` (not `unsigned short`), which drops
+ * a spurious lsl#16;lsr#16 truncation and makes the whole else-branch byte-exact; only
+ * the r0/r1 return coloring now differs. Unreachable across 25 mwcc builds (incl. retail
+ * 3.0/136) + ~8 source forms. Stub keeps the blob byte-exact. */
 extern int NNSi_FndGetCurrentRootHeap(void);
 extern void func_0202fa20(void *p);
 extern void func_0202f9f8(void *p);
@@ -27,7 +31,7 @@ int func_ov007_0204d23c(void) {
         func_0202f9f8((void *)(root + 0x30));
         ret = (int)func_ov007_0204cf7c;
     } else {
-        unsigned short v = 0x20 - frame * 4;
+        int v = 0x20 - frame * 4;
         *(volatile unsigned short *)0x05000002 = v | v * 0x20 | v * 0x400;
     }
     if ((data_0204c190 & 8) != 0) {
