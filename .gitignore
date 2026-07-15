@@ -11,6 +11,9 @@
 /build/*.sav
 !/build/known_mismatches.txt
 
+# ── Emulator trace-coverage tooling (local-only, regenerable) ─────────────────
+/emu_trace/
+
 # ── Build artifacts (regenerated locally) ─────────────────────────────────────
 /build/delinks/
 /build/obj/
@@ -69,3 +72,6 @@ __pycache__/
 !/sdk/include/function_target.h
 !/sdk/include/main.h
 !/sdk/include/mmap.h
+
+# Local-only decomp skill (project reference, not redistributed)
+/.claude/skills/
