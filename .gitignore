@@ -75,3 +75,9 @@ __pycache__/
 
 # Local-only decomp skill (project reference, not redistributed)
 /.claude/skills/
+
+# ── Ghidra project (ROM-derived disassembly DB — never commit) ───────────────
+*.gpr
+*.rep/
+/ghidra_*/
+.ghidra/
