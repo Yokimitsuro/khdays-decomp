@@ -9,10 +9,10 @@ identical** to the original game code.
 > the original binary/assembly. **An existing, legally-obtained copy of the game
 > is required** to extract and build it.
 >
-> This project **is not, and will not, produce a port** to PC or any other
-> platform. It is a decompilation of the original game code that can be compiled
-> back into a binary identical to the original. All trademarks and the original
-> game are property of their respective owners.
+> This repository is a **matching decompilation only**. It does not contain or
+> produce a playable build or any redistributable game binary, and building it
+> requires an original, legally-obtained copy of the game. All trademarks and the
+> original game are property of their respective owners.
 
 ## Status
 
