@@ -16,6 +16,13 @@
  *   - `v = *(Self *)self` (struct by value): worse, it allocates 8 more bytes of stack and still
  *     emits two ldrs.
  *
+ * Useful comparison found later: func_ov208_020d1be0 MATCHES and opens with the same
+ * `ctx[N] = *(int *)(*(int *)self + 0x2c) * 30 / M` -- but its ROM emits a plain `ldr r1,[r6]` for
+ * self[0] and loads ctx separately much later, so no ldm is involved. ov125's ROM loads self[0] and
+ * self[1] TOGETHER because it needs ctx immediately. So the ldm is not about the div at all: it is
+ * about both words being wanted at once, and the question is only what makes mwcc schedule the two
+ * loads back to back.
+ *
  * The regs are already ascending (scene in a lower reg than ctx) and the offsets are 0 and 4, so
  * the shape mwcc would need for the peephole is there -- it just does not fire. Next idea worth
  * trying: something that forces the two loads adjacent in the SCHEDULE, not just in the source.
