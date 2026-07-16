@@ -18,30 +18,49 @@
  * link offset, the button bit and the value parked back in +0x4a78.
  *
  * ------------------------------------------------------------------------------------------
- * ★ UNFINISHED -- this is NOT a proven tie, just where I ran out of time. 696 vs 656 bytes, and
- * the whole 40 is one steerable thing: how mwcc SPLITS the >0xfff offsets.
+ * ★ UNFINISHED -- NOT a proven tie. Now at **656/656 bytes with the instruction stream identical**;
+ * all that is left is a REGISTER PERMUTATION (39 operand differences, no structural ones).
  *
- *   ROM:  add r1,r5,#0x4a00 ; ldrh r2,[r1,#0x78]     (base + the field as the load offset)
- *   mine: add r0,r5,#0x278 ; add r3,r0,#0x4800 ; strheq r0,[r3]   (full address, offset 0)
+ * The 40 bytes it started at were the >0xfff offset splitting, and three things fixed that:
+ *   - the two bases really are two structs, and modelling them is what keeps the ROM's split:
+ *     `Screen` at self+0x4000 (ldr has a 12-bit offset, so +0xa50/+0xa70 reach from there) and
+ *     `NavState` at self+0x4a00 (strh only has 8 bits, so it needs its own base for +0x78).
+ *     Raw `*(u16 *)(self + 0x4a78)` makes mwcc materialise the whole address instead;
+ *   - `dirs` read once after the 0xf0 reset and reused by all four tests (2 instructions each);
+ *   - the accept callback loaded INSIDE its condition -- `(cb = *(...)(cur + 0x98)) != 0` gives
+ *     the ROM's single `ldrne r1` / `cmpne` / `blx r1`; testing the field then calling through it
+ *     reads it twice.
  *
- * The interesting part: mwcc splits it the ROM's way for the FIRST access (`cur = *(int *)(self +
- * 0x4a70)` gives `add r0,r5,#0x4000 ; ldr r0,[r0,#0xa70]`, byte-identical) and the wrong way for
- * the ones inside the loops, where it is a nested deref. So the lever exists; I have not found it.
+ * What remains is r1/r2 swapped from the very first temporaries onward:
+ *   ROM:  ldr r2,[pc] (&mask) ; add r1,r5,#0x4a00 (nav base)   -> dirs ends up in r2
+ *   mine: ldr r1,[pc] (&mask) ; add r2,r5,#0x4a00              -> dirs ends up in r1
+ * and everything cascades from there. Tried and rejected: flipping the `&` operands, `dirs` as
+ * unsigned short vs int. These are scratch registers, so the declaration-order lever (which
+ * governs r4..r8) does not reach them.
  *
- * Things worth trying next, roughly in order:
- *   - model self+0x4000 / self+0x4a00 as real structs and access the fields through them, which
- *     is what the two bases look like (this is what fixed func_ov000_0205721c);
- *   - a `char *` base local for each (the catalog's "base beyond 0xfff" crack) -- note the ROM
- *     RE-COMPUTES `add rN,r5,#0x4a00` per use rather than hoisting, so a hoisted local may not be
- *     it;
- *   - a `char *self` parameter instead of int.
- * The `dirs` local is already right: the ROM reads self+0x4a78 once after the 0xf0 reset and
- * reuses it for all four tests. Semantics are settled; only the addressing is open. */
+ * Semantics and structure are settled -- do not re-derive them. This needs the r1/r2 coin-flip
+ * only. */
 
 typedef struct {
     unsigned disabled : 1;
     unsigned focusable : 1;
 } NodeFlags;
+
+/* The screen block sits at self+0x4000: ldr has a 12-bit offset, so mwcc reaches +0xa50/+0xa70
+   from that base. The nav block below needs its own because strh only has 8 bits. */
+typedef struct {
+    char reserved[0xa50];
+    void (*handler)(int, int);
+    char reserved2[0x1c];
+    int focused;
+} Screen;
+
+/* The nav block sits at self+0x4a00 and mwcc addresses it as base+0x78, because strh only has an
+   8-bit offset. Modelling it as a struct is what keeps that split. */
+typedef struct {
+    char reserved[0x78];
+    unsigned short dirs;
+} NavState;
 
 extern void func_ov000_02055d98(int self, int node);
 extern unsigned short data_0204c18c;
@@ -49,20 +68,21 @@ extern unsigned short data_0204c18c;
 void func_ov000_020552b4(int self, int keys) {
     int cur;
     int n;
-    int dirs;
+    unsigned short dirs;
+    void (*cb)(int);
 
-    cur = *(int *)(self + 0x4a70);
+    cur = ((Screen *)(self + 0x4000))->focused;
     if (cur == 0) {
         return;
     }
 
-    if ((data_0204c18c & *(unsigned short *)(self + 0x4a78)) == 0) {
-        *(unsigned short *)(self + 0x4a78) = 0xf0;
+    if ((((NavState *)(self + 0x4a00))->dirs & data_0204c18c) == 0) {
+        ((NavState *)(self + 0x4a00))->dirs = 0xf0;
     }
     /* Read ONCE, after the reset, and reused by all four tests -- that is what the ROM does
        (ldrh into r2, then four `tst r1,r2`). Re-reading the field per test costs 2 instructions
        each. */
-    dirs = *(unsigned short *)(self + 0x4a78);
+    dirs = ((NavState *)(self + 0x4a00))->dirs;
 
     if ((keys & 0x40) & dirs) {
         n = *(int *)(cur + 0x88);
@@ -71,12 +91,12 @@ void func_ov000_020552b4(int self, int keys) {
         }
         for (;;) {
             if (*(int *)(n + 0xc) == *(int *)(cur + 0xc)
-                || *(int *)(n + 0xc) == *(int *)(*(int *)(self + 0x4a70) + 0xc)) {
+                || *(int *)(n + 0xc) == *(int *)(((Screen *)(self + 0x4000))->focused + 0xc)) {
                 goto tail;
             }
             if (!((NodeFlags *)(n + 0x84))->disabled && ((NodeFlags *)(n + 0x84))->focusable) {
                 func_ov000_02055d98(self, n);
-                *(unsigned short *)(self + 0x4a78) = 0x40;
+                ((NavState *)(self + 0x4a00))->dirs = 0x40;
                 goto tail;
             }
             cur = n;
@@ -94,12 +114,12 @@ void func_ov000_020552b4(int self, int keys) {
         }
         for (;;) {
             if (*(int *)(n + 0xc) == *(int *)(cur + 0xc)
-                || *(int *)(n + 0xc) == *(int *)(*(int *)(self + 0x4a70) + 0xc)) {
+                || *(int *)(n + 0xc) == *(int *)(((Screen *)(self + 0x4000))->focused + 0xc)) {
                 goto tail;
             }
             if (!((NodeFlags *)(n + 0x84))->disabled && ((NodeFlags *)(n + 0x84))->focusable) {
                 func_ov000_02055d98(self, n);
-                *(unsigned short *)(self + 0x4a78) = 0x80;
+                ((NavState *)(self + 0x4a00))->dirs = 0x80;
                 goto tail;
             }
             cur = n;
@@ -117,12 +137,12 @@ void func_ov000_020552b4(int self, int keys) {
         }
         for (;;) {
             if (*(int *)(n + 0xc) == *(int *)(cur + 0xc)
-                || *(int *)(n + 0xc) == *(int *)(*(int *)(self + 0x4a70) + 0xc)) {
+                || *(int *)(n + 0xc) == *(int *)(((Screen *)(self + 0x4000))->focused + 0xc)) {
                 goto tail;
             }
             if (!((NodeFlags *)(n + 0x84))->disabled && ((NodeFlags *)(n + 0x84))->focusable) {
                 func_ov000_02055d98(self, n);
-                *(unsigned short *)(self + 0x4a78) = 0x20;
+                ((NavState *)(self + 0x4a00))->dirs = 0x20;
                 goto tail;
             }
             cur = n;
@@ -140,12 +160,12 @@ void func_ov000_020552b4(int self, int keys) {
         }
         for (;;) {
             if (*(int *)(n + 0xc) == *(int *)(cur + 0xc)
-                || *(int *)(n + 0xc) == *(int *)(*(int *)(self + 0x4a70) + 0xc)) {
+                || *(int *)(n + 0xc) == *(int *)(((Screen *)(self + 0x4000))->focused + 0xc)) {
                 goto tail;
             }
             if (!((NodeFlags *)(n + 0x84))->disabled && ((NodeFlags *)(n + 0x84))->focusable) {
                 func_ov000_02055d98(self, n);
-                *(unsigned short *)(self + 0x4a78) = 0x10;
+                ((NavState *)(self + 0x4a00))->dirs = 0x10;
                 goto tail;
             }
             cur = n;
@@ -156,16 +176,18 @@ void func_ov000_020552b4(int self, int keys) {
         }
     }
 
-    if ((keys & 1) && *(int *)(cur + 0x98) != 0) {
-        (*(void (**)(int))(cur + 0x98))(*(int *)(self + 0x4a70));
+    /* The callback is loaded INSIDE the condition, so it is read once (the ROM's `ldrne r1` /
+     * `cmpne r1,#0` / `blx r1`); testing the field and then calling through it reads it twice. */
+    if ((keys & 1) && (cb = *(void (**)(int))(cur + 0x98)) != 0) {
+        cb(((Screen *)(self + 0x4000))->focused);
     }
 
 tail:
-    if (*(int *)(self + 0x4a50) == 0) {
+    if (((Screen *)(self + 0x4000))->handler == 0) {
         return;
     }
     if ((keys & 0x2fff) == 0) {
         return;
     }
-    (*(void (**)(int, int))(self + 0x4a50))(*(int *)(self + 0x4a70), keys);
+    ((Screen *)(self + 0x4000))->handler(((Screen *)(self + 0x4000))->focused, keys);
 }
