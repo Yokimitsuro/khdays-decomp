@@ -1,4 +1,4 @@
-# dedupprop.py -- masked-hex twin propagation.
+﻿# dedupprop.py -- masked-hex twin propagation.
 #
 # Two functions whose bytes are identical once the reloc'd words are masked out are the same
 # code modulo which symbols they reference. If one already has a matched .c, the twin's .c is
@@ -15,10 +15,19 @@ WRITE = "--write" in sys.argv
 
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
-# where each already-carved function lives
-done = {}
+def is_nonmatching(path):
+    return os.sep + "nonmatching" + os.sep in path
+
+# Where each already-carved function lives. A nonmatching/ file is NOT "done" -- it is a
+# recorded failure, and it is exactly the kind of function a matched twin can rescue. Keep the
+# two maps apart: `done` gates who can be a rep, `attempted` remembers the file to retire.
+done, attempted = {}, {}
 for p in glob.glob(os.path.join(ROOT, "src", "**", "*.c"), recursive=True):
-    done[os.path.basename(p)[:-2]] = p
+    n = os.path.basename(p)[:-2]
+    if is_nonmatching(p):
+        attempted[n] = p
+    else:
+        done[n] = p
 
 def masked(e):
     """hex with every reloc'd word zeroed -> identical for twins."""
@@ -36,14 +45,11 @@ for name, e in idx.items():
         continue
     groups[masked(e)].append(name)
 
-def is_nonmatching(path):
-    return os.sep + "nonmatching" + os.sep in path
-
 cands = []
 for mh, names in groups.items():
     if len(names) < 2:
         continue
-    reps = [n for n in names if n in done and not is_nonmatching(done[n])]
+    reps = [n for n in names if n in done]
     todo = [n for n in names if n not in done]
     if not reps or not todo:
         continue
@@ -88,7 +94,7 @@ def verify(path, name, thumb):
     except Exception:
         return False
 
-matched, failed = [], []
+matched, failed, rescued = [], [], []
 for rep, twin in cands:
     src = open(done[rep], encoding="utf-8", errors="replace").read()
     new = subst(src, rep, twin)
@@ -107,17 +113,25 @@ for rep, twin in cands:
     path = os.path.join(d, twin + ".c")
     if os.path.exists(path):
         continue
+    tag = "  (rescues a nonmatching/)" if twin in attempted else ""
     if not WRITE:
-        print("  would try %-26s <- %s" % (twin, rep))
+        print("  would try %-26s <- %s%s" % (twin, rep, tag))
         continue
     open(path, "w", encoding="utf-8", newline="\n").write(new)
     ok = verify(path, twin, False) or verify(path, twin, True)
     if ok:
         matched.append((twin, rep))
-        print("  MATCH   %-26s <- %s" % (twin, rep))
+        # A matched twin retires any earlier nonmatching/ attempt -- leaving it would claim the
+        # function is an unresolvable tie while the byte-exact C sits next to it.
+        if twin in attempted:
+            os.remove(attempted[twin])
+            rescued.append(twin)
+        print("  MATCH   %-26s <- %s%s" % (twin, rep, tag))
     else:
         os.remove(path)
         failed.append((twin, rep))
 
 print()
-print("matched=%d  failed=%d" % (len(matched), len(failed)))
+print("matched=%d  failed=%d  rescued-from-nonmatching=%d" % (len(matched), len(failed), len(rescued)))
+for t in rescued:
+    print("  retired nonmatching/%s.c" % t)
