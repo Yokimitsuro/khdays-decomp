@@ -1,9 +1,3 @@
-/* NONMATCHING: byte-identical except one register-allocation tie (r1<->r2) in the
- * BG-priority block. The ROM assigns r1 to the twice-used sub-engine pool pointer
- * (bgs2, 0x0400100c) and r2 to the once-used derived sub-BG1 pointer (bg1+0x800);
- * our mwcc reserves r1 for the derived pointer and r2 for the pool one. Same 816 bytes,
- * ~200/200 instructions match; only the 6 BG-block ldrh/strh base registers differ.
- * Neither declaration reorder, inlining bgs1, nor absolute-vs-derived bg0 flips it. */
 /* func_ov006_0205454c -- title screen scene constructor, ov006.
  * Allocates the title work heap (0x97f8 bytes) and stores it in the scene-object slot
  * data_ov006_02056664, brings up the 2D display (POWCNT1, VRAM banks BG=3/subBG=4/
@@ -79,7 +73,7 @@ void *func_ov006_0205454c(int arg) {
         bg1[1] = bg1[1] & ~3 | 2;
         *bg0 = *bg0 & ~3 | 1;
         bg1[2] = bg1[2] & ~3;
-        bg1[0x800] = bg1[0x800] & ~3 | 2;
+        *(vu16 *)0x0400100a = *(vu16 *)0x0400100a & ~3 | 2;
         *bgs2 = *bgs2 & ~3 | 1;
         bgs2[1] = bgs2[1] & ~3;
     }
