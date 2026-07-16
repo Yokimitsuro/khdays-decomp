@@ -13,19 +13,7 @@
  *
  * The hw60 write HAS the lsl#0x10/lsr#0x10 trunc pair -> bitfield form; the +8 field is
  * byte-in-word. See codegen-cracks.md.
- *
- * ------------------------------------------------------------------------------------------
- * UNFINISHED, not a tie: 528 vs 524 -- ONE instruction. mwcc hoists a partial address
- * (\dd r1,r3,#0xc6\) out of the switch because +0x1c6 is written in TWO places (the reset copy
- * and case 1s rewrite) and it CSEs the address; the ROM just uses \strb r1,[r2,#0x1c6]\ in the
- * body off the ctx[0] it already has. Everything else is byte-identical.
- *
- * Worth trying: model ctx[0] as a struct so the two writes are field accesses rather than pointer
- * arithmetic (that is the fix that worked on func_ov208_020d0138 and func_ov000_0205721c). Note
- * the ROM reaches the SAME field two ways depending on the instruction -- \dd rN,r2,#0x100 ;
- * ldrsb [rN,#0xc7]\ to read (ldrsb has an 8-bit offset) but \strb r1,[r2,#0x1c6]\ to write (strb
- * has 12) -- so the struct has to survive both. Every other dispatcher matched with the raw form,
- * so this is specific to having two writers. */
+ */
 
 typedef struct {
     unsigned short lo : 8;
@@ -35,6 +23,14 @@ typedef struct {
 typedef struct {
     unsigned f : 8;
 } B8;
+
+/* The move slots are real fields: +0x1c6 has TWO writers (the reset copy and case 1s rewrite) and
+ * pointer arithmetic makes mwcc CSE a partial address and hoist it out of the switch. */
+typedef struct {
+    char reserved[0x1c6];
+    signed char cur;
+    signed char queued;
+} Owner;
 
 extern void func_0203c634(int self, int slot, void (*cb)(void));
 extern void func_ov257_020cd60c(void);
@@ -55,7 +51,7 @@ void func_ov257_020cd370(int self) {
     int *ctx;
 
     ctx = *(int **)(self + 4);
-    if (*(signed char *)(ctx[0] + 0x1c7) == -1) {
+    if (((Owner *)ctx[0])->queued == -1) {
         return;
     }
 
@@ -64,14 +60,14 @@ void func_ov257_020cd370(int self) {
     ((Hw60 *)(ctx[0] + 0x60))->hi &= ~0xce;
     *(unsigned short *)(ctx[0] + 0x1ae) &= ~1;
     ((B8 *)(*(int *)(ctx[0] + 0x3b4) + 8))->f |= 1;
-    *(signed char *)(ctx[0] + 0x1c6) = *(signed char *)(ctx[0] + 0x1c7);
+    ((Owner *)ctx[0])->cur = ((Owner *)ctx[0])->queued;
 
-    switch (*(signed char *)(ctx[0] + 0x1c6)) {
+    switch (((Owner *)ctx[0])->cur) {
     case 0:
         func_0203c634(self, 1, func_ov257_020cd60c);
         break;
     case 1:
-        *(signed char *)(ctx[0] + 0x1c6) = 2;
+        ((Owner *)ctx[0])->cur = 2;
         /* fall through */
     case 2:
         func_0203c634(self, 1, func_ov257_020cd6f0);
@@ -111,5 +107,5 @@ void func_ov257_020cd370(int self) {
         break;
     }
 
-    *(signed char *)(ctx[0] + 0x1c7) = -1;
+    ((Owner *)ctx[0])->queued = -1;
 }
