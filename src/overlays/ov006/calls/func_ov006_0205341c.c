@@ -1,9 +1,9 @@
-/* func_ov006_0205341c -- upload the title text/logo cell graphics per sub-state, ov006.
- * Loads sub-resource 0 of the localized title pack (res_&.p2 container at base[0], entry
+/* func_ov006_0205341c -- upload the text/logo cell graphics per sub-state, ov006.
+ * Loads sub-resource 0 of the localized Mission Mode pack (res_&.p2 container at base[0], entry
  * (container+0x8000 & 0xfffffc)<<7 | 0x8000000N where N is the sub-resource index) via
  * Archive_LoadFile, builds cells with func_02024c94(&info, arch, -1, idx, param) and uploads
  * their palette (pPltt->[8]/[0xc]) and BG3 char data (pChar->[0x10]/[0x14]) to the sub engine.
- *   Normal title states {0,1,2,3,10,11,13,14}: main-pack cells idx 1 then idx 0; when
+ *   Normal Mission Mode states {0,1,2,3,10,11,13,14}: main-pack cells idx 1 then idx 0; when
  *     func_02024e5c()!=1 also overlays language pack sub-resource 3 (idx 0 cell).
  *   Attract states {4,5,6,7}: main-pack cells idx 3, then idx 4, then idx 2; language variant
  *     uses sub-resource 4. Other states do nothing but free the pack. */

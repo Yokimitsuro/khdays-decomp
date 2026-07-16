@@ -1,4 +1,4 @@
-/* func_ov006_0204e0c4 -- title: push the current display config (mode 2) plus the live key
+/* func_ov006_0204e0c4 -- Mission Mode: push the current display config (mode 2) plus the live key
  * state to func_02031600. The scene object carries its key block at +0x42c: the raw key word
  * at +4 and its packed form at +8, which func_ov006_0204feb0 turns into the handler's key code. */
 extern int  func_ov006_0204feb0(short *keys);

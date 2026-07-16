@@ -1,7 +1,7 @@
 /* NONMATCHING: structurally byte-exact (108B, correct pool order) except a register-allocation
  * tie -- the ROM holds the option-table global address in r8 and the fallback string in r9, where
  * our mwcc swaps them (r9/r4). Only register numbers differ. Title menu-label buffer fill. */
-/* func_ov006_0204f9b0 -- fill a 4-row text buffer with the title's menu labels, ov006.
+/* func_ov006_0204f9b0 -- fill a 4-row text buffer with the Mission Mode's menu labels, ov006.
  * For each of 4 rows (0xb shorts apart in the dst buffer), copies the corresponding option
  * string from the option table (base+0x154, 0xc0-byte stride) when the row is within the live
  * option count (base[0x100]); rows past the count get the empty/placeholder string

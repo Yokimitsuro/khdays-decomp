@@ -1,4 +1,4 @@
-/* func_ov006_02056118 -- title: per-frame watchdog on the boot/scene object.
+/* func_ov006_02056118 -- Mission Mode: per-frame watchdog on the boot/scene object.
  * Ticks the object held at data_ov006_02056668, and once it reports state 2 (finished) reads
  * the result (func_0200108c) and requests shutdown/reset with code -2. The global is re-read
  * after the tick because the tick may replace the object. */

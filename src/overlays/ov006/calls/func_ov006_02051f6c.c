@@ -1,5 +1,5 @@
-/* func_ov006_02051f6c -- title input poll, ov006. 0 = idle; 2 = attract timeout fired
- * (key 9 + func_ov006_0204fd94); 1 = Start pressed (key 7). Guarded by the title-ready
+/* func_ov006_02051f6c -- Mission Mode input poll, ov006. 0 = idle; 2 = attract timeout fired
+ * (key 9 + func_ov006_0204fd94); 1 = Start pressed (key 7). Guarded by the Mission Mode-ready
  * flag data_ov006_02056660. */
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void *data_ov006_02056660;

@@ -1,4 +1,4 @@
-/* func_ov006_020560cc -- allocate an 8-byte title sub-object, instantiate its class into it,
+/* func_ov006_020560cc -- allocate an 8-byte Mission Mode sub-object, instantiate its class into it,
  * and return the object's update entry (func_ov006_02056154). */
 extern int  NNSi_FndGetCurrentRootHeap(void);
 extern void MI_CpuFill8(void *dst, int val, unsigned int size);

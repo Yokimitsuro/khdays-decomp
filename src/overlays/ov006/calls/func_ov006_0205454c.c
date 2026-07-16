@@ -1,11 +1,11 @@
-/* func_ov006_0205454c -- title screen scene constructor, ov006.
- * Allocates the title work heap (0x97f8 bytes) and stores it in the scene-object slot
+/* func_ov006_0205454c -- Mission Mode scene constructor, ov006.
+ * Allocates the Mission Mode work heap (0x97f8 bytes) and stores it in the scene-object slot
  * data_ov006_02056664, brings up the 2D display (POWCNT1, VRAM banks BG=3/subBG=4/
  * OBJ=0x70/subOBJ=8, graphics mode), programs the BG priority registers (main BG0..3 =
  * 1/3/2/0, sub BG1..3 = 2/1/0), allocates eight 0x600-byte cell buffers, loads the two
- * title graphic resources (data_..540/..55c) and the two message containers
+ * font resources (data_..540/..55c) and the two message containers
  * (UI .p2 at data_..578/..588 via func_02024ee8), seeds the animation state, sets the
- * display mode bits, and boots the title sub-state (id 0xd when arg!=0) before returning
+ * display mode bits, and boots the Mission Mode sub-state (id 0xd when arg!=0) before returning
  * the next scene-state function (func_ov006_02054a00). */
 typedef volatile unsigned short vu16;
 typedef volatile unsigned int vu32;

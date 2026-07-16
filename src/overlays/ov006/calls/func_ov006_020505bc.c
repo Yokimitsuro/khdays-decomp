@@ -1,5 +1,5 @@
-/* func_ov006_020505bc -- test whether the title menu confirm should fire, ov006.
- * When the title is idle (base+0x20 == 0), checks the currently highlighted option
+/* func_ov006_020505bc -- test whether the Mission Mode menu confirm should fire, ov006.
+ * When the Mission Mode is idle (base+0x20 == 0), checks the currently highlighted option
  * (func_ov006_0204f554 on the 0-based cursor from base+0x38); when active, checks the generic
  * confirm (func_ov006_0204f470). Either success selects the confirm state fn
  * (func_ov006_02050630). Always refreshes the cursor sprite (func_ov006_02055b0c(0xff)) and, on

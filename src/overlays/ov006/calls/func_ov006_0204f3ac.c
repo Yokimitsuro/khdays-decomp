@@ -1,4 +1,4 @@
-/* func_ov006_0204f3ac -- title: which menu entry is the cursor on?
+/* func_ov006_0204f3ac -- Mission Mode: which menu entry is the cursor on?
  * Returns 0 while the scene is locked out (obj+0x4e8 set), the live cursor index
  * (func_02030788) once the entry is selectable, and 0xff otherwise. */
 extern int func_ov006_0204d5f8(void);

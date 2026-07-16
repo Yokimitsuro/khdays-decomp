@@ -1,8 +1,8 @@
 /* NONMATCHING: correct; -4B CSE tie. The ROM saves the raw tag in a callee-saved reg and
  * recomputes (tag<<16)>>16 before each of the two FindEntryByTag calls; our mwcc computes the
  * mask once and reuses it. Retarget-cell-by-tag wrapper. */
-/* func_ov006_02053cdc -- retarget then re-anchor a title cell by tag, ov006.
- * Looks up the cell with the given tag in the title object's cell list (base+8) and moves it
+/* func_ov006_02053cdc -- retarget then re-anchor a Mission Mode cell by tag, ov006.
+ * Looks up the cell with the given tag in the Mission Mode object's cell list (base+8) and moves it
  * to (param_2, param_3) via func_ov006_0204d4a0, then re-looks it up and re-anchors it via
  * func_ov006_0204d4c8. */
 extern int  func_ov006_0204d434(int list, unsigned int tag);

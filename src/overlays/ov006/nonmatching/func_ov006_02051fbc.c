@@ -10,7 +10,7 @@
  * stdarg.h on our include path; the APCS macros below are correct and reproduce the ROM's
  * prologue exactly. Reuse them for the next one.
  *
- * func_ov006_02051fbc -- title: place cell `idx` of panel `panel`.
+ * func_ov006_02051fbc -- Mission Mode: place cell `idx` of panel `panel`.
  * Variadic: takes x, y, cell id and a suppress flag. A negative x or y means "leave at 0";
  * both are converted to Q12. A non-negative id with the flag clear re-binds the cell to that
  * graphic and drops it from the draw list first. */

@@ -1,4 +1,4 @@
-/* func_ov006_0204f3f0 -- title: commit or cancel the highlighted menu entry.
+/* func_ov006_0204f3f0 -- Mission Mode: commit or cancel the highlighted menu entry.
  * When the scene reports state 1 the entry is accepted: the scene object moves to the
  * accept state (func_ov006_0204eda4), the 0x3ec-byte selection scratch at obj+0x40 is
  * wiped, the pending-transition slot at obj+0x28 is cleared and the sound is silenced.

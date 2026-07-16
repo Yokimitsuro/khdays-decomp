@@ -1,6 +1,6 @@
-/* func_ov006_02053734 -- reprogram the title BG char/screen-base registers per sub-state, ov006.
+/* func_ov006_02053734 -- reprogram the Mission Mode BG char/screen-base registers per sub-state, ov006.
  * Preserving priority+mosaic bits (& 0x43), rewrites main BG0..3 (0x04000008) and sub
- * BG1..3 (0x0400100a) control words to one of two layouts: the default title layout for
+ * BG1..3 (0x0400100a) control words to one of two layouts: the default Mission Mode layout for
  * sub-states 1/2/3/11/14, and the attract/logo layout for sub-states 4..7. All other states
  * (0/8/9/10/12/13 and out of range) leave the registers untouched. The last sub-BG3 base is
  * (v + 0x4f0) where v is the layout's shared base constant (0x524 vs 0x5a4). */

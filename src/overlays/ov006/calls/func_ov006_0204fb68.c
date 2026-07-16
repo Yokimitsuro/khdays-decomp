@@ -1,7 +1,7 @@
-/* func_ov006_0204fb68 -- set the title-screen "pending input" state.
+/* func_ov006_0204fb68 -- set the Mission Mode-screen "pending input" state.
  * When the input object is live (ctx+0x4e8 != 0), set its ready bit (ctx+0x4ad bit0) and store
  * the key/param at ctx+0x4ae. Always sets the top-level pending bit (ctx+0x4a8 bit0). */
-extern int data_ov006_020565e4;   /* -> title-screen context */
+extern int data_ov006_020565e4;   /* -> Mission Mode-screen context */
 
 void func_ov006_0204fb68(unsigned char param_1) {
     if (*(int *)(data_ov006_020565e4 + 0x4e8) != 0) {

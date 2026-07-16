@@ -1,10 +1,10 @@
-/* func_ov006_02053b24 -- (re)bind the two title BG graphic layers per sub-state, ov006.
+/* func_ov006_02053b24 -- (re)bind the two Mission Mode BG graphic layers per sub-state, ov006.
  * Tears down any previously-bound cell object for layer slot 0x976c (if +0x9798 set) and
  * slot 0x97b8 (if +0x97e4 set), then rebinds both from their loaded resources through
  * func_0202f834 with a shared placement rect { x=0, y=0, w=0x20, h=0x18, ..., alpha, .., 6 }:
  *   layer 3 <- resource at obj+0x9760 (data_ov006_02056540), object at obj+0x976c
  *   layer 7 <- resource at obj+0x97ac (data_ov006_0205655c), object at obj+0x97b8
- * Both layers are shown (alpha 0xf) for the normal title states {0-3,10,11,13,14}; in the
+ * Both layers are shown (alpha 0xf) for the normal Mission Mode states {0-3,10,11,13,14}; in the
  * attract states {4-7} layer 7 is hidden (alpha 0). Other states leave the layers as-is. */
 extern int *data_ov006_02056664;
 extern void func_0202fa20(void *obj, int a);

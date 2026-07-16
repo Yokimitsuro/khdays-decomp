@@ -1,4 +1,4 @@
-/* func_ov006_0204f788 -- title: menu-open tick, returns the next scene state (0 = stay).
+/* func_ov006_0204f788 -- Mission Mode: menu-open tick, returns the next scene state (0 = stay).
  * While the scene is locked out (obj+0x4e8) it drives the sound and waits for the intro
  * jingle latch at obj+0x49c to clear, then clears the pending transition at obj+0x2c.
  * Otherwise an unselectable entry sends it straight to func_ov006_0204ece4. Once no

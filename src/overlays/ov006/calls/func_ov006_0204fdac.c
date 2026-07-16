@@ -1,4 +1,4 @@
-/* func_ov006_0204fdac -- title: leave the current sub-menu, ov105 variant.
+/* func_ov006_0204fdac -- Mission Mode: leave the current sub-menu, ov105 variant.
  * Same shape as func_ov006_0204fd68 but hands off to func_ov006_0204ed64 and finishes with the
  * ov105 teardown (func_ov105_020bf928) instead of the ov006 one. */
 extern void func_ov105_020bf8c8(int a);

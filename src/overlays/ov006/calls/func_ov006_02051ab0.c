@@ -1,8 +1,8 @@
-/* func_ov006_02051ab0 -- decide the title's input action from the pad + gate state, ov006.
+/* func_ov006_02051ab0 -- decide the Mission Mode's input action from the pad + gate state, ov006.
  * Reduces the latched pad bits (data_0204c190) to a single selector: confirm (bit0) wins over
- * cancel (bit1). With confirm selected and the title fully active (base+0x20 != 0) and the
+ * cancel (bit1). With confirm selected and the Mission Mode fully active (base+0x20 != 0) and the
  * confirm repeat past 1 (func_ov006_0204fab8), requests action 1 (Start). With cancel selected,
- * requests action 3. Finally, when the title is not yet active (base+0x20 == 0) and the attract
+ * requests action 3. Finally, when the Mission Mode is not yet active (base+0x20 == 0) and the attract
  * timer expired (func_ov006_0204fb50 == 1), forces action 1. Returns the action code (0/1/3). */
 extern int func_ov006_0204fab8(void);
 extern int func_ov006_0204fb50(void);

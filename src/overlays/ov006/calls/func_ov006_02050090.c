@@ -1,5 +1,5 @@
-/* func_ov006_02050090 -- test whether the title may accept a confirm, ov006.
- * True only when the title is idle (base+0x28 == 0) and the confirm-ready check
+/* func_ov006_02050090 -- test whether the Mission Mode may accept a confirm, ov006.
+ * True only when the Mission Mode is idle (base+0x28 == 0) and the confirm-ready check
  * (func_ov006_0204f2f4) passes. */
 extern int func_ov006_0204f2f4(void);
 extern int data_ov006_02056660;

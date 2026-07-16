@@ -1,4 +1,4 @@
-/* func_ov006_0204fcd8 -- title: arm a cursor-move request on the menu.
+/* func_ov006_0204fcd8 -- Mission Mode: arm a cursor-move request on the menu.
  * Reads the cursor row (0 while the scene is locked out at obj+0x4e8), then fills the
  * request slot for that row: obj+0x4ac is the "row 0 / home" slot and obj+0x4e0 the slot
  * for every other row. The request carries the target id, kind and one flag bit. */

@@ -1,4 +1,4 @@
-/* func_ov006_02055e04 -- title: show or hide the currently selected 3D draw slot.
+/* func_ov006_02055e04 -- Mission Mode: show or hide the currently selected 3D draw slot.
  * The slot index lives at OBJ+0x96dc (negative = none) and the 0x8c-byte slot array starts
  * at OBJ+0x4b08; bit 2 of a slot's first word is its visible flag. The slot is registered
  * with or removed from the renderer list at OBJ+0x4a8c either way. */

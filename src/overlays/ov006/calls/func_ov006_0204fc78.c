@@ -1,4 +1,4 @@
-/* func_ov006_0204fc78 -- title: is the highlighted menu entry already the active one?
+/* func_ov006_0204fc78 -- Mission Mode: is the highlighted menu entry already the active one?
  * True while the scene is locked out (obj+0x4e8 set). Otherwise compares the current
  * selection (obj+0x4e4) against the entry id of the cursor row (obj+0x4b0, stride 6);
  * row 0 always counts as a match. */

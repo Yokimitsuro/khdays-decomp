@@ -1,6 +1,6 @@
-/* func_ov006_02055d80 -- title: start tween number `slot` (0..4) on the title object.
+/* func_ov006_02055d80 -- Mission Mode: start tween number `slot` (0..4) on the Mission Mode object.
  * Each tween lives at OBJ+0x9614 + slot*0x1c; `val` is the Q12 target. Returns 0 if the
- * title object is gone or the slot is out of range. */
+ * Mission Mode object is gone or the slot is out of range. */
 extern void func_02035fb0(int *tween, int a, int b, int target, int mode);
 extern void func_02035ffc(int tween);
 extern int *data_ov006_02056664;

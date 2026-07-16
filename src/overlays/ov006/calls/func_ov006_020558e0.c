@@ -1,4 +1,4 @@
-/* func_ov006_020558e0 -- if a heap is active, reset the two title tween channels (-0x10) and
+/* func_ov006_020558e0 -- if a heap is active, reset the two tween channels (-0x10) and
  * blank both screens' BG mode bits. */
 #define REG_DISPCNT     (*(volatile unsigned int *)0x04000000)
 #define REG_DISPCNT_SUB (*(volatile unsigned int *)0x04001000)

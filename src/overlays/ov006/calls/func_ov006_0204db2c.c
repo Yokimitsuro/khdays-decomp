@@ -1,4 +1,4 @@
-/* func_ov006_0204db2c -- title: drive the ov105 sound state from the scene state.
+/* func_ov006_0204db2c -- Mission Mode: drive the ov105 sound state from the scene state.
  * State 0 (still booting) arms the "intro jingle started" latch at obj+0x49c once the
  * sound engine reports ready; states 1 and 3 are quiet; 9 and 10 fade out; every other
  * state stops the sound outright. */

@@ -1,9 +1,9 @@
-/* func_ov006_02055cfc -- start a title-screen fade/param tween on channel param_2 (0..3).
+/* func_ov006_02055cfc -- start a Mission Mode-screen fade/param tween on channel param_2 (0..3).
  * Interpolator lives at ctx+0x9684 + param_2*0x1c; runs from 0 to param_1<<12 (Q12) over param_3.
  * Returns 0 if the context is not up or the channel is out of range, else 1. */
 extern void func_02035fb0(unsigned int *interp, int mode, unsigned int from, unsigned int to, unsigned int dur);
 extern void func_02035ffc(unsigned int *interp);
-extern int  data_ov006_02056664;   /* -> title-screen context */
+extern int  data_ov006_02056664;   /* -> Mission Mode-screen context */
 
 int func_ov006_02055cfc(int param_1, unsigned int param_2, unsigned int param_3) {
     if (data_ov006_02056664 == 0) {

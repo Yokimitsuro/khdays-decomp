@@ -1,4 +1,4 @@
-/* func_ov006_02055104 -- commit a queued title sub-state transition, ov006.
+/* func_ov006_02055104 -- commit a queued Mission Mode sub-state transition, ov006.
  * When a transition is pending (obj+0x956c != 0) and not blocked (bit2 of obj+0x955c set),
  * optionally fires the transition SFX (func_ov006_020551a4(nextState, 1000, sfxA, sfxB)) if
  * obj+0x9560 is set, then advances the state machine: prev=cur (0x94fc<-0x94f4),

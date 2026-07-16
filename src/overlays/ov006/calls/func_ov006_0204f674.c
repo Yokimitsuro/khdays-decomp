@@ -4,7 +4,7 @@
 extern unsigned short OS_IsTickAvailable_0x01ff8138(void);
 extern void func_02023a44(int obj, void *cb);
 extern void func_ov006_0204f6bc(void);
-extern int  data_ov006_020565e4;   /* title-screen state struct: [1] = input object */
+extern int  data_ov006_020565e4;   /* Mission Mode-screen state struct: [1] = input object */
 
 int func_ov006_0204f674(void) {
     if (OS_IsTickAvailable_0x01ff8138() <= 1) {

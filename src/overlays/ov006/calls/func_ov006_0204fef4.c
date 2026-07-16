@@ -1,4 +1,4 @@
-/* func_ov006_0204fef4 -- blank both screens' BG mode bits and tear down the title text layers. */
+/* func_ov006_0204fef4 -- blank both screens' BG mode bits and tear down the text layers. */
 #define REG_DISPCNT     (*(volatile unsigned int *)0x04000000)
 #define REG_DISPCNT_SUB (*(volatile unsigned int *)0x04001000)
 extern void func_ov006_02056030(void);   /* reset text layers */

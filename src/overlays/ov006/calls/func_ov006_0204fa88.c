@@ -1,4 +1,4 @@
-/* func_ov006_0204fa88 -- title: read the current key state and feed it to the title input
+/* func_ov006_0204fa88 -- Mission Mode: read the current key state and feed it to the Mission Mode input
  * handler. Uses the debug/replay key source (func_01fff974) when it is active
  * (func_02030640), otherwise the real hardware keys. */
 extern int  func_02030640(void);

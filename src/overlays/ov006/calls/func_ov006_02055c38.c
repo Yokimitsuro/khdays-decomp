@@ -1,7 +1,7 @@
-/* func_ov006_02055c38 -- title: switch the 3D title model to pose `pose`.
+/* func_ov006_02055c38 -- Mission Mode: switch the 3D character model to pose `pose`.
  * Only acts when the pose actually changes (OBJ+0x94f0 caches the current one): restarts the
  * two tweens at OBJ+0x9574 and OBJ+0x9590 over 300 frames -- one ramping to 0x10000, the other
- * running mode 2 down from 0xa000. Returns 0 if the title object is gone. */
+ * running mode 2 down from 0xa000. Returns 0 if the Mission Mode object is gone. */
 extern void func_02035fb0(int *tween, int a, int b, int target, int frames);
 extern void func_02035ffc(int tween);
 extern int *data_ov006_02056664;

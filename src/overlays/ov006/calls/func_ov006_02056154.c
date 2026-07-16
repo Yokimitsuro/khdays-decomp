@@ -1,4 +1,4 @@
-/* func_ov006_02056154 -- title top-level state (Start dispatch), ov006. Polls the title
+/* func_ov006_02056154 -- Mission Mode top-level state (Start dispatch), ov006. Polls the Mission Mode
  * input (func_ov006_02051f6c), stores it in heap[1], and on Start (1) requests scene 0x13
  * (main menu), on reset (2) requests scene 1 (logo). Returns the spawn sentinel (-2) on a
  * transition, else 0 (stay). */

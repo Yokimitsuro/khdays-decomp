@@ -1,6 +1,6 @@
-/* func_ov006_0205028c -- title: tear the title scene down.
+/* func_ov006_0205028c -- Mission Mode: tear the Mission Mode scene down.
  * Stops the renderer (heap+4), releases the sub-object at heap+0x60, drops the text engine
- * (slot 0x1e) and the title input state, destroys the scene object held in heap[0], and
+ * (slot 0x1e) and the Mission Mode input state, destroys the scene object held in heap[0], and
  * clears the scene slot. */
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void func_020362e8(int *p);

@@ -1,4 +1,4 @@
-/* func_ov006_02054ab0 -- flush the dirty title cell buffers to VRAM, ov006.
+/* func_ov006_02054ab0 -- flush the dirty Mission Mode cell buffers to VRAM, ov006.
  * For each of the 8 cell slots whose dirty bit is set in the object's mask byte (obj+0x9570),
  * enqueues a 0x600-byte GFX DMA from the slot's cell buffer (obj+0x94cc + slot*4) to the
  * slot's VRAM destination (data_ov006_020562b0[slot]). Clears the whole dirty mask afterward. */

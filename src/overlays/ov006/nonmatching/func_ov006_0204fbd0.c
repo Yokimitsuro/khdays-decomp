@@ -4,7 +4,7 @@
  * shift/add. Not steerable from C -- the operand is a variable, so there is no array-subscript
  * form to hang it on (contrast ov006 55e04, where a full-size struct made the subscript work).
  *
- * func_ov006_0204fbd0 -- title: fill in the description block for menu row `row`.
+ * func_ov006_0204fbd0 -- Mission Mode: fill in the description block for menu row `row`.
  * Each row's record is 6 bytes at OBJ+0x4ac: the id at +4, two flag bits packed in the byte
  * at +1 and the icon at +2. The flags are unpacked into their own bytes and the icon is
  * mapped through func_ov006_0204d610 to the sprite the caption uses. */
