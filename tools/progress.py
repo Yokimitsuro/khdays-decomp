@@ -38,7 +38,11 @@ def compute_byte_progress():
     """Return (c_bytes, total_bytes) summed across every module's symbols.txt."""
     c_names = set()
     for path in glob.glob(str(ROOT / "src" / "**" / "*.c"), recursive=True):
-        if "asm_stubs" in path:
+        # asm_stubs are ASM blobs, and nonmatching/ is equivalent-but-unmatched C that is excluded
+        # from the build entirely. Neither is byte-exact, so neither counts here -- this is the
+        # metric the README calls the honest one. (nonmatching/ was silently counted until
+        # 2026-07-17, which inflated it by every write-up ever parked.)
+        if "asm_stubs" in path or "nonmatching" in path:
             continue
         c_names.add(os.path.basename(path)[:-2])  # strip .c
 

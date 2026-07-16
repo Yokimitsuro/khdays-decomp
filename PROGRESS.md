@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,191,290** | **4,728,790** | **25.19%** |
+| **1,128,712** | **4,728,790** | **23.87%** |
