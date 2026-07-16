@@ -1,15 +1,25 @@
 /* UNFINISHED -- NOT a proven tie. 756/756 bytes and 189/189 instructions; two things left, and
  * both look tractable to whoever picks this up next.
  *
- * 1. The ROM opens with `ldm r7, {r0, r6}` -- self[0] and self[1] loaded together -- where this
- *    emits two separate `ldr`s. A `Self *` with two adjacent fields did not do it, and a
- *    struct-by-value copy (`v = *(Self *)self`) is worse: it allocates stack and costs 8 bytes.
- *    deferred-ties.md lists `ldm` under arg-coalescing as a known-hard shape, but it has not been
- *    attacked properly here.
- * 2. Everything after that is a pure register RENAME, not a code difference. The ROM has
- *    own2/t2=r4, owner=r5, ctx=r6, self=r7, target=r8; this lands ctx=r4, t2/target=r5,
- *    owner/own2=r6. Declaration order is the lever (SKILL.md) and a permutation sweep of the five
- *    locals was started but its harness was buggy -- redo it, it is cheap and likely decisive.
+ * The ROM opens with `ldm r7, {r0, r6}` -- self[0] and self[1] loaded together -- where this emits
+ * two separate `ldr`s. That single instruction is the ROOT CAUSE and the ONLY code difference:
+ * the ldm hands the ROM `ctx` for free, which frees the slot it spends on `owner`, and every other
+ * line of the diff is the register rename that falls out of it (ROM: own2/t2=r4, owner=r5, ctx=r6,
+ * self=r7, target=r8).
+ *
+ * Ruled out, so do not repeat:
+ *   - Declaration order. All 120 permutations of the five locals give a byte-identical result
+ *     (first diff at 0xC, the ldm itself). It is NOT the lever here, whatever SKILL.md says about
+ *     the general case.
+ *   - `Self *` with two adjacent fields, and reading both into locals first so the loads are
+ *     source-adjacent -- mwcc schedules the `scene[0xb]` deref between them anyway.
+ *   - `v = *(Self *)self` (struct by value): worse, it allocates 8 more bytes of stack and still
+ *     emits two ldrs.
+ *
+ * The regs are already ascending (scene in a lower reg than ctx) and the offsets are 0 and 4, so
+ * the shape mwcc would need for the peephole is there -- it just does not fire. Next idea worth
+ * trying: something that forces the two loads adjacent in the SCHEDULE, not just in the source.
+ * deferred-ties.md lists `ldm` under arg-coalescing as known-hard, so this may be a build artifact.
  *
  * What IS already solved and should be kept: the `+ (d - d)` RNG crack on three of the five rolls
  * (including the d100, whose artifact sits one instruction after the `bl` because the scheduler
