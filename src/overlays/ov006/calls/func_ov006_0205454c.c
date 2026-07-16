@@ -1,12 +1,17 @@
-/* func_ov006_0205454c -- Mission Mode scene constructor, ov006.
- * Allocates the Mission Mode work heap (0x97f8 bytes) and stores it in the scene-object slot
- * data_ov006_02056664, brings up the 2D display (POWCNT1, VRAM banks BG=3/subBG=4/
+/* func_ov006_0205454c -- character-select (Mission Mode) scene constructor, ov006.
+ * Scene id 7 (ov000 is the title, id 1).
+ *
+ * Allocates the char-select manager context (0x97f8 bytes) and stores it in the scene-object
+ * slot data_ov006_02056664, brings up the 2D display (POWCNT1, VRAM banks BG=3/subBG=4/
  * OBJ=0x70/subOBJ=8, graphics mode), programs the BG priority registers (main BG0..3 =
- * 1/3/2/0, sub BG1..3 = 2/1/0), allocates eight 0x600-byte cell buffers, loads the two
- * font resources (data_..540/..55c) and the two message containers
- * (UI .p2 at data_..578/..588 via func_02024ee8), seeds the animation state, sets the
- * display mode bits, and boots the Mission Mode sub-state (id 0xd when arg!=0) before returning
- * the next scene-state function (func_ov006_02054a00). */
+ * 1/3/2/0, sub BG1..3 = 2/1/0), allocates eight 0x600-byte cell buffers, loads the font into
+ * both BG3 and BG7 (data_..540 and data_..55c are BOTH "/text/font_eu_10all.NFTR") and the
+ * char-select UI pack (data_..578 = "UI/mlt/res.p2", data_..588 = "UI/mlt/res_&.p2", the
+ * localised variant, via func_02024ee8), seeds the animation state, sets the display mode
+ * bits, and boots the sub-state (id 0xd when arg!=0) before returning the next scene-state
+ * function (func_ov006_02054a00).
+ *
+ * Resource paths confirmed by reading RAM at runtime. */
 typedef volatile unsigned short vu16;
 typedef volatile unsigned int vu32;
 
