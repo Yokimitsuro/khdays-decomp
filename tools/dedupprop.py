@@ -18,15 +18,34 @@ idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 def is_nonmatching(path):
     return os.sep + "nonmatching" + os.sep in path
 
-# Where each already-carved function lives. A nonmatching/ file is NOT "done" -- it is a
-# recorded failure, and it is exactly the kind of function a matched twin can rescue. Keep the
-# two maps apart: `done` gates who can be a rep, `attempted` remembers the file to retire.
+
+def is_asm(path):
+    """An ASM stub -- inline asm or a raw `dcd` blob of the ROM bytes."""
+    if os.sep + "asm_stubs" + os.sep in path:
+        return True
+    try:
+        s = open(path, encoding="utf-8", errors="replace").read()
+    except OSError:
+        return False
+    return "__asm" in s or "asm void" in s or "asm {" in s
+
+
+# Where each already-carved function lives.
+#
+# `done` gates who may be a REP. Two kinds of file must never be one:
+#   - nonmatching/: a recorded failure, and exactly the kind of function a matched twin can
+#     rescue, so it belongs in `attempted` instead;
+#   - ASM stubs: propagating one produces another `asm void` + `dcd` blob of the ROM bytes. That
+#     is not decompilation, it lands in calls/ where real C lives, and -- worst of all -- a blob
+#     ALWAYS verifies, so it would "rescue" a nonmatching file and destroy a real analysis.
+#     (2026-07-17: this generated 188 blobs and binned 24 nonmatching write-ups before it was
+#     caught. The tell was progress.py's ASM count going UP.)
 done, attempted = {}, {}
 for p in glob.glob(os.path.join(ROOT, "src", "**", "*.c"), recursive=True):
     n = os.path.basename(p)[:-2]
     if is_nonmatching(p):
         attempted[n] = p
-    else:
+    elif not is_asm(p):
         done[n] = p
 
 def masked(e):
