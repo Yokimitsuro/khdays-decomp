@@ -1,22 +1,17 @@
-/* NOT MATCHING -- proven compiler tie, not unfinished work. 568/576 bytes.
+/* NOT MATCHING -- a single register-allocation difference. 576/576 bytes, 144/144 instructions.
  *
- * Everything matches except TWO instructions: the ROM emits a no-op `add r0, r0, #0` immediately
- * after each `bl func_02023eb4` (the RNG), and no C spelling reproduces it. Tried: a plain
- * `extern int` return (how ov114's matched callers declare it), `long long` + `(int)` cast, a
- * `long long` temporary then a cast, `+ 0` on the result, `unsigned long long`, and a
- * `static` helper -- all 568, i.e. all miss exactly those 8 bytes.
+ * The ONLY delta is the destination register of the radii sum: the ROM writes `add r1, r6, r2`
+ * where mwcc 3.0/139 writes `add r2, r6, r2` (reusing r2 instead of taking the register the div's
+ * sign correction just freed). Both are correct; it is the allocator's virtual->physical choice.
+ * Tried and failed to steer it: an explicit local for the sum (declared in three positions), a
+ * separate `dist` local, one combined expression, splitting the two radius reads into their own
+ * locals, and four different variables for the fold-defeating add below. All land on the same byte.
  *
- * The evidence that it is the compiler and not this file: across the whole ROM 54 functions have a
- * rand call followed by that `add`, and NOT ONE is implemented in real C anywhere in the project --
- * the ones that "match" are all asm_stubs (ASM blobs verify trivially). Meanwhile the same call
- * WITHOUT the artifact matches from C 564 times. So the artifact tracks the compiler build, not the
- * source: consistent with retail being mwcc 3.0 >=140 (see reference_mwcc_build_hunt). This tie
- * blocks 54 functions, so it is worth revisiting if the exact build is ever found.
- *
- * One further known-good delta, invisible in the byte count: the ROM hoists the `ctx[0]` and
- * `ctx[4]` loads above the `func_01ff8d18` call and keeps them in callee-saved registers (which is
- * why the ROM holds `self` in r7 where this holds it in r6). Scheduling only -- the two `add`s are
- * the real blocker.
+ * NOTE, and this corrects an earlier version of this file: the `add r0, r0, #0` the ROM emits after
+ * each RNG call is NOT the blocker and is NOT an unbreakable tie. mwcc emits it for `f(n) + K` when
+ * f returns `long long` and K is an addend it cannot fold -- `+ 0` folds, but `+ (v - v)` does not.
+ * That trick is already used by 7 matched functions in the tree (func_ov137_020cd5a4 is the clearest
+ * example) and it is what takes this function from 568 to a full 576. See deferred-ties.md.
  *
  * The C below is believed semantically correct and is kept for the PC port.
  */
@@ -54,13 +49,15 @@ extern int func_020050b4(int x, int z);
 extern int func_ov107_020c9f48(int a, int *out);
 extern void func_0202f384(int *dst, const int *a, const int *b);
 extern void func_01ffa724(int scale, const int *src, int *dst);
-extern long long func_02023eb4(unsigned int mul);
+extern int func_02023eb4();
 
 void func_ov206_020cde58(int self) {
     int *ctx;
     int toTarget[3];
     int forward[3];
     int target;
+    int tgt;
+    int *owner;
     int gap;
     int scale;
     int roll;
@@ -75,9 +72,11 @@ void func_ov206_020cde58(int self) {
     }
 
     VEC_Subtract((const int *)(target + 0x190), (const int *)ctx[1], toTarget);
+    tgt = ctx[4];
+    owner = (int *)ctx[0];
     gap = func_01ff8d18(toTarget, toTarget);
+    gap -= owner[0x20] + *(int *)(tgt + 0x80);
     ctx[0xf] = *(int *)(*(int *)self + 0x2c) * 30 / 30;
-    gap -= *(int *)(ctx[0] + 0x80) + *(int *)(ctx[4] + 0x80);
     ctx[0x11] = func_020050b4(toTarget[0], toTarget[2]);
 
     scale = func_ov107_020c9f48(*(int *)(ctx[0] + 0x3b4), forward);
@@ -89,7 +88,7 @@ void func_ov206_020cde58(int self) {
         return;
     }
 
-    roll = (int)func_02023eb4(0x65);
+    roll = func_02023eb4(0x65) + (scale - scale);
     if (roll < 0x14) {
         *(signed char *)(ctx[0] + 0x1c7) = 10;
         func_0203c634(self, *(signed char *)(self + 0x20), 0);
@@ -115,7 +114,7 @@ void func_ov206_020cde58(int self) {
         return;
     }
 
-    if ((int)func_02023eb4(0x65) < 0x32) {
+    if (func_02023eb4(0x65) + (scale - scale) < 0x32) {
         *(signed char *)(ctx[0] + 0x1c7) = 10;
         func_0203c634(self, *(signed char *)(self + 0x20), 0);
         return;
