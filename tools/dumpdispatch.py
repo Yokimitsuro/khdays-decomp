@@ -56,18 +56,24 @@ for k, body in case_body.items():
 deflt = int(at[base - 4].op_str.lstrip("#"), 0)
 bodies = sorted(b for b in set(case_body.values()) if b != deflt)
 
+# A plain arm is `ldr r2,[pc] ; [mov r0,rN ;] mov r1,#1 ; bl c634 ; b <tail>` -- 16 bytes, or 20
+# when the function keeps self in a callee-saved register and has to restore r0. So there is no
+# fixed "normal" size: take the MODE across this function's own bodies and flag only the outliers.
+# (Flagging everything that is not 16 cried wolf on 14 of ov256's 15 arms.)
+sizes = [bodies[n + 1] - bodies[n] for n in range(len(bodies) - 1)]
+normal = max(set(sizes), key=sizes.count) if sizes else 0x10
+
 print("\ncases in SOURCE order (= body order -- emit them exactly like this):")
 for n, body in enumerate(bodies):
     ks = [k for k in case_body if case_body[k] == body]
-    # A plain arm is exactly `ldr r2,[pc] ; mov r1,#1 ; bl c634 ; b <tail>` = 16 bytes. Anything
-    # longer carries EXTRA code, and anything that runs into the next body is a FALL-THROUGH --
-    # ov213 020cd35c has `case 2:` store 5 into +0x1c7 and fall into `case 5:`, and reading only
-    # the handler hides that completely (the pool load is found either way).
+    # An outlier body carries EXTRA code and/or is fallen INTO by a later case -- ov213 020cd35c
+    # has `case 2:` store 5 into +0x1c7 and fall into `case 5:`, which reading only the handler
+    # hides completely (the pool load is found either way).
     nxt = bodies[n + 1] if n + 1 < len(bodies) else None
     note = ""
-    if nxt is not None and nxt - body != 0x10:
-        note = ("   <-- %d bytes of body: EXTRA CODE and/or falls through into the next case."
-                "  DISASSEMBLE IT." % (nxt - body))
+    if nxt is not None and nxt - body != normal:
+        note = ("   <-- %d bytes, not the usual %d: EXTRA CODE and/or a fall-through."
+                "  DISASSEMBLE IT." % (nxt - body, normal))
     print("        case %-2s: func_0203c634(self, 1, %s); break;%s"
           % (",".join(str(k) for k in ks), body_handler.get(body, "??"), note))
 gaps = [k for k in case_body if case_body[k] == deflt]
