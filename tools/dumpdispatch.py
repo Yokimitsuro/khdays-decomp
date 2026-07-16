@@ -24,18 +24,50 @@ rel = dict((o, s) for o, s in d["relocs"])
 ins = list(Cs(CS_ARCH_ARM, CS_MODE_ARM).disasm(h, 0))
 at = {i.address: i for i in ins}
 
-# 1. the jump table: `cmp rN,#K` immediately before `addls pc,pc,rN,lsl #2`
-tbl = None
-for i in ins:
-    if i.mnemonic == "addls" and "pc, pc" in i.op_str:
-        tbl = i.address
-        break
-if tbl is None:
+# 1. Find the jump table. A function can have MORE THAN ONE -- ov259 020cdef8 has a small
+# `switch (move) { case 0xa ... case 0x11 }` before the real move dispatcher, and taking the first
+# one produced complete nonsense (every case pointing at one body, handler unresolved). So collect
+# them all and pick the one whose arms actually call func_0203c634.
+#
+# Also note the case values are not always 0-based: mwcc range-optimises a switch over 0xa..0x11
+# into `sub rN,rN,#0xa ; cmp rN,#7`, so the `sub` carries the base and has to be added back.
+tables = [i.address for i in ins if i.mnemonic == "addls" and "pc, pc" in i.op_str]
+if not tables:
     print("no jump table found -- not a dense-switch dispatcher")
     sys.exit(1)
+
+
+def arms_call_c634(tbl):
+    base = tbl + 8
+    kmax = int(at[tbl - 4].op_str.split("#")[1], 0)
+    hits = 0
+    for k in range(kmax + 1):
+        e = at.get(base + k * 4)
+        if e is None or e.mnemonic != "b":
+            continue
+        body = int(e.op_str.lstrip("#"), 0)
+        for a in range(body, body + 0x18, 4):
+            if rel.get(a) == "func_0203c634":
+                hits += 1
+                break
+    return hits
+
+
+scored = [(arms_call_c634(t), t) for t in tables]
+scored.sort(reverse=True)
+if len(tables) > 1:
+    print("note: %d jump tables in this function; using the one at 0x%x (%d c634 arms)"
+          % (len(tables), scored[0][1], scored[0][0]))
+tbl = scored[0][1]
+
 kmax = int(at[tbl - 4].op_str.split("#")[1], 0)
+kbase = 0
+prev = at.get(tbl - 8)
+if prev is not None and prev.mnemonic == "sub" and "#" in prev.op_str:
+    kbase = int(prev.op_str.split("#")[1], 0)
 base = tbl + 8
-print("%s: %d bytes, cases 0..%d, default -> 0x%x" % (name, d["size"], kmax, base - 4))
+print("%s: %d bytes, cases %d..%d, default -> 0x%x"
+      % (name, d["size"], kbase, kbase + kmax, base - 4))
 
 # 2. each table slot is `b <body>`; resolve the body's pool load to the handler symbol
 case_body, body_handler = {}, {}
@@ -65,7 +97,7 @@ normal = max(set(sizes), key=sizes.count) if sizes else 0x10
 
 print("\ncases in SOURCE order (= body order -- emit them exactly like this):")
 for n, body in enumerate(bodies):
-    ks = [k for k in case_body if case_body[k] == body]
+    ks = [k + kbase for k in case_body if case_body[k] == body]
     # An outlier body carries EXTRA code and/or is fallen INTO by a later case -- ov213 020cd35c
     # has `case 2:` store 5 into +0x1c7 and fall into `case 5:`, which reading only the handler
     # hides completely (the pool load is found either way).
@@ -79,7 +111,7 @@ for n, body in enumerate(bodies):
 gaps = [k for k in case_body if case_body[k] == deflt]
 if gaps:
     print("\n(cases %s point at the default -- they are ABSENT from the switch)"
-          % ",".join(str(k) for k in gaps))
+          % ",".join(str(k + kbase) for k in gaps))
 
 print("\nreset block (everything before the table):")
 for i in ins:
