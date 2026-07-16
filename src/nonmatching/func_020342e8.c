@@ -1,8 +1,11 @@
-/* NONMATCHING: semantics correct, switch-dispatch register-allocation tie. The ROM
- * keeps db in r5 and the jump-table temp in r4 (push {r3,r4,r5,lr}); mwcc 3.0/139
- * keeps db in r4 and reuses r1 for the temp (push {r4,lr}) — fewer callee-saved,
- * different jump-table offsets. The switch body is compiler-generated so the reg
- * choice isn't C-steerable. */
+/* NONMATCHING: THUMB (symbols.txt: kind:function(thumb,size=0xe4)) -- verify with --thumb,
+ * otherwise you get a meaningless 392-vs-228 "gap" from an ARM compile. Real gap: 234 vs 228,
+ * 3 THUMB instructions.
+ *
+ * Switch-dispatch register-allocation tie. The ROM keeps db in r5 and the jump-table temp in
+ * r4 (push {r3,r4,r5,lr}); mwcc 3.0/139 keeps db in r4 and uses r1 for the temp (push {r4,lr}),
+ * needing two callee-saved registers fewer. The compiler generates the whole table-dispatch
+ * preamble (cmp #32 / bhi / adds / add pc), so the register choice is not C-steerable. */
 /* MsgDb_FetchRecord: dispatch a message-record fetch by db kind (param_2). Db
  * 0..0x12 use the generic decoder; 0x13..0x20 each have a dedicated decoder. */
 extern int func_02034e3c(int rec, int a, int b, int c);
