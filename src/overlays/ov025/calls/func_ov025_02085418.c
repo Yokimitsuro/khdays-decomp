@@ -1,0 +1,24 @@
+/* func_ov025_02085418 -- forward an input event to a pair of ov008 menu handler slots.
+ * Looks up the current handler object in table A[index[0]] and calls its method at +0x20 with
+ * param_1; if that returns 0 (unhandled) and param_2 is set, tries table B[index[1]]'s method
+ * at +0x1c with param_2. One of a 12-member family differing only in the two method offsets. */
+extern int func_ov025_02085090(void *method, int arg);
+extern int data_ov025_020b574c[];   /* dispatch index[2] */
+struct ov008_disp { char *obj; int _pad; };   /* 8-byte handler-table entry */
+extern struct ov008_disp data_ov025_020b4ab0[];   /* handler table A */
+extern struct ov008_disp data_ov025_020b4a78[];   /* handler table B */
+
+int func_ov025_02085418(int param_1, int param_2) {
+    int r = 0;
+    void *m1 = *(void **)(data_ov025_020b4ab0[data_ov025_020b574c[0]].obj + 0x20);
+    if (param_1 != 0) {
+        r = func_ov025_02085090(m1, param_1);
+    }
+    if (r == 0) {
+        void *m2 = *(void **)(data_ov025_020b4a78[data_ov025_020b574c[1]].obj + 0x1c);
+        if (param_2 != 0) {
+            r = func_ov025_02085090(m2, param_2);
+        }
+    }
+    return r;
+}
