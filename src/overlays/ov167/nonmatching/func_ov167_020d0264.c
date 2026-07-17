@@ -19,7 +19,7 @@ struct A {
     signed char f1c7;
 };
 
-extern void func_0203c650(int p);
+extern void func_0203c650(int p, int v);
 extern void func_ov107_020cb100(int p);
 extern void func_ov107_020c7ca4(int p);
 
@@ -35,7 +35,7 @@ void func_ov167_020d0264(int this_) {
 
     if (*(signed char *)(this_ + 0x1c6) != 8 &&
         *(int *)(*(int *)(this_ + 0x39c) + 4) != 0) {
-        func_0203c650(*(int *)(this_ + 0x3c));
+        func_0203c650(*(int *)(this_ + 0x3c), *(int *)(*(int *)(this_ + 0x39c) + 4));
         *(int *)(*(int *)(this_ + 0x39c) + 4) = 0;
     }
 
