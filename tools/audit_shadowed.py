@@ -40,10 +40,17 @@ def scan():
 
 
 def verify(path, name):
-    r = subprocess.run([sys.executable, 'tools/verify_idx.py', path, name],
-                       capture_output=True, text=True)
-    out = (r.stdout + r.stderr).strip().splitlines()
-    return (out[0] if out else '?')
+    """Try ARM, then THUMB. Verifying a THUMB function as ARM gives a meaningless size gap
+    (e.g. '152 != 104'), which reads exactly like broken C -- this cost 4 matching functions
+    a wrong trip to nonmatching/ on 2026-07-17 before dedupprop (which tries both) caught it."""
+    for extra in ([], ['--thumb']):
+        r = subprocess.run([sys.executable, 'tools/verify_idx.py', path, name] + extra,
+                           capture_output=True, text=True)
+        out = (r.stdout + r.stderr).strip().splitlines()
+        line = out[0] if out else '?'
+        if 'MATCH' in line:
+            return line + ('  (thumb)' if extra else '')
+    return line
 
 
 def main():
