@@ -87,3 +87,11 @@ src/overlays/ov279/calls/func_ov279_020d3444.c:
 src/overlays/ov279/auto/func_ov279_020d3488.c:
     complete
     .text       start:0x020d3488 end:0x020d348c
+
+src/overlays/ov279/calls/func_ov279_020d348c.c:
+    complete
+    .text       start:0x020d348c end:0x020d3504
+
+src/overlays/ov279/calls/func_ov279_020d3504.c:
+    complete
+    .text       start:0x020d3504 end:0x020d357c

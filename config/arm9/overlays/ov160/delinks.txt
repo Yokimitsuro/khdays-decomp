@@ -84,6 +84,10 @@ src/overlays/ov160/calls/func_ov160_020cda64.c:
     complete
     .text       start:0x020cda64 end:0x020cdb28
 
+src/overlays/ov160/calls/func_ov160_020cdea0.c:
+    complete
+    .text       start:0x020cdea0 end:0x020cdf54
+
 src/overlays/ov160/calls/func_ov160_020ce220.c:
     complete
     .text       start:0x020ce220 end:0x020ce2c4
