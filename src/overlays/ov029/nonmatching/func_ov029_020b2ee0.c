@@ -1,10 +1,10 @@
 /*
  * func_ov029_020b2ee0 -- UNFINISHED, and it is the LAST function in ov029 (1/2 -> 2/2).
- * ★ THIS FUNCTION IS **THUMB**. Verify with `--thumb` or every number you get is noise.
+ * * THIS FUNCTION IS **THUMB**. Verify with `--thumb` or every number you get is noise.
  *
  * 96/96 bytes, 47/47 instructions. One register assignment + one schedule slot.
  *
- * ✗ WHAT THE PREVIOUS VERSION OF THIS FILE COST: no diagnosis note, and verified as ARM it
+ *  WHAT THE PREVIOUS VERSION OF THIS FILE COST: no diagnosis note, and verified as ARM it
  * reads `140 != 96` -- a 44-byte gap that looks like badly wrong C and invites a rewrite.
  * It is not wrong. state.md's sweep did check all 381 parked files in both modes and
  * correctly found no MATCH, but it recorded only match/no-match, which cannot tell
@@ -18,7 +18,7 @@
  * Note `k` is -1 when no slot wins, so that lookup indexes one row BEFORE the table --
  * flagged for the port, reproduced as-is.
  *
- * ★ PROGRESS THIS PASS (keep it): `idx` is shifted IN PLACE and reused as the offset.
+ * * PROGRESS THIS PASS (keep it): `idx` is shifted IN PLACE and reused as the offset.
  * That is what puts `r = -1` before `entry` in the emission order, matching the ROM, and
  * it took the diff 0x3 -> 0x2. A separate `int off` local -- however declared or ordered --
  * always emits `entry` first. So the original really did reuse the parameter.
@@ -43,24 +43,24 @@
  *  4. Diff read back: 47 vs 47, same opcodes and order.
  *
  * RULED OUT (14 spellings; the last two entries are the ones worth not repeating):
- *   off inlined as (idx<<4) at both uses · off/entry as separate statements · entry
- *   declared before off · the tail through a `void (**tbl)(void)` local · a `char *tb`
- *   base for the tail · `unsigned int off` · `&entry[3]` vs `entry + 3` · comparisons
+ *   off inlined as (idx<<4) at both uses  off/entry as separate statements  entry
+ *   declared before off  the tail through a `void (**tbl)(void)` local  a `char *tb`
+ *   base for the tail  `unsigned int off`  `&entry[3]` vs `entry + 3`  comparisons
  *   against `r` instead of the literal -1 (arguably MORE faithful -- the ROM copies r5
- *   into both r2 and r3 -- but identical output) · entry as `char *` with casts at the
- *   load · a copy of idx shifted at the end · a for-loop instead of the do-while (100 B,
- *   4 OVER -- the do-while is required) · `e = (entry = ...) + 3` as one expression
+ *   into both r2 and r3 -- but identical output)  entry as `char *` with casts at the
+ *   load  a copy of idx shifted at the end  a for-loop instead of the do-while (100 B,
+ *   4 OVER -- the do-while is required)  `e = (entry = ...) + 3` as one expression
  *
  * RULED OUT, 2026-07-17 pass (5 more, all still pinned at 0x2):
- *   `idx <<= 4` · a `char *base` local loaded BEFORE the shift (the ROM emits `ldr base`
+ *   `idx <<= 4`  a `char *base` local loaded BEFORE the shift (the ROM emits `ldr base`
  *   first, so this looked like the emission-order lever -- it is not; mwcc still shifts
- *   first) · `entry = (int *)(data + (idx <<= 4))` as one decl-init · `e` computed first
- *   with `entry = e - 3` (100 B, 4 OVER) · the `int off` local RE-MEASURED: the previous
+ *   first)  `entry = (int *)(data + (idx <<= 4))` as one decl-init  `e` computed first
+ *   with `entry = e - 3` (100 B, 4 OVER)  the `int off` local RE-MEASURED: the previous
  *   note recorded only that it "emits entry first" (diff 0x3), but the register outcome is
  *   the SAME (off->r7, entry->ip). So off-local is not merely worse-by-one; it fails on the
  *   identical axis, and the 0x3-vs-0x2 offset was measuring the wrong thing.
  *
- * ★ SHARPER DIAGNOSIS (this is the useful part of the pass). The old note said "make mwcc
+ * * SHARPER DIAGNOSIS (this is the useful part of the pass). The old note said "make mwcc
  * prefer spilling off" without saying why it will not. The reason is live-range ORDER:
  *   - `k` and `r` are live across the 0201e470 call -> they must be callee-saved: r4, r5.
  *   - `temp` is loop-only but the low scratch (r0..r3) is full (t, e, -1, -1) -> r6.
@@ -71,12 +71,29 @@
  *     spilled to the free r3 slot immediately, never competing for r7 at all.
  * Both cost 47 instructions, which is why mwcc has no reason to prefer the ROM's shape.
  *
- * NEXT STEP, and it follows from the above: the lever is NOT what `off` is -- 19 spellings
- * have now established that. It is WHEN its live range starts, and it cannot start after
- * `entry`'s while `entry` is derived from it. So either find a form where `entry` does not
- * depend on `off` (the two shifts CSE, so `(idx<<4)` at both uses is not it -- measured), or
- * accept this belongs to the register-CHOICE residue class in deferred-ties.md and leave it.
- * Do NOT spend another pass on spellings of `off`.
+ * ** THE CORPUS SAYS THIS IS A C BUG, NOT A TIE. Two sweeps over every matched real-C
+ * function (asm_stubs excluded), run 2026-07-17:
+ *   - mwcc DOES spill into the free r3 push slot when pressure forces it: 46 matched functions
+ *     do it. func_ov000_02055a24 is the clean example -- two passes over one array, `base` must
+ *     survive the first loop, so the counter `i` spills to [sp] and reloads every iteration.
+ *     So "make mwcc spill" is not exotic; it is what mwcc does when it runs out.
+ *   - The ROM NEVER parks a value in ip in THUMB: **0 out of 693** matched real-C THUMB
+ *     functions contain `mov ip, rN` at all.
+ * This C produces the ONLY ip-park in the project. A function whose C forces the compiler into a
+ * construct that appears nowhere in 693 matched THUMB functions is not sitting on a compiler
+ * tie -- it is sitting on a live value, or a live RANGE, that the original did not have. The
+ * previous note's framing (an arbitrary coin-flip between two equal-cost choices) is now
+ * positively contradicted: mwcc's own 46 spills show it prefers spilling when it is genuinely
+ * out of registers, so here it does NOT believe it is out -- it still has ip.
+ *
+ * NEXT STEP, rewritten off that: stop spelling `off`. Find the value this C keeps live that the
+ * original did not, so that mwcc is FORCED past ip. Candidates nobody has checked:
+ *   - `t` (the gate pointer) and `e` are BOTH walked downward in step with `k`. The ROM may
+ *     derive one from the other, or index both off `k`, which would free a low register.
+ *   - the two -1 copies (r2 and r3) are two registers holding one value. If the original's
+ *     comparisons are against something already live, that is a register back.
+ *   - `temp` (r6) is loop-only; if the original re-uses `r`'s register for it, that is another.
+ * Any ONE of those frees the low register that makes ip unnecessary and forces the spill.
  */
 extern void func_0201e470();
 extern char data_ov029_020b30b0[];
