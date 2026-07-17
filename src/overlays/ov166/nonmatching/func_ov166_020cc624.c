@@ -1,3 +1,26 @@
+/* NONMATCHING -- 312/312 B, 78/78 instructions, ONE instruction pair:
+ *     ROM   ldrne r1, [r0, #4] ; cmpne r1, #0
+ *     mwcc  ldrne r0, [r0, #4] ; cmpne r0, #0
+ * r0 holds a->f39c and is dead straight after; mwcc reuses it for the loaded field, the
+ * ROM spends r1. Everything else in the function is byte-exact. Worth 10 (x10 family).
+ *
+ * Same shape as the 72 B c5c0 vein (see any ov131/ov132/... nonmatching file), where the
+ * ROM likewise declines to reuse a dead r0 for a loaded value. That vein has the fuller
+ * ruled-out list -- all 25 distinct mwcc binaries, 44 flag combinations, 16 optimiser
+ * toggles, both -lang modes. Do not re-run those here.
+ *
+ * RULED OUT for this function (all 312 B, all the same 2 diffs):
+ *   - the guard as a nested if instead of `&&`;
+ *   - `a->f39c->b` vs `a->f39c[0].b` vs raw `*(int *)(*(int *)((char *)a + 0x39c) + 4)`;
+ *   - `!= 0` vs plain truthiness;
+ *   - caching a->f39c in a local for the store.
+ *
+ * ★ THE ARGUMENT THAT MATTERS, and it cuts against the build theory: 12,191 functions in
+ * this project match BYTE-EXACTLY with this exact compiler and these exact flags. A
+ * systematic register-allocation difference would break all of them, not fifty. So the
+ * compiler is right and the source is what differs -- in these ~50 cases we simply have
+ * not found the idiom yet. Treat "it must be a different mwcc build" as the least likely
+ * explanation, not the first. */
 extern int func_0203c650();
 extern int func_ov107_020cb100();
 extern int func_ov107_020c7ca4();
