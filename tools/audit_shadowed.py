@@ -24,9 +24,18 @@ import subprocess
 import sys
 
 
+# NOT just src/: libs/{nitro,msl}/... carries its own asm_stubs/ + calls/ + auto/ trees and is
+# counted the same way. Scanning only src/ reported "0 shadowed" while 74 SND veneers sat shadowed
+# under libs/nitro/snd/ (2026-07-17).
+TREES = ('src', 'libs')
+
+
 def scan():
     real, stub = {}, {}
-    for root, _dirs, files in os.walk('src'):
+    for tree in TREES:
+      if not os.path.isdir(tree):
+        continue
+      for root, _dirs, files in os.walk(tree):
         for f in files:
             if not f.endswith('.c'):
                 continue
