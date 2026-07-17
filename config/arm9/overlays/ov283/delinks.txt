@@ -4,26 +4,142 @@
     .data       start:0x020cfbe0 end:0x020cfc00 kind:data align:32
     .bss        start:0x020cfc00 end:0x020cfc00 kind:bss align:32
 
+src/overlays/ov283/calls/func_ov283_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov283/calls/func_ov283_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc8
+
+src/overlays/ov283/calls/func_ov283_020cc25c.c:
+    complete
+    .text       start:0x020cc25c end:0x020cc2bc
+
 src/overlays/ov283/calls/func_ov283_020cc374.c:
     complete
     .text       start:0x020cc374 end:0x020cc3ac
+
+src/overlays/ov283/auto/func_ov283_020cc628.c:
+    complete
+    .text       start:0x020cc628 end:0x020cc634
+
+src/overlays/ov283/calls/func_ov283_020cc634.c:
+    complete
+    .text       start:0x020cc634 end:0x020cc690
+
+src/overlays/ov283/calls/func_ov283_020cc830.c:
+    complete
+    .text       start:0x020cc830 end:0x020cc92c
+
+src/overlays/ov283/calls/func_ov283_020ccdfc.c:
+    complete
+    .text       start:0x020ccdfc end:0x020ccfb8
+
+src/overlays/ov283/calls/func_ov283_020cd108.c:
+    complete
+    .text       start:0x020cd108 end:0x020cd170
+
+src/overlays/ov283/calls/func_ov283_020cd558.c:
+    complete
+    .text       start:0x020cd558 end:0x020cd5a8
+
+src/overlays/ov283/calls/func_ov283_020cdeac.c:
+    complete
+    .text       start:0x020cdeac end:0x020cdf1c
+
+src/overlays/ov283/calls/func_ov283_020ce2a0.c:
+    complete
+    .text       start:0x020ce2a0 end:0x020ce2e4
+
+src/overlays/ov283/calls/func_ov283_020ce2e4.c:
+    complete
+    .text       start:0x020ce2e4 end:0x020ce328
+
+src/overlays/ov283/calls/func_ov283_020ce6e0.c:
+    complete
+    .text       start:0x020ce6e0 end:0x020ce73c
+
+src/overlays/ov283/calls/func_ov283_020ce8c8.c:
+    complete
+    .text       start:0x020ce8c8 end:0x020ce918
+
+src/overlays/ov283/calls/func_ov283_020ce918.c:
+    complete
+    .text       start:0x020ce918 end:0x020ce95c
+
+src/overlays/ov283/calls/func_ov283_020ce95c.c:
+    complete
+    .text       start:0x020ce95c end:0x020ce97c
 
 src/overlays/ov283/calls/func_ov283_020cea48.c:
     complete
     .text       start:0x020cea48 end:0x020cea7c
 
+src/overlays/ov283/calls/func_ov283_020ced2c.c:
+    complete
+    .text       start:0x020ced2c end:0x020ced7c
+
 src/overlays/ov283/auto/func_ov283_020ced7c.c:
     complete
     .text       start:0x020ced7c end:0x020ced80
+
+src/overlays/ov283/calls/func_ov283_020ced80.c:
+    complete
+    .text       start:0x020ced80 end:0x020ced9c
+
+src/overlays/ov283/calls/func_ov283_020ced9c.c:
+    complete
+    .text       start:0x020ced9c end:0x020cedd0
 
 src/overlays/ov283/calls/func_ov283_020ceee8.c:
     complete
     .text       start:0x020ceee8 end:0x020cef04
 
+src/overlays/ov283/auto/func_ov283_020cef38.c:
+    complete
+    .text       start:0x020cef38 end:0x020cef4c
+
+src/overlays/ov283/calls/func_ov283_020cef4c.c:
+    complete
+    .text       start:0x020cef4c end:0x020cef98
+
+src/overlays/ov283/calls/func_ov283_020cef98.c:
+    complete
+    .text       start:0x020cef98 end:0x020cf034
+
+src/overlays/ov283/calls/func_ov283_020cf034.c:
+    complete
+    .text       start:0x020cf034 end:0x020cf0ac
+
+src/overlays/ov283/calls/func_ov283_020cf1c0.c:
+    complete
+    .text       start:0x020cf1c0 end:0x020cf21c
+
+src/overlays/ov283/calls/func_ov283_020cf21c.c:
+    complete
+    .text       start:0x020cf21c end:0x020cf250
+
 src/overlays/ov283/calls/func_ov283_020cf328.c:
     complete
     .text       start:0x020cf328 end:0x020cf34c
 
+src/overlays/ov283/calls/func_ov283_020cf488.c:
+    complete
+    .text       start:0x020cf488 end:0x020cf4d4
+
+src/overlays/ov283/calls/func_ov283_020cf4d4.c:
+    complete
+    .text       start:0x020cf4d4 end:0x020cf57c
+
+src/overlays/ov283/calls/func_ov283_020cf57c.c:
+    complete
+    .text       start:0x020cf57c end:0x020cf5f4
+
 src/overlays/ov283/auto/func_ov283_020cf7d4.c:
     complete
     .text       start:0x020cf7d4 end:0x020cf7d8
+
+src/overlays/ov283/calls/func_ov283_020cf844.c:
+    complete
+    .text       start:0x020cf844 end:0x020cf88c

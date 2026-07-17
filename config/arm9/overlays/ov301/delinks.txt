@@ -19,7 +19,7 @@ src/overlays/ov301/calls/func_ov301_020cc15c.c:
     complete
     .text       start:0x020cc15c end:0x020cc178
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc178.c:
+src/overlays/ov301/calls/func_ov301_020cc178.c:
     complete
     .text       start:0x020cc178 end:0x020cc1d8
 
@@ -47,11 +47,11 @@ src/overlays/ov301/calls/func_ov301_020cc2a4.c:
     complete
     .text       start:0x020cc2a4 end:0x020cc338
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc338.c:
+src/overlays/ov301/calls/func_ov301_020cc338.c:
     complete
     .text       start:0x020cc338 end:0x020cc458
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc458.c:
+src/overlays/ov301/calls/func_ov301_020cc458.c:
     complete
     .text       start:0x020cc458 end:0x020cc63c
 
@@ -67,7 +67,7 @@ src/overlays/ov301/auto/func_ov301_020cc6f8.c:
     complete
     .text       start:0x020cc6f8 end:0x020cc6fc
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cc6fc.c:
+src/overlays/ov301/calls/func_ov301_020cc6fc.c:
     complete
     .text       start:0x020cc6fc end:0x020cc748
 

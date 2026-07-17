@@ -36,7 +36,7 @@ src/overlays/ov250/asm_stubs/calls/func_ov250_020cff64.c:
     complete
     .text       start:0x020cff64 end:0x020d0088
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d0088.c:
+src/overlays/ov250/calls/func_ov250_020d0088.c:
     complete
     .text       start:0x020d0088 end:0x020d00f0
 

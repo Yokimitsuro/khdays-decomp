@@ -124,7 +124,7 @@ src/overlays/ov215/calls/func_ov215_020d1488.c:
     complete
     .text       start:0x020d1488 end:0x020d14ec
 
-src/overlays/ov215/asm_stubs/calls/func_ov215_020d14ec.c:
+src/overlays/ov215/calls/func_ov215_020d14ec.c:
     complete
     .text       start:0x020d14ec end:0x020d1644
 

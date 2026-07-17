@@ -128,7 +128,7 @@ src/overlays/ov176/calls/func_ov176_020d1640.c:
     complete
     .text       start:0x020d1640 end:0x020d16b0
 
-src/overlays/ov176/asm_stubs/calls/func_ov176_020d16b0.c:
+src/overlays/ov176/calls/func_ov176_020d16b0.c:
     complete
     .text       start:0x020d16b0 end:0x020d182c
 

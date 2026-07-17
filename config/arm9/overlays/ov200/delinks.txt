@@ -72,6 +72,10 @@ src/overlays/ov200/calls/func_ov200_020cfa60.c:
     complete
     .text       start:0x020cfa60 end:0x020cfaec
 
+src/overlays/ov200/calls/func_ov200_020cfaec.c:
+    complete
+    .text       start:0x020cfaec end:0x020cfbc4
+
 src/overlays/ov200/calls/func_ov200_020cfc8c.c:
     complete
     .text       start:0x020cfc8c end:0x020cfcfc

@@ -4,7 +4,7 @@
     .data       start:0x020ba420 end:0x020ba4e0 kind:data align:32
     .bss        start:0x020ba4e0 end:0x020ba500 kind:bss align:32
 
-libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov078_0x020b8100.c:
+libs/nitro/snd/calls/SNDi_UnlockMutex_ov078_0x020b8100.c:
     complete
     .text       start:0x020b8100 end:0x020b8114
 

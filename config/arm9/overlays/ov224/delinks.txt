@@ -240,6 +240,10 @@ src/overlays/ov224/calls/func_ov224_020d4860.c:
     complete
     .text       start:0x020d4860 end:0x020d4988
 
+src/overlays/ov224/calls/func_ov224_020d4bd8.c:
+    complete
+    .text       start:0x020d4bd8 end:0x020d4d0c
+
 src/overlays/ov224/calls/func_ov224_020d4d0c.c:
     complete
     .text       start:0x020d4d0c end:0x020d4de0

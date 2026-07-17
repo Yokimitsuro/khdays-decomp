@@ -4,21 +4,105 @@
     .data       start:0x020d1c20 end:0x020d1ce0 kind:data align:32
     .bss        start:0x020d1ce0 end:0x020d1d00 kind:bss align:32
 
+src/overlays/ov237/calls/func_ov237_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov237/calls/func_ov237_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/calls/WM_EndKeySharing_0x020cc800.c:
+    complete
+    .text       start:0x020cc800 end:0x020cc80c
+
 src/overlays/ov237/auto/func_ov237_020cc840.c:
     complete
     .text       start:0x020cc840 end:0x020cc8a8
+
+src/overlays/ov237/calls/func_ov237_020cd0b0.c:
+    complete
+    .text       start:0x020cd0b0 end:0x020cd12c
 
 src/overlays/ov237/auto/func_ov237_020cd550.c:
     complete
     .text       start:0x020cd550 end:0x020cd554
 
+src/overlays/ov237/calls/func_ov237_020ce584.c:
+    complete
+    .text       start:0x020ce584 end:0x020ce5e8
+
+src/overlays/ov237/calls/func_ov237_020ce5e8.c:
+    complete
+    .text       start:0x020ce5e8 end:0x020ce61c
+
+src/overlays/ov237/calls/func_ov237_020ce6cc.c:
+    complete
+    .text       start:0x020ce6cc end:0x020ce714
+
+src/overlays/ov237/calls/func_ov237_020ce714.c:
+    complete
+    .text       start:0x020ce714 end:0x020ce7a0
+
+src/overlays/ov237/calls/func_ov237_020ce7a0.c:
+    complete
+    .text       start:0x020ce7a0 end:0x020ce82c
+
+src/overlays/ov237/calls/func_ov237_020ce82c.c:
+    complete
+    .text       start:0x020ce82c end:0x020ce89c
+
+src/overlays/ov237/calls/func_ov237_020ce89c.c:
+    complete
+    .text       start:0x020ce89c end:0x020ce8e4
+
+src/overlays/ov237/calls/func_ov237_020cefe4.c:
+    complete
+    .text       start:0x020cefe4 end:0x020cf048
+
 src/overlays/ov237/calls/func_ov237_020cfe70.c:
     complete
     .text       start:0x020cfe70 end:0x020cfea4
 
+src/overlays/ov237/calls/func_ov237_020d039c.c:
+    complete
+    .text       start:0x020d039c end:0x020d03e0
+
+src/overlays/ov237/calls/func_ov237_020d03e0.c:
+    complete
+    .text       start:0x020d03e0 end:0x020d043c
+
+src/overlays/ov237/calls/func_ov237_020d043c.c:
+    complete
+    .text       start:0x020d043c end:0x020d0478
+
+src/overlays/ov237/calls/func_ov237_020d0478.c:
+    complete
+    .text       start:0x020d0478 end:0x020d04b0
+
+src/overlays/ov237/calls/func_ov237_020d04b0.c:
+    complete
+    .text       start:0x020d04b0 end:0x020d0540
+
+src/overlays/ov237/calls/func_ov237_020d0540.c:
+    complete
+    .text       start:0x020d0540 end:0x020d0574
+
+src/overlays/ov237/calls/func_ov237_020d0574.c:
+    complete
+    .text       start:0x020d0574 end:0x020d05d0
+
+src/overlays/ov237/calls/func_ov237_020d09cc.c:
+    complete
+    .text       start:0x020d09cc end:0x020d0a20
+
 src/overlays/ov237/calls/func_ov237_020d0a20.c:
     complete
     .text       start:0x020d0a20 end:0x020d0a4c
+
+src/overlays/ov237/calls/func_ov237_020d0ab0.c:
+    complete
+    .text       start:0x020d0ab0 end:0x020d0ae4
 
 src/overlays/ov237/calls/func_ov237_020d0c4c.c:
     complete
@@ -32,6 +116,26 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020d0ca0.c:
     complete
     .text       start:0x020d0ca0 end:0x020d0cac
 
+src/overlays/ov237/calls/func_ov237_020d0cac.c:
+    complete
+    .text       start:0x020d0cac end:0x020d0cc8
+
+src/overlays/ov237/calls/func_ov237_020d0d14.c:
+    complete
+    .text       start:0x020d0d14 end:0x020d0d60
+
+src/overlays/ov237/calls/func_ov237_020d0d60.c:
+    complete
+    .text       start:0x020d0d60 end:0x020d0e10
+
+src/overlays/ov237/calls/func_ov237_020d0e10.c:
+    complete
+    .text       start:0x020d0e10 end:0x020d0e88
+
 src/overlays/ov237/auto/func_ov237_020d0e88.c:
     complete
     .text       start:0x020d0e88 end:0x020d0ea0
+
+src/overlays/ov237/calls/func_ov237_020d1544.c:
+    complete
+    .text       start:0x020d1544 end:0x020d1598

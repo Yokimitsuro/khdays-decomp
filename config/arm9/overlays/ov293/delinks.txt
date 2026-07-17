@@ -32,7 +32,7 @@ src/overlays/ov293/calls/func_ov293_020d1e1c.c:
     complete
     .text       start:0x020d1e1c end:0x020d1e3c
 
-src/overlays/ov293/asm_stubs/calls/func_ov293_020d1e3c.c:
+src/overlays/ov293/calls/func_ov293_020d1e3c.c:
     complete
     .text       start:0x020d1e3c end:0x020d1ea4
 

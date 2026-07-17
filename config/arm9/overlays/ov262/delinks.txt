@@ -19,7 +19,7 @@ src/overlays/ov262/calls/func_ov262_020d3aec.c:
     complete
     .text       start:0x020d3aec end:0x020d3b80
 
-src/overlays/ov262/asm_stubs/calls/func_ov262_020d3b80.c:
+src/overlays/ov262/calls/func_ov262_020d3b80.c:
     complete
     .text       start:0x020d3b80 end:0x020d3bd0
 
@@ -27,7 +27,7 @@ src/overlays/ov262/calls/func_ov262_020d3bd0.c:
     complete
     .text       start:0x020d3bd0 end:0x020d3c00
 
-src/overlays/ov262/asm_stubs/calls/func_ov262_020d3c00.c:
+src/overlays/ov262/calls/func_ov262_020d3c00.c:
     complete
     .text       start:0x020d3c00 end:0x020d3c60
 

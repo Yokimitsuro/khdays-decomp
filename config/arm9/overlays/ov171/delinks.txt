@@ -24,7 +24,7 @@ src/overlays/ov171/calls/func_ov171_020cc344.c:
     complete
     .text       start:0x020cc344 end:0x020cc384
 
-libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_ov171_0x020cc384.c:
+libs/nitro/wm/calls/WM_EndKeySharing_ov171_0x020cc384.c:
     complete
     .text       start:0x020cc384 end:0x020cc390
 

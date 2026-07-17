@@ -87,11 +87,11 @@ src/overlays/ov012/calls/func_ov012_0205b920.c:
     complete
     .text       start:0x0205b920 end:0x0205b940
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205b940.c:
+src/overlays/ov012/calls/func_ov012_0205b940.c:
     complete
     .text       start:0x0205b940 end:0x0205b982
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205b984.c:
+src/overlays/ov012/calls/func_ov012_0205b984.c:
     complete
     .text       start:0x0205b984 end:0x0205b9a6
 
@@ -103,7 +103,7 @@ src/overlays/ov012/asm_stubs/calls/func_ov012_0205b9e0.c:
     complete
     .text       start:0x0205b9e0 end:0x0205ba08
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205ba08.c:
+src/overlays/ov012/calls/func_ov012_0205ba08.c:
     complete
     .text       start:0x0205ba08 end:0x0205ba3c
 
@@ -115,7 +115,7 @@ src/overlays/ov012/calls/func_ov012_0205ba48.c:
     complete
     .text       start:0x0205ba48 end:0x0205ba5a
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205ba5c.c:
+src/overlays/ov012/auto/func_ov012_0205ba5c.c:
     complete
     .text       start:0x0205ba5c end:0x0205bb3c
 
@@ -127,7 +127,7 @@ libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x0205bb78.c:
     complete
     .text       start:0x0205bb78 end:0x0205bb84
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205bb84.c:
+src/overlays/ov012/calls/func_ov012_0205bb84.c:
     complete
     .text       start:0x0205bb84 end:0x0205bba4
 
@@ -139,7 +139,7 @@ src/overlays/ov012/asm_stubs/calls/func_ov012_0205bbac.c:
     complete
     .text       start:0x0205bbac end:0x0205bc08
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205bc08.c:
+src/overlays/ov012/calls/func_ov012_0205bc08.c:
     complete
     .text       start:0x0205bc08 end:0x0205bcf0
 
@@ -155,7 +155,7 @@ src/overlays/ov012/asm_stubs/calls/func_ov012_0205c040.c:
     complete
     .text       start:0x0205c040 end:0x0205c048
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205c048.c:
+src/overlays/ov012/calls/func_ov012_0205c048.c:
     complete
     .text       start:0x0205c048 end:0x0205c0e0
 
@@ -167,7 +167,7 @@ src/overlays/ov012/auto/func_ov012_0205c1d4.c:
     complete
     .text       start:0x0205c1d4 end:0x0205c224
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205c224.c:
+src/overlays/ov012/calls/func_ov012_0205c224.c:
     complete
     .text       start:0x0205c224 end:0x0205c278
 

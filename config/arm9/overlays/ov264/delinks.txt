@@ -124,7 +124,7 @@ src/overlays/ov264/calls/func_ov264_020cd848.c:
     complete
     .text       start:0x020cd848 end:0x020cd8ac
 
-src/overlays/ov264/asm_stubs/calls/func_ov264_020cd8ac.c:
+src/overlays/ov264/calls/func_ov264_020cd8ac.c:
     complete
     .text       start:0x020cd8ac end:0x020cda04
 

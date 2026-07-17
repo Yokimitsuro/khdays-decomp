@@ -80,7 +80,7 @@ src/overlays/ov151/calls/func_ov151_020ccbc4.c:
     complete
     .text       start:0x020ccbc4 end:0x020ccc04
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020ccc04.c:
+src/overlays/ov151/calls/func_ov151_020ccc04.c:
     complete
     .text       start:0x020ccc04 end:0x020ccc60
 

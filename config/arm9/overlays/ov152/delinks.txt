@@ -80,7 +80,7 @@ src/overlays/ov152/calls/func_ov152_020d4444.c:
     complete
     .text       start:0x020d4444 end:0x020d4484
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d4484.c:
+src/overlays/ov152/calls/func_ov152_020d4484.c:
     complete
     .text       start:0x020d4484 end:0x020d44e0
 

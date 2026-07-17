@@ -71,7 +71,7 @@ src/overlays/ov017/calls/func_ov017_020804a4.c:
     complete
     .text       start:0x020804a4 end:0x020804b4
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_020804b4.c:
+src/overlays/ov017/calls/func_ov017_020804b4.c:
     complete
     .text       start:0x020804b4 end:0x020804d2
 
@@ -139,7 +139,7 @@ src/overlays/ov017/asm_stubs/calls/func_ov017_020809d8.c:
     complete
     .text       start:0x020809d8 end:0x02080a60
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080a60.c:
+src/overlays/ov017/calls/func_ov017_02080a60.c:
     complete
     .text       start:0x02080a60 end:0x02080a68
 
@@ -147,15 +147,15 @@ src/overlays/ov017/calls/func_ov017_02080a68.c:
     complete
     .text       start:0x02080a68 end:0x02080a6a
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080a6c.c:
+src/overlays/ov017/calls/func_ov017_02080a6c.c:
     complete
     .text       start:0x02080a6c end:0x02080b06
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080b08.c:
+src/overlays/ov017/calls/func_ov017_02080b08.c:
     complete
     .text       start:0x02080b08 end:0x02080bca
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080bcc.c:
+src/overlays/ov017/calls/func_ov017_02080bcc.c:
     complete
     .text       start:0x02080bcc end:0x02080c3e
 
@@ -163,19 +163,19 @@ src/overlays/ov017/asm_stubs/calls/func_ov017_02080c40.c:
     complete
     .text       start:0x02080c40 end:0x02080c88
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080c88.c:
+src/overlays/ov017/calls/func_ov017_02080c88.c:
     complete
     .text       start:0x02080c88 end:0x02080cb2
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080cb4.c:
+src/overlays/ov017/calls/func_ov017_02080cb4.c:
     complete
     .text       start:0x02080cb4 end:0x02080d0a
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080d0c.c:
+src/overlays/ov017/calls/func_ov017_02080d0c.c:
     complete
     .text       start:0x02080d0c end:0x02080dd0
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080dd0.c:
+src/overlays/ov017/calls/func_ov017_02080dd0.c:
     complete
     .text       start:0x02080dd0 end:0x02080dfc
 

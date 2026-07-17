@@ -4,17 +4,85 @@
     .data       start:0x020d35a0 end:0x020d3600 kind:data align:32
     .bss        start:0x020d3600 end:0x020d3600 kind:bss align:32
 
+src/overlays/ov272/calls/func_ov272_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov272/calls/func_ov272_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov272/calls/func_ov272_020cff34.c:
+    complete
+    .text       start:0x020cff34 end:0x020cff74
+
+src/overlays/ov272/calls/func_ov272_020cff74.c:
+    complete
+    .text       start:0x020cff74 end:0x020cfff0
+
+src/overlays/ov272/calls/func_ov272_020d0374.c:
+    complete
+    .text       start:0x020d0374 end:0x020d03d0
+
 src/overlays/ov272/auto/func_ov272_020d05dc.c:
     complete
     .text       start:0x020d05dc end:0x020d060c
+
+src/overlays/ov272/calls/func_ov272_020d0b00.c:
+    complete
+    .text       start:0x020d0b00 end:0x020d0cfc
+
+src/overlays/ov272/calls/func_ov272_020d0cfc.c:
+    complete
+    .text       start:0x020d0cfc end:0x020d0d50
+
+src/overlays/ov272/calls/func_ov272_020d0d50.c:
+    complete
+    .text       start:0x020d0d50 end:0x020d0db8
 
 src/overlays/ov272/calls/func_ov272_020d1000.c:
     complete
     .text       start:0x020d1000 end:0x020d1034
 
+src/overlays/ov272/calls/func_ov272_020d1034.c:
+    complete
+    .text       start:0x020d1034 end:0x020d1068
+
+src/overlays/ov272/calls/func_ov272_020d1068.c:
+    complete
+    .text       start:0x020d1068 end:0x020d108c
+
+src/overlays/ov272/calls/func_ov272_020d108c.c:
+    complete
+    .text       start:0x020d108c end:0x020d10e4
+
+src/overlays/ov272/calls/func_ov272_020d1664.c:
+    complete
+    .text       start:0x020d1664 end:0x020d1698
+
 src/overlays/ov272/calls/func_ov272_020d1698.c:
     complete
     .text       start:0x020d1698 end:0x020d16cc
+
+src/overlays/ov272/calls/func_ov272_020d16cc.c:
+    complete
+    .text       start:0x020d16cc end:0x020d1700
+
+src/overlays/ov272/calls/func_ov272_020d1a74.c:
+    complete
+    .text       start:0x020d1a74 end:0x020d1af4
+
+src/overlays/ov272/calls/func_ov272_020d25d8.c:
+    complete
+    .text       start:0x020d25d8 end:0x020d2614
+
+src/overlays/ov272/calls/func_ov272_020d3328.c:
+    complete
+    .text       start:0x020d3328 end:0x020d33dc
+
+src/overlays/ov272/calls/func_ov272_020d3430.c:
+    complete
+    .text       start:0x020d3430 end:0x020d3474
 
 src/overlays/ov272/auto/func_ov272_020d3474.c:
     complete

@@ -5,6 +5,10 @@ libs/nitro/os/calls/OSi_VBlankInterruptHandler.c:
     complete
     .text       start:0x01ff8000 end:0x01ff80a8
 
+src/calls/OS_IsThreadAvailable.c:
+    complete
+    .text       start:0x01ff80a8 end:0x01ff80b8
+
 src/calls/func_01ff80b8.c:
     complete
     .text       start:0x01ff80b8 end:0x01ff8110
@@ -229,7 +233,7 @@ libs/nitro/nns/asm_stubs/calls/NNSi_FndDestroyDoubleList.c:
     complete
     .text       start:0x01fffc5c end:0x01fffca8
 
-src/asm_stubs/calls/func_01fffca8.c:
+src/calls/func_01fffca8.c:
     complete
     .text       start:0x01fffca8 end:0x01fffd0c
 
@@ -257,6 +261,6 @@ src/calls/func_01fffde0.c:
     complete
     .text       start:0x01fffde0 end:0x01fffe14
 
-src/asm_stubs/calls/func_01fffe14.c:
+src/calls/func_01fffe14.c:
     complete
     .text       start:0x01fffe14 end:0x01fffe68

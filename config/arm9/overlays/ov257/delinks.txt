@@ -4,6 +4,14 @@
     .data       start:0x020d3360 end:0x020d3400 kind:data align:32
     .bss        start:0x020d3400 end:0x020d3400 kind:bss align:32
 
+src/overlays/ov257/calls/func_ov257_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov257/calls/func_ov257_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cca20.c:
     complete
     .text       start:0x020cca20 end:0x020cca2c
@@ -12,6 +20,42 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cca2c.c:
     complete
     .text       start:0x020cca2c end:0x020cca38
 
+src/overlays/ov257/calls/func_ov257_020ccd44.c:
+    complete
+    .text       start:0x020ccd44 end:0x020ccd9c
+
+src/overlays/ov257/calls/func_ov257_020ccd9c.c:
+    complete
+    .text       start:0x020ccd9c end:0x020ccde8
+
+src/overlays/ov257/calls/func_ov257_020cd370.c:
+    complete
+    .text       start:0x020cd370 end:0x020cd57c
+
+src/overlays/ov257/calls/func_ov257_020cd6f0.c:
+    complete
+    .text       start:0x020cd6f0 end:0x020cd72c
+
+src/overlays/ov257/calls/func_ov257_020cda48.c:
+    complete
+    .text       start:0x020cda48 end:0x020cda90
+
+src/overlays/ov257/calls/func_ov257_020ce308.c:
+    complete
+    .text       start:0x020ce308 end:0x020ce380
+
+src/overlays/ov257/calls/func_ov257_020ce594.c:
+    complete
+    .text       start:0x020ce594 end:0x020ce60c
+
+src/overlays/ov257/calls/func_ov257_020ce814.c:
+    complete
+    .text       start:0x020ce814 end:0x020ce870
+
+src/overlays/ov257/calls/func_ov257_020cfb50.c:
+    complete
+    .text       start:0x020cfb50 end:0x020cfbac
+
 src/overlays/ov257/auto/func_ov257_020d25fc.c:
     complete
     .text       start:0x020d25fc end:0x020d2614
@@ -19,6 +63,10 @@ src/overlays/ov257/auto/func_ov257_020d25fc.c:
 src/overlays/ov257/auto/func_ov257_020d2614.c:
     complete
     .text       start:0x020d2614 end:0x020d2640
+
+src/overlays/ov257/calls/func_ov257_020d275c.c:
+    complete
+    .text       start:0x020d275c end:0x020d2784
 
 src/overlays/ov257/auto/func_ov257_020d28f4.c:
     complete

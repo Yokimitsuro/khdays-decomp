@@ -4,6 +4,54 @@
     .data       start:0x020b8aa0 end:0x020b8b60 kind:data align:32
     .bss        start:0x020b8b60 end:0x020b8b80 kind:bss align:32
 
+src/overlays/ov106/calls/func_ov106_020b7794.c:
+    complete
+    .text       start:0x020b7794 end:0x020b77b4
+
+src/overlays/ov106/calls/func_ov106_020b8130.c:
+    complete
+    .text       start:0x020b8130 end:0x020b8140
+
+src/overlays/ov106/calls/func_ov106_020b8194.c:
+    complete
+    .text       start:0x020b8194 end:0x020b81ac
+
+src/overlays/ov106/calls/func_ov106_020b8208.c:
+    complete
+    .text       start:0x020b8208 end:0x020b821c
+
+src/overlays/ov106/calls/func_ov106_020b821c.c:
+    complete
+    .text       start:0x020b821c end:0x020b823c
+
+src/overlays/ov106/calls/func_ov106_020b823c.c:
+    complete
+    .text       start:0x020b823c end:0x020b825c
+
+src/overlays/ov106/calls/func_ov106_020b833c.c:
+    complete
+    .text       start:0x020b833c end:0x020b834c
+
 src/overlays/ov106/auto/func_ov106_020b834c.c:
     complete
     .text       start:0x020b834c end:0x020b8350
+
+src/overlays/ov106/calls/func_ov106_020b8448.c:
+    complete
+    .text       start:0x020b8448 end:0x020b8454
+
+src/overlays/ov106/calls/func_ov106_020b8a24.c:
+    complete
+    .text       start:0x020b8a24 end:0x020b8a34
+
+src/overlays/ov106/calls/func_ov106_020b8a34.c:
+    complete
+    .text       start:0x020b8a34 end:0x020b8a4c
+
+src/overlays/ov106/calls/func_ov106_020b8a4c.c:
+    complete
+    .text       start:0x020b8a4c end:0x020b8a5c
+
+src/overlays/ov106/calls/func_ov106_020b8a5c.c:
+    complete
+    .text       start:0x020b8a5c end:0x020b8a6c

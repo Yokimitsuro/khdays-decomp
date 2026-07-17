@@ -4,21 +4,81 @@
     .data       start:0x020d1860 end:0x020d1900 kind:data align:32
     .bss        start:0x020d1900 end:0x020d1900 kind:bss align:32
 
+src/overlays/ov258/calls/func_ov258_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov258/calls/func_ov258_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc8
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cc4f0.c:
     complete
     .text       start:0x020cc4f0 end:0x020cc4fc
+
+src/overlays/ov258/calls/func_ov258_020ccf40.c:
+    complete
+    .text       start:0x020ccf40 end:0x020ccfbc
+
+src/overlays/ov258/calls/func_ov258_020ccfbc.c:
+    complete
+    .text       start:0x020ccfbc end:0x020cd028
 
 src/overlays/ov258/calls/func_ov258_020cdb80.c:
     complete
     .text       start:0x020cdb80 end:0x020cdbb8
 
+src/overlays/ov258/calls/func_ov258_020cdbb8.c:
+    complete
+    .text       start:0x020cdbb8 end:0x020cdc08
+
+src/overlays/ov258/calls/func_ov258_020cdc08.c:
+    complete
+    .text       start:0x020cdc08 end:0x020cdc3c
+
+src/overlays/ov258/calls/func_ov258_020cdc3c.c:
+    complete
+    .text       start:0x020cdc3c end:0x020cdca8
+
+src/overlays/ov258/calls/func_ov258_020ce5d8.c:
+    complete
+    .text       start:0x020ce5d8 end:0x020ce63c
+
 src/overlays/ov258/calls/func_ov258_020cfcf4.c:
     complete
     .text       start:0x020cfcf4 end:0x020cfd20
 
+src/overlays/ov258/calls/func_ov258_020cfd20.c:
+    complete
+    .text       start:0x020cfd20 end:0x020cfd3c
+
+src/overlays/ov258/calls/func_ov258_020cfd58.c:
+    complete
+    .text       start:0x020cfd58 end:0x020cfd94
+
 src/overlays/ov258/calls/func_ov258_020cfed8.c:
     complete
     .text       start:0x020cfed8 end:0x020cfef4
+
+src/overlays/ov258/calls/func_ov258_020cff94.c:
+    complete
+    .text       start:0x020cff94 end:0x020cffb0
+
+src/overlays/ov258/calls/func_ov258_020cffb0.c:
+    complete
+    .text       start:0x020cffb0 end:0x020d0018
+
+src/overlays/ov258/calls/func_ov258_020d0018.c:
+    complete
+    .text       start:0x020d0018 end:0x020d00c4
+
+src/overlays/ov258/calls/func_ov258_020d00c4.c:
+    complete
+    .text       start:0x020d00c4 end:0x020d0158
+
+src/overlays/ov258/calls/func_ov258_020d02d0.c:
+    complete
+    .text       start:0x020d02d0 end:0x020d02f8
 
 src/overlays/ov258/auto/func_ov258_020d07e8.c:
     complete

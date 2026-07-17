@@ -4,6 +4,22 @@
     .data       start:0x020cf3c0 end:0x020cf3e0 kind:data align:32
     .bss        start:0x020cf3e0 end:0x020cf3e0 kind:bss align:32
 
+src/overlays/ov137/calls/func_ov137_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov137/calls/func_ov137_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov137/calls/func_ov137_020cc248.c:
+    complete
+    .text       start:0x020cc248 end:0x020cc290
+
+src/overlays/ov137/calls/func_ov137_020cc2dc.c:
+    complete
+    .text       start:0x020cc2dc end:0x020cc398
+
 src/overlays/ov137/calls/func_ov137_020cc53c.c:
     complete
     .text       start:0x020cc53c end:0x020cc564
@@ -12,25 +28,85 @@ src/overlays/ov137/calls/func_ov137_020cc564.c:
     complete
     .text       start:0x020cc564 end:0x020cc58c
 
+src/overlays/ov137/calls/func_ov137_020cc728.c:
+    complete
+    .text       start:0x020cc728 end:0x020cc784
+
 src/overlays/ov137/auto/func_ov137_020cc99c.c:
     complete
     .text       start:0x020cc99c end:0x020cc9e0
+
+src/overlays/ov137/calls/func_ov137_020cc9e0.c:
+    complete
+    .text       start:0x020cc9e0 end:0x020ccb7c
+
+src/overlays/ov137/calls/func_ov137_020ccc50.c:
+    complete
+    .text       start:0x020ccc50 end:0x020ccdf0
+
+src/overlays/ov137/calls/func_ov137_020ccea4.c:
+    complete
+    .text       start:0x020ccea4 end:0x020ccf0c
 
 src/overlays/ov137/calls/func_ov137_020ccf0c.c:
     complete
     .text       start:0x020ccf0c end:0x020ccf74
 
+src/overlays/ov137/calls/func_ov137_020cd03c.c:
+    complete
+    .text       start:0x020cd03c end:0x020cd104
+
 src/overlays/ov137/calls/func_ov137_020cd104.c:
     complete
     .text       start:0x020cd104 end:0x020cd138
+
+src/overlays/ov137/calls/func_ov137_020cd138.c:
+    complete
+    .text       start:0x020cd138 end:0x020cd174
+
+src/overlays/ov137/calls/func_ov137_020cd208.c:
+    complete
+    .text       start:0x020cd208 end:0x020cd2d8
+
+src/overlays/ov137/calls/func_ov137_020cd414.c:
+    complete
+    .text       start:0x020cd414 end:0x020cd458
+
+src/overlays/ov137/calls/func_ov137_020cd458.c:
+    complete
+    .text       start:0x020cd458 end:0x020cd514
+
+src/overlays/ov137/calls/func_ov137_020cd514.c:
+    complete
+    .text       start:0x020cd514 end:0x020cd5a4
 
 src/overlays/ov137/calls/func_ov137_020cd5a4.c:
     complete
     .text       start:0x020cd5a4 end:0x020cd610
 
+src/overlays/ov137/calls/func_ov137_020cd610.c:
+    complete
+    .text       start:0x020cd610 end:0x020cd680
+
 src/overlays/ov137/calls/func_ov137_020cd680.c:
     complete
     .text       start:0x020cd680 end:0x020cd6fc
+
+src/overlays/ov137/calls/func_ov137_020cda00.c:
+    complete
+    .text       start:0x020cda00 end:0x020cdac4
+
+src/overlays/ov137/calls/func_ov137_020cdac4.c:
+    complete
+    .text       start:0x020cdac4 end:0x020cdba0
+
+src/overlays/ov137/calls/func_ov137_020cdec4.c:
+    complete
+    .text       start:0x020cdec4 end:0x020cdf9c
+
+src/overlays/ov137/calls/func_ov137_020ce190.c:
+    complete
+    .text       start:0x020ce190 end:0x020ce234
 
 src/overlays/ov137/auto/func_ov137_020ce234.c:
     complete
@@ -39,6 +115,10 @@ src/overlays/ov137/auto/func_ov137_020ce234.c:
 src/overlays/ov137/calls/func_ov137_020ce8f0.c:
     complete
     .text       start:0x020ce8f0 end:0x020ce930
+
+src/overlays/ov137/calls/func_ov137_020ce930.c:
+    complete
+    .text       start:0x020ce930 end:0x020ce964
 
 src/overlays/ov137/calls/func_ov137_020ceaf0.c:
     complete
@@ -52,10 +132,30 @@ src/overlays/ov137/calls/func_ov137_020cebcc.c:
     complete
     .text       start:0x020cebcc end:0x020cec28
 
+src/overlays/ov137/calls/func_ov137_020cec28.c:
+    complete
+    .text       start:0x020cec28 end:0x020cec74
+
+src/overlays/ov137/calls/func_ov137_020cec74.c:
+    complete
+    .text       start:0x020cec74 end:0x020ced1c
+
+src/overlays/ov137/calls/func_ov137_020ced1c.c:
+    complete
+    .text       start:0x020ced1c end:0x020ced94
+
 src/overlays/ov137/auto/func_ov137_020ced94.c:
     complete
     .text       start:0x020ced94 end:0x020cedac
 
+src/overlays/ov137/calls/func_ov137_020cedac.c:
+    complete
+    .text       start:0x020cedac end:0x020cee5c
+
 src/overlays/ov137/calls/func_ov137_020cee5c.c:
     complete
     .text       start:0x020cee5c end:0x020cee94
+
+src/overlays/ov137/auto/func_ov137_020cee94.c:
+    complete
+    .text       start:0x020cee94 end:0x020cef68

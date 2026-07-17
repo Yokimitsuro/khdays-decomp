@@ -36,7 +36,7 @@ src/overlays/ov007/calls/func_ov007_0204d170.c:
     complete
     .text       start:0x0204d170 end:0x0204d23c
 
-src/overlays/ov007/asm_stubs/calls/func_ov007_0204d23c.c:
+src/overlays/ov007/calls/func_ov007_0204d23c.c:
     complete
     .text       start:0x0204d23c end:0x0204d2d0
 

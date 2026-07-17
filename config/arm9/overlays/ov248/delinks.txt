@@ -4,6 +4,14 @@
     .data       start:0x020d0c20 end:0x020d0c60 kind:data align:32
     .bss        start:0x020d0c60 end:0x020d0c60 kind:bss align:32
 
+src/overlays/ov248/calls/func_ov248_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov248/calls/func_ov248_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc8
+
 src/overlays/ov248/calls/func_ov248_020cbfc8.c:
     complete
     .text       start:0x020cbfc8 end:0x020cc0b8
@@ -28,6 +36,14 @@ src/overlays/ov248/calls/func_ov248_020cc854.c:
     complete
     .text       start:0x020cc854 end:0x020cc9dc
 
+src/overlays/ov248/calls/func_ov248_020cc9dc.c:
+    complete
+    .text       start:0x020cc9dc end:0x020cca94
+
+src/overlays/ov248/calls/func_ov248_020cca94.c:
+    complete
+    .text       start:0x020cca94 end:0x020ccaf0
+
 src/overlays/ov248/auto/func_ov248_020cd03c.c:
     complete
     .text       start:0x020cd03c end:0x020cd068
@@ -35,6 +51,10 @@ src/overlays/ov248/auto/func_ov248_020cd03c.c:
 src/overlays/ov248/auto/func_ov248_020cd068.c:
     complete
     .text       start:0x020cd068 end:0x020cd098
+
+src/overlays/ov248/calls/func_ov248_020cd330.c:
+    complete
+    .text       start:0x020cd330 end:0x020cd510
 
 src/overlays/ov248/calls/func_ov248_020cd510.c:
     complete
@@ -44,29 +64,169 @@ src/overlays/ov248/calls/func_ov248_020cd524.c:
     complete
     .text       start:0x020cd524 end:0x020cd5cc
 
+src/overlays/ov248/calls/func_ov248_020cd5cc.c:
+    complete
+    .text       start:0x020cd5cc end:0x020cd65c
+
+src/overlays/ov248/calls/func_ov248_020cd65c.c:
+    complete
+    .text       start:0x020cd65c end:0x020cd85c
+
 src/overlays/ov248/calls/func_ov248_020cd85c.c:
     complete
     .text       start:0x020cd85c end:0x020cd9f0
+
+src/overlays/ov248/calls/func_ov248_020cd9f0.c:
+    complete
+    .text       start:0x020cd9f0 end:0x020cda58
+
+src/overlays/ov248/calls/func_ov248_020cda58.c:
+    complete
+    .text       start:0x020cda58 end:0x020cdae4
+
+src/overlays/ov248/calls/func_ov248_020cdae4.c:
+    complete
+    .text       start:0x020cdae4 end:0x020cdbc4
+
+src/overlays/ov248/calls/func_ov248_020cdbc4.c:
+    complete
+    .text       start:0x020cdbc4 end:0x020cdc48
+
+src/overlays/ov248/calls/func_ov248_020cdc48.c:
+    complete
+    .text       start:0x020cdc48 end:0x020cdcb0
 
 src/overlays/ov248/calls/func_ov248_020cdcb0.c:
     complete
     .text       start:0x020cdcb0 end:0x020cddf0
 
+src/overlays/ov248/calls/func_ov248_020cddf0.c:
+    complete
+    .text       start:0x020cddf0 end:0x020cde2c
+
+src/overlays/ov248/calls/func_ov248_020cde2c.c:
+    complete
+    .text       start:0x020cde2c end:0x020cdfbc
+
+src/overlays/ov248/calls/func_ov248_020cdfbc.c:
+    complete
+    .text       start:0x020cdfbc end:0x020ce08c
+
+src/overlays/ov248/calls/func_ov248_020ce08c.c:
+    complete
+    .text       start:0x020ce08c end:0x020ce210
+
+src/overlays/ov248/calls/func_ov248_020ce210.c:
+    complete
+    .text       start:0x020ce210 end:0x020ce3c8
+
+src/overlays/ov248/calls/func_ov248_020ce3c8.c:
+    complete
+    .text       start:0x020ce3c8 end:0x020ce4c0
+
+src/overlays/ov248/calls/func_ov248_020ce59c.c:
+    complete
+    .text       start:0x020ce59c end:0x020ce680
+
+src/overlays/ov248/calls/func_ov248_020ce680.c:
+    complete
+    .text       start:0x020ce680 end:0x020ce76c
+
+src/overlays/ov248/calls/func_ov248_020ceae0.c:
+    complete
+    .text       start:0x020ceae0 end:0x020ceb7c
+
+src/overlays/ov248/calls/func_ov248_020cf0b0.c:
+    complete
+    .text       start:0x020cf0b0 end:0x020cf0fc
+
 src/overlays/ov248/calls/func_ov248_020cf0fc.c:
     complete
     .text       start:0x020cf0fc end:0x020cf130
+
+src/overlays/ov248/calls/func_ov248_020cf130.c:
+    complete
+    .text       start:0x020cf130 end:0x020cf1d0
+
+src/overlays/ov248/calls/func_ov248_020cf1d0.c:
+    complete
+    .text       start:0x020cf1d0 end:0x020cf280
+
+src/overlays/ov248/calls/func_ov248_020cf280.c:
+    complete
+    .text       start:0x020cf280 end:0x020cf33c
+
+src/overlays/ov248/calls/func_ov248_020cf450.c:
+    complete
+    .text       start:0x020cf450 end:0x020cf634
+
+src/overlays/ov248/calls/func_ov248_020cf634.c:
+    complete
+    .text       start:0x020cf634 end:0x020cf6b0
+
+src/overlays/ov248/calls/func_ov248_020cf7ac.c:
+    complete
+    .text       start:0x020cf7ac end:0x020cf9c4
+
+src/overlays/ov248/calls/func_ov248_020cfb4c.c:
+    complete
+    .text       start:0x020cfb4c end:0x020cfc64
+
+src/overlays/ov248/calls/func_ov248_020cfc64.c:
+    complete
+    .text       start:0x020cfc64 end:0x020cfcac
 
 src/overlays/ov248/calls/func_ov248_020cfe84.c:
     complete
     .text       start:0x020cfe84 end:0x020cfeb8
 
+src/overlays/ov248/calls/func_ov248_020cfeb8.c:
+    complete
+    .text       start:0x020cfeb8 end:0x020cff80
+
 src/overlays/ov248/calls/func_ov248_020cff80.c:
     complete
     .text       start:0x020cff80 end:0x020cffa0
 
+src/overlays/ov248/calls/func_ov248_020cffa0.c:
+    complete
+    .text       start:0x020cffa0 end:0x020d0068
+
 src/overlays/ov248/calls/func_ov248_020d0068.c:
     complete
     .text       start:0x020d0068 end:0x020d00fc
+
+src/overlays/ov248/calls/func_ov248_020d00fc.c:
+    complete
+    .text       start:0x020d00fc end:0x020d013c
+
+src/overlays/ov248/calls/func_ov248_020d013c.c:
+    complete
+    .text       start:0x020d013c end:0x020d0264
+
+src/overlays/ov248/calls/func_ov248_020d0264.c:
+    complete
+    .text       start:0x020d0264 end:0x020d02b4
+
+src/overlays/ov248/calls/func_ov248_020d02b4.c:
+    complete
+    .text       start:0x020d02b4 end:0x020d02e8
+
+src/overlays/ov248/calls/func_ov248_020d0578.c:
+    complete
+    .text       start:0x020d0578 end:0x020d05d4
+
+src/overlays/ov248/calls/func_ov248_020d05d4.c:
+    complete
+    .text       start:0x020d05d4 end:0x020d067c
+
+src/overlays/ov248/calls/func_ov248_020d067c.c:
+    complete
+    .text       start:0x020d067c end:0x020d06f4
+
+src/overlays/ov248/calls/func_ov248_020d06f4.c:
+    complete
+    .text       start:0x020d06f4 end:0x020d0714
 
 src/overlays/ov248/calls/func_ov248_020d079c.c:
     complete

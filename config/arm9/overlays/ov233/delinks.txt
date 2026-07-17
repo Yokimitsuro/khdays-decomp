@@ -176,6 +176,10 @@ src/overlays/ov233/calls/func_ov233_020cfba4.c:
     complete
     .text       start:0x020cfba4 end:0x020cfbec
 
+src/overlays/ov233/calls/func_ov233_020cfbec.c:
+    complete
+    .text       start:0x020cfbec end:0x020cfd64
+
 src/overlays/ov233/calls/func_ov233_020cfd64.c:
     complete
     .text       start:0x020cfd64 end:0x020cfd98

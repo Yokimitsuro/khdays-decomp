@@ -104,6 +104,10 @@ src/overlays/ov155/asm_stubs/calls/func_ov155_020d4578.c:
     complete
     .text       start:0x020d4578 end:0x020d4b70
 
+src/overlays/ov155/calls/func_ov155_020d4b70.c:
+    complete
+    .text       start:0x020d4b70 end:0x020d4bbc
+
 src/overlays/ov155/asm_stubs/calls/func_ov155_020d4bbc.c:
     complete
     .text       start:0x020d4bbc end:0x020d4cf0

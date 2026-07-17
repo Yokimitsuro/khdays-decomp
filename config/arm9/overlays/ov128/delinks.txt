@@ -20,7 +20,7 @@ src/overlays/ov128/calls/func_ov128_020d3a50.c:
     complete
     .text       start:0x020d3a50 end:0x020d3a90
 
-src/overlays/ov128/asm_stubs/calls/func_ov128_020d3a90.c:
+src/overlays/ov128/calls/func_ov128_020d3a90.c:
     complete
     .text       start:0x020d3a90 end:0x020d3b04
 
@@ -64,7 +64,7 @@ src/overlays/ov128/calls/func_ov128_020d4208.c:
     complete
     .text       start:0x020d4208 end:0x020d4390
 
-src/overlays/ov128/asm_stubs/calls/func_ov128_020d4390.c:
+src/overlays/ov128/calls/func_ov128_020d4390.c:
     complete
     .text       start:0x020d4390 end:0x020d449c
 

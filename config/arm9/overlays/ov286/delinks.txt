@@ -19,7 +19,7 @@ src/overlays/ov286/calls/func_ov286_020d3984.c:
     complete
     .text       start:0x020d3984 end:0x020d39a0
 
-src/overlays/ov286/asm_stubs/calls/func_ov286_020d39a0.c:
+src/overlays/ov286/calls/func_ov286_020d39a0.c:
     complete
     .text       start:0x020d39a0 end:0x020d39fc
 

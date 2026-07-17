@@ -20,7 +20,7 @@ src/overlays/ov289/calls/func_ov289_020d5858.c:
     complete
     .text       start:0x020d5858 end:0x020d58a0
 
-src/overlays/ov289/asm_stubs/calls/func_ov289_020d58a0.c:
+src/overlays/ov289/calls/func_ov289_020d58a0.c:
     complete
     .text       start:0x020d58a0 end:0x020d58ec
 

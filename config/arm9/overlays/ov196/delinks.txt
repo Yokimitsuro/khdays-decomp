@@ -160,7 +160,7 @@ src/overlays/ov196/calls/func_ov196_020d5c30.c:
     complete
     .text       start:0x020d5c30 end:0x020d5ce0
 
-src/overlays/ov196/asm_stubs/calls/func_ov196_020d5ce0.c:
+src/overlays/ov196/calls/func_ov196_020d5ce0.c:
     complete
     .text       start:0x020d5ce0 end:0x020d5df0
 
@@ -168,7 +168,7 @@ src/overlays/ov196/calls/func_ov196_020d5df0.c:
     complete
     .text       start:0x020d5df0 end:0x020d5ea0
 
-src/overlays/ov196/asm_stubs/calls/func_ov196_020d5ea0.c:
+src/overlays/ov196/calls/func_ov196_020d5ea0.c:
     complete
     .text       start:0x020d5ea0 end:0x020d5fb0
 

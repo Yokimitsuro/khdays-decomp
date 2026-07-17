@@ -4,17 +4,85 @@
     .data       start:0x020cf980 end:0x020cf9e0 kind:data align:32
     .bss        start:0x020cf9e0 end:0x020cf9e0 kind:bss align:32
 
+src/overlays/ov119/calls/func_ov119_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov119/calls/func_ov119_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc4
+
+src/overlays/ov119/calls/func_ov119_020cc2ec.c:
+    complete
+    .text       start:0x020cc2ec end:0x020cc32c
+
+src/overlays/ov119/calls/func_ov119_020cc32c.c:
+    complete
+    .text       start:0x020cc32c end:0x020cc3a8
+
+src/overlays/ov119/calls/func_ov119_020cc768.c:
+    complete
+    .text       start:0x020cc768 end:0x020cc7c4
+
 src/overlays/ov119/auto/func_ov119_020cc9d0.c:
     complete
     .text       start:0x020cc9d0 end:0x020cca00
+
+src/overlays/ov119/calls/func_ov119_020ccef4.c:
+    complete
+    .text       start:0x020ccef4 end:0x020cd0f0
+
+src/overlays/ov119/calls/func_ov119_020cd0f0.c:
+    complete
+    .text       start:0x020cd0f0 end:0x020cd144
+
+src/overlays/ov119/calls/func_ov119_020cd144.c:
+    complete
+    .text       start:0x020cd144 end:0x020cd1ac
 
 src/overlays/ov119/calls/func_ov119_020cd3ec.c:
     complete
     .text       start:0x020cd3ec end:0x020cd420
 
+src/overlays/ov119/calls/func_ov119_020cd420.c:
+    complete
+    .text       start:0x020cd420 end:0x020cd454
+
+src/overlays/ov119/calls/func_ov119_020cd454.c:
+    complete
+    .text       start:0x020cd454 end:0x020cd478
+
+src/overlays/ov119/calls/func_ov119_020cd478.c:
+    complete
+    .text       start:0x020cd478 end:0x020cd4d0
+
+src/overlays/ov119/calls/func_ov119_020cda50.c:
+    complete
+    .text       start:0x020cda50 end:0x020cda84
+
 src/overlays/ov119/calls/func_ov119_020cda84.c:
     complete
     .text       start:0x020cda84 end:0x020cdab8
+
+src/overlays/ov119/calls/func_ov119_020cdab8.c:
+    complete
+    .text       start:0x020cdab8 end:0x020cdaec
+
+src/overlays/ov119/calls/func_ov119_020cde44.c:
+    complete
+    .text       start:0x020cde44 end:0x020cdec4
+
+src/overlays/ov119/calls/func_ov119_020ce9a8.c:
+    complete
+    .text       start:0x020ce9a8 end:0x020ce9e4
+
+src/overlays/ov119/calls/func_ov119_020cf6fc.c:
+    complete
+    .text       start:0x020cf6fc end:0x020cf7b0
+
+src/overlays/ov119/calls/func_ov119_020cf804.c:
+    complete
+    .text       start:0x020cf804 end:0x020cf848
 
 src/overlays/ov119/auto/func_ov119_020cf848.c:
     complete

@@ -4,13 +4,73 @@
     .data       start:0x020d2fc0 end:0x020d3000 kind:data align:32
     .bss        start:0x020d3000 end:0x020d3000 kind:bss align:32
 
+src/overlays/ov259/calls/func_ov259_020cbf20.c:
+    complete
+    .text       start:0x020cbf20 end:0x020cbf38
+
+src/overlays/ov259/calls/func_ov259_020cbf38.c:
+    complete
+    .text       start:0x020cbf38 end:0x020cbfc8
+
+src/overlays/ov259/calls/func_ov259_020ccde8.c:
+    complete
+    .text       start:0x020ccde8 end:0x020cce44
+
+src/overlays/ov259/calls/func_ov259_020cd2c8.c:
+    complete
+    .text       start:0x020cd2c8 end:0x020cd3c4
+
+src/overlays/ov259/calls/func_ov259_020cd628.c:
+    complete
+    .text       start:0x020cd628 end:0x020cd648
+
+src/overlays/ov259/calls/func_ov259_020cddbc.c:
+    complete
+    .text       start:0x020cddbc end:0x020cddfc
+
+src/overlays/ov259/calls/func_ov259_020cdef8.c:
+    complete
+    .text       start:0x020cdef8 end:0x020ce184
+
 src/overlays/ov259/calls/func_ov259_020ce310.c:
     complete
     .text       start:0x020ce310 end:0x020ce34c
 
+src/overlays/ov259/calls/func_ov259_020ce34c.c:
+    complete
+    .text       start:0x020ce34c end:0x020ce400
+
+src/overlays/ov259/calls/func_ov259_020ce944.c:
+    complete
+    .text       start:0x020ce944 end:0x020ce988
+
+src/overlays/ov259/calls/func_ov259_020ce988.c:
+    complete
+    .text       start:0x020ce988 end:0x020ce9e0
+
 src/overlays/ov259/calls/func_ov259_020ce9e0.c:
     complete
     .text       start:0x020ce9e0 end:0x020cea14
+
+src/overlays/ov259/calls/func_ov259_020cea14.c:
+    complete
+    .text       start:0x020cea14 end:0x020cea80
+
+src/overlays/ov259/calls/func_ov259_020ceb38.c:
+    complete
+    .text       start:0x020ceb38 end:0x020ceb9c
+
+src/overlays/ov259/calls/func_ov259_020cf6d0.c:
+    complete
+    .text       start:0x020cf6d0 end:0x020cf764
+
+src/overlays/ov259/calls/func_ov259_020cfce4.c:
+    complete
+    .text       start:0x020cfce4 end:0x020cfd90
+
+src/overlays/ov259/calls/func_ov259_020cfe0c.c:
+    complete
+    .text       start:0x020cfe0c end:0x020cfe64
 
 src/overlays/ov259/calls/func_ov259_020d16d4.c:
     complete
@@ -20,14 +80,66 @@ src/overlays/ov259/auto/func_ov259_020d1838.c:
     complete
     .text       start:0x020d1838 end:0x020d1840
 
+src/overlays/ov259/calls/func_ov259_020d1840.c:
+    complete
+    .text       start:0x020d1840 end:0x020d1874
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d1be0.c:
     complete
     .text       start:0x020d1be0 end:0x020d1bec
+
+src/calls/WM_EndKeySharing_0x020d1bec.c:
+    complete
+    .text       start:0x020d1bec end:0x020d1bf8
+
+src/overlays/ov259/calls/func_ov259_020d1c28.c:
+    complete
+    .text       start:0x020d1c28 end:0x020d1c44
+
+src/overlays/ov259/calls/func_ov259_020d1c44.c:
+    complete
+    .text       start:0x020d1c44 end:0x020d1c60
 
 src/overlays/ov259/auto/func_ov259_020d1c60.c:
     complete
     .text       start:0x020d1c60 end:0x020d1c68
 
+src/overlays/ov259/calls/func_ov259_020d1c68.c:
+    complete
+    .text       start:0x020d1c68 end:0x020d1cc4
+
+src/overlays/ov259/calls/func_ov259_020d1f24.c:
+    complete
+    .text       start:0x020d1f24 end:0x020d1fd0
+
+src/overlays/ov259/calls/func_ov259_020d2288.c:
+    complete
+    .text       start:0x020d2288 end:0x020d22b0
+
+src/overlays/ov259/calls/func_ov259_020d22b0.c:
+    complete
+    .text       start:0x020d22b0 end:0x020d2328
+
+src/overlays/ov259/calls/func_ov259_020d2780.c:
+    complete
+    .text       start:0x020d2780 end:0x020d27b4
+
+src/calls/WM_EndKeySharing_0x020d28c0.c:
+    complete
+    .text       start:0x020d28c0 end:0x020d28cc
+
 src/overlays/ov259/auto/func_ov259_020d29a8.c:
     complete
     .text       start:0x020d29a8 end:0x020d29b0
+
+src/overlays/ov259/calls/func_ov259_020d29b0.c:
+    complete
+    .text       start:0x020d29b0 end:0x020d2a0c
+
+src/overlays/ov259/calls/func_ov259_020d2a0c.c:
+    complete
+    .text       start:0x020d2a0c end:0x020d2ab4
+
+src/overlays/ov259/calls/func_ov259_020d2ab4.c:
+    complete
+    .text       start:0x020d2ab4 end:0x020d2b2c

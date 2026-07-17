@@ -3,6 +3,78 @@
     .data       start:0x020bfa00 end:0x020bfa20 kind:data align:32
     .bss        start:0x020bfa20 end:0x020c0680 kind:bss align:32
 
+src/overlays/ov105/calls/func_ov105_020bcea0.c:
+    complete
+    .text       start:0x020bcea0 end:0x020bceb8
+
+src/overlays/ov105/calls/func_ov105_020bd02c.c:
+    complete
+    .text       start:0x020bd02c end:0x020bd03c
+
+src/overlays/ov105/calls/func_ov105_020bd03c.c:
+    complete
+    .text       start:0x020bd03c end:0x020bd058
+
+src/overlays/ov105/calls/func_ov105_020bd4dc.c:
+    complete
+    .text       start:0x020bd4dc end:0x020bd4f8
+
+src/overlays/ov105/calls/func_ov105_020bd7a4.c:
+    complete
+    .text       start:0x020bd7a4 end:0x020bd7c4
+
+src/overlays/ov105/calls/func_ov105_020bdc5c.c:
+    complete
+    .text       start:0x020bdc5c end:0x020bdc6c
+
+src/overlays/ov105/calls/func_ov105_020be49c.c:
+    complete
+    .text       start:0x020be49c end:0x020be4ac
+
+src/overlays/ov105/calls/func_ov105_020be4ac.c:
+    complete
+    .text       start:0x020be4ac end:0x020be4c8
+
+src/overlays/ov105/calls/func_ov105_020bf1e4.c:
+    complete
+    .text       start:0x020bf1e4 end:0x020bf1f4
+
+src/overlays/ov105/calls/func_ov105_020bf22c.c:
+    complete
+    .text       start:0x020bf22c end:0x020bf240
+
+src/calls/WM_EndKeySharing_0x020bf240.c:
+    complete
+    .text       start:0x020bf240 end:0x020bf24c
+
 src/overlays/ov105/calls/func_ov105_020bf24c.c:
     complete
     .text       start:0x020bf24c end:0x020bf25c
+
+src/overlays/ov105/calls/func_ov105_020bf25c.c:
+    complete
+    .text       start:0x020bf25c end:0x020bf26c
+
+src/overlays/ov105/calls/func_ov105_020bf26c.c:
+    complete
+    .text       start:0x020bf26c end:0x020bf27c
+
+src/overlays/ov105/calls/func_ov105_020bf480.c:
+    complete
+    .text       start:0x020bf480 end:0x020bf4a0
+
+src/overlays/ov105/calls/func_ov105_020bf64c.c:
+    complete
+    .text       start:0x020bf64c end:0x020bf66c
+
+src/overlays/ov105/calls/func_ov105_020bf8b8.c:
+    complete
+    .text       start:0x020bf8b8 end:0x020bf8c8
+
+src/calls/WM_EndKeySharing_0x020bf900.c:
+    complete
+    .text       start:0x020bf900 end:0x020bf90c
+
+src/overlays/ov105/calls/func_ov105_020bf90c.c:
+    complete
+    .text       start:0x020bf90c end:0x020bf928

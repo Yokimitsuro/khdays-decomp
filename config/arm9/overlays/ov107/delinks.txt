@@ -4,6 +4,18 @@
     .data       start:0x020cb6a0 end:0x020cbb00 kind:data align:32
     .bss        start:0x020cbb00 end:0x020cbf20 kind:bss align:32
 
+src/overlays/ov107/calls/func_ov107_020c0758.c:
+    complete
+    .text       start:0x020c0758 end:0x020c0770
+
+src/overlays/ov107/calls/func_ov107_020c0770.c:
+    complete
+    .text       start:0x020c0770 end:0x020c0794
+
+src/overlays/ov107/calls/func_ov107_020c0868.c:
+    complete
+    .text       start:0x020c0868 end:0x020c0894
+
 src/overlays/ov107/auto/func_ov107_020c0894.c:
     complete
     .text       start:0x020c0894 end:0x020c08ac
@@ -12,9 +24,17 @@ src/overlays/ov107/calls/func_ov107_020c08ac.c:
     complete
     .text       start:0x020c08ac end:0x020c08cc
 
+src/overlays/ov107/calls/func_ov107_020c0a9c.c:
+    complete
+    .text       start:0x020c0a9c end:0x020c0ab4
+
 src/overlays/ov107/auto/func_ov107_020c0ab4.c:
     complete
     .text       start:0x020c0ab4 end:0x020c0acc
+
+src/overlays/ov107/calls/func_ov107_020c0c80.c:
+    complete
+    .text       start:0x020c0c80 end:0x020c0c94
 
 src/overlays/ov107/auto/func_ov107_020c0cfc.c:
     complete
@@ -24,21 +44,133 @@ src/overlays/ov107/auto/func_ov107_020c0d14.c:
     complete
     .text       start:0x020c0d14 end:0x020c0d2c
 
+src/overlays/ov107/calls/func_ov107_020c0db4.c:
+    complete
+    .text       start:0x020c0db4 end:0x020c0dd0
+
 src/overlays/ov107/auto/func_ov107_020c1c8c.c:
     complete
     .text       start:0x020c1c8c end:0x020c1c94
+
+src/overlays/ov107/calls/func_ov107_020c1dac.c:
+    complete
+    .text       start:0x020c1dac end:0x020c1dd8
+
+src/overlays/ov107/calls/func_ov107_020c1f28.c:
+    complete
+    .text       start:0x020c1f28 end:0x020c1f4c
+
+src/overlays/ov107/calls/func_ov107_020c26d8.c:
+    complete
+    .text       start:0x020c26d8 end:0x020c26f8
+
+src/overlays/ov107/calls/func_ov107_020c2a3c.c:
+    complete
+    .text       start:0x020c2a3c end:0x020c2a54
+
+src/overlays/ov107/calls/func_ov107_020c2a54.c:
+    complete
+    .text       start:0x020c2a54 end:0x020c2a6c
+
+src/overlays/ov107/calls/func_ov107_020c2a6c.c:
+    complete
+    .text       start:0x020c2a6c end:0x020c2a84
+
+src/overlays/ov107/calls/func_ov107_020c2a84.c:
+    complete
+    .text       start:0x020c2a84 end:0x020c2a9c
+
+src/calls/WM_EndKeySharing_0x020c3190.c:
+    complete
+    .text       start:0x020c3190 end:0x020c319c
+
+src/overlays/ov107/calls/func_ov107_020c5c54.c:
+    complete
+    .text       start:0x020c5c54 end:0x020c5c70
 
 src/overlays/ov107/auto/func_ov107_020c7a2c.c:
     complete
     .text       start:0x020c7a2c end:0x020c7a90
 
+src/overlays/ov107/calls/func_ov107_020c8000.c:
+    complete
+    .text       start:0x020c8000 end:0x020c8014
+
+src/overlays/ov107/calls/func_ov107_020c88dc.c:
+    complete
+    .text       start:0x020c88dc end:0x020c88fc
+
+src/overlays/ov107/calls/func_ov107_020c9074.c:
+    complete
+    .text       start:0x020c9074 end:0x020c9094
+
+src/overlays/ov107/calls/func_ov107_020c9554.c:
+    complete
+    .text       start:0x020c9554 end:0x020c9566
+
+src/overlays/ov107/auto/func_ov107_020c96bc.c:
+    complete
+    .text       start:0x020c96bc end:0x020c96c8
+
+src/calls/OS_IsThreadAvailable_0x020c9848.c:
+    complete
+    .text       start:0x020c9848 end:0x020c9858
+
+src/overlays/ov107/calls/func_ov107_020c9c0c.c:
+    complete
+    .text       start:0x020c9c0c end:0x020c9c1c
+
+src/overlays/ov107/calls/func_ov107_020c9c1c.c:
+    complete
+    .text       start:0x020c9c1c end:0x020c9c24
+
+src/overlays/ov107/calls/func_ov107_020c9eac.c:
+    complete
+    .text       start:0x020c9eac end:0x020c9ec8
+
+src/overlays/ov107/calls/func_ov107_020c9ec8.c:
+    complete
+    .text       start:0x020c9ec8 end:0x020c9ee8
+
+src/overlays/ov107/calls/func_ov107_020c9f48.c:
+    complete
+    .text       start:0x020c9f48 end:0x020c9f64
+
+src/overlays/ov107/calls/func_ov107_020ca900.c:
+    complete
+    .text       start:0x020ca900 end:0x020ca918
+
 src/overlays/ov107/auto/func_ov107_020cafb4.c:
     complete
     .text       start:0x020cafb4 end:0x020cafd8
 
+src/overlays/ov107/calls/func_ov107_020cb124.c:
+    complete
+    .text       start:0x020cb124 end:0x020cb164
+
+src/overlays/ov107/calls/func_ov107_020cb164.c:
+    complete
+    .text       start:0x020cb164 end:0x020cb178
+
+src/overlays/ov107/calls/func_ov107_020cb178.c:
+    complete
+    .text       start:0x020cb178 end:0x020cb208
+
+src/overlays/ov107/calls/func_ov107_020cb208.c:
+    complete
+    .text       start:0x020cb208 end:0x020cb268
+
+src/overlays/ov107/calls/func_ov107_020cb268.c:
+    complete
+    .text       start:0x020cb268 end:0x020cb28c
+
 src/overlays/ov107/auto/func_ov107_020cb570.c:
     complete
     .text       start:0x020cb570 end:0x020cb578
+
+src/overlays/ov107/calls/func_ov107_020cb5ac.c:
+    complete
+    .text       start:0x020cb5ac end:0x020cb5c8
 
 src/overlays/ov107/auto/func_ov107_020cb5f0.c:
     complete

@@ -19,7 +19,7 @@ src/overlays/ov285/calls/func_ov285_020d1b64.c:
     complete
     .text       start:0x020d1b64 end:0x020d1b80
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d1b80.c:
+src/overlays/ov285/calls/func_ov285_020d1b80.c:
     complete
     .text       start:0x020d1b80 end:0x020d1bdc
 

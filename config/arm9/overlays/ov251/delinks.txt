@@ -36,7 +36,7 @@ src/overlays/ov251/asm_stubs/calls/func_ov251_020d3ba4.c:
     complete
     .text       start:0x020d3ba4 end:0x020d3cc8
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d3cc8.c:
+src/overlays/ov251/calls/func_ov251_020d3cc8.c:
     complete
     .text       start:0x020d3cc8 end:0x020d3d30
 

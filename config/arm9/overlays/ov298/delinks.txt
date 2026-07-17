@@ -20,7 +20,7 @@ src/overlays/ov298/calls/func_ov298_020d3a28.c:
     complete
     .text       start:0x020d3a28 end:0x020d3a54
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d3a54.c:
+src/overlays/ov298/calls/func_ov298_020d3a54.c:
     complete
     .text       start:0x020d3a54 end:0x020d3ab4
 
@@ -52,7 +52,7 @@ src/overlays/ov298/asm_stubs/calls/func_ov298_020d3d0c.c:
     complete
     .text       start:0x020d3d0c end:0x020d3f50
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d3f50.c:
+src/overlays/ov298/calls/func_ov298_020d3f50.c:
     complete
     .text       start:0x020d3f50 end:0x020d404c
 

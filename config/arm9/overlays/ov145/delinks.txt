@@ -23,7 +23,7 @@ src/overlays/ov145/calls/func_ov145_020ce1b8.c:
     complete
     .text       start:0x020ce1b8 end:0x020ce214
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020ce214.c:
+src/overlays/ov145/calls/func_ov145_020ce214.c:
     complete
     .text       start:0x020ce214 end:0x020ce25c
 
@@ -75,7 +75,7 @@ src/overlays/ov145/asm_stubs/calls/func_ov145_020ce950.c:
     complete
     .text       start:0x020ce950 end:0x020cebbc
 
-src/overlays/ov145/asm_stubs/calls/func_ov145_020cebbc.c:
+src/overlays/ov145/calls/func_ov145_020cebbc.c:
     complete
     .text       start:0x020cebbc end:0x020cec28
 

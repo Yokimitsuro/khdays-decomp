@@ -4,7 +4,7 @@
     .data       start:0x020ba4a0 end:0x020ba540 kind:data align:32
     .bss        start:0x020ba540 end:0x020ba560 kind:bss align:32
 
-libs/nitro/snd/asm_stubs/calls/SNDi_UnlockMutex_ov073_0x020b8100.c:
+libs/nitro/snd/calls/SNDi_UnlockMutex_ov073_0x020b8100.c:
     complete
     .text       start:0x020b8100 end:0x020b8114
 
@@ -28,7 +28,7 @@ src/overlays/ov073/auto/func_ov073_020b84c4.c:
     complete
     .text       start:0x020b84c4 end:0x020b84ec
 
-src/overlays/ov073/asm_stubs/calls/func_ov073_020b84ec.c:
+src/overlays/ov073/calls/func_ov073_020b84ec.c:
     complete
     .text       start:0x020b84ec end:0x020b8664
 
@@ -100,7 +100,7 @@ src/overlays/ov073/calls/func_ov073_020b9f94.c:
     complete
     .text       start:0x020b9f94 end:0x020b9fec
 
-src/overlays/ov073/asm_stubs/calls/func_ov073_020b9fec.c:
+src/overlays/ov073/calls/func_ov073_020b9fec.c:
     complete
     .text       start:0x020b9fec end:0x020ba004
 
@@ -124,7 +124,7 @@ src/overlays/ov073/calls/func_ov073_020ba1f0.c:
     complete
     .text       start:0x020ba1f0 end:0x020ba1fc
 
-src/overlays/ov073/asm_stubs/calls/func_ov073_020ba1fc.c:
+src/overlays/ov073/calls/func_ov073_020ba1fc.c:
     complete
     .text       start:0x020ba1fc end:0x020ba370
 

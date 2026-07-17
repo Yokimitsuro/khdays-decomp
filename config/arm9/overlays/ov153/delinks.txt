@@ -72,6 +72,10 @@ src/overlays/ov153/asm_stubs/calls/func_ov153_020cc894.c:
     complete
     .text       start:0x020cc894 end:0x020cc9bc
 
+src/overlays/ov153/calls/func_ov153_020cc9bc.c:
+    complete
+    .text       start:0x020cc9bc end:0x020cca08
+
 src/overlays/ov153/calls/func_ov153_020cca08.c:
     complete
     .text       start:0x020cca08 end:0x020ccab0
@@ -99,6 +103,10 @@ src/overlays/ov153/asm_stubs/calls/func_ov153_020ccc28.c:
 src/overlays/ov153/asm_stubs/calls/func_ov153_020cccf8.c:
     complete
     .text       start:0x020cccf8 end:0x020cd2f0
+
+src/overlays/ov153/calls/func_ov153_020cd2f0.c:
+    complete
+    .text       start:0x020cd2f0 end:0x020cd33c
 
 src/overlays/ov153/asm_stubs/calls/func_ov153_020cd33c.c:
     complete

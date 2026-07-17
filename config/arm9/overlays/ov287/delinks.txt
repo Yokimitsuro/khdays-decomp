@@ -20,7 +20,7 @@ src/overlays/ov287/calls/func_ov287_020cfdf8.c:
     complete
     .text       start:0x020cfdf8 end:0x020cfe40
 
-src/overlays/ov287/asm_stubs/calls/func_ov287_020cfe40.c:
+src/overlays/ov287/calls/func_ov287_020cfe40.c:
     complete
     .text       start:0x020cfe40 end:0x020cfe8c
 

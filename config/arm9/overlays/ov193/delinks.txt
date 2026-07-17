@@ -136,7 +136,7 @@ src/overlays/ov193/asm_stubs/calls/func_ov193_020d5378.c:
     complete
     .text       start:0x020d5378 end:0x020d554c
 
-src/overlays/ov193/asm_stubs/calls/func_ov193_020d554c.c:
+src/overlays/ov193/calls/func_ov193_020d554c.c:
     complete
     .text       start:0x020d554c end:0x020d56e4
 

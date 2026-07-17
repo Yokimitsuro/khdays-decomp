@@ -23,7 +23,7 @@ src/overlays/ov144/calls/func_ov144_020cc39c.c:
     complete
     .text       start:0x020cc39c end:0x020cc3f8
 
-src/overlays/ov144/asm_stubs/calls/func_ov144_020cc3f8.c:
+src/overlays/ov144/calls/func_ov144_020cc3f8.c:
     complete
     .text       start:0x020cc3f8 end:0x020cc440
 

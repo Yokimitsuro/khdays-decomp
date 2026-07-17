@@ -116,14 +116,14 @@ src/overlays/ov021/asm_stubs/calls/func_ov021_02080c98.c:
     complete
     .text       start:0x02080c98 end:0x02080d94
 
-src/overlays/ov021/asm_stubs/calls/func_ov021_02080d94.c:
+src/overlays/ov021/calls/func_ov021_02080d94.c:
     complete
     .text       start:0x02080d94 end:0x02080e2e
 
-src/overlays/ov021/asm_stubs/calls/func_ov021_02080e30.c:
+src/overlays/ov021/calls/func_ov021_02080e30.c:
     complete
     .text       start:0x02080e30 end:0x02080e7a
 
-src/overlays/ov021/asm_stubs/calls/func_ov021_02080e7c.c:
+src/overlays/ov021/calls/func_ov021_02080e7c.c:
     complete
     .text       start:0x02080e7c end:0x02080f16

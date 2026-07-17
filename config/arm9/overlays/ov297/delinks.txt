@@ -20,7 +20,7 @@ src/overlays/ov297/calls/func_ov297_020d3a3c.c:
     complete
     .text       start:0x020d3a3c end:0x020d3a7c
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d3a7c.c:
+src/overlays/ov297/calls/func_ov297_020d3a7c.c:
     complete
     .text       start:0x020d3a7c end:0x020d3adc
 
@@ -48,7 +48,7 @@ src/overlays/ov297/asm_stubs/calls/func_ov297_020d3dec.c:
     complete
     .text       start:0x020d3dec end:0x020d406c
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d406c.c:
+src/overlays/ov297/calls/func_ov297_020d406c.c:
     complete
     .text       start:0x020d406c end:0x020d4168
 
