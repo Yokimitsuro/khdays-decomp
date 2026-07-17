@@ -1,20 +1,11 @@
-/* UNFINISHED -- 116/116 bytes, 29/29 instructions. Correct except ONE register swap in the final
- * struct copy. Worth 3: ov266_020d39f0 / ov267_020d5810 are byte-identical twins. (2026-07-17)
- *
- * THE ENTIRE DIFF -- src and dst swap the two registers available:
- *     ROM:  add ip, r4, #0xa0 ; ldr r4, [r0]   (src -> ip, dst -> r4)
- *     mine: add r4, r4, #0xa0 ; ldr ip, [r0]   (src -> r4, dst -> ip)
- * Both kill `obj`'s register (it is dead by then); mwcc just picks the opposite one. Everything
- * before this point matches, including the 11-int ldm/stm shape.
- *
- * RULED OUT (all byte-IDENTICAL, diff stays at 0x4D):
- *   a `src` local · a `dst` local · both locals · no locals at all
- * The `half` local IS load-bearing though and must stay -- without it the two zero-stores are
- * emitted as a block up front (diff at 0x8) instead of being interleaved into the divide's latency.
- *
- * NEXT IDEA (untried): the copy is 44 bytes = 11 ints, modelled as `struct { int v[11]; }`. Try a
- * shape that matches the real semantic layout (e.g. Quaternion + Quaternion + VecFx32 = 16+16+12)
- * -- the member types may change which operand mwcc materialises first.
+/* MATCHED -- rescued 2026-07-17. Was parked as a 1-register src/dst swap in the final 11-int
+ * struct copy (ROM src->ip/dst->r4; mwcc reversed), ruled unbreakable across every pointer-local
+ * spelling. THE FIX is the field-to-field struct copy crack (codegen-cracks.md): make BOTH ends
+ * fields of their own structs -- SrcObj.pose @0xa0 and DstObj.pose @0x10 -- so the copy is
+ * `((DstObj*)deref)->pose = ((SrcObj*)obj)->pose`, which picks the ROM's base order. Same crack
+ * that landed ov022_0209d3a0 and ov208_020cfc04. Worth 3: ov266_020d39f0 / ov267_020d5810 twins.
+ * `half` stays load-bearing (without it the two zero-stores block up front instead of interleaving
+ * into the divide latency).
  *
  * ---- what it does ----------------------------------------------------------------------------
  *
@@ -44,12 +35,20 @@ typedef struct {
     int v[11];
 } Pose44;
 
+typedef struct {
+    char pad[0xa0];
+    Pose44 pose;
+} SrcObj;
+
+typedef struct {
+    char pad[0x10];
+    Pose44 pose;
+} DstObj;
+
 extern void func_0202f384(VecFx32 *dst, const void *q, const VecFx32 *v);
 extern void func_ov107_020c6980(int obj, int a);
 
 void func_ov212_020d1bfc(int obj, int a) {
-    Pose44 *dst;
-    const Pose44 *src;
     int half = -*(int *)(obj + 0x70) / 2;
 
     *(int *)(obj + 0x64) = 0;
@@ -57,7 +56,5 @@ void func_ov212_020d1bfc(int obj, int a) {
     *(int *)(obj + 0x6c) = half;
     func_0202f384((VecFx32 *)(obj + 0x64), (const void *)(obj + 0xa0), (const VecFx32 *)(obj + 0x64));
     func_ov107_020c6980(obj, a);
-    src = (const Pose44 *)(obj + 0xa0);
-    dst = (Pose44 *)(*(int *)(*(int *)(obj + 0x388)) + 0x10);
-    *dst = *src;
+    ((DstObj *)(*(int *)(*(int *)(obj + 0x388))))->pose = ((SrcObj *)obj)->pose;
 }
