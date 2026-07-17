@@ -1,6 +1,10 @@
 /* NONMATCHING: register-allocation tie -- the ROM keeps pos in r0 and lim in r2, mwcc swaps them
- * (span matches in r1 either way). Neither declaration order (pos/span/lim vs span/pos/lim)
- * reproduces the ROM's choice; the two values are symmetric. */
+ * (span matches in r1 either way). Neither declaration order (pos/span/lim vs span/pos/lim) nor
+ * inlining lim (`if (pos > span - 0x40)`, diff moves earlier to 0x9) reproduces the ROM's choice;
+ * the two values are symmetric at the r0/r2 clamp.
+ * ARITY VERIFIED 2026-07-17 (audit_arity false positive): func_ov008_02074758 takes 2 -- its own
+ * prologue does `mov r6, r1`, reading the 2nd arg. The tree's lone 1-arg call site is the suspect,
+ * not this one. So the diff is purely the pos/lim allocation, not a dropped argument. */
 /* func_ov008_02077908 -- scroll the mission list by param_2 and push the resulting bar position.
  * Clamps the offset (obj+0x168) to [-0x40, span-0x40], where span = (rowCount-0xc)*8 for the
  * current page (obj + obj[1]*4 + 0x144); then maps it through func_02020400 into the bar. */
