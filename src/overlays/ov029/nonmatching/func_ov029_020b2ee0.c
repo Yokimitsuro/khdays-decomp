@@ -51,10 +51,32 @@
  *   load · a copy of idx shifted at the end · a for-loop instead of the do-while (100 B,
  *   4 OVER -- the do-while is required) · `e = (entry = ...) + 3` as one expression
  *
- * NEXT STEP: make mwcc prefer spilling `off` over promoting it to r7. Everything tried
- * changes what off IS; nothing has changed how badly it wants a register. Since both
- * choices cost 47 instructions, the lever is probably not in this function's own
- * expressions at all -- it may need one more value live across the loop.
+ * RULED OUT, 2026-07-17 pass (5 more, all still pinned at 0x2):
+ *   `idx <<= 4` · a `char *base` local loaded BEFORE the shift (the ROM emits `ldr base`
+ *   first, so this looked like the emission-order lever -- it is not; mwcc still shifts
+ *   first) · `entry = (int *)(data + (idx <<= 4))` as one decl-init · `e` computed first
+ *   with `entry = e - 3` (100 B, 4 OVER) · the `int off` local RE-MEASURED: the previous
+ *   note recorded only that it "emits entry first" (diff 0x3), but the register outcome is
+ *   the SAME (off->r7, entry->ip). So off-local is not merely worse-by-one; it fails on the
+ *   identical axis, and the 0x3-vs-0x2 offset was measuring the wrong thing.
+ *
+ * ★ SHARPER DIAGNOSIS (this is the useful part of the pass). The old note said "make mwcc
+ * prefer spilling off" without saying why it will not. The reason is live-range ORDER:
+ *   - `k` and `r` are live across the 0201e470 call -> they must be callee-saved: r4, r5.
+ *   - `temp` is loop-only but the low scratch (r0..r3) is full (t, e, -1, -1) -> r6.
+ *   - that leaves ONE callee-saved register, r7, and TWO claimants: `off` and `entry`.
+ *   - `off`'s live range STARTS FIRST -- it must, because `entry` is computed FROM it -- so
+ *     mwcc's allocator reaches `off` first, hands it r7, and `entry` is evicted to ip.
+ *   - the ROM does the opposite: `off` lives in the scratch r1 for three instructions and is
+ *     spilled to the free r3 slot immediately, never competing for r7 at all.
+ * Both cost 47 instructions, which is why mwcc has no reason to prefer the ROM's shape.
+ *
+ * NEXT STEP, and it follows from the above: the lever is NOT what `off` is -- 19 spellings
+ * have now established that. It is WHEN its live range starts, and it cannot start after
+ * `entry`'s while `entry` is derived from it. So either find a form where `entry` does not
+ * depend on `off` (the two shifts CSE, so `(idx<<4)` at both uses is not it -- measured), or
+ * accept this belongs to the register-CHOICE residue class in deferred-ties.md and leave it.
+ * Do NOT spend another pass on spellings of `off`.
  */
 extern void func_0201e470();
 extern char data_ov029_020b30b0[];
