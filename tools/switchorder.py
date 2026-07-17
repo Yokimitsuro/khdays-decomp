@@ -47,28 +47,47 @@ def main():
     if disp is None:
         raise SystemExit("no `add pc, pc, rX, lsl #2` dispatch found -- not a dense switch?")
 
-    # The bound comes from the cmp just before it; the table starts right after the default branch.
+    # The bound comes from the cmp just before it.
     bound = None
     for x in reversed(ins[:disp]):
         if x.mnemonic.startswith("cmp"):
             bound = int(x.op_str.split("#")[-1], 0)
             break
-    default = ins[disp + 1]
-    tbl0 = disp + 2
     n = (bound + 1) if bound is not None else 0
+
+    # `add pc, pc, rX, lsl #2` at A computes A+8 + idx*4, so the TABLE always starts two
+    # instructions after the dispatch, and the one at A+4 is the out-of-range fall-through --
+    # i.e. the default. Usually that is a `b default_body`, but when the default body is short
+    # (often just the epilogue) mwcc puts it INLINE there instead. Either way tbl0 is fixed;
+    # only how to read the default differs.
+    tbl0 = disp + 2
+    nxt = ins[disp + 1]
+    if nxt.mnemonic == "b":
+        default = int(nxt.op_str.replace("#", ""), 16) - base
+        default_note = "+0x%03x" % default
+    else:
+        default = nxt.address - base
+        default_note = "+0x%03x (INLINE at the fall-through -- `%s %s`)" % (
+            default, nxt.mnemonic, nxt.op_str)
 
     print("%s: %d bytes" % (name, e["size"]))
     print("dispatch at +0x%03x, bound=%s -> %d cases" % (ins[disp].address - base, bound, n))
-    print("default -> +0x%03x" % (int(default.op_str.replace("#", ""), 16) - base))
+    print("default -> %s" % default_note)
     print()
 
+    # A table slot is USUALLY `b body`, but a case whose body is a single instruction gets that
+    # instruction INLINE in the slot instead -- `case 0: return;` shows up as a bare
+    # `pop {...,pc}` sitting in the table. So a non-branch slot is not an error: the slot IS
+    # the body, and its address is its own.
     targets = {}
+    inline = {}
     for k in range(n):
         x = ins[tbl0 + k]
-        if x.mnemonic != "b":
-            print("!! table entry %d is %s %s -- stopping" % (k, x.mnemonic, x.op_str))
-            break
-        targets[k] = int(x.op_str.replace("#", ""), 16) - base
+        if x.mnemonic == "b":
+            targets[k] = int(x.op_str.replace("#", ""), 16) - base
+        else:
+            targets[k] = x.address - base
+            inline[k] = "%s %s" % (x.mnemonic, x.op_str)
 
     # group case values by body, then order the bodies by address = source order
     bodies = {}
@@ -85,9 +104,14 @@ def main():
     for t in sorted(bodies):
         cases = sorted(bodies[t])
         label = " ".join("case %d:" % c for c in cases)
-        print("  +0x%03x  %-34s %s" % (t, label, callee_at(t)))
-    dt = int(default.op_str.replace("#", ""), 16) - base
-    print("  +0x%03x  default:                           %s" % (dt, callee_at(dt)))
+        note = callee_at(t)
+        for c in cases:
+            if c in inline:
+                note = ("INLINE IN THE TABLE SLOT (`%s`) -- a one-instruction body" % inline[c]
+                        + (" / " + note if note else ""))
+                break
+        print("  +0x%03x  %-34s %s" % (t, label, note))
+    print("  +0x%03x  default:                           %s" % (default, callee_at(default)))
 
 
 if __name__ == "__main__":
