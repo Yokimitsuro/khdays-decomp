@@ -124,6 +124,10 @@ src/overlays/ov157/calls/func_ov157_020cf6f8.c:
     complete
     .text       start:0x020cf6f8 end:0x020cf7d4
 
+src/overlays/ov157/calls/func_ov157_020cf7d4.c:
+    complete
+    .text       start:0x020cf7d4 end:0x020cf820
+
 src/overlays/ov157/asm_stubs/calls/func_ov157_020cf820.c:
     complete
     .text       start:0x020cf820 end:0x020cf9f4
