@@ -1,4 +1,4 @@
-/* NONMATCHING: semantics correct; register-placement tie — the ROM parks the return value 0 in
+/* NONMATCHING: semantics correct; register-placement tie -- the ROM parks the return value 0 in
  * r0 up front and computes the guard in r1, mwcc uses r0 for the ctx load and sets 0 predicated.
  * Not steerable via a result local. Same class as func_ov006_02058bac. */
 /* func_ov006_0204e35c -- Mission Mode "start" gate: 0 while busy (ctx+0x49c) or until func_ov105_020bf5a8

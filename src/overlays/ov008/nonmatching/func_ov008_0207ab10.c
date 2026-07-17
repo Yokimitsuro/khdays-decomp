@@ -1,4 +1,4 @@
-/* NONMATCHING: block-layout tie — the ROM branches to a separate `ldr r4,=handler` block (with a
+/* NONMATCHING: block-layout tie -- the ROM branches to a separate `ldr r4,=handler` block (with a
  * redundant `b` back), mwcc fuses it into a predicated `ldreq r4,=handler` (56B vs 64B). Twin of
  * func_ov006_0204ed64. "Our compiler is smarter" class. */
 /* func_ov008_0207ab10 -- pick the ov008 idle handler by scene state: state 1 (loading) returns

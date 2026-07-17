@@ -1,4 +1,4 @@
-/* NONMATCHING: one-byte predication tie — the ROM materialises the 0 return unconditionally
+/* NONMATCHING: one-byte predication tie -- the ROM materialises the 0 return unconditionally
  * (`tst r0,#1; mov r0,#0; ldmne`), mwcc predicates it (`movne r0,#0`). Everything else matches;
  * a shared `int result = 0` local makes it worse (the value gets held, 76B). */
 /* func_ov025_020829f8 -- pick the ov025 idle handler from the heap state word.

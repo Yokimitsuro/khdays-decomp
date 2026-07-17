@@ -1,4 +1,4 @@
-/* NONMATCHING: semantics correct; ties on constant-multiply strategy — the ROM computes the
+/* NONMATCHING: semantics correct; ties on constant-multiply strategy -- the ROM computes the
  * cell address with runtime MLA (strides 0x28/0xc8 in registers), mwcc expands *0x28 and *200
  * into shift-adds (+12B). Not steerable from C. */
 /* func_ov008_0205cb08 -- ov008: clear all pending grid-cell markers and free their list nodes.

@@ -1,5 +1,5 @@
 /*
- * [nonmatching: predicate-vs-branch — 140B vs 160B]
+ * [nonmatching: predicate-vs-branch -- 140B vs 160B]
  *
  * Clamps a wrapped 16-bit angle delta toward a limit. mwcc predicates the
  * abs-delta block (rsbhi/lslhi/lsrhi) and the multi-&& guards inline where the

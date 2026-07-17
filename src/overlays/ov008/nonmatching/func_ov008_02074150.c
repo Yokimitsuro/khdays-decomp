@@ -1,4 +1,4 @@
-/* NONMATCHING: register-allocation tie — the guard's `return param_1` is a bare predicated
+/* NONMATCHING: register-allocation tie -- the guard's `return param_1` is a bare predicated
  * `ldmeq` in the ROM (r0 still holds param_1, never clobbered); mwcc allocates param_1 to r8 and
  * emits a redundant `moveq r0,r8` before the ldmeq (92B vs 88B). */
 /* func_ov008_02074150 -- scroll a text field to param_4 if the measured length

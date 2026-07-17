@@ -1,6 +1,6 @@
 /* NONMATCHING: semantics correct, arg-materialization scheduling tie. The ROM
  * computes &buf (the callback's 2nd arg) right after the f40 guard; mwcc 3.0/139
- * places it just before the blx (or, with a helper pointer, before the guard) — a
+ * places it just before the blx (or, with a helper pointer, before the guard) -- a
  * 1-instruction position shift, same size. Not steerable from C.
  */
 /* c634 handler: set obj->f14 = self->f0->f2c*30/5; bail if obj->f40 >= 0x100. Copy

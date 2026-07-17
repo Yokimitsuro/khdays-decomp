@@ -1,4 +1,4 @@
-/* NONMATCHING: semantics correct; ties on CSE of the global base &data_02090f04 — the ROM
+/* NONMATCHING: semantics correct; ties on CSE of the global base &data_02090f04 -- the ROM
  * rematerialises it from the literal pool in each store branch (3 callee-saved regs), mwcc
  * caches it in r4 (4 callee-saved), yielding 144B vs 152B. CSE-recompute tie class. */
 /* func_ov008_02050970 -- set the ov008 menu's active/target slot and start the cursor move.

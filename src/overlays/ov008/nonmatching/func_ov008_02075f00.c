@@ -1,4 +1,4 @@
-/* NONMATCHING: instruction-scheduling tie — the ROM emits `mov r3,#0xf5` before the guard cmp and
+/* NONMATCHING: instruction-scheduling tie -- the ROM emits `mov r3,#0xf5` before the guard cmp and
  * the `lsl#4` column shift after it; mwcc swaps those two independent movs around the cmp.
  * Declaration order does not steer it. */
 /* func_ov008_02075f00 -- draw mission row param_2's label and grow the panel height.

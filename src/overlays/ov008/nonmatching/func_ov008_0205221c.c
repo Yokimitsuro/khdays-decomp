@@ -1,4 +1,4 @@
-/* NONMATCHING: loop-induction-variable tie — the ROM recomputes the cell address per iteration as
+/* NONMATCHING: loop-induction-variable tie -- the ROM recomputes the cell address per iteration as
  * `add r1, base, i, lsl#3`; mwcc keeps a separate incrementing pointer (extra callee-saved reg +
  * stack slot, 104B vs 96B). Neither the array-subscript form nor a per-iteration local dislodges
  * it. */

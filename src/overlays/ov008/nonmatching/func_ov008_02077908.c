@@ -1,4 +1,4 @@
-/* NONMATCHING: register-allocation tie — the ROM keeps pos in r0 and lim in r2, mwcc swaps them
+/* NONMATCHING: register-allocation tie -- the ROM keeps pos in r0 and lim in r2, mwcc swaps them
  * (span matches in r1 either way). Neither declaration order (pos/span/lim vs span/pos/lim)
  * reproduces the ROM's choice; the two values are symmetric. */
 /* func_ov008_02077908 -- scroll the mission list by param_2 and push the resulting bar position.

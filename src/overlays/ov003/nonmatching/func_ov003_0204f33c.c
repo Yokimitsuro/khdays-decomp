@@ -1,7 +1,7 @@
-/* func_ov003_0204f33c — near-match (14B tail register-coloring tie). Everything
+/* func_ov003_0204f33c -- near-match (14B tail register-coloring tie). Everything
  * through the ef68 call is byte-exact; the final predicated `bba = (iVar4==0)?bba+1:0`
  * block colors pbba to r1 (vs the ROM's r0) with the value spread over r0/r2 instead
- * of incremented in-place in r1 — an unsteerable coalescing choice. Route to nonmatching/. */
+ * of incremented in-place in r1 -- an unsteerable coalescing choice. Route to nonmatching/. */
 extern int NNSi_FndGetCurrentRootHeap(void);
 extern int func_020bd7c4(void);
 extern void func_ov003_0204e91c(void *p);

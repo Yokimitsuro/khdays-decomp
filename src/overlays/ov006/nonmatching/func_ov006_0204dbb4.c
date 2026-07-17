@@ -1,4 +1,4 @@
-/* NONMATCHING: semantics correct; block-layout tie — the ROM places the state==1 (020bf9c0)
+/* NONMATCHING: semantics correct; block-layout tie -- the ROM places the state==1 (020bf9c0)
  * block out-of-line and emits an extra `b` to the 020bf928 tail (80B); our mwcc inlines the
  * then-block and falls through to 020bf928 (76B). No C ordering reproduces the placement. */
 /* func_ov006_0204dbb4 -- pump the scene transition while the Mission Mode is active.

@@ -1,5 +1,5 @@
 /*
- * [nonmatching: shared-body jump-table layout — 92B vs 96B]
+ * [nonmatching: shared-body jump-table layout -- 92B vs 96B]
  *
  * Value switch mapping {5,6,7,0xb}->1, {8,9}->2, {10}->3, else 0. mwcc does not
  * dedup identical case bodies; the original lays an extra branch-to-default block

@@ -1,4 +1,4 @@
-/* func_ov003_0204e5b0 — near-match (4B strength-reduction tie). Byte-exact except the
+/* func_ov003_0204e5b0 -- near-match (4B strength-reduction tie). Byte-exact except the
  * second loop's `iVar4 * -8` store: mwcc strength-reduces it to a running counter where
  * the ROM recomputes `rsb;lsl` each iteration. Unsteerable. Route to nonmatching/. */
 extern int NNSi_FndGetCurrentRootHeap(void);

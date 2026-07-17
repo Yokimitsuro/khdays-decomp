@@ -1,4 +1,4 @@
-/* NONMATCHING: semantics correct; CSE-recompute tie on &data_020565e4 — mwcc caches it in a
+/* NONMATCHING: semantics correct; CSE-recompute tie on &data_020565e4 -- mwcc caches it in a
  * callee-saved reg (r4) and reuses after the call (48B), the ROM keeps it in a caller-saved reg
  * and rematerialises for the store (52B). Same class as func_ov006_02050970. */
 /* func_ov006_0204faf0 -- lazily create the Mission Mode-screen sub-controller instance.

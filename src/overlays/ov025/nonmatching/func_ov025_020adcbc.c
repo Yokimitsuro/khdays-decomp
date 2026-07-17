@@ -1,4 +1,4 @@
-/* NONMATCHING: register-allocation tie — the ROM puts prev in r5 and next in r6, mwcc swaps them
+/* NONMATCHING: register-allocation tie -- the ROM puts prev in r5 and next in r6, mwcc swaps them
  * (identical instruction sequence otherwise). Neither `int next = 0;` nor `int next = prev;`
  * reproduces the ROM's assignment; the two values are symmetric. */
 /* func_ov025_020adcbc -- enable/disable the prev (tag 0x3f) and next (tag 0x3e) page arrows from
