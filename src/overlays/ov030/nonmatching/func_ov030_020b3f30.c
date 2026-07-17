@@ -9,7 +9,7 @@
  * 0xb0/0xb4/0xb8=0x1000, 0x138=obj->0x490, 0x154=0xa000, 0x158=0x119a, 0x15c=
  * (s16)obj->0x66, 0x12c=1, 0x130=0, 0x134=i*0x2000, 0x15e=i*0x3fff), call
  * func_ov030_020b4048 mid-init and func_ov030_020b4024 at end. */
-extern void func_ov030_020b4048(int slot);
+extern void func_ov030_020b4048(int slot, int b);
 extern void func_ov030_020b4024(int slot);
 
 void func_ov030_020b3f30(int this_) {
@@ -30,7 +30,7 @@ void func_ov030_020b3f30(int this_) {
         *(int *)(slot + 0x148) = 0;
         *(int *)(slot + 0x14c) = 0;
         *(int *)(slot + 0x150) = 0x1000;
-        func_ov030_020b4048(slot);
+        func_ov030_020b4048(slot, 0);
         *(int *)(slot + 0xb8) = 0x1000;
         *(int *)(slot + 0xb4) = 0x1000;
         *(int *)(slot + 0xb0) = 0x1000;
