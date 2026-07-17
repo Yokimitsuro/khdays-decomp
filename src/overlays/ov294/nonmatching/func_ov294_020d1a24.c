@@ -18,7 +18,41 @@
  *   - `str r0, [r5]` vs `str r1, [r5]`: both hold the same copied value.
  * Do NOT record these as ties without trying declaration order first -- that is
  * what cracked TickTagTrackerNodes, and this file has already been wrong once.
- * The asm stub keeps the blob byte-exact. */
+ * The asm stub keeps the blob byte-exact.
+ *
+ * 2026-07-17 pass. Declaration order HAS now been tried, along with four other axes.
+ * All five are byte-identical to each other and to the file as it stands -- the diff
+ * stays pinned at 0x51, the ldrh temp. Recording them so the next pass starts past them:
+ *   - b/g/r declaration order (b first, b last)                     identical
+ *   - `g.scale = 0x1200` before `g.t = data_02041dc8`               identical
+ *   - a shared `int fall = 0x1200` local feeding BOTH the +0x70
+ *     store and g.scale (they are the same constant, which looked
+ *     like a CSE the ROM might be exposing)                         identical
+ *   - the return type of func_ov107_020c319c: `long long` (what
+ *     this file declares), `int`, and `void *` all produce the
+ *     SAME 87 instructions. The type is invisible at this call
+ *     site; the `long long` here is not load-bearing and not
+ *     evidence of anything. Do not spend a pass on it.
+ *
+ * ** AND THE ONE THAT MATTERS, so nobody brings the wrong crack here: the VEC_Set crack
+ * that just cracked its sibling func_ov294_020d1f94 does NOT apply to this function, and
+ * the reason is worth stating. There, the ROM grouped three LOADS and refused to group
+ * the stores -- suboptimal, and the tell that no copy existed in the source. HERE the ROM
+ * emits `ldm r0,{r0,r1,r2} ; stm r5,{r0,r1,r2}` -- it groups BOTH, which is exactly what
+ * mwcc produces for `g.t = data_02041dc8`, and is the correct code because no field is
+ * modified on the way. This copy is already byte-exact. The two functions look like the
+ * same problem and are not.
+ *
+ * The callee-side question is also already answered: func_ov107_020c319c reads FOUR words
+ * off the block, copies them to +0x58 and +0x68 of a fresh 0x78-byte instance, then copies
+ * the first three to +4. So `{ struct v3 t; int scale; }` is the right shape and the right
+ * size. Nothing to find there.
+ *
+ * WHAT IS LEFT is three register/schedule choices with the instruction COUNT already exact
+ * (87/87): the ldrh temp (ROM r3 / mwcc r1), the sunk `str r3,[sp,#0x10]` (mwcc fills the
+ * arg-setup delay with it, the ROM does not), and `str r0,[r5]` vs `str r1,[r5]` where both
+ * registers hold the same value. That is the register-CHOICE residue class in
+ * deferred-ties.md -- read that entry before spending another pass here. */
 struct v3 { int a, b, c; };
 struct Body { char pad[0xae]; unsigned short flags; };
 
