@@ -71,29 +71,32 @@
  *     spilled to the free r3 slot immediately, never competing for r7 at all.
  * Both cost 47 instructions, which is why mwcc has no reason to prefer the ROM's shape.
  *
- * ** THE CORPUS SAYS THIS IS A C BUG, NOT A TIE. Two sweeps over every matched real-C
- * function (asm_stubs excluded), run 2026-07-17:
- *   - mwcc DOES spill into the free r3 push slot when pressure forces it: 46 matched functions
- *     do it. func_ov000_02055a24 is the clean example -- two passes over one array, `base` must
- *     survive the first loop, so the counter `i` spills to [sp] and reloads every iteration.
- *     So "make mwcc spill" is not exotic; it is what mwcc does when it runs out.
- *   - The ROM NEVER parks a value in ip in THUMB: **0 out of 693** matched real-C THUMB
- *     functions contain `mov ip, rN` at all.
- * This C produces the ONLY ip-park in the project. A function whose C forces the compiler into a
- * construct that appears nowhere in 693 matched THUMB functions is not sitting on a compiler
- * tie -- it is sitting on a live value, or a live RANGE, that the original did not have. The
- * previous note's framing (an arbitrary coin-flip between two equal-cost choices) is now
- * positively contradicted: mwcc's own 46 spills show it prefers spilling when it is genuinely
- * out of registers, so here it does NOT believe it is out -- it still has ip.
+ * ** THE CORPUS, PROPERLY QUERIED (2026-07-17). This entry replaces one that said "the corpus
+ * proves this is a C bug". It does not. That claim came from finding 0 ip-parks in the 693
+ * MATCHED real-C THUMB functions -- a search that could not have found any, because ip is
+ * CALLER-SAVED and so is only usable for a value that needs a register but does NOT cross a
+ * call, which is rare and absent from the (small, simple) matched corpus. Re-run over all 2,208
+ * THUMB functions in the ROM: **35 of them DO park a value in ip** (func_02025aac 2,034 B,
+ * func_020262bc 1,928 B, func_ov002_0206b0f8 964 B, ...) -- all large, none matched yet, which
+ * is why the first sweep missed them. The ROM's compiler uses ip. This C is not indicted.
  *
- * NEXT STEP, rewritten off that: stop spelling `off`. Find the value this C keeps live that the
- * original did not, so that mwcc is FORCED past ip. Candidates nobody has checked:
- *   - `t` (the gate pointer) and `e` are BOTH walked downward in step with `k`. The ROM may
- *     derive one from the other, or index both off `k`, which would free a low register.
- *   - the two -1 copies (r2 and r3) are two registers holding one value. If the original's
- *     comparisons are against something already live, that is a register back.
- *   - `temp` (r6) is loop-only; if the original re-uses `r`'s register for it, that is another.
- * Any ONE of those frees the low register that makes ip unnecessary and forces the spill.
+ * What the sweeps DID establish, and it explains the diff exactly:
+ *   - mwcc spills into the free r3 push slot when a value crosses a call and no callee-saved
+ *     register is free: 46 matched functions do it (func_ov000_02055a24 is the clean example).
+ *     So it is not reluctant to spill -- it spills when genuinely out of registers.
+ *   - Here `off` CROSSES the 0201e470 call, so ip cannot hold it: it must be callee-saved or
+ *     spilled. `entry` does NOT cross a call, so ip can hold it.
+ *   - The ROM keeps `entry` low and spills `off`. mwcc gives `off` the callee-saved r7 and evicts
+ *     `entry` to ip. Both legal, both 47 instructions, and mwcc's is arguably smarter.
+ *
+ * So this is a genuine allocator tie-break with a understood mechanism, not a missing live value.
+ * The three "candidates nobody has checked" a previous version of this note listed (deriving t
+ * from e, the two -1 registers, the loop-only temp) were premised on the false conclusion --
+ * they would each FREE a low register, which is the opposite of what is needed. Ignore them.
+ *
+ * NEXT STEP: none at the function level. To beat this you would have to make `entry` cross a
+ * call (it does not, and cannot without changing semantics) so that ip stops being an option for
+ * it. Leave it; see the register-CHOICE class in deferred-ties.md.
  */
 extern void func_0201e470();
 extern char data_ov029_020b30b0[];
