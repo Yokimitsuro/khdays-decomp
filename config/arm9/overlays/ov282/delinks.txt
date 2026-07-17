@@ -84,9 +84,17 @@ src/overlays/ov282/calls/func_ov282_020d2600.c:
     complete
     .text       start:0x020d2600 end:0x020d2650
 
+src/overlays/ov282/calls/func_ov282_020d292c.c:
+    complete
+    .text       start:0x020d292c end:0x020d29ac
+
 src/overlays/ov282/calls/func_ov282_020d29ac.c:
     complete
     .text       start:0x020d29ac end:0x020d29fc
+
+src/overlays/ov282/calls/func_ov282_020d2aec.c:
+    complete
+    .text       start:0x020d2aec end:0x020d2b74
 
 src/overlays/ov282/calls/func_ov282_020d311c.c:
     complete
