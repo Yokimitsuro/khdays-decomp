@@ -30,8 +30,17 @@
  * func_01ff8d18 unconditionally at 0x02c and only compares at 0x06c, so it cannot be inlined into
  * the 4th `||` term without changing when the call happens).
  *
- * NEXT IDEA (untried): find a source form that makes the guard's ctx[0x1d] cache land in a
- * caller-saved register instead of being coalesced with `lo`. Same class as
+ * The "NEXT IDEA" below was TRIED on 2026-07-17 and FAILED: making the ctx[0x1d] cache an explicit
+ * local (`int target = ctx[0x1d];`) does not put it in a caller-saved register. Declared last,
+ * declared right after ctx, and block-scoped to the guard all give 716 B / 90 diffs -- one WORSE
+ * than leaving it as an mwcc temp. So the cache's register is not reachable by naming it.
+ * Also note the 2026-07-17 finding that caller-saved values (r0-r3, ip, lr) are ordered by USE
+ * COUNT and live range, not declaration order (see codegen-cracks.md): the remaining lever, if any,
+ * is something that changes how many times ctx[0x1d] or `lo` is read -- but both counts are forced
+ * by the semantics here, which is why this one is stubborn.
+ *
+ * ORIGINAL NEXT IDEA (now ruled out): find a source form that makes the guard's ctx[0x1d] cache
+ * land in a caller-saved register instead of being coalesced with `lo`. Same class as
  * func_ov158_020cd174 (r6/r7 swap, ~10 attempts) -- but note that one is a PAIR swap and this is a
  * three-way rotation with a clear, identified origin, so it is not obviously the same tie. Do not
  * fold this into the mwcc-build theory: state.md's own retraction says that tally is 50/50.

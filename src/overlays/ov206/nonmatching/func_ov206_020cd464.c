@@ -17,7 +17,15 @@
  * "derive -1 from a live 0" note predicts. With that fixed the only residue is which register
  * holds the -1 (ROM r2, mwcc ip) and, as a knock-on, where the first callback's pool load is
  * scheduled (ROM 0x30, mwcc 0x20 -- it hoists it into the r2 that the ROM still needs).
- * Register-permutation class; blocks the ov206/207/274/275 family for this shape. */
+ * Register-permutation class; blocks the ov206/207/274/275 family for this shape.
+ *
+ * RULED OUT 2026-07-17 (all 184 B, all the same 10 diffs -- do not repeat): `&cb` vs `cb` on the
+ * three callback arguments; the -1 written as `0 - 1`, `~0`, `(char)-1`, and via a `signed char`
+ * local; declaring `v` before `ctx`. The residue: the ROM does NOT fill the `ldr r1,[r3]` ->
+ * `strb` load-use stall at 0x020, because r2 is busy holding the -1; mwcc frees r2 by putting the
+ * -1 in ip and drops the first callback's pool load into the stall. So mwcc is scheduling the pool
+ * load EARLIER than the ROM, and the -1's register falls out of that. Same class as
+ * func_ov000_020552b4 and func_ov181_020ce664: identical stream, one caller-saved slot apart. */
 extern void func_0203c634(int self, int action, void (*cb)(void));
 extern void func_ov206_020cd818(void);
 extern void func_ov206_020cd51c(void);
