@@ -5,8 +5,11 @@
  * The 3-word `*(vec3)(p+0x878)=*(vec3)(p+0x48c)` copy computes the src base into
  * r0 first in the orig, mwcc computes the dst base first (r0/r1 swap on the ldm).
  *
- * RULED OUT (2026-07-17) -- all four leave the diff at 0x28:
+ * RULED OUT (2026-07-17) -- all leave the diff at 0x28 (which base gets r0: ROM src, mwcc dst):
  *   src pointer local only | dst pointer local only | src-then-dst locals | dst-then-src locals
+ *   | copy-through-a-struct-temp (`vec3 tmp=*src; *dst=tmp;`) -- mwcc folds it to the same insns.
+ * Re-confirmed 2026-07-17 (2nd pass): the temp spelling compiles BYTE-IDENTICAL. mwcc always
+ * computes the lhs (dst) address into r0 first; no source form reorders the two `add rN,r4,#imm`.
  * ARITY IS CLEAN: func_02016ae8 really does take 4 here (the ROM sets r0-r3; the tree's 50
  * three-arg call sites are a different pattern, so audit_arity.py flags this as a FALSE POSITIVE).
  * Same class as ov212_020d1bfc -- a src/dst scratch swap in a 3-word struct copy, where every
