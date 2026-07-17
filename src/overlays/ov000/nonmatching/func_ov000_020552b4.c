@@ -18,28 +18,31 @@
  * link offset, the button bit and the value parked back in +0x4a78.
  *
  * ------------------------------------------------------------------------------------------
- * ★ UNFINISHED -- NOT a proven tie. Now at **656/656 bytes with the instruction stream identical**;
- * all that is left is a REGISTER PERMUTATION (39 operand differences, no structural ones).
+ * ★ UNFINISHED -- NOT a proven tie. **656/656 bytes, instruction stream IDENTICAL**, 39 operand
+ * differences and no structural ones. It is a scratch-register permutation and nothing else.
  *
- * The 40 bytes it started at were the >0xfff offset splitting, and three things fixed that:
- *   - the two bases really are two structs, and modelling them is what keeps the ROM's split:
- *     `Screen` at self+0x4000 (ldr has a 12-bit offset, so +0xa50/+0xa70 reach from there) and
- *     `NavState` at self+0x4a00 (strh only has 8 bits, so it needs its own base for +0x78).
- *     Raw `*(u16 *)(self + 0x4a78)` makes mwcc materialise the whole address instead;
- *   - `dirs` read once after the 0xf0 reset and reused by all four tests (2 instructions each);
- *   - the accept callback loaded INSIDE its condition -- `(cb = *(...)(cur + 0x98)) != 0` gives
- *     the ROM's single `ldrne r1` / `cmpne` / `blx r1`; testing the field then calling through it
- *     reads it twice.
+ * Register map: cur=r0, n=r1, keys=r4, self=r5 -- so r2/r3 are the only scratch. The ROM gives
+ * navbase r1 (n's future register, still free there) and the mask value r3; mwcc gives navbase r3
+ * and the mask value r1. Same swap recurs at every address-base/loaded-value pair.
  *
- * What remains is r1/r2 swapped from the very first temporaries onward:
- *   ROM:  ldr r2,[pc] (&mask) ; add r1,r5,#0x4a00 (nav base)   -> dirs ends up in r2
- *   mine: ldr r1,[pc] (&mask) ; add r2,r5,#0x4a00              -> dirs ends up in r1
- * and everything cascades from there. Tried and rejected: flipping the `&` operands, `dirs` as
- * unsigned short vs int. These are scratch registers, so the declaration-order lever (which
- * governs r4..r8) does not reach them.
+ * RULED OUT 2026-07-17 -- do not spend time re-testing these, every one is byte-identical to the
+ * current file (all 656 B, all 39 diffs):
+ *   - flipping the `&` operands (mwcc canonicalises commutative operands -- the source order of
+ *     the two loads is NOT what picks the registers);
+ *   - `volatile` on the mask, on `dirs`, and both, with and without the flip -- changes NOTHING,
+ *     not even the load order, which is the strongest evidence that this statement's source form
+ *     is not the lever;
+ *   - the reset written as `!(x & y)`, as `!= 0` with an empty then-branch, as a ternary;
+ *   - the mask via a local, `dirs` via a local, both via locals, in either order;
+ *   - the mask declared `int`, or as `data_0204c18c[0]`;
+ *   - ALL 24 declaration orders of cur/n/dirs/cb -- inert here (it is not a universal lever; it
+ *     also did nothing for func_ov000_02056354).
+ * PROVEN WRONG, so keep the current spelling: holding `Screen *`/`NavState *` in pointer VARIABLES
+ * drops it to 592 B -- mwcc then parks them in callee-saved registers and stops rematerialising
+ * the `add rX, r5, #0x4000` at each use. The inline casts are what the ROM does.
  *
- * Semantics and structure are settled -- do not re-derive them. This needs the r1/r2 coin-flip
- * only. */
+ * Semantics and structure are settled -- do not re-derive them. 6-member family
+ * (ov000/005/008/009/025/026), so it is worth 6 if it ever falls. */
 
 typedef struct {
     unsigned disabled : 1;
