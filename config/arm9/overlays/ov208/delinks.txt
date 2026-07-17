@@ -4,13 +4,49 @@
     .data       start:0x020d4820 end:0x020d48a0 kind:data align:32
     .bss        start:0x020d48a0 end:0x020d48a0 kind:bss align:32
 
+src/overlays/ov208/calls/func_ov208_020cfb60.c:
+    complete
+    .text       start:0x020cfb60 end:0x020cfb78
+
+src/overlays/ov208/calls/func_ov208_020cfb78.c:
+    complete
+    .text       start:0x020cfb78 end:0x020cfc04
+
+src/overlays/ov208/calls/func_ov208_020d0138.c:
+    complete
+    .text       start:0x020d0138 end:0x020d0188
+
+src/overlays/ov208/calls/func_ov208_020d059c.c:
+    complete
+    .text       start:0x020d059c end:0x020d05c4
+
 src/overlays/ov208/calls/func_ov208_020d0628.c:
     complete
     .text       start:0x020d0628 end:0x020d0694
 
+src/overlays/ov208/calls/func_ov208_020d0888.c:
+    complete
+    .text       start:0x020d0888 end:0x020d0968
+
+src/overlays/ov208/calls/func_ov208_020d0968.c:
+    complete
+    .text       start:0x020d0968 end:0x020d0b1c
+
+src/overlays/ov208/calls/func_ov208_020d0b1c.c:
+    complete
+    .text       start:0x020d0b1c end:0x020d0b78
+
 src/overlays/ov208/auto/func_ov208_020d0e5c.c:
     complete
     .text       start:0x020d0e5c end:0x020d0ea4
+
+src/overlays/ov208/calls/func_ov208_020d124c.c:
+    complete
+    .text       start:0x020d124c end:0x020d14c4
+
+src/overlays/ov208/calls/func_ov208_020d15b0.c:
+    complete
+    .text       start:0x020d15b0 end:0x020d1640
 
 src/overlays/ov208/calls/func_ov208_020d1640.c:
     complete
@@ -19,6 +55,78 @@ src/overlays/ov208/calls/func_ov208_020d1640.c:
 src/overlays/ov208/calls/func_ov208_020d180c.c:
     complete
     .text       start:0x020d180c end:0x020d1840
+
+src/overlays/ov208/calls/func_ov208_020d1840.c:
+    complete
+    .text       start:0x020d1840 end:0x020d1874
+
+src/overlays/ov208/calls/func_ov208_020d1874.c:
+    complete
+    .text       start:0x020d1874 end:0x020d18d4
+
+src/overlays/ov208/calls/func_ov208_020d18d4.c:
+    complete
+    .text       start:0x020d18d4 end:0x020d1934
+
+src/overlays/ov208/calls/func_ov208_020d1934.c:
+    complete
+    .text       start:0x020d1934 end:0x020d19b8
+
+src/overlays/ov208/calls/func_ov208_020d1be0.c:
+    complete
+    .text       start:0x020d1be0 end:0x020d1e84
+
+src/overlays/ov208/calls/func_ov208_020d22e0.c:
+    complete
+    .text       start:0x020d22e0 end:0x020d2334
+
+src/overlays/ov208/calls/func_ov208_020d24d4.c:
+    complete
+    .text       start:0x020d24d4 end:0x020d2528
+
+src/overlays/ov208/calls/func_ov208_020d2528.c:
+    complete
+    .text       start:0x020d2528 end:0x020d2628
+
+src/overlays/ov208/calls/func_ov208_020d2628.c:
+    complete
+    .text       start:0x020d2628 end:0x020d2678
+
+src/overlays/ov208/calls/func_ov208_020d2678.c:
+    complete
+    .text       start:0x020d2678 end:0x020d26ac
+
+src/overlays/ov208/calls/func_ov208_020d2728.c:
+    complete
+    .text       start:0x020d2728 end:0x020d277c
+
+src/overlays/ov208/calls/func_ov208_020d289c.c:
+    complete
+    .text       start:0x020d289c end:0x020d28d8
+
+src/overlays/ov208/calls/func_ov208_020d28d8.c:
+    complete
+    .text       start:0x020d28d8 end:0x020d2914
+
+src/overlays/ov208/calls/func_ov208_020d2914.c:
+    complete
+    .text       start:0x020d2914 end:0x020d2974
+
+src/overlays/ov208/calls/func_ov208_020d2bec.c:
+    complete
+    .text       start:0x020d2bec end:0x020d2c6c
+
+src/overlays/ov208/calls/func_ov208_020d362c.c:
+    complete
+    .text       start:0x020d362c end:0x020d36c0
+
+src/overlays/ov208/calls/func_ov208_020d3734.c:
+    complete
+    .text       start:0x020d3734 end:0x020d3768
+
+src/overlays/ov208/calls/func_ov208_020d393c.c:
+    complete
+    .text       start:0x020d393c end:0x020d3974
 
 src/overlays/ov208/calls/func_ov208_020d3974.c:
     complete
@@ -31,6 +139,26 @@ src/overlays/ov208/auto/func_ov208_020d3b40.c:
 src/overlays/ov208/calls/func_ov208_020d3c30.c:
     complete
     .text       start:0x020d3c30 end:0x020d3cc8
+
+src/overlays/ov208/calls/func_ov208_020d3d10.c:
+    complete
+    .text       start:0x020d3d10 end:0x020d3d6c
+
+src/overlays/ov208/calls/func_ov208_020d3d6c.c:
+    complete
+    .text       start:0x020d3d6c end:0x020d3e14
+
+src/overlays/ov208/calls/func_ov208_020d3e14.c:
+    complete
+    .text       start:0x020d3e14 end:0x020d3e8c
+
+src/overlays/ov208/calls/func_ov208_020d3e8c.c:
+    complete
+    .text       start:0x020d3e8c end:0x020d3ebc
+
+src/overlays/ov208/calls/func_ov208_020d3ebc.c:
+    complete
+    .text       start:0x020d3ebc end:0x020d3f6c
 
 src/overlays/ov208/auto/func_ov208_020d3f6c.c:
     complete
