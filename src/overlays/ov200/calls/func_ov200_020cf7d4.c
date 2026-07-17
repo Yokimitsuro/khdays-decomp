@@ -1,0 +1,20 @@
+/*
+ * func_ov200_020cf7d4 -- x3. AI-state tick: fire, roll a random strafe sign, dispatch.
+ * Fire attack 1 (020c9264, flag 1). state[0x29] = RandNextScaled(2) ? -1 : 1 (random sign);
+ * state[0x14] = 0. Hand off to the 020cf828 state.
+ */
+extern void func_ov107_020c9264(int a, int b, int c);
+extern int  func_02023eb4();  /* K&R decl: needed for the rand `+ (v - v)` copy artifact */
+extern void func_0203c634(int self, int idx, int cb);
+extern void func_ov200_020cf828(void);
+
+void func_ov200_020cf7d4(int *self) {
+    int *state = (int *)self[1];
+    int v;
+
+    func_ov107_020c9264(*state, 1, 1);
+    /* +(v-v) forces `adds r0,r0,#0` (rand result copied+tested); +0 would fold away */
+    state[0x29] = (func_02023eb4(2) + (v - v)) != 0 ? -1 : 1;
+    state[0x14] = 0;
+    func_0203c634((int)self, *(signed char *)((int)self + 0x20), (int)&func_ov200_020cf828);
+}
