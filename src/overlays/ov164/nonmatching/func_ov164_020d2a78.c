@@ -27,6 +27,22 @@
  *     a volatile entry; an intermediate `void **pe`; explicit casts on args 4, 5 and 6;
  *     and an `int *e = entry;` temp.
  *
+ *
+ * MORE RULED OUT, same day, all still landing on r0:
+ *   - the 16 individual optimiser toggles: -opt with and without lifetimes, cse,
+ *     deadcode, deadstore, prop, strength, loop and peephole. `-opt nolifetimes`
+ *     (computation of variable lifetimes) was the best hope and changes nothing.
+ *     -opt level=2/3/4 and speed vs space: all 2 off. Only level=1 differs, and it is
+ *     far worse (28 off).
+ *   - five out-param SHAPES that build genuinely different expression trees: an array
+ *     `int *entry[1]` passed decayed, a one-field struct by address, an array with
+ *     explicit `&entry[0]`, a struct reached through its own pointer local, and a
+ *     separate `int **` aliased onto a slot array.
+ *
+ * The 27 build files are 25 DISTINCT binaries by sha256 (2.0/sp2 == 3.0_136, and
+ * dsi/1.6sp1 == dsi/1.6sp2). So the twenty that agree really are twenty different
+ * executables, not one binary copied around -- the build theory has no room left here.
+ *
  * ALL 24 instances in the ROM use r1 -- there is no variant, so it is not noise. The
  * compiler and the ROM are each 100% self-consistent and disagree with each other. The
  * source must differ in some way not yet imagined; every mechanical lever is spent. */
