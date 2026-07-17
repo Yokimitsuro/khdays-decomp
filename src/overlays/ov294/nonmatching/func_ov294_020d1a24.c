@@ -1,12 +1,26 @@
-/* NONMATCHING — equivalent C (twin of the matched func_ov131_020cbfc4), scheduler tie.
+/* NONMATCHING - 348/348 B, THREE instructions from exact. Was parked as a
+ * "scheduler tie ... register-pressure driven, not source-steerable; confirmed
+ * unreproducible across all 26 mwcc generations and statement reorders".
  *
- * 348B byte-exact except 3 mwcc slot-filling spots: the ROM hoists the bitfield base
- * `add r2,r4,#0x100` early to fill the +0x1d0 vtable ldr->str delay (into r2, separate
- * from the r1 scalar-store temp) while mwcc computes it late in r1; plus the g.scale
- * store position and the *p store register. Register-pressure driven, not source-
- * steerable; confirmed unreproducible across all 26 mwcc generations and statement
- * reorders. Structure validated against the byte-exact twin func_ov131_020cbfc4. */
+ * That was wrong, and the biggest of the three claims is now fixed: the ROM's
+ * hoisted `add r2, r4, #0x100` is not the scheduler being clever, it is a
+ * SUB-OBJECT POINTER that is live as a variable. Declaring
+ *     struct Body *b = (struct Body *)(param_1 + 0x100);
+ * at the top and writing `b->flags |= 0x10` puts the add exactly where the ROM has
+ * it, in the same register (r2), filling the same ldr->str delay. 0x100 is
+ * encodable as an ARM immediate and 0xae fits an ldrh displacement, which is why
+ * the split looks like a scheduling artifact -- it is really a struct base.
+ *
+ * REMAINING (3, all "which scratch register"):
+ *   - the ldrh/orr/strh temp: ROM r3, mwcc r1;
+ *   - `str r3, [sp, #0x10]` (g.scale): ROM keeps it in source order, mwcc sinks it
+ *     into the func_01fffca8 argument setup;
+ *   - `str r0, [r5]` vs `str r1, [r5]`: both hold the same copied value.
+ * Do NOT record these as ties without trying declaration order first -- that is
+ * what cracked TickTagTrackerNodes, and this file has already been wrong once.
+ * The asm stub keeps the blob byte-exact. */
 struct v3 { int a, b, c; };
+struct Body { char pad[0xae]; unsigned short flags; };
 
 extern struct v3 data_02041dc8;
 
@@ -32,6 +46,7 @@ extern void func_0203355c();
 void func_ov294_020d1a24(int param_1) {
     struct { struct v3 t; int scale; } g;
     long long r;
+    struct Body *b = (struct Body *)(param_1 + 0x100);
 
     *(void **)(param_1 + 8) = func_ov294_020d1b80;
     *(void **)(param_1 + 0xc) = func_ov294_020d1b9c;
@@ -42,7 +57,7 @@ void func_ov294_020d1a24(int param_1) {
     *(int *)(param_1 + 0x64) = 0;
     *(int *)(param_1 + 0x68) = 0;
     *(int *)(param_1 + 0x6c) = 0;
-    *(unsigned short *)(param_1 + 0x1ae) |= 0x10;
+    b->flags |= 0x10;
     *(void **)(param_1 + 0x384) = func_0203b898(func_ov107_020c9440(param_1));
     func_0203bfb4(*(int *)(param_1 + 0x9c), *(void **)(param_1 + 0x384));
     func_0203ca14(*(int *)(param_1 + 0x384) + 4, 0, -0x1200, 0);
