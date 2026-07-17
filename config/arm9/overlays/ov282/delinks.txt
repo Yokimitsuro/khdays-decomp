@@ -60,6 +60,10 @@ src/overlays/ov282/calls/func_ov282_020d0d30.c:
     complete
     .text       start:0x020d0d30 end:0x020d0f68
 
+src/overlays/ov282/calls/func_ov282_020d0f68.c:
+    complete
+    .text       start:0x020d0f68 end:0x020d10f4
+
 src/overlays/ov282/calls/func_ov282_020d10f4.c:
     complete
     .text       start:0x020d10f4 end:0x020d1158
