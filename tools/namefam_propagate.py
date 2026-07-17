@@ -129,10 +129,27 @@ def name_is_propagable(base, src_unit, dst_unit):
 
 
 def retarget(gname, unit):
-    """Rewrite the overlay prefix of a name for a different unit; None if it doesn't carry one."""
+    """Rewrite a name for another unit. None = this name cannot be moved there.
+
+    Two name shapes, and mishandling the second one made this tool silently blind:
+      - `Ov228_Foo` spells its overlay INTO the name, so the digits must follow the member.
+        There is no sensible `Ov228_Foo` in main, so refuse that move.
+      - A bare `TickTagTrackerNodes` carries no unit at all, so it moves VERBATIM. That is not
+        a fallback -- it is this codebase's dominant convention for a cross-overlay family:
+        `TickTagTrackerNodes` and `BuildTagTrackerNode` are each spelled identically in EIGHT
+        overlays, because Ghidra namespaces them by address space (`arm9_ov008::` vs
+        `arm9_ov025::`), so the same bare name in two overlays is unambiguous and correct.
+
+    Returning None for the bare case (as this did until 2026-07-17) meant every family whose rep
+    had a plain semantic name was dropped by the `if nn is None: continue` in main() -- not
+    rejected, not counted, just gone. It hid 66 propagable twins behind the reassuring line
+    "0 propagable". The negative-result rule in SKILL.md, exactly: state the positive form
+    (`SetTagTrackerNodeArmed` moving to its ov002 twin) and check the search could express it.
+    This one could not.
+    """
     m = OVNAME.match(gname)
     if not m:
-        return None
+        return gname
     if unit == 'main':
         return None
     return '%s%s_%s' % (m.group(1), unit[2:], m.group(3))
@@ -196,7 +213,22 @@ def main():
 
     # Two byte-identical functions in the SAME overlay want the same name. Ghidra would either
     # throw or silently create an ambiguous pair; neither is a name worth having. Report and skip.
+    #
+    # Seeded with every real name ALREADY in the program, per unit -- not just with the renames
+    # planned in this run. Comparing the plan only against itself missed the case where a
+    # destination collides with the family's own REP: `func_0203c634` is already `SetIndexedSlot`
+    # in main, and its byte-identical main twin `func_02011f88` was planned to become
+    # `SetIndexedSlot` too, which is the exact "duplicated routine, needs a human" this check
+    # exists to refuse. Bare names made that common (a prefixed `Ov008_Foo` can only retarget
+    # into a different overlay, so it hid the gap); checking against the program catches the
+    # cross-family case as well, and cannot block a legitimate move -- the destination is
+    # unnamed by construction.
     seen_name = {}
+    for k, cur in gn.items():
+        if cur.startswith('FUN_') or PLACEHOLDER.match(base_name(cur)):
+            continue
+        m = re.match(r'arm9_(ov\d+)::', k)
+        seen_name[(m.group(1) if m else 'main', cur)] = '(already in the program)'
     collided = []
     keep = []
     for item in plan:
