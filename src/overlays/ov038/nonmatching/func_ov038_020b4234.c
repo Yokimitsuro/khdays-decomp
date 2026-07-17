@@ -34,10 +34,16 @@
  *                                                       emits the cast after the switch
  *   `self` taken through a local instead of directly -> same diff at 0x5
  *
- * NEXT STEP: the callee-saved-permutation class. The one thing NOT tried: giving the two
- * zeros explicit names. They are compiler temps here, and they are the only values whose
- * count and ordering I have not been able to influence from the source -- which is exactly
- * what decides who gets r6.
+ *   the two zeros given explicit names -- TRIED and RULED OUT (this was the "next step" the
+ *     first version of this note proposed, so it is recorded rather than left dangling):
+ *     one shared `int z = 0`, two separate `z1`/`z2`, and both declared before i/m. All
+ *     three give the same diff at 0x5. So the zeros' identity is not the lever either.
+ *
+ * NEXT STEP: none I can name. Every value in the function has been named, reordered and
+ * retyped; the allocator still puts `self` in r7. This is the callee-saved-permutation
+ * class -- but do NOT read that as a verdict: three of 2026-07-17's four cracks came out
+ * of functions filed under exactly that label. What it needs is a fresh idea, not another
+ * pass over these axes.
  */
 extern void func_02014dc4(void *p);
 extern void func_0202accc(void *p, unsigned short i, int a, short m);
