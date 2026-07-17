@@ -99,8 +99,12 @@ OVNAME = re.compile(r'^(Ov|ov)(\d{3})_(.+)$')
 #     same *routine*, not the same *screen*. The skill's own scene table exists because ~23
 #     symbols were once misnamed exactly this way. Structure propagates; scene identity does not.
 ADDR_IN_NAME = re.compile(r'[0-9a-fA-F]{4,8}$')
-PLACEHOLDER = re.compile(r'^(helper|sub|thunk|FUN|DAT|nullsub|Fn|Set|Get|Fwd|stateStep|st)_', re.I)
 SCENE_WORDS = ('mission', 'title', 'multiplayer', 'mlt', 'panel', 'moogle', 'shop')
+
+# One definition of "this is not a name", shared with the tool that counts the debt -- see the
+# comment on PLACEHOLDER there. Two copies disagreed by 17 functions once; never again.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from audit_unnamed import PLACEHOLDER  # noqa: E402
 
 
 def base_name(gname):
@@ -167,7 +171,10 @@ def main():
             cur = gn.get(k) if k else None
             if cur is None:
                 continue                       # no Ghidra function at all -- not our job here
-            (unnamed if cur.startswith('FUN_') else named).append((func, cur))
+            # A placeholder is a rename TARGET, not a source: `ov002_helper_5ef08` is no more a
+            # name than FUN_ is, so a family's real name should overwrite it.
+            is_debt = cur.startswith('FUN_') or PLACEHOLDER.match(base_name(cur))
+            (unnamed if is_debt else named).append((func, cur))
         if not named or not unnamed:
             continue
         bases = {base_name(cur) for _f, cur in named}
