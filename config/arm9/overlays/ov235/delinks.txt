@@ -84,6 +84,10 @@ src/overlays/ov235/calls/func_ov235_020d1810.c:
     complete
     .text       start:0x020d1810 end:0x020d1884
 
+src/overlays/ov235/calls/func_ov235_020d19cc.c:
+    complete
+    .text       start:0x020d19cc end:0x020d1a34
+
 src/overlays/ov235/auto/func_ov235_020d1b54.c:
     complete
     .text       start:0x020d1b54 end:0x020d1b6c

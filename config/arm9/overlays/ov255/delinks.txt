@@ -60,6 +60,10 @@ src/overlays/ov255/calls/func_ov255_020cf914.c:
     complete
     .text       start:0x020cf914 end:0x020cf950
 
+src/overlays/ov255/calls/func_ov255_020d0d04.c:
+    complete
+    .text       start:0x020d0d04 end:0x020d0d6c
+
 src/overlays/ov255/auto/func_ov255_020d0e8c.c:
     complete
     .text       start:0x020d0e8c end:0x020d0ea4

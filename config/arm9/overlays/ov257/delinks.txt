@@ -56,6 +56,10 @@ src/overlays/ov257/calls/func_ov257_020cfb50.c:
     complete
     .text       start:0x020cfb50 end:0x020cfbac
 
+src/overlays/ov257/calls/func_ov257_020d2474.c:
+    complete
+    .text       start:0x020d2474 end:0x020d24dc
+
 src/overlays/ov257/auto/func_ov257_020d25fc.c:
     complete
     .text       start:0x020d25fc end:0x020d2614
