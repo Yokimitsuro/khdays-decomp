@@ -1,3 +1,24 @@
+/* UPDATE 2026-07-18 -- 44 -> 41 differing bytes. The `&` operand ORDER was wrong.
+ * The ROM reads the GLOBAL first (`ldr r2,[pc]; ldrh r3,[r2]`) and the nav field second;
+ * the old source had `nav->dirs & data_0204c18c`, which emitted the two ldrh the other way
+ * round and mis-scheduled everything downstream. Now written `data_0204c18c & nav->dirs`
+ * and the load order matches.
+ *
+ * What remains is a pure r1<->r2 PERMUTATION over the whole body (the ROM keeps the nav base
+ * in r1 and reuses r2 for the pool address then the field value; mwcc does the mirror image).
+ * Ruled out on top of the older list below:
+ *   - all 24 declaration orders of the four locals (cur / n / dirs / cb), scripted;
+ *   - hoisting the NavState pointer into a local -- that is WORSE, 636 vs 656: mwcc then
+ *     reuses the pointer while the ROM recomputes `add rN, r5, #0x4a00` at every use.
+ *     The ROM's redundant recomputation is a fact about the source, so keep the inline form.
+ *
+ * ⚠ CORRECTION to a claim made the same day in the skill's state.md: this function was flagged
+ * as "missing four compound conditions" because a ranking tool's ROM-only list showed
+ * `cmp r3,r0 ; ldrne r0,[r2,#0xa70] ; cmpne r3,r0` four times. That was wrong -- those
+ * instructions appear on BOTH sides with the registers permuted. An alignment diff lists an
+ * instruction as one-sided whenever the register fields differ, so never read the ROM-only
+ * list without the mine-only list beside it.
+ */
 /* func_ov000_020552b4 -- directional navigation: walk the widget graph from the focused node in
  * whichever direction was pressed, and focus the first node that will take it.
  *
@@ -79,7 +100,7 @@ void func_ov000_020552b4(int self, int keys) {
         return;
     }
 
-    if ((((NavState *)(self + 0x4a00))->dirs & data_0204c18c) == 0) {
+    if ((data_0204c18c & ((NavState *)(self + 0x4a00))->dirs) == 0) {
         ((NavState *)(self + 0x4a00))->dirs = 0xf0;
     }
     /* Read ONCE, after the reset, and reused by all four tests -- that is what the ROM does
