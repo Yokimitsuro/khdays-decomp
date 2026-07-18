@@ -22,7 +22,7 @@ void func_ov022_0208a790(int obj) {
     struct Flags0208a790 *f = (struct Flags0208a790 *)obj;
     if (*(int *)(obj + 0xc) >= 0) {
         *(int *)(*(int *)(obj + *(int *)(obj + 0xc) * 4 + 0x18) + 4) = 0;
-        *(unsigned char *)(*(int *)(obj + *(int *)(obj + 0xc) * 4 + 0x18) + 0x110) = 0xff;
+        *(signed char *)(*(int *)(obj + *(int *)(obj + 0xc) * 4 + 0x18) + 0x110) = -1;
     }
     if ((*(unsigned short *)obj & 4) == 0)
         *(int *)(obj + 0xc) = -1;
