@@ -1,0 +1,15 @@
+/*
+ * func_ov187_020d3c40 -- x3 (ov185/186/187). Ping all 4 sub-nodes, then tick the owner.
+ * For i in 0..3, call 020c2b38(arg, (*(self+0x390))[i]); finish with 020c7c1c(self, arg).
+ */
+extern void func_ov107_020c2b38(int owner, int node);
+extern void func_ov107_020c7c1c(int self, int arg);
+
+void func_ov187_020d3c40(int self, int arg) {
+    int i;
+
+    for (i = 0; i < 4; i++) {
+        func_ov107_020c2b38(arg, (*(int **)(self + 0x390))[i]);
+    }
+    func_ov107_020c7c1c(self, arg);
+}
