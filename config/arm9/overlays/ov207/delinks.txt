@@ -68,6 +68,10 @@ src/overlays/ov207/calls/func_ov207_020d115c.c:
     complete
     .text       start:0x020d115c end:0x020d136c
 
+src/overlays/ov207/calls/func_ov207_020d136c.c:
+    complete
+    .text       start:0x020d136c end:0x020d1458
+
 src/overlays/ov207/calls/func_ov207_020d1458.c:
     complete
     .text       start:0x020d1458 end:0x020d1500
