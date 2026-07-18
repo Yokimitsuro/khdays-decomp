@@ -35,6 +35,18 @@ src/overlays/ov105/calls/func_ov105_020be4ac.c:
     complete
     .text       start:0x020be4ac end:0x020be4c8
 
+src/overlays/ov105/calls/func_ov105_020be850.c:
+    complete
+    .text       start:0x020be850 end:0x020be880
+
+src/overlays/ov105/calls/func_ov105_020bef44.c:
+    complete
+    .text       start:0x020bef44 end:0x020bef74
+
+src/overlays/ov105/calls/func_ov105_020bf008.c:
+    complete
+    .text       start:0x020bf008 end:0x020bf038
+
 src/overlays/ov105/calls/func_ov105_020bf1e4.c:
     complete
     .text       start:0x020bf1e4 end:0x020bf1f4

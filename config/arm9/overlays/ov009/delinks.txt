@@ -100,6 +100,10 @@ src/overlays/ov009/calls/func_ov009_0204e4a8.c:
     complete
     .text       start:0x0204e4a8 end:0x0204e4c0
 
+src/overlays/ov009/calls/func_ov009_0204e4c0.c:
+    complete
+    .text       start:0x0204e4c0 end:0x0204e540
+
 src/overlays/ov009/calls/func_ov009_0204e540.c:
     complete
     .text       start:0x0204e540 end:0x0204e59c
@@ -599,6 +603,10 @@ src/overlays/ov009/auto/func_ov009_02052abc.c:
 src/overlays/ov009/calls/func_ov009_02053308.c:
     complete
     .text       start:0x02053308 end:0x02053398
+
+src/overlays/ov009/calls/func_ov009_02053398.c:
+    complete
+    .text       start:0x02053398 end:0x02053404
 
 src/overlays/ov009/auto/func_ov009_02053c14.c:
     complete

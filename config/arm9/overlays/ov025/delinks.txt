@@ -172,6 +172,10 @@ src/overlays/ov025/calls/func_ov025_02084b2c.c:
     complete
     .text       start:0x02084b2c end:0x02084b78
 
+src/overlays/ov025/calls/func_ov025_02084b78.c:
+    complete
+    .text       start:0x02084b78 end:0x02084bf8
+
 src/overlays/ov025/calls/func_ov025_02084bf8.c:
     complete
     .text       start:0x02084bf8 end:0x02084c54
@@ -828,6 +832,10 @@ src/overlays/ov025/auto/func_ov025_02089894.c:
     complete
     .text       start:0x02089894 end:0x020898cc
 
+src/overlays/ov025/calls/func_ov025_020898cc.c:
+    complete
+    .text       start:0x020898cc end:0x02089908
+
 src/overlays/ov025/calls/func_ov025_02089908.c:
     complete
     .text       start:0x02089908 end:0x02089934
@@ -1087,6 +1095,10 @@ src/overlays/ov025/calls/func_ov025_0208c584.c:
 src/overlays/ov025/auto/func_ov025_0208c634.c:
     complete
     .text       start:0x0208c634 end:0x0208c65c
+
+src/overlays/ov025/calls/func_ov025_0208c7dc.c:
+    complete
+    .text       start:0x0208c7dc end:0x0208c868
 
 src/overlays/ov025/calls/func_ov025_0208c93c.c:
     complete
@@ -1431,6 +1443,10 @@ src/overlays/ov025/auto/func_ov025_02099cb4.c:
 src/overlays/ov025/calls/func_ov025_0209a500.c:
     complete
     .text       start:0x0209a500 end:0x0209a590
+
+src/overlays/ov025/calls/func_ov025_0209a590.c:
+    complete
+    .text       start:0x0209a590 end:0x0209a5fc
 
 src/calls/WM_EndKeySharing_0x0209bccc.c:
     complete

@@ -160,6 +160,14 @@ src/overlays/ov201/calls/func_ov201_020d4854.c:
     complete
     .text       start:0x020d4854 end:0x020d48d4
 
+src/overlays/ov201/calls/func_ov201_020d52c8.c:
+    complete
+    .text       start:0x020d52c8 end:0x020d5348
+
 src/overlays/ov201/auto/func_ov201_020d5348.c:
     complete
     .text       start:0x020d5348 end:0x020d53a8
+
+src/overlays/ov201/calls/func_ov201_020d53a8.c:
+    complete
+    .text       start:0x020d53a8 end:0x020d5444
