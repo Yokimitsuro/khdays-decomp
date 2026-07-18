@@ -25,7 +25,17 @@
  *    (`buf.a = …`), and here both halves come from the data. Retried the reversed
  *    field-by-field assignment now that the hw60 form is fixed: worse (diff 0x38 -> 0x21).
  *    So the reversal seems to depend on a later partial overwrite, which this function
- *    does not have. */
+ *    does not have.
+ *  - the `short pair[2]` + reversed index assignment form from func_ov131_020cd8d8
+ *    (`pp[1] = data[1]; pp[0] = data[0];`). That DOES fix the load/store order -- it is the
+ *    only thing tried that does -- but it costs the whole register allocation: measured by
+ *    DIFFERING BYTES it is 36 vs this version's 8. With the hoisted `short *pp` it is 12 B
+ *    long outright.
+ *
+ * ⚠ MEASURE BY DIFFERING BYTES, NOT BY THE FIRST-DIFFERENCE OFFSET. verify_idx reports the
+ * first differing byte, and that made the array form look closer (0x21 vs 0x38) when it is in
+ * fact four times further away. Use the byte count (or tools/rank_parks.py) when comparing
+ * two candidate sources. */
 struct pair { unsigned short a, b; };
 extern void func_ov107_020c9264(int owner, int mode, int b);
 extern void func_ov107_020c9ee8(int a, int b, int c);
