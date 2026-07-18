@@ -18,7 +18,7 @@ SDK/library identifications are tracked separately; see
 | PART ov005 | 159 | 0 | 1 | 129 | 289 | 55.0% |
 | PART ov006 | 138 | 0 | 1 | 55 | 194 | 71.1% |
 | PART ov007 | 12 | 2 | 0 | 0 | 14 | 85.7% |
-| PART ov008 | 653 | 0 | 1 | 582 | 1236 | 52.8% |
+| PART ov008 | 654 | 0 | 1 | 581 | 1236 | 52.9% |
 | PART ov009 | 197 | 0 | 0 | 58 | 255 | 77.3% |
 | PART ov010 | 5 | 2 | 0 | 0 | 7 | 71.4% |
 | PART ov011 | 10 | 30 | 0 | 0 | 40 | 25.0% |
@@ -31,7 +31,7 @@ SDK/library identifications are tracked separately; see
 | PART ov019 | 4 | 1 | 0 | 0 | 5 | 80.0% |
 | PART ov020 | 3 | 8 | 0 | 0 | 11 | 27.3% |
 | PART ov021 | 14 | 17 | 0 | 0 | 31 | 45.2% |
-| PART ov022 | 355 | 0 | 2 | 401 | 758 | 46.8% |
+| PART ov022 | 358 | 0 | 2 | 398 | 758 | 47.2% |
 | PART ov023 | 41 | 0 | 0 | 183 | 224 | 18.3% |
 | PART ov024 | 83 | 0 | 0 | 37 | 120 | 69.2% |
 | PART ov025 | 546 | 0 | 3 | 455 | 1004 | 54.4% |
@@ -205,8 +205,8 @@ SDK/library identifications are tracked separately; see
 | PART ov199 | 40 | 0 | 0 | 22 | 62 | 64.5% |
 | PART ov200 | 43 | 0 | 0 | 17 | 60 | 71.7% |
 | PART ov201 | 43 | 0 | 1 | 16 | 60 | 71.7% |
-| PART ov202 | 34 | 20 | 0 | 2 | 56 | 60.7% |
-| PART ov203 | 34 | 20 | 0 | 2 | 56 | 60.7% |
+| PART ov202 | 35 | 20 | 0 | 1 | 56 | 62.5% |
+| PART ov203 | 35 | 20 | 0 | 1 | 56 | 62.5% |
 | PART ov204 | 35 | 19 | 0 | 0 | 54 | 64.8% |
 | PART ov205 | 35 | 19 | 0 | 0 | 54 | 64.8% |
 | PART ov206 | 47 | 0 | 1 | 15 | 63 | 74.6% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **12769** | **3118** | **434** | **6919** | **23240** | **54.9%** |
+| **TOTAL** | **12775** | **3118** | **434** | **6913** | **23240** | **55.0%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,289,432** | **4,728,790** | **27.27%** |
+| **1,289,904** | **4,728,790** | **27.28%** |
