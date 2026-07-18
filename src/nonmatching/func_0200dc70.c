@@ -1,23 +1,21 @@
-/* NONMATCHING — pure register-coloring permutation (112/112 bytes, byte-structurally
- * identical: same opcodes, same immediates, same control flow — the second loop's
- * counter and shift registers are swapped, mine r4/r5 vs the original's r5/r4).
+/* NONMATCHING -- 60/60 B. The FIRST loop now matches; the second loop's two counters
+ * are still register-swapped (ROM: i=r5 gets the literal, shift=r4 the copy; mwcc the
+ * other way round).
  *
- * Parse a packed 8-digit BCD value (little nibble first) into an int. First pass
- * validates every nibble is 0-9 (returns 0 on any invalid nibble); second pass
- * accumulates nibble * 10^position.
+ * IMPROVED 2026-07-18: the initialisation is a THREE-WAY CHAIN, `shift = i = acc = 0;`
+ * (ROM: `mov ip,#0 ; mov r2,ip ; mov r3,ip`). Three separate `= 0` initialisers each
+ * materialise their own zero and mis-colour the first loop.
  *
- * The first loop matches exactly (counter r2 / shift r3). In the second loop mwcc
- * colors counter->r4 / shift->r5 while the original uses counter->r5 / shift->r4.
- * Both init the counter to 0 then copy it to the shift (`mov X,#0; mov Y,X`), so the
- * mov pattern is identical — only the physical register choice differs, and with no
- * calls it is arbitrary/unsteerable. Tried: reordering the increment stmts, the >=10
- * vs 9< guard form (that half matched -> `cmp #0xa; movhs`). The raw blob keeps the
- * build byte-exact; this documents the equivalent C.
- */
+ * Ruled out for the second loop: `shift = i = 0` and `i = shift = 0` (both orders),
+ * swapping the declaration order of i/shift (fixes loop 2, breaks loop 1 -- the two
+ * loops want opposite colourings), and giving the second loop its own fresh counters
+ * in an inner block, in both declaration orders. */
 int func_0200dc70(unsigned int param_1) {
-    int acc = 0;
-    int i = 0;
-    unsigned int shift = 0;
+    int acc;
+    int i;
+    unsigned int shift;
+
+    shift = i = acc = 0;
 
     do {
         if ((param_1 >> shift & 0xf) >= 10) {
@@ -27,8 +25,7 @@ int func_0200dc70(unsigned int param_1) {
         shift = shift + 4;
     } while (i < 8);
 
-    i = 0;
-    shift = 0;
+    shift = i = 0;
     {
         int place = 1;
         do {
