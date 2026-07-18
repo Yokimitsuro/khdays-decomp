@@ -1,15 +1,14 @@
-/* NONMATCHING: register-coloring tie. Structurally identical to the original
- * (same opcodes: two base adds, the int store, an in-place pointer +0x2000,
- * then the byte store) but mwcc colors the final pointer-update add and the
- * immediate #0xa into r0/r1 swapped vs the original:
- *   orig: add r1,r1,#0x2000 ; mov r0,#0xa ; strb r0,[r1,#4]
- *   mwcc: add r0,r1,#0x2000 ; mov r1,#0xa ; strb r1,[r0,#4]
- * Cracks tried: pointer split, p+=0x2000, value-first local, direct
- * double-add expression (collapses to a single base). Kept as asm in the
- * delink so the ROM stays byte-exact. */
+/* NONMATCHING -- 32/32 B, one register pair. The ROM keeps `p` in r1 across the
+ * `+= 0x2000` and puts the constant 10 in r0 (the parameter's register, dead after the
+ * store); mwcc moves `p` into r0 and the constant into r1.
+ *
+ * IMPROVED 2026-07-18 (was a size mismatch): `arg0 = arg0 + 0x2000;` -- the original
+ * OVERWRITES ITS OWN PARAMETER rather than using a second local. Same crack that matched
+ * func_020169f8 and its 4 siblings; here it fixes the size but not the last pair. */
 void func_ov022_0209be44(int arg0) {
     char *p = (char *)(arg0 + 0xc20);
-    *(int *)(arg0 + 0x2c20) = 0;
+    arg0 = arg0 + 0x2000;
+    *(int *)(arg0 + 0xc20) = 0;
     p += 0x2000;
     p[4] = 10;
 }
