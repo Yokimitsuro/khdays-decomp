@@ -44,6 +44,10 @@ src/overlays/ov137/calls/func_ov137_020ccc50.c:
     complete
     .text       start:0x020ccc50 end:0x020ccdf0
 
+src/overlays/ov137/calls/func_ov137_020ccdf0.c:
+    complete
+    .text       start:0x020ccdf0 end:0x020ccea4
+
 src/overlays/ov137/calls/func_ov137_020ccea4.c:
     complete
     .text       start:0x020ccea4 end:0x020ccf0c
