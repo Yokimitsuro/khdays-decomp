@@ -136,6 +136,10 @@ src/overlays/ov200/auto/func_ov200_020d0574.c:
     complete
     .text       start:0x020d0574 end:0x020d057c
 
+src/overlays/ov200/calls/func_ov200_020d057c.c:
+    complete
+    .text       start:0x020d057c end:0x020d06a4
+
 src/overlays/ov200/calls/func_ov200_020d06a4.c:
     complete
     .text       start:0x020d06a4 end:0x020d0764

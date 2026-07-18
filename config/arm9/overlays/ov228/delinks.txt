@@ -232,6 +232,10 @@ src/overlays/ov228/calls/func_ov228_020d2340.c:
     complete
     .text       start:0x020d2340 end:0x020d238c
 
+src/overlays/ov228/calls/func_ov228_020d238c.c:
+    complete
+    .text       start:0x020d238c end:0x020d2474
+
 src/overlays/ov228/calls/func_ov228_020d2474.c:
     complete
     .text       start:0x020d2474 end:0x020d251c

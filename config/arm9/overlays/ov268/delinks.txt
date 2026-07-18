@@ -96,6 +96,10 @@ src/overlays/ov268/calls/func_ov268_020d193c.c:
     complete
     .text       start:0x020d193c end:0x020d19c0
 
+src/overlays/ov268/calls/func_ov268_020d19c0.c:
+    complete
+    .text       start:0x020d19c0 end:0x020d1b04
+
 src/overlays/ov268/calls/func_ov268_020d1b04.c:
     complete
     .text       start:0x020d1b04 end:0x020d1be8
