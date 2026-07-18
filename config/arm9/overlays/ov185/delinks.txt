@@ -56,6 +56,10 @@ src/overlays/ov185/calls/func_ov185_020ce3c0.c:
     complete
     .text       start:0x020ce3c0 end:0x020ce40c
 
+src/overlays/ov185/calls/func_ov185_020ce59c.c:
+    complete
+    .text       start:0x020ce59c end:0x020ce6fc
+
 src/overlays/ov185/calls/func_ov185_020ce6fc.c:
     complete
     .text       start:0x020ce6fc end:0x020ce738
