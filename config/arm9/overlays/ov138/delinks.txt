@@ -92,6 +92,10 @@ src/overlays/ov138/calls/func_ov138_020d12c0.c:
     complete
     .text       start:0x020d12c0 end:0x020d133c
 
+src/overlays/ov138/calls/func_ov138_020d133c.c:
+    complete
+    .text       start:0x020d133c end:0x020d1428
+
 src/overlays/ov138/calls/func_ov138_020d1640.c:
     complete
     .text       start:0x020d1640 end:0x020d1704
