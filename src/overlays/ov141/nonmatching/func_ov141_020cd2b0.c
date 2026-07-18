@@ -18,7 +18,14 @@
  *  - assigning the two fields explicitly in ROM order (b then a): that also flips the
  *    register allocation and lands FURTHER away (diff moves 0x38 -> 0x21).
  *  - taking `&local` into a `struct pair *` first, to make the ROM's early `add r1,sp,#0`
- *    appear: +12 B. */
+ *    appear: +12 B.
+ *  - the array-index spelling `*(struct pair *)&data[2]` over an `unsigned short[]` global
+ *    (2026-07-18). That is the form used by func_ov131_020cdf20, which DOES emit the ROM's
+ *    reversed `ldrh #6 ; ldrh #4` -- but there the copy is followed by a field overwrite
+ *    (`buf.a = …`), and here both halves come from the data. Retried the reversed
+ *    field-by-field assignment now that the hw60 form is fixed: worse (diff 0x38 -> 0x21).
+ *    So the reversal seems to depend on a later partial overwrite, which this function
+ *    does not have. */
 struct pair { unsigned short a, b; };
 extern void func_ov107_020c9264(int owner, int mode, int b);
 extern void func_ov107_020c9ee8(int a, int b, int c);
