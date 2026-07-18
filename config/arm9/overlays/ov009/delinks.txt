@@ -44,6 +44,10 @@ src/overlays/ov009/calls/func_ov009_0204d604.c:
     complete
     .text       start:0x0204d604 end:0x0204d65c
 
+src/overlays/ov009/calls/func_ov009_0204d76c.c:
+    complete
+    .text       start:0x0204d76c end:0x0204d7f4
+
 src/overlays/ov009/calls/func_ov009_0204d7f4.c:
     complete
     .text       start:0x0204d7f4 end:0x0204d818
