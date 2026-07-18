@@ -1,0 +1,20 @@
+extern int data_ov045_020b4c20;
+extern void func_ov045_020b3e38(void);
+extern void func_ov045_020b3c5c(void);
+
+void *func_ov045_020b3b3c(int self, int a) {
+    int base = *(int *)&data_ov045_020b4c20 + 0xdf0 + 0x2000;
+    void *cb = 0;
+    if (a != 0x21) {
+        if (a == 0x22) cb = (void *)&func_ov045_020b3e38;
+    } else {
+        void (*fn)(int, int) = *(void (**)(int, int))(self + 0x664);
+        if (*(int *)(base + 0x114) != 0) {
+            fn(self, 0x30);
+        } else {
+            fn(self, 0x2f);
+        }
+        cb = (void *)&func_ov045_020b3c5c;
+    }
+    return cb;
+}
