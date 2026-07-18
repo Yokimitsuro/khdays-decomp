@@ -16,6 +16,10 @@ src/overlays/ov159/calls/func_ov159_020d1ca4.c:
     complete
     .text       start:0x020d1ca4 end:0x020d1cec
 
+src/overlays/ov159/calls/func_ov159_020d1d38.c:
+    complete
+    .text       start:0x020d1d38 end:0x020d1df4
+
 src/overlays/ov159/calls/func_ov159_020d1fa8.c:
     complete
     .text       start:0x020d1fa8 end:0x020d1fd0

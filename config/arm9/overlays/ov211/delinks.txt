@@ -28,6 +28,10 @@ src/overlays/ov211/calls/func_ov211_020d1db0.c:
     complete
     .text       start:0x020d1db0 end:0x020d1ddc
 
+src/overlays/ov211/calls/func_ov211_020d21a8.c:
+    complete
+    .text       start:0x020d21a8 end:0x020d2214
+
 src/overlays/ov211/calls/func_ov211_020d2214.c:
     complete
     .text       start:0x020d2214 end:0x020d2260

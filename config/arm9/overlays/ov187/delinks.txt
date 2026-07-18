@@ -20,6 +20,10 @@ src/overlays/ov187/calls/func_ov187_020d3ab8.c:
     complete
     .text       start:0x020d3ab8 end:0x020d3b14
 
+src/overlays/ov187/calls/func_ov187_020d3b14.c:
+    complete
+    .text       start:0x020d3b14 end:0x020d3bd8
+
 src/overlays/ov187/calls/func_ov187_020d3e20.c:
     complete
     .text       start:0x020d3e20 end:0x020d3e6c
