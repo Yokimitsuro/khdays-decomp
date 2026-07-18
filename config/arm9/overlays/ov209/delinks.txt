@@ -64,6 +64,10 @@ src/overlays/ov209/calls/func_ov209_020d306c.c:
     complete
     .text       start:0x020d306c end:0x020d32e4
 
+src/overlays/ov209/calls/func_ov209_020d32e4.c:
+    complete
+    .text       start:0x020d32e4 end:0x020d33d0
+
 src/overlays/ov209/calls/func_ov209_020d33d0.c:
     complete
     .text       start:0x020d33d0 end:0x020d3460

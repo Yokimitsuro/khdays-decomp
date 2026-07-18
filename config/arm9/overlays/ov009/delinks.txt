@@ -600,6 +600,10 @@ src/overlays/ov009/auto/func_ov009_02052abc.c:
     complete
     .text       start:0x02052abc end:0x02052b58
 
+src/overlays/ov009/calls/func_ov009_02052b58.c:
+    complete
+    .text       start:0x02052b58 end:0x02052be0
+
 src/overlays/ov009/calls/func_ov009_02053308.c:
     complete
     .text       start:0x02053308 end:0x02053398

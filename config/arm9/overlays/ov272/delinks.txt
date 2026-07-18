@@ -28,6 +28,10 @@ src/overlays/ov272/auto/func_ov272_020d05dc.c:
     complete
     .text       start:0x020d05dc end:0x020d060c
 
+src/overlays/ov272/calls/func_ov272_020d060c.c:
+    complete
+    .text       start:0x020d060c end:0x020d071c
+
 src/overlays/ov272/calls/func_ov272_020d0a3c.c:
     complete
     .text       start:0x020d0a3c end:0x020d0b00

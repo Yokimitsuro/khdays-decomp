@@ -44,6 +44,10 @@ src/overlays/ov201/calls/func_ov201_020d2530.c:
     complete
     .text       start:0x020d2530 end:0x020d25f0
 
+src/overlays/ov201/calls/func_ov201_020d25f0.c:
+    complete
+    .text       start:0x020d25f0 end:0x020d2708
+
 src/overlays/ov201/calls/func_ov201_020d2708.c:
     complete
     .text       start:0x020d2708 end:0x020d28cc

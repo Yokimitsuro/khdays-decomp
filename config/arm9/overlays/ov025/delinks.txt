@@ -1440,6 +1440,10 @@ src/overlays/ov025/auto/func_ov025_02099cb4.c:
     complete
     .text       start:0x02099cb4 end:0x02099d50
 
+src/overlays/ov025/calls/func_ov025_02099d50.c:
+    complete
+    .text       start:0x02099d50 end:0x02099dd8
+
 src/overlays/ov025/calls/func_ov025_0209a500.c:
     complete
     .text       start:0x0209a500 end:0x0209a590
