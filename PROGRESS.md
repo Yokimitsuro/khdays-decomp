@@ -126,8 +126,8 @@ SDK/library identifications are tracked separately; see
 | PART ov120 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov121 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov122 | 29 | 11 | 0 | 0 | 40 | 72.5% |
-| PART ov123 | 31 | 14 | 0 | 2 | 47 | 66.0% |
-| PART ov124 | 31 | 14 | 0 | 2 | 47 | 66.0% |
+| PART ov123 | 32 | 14 | 0 | 1 | 47 | 68.1% |
+| PART ov124 | 32 | 14 | 0 | 1 | 47 | 68.1% |
 | PART ov125 | 33 | 0 | 2 | 31 | 66 | 50.0% |
 | PART ov126 | 33 | 0 | 0 | 33 | 66 | 50.0% |
 | PART ov127 | 22 | 14 | 0 | 0 | 36 | 61.1% |
@@ -161,7 +161,7 @@ SDK/library identifications are tracked separately; see
 | PART ov155 | 30 | 14 | 0 | 1 | 45 | 66.7% |
 | PART ov156 | 36 | 13 | 0 | 1 | 50 | 72.0% |
 | PART ov157 | 36 | 13 | 0 | 1 | 50 | 72.0% |
-| PART ov158 | 44 | 0 | 1 | 19 | 64 | 68.8% |
+| PART ov158 | 45 | 0 | 1 | 18 | 64 | 70.3% |
 | PART ov159 | 44 | 0 | 0 | 20 | 64 | 68.8% |
 | PART ov160 | 39 | 0 | 2 | 22 | 63 | 61.9% |
 | PART ov161 | 46 | 13 | 0 | 1 | 60 | 76.7% |
@@ -231,7 +231,7 @@ SDK/library identifications are tracked separately; see
 | PART ov225 | 61 | 0 | 0 | 26 | 87 | 70.1% |
 | PART ov226 | 57 | 0 | 1 | 22 | 80 | 71.2% |
 | PART ov227 | 47 | 0 | 0 | 37 | 84 | 56.0% |
-| PART ov228 | 65 | 0 | 0 | 16 | 81 | 80.2% |
+| PART ov228 | 66 | 0 | 0 | 15 | 81 | 81.5% |
 | PART ov229 | 65 | 0 | 0 | 16 | 81 | 80.2% |
 | PART ov230 | 52 | 0 | 0 | 22 | 74 | 70.3% |
 | PART ov231 | 52 | 0 | 1 | 12 | 65 | 80.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **12785** | **3118** | **434** | **6903** | **23240** | **55.0%** |
+| **TOTAL** | **12789** | **3118** | **434** | **6899** | **23240** | **55.0%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,290,536** | **4,728,790** | **27.29%** |
+| **1,290,868** | **4,728,790** | **27.30%** |
