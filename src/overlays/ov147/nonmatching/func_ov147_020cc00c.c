@@ -1,21 +1,27 @@
-/* NONMATCHING -- 376 vs 380 B, four bytes short. Head of a 5-member family (380 B).
+/* NONMATCHING -- 372 vs 380 B. Head of a 5-member family (380 B). Much closer than the
+ * first pass (364); the whole comparison/ternary region and the register allocation now
+ * match, only the stack LAYOUT and 8 bytes remain.
  *
- * SOLVED on the way here -- do NOT rediscover:
+ * SOLVED here -- do NOT rediscover:
  *  - Ghidra's five DAT_arm9_ov147__020cc17x: three are POOL LITERALS (0x244d, 0xffffdbb3,
- *    0x10c1) and only two are relocs (data_02042264, data_02041dc8). Checking the reloc
- *    table against the pool offsets is what separates them.
- *  - the two `*(struct vec *)(o + 0x3a4) = data_02041dc8;` stores go through a STACK
- *    TEMPORARY: the ROM copies the global to sp+0 once (`add r5,sp,#0 ; ldm ; stm`) and
- *    then copies from there into both destinations. Reading the global twice is 4
- *    instructions AND 12 stack bytes short -- that single change fixed both the frame
- *    (0x48 -> 0x54) and the push list.
- *  - the +-constant selections are `*(int *)(o + 0x3bc) < 1 ? -K : K` with K = 0x244d
- *    and 0x10c1.
+ *    0x10c1), only two are relocs. Cross-check the reloc table against the pool offsets.
+ *  - the two vec stores go through a STACK TEMPORARY (`add r5,sp,#0 ; ldm ; stm`), not two
+ *    reads of the global. That fixed the frame (0x48 -> 0x54) and the push list at once.
+ *  - `*(unsigned char *)(self + 0xad)`, NOT signed: the ROM uses ldrb.
+ *  - the gate is `k == 0 || k == 1`, not `k < 2` -- the ROM emits `cmp #0 ; cmpne #1`.
+ *    (deferred-ties lists the reverse direction as a tie; in THIS direction it works.)
+ *  - the distance test is `> 0x4800`, not `< 0x4801`. The 0x4801 form loads the constant
+ *    from the pool, and mwcc then DERIVES the two +-constants from that register
+ *    (`subgt r0,r1,#0x3740`) instead of the ROM's `ldrgt` + `mvnle`. One wrong constant
+ *    form poisoned three instructions downstream.
+ *  - the selections are `field > 0 ? K : -K` (positive case first), and the `> 0x4800`
+ *    branch takes the 0x10c1 block -- swapping the condition without swapping the blocks
+ *    inverts the semantics.
  *
- * What is left: 4 bytes, and the locals sit at the wrong stack offsets (ROM has buf at
- * sp+0x24, i.e. 36 bytes of vec3s below it; mine has 12). Ruled out: all 24 permutations
- * of the four local declarations (dir / tmp / z / buf), scripted, and buf[12] / [13] /
- * [14] / [15] (the frame size does not follow the array size). */
+ * LEFT: 8 bytes and the stack offsets. The ROM has z at sp+0, dir at sp+0xc, tmp at
+ * sp+0x18, buf at sp+0x24; mwcc puts buf at sp+0xc. Ruled out: all 24 permutations of the
+ * four local declarations (scripted, twice -- once before and once after the fixes above),
+ * z in an inner block vs at function scope, and buf sizes 12/13/14/15. */
 struct vec { int x, y, z; };
 extern void func_0203bc78();
 extern int  func_02016320();
@@ -42,15 +48,15 @@ void func_ov147_020cc00c(int self, int a, int b, int c) {
         *(struct vec *)(o + 0x3a4) = tmp;
         *(int *)(o + 0x3e4) = 0;
     }
-    if (*(signed char *)(self + 0xad) == 0) {
+    if (*(unsigned char *)(self + 0xad) == 0) {
         unsigned int k = (unsigned int)*(short *)(*(int *)(self + 0x88) + 2);
-        if (k < 2 && *(int *)(o + 1000) != 0) {
+        if ((k == 0 || k == 1) && *(int *)(o + 1000) != 0) {
             if (*(int *)(o + 0x394) != 0) {
                 VEC_Subtract(*(int *)(o + 0x394) + 400, o + 0xb0, &dir);
-                if (func_01ff8d18(&dir, &dir) < 0x4801) {
-                    *(int *)(o + 0x3bc) = *(int *)(o + 0x3bc) < 1 ? -0x244d : 0x244d;
+                if (func_01ff8d18(&dir, &dir) > 0x4800) {
+                    *(int *)(o + 0x3bc) = *(int *)(o + 0x3bc) > 0 ? 0x10c1 : -0x10c1;
                 } else {
-                    *(int *)(o + 0x3bc) = *(int *)(o + 0x3bc) < 1 ? -0x10c1 : 0x10c1;
+                    *(int *)(o + 0x3bc) = *(int *)(o + 0x3bc) > 0 ? 0x244d : -0x244d;
                 }
             }
             func_0203b9fc(self, 0, k, 0);
