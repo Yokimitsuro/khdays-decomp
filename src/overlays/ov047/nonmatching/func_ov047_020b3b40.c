@@ -9,6 +9,16 @@
  *    the base ordering used here (i, p, base, obj, off) among them; the worst give 15.
  *
  * Ruled out: hoisting the destination `int *dst` above the call (14 bytes, worse).
+ *
+ * ROUND 2 (2026-07-18), on the twin ov049_020b406c and therefore valid for both:
+ * the residue is a pure r7 <-> sb swap -- `p` and the `row + off` temp trade registers.
+ * Swept 60 MORE declaration permutations with the loop temp lifted to function scope: all 7.
+ * Also ruled out: computing `row + off` into an int before the call, folding +0x130 into it
+ * (14, worse), two separate locals, and `do {...} while (1)` with an explicit break.
+ * find_insn.py for the 0x1c8 stride returns 33 matched functions but none has this shape
+ * (a call inside the loop whose result is stored through a pre-computed address), so the
+ * corpus does not answer it either.
+ *
  * All measured with tools/bytedist.py. */
 extern void WM_EndKeySharing_0x020b15a4(int a, int b);
 extern int data_ov047_020b4380;
