@@ -28,6 +28,10 @@ src/overlays/ov208/calls/func_ov208_020d0628.c:
     complete
     .text       start:0x020d0628 end:0x020d0694
 
+src/overlays/ov208/calls/func_ov208_020d0694.c:
+    complete
+    .text       start:0x020d0694 end:0x020d070c
+
 src/overlays/ov208/calls/func_ov208_020d0888.c:
     complete
     .text       start:0x020d0888 end:0x020d0968
@@ -159,6 +163,10 @@ src/overlays/ov208/calls/func_ov208_020d2b44.c:
 src/overlays/ov208/calls/func_ov208_020d2bec.c:
     complete
     .text       start:0x020d2bec end:0x020d2c6c
+
+src/overlays/ov208/calls/func_ov208_020d3420.c:
+    complete
+    .text       start:0x020d3420 end:0x020d3510
 
 src/overlays/ov208/calls/func_ov208_020d362c.c:
     complete

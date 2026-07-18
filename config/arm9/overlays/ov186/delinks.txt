@@ -24,6 +24,10 @@ src/overlays/ov186/calls/func_ov186_020cfed4.c:
     complete
     .text       start:0x020cfed4 end:0x020cff98
 
+src/overlays/ov186/calls/func_ov186_020d003c.c:
+    complete
+    .text       start:0x020d003c end:0x020d00c4
+
 src/overlays/ov186/calls/func_ov186_020d01e0.c:
     complete
     .text       start:0x020d01e0 end:0x020d022c
