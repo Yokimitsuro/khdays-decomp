@@ -28,6 +28,10 @@ src/overlays/ov279/auto/func_ov279_020d0610.c:
     complete
     .text       start:0x020d0610 end:0x020d0640
 
+src/overlays/ov279/calls/func_ov279_020d0a70.c:
+    complete
+    .text       start:0x020d0a70 end:0x020d0b34
+
 src/overlays/ov279/calls/func_ov279_020d0b34.c:
     complete
     .text       start:0x020d0b34 end:0x020d0d30
