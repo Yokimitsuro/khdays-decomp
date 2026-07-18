@@ -204,6 +204,10 @@ src/calls/WM_EndKeySharing_0x020d3f30.c:
     complete
     .text       start:0x020d3f30 end:0x020d3f3c
 
+src/overlays/ov282/calls/func_ov282_020d3fac.c:
+    complete
+    .text       start:0x020d3fac end:0x020d3fe4
+
 src/overlays/ov282/calls/func_ov282_020d3fe4.c:
     complete
     .text       start:0x020d3fe4 end:0x020d4010

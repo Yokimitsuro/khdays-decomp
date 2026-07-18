@@ -24,6 +24,10 @@ src/overlays/ov208/calls/func_ov208_020d059c.c:
     complete
     .text       start:0x020d059c end:0x020d05c4
 
+src/overlays/ov208/calls/func_ov208_020d05c4.c:
+    complete
+    .text       start:0x020d05c4 end:0x020d0628
+
 src/overlays/ov208/calls/func_ov208_020d0628.c:
     complete
     .text       start:0x020d0628 end:0x020d0694
@@ -148,6 +152,10 @@ src/overlays/ov208/calls/func_ov208_020d2728.c:
     complete
     .text       start:0x020d2728 end:0x020d277c
 
+src/overlays/ov208/calls/func_ov208_020d277c.c:
+    complete
+    .text       start:0x020d277c end:0x020d289c
+
 src/overlays/ov208/calls/func_ov208_020d289c.c:
     complete
     .text       start:0x020d289c end:0x020d28d8
@@ -171,6 +179,10 @@ src/overlays/ov208/calls/func_ov208_020d2bec.c:
 src/overlays/ov208/calls/func_ov208_020d3420.c:
     complete
     .text       start:0x020d3420 end:0x020d3510
+
+src/overlays/ov208/calls/func_ov208_020d3510.c:
+    complete
+    .text       start:0x020d3510 end:0x020d362c
 
 src/overlays/ov208/calls/func_ov208_020d362c.c:
     complete
@@ -196,9 +208,21 @@ src/overlays/ov208/auto/func_ov208_020d3b40.c:
     complete
     .text       start:0x020d3b40 end:0x020d3ba8
 
+src/overlays/ov208/calls/func_ov208_020d3ba8.c:
+    complete
+    .text       start:0x020d3ba8 end:0x020d3bd4
+
+src/overlays/ov208/calls/func_ov208_020d3bd4.c:
+    complete
+    .text       start:0x020d3bd4 end:0x020d3c30
+
 src/overlays/ov208/calls/func_ov208_020d3c30.c:
     complete
     .text       start:0x020d3c30 end:0x020d3cc8
+
+src/overlays/ov208/calls/func_ov208_020d3cc8.c:
+    complete
+    .text       start:0x020d3cc8 end:0x020d3d10
 
 src/overlays/ov208/calls/func_ov208_020d3d10.c:
     complete
@@ -223,6 +247,10 @@ src/overlays/ov208/calls/func_ov208_020d3ebc.c:
 src/overlays/ov208/auto/func_ov208_020d3f6c.c:
     complete
     .text       start:0x020d3f6c end:0x020d3f70
+
+src/overlays/ov208/calls/func_ov208_020d42f4.c:
+    complete
+    .text       start:0x020d42f4 end:0x020d442c
 
 src/overlays/ov208/calls/func_ov208_020d4754.c:
     complete

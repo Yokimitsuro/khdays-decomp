@@ -24,9 +24,33 @@ src/overlays/ov187/calls/func_ov187_020d3b14.c:
     complete
     .text       start:0x020d3b14 end:0x020d3bd8
 
+src/overlays/ov187/calls/func_ov187_020d3bd8.c:
+    complete
+    .text       start:0x020d3bd8 end:0x020d3c40
+
+src/overlays/ov187/calls/func_ov187_020d3c40.c:
+    complete
+    .text       start:0x020d3c40 end:0x020d3c7c
+
 src/overlays/ov187/calls/func_ov187_020d3c7c.c:
     complete
     .text       start:0x020d3c7c end:0x020d3d04
+
+src/overlays/ov187/calls/func_ov187_020d3d04.c:
+    complete
+    .text       start:0x020d3d04 end:0x020d3d44
+
+src/overlays/ov187/calls/func_ov187_020d3d44.c:
+    complete
+    .text       start:0x020d3d44 end:0x020d3da4
+
+src/overlays/ov187/calls/func_ov187_020d3da4.c:
+    complete
+    .text       start:0x020d3da4 end:0x020d3de4
+
+src/overlays/ov187/calls/func_ov187_020d3de4.c:
+    complete
+    .text       start:0x020d3de4 end:0x020d3e20
 
 src/overlays/ov187/calls/func_ov187_020d3e20.c:
     complete
