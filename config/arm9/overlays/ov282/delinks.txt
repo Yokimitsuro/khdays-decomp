@@ -200,6 +200,10 @@ src/overlays/ov282/calls/func_ov282_020d3e54.c:
     complete
     .text       start:0x020d3e54 end:0x020d3e70
 
+src/overlays/ov282/calls/func_ov282_020d3e70.c:
+    complete
+    .text       start:0x020d3e70 end:0x020d3f30
+
 src/calls/WM_EndKeySharing_0x020d3f30.c:
     complete
     .text       start:0x020d3f30 end:0x020d3f3c
