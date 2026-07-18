@@ -19,6 +19,12 @@
  * (a call inside the loop whose result is stored through a pre-computed address), so the
  * corpus does not answer it either.
  *
+ *
+ * SCOPE (2026-07-18, round 3): the shape turns out to span FOUR families, not two --
+ * ov035_020b4270 (loop count 2), ov039_020b4404 (6), ov047_020b3b40 and ov049_020b406c (10).
+ * The same C template lands on exactly 7 bytes in all four, which rules out allocator luck
+ * and raises the prize to ~16 functions. See the ov035 park note for the extra forms tried.
+ *
  * All measured with tools/bytedist.py. */
 extern void WM_EndKeySharing_0x020b15a4(int a, int b);
 extern int data_ov047_020b4380;
