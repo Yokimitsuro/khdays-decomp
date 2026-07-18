@@ -9,7 +9,12 @@
  * Ruled out for the second loop: `shift = i = 0` and `i = shift = 0` (both orders),
  * swapping the declaration order of i/shift (fixes loop 2, breaks loop 1 -- the two
  * loops want opposite colourings), and giving the second loop its own fresh counters
- * in an inner block, in both declaration orders. */
+ * in an inner block, in both declaration orders.
+ *
+ * ALSO RULED OUT: putting the second loop in a `static inline` helper (the -inline on,noauto
+ * idea). It does not just fail -- it CONFLICTS with the evidence: the ROM's three-way init
+ * chain `shift = i = acc = 0` puts acc's zero at the top of the outer function, which cannot
+ * happen if acc lives inside a helper. So both loops really are in one function. */
 int func_0200dc70(unsigned int param_1) {
     int acc;
     int i;
