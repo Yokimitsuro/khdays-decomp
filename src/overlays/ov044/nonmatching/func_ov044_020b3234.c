@@ -27,7 +27,13 @@
  * ⚠ Antes de gastar mas tiempo aqui, comprueba si el TAMAÑO del simbolo es correcto: mwcc puede
  * emitir el pool al final de una funcion y que una vecina lo comparta. Si esos 4 bytes son de
  * otra funcion, este .c ya es correcto y el problema esta en los limites de symbols.txt.
- * (Descartado que sea de func_ov044_020b32b4, la vecina inmediata: sus constantes son otras.)
+ * ★ COMPROBADO Y DESCARTADO (2026-07-18). En THUMB los `ldr [pc,#imm]` solo alcanzan hacia
+ * ADELANTE, asi que solo una funcion ANTERIOR podria estar usando esa palabra. Recorri todas las
+ * funciones de ov044 que empiezan en los 0x400 bytes previos, desensamblandolas en ARM y en THUMB,
+ * y calculando el destino de cada `ldr rX,[pc,#N]` con el PC alineado: **ninguna apunta a
+ * 0x020b32a8**. La busqueda podia encontrarlo (imprime el objetivo y prueba los dos modos), asi
+ * que el cero es evidencia: la palabra esta realmente huerfana y queda la hipotesis 1 -- el
+ * fuente original tenia un acceso que el optimizador elimino.
  *
  * Familia de 4. Modo THUMB. */
 

@@ -49,7 +49,7 @@ SDK/library identifications are tracked separately; see
 | PART ov037 | 17 | 14 | 0 | 0 | 31 | 54.8% |
 | PART ov038 | 27 | 12 | 0 | 0 | 39 | 69.2% |
 | PART ov039 | 16 | 21 | 0 | 0 | 37 | 43.2% |
-| PART ov040 | 20 | 12 | 0 | 0 | 32 | 62.5% |
+| PART ov040 | 21 | 11 | 0 | 0 | 32 | 65.6% |
 | PART ov041 | 23 | 10 | 0 | 0 | 33 | 69.7% |
 | PART ov042 | 15 | 13 | 0 | 0 | 28 | 53.6% |
 | PART ov043 | 9 | 0 | 0 | 37 | 46 | 19.6% |
@@ -58,7 +58,7 @@ SDK/library identifications are tracked separately; see
 | PART ov046 | 19 | 17 | 0 | 0 | 36 | 52.8% |
 | PART ov047 | 13 | 11 | 0 | 0 | 24 | 54.2% |
 | PART ov048 | 18 | 15 | 0 | 0 | 33 | 54.5% |
-| PART ov049 | 11 | 18 | 0 | 0 | 29 | 37.9% |
+| PART ov049 | 12 | 17 | 0 | 0 | 29 | 41.4% |
 | PART ov050 | 25 | 8 | 0 | 0 | 33 | 75.8% |
 | PART ov051 | 15 | 12 | 0 | 0 | 27 | 55.6% |
 | PART ov052 | 9 | 25 | 0 | 0 | 34 | 26.5% |
@@ -68,7 +68,7 @@ SDK/library identifications are tracked separately; see
 | PART ov056 | 17 | 14 | 0 | 0 | 31 | 54.8% |
 | PART ov057 | 27 | 12 | 0 | 0 | 39 | 69.2% |
 | PART ov058 | 16 | 21 | 0 | 0 | 37 | 43.2% |
-| PART ov059 | 20 | 12 | 0 | 0 | 32 | 62.5% |
+| PART ov059 | 21 | 11 | 0 | 0 | 32 | 65.6% |
 | PART ov060 | 23 | 10 | 0 | 0 | 33 | 69.7% |
 | PART ov061 | 15 | 13 | 0 | 0 | 28 | 53.6% |
 | PART ov062 | 9 | 0 | 0 | 37 | 46 | 19.6% |
@@ -77,7 +77,7 @@ SDK/library identifications are tracked separately; see
 | PART ov065 | 19 | 17 | 0 | 0 | 36 | 52.8% |
 | PART ov066 | 13 | 11 | 0 | 0 | 24 | 54.2% |
 | PART ov067 | 18 | 15 | 0 | 0 | 33 | 54.5% |
-| PART ov068 | 11 | 18 | 0 | 0 | 29 | 37.9% |
+| PART ov068 | 12 | 17 | 0 | 0 | 29 | 41.4% |
 | PART ov069 | 28 | 21 | 0 | 0 | 49 | 57.1% |
 | PART ov070 | 25 | 8 | 0 | 0 | 33 | 75.8% |
 | PART ov071 | 15 | 12 | 0 | 0 | 27 | 55.6% |
@@ -88,7 +88,7 @@ SDK/library identifications are tracked separately; see
 | PART ov076 | 17 | 14 | 0 | 0 | 31 | 54.8% |
 | PART ov077 | 27 | 12 | 0 | 0 | 39 | 69.2% |
 | PART ov078 | 16 | 21 | 0 | 0 | 37 | 43.2% |
-| PART ov079 | 20 | 12 | 0 | 0 | 32 | 62.5% |
+| PART ov079 | 21 | 11 | 0 | 0 | 32 | 65.6% |
 | PART ov080 | 23 | 10 | 0 | 0 | 33 | 69.7% |
 | PART ov081 | 15 | 13 | 0 | 0 | 28 | 53.6% |
 | PART ov082 | 27 | 13 | 0 | 0 | 40 | 67.5% |
@@ -96,7 +96,7 @@ SDK/library identifications are tracked separately; see
 | PART ov084 | 19 | 17 | 0 | 0 | 36 | 52.8% |
 | PART ov085 | 13 | 11 | 0 | 0 | 24 | 54.2% |
 | PART ov086 | 18 | 15 | 0 | 0 | 33 | 54.5% |
-| PART ov087 | 11 | 18 | 0 | 0 | 29 | 37.9% |
+| PART ov087 | 12 | 17 | 0 | 0 | 29 | 41.4% |
 | PART ov088 | 25 | 8 | 0 | 0 | 33 | 75.8% |
 | PART ov089 | 15 | 12 | 0 | 0 | 27 | 55.6% |
 | PART ov090 | 16 | 17 | 0 | 0 | 33 | 48.5% |
@@ -105,7 +105,7 @@ SDK/library identifications are tracked separately; see
 | PART ov093 | 17 | 14 | 0 | 0 | 31 | 54.8% |
 | PART ov094 | 27 | 12 | 0 | 0 | 39 | 69.2% |
 | PART ov095 | 16 | 21 | 0 | 0 | 37 | 43.2% |
-| PART ov096 | 20 | 12 | 0 | 0 | 32 | 62.5% |
+| PART ov096 | 21 | 11 | 0 | 0 | 32 | 65.6% |
 | PART ov097 | 23 | 10 | 0 | 0 | 33 | 69.7% |
 | PART ov098 | 15 | 13 | 0 | 0 | 28 | 53.6% |
 | PART ov099 | 27 | 13 | 0 | 0 | 40 | 67.5% |
@@ -113,7 +113,7 @@ SDK/library identifications are tracked separately; see
 | PART ov101 | 19 | 17 | 0 | 0 | 36 | 52.8% |
 | PART ov102 | 13 | 11 | 0 | 0 | 24 | 54.2% |
 | PART ov103 | 18 | 15 | 0 | 0 | 33 | 54.5% |
-| PART ov104 | 11 | 18 | 0 | 0 | 29 | 37.9% |
+| PART ov104 | 12 | 17 | 0 | 0 | 29 | 41.4% |
 | PART ov105 | 22 | 0 | 1 | 83 | 106 | 20.8% |
 | PART ov106 | 13 | 0 | 0 | 37 | 50 | 26.0% |
 | PART ov107 | 43 | 0 | 0 | 150 | 193 | 22.3% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **13358** | **2695** | **432** | **6755** | **23240** | **57.5%** |
+| **TOTAL** | **13366** | **2687** | **432** | **6755** | **23240** | **57.5%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,369,320** | **4,728,790** | **28.96%** |
+| **1,370,360** | **4,728,790** | **28.98%** |
