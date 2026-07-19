@@ -168,11 +168,23 @@ def emit_ninja(ninja_path: Path, src_files):
 
 
 def run(*cmd, cwd=None):
-    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    # Fallo fantasma (2026-07-18/19): gen_delinks.py sale con rc=1 y stdout Y stderr VACIOS, en
+    # un overlay distinto cada vez y sin patron. Lanzado a mano justo despues, el mismo comando
+    # da rc=0 -- o sea, algo de fuera lo mata (antivirus, casi seguro). Reintentar SOLO con esa
+    # firma exacta: si el hijo dijo algo, es un error de verdad y tiene que verse a la primera.
+    for _ in range(4):
+        r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+        if r.returncode == 0 or r.stdout.strip() or r.stderr.strip():
+            break
+        print(f"[configure] reintentando (rc={r.returncode}, sin salida): {cmd[-1]}")
     if r.returncode != 0:
         print(r.stdout)
         print(r.stderr, file=sys.stderr)
-        raise SystemExit(f"failed: {' '.join(str(c) for c in cmd)}")
+        # El codigo de salida importa: los fallos intermitentes de gen_delinks.py no imprimen
+        # NADA (stdout y stderr vacios), asi que lo unico que distingue "excepcion de Python"
+        # (rc=1) de "el sistema operativo lo mato" (rc negativo o >= 0xC0000000) es este numero.
+        raise SystemExit(f"failed (rc={r.returncode}): "
+                         f"{' '.join(str(c) for c in cmd)}")
     return r
 
 

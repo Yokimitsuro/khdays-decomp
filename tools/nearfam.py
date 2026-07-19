@@ -47,12 +47,35 @@ def modes():
 
 
 def shape(name, entry, thumb):
-    """Firma de forma: la secuencia de mnemonicos. Sin registros ni inmediatos."""
+    """Firma de forma: los mnemonicos del CODIGO. Sin registros, sin inmediatos y SIN EL POOL.
+
+    ⚠ Lo del pool no es cosmetico. capstone desensambla las palabras literales del final como
+    instrucciones basura, y su contenido difiere entre funciones de la misma forma, asi que
+    incluirlas **parte familias que deberian estar juntas** y el ranking pierde miembros. El
+    inicio del pool = el minimo destino de un `ldr rX,[pc,#N]` (igual que poolmap.py, 2026-07-19).
+    """
     try:
         addr = int(name[-8:], 16)
     except ValueError:
         return None
-    ins = list(_MD[thumb].disasm(bytes.fromhex(entry["hex"]), addr))
+    code = bytes.fromhex(entry["hex"])
+    ins = list(_MD[thumb].disasm(code, addr))
+    if not ins:
+        return None
+    pool, off = len(code), 0
+    for i in ins:
+        m = re.search(r"\[pc, #(0x[0-9a-fA-F]+|\d+)\]", i.op_str)
+        if m and i.mnemonic.startswith("ldr"):
+            pc = (off + 8) if not thumb else ((off + 4) & ~3)
+            pool = min(pool, pc + int(m.group(1), 0))
+        off += i.size
+    keep, off = [], 0
+    for i in ins:
+        if off >= pool:
+            break
+        keep.append(i)
+        off += i.size
+    ins = keep
     if not ins:
         return None
     # Un puñado de instrucciones no distingue nada; pedimos algo de cuerpo.
@@ -65,7 +88,12 @@ def matched_paths():
     """name -> ruta del .c casado (auto/ o calls/), excluyendo asm_stubs y nonmatching."""
     out = {}
     for sub in ("auto", "calls"):
-        for p in glob.glob(os.path.join(ROOT, "src", "**", sub, "func_*.c"), recursive=True):
+        # ⚠ `*.c`, NO `func_*.c`. Las funciones ya casadas con nombre de SDK
+        # (GXS_LoadBG3Scr_0x..., MI_*, G2S_*) viven en ficheros que no empiezan por `func_`, y
+        # filtrarlas las hacia aparecer como PENDIENTES. El 2026-07-19 "descubri" asi una familia
+        # de 14 GXS_LoadBG3Scr/Char que llevaba dias entera hecha, y llegue a pisar el .c bueno
+        # con uno peor. El indice usa el nombre real del simbolo; el glob tambien debe hacerlo.
+        for p in glob.glob(os.path.join(ROOT, "src", "**", sub, "*.c"), recursive=True):
             rel = os.path.relpath(p, ROOT)
             # ⚠ src/**/asm_stubs/calls/ tambien casa el glob, y un stub "casa" trivialmente:
             # contarlo como plantilla hace que el ranking mienta (regla de la skill).
@@ -77,7 +105,7 @@ def matched_paths():
 
 def parked():
     return {os.path.basename(p)[:-2]
-            for p in glob.glob(os.path.join(ROOT, "src", "**", "nonmatching", "func_*.c"),
+            for p in glob.glob(os.path.join(ROOT, "src", "**", "nonmatching", "*.c"),
                                recursive=True)}
 
 

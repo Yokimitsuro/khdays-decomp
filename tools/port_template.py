@@ -45,9 +45,35 @@ MODE = modes()
 
 
 def dis(name):
+    """Instrucciones REALES (sin el pool literal del final), la entrada del indice y el modo.
+
+    ⚠ Truncar en el pool no es cosmetica. capstone desensambla las palabras literales del final
+    como instrucciones basura (`andeq r2, r4, #100, #4`), y como su contenido difiere entre dos
+    funciones de la misma forma, la comparacion de mnemonicos/inmediatos las declaraba distintas.
+    Eso rechazaba miembros que casan BYTE A BYTE con la plantilla sin tocar nada mas
+    (func_ov199_020d46e4 <- func_ov147_020cce70, 2026-07-19: `sed` del nombre = MATCH, y este
+    script decia "forma/relocs no encajan"). El inicio del pool se calcula como en poolmap.py:
+    el minimo destino de un `ldr rX,[pc,#N]`.
+    """
     e = IDX[name]
     thumb = MODE.get(name) == "thumb"
-    return list(MD[thumb].disasm(bytes.fromhex(e["hex"]), int(name[-8:], 16))), e, thumb
+    code = bytes.fromhex(e["hex"])
+    insns = list(MD[thumb].disasm(code, int(name[-8:], 16)))
+    pool = len(code)
+    off = 0
+    for i in insns:
+        m = re.search(r"\[pc, #(0x[0-9a-fA-F]+|\d+)\]", i.op_str)
+        if m and i.mnemonic.startswith("ldr"):
+            pc = (off + 8) if not thumb else ((off + 4) & ~3)
+            pool = min(pool, pc + int(m.group(1), 0))
+        off += i.size
+    out, off = [], 0
+    for i in insns:
+        if off >= pool:
+            break
+        out.append(i)
+        off += i.size
+    return out, e, thumb
 
 
 def imms(op):
@@ -73,6 +99,15 @@ def build_map(tpl, cand):
 
     val = {}
     for a, b in zip(ti, ci):
+        # ⚠ Los destinos de salto (`bl #0x20c5af8`) son DIRECCIONES, no datos del fuente. Los
+        # fija el enlazador a partir del reloc, no hay nada que sustituir en el .c, y meterlos
+        # en el mapa rompia familias enteras: si la plantilla llama dos veces al MISMO destino
+        # y la candidata a dos distintos, el mapa se declara ambiguo y se rechaza la candidata.
+        # Asi se caian las formas de func_ov222_020d3cc8 (4 miembros) y func_ov025_020a26f8
+        # (3 miembros) -- 2026-07-19.
+        if re.match(r"^(b|bl|blx|bx)(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al)?$",
+                    a.mnemonic):
+            continue
         ia, ib = imms(a.op_str), imms(b.op_str)
         if len(ia) != len(ib):
             return None
@@ -174,7 +209,17 @@ def try_one(tpl, cand, write):
         s = render(tpl, cand, *m, scaled=scaled, guard_shifts=guard, min_val=minv)
         if s is None:
             return "no encuentro el .c de la plantilla"
-        open(p, "w", newline="\n", encoding="utf-8").write(s)
+        # ⚠ Reintento: en este equipo `open(...,"w")` sobre build/try/port/ lanza de vez en cuando
+        # `OSError 22 Invalid argument` (el antivirus tiene el fichero abierto un instante). Es
+        # transitorio y siempre funciona al segundo intento, pero sin esto tumbaba el barrido
+        # entero de --all a mitad y perdia las candidatas restantes (2026-07-19).
+        for _try in range(6):
+            try:
+                open(p, "w", newline="\n", encoding="utf-8").write(s)
+                break
+            except OSError:
+                if _try == 5:
+                    return "no puedo escribir el temporal"
         for extra in ([], ["--thumb"]):
             r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "verify_idx.py"),
                                 p, cand] + extra, capture_output=True, text=True, cwd=ROOT)

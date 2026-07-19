@@ -29,8 +29,17 @@ echo "== 3/5 configure (OBLIGATORIO tras borrar stubs)"
 # Sin esto, un fallo intermitente de gen_delinks.py solo se ve como "failed: ..." sin causa
 # (visto 4 veces el 2026-07-19, siempre verde al repetir). Con la salida visible se puede
 # diagnosticar en lugar de reintentar a ciegas.
-if ! python tools/configure.py; then
-    echo "!! configure FALLO -- revisa el mensaje de arriba. Si es transitorio, repite el gate."
+# Reintento: el subproceso gen_delinks.py muere de vez en cuando SIN imprimir nada y con codigo
+# de salida != 0 (visto ~7 veces entre el 18 y el 19 de julio de 2026, en overlays distintos).
+# Lanzado a mano justo despues, el MISMO comando sale con rc=0 -- o sea, lo esta matando algo de
+# fuera (antivirus, casi seguro), no es un problema del arbol. Tres intentos y luego rendirse.
+cfg_ok=0
+for attempt in 1 2 3; do
+    if python tools/configure.py; then cfg_ok=1; break; fi
+    echo "   (configure fallo en el intento $attempt -- reintentando)"
+done
+if [ "$cfg_ok" != "1" ]; then
+    echo "!! configure FALLO 3 veces. Esto ya NO es el fallo transitorio: mira el mensaje."
     exit 1
 fi
 

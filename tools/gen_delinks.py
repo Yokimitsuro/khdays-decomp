@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -135,6 +136,26 @@ def gen_files_block(symbols, src_by_name):
     return blocks, matched, gap, file_modes
 
 
+def write_text_retry(path, text, tries=8):
+    """write_text con reintento sobre OSError.
+
+    ⚠ En este equipo, abrir un fichero para escritura en E: falla de vez en cuando con
+    `OSError: [Errno 22] Invalid argument`, sin patron (overlay distinto cada vez) y con exito
+    inmediato al repetir. Es un filtro del sistema de ficheros -- antivirus, casi seguro -- no un
+    problema del arbol. Sin este reintento tumbaba `configure.py` entero y el gate de 306 se caia
+    ~7 veces entre el 18 y el 19 de julio de 2026; se diagnostico mal dos veces ("lo mata algo de
+    fuera sin imprimir nada") porque el traceback iba a stderr y se leia el flujo mezclado.
+    """
+    for i in range(tries):
+        try:
+            path.write_text(text, encoding="utf-8", newline="\n")
+            return
+        except OSError:
+            if i == tries - 1:
+                raise
+            time.sleep(0.05 * (i + 1))
+
+
 def main():
     if len(sys.argv) < 2:
         print("usage: gen_delinks.py <module_dir>", file=sys.stderr)
@@ -152,11 +173,7 @@ def main():
 
     out = ["\n".join(header), ""]
     out.extend(blocks)
-    delinks_txt.write_text(
-        "\n".join(out).rstrip() + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    write_text_retry(delinks_txt, "\n".join(out).rstrip() + "\n")
 
     # Merge into the shared file_modes.json (configure.py reads it to know
     # which files need -thumb).
@@ -166,11 +183,7 @@ def main():
         all_modes = json.loads(modes_path.read_text(encoding="utf-8"))
     all_modes.update(file_modes)
     modes_path.parent.mkdir(exist_ok=True)
-    modes_path.write_text(
-        json.dumps(all_modes, indent=2, sort_keys=True),
-        encoding="utf-8",
-        newline="\n",
-    )
+    write_text_retry(modes_path, json.dumps(all_modes, indent=2, sort_keys=True))
 
     print(
         f"{delinks_txt.relative_to(ROOT)}: "
