@@ -67,6 +67,8 @@ def main():
     print("%s  (%s, %d bytes)" % (name, "thumb" if thumb else "arm", e["size"]))
     used = set()
     lines = []
+    branches = []
+    insn_at = {}
     off = 0
     for i in md.disasm(code, base):
         tag = ""
@@ -82,8 +84,23 @@ def main():
             word = int.from_bytes(code[t:t + 4], "little") if t + 4 <= len(code) else None
             sym = rel.get(t)
             tag = "   ; pool %s = %s" % (hex(t), sym if sym else hex(word) if word is not None else "?")
+        # Destino de los saltos: offset relativo Y la instruccion que hay alli.
+        # ⚠ POR QUE (2026-07-19): NUEVE fallos en un solo dia por leer mal a donde salta un `beq`.
+        # capstone imprime el destino como direccion ABSOLUTA, que no se parece en nada a los
+        # offsets de la columna de la izquierda, asi que el ojo lo traduce mal y acabas metiendo
+        # dentro del `if` codigo que en el ROM esta fuera (o al reves) -- y el diff resultante
+        # parece un problema de codegen, que es lo caro. Resolverlo aqui lo hace imposible.
+        if i.mnemonic[:1] == "b" and i.mnemonic not in ("bl", "blx", "bx", "bic", "bics"):
+            m2 = re.match(r"#(0x[0-9a-fA-F]+|[0-9]+)$", i.op_str.strip())
+            if m2:
+                branches.append((len(lines), int(m2.group(1), 0) - base))
         lines.append("  %04x  %-8s %-32s%s" % (off, i.mnemonic, i.op_str, tag))
+        insn_at[off] = "%s %s" % (i.mnemonic, i.op_str)
         off += i.size
+    for idx, t in branches:
+        here = insn_at.get(t)
+        lines[idx] += "   ; --> +%s%s" % (
+            hex(t), ("  [%s]" % here) if here else "  [FUERA DE ESTA FUNCION]")
     print("\n".join(lines))
 
     # palabras del pool que nadie carga
