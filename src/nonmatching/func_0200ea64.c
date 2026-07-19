@@ -10,10 +10,12 @@ extern void OS_WakeupThreadDirect(void *thread);
 extern void CARDi_SetCardDma(void);
 extern char data_020464e0;
 
+
 /* DMA completion handler for a card read: advances the transfer by one 512-byte page and either
  * kicks the next page or finishes the request and notifies the waiter. */
 void func_0200ea64(void) {
     char *card = (char *)&data_020464e0;
+    int len;
     int more;
     int src;
     int dst;
@@ -22,9 +24,10 @@ void func_0200ea64(void) {
     int enabled;
     MI_StopDma(*(int *)(card + 0x28));
     card = (char *)&data_020464e0;
+    len = *(int *)(card + 0x24);
     src = *(int *)(card + 0x1c);
     dst = *(int *)(card + 0x20);
-    more = (*(int *)(card + 0x24) -= 0x200) != 0;
+    more = (*(int *)(card + 0x24) = len - 0x200) != 0;
     *(int *)(card + 0x1c) = src + 0x200;
     *(int *)(card + 0x20) = dst + 0x200;
     if (more) {
@@ -51,21 +54,21 @@ void func_0200ea64(void) {
     callback(arg);
 }
 
-/* PARK 2026-07-19: 208/208 bytes, MISMAS instrucciones, UNA de posicion:
+/* PARK 2026-07-19 (segunda pasada, MUCHO mas cerca): 208/208 bytes, mismas instrucciones, UNA
+ * carga una posicion tarde:
  *
- *   ROM   ldr r0,[0x24] / ldr r2,[0x1c] / ldr r1,[0x20] / subs r0,#0x200 / ...
- *   mwcc  ldr r0,[0x24] / ldr r1,[0x1c] / subs r0,#0x200 / ldr r2,[0x20] / ...
+ *   ROM   ldr r0,[0x24] / ldr r2,[0x1c] / ldr r1,[0x20] / subs r0,#0x200 / str / movne / ...
+ *   mwcc  ldr r0,[0x24] / ldr r1,[0x1c] / subs r0,#0x200 / ldr r2,[0x20] / movne / str / ...
  *
- * mwcc mete el `subs` en el hueco de carga-uso; el ROM agrupa las TRES lecturas antes.
- * Probado (5 formas):
- *  - las tres lecturas a locales antes de restar -> pierde la materializacion del bool
- *    (`movne/moveq/cmp`) porque los `add` no tocan flags y mwcc salta directo: sale 196, -12 B.
- *  - `src`/`dst` a locales y `more = (campo -= 0x200) != 0` -> esta version, la mas cercana.
- *  - sumar el +0x200 al leer en vez de al guardar -> mueve el fallo, no lo quita.
- *  - intercambiar el orden de declaracion de `src` y `dst`.
- *  - `remaining` como local intermedia con el store explicito -> otra vez 196.
- *
- * El nudo es que el ROM quiere las dos cosas A LA VEZ: lecturas agrupadas Y el bool
- * materializado, y en mwcc cada una excluye a la otra. Sospecha para la proxima: un helper
- * `static inline` que devuelva el bool (ver codegen-cracks.md, "El bool materializado"), que es lo
- * que en otras funciones del SDK produce ese `movne/moveq/cmp` sin perder la planificacion. */
+ * LO QUE SI SE RESOLVIO en esta pasada: el ROM quiere a la vez las lecturas agrupadas Y el bool
+ * materializado (`movne/moveq/cmp`), y las formas obvias dan una cosa o la otra:
+ *   - tres lecturas a locales y `more = len != 0`        -> agrupadas, SIN materializar (196 B)
+ *   - `more = (campo -= 0x200) != 0`                     -> materializa, lecturas separadas
+ *   - helper `static inline` que relee el campo          -> agrupadas, pero relee (204 B)
+ *   - sin variables locales, todo con la expresion       -> `sub` en vez de `subs` (204 B)
+ * ★ La que da LAS DOS: **la asignacion como expresion**
+ *       more = (*(int *)(card + 0x24) = len - 0x200) != 0;
+ *   con `len`/`src`/`dst` leidos antes. Eso es lo que hay abajo. Solo queda que mwcc mete el
+ *   `subs` en el hueco de carga-uso de la tercera lectura.
+ * Probado ademas: intercambiar el orden de lectura de src/dst, cuatro ordenes de declaracion, y
+ * separar el decremento del store. Todos dejan la misma unica instruccion fuera de sitio. */
