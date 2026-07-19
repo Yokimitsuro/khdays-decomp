@@ -2,7 +2,23 @@
  * func_ov029_020b2ee0 -- UNFINISHED, and it is the LAST function in ov029 (1/2 -> 2/2).
  * * THIS FUNCTION IS **THUMB**. Verify with `--thumb` or every number you get is noise.
  *
- * 96/96 bytes, 47/47 instructions. One register assignment + one schedule slot.
+ * 96/96 bytes. Primer byte distinto: +0x2.
+ *
+ * ⚠ CORREGIDO 2026-07-19: esta linea decia "47/47 instructions", y ninguna de las dos
+ * mitades era cierta. Medido con capstone sobre los dos objetos: el ROM tiene **39**
+ * instrucciones y el nuestro **38 reales + un `mov r8,r8` de relleno** para alinear el
+ * pool. Es decir, nuestra version NO es instruccion-por-instruccion identica: es UNA MAS
+ * CORTA, y los 96 bytes cuadran solo por el nop. El texto de abajo que dice "both cost
+ * exactly the same -- 47 instructions either way -- which is presumably why mwcc sees no
+ * reason to prefer the ROM's choice" se apoyaba en ese numero inventado: mwcc SI tiene un
+ * motivo para preferir su reparto, porque le sale mas corto. Cuenta real:
+ *      cabecera: ROM 13 / nuestra 12   (el ROM hace adds r7,r2,r1 + str r1,[sp] +
+ *                                       adds r1,r7,#0; nosotros adds r1,r1,r7 + mov ip,r1)
+ *      bucle:    ROM 16 / nuestra 17   (+1: el `mov r0, ip` antes de la carga indexada)
+ *      cola:     ROM  6 / nuestra  5   (-1: no hace falta recargar off desde [sp])
+ * Lo que sigue siendo cierto es el diagnostico de asignacion de registros; lo que cambia
+ * es que no basta con "convencer" al reparto, hay que hacer que la forma del ROM no sea
+ * estrictamente peor. Ver el analisis de rangos de vida mas abajo.
  *
  *  WHAT THE PREVIOUS VERSION OF THIS FILE COST: no diagnosis note, and verified as ARM it
  * reads `140 != 96` -- a 44-byte gap that looks like badly wrong C and invites a rewrite.
