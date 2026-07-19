@@ -86,3 +86,9 @@ __pycache__/
 # NO deben subirse -- son locales y efimeros (se llegaron a colar 3.393 ficheros el 2026-07-19).
 /build/try/
 /build/sweep/
+
+# Scratch de renombrados (local, regenerable)
+/build/_switch_rename.txt
+
+# Notas de trabajo internas para el usuario -- no van al repo publico
+/dudas.md
