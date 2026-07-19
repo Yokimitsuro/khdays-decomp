@@ -9,7 +9,7 @@ SDK/library identifications are tracked separately; see
 | Module | C matched | ASM stubs | SDK id | Named only | Total | C % |
 |---|---:|---:|---:|---:|---:|---:|
 | PART itcm | 55 | 16 | 27 | 56 | 154 | 35.7% |
-| PART main | 1075 | 54 | 324 | 508 | 1961 | 54.8% |
+| PART main | 1076 | 54 | 323 | 508 | 1961 | 54.9% |
 | PART ov000 | 149 | 0 | 0 | 113 | 262 | 56.9% |
 | DONE ov001 | 8 | 0 | 0 | 0 | 8 | 100.0% |
 | PART ov002 | 486 | 0 | 2 | 990 | 1478 | 32.9% |
@@ -147,8 +147,8 @@ SDK/library identifications are tracked separately; see
 | PART ov141 | 45 | 10 | 0 | 2 | 57 | 78.9% |
 | PART ov142 | 45 | 12 | 0 | 0 | 57 | 78.9% |
 | PART ov143 | 45 | 12 | 0 | 0 | 57 | 78.9% |
-| PART ov144 | 20 | 18 | 0 | 0 | 38 | 52.6% |
-| PART ov145 | 20 | 18 | 0 | 0 | 38 | 52.6% |
+| PART ov144 | 21 | 17 | 0 | 0 | 38 | 55.3% |
+| PART ov145 | 21 | 17 | 0 | 0 | 38 | 55.3% |
 | PART ov146 | 49 | 0 | 1 | 38 | 88 | 55.7% |
 | PART ov147 | 52 | 10 | 0 | 0 | 62 | 83.9% |
 | PART ov148 | 52 | 10 | 0 | 0 | 62 | 83.9% |
@@ -239,7 +239,7 @@ SDK/library identifications are tracked separately; see
 | PART ov233 | 67 | 0 | 0 | 14 | 81 | 82.7% |
 | PART ov234 | 17 | 4 | 0 | 0 | 21 | 81.0% |
 | PART ov235 | 31 | 0 | 1 | 65 | 97 | 32.0% |
-| PART ov236 | 67 | 1 | 2 | 83 | 153 | 43.8% |
+| PART ov236 | 69 | 1 | 2 | 81 | 153 | 45.1% |
 | PART ov237 | 36 | 0 | 2 | 48 | 86 | 41.9% |
 | PART ov238 | 30 | 0 | 1 | 41 | 72 | 41.7% |
 | PART ov239 | 25 | 17 | 0 | 0 | 42 | 59.5% |
@@ -248,7 +248,7 @@ SDK/library identifications are tracked separately; see
 | PART ov242 | 14 | 12 | 0 | 0 | 26 | 53.8% |
 | PART ov243 | 15 | 12 | 0 | 0 | 27 | 55.6% |
 | PART ov244 | 76 | 0 | 0 | 67 | 143 | 53.1% |
-| PART ov245 | 125 | 0 | 0 | 139 | 264 | 47.3% |
+| PART ov245 | 127 | 0 | 0 | 137 | 264 | 48.1% |
 | PART ov246 | 45 | 0 | 0 | 19 | 64 | 70.3% |
 | PART ov247 | 45 | 0 | 0 | 19 | 64 | 70.3% |
 | PART ov248 | 59 | 0 | 0 | 19 | 78 | 75.6% |
@@ -281,7 +281,7 @@ SDK/library identifications are tracked separately; see
 | PART ov275 | 48 | 0 | 0 | 15 | 63 | 76.2% |
 | PART ov276 | 31 | 19 | 0 | 0 | 50 | 62.0% |
 | PART ov277 | 76 | 0 | 0 | 67 | 143 | 53.1% |
-| PART ov278 | 67 | 0 | 3 | 83 | 153 | 43.8% |
+| PART ov278 | 69 | 0 | 3 | 81 | 153 | 45.1% |
 | PART ov279 | 30 | 0 | 0 | 26 | 56 | 53.6% |
 | PART ov280 | 52 | 0 | 0 | 13 | 65 | 80.0% |
 | PART ov281 | 38 | 10 | 0 | 0 | 48 | 79.2% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **13683** | **2439** | **397** | **6721** | **23240** | **58.9%** |
+| **TOTAL** | **13692** | **2437** | **396** | **6715** | **23240** | **58.9%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,428,312** | **4,728,790** | **30.20%** |
+| **1,429,420** | **4,728,790** | **30.23%** |
