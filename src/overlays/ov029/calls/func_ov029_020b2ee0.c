@@ -55,7 +55,6 @@ extern void func_0201e470(int proc, int overlayId);   /* wraps FS_LoadOverlay */
 int func_ov029_020b2ee0(int proc, int group)
 {
     int loaded = -1;
-    OverlayGroup *g;
     int *slot = data_ov029_020b320c;  /* walks the slots from 3 down to 0 */
     int *cand;                        /* ...and alongside it, the group's id for that slot */
     int k = 3;
