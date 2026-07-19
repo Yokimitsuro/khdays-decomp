@@ -22,9 +22,9 @@ void func_0200c4fc(int header, int param, char *blocks, unsigned int count) {
     if (func_020093e8(6, (param & 0xff) | 0x100 | 0x2000000, 0) < 0) {
         ok = 0;
     } else {
-        ok = func_020093e8(6, header | 0x10000 | 0x1000000, 0) < 0 ? 0 : 1;
+        ok = func_020093e8(6, header | 0x10000 | 0x1000000, 0) >= 0;
     }
-    if (ok == 0) {
+    if ((ok & 0xff) == 0) {
         OS_RestoreInterrupts(enabled);
         *(unsigned short *)((char *)&data_02046390 + 0x38) |= 2;
         callback = *(void (**)(int, int, int))((char *)&data_02046390 + 4);
@@ -39,26 +39,17 @@ void func_0200c4fc(int header, int param, char *blocks, unsigned int count) {
     OS_RestoreInterrupts(enabled);
 }
 
-/* PARK 2026-07-19: 256/256 bytes. Todo casa salvo DOS detalles del bool de exito:
+/* PARK 2026-07-19 (segunda pasada tras el censo): 256/256 bytes, UNA pareja de instrucciones:
  *
  *   ROM   cmp r0,#0 / movlt r0,#0 / movge r0,#1 / tst r0,#0xff / bne exito
- *   mwcc  cmp r0,#0 / movge r0,#1 / movlt r0,#0 / cmp r0,#0    / bne exito
+ *   mwcc  cmp r0,#0 / movge r0,#1 / movlt r0,#0 / tst r0,#0xff / bne exito
  *
- * (orden de los dos `mov` condicionales, y `tst #0xff` en vez de `cmp #0` -- lo segundo dice que
- * en el fuente el bool es de ANCHO BYTE, pero declararlo `unsigned char` mete un enmascarado y
- * sube a 260.)
+ * ★ EL `tst #0xff` YA ESTA RESUELTO. Salio del experimento del censo: buscar funciones YA CASADAS
+ * con `tst rX,#0xff` encontro `func_ov002_02053790`, y alli el `tst` viene de un `& 0xff`
+ * EXPLICITO en la condicion, no de un tipo de ancho byte:
+ *       if ((ok & 0xff) == 0) { ... }
+ * (Con `unsigned char ok` mwcc mete un `and` de mas y sube a 260. Era la pista falsa.)
  *
- * Tabla de lo probado (metodo de la iteracion 355):
- *   forma                                          | tamaño | notas
- *   `ok = A >= 0 && B >= 0;`                        | 256 ✓  | falta el `movlt` de la rama corta
- *   `if (A<0) ok=0; else ok = B>=0;`                | 256 ✓  | ESTA -- solo el orden de los mov
- *   idem con `B < 0 ? 0 : 1`                        | 256 ✓  | igual
- *   `unsigned char ok`                              | 260 ✗  | añade `and r0,#0xff`
- *   helper `static inline` que devuelve el bool     | 268 ✗  | mucho peor
- *   sin variable, `if (!(A && B))`                  | 240 ✗  | mwcc colapsa el bool entero
- *
- * LO QUE SI SE ARREGLO por el camino y vale para otras: el indice del bucle tiene que ser `int i`,
- * no `unsigned int i`. Con `unsigned` mwcc crea una induccion en BYTES aparte
- * (`mov r2,lr` + `add r2,r2,#8`) aunque uses `i * sizeof(long long)`; con `int` emite
- * `add r0,r0,lr,lsl #3` como el ROM. El truco de `sizeof` NO basta por si solo si el indice es
- * unsigned -- eso no estaba en el catalogo. */
+ * Queda solo el orden de los dos `mov` condicionales. Probado: `>= 0`, `< 0 ? 0 : 1`, `!(< 0)`,
+ * `ok=0; if(>=0) ok=1;`, `ok=1; if(<0) ok=0;`, el `&&` entero, y el ternario anidado. mwcc
+ * normaliza todas a movge-primero. */
