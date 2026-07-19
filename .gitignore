@@ -81,3 +81,8 @@ __pycache__/
 *.rep/
 /ghidra_*/
 .ghidra/
+
+# Scratch del bucle de decomp: candidatos .c antes de verificarlos y barridos intermedios.
+# NO deben subirse -- son locales y efimeros (se llegaron a colar 3.393 ficheros el 2026-07-19).
+/build/try/
+/build/sweep/
