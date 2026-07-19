@@ -26,13 +26,23 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IDX = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
 
-def mode_of(name):
+def sym_info(name):
+    """(modo, direccion) de symbols.txt. La direccion puede ser None si no aparece.
+
+    ⚠ La direccion NO se puede sacar del nombre. Esta herramienta hacia `int(name[-8:], 16)`, lo
+    que revienta con cualquier simbolo del SDK (`MTX_Identity43_`, `DC_StoreAll`, ...) -- que son
+    justo las 231 funciones reloc-free que quedan por hacer. Mismo fallo de fondo que el glob
+    `func_*.c` de nearfam.py: suponer que todo se llama func_ADDR (2026-07-19).
+    """
     for p in glob.glob(os.path.join(ROOT, "config/arm9/**/symbols.txt"), recursive=True):
         for ln in open(p, encoding="utf-8", errors="replace"):
+            m = re.match(r"\s*(\S+)\s.*kind:function\((arm|thumb).*?addr:(0x[0-9a-fA-F]+)", ln)
+            if m and m.group(1) == name:
+                return m.group(2), int(m.group(3), 16)
             m = re.match(r"\s*(\S+)\s.*kind:function\((arm|thumb)", ln)
             if m and m.group(1) == name:
-                return m.group(2)
-    return "arm"
+                return m.group(2), None
+    return "arm", None
 
 
 def main():
@@ -42,11 +52,17 @@ def main():
     if name not in IDX:
         raise SystemExit("no esta en func_index: " + name)
     e = IDX[name]
-    thumb = mode_of(name) == "thumb"
+    mode, addr = sym_info(name)
+    thumb = mode == "thumb"
     md = Cs(CS_ARCH_ARM, CS_MODE_THUMB if thumb else CS_MODE_ARM)
     rel = {o: s for o, s in e["relocs"]}
     code = bytes.fromhex(e["hex"])
-    base = int(name[-8:], 16)
+    if addr is None:
+        try:
+            addr = int(name[-8:], 16)
+        except ValueError:
+            addr = 0
+    base = addr
 
     print("%s  (%s, %d bytes)" % (name, "thumb" if thumb else "arm", e["size"]))
     used = set()
