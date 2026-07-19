@@ -1,117 +1,121 @@
 /*
  * func_ov029_020b2ee0 -- Ov029_AcquireOverlaySlot. UNFINISHED (96/96 bytes, no match).
- * Es la ULTIMA funcion de ov029 (1/2 -> 2/2), asi que casarla cierra el modulo.
+ * It is the LAST function in ov029 (1/2 -> 2/2), so matching it closes the module.
  *
- * * ESTA FUNCION ES **THUMB**. Verifica con `--thumb` o todos los numeros que saques
- * son ruido.
+ * * THIS FUNCTION IS **THUMB**. Verify with `--thumb` or every number you get is noise.
  *
- * QUE HACE (resuelto 2026-07-19; antes la nota lo describia como "slots" genericos):
- *   func_0201e470 es un envoltorio de **FS_LoadOverlay** y func_0201e4a8, la que usa la
- *   otra funcion del overlay, lo es de **FS_UnloadOverlay**. Las dos funciones de ov029
- *   son por tanto un par cargar/descargar sobre una tabla de 4 huecos:
+ * WHAT IT DOES (resolved 2026-07-19; the older note described it as generic "slots"):
+ *   func_0201e470 wraps **FS_LoadOverlay**, and func_0201e4a8, used by the other function
+ *   in this overlay, wraps **FS_UnloadOverlay**. So the two ov029 functions are a
+ *   load/unload pair over a table of 4 slots:
  *
- *     data_ov029_020b3200[4]   los 4 huecos; cada uno guarda el ID del overlay que tiene
- *                              cargado, o -1 si esta libre.
- *     data_ov029_020b30b0[]    filas de 4 ints: por cada "grupo", que ID de overlay le
- *                              corresponde en cada hueco (-1 = ese grupo no puede usarlo).
- *     data_ov029_020b2f70[]    filas de 4 punteros a funcion: el hook de init de cada
- *                              pareja (grupo, hueco).
+ *     data_ov029_020b3200[4]   the 4 slots; each holds the id of the overlay currently
+ *                              loaded in it, or -1 if free.
+ *     data_ov029_020b30b0[]    rows of 4 ints: for each "group", which overlay id belongs
+ *                              in each slot (-1 = that group cannot use that slot).
+ *     data_ov029_020b2f70[]    rows of 4 function pointers: the init hook for each
+ *                              (group, slot) pair.
  *
- *   Recorre los huecos de 3 hacia 0 y se queda con el primero que este libre Y para el que
- *   el grupo tenga un overlay. Lo publica en el hueco, llama a FS_LoadOverlay y ejecuta el
- *   hook. Devuelve el ID cargado, o -1 si no habia sitio.
- *   func_ov029_020b2f40 hace lo contrario: busca el hueco que contiene ese ID y lo pone a -1.
+ *   It walks the slots from 3 down to 0 and takes the first one that is free AND that the
+ *   group has an overlay for. Publishes it into the slot, calls FS_LoadOverlay, runs the
+ *   hook. Returns the loaded id, or -1 if there was no room.
+ *   func_ov029_020b2f40 is the release half: finds the slot holding that id, sets it to -1.
  *
- * ⚠ PARA EL PORT: si NO hay hueco libre, k se queda en -1 y el codigo sigue igualmente.
- *   Llama a FS_LoadOverlay(0, -1) y luego indexa la tabla de hooks con k = -1, o sea que
- *   lee la palabra ANTERIOR a la fila. Es lectura fuera de rango, y esta reproducida tal
- *   cual porque es lo que hace el ROM. No lo "arregles" al portarlo sin decidirlo aparte.
+ * ⚠ FOR THE PORT: if no slot is free, k stays -1 and the code carries on regardless. It
+ *   calls FS_LoadOverlay(0, -1) and then indexes the hook table with k = -1, i.e. it reads
+ *   the word BEFORE the row. That is an out-of-bounds read, reproduced as-is because it is
+ *   what the ROM does. Do not silently "fix" it when porting; decide it separately.
  *
- * ⚠ data_ov029_020b3200 y data_ov029_020b320c SON EL MISMO ARRAY: delinks.txt pone .data en
- *   0x020b3200..0x020b3220 y 0x320c cae dentro, es &array[3]. El fuente original escribio un
- *   solo array y tomo su ultimo elemento; los dos simbolos son un artefacto del delinker.
- *   Aqui hay que dejar los dos porque verify_idx compara NOMBRES de reloc y el indice espera
- *   data_ov029_020b320c en el offset 84. (Probada la version de un solo array: mismo residuo
- *   y encima cambia los relocs, asi que no aporta nada.)
- *
- * ---------------------------------------------------------------------------------
- * EL DIFF
- *
- * El bucle necesita los 8 registros bajos de THUMB, y hay DOS candidatos para el unico
- * callee-saved libre (r7):
- *   - el offset en bytes `group<<4`, vivo a traves del bl del final
- *   - el puntero al grupo, muerto antes de ese bl
- * ROM:  guarda el offset en el hueco de r3 del push (`str r1,[sp]` ... `ldr r0,[sp]`) y
- *       mantiene el puntero al grupo en un registro bajo (r7).
- * mwcc: le da r7 al offset y destierra el puntero a `ip`, pagando `mov r0, ip` antes de la
- *       carga indexada (el `ldr rd,[rn,rm]` de THUMB exige registros bajos).
- *
- * El rango de vida del offset EMPIEZA ANTES -- tiene que empezar antes, porque el puntero se
- * calcula A PARTIR de el -- asi que el asignador llega primero al offset y le da r7.
- *
- * ⚠ CORREGIDO 2026-07-19: la nota decia "47/47 instructions" y ninguna de las dos mitades
- * era cierta. Medido con capstone sobre los dos objetos: el ROM tiene **39** instrucciones y
- * el nuestro **38 reales + un `mov r8,r8` de relleno** para alinear el pool. No es
- * instruccion-por-instruccion identico: es UNA MAS CORTO, y los 96 bytes cuadran por el nop.
- * Eso tumba la conclusion que traia la nota ("las dos formas cuestan lo mismo, por eso mwcc
- * no prefiere la del ROM"): mwcc SI tiene motivo, le sale mas corto. Cuenta real:
- *      cabecera: ROM 13 / nuestra 12     bucle: ROM 16 / nuestra 17 (el `mov r0, ip`)
- *      cola:     ROM  6 / nuestra  5     (no hace falta recargar el offset desde [sp])
+ * ⚠ data_ov029_020b3200 AND data_ov029_020b320c ARE THE SAME ARRAY: delinks.txt puts .data
+ *   at 0x020b3200..0x020b3220 and 0x320c falls inside it, so it is &array[3]. The original
+ *   source wrote one array and took its last element; the two symbols are a delinker
+ *   artifact. Both are kept here because verify_idx matches relocs by NAME and the index
+ *   expects data_ov029_020b320c at offset 84. (The single-array spelling was tested: same
+ *   residue, and it changes the relocs, so it buys nothing.)
  *
  * ---------------------------------------------------------------------------------
- * EJES CERRADOS (no los repitas)
+ * THE DIFF
  *
- * COMPILADOR: build_sweep completo. Las 12 builds de la linea 2.0/3.0 dan residuo
- *   byte-identico (54 bytes); las lineas 1.2 y dsi ni aciertan el tamano.
+ * The loop needs all 8 low THUMB registers, and there are TWO claimants for the single free
+ * callee-saved register (r7):
+ *   - the byte offset `group << 4`, live across the bl near the end
+ *   - the group pointer, dead before that bl
+ * ROM:  spills the offset into the pushed r3 slot (`str r1,[sp]` ... `ldr r0,[sp]`) and
+ *       keeps the group pointer in a low register (r7).
+ * mwcc: gives r7 to the offset and evicts the pointer to `ip`, paying `mov r0, ip` before
+ *       the indexed load (THUMB's `ldr rd,[rn,rm]` needs low registers).
  *
- * FLAGS: sacados los flags de los 9 presets de NDS de decomp.me
- *   (/api/preset?platform=nds_arm9) y probados los 10 que nosotros no usamos: -ipa file,
+ * The offset's live range STARTS FIRST -- it has to, because the pointer is computed FROM
+ * it -- so the allocator reaches the offset first and hands it r7.
+ *
+ * ⚠ CORRECTED 2026-07-19: this note used to say "47/47 instructions", and neither half was
+ * true. Measured with capstone over both objects: the ROM has **39** instructions and ours
+ * has **38 real ones plus a `mov r8,r8` pad** to align the pool. It is NOT
+ * instruction-for-instruction identical: it is one SHORTER, and the 96 bytes only line up
+ * because of the nop. That kills the old conclusion ("both cost the same, so mwcc has no
+ * reason to prefer the ROM's shape"): mwcc DOES have a reason, its version is shorter.
+ * Real counts:
+ *      head: ROM 13 / ours 12     loop: ROM 16 / ours 17 (the `mov r0, ip`)
+ *      tail: ROM  6 / ours  5     (no need to reload the offset from [sp])
+ *
+ * ---------------------------------------------------------------------------------
+ * AXES ALREADY CLOSED (do not repeat these)
+ *
+ * COMPILER: full build_sweep. All 12 builds on the 2.0/3.0 line give a byte-identical
+ *   residue (54 bytes); the 1.2 and dsi lines do not even hit the right size.
+ *
+ * FLAGS: took the flags from all nine NDS presets on decomp.me
+ *   (/api/preset?platform=nds_arm9) and tried the ten we do not already use: -ipa file,
  *   -ipa function, -fp soft, -str reuse, -str noreuse, -sym on, -RTTI off, -msgstyle gcc,
- *   -nosyspath. Los diez dan el MISMO residuo de 54 bytes. Los -ipa (analisis
- *   interprocedural) eran los unicos con posibilidades reales y tampoco tocan nada.
+ *   -nosyspath. All ten give the SAME 54-byte residue. The -ipa pair (interprocedural
+ *   analysis) were the only ones with a real chance and they change nothing here.
  *
- * TIPADO CON STRUCTS (2026-07-19, sugerido en el Discord de decomp.me): probadas 5 formas
- *   (offset compartido, indice normal `tabla[grupo]`, fila tipada, grupo indexado por k,
- *   hueco indexado por k). Ninguna casa. La de indice normal iguala el numero de
- *   instrucciones del ROM (39, sin nop) pero sigue usando `ip` y cambia los relocs. Se ha
- *   quedado la version tipada de todos modos porque se lee mucho mejor, que era el motivo
- *   de la sugerencia.
+ * STRUCT TYPING (2026-07-19, suggested on the decomp.me Discord): six formulations tried
+ *   (shared byte offset, plain `table[group]` indexing, typed row pointer, group indexed by
+ *   k, slot indexed by k). None match. The plain-indexing one matches the ROM's instruction
+ *   count (39, no pad) but still parks the pointer in `ip` and changes the relocs. The typed
+ *   version was kept anyway because it reads far better, which was the point.
  *
- * FORMA DEL FUENTE: ~19 grafias descartadas antes de esto -- local `off` separado frente a
- *   reusar el parametro, el puntero declarado primero, base `char *`, punteros que avanzan,
- *   `for` en vez de `do/while` (100 B, 4 de mas), calcular `e` primero (100 B), decl-init de
- *   una sola expresion, comparar contra `loaded` en vez del literal -1, `unsigned int` en el
- *   offset, `&x[3]` frente a `x + 3`.
+ * SOURCE FORM: ~19 spellings ruled out before that -- a separate `off` local vs reusing the
+ *   parameter, the pointer declared first, a `char *` base, walking pointers, `for` instead
+ *   of `do/while` (100 B, 4 over), computing `e` first (100 B), one-expression decl-inits,
+ *   comparing against `loaded` instead of the literal -1, `unsigned int` on the offset,
+ *   `&x[3]` vs `x + 3`.
  *
- * SIGUIENTE PASO: no queda ninguno a nivel de funcion. Haria falta un idioma que obligue a
- * mwcc a volcar un valor al hueco de argumento del push en vez de darle el ultimo
- * callee-saved, o que acorte el rango de vida del puntero al grupo para que gane el r7.
- * Preguntado en el Discord de decomp.me. Ver la clase de eleccion-de-registro en
- * deferred-ties.md.
+ * NEXT STEP: none at the function level. It would take an idiom that forces mwcc to spill a
+ * value into the pushed argument slot instead of taking the last callee-saved register, or
+ * that shortens the group pointer's live range so it wins r7. Asked on the decomp.me
+ * Discord. See the register-choice class in deferred-ties.md.
  */
 typedef void (*OverlayInitFn)(void);
 
-/* Una fila por grupo: que overlay le toca en cada hueco (-1 = no puede usar ese hueco). */
+/* One row per group: which overlay id belongs in each slot (-1 = group can't use it). */
 typedef struct {
     int overlayId[4];
 } OverlayGroup;
 
-extern OverlayGroup data_ov029_020b30b0[];   /* tabla de grupos */
-extern char data_ov029_020b2f70[];           /* filas de 4 OverlayInitFn, 0x10 por grupo */
-extern int data_ov029_020b3200[4];           /* huecos: ID cargado, o -1 si libre */
-extern int data_ov029_020b320c[];            /* == &data_ov029_020b3200[3]; ver nota arriba */
-extern void func_0201e470(int proc, int overlayId);   /* -> FS_LoadOverlay */
+/* One row per group: the init hook for each (group, slot) pair. */
+typedef struct {
+    OverlayInitFn init[4];
+} OverlayInitRow;
+
+extern OverlayGroup   data_ov029_020b30b0[];  /* group table */
+extern OverlayInitRow data_ov029_020b2f70[];  /* init hooks, one row per group */
+extern int data_ov029_020b3200[4];            /* slots: loaded overlay id, or -1 if free */
+extern int data_ov029_020b320c[];             /* == &data_ov029_020b3200[3]; see note above */
+extern void func_0201e470(int proc, int overlayId);   /* wraps FS_LoadOverlay */
 
 int func_ov029_020b2ee0(int proc, int group)
 {
     int loaded = -1;
     OverlayGroup *g;
-    int *slot = data_ov029_020b320c;   /* recorre los huecos de 3 hacia 0 */
-    int *cand;                         /* ...y en paralelo, el ID del grupo para ese hueco */
+    OverlayInitRow *hooks;
+    int *slot = data_ov029_020b320c;   /* walks the slots from 3 down to 0 */
+    int *cand;                         /* ...alongside the group's id for that slot */
     int k = 3;
 
-    /* group pasa a ser el offset en bytes y se reusa para las dos tablas; es lo que hace
-       el ROM y lo que fuerza el orden de emision (ver la nota del diff). */
+    /* group becomes a byte offset and is reused for both tables. That is what the ROM does,
+       and it is what pins the emission order (see the diff note above). */
     group = group << 4;
     g = (OverlayGroup *)((char *)data_ov029_020b30b0 + group);
     cand = &g->overlayId[3];
@@ -125,6 +129,7 @@ int func_ov029_020b2ee0(int proc, int group)
     } while (k >= 0);
 
     func_0201e470(0, loaded);
-    (*(OverlayInitFn *)(data_ov029_020b2f70 + group + k * 4))();
+    hooks = (OverlayInitRow *)((char *)data_ov029_020b2f70 + group);
+    hooks->init[k]();
     return loaded;
 }
