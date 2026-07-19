@@ -10,7 +10,15 @@
  * Spawn the ov000 worker thread: allocate a 0x2d0-byte block (OSThread + stack +
  * context), stash it in the global, record param_1/param_3/param_2 in the context
  * at +0x2c0/+0x2c4/+0x2c8, then OS_CreateThread (entry func_ov000_0205496c,
- * arg=block, stackTop=block+0x2c0, size 0x200, prio 0x11) and wake it. */
+ * arg=block, stackTop=block+0x2c0, size 0x200, prio 0x11) and wake it. *
+ * DIAGNOSTICO PRECISADO (2026-07-19, con tools/poolmap.py): el residuo es que **el ROM RECARGA
+ * `data_ov000_0205ac2c[2]` antes de cada uso** (`ldr r2,[r1,#8]` tres veces) y mwcc lo mantiene
+ * en un registro. El primer uso tras la asignacion SI va directo en los dos.
+ *   sin el local, todo por el global .......... size -4 (mwcc sigue haciendo CSE)
+ *   `volatile` en el global ................... size +4 y **cambia toda la asignacion de
+ *                                               registros** (mete r7 en el push): eje equivocado
+ *   local + `volatile` ........................ size +4, igual
+ * Falta encontrar que hace que mwcc no pueda cachear el global. No es el local ni volatile. */
 extern void *NNSi_FndAllocFromDefaultExpHeap(unsigned int size);
 extern void OS_CreateThread(void *thread, void *func, void *arg, void *stackTop, unsigned int stackSize, unsigned int prio);
 extern void OS_WakeupThreadDirect(void *thread);
