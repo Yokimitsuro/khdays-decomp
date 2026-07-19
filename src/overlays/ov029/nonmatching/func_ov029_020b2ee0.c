@@ -50,6 +50,15 @@
  * registers). The two cost exactly the same -- 47 instructions either way -- which is
  * presumably why mwcc sees no reason to prefer the ROM's choice.
  *
+ * EJE DE FLAGS: CERRADO (2026-07-19). Sacados los flags de los 9 presets de NDS que hay
+ * en decomp.me (/api/preset?platform=nds_arm9), quedandome con los que nosotros NO usamos:
+ * -ipa file, -ipa function, -fp soft, -str reuse/noreuse, -sym on, -RTTI off, -msgstyle gcc,
+ * -nosyspath. Los diez dan el MISMO residuo exacto de 54 bytes que nuestros flags de
+ * siempre. Los dos que podian haber movido algo de verdad eran los -ipa (analisis
+ * interprocedural, lo usan Inazuma Eleven 3 y Pokemon Ranger) y tampoco tocan nada aqui.
+ * Y build_sweep: las 12 builds de la linea 2.0/3.0 dan residuo byte-identico; las lineas
+ * 1.2 y dsi ni aciertan el tamano. No es ni el compilador ni los flags.
+ *
  * PRE-PARK CHECKLIST:
  *  1. --thumb: YES, and it is the whole point of this note.
  *  2. Arity: 0201e470(0, r) -- the ROM sets r0/r1 only; the handler takes none. arg0 is a
