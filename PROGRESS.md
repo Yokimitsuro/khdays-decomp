@@ -9,7 +9,7 @@ SDK/library identifications are tracked separately; see
 | Module | C matched | ASM stubs | SDK id | Named only | Total | C % |
 |---|---:|---:|---:|---:|---:|---:|
 | PART itcm | 55 | 16 | 27 | 56 | 154 | 35.7% |
-| PART main | 1082 | 54 | 323 | 502 | 1961 | 55.2% |
+| PART main | 1084 | 54 | 323 | 500 | 1961 | 55.3% |
 | PART ov000 | 154 | 0 | 0 | 108 | 262 | 58.8% |
 | DONE ov001 | 8 | 0 | 0 | 0 | 8 | 100.0% |
 | PART ov002 | 517 | 0 | 2 | 959 | 1478 | 35.0% |
@@ -32,7 +32,7 @@ SDK/library identifications are tracked separately; see
 | PART ov020 | 3 | 8 | 0 | 0 | 11 | 27.3% |
 | PART ov021 | 14 | 17 | 0 | 0 | 31 | 45.2% |
 | PART ov022 | 368 | 0 | 2 | 388 | 758 | 48.5% |
-| PART ov023 | 72 | 0 | 0 | 152 | 224 | 32.1% |
+| PART ov023 | 76 | 0 | 0 | 148 | 224 | 33.9% |
 | PART ov024 | 84 | 0 | 0 | 36 | 120 | 70.0% |
 | PART ov025 | 568 | 0 | 3 | 433 | 1004 | 56.6% |
 | PART ov026 | 140 | 0 | 0 | 116 | 256 | 54.7% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **13854** | **2433** | **396** | **6557** | **23240** | **59.6%** |
+| **TOTAL** | **13860** | **2433** | **396** | **6551** | **23240** | **59.6%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,447,000** | **4,728,790** | **30.60%** |
+| **1,447,952** | **4,728,790** | **30.62%** |
