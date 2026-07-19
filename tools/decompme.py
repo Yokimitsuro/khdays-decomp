@@ -33,9 +33,14 @@ def verify(out, where, insns, base, data, relocs, thumb, name):
     GAS no siempre elige la MISMA codificacion que el compilador original cuando
     dos son legales -- el caso conocido es THUMB `subs rd, rd, #imm`, donde GAS
     prefiere la forma T2 (0x38xx) y mwcc/el ROM emiten la T1 (0x1exx), y no hay
-    sintaxis para forzarla. Las instrucciones que no cuadran se reescriben como
-    `.short`/`.word` crudo con el mnemonico en un comentario: los bytes quedan
-    exactos y objdump las vuelve a mostrar legibles en decomp.me.
+    sintaxis para forzarla. Las instrucciones que no cuadran se reescriben con
+    `.inst.n` / `.inst`, que fija la codificacion exacta.
+
+    ⚠ NO usar `.short`/`.word` para esto: emiten los mismos bytes, pero GAS los
+    marca como DATOS (simbolo de mapeo $d) y entonces objdump los imprime como
+    `.word 0x1f091f00` en vez de desensamblarlos. En decomp.me eso sale como un
+    diff falso permanente contra el C compilado, que si trae instrucciones.
+    `.inst.n` mantiene el mapeo $t y objdump las vuelve a mostrar legibles.
     """
     import shutil, subprocess, tempfile
     asm_exe = next((c for c in AS_CANDIDATES if shutil.which(c) or os.path.exists(c)), None)
@@ -74,8 +79,10 @@ def verify(out, where, insns, base, data, relocs, thumb, name):
                   key=lambda i: i.address)
         off = ins.address - base
         raw = data[off:off + ins.size]
-        directive = ".short " + ", ".join(
-            "0x%04X" % int.from_bytes(raw[k:k + 2], "little") for k in range(0, len(raw), 2))
+        if len(raw) == 2:
+            directive = ".inst.n 0x%04X" % int.from_bytes(raw, "little")
+        else:
+            directive = ".inst 0x%08X" % int.from_bytes(raw, "little")
         out[where[off]] = "\t%s  @ %s %s" % (directive, ins.mnemonic, ins.op_str)
         print("[verify] codificacion distinta en +0x%02X -> emitida cruda (%s %s)"
               % (off, ins.mnemonic, ins.op_str))
