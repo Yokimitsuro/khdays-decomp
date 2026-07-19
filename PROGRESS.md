@@ -51,7 +51,7 @@ SDK/library identifications are tracked separately; see
 | PART ov039 | 18 | 19 | 0 | 0 | 37 | 48.6% |
 | PART ov040 | 22 | 10 | 0 | 0 | 32 | 68.8% |
 | PART ov041 | 23 | 10 | 0 | 0 | 33 | 69.7% |
-| PART ov042 | 15 | 13 | 0 | 0 | 28 | 53.6% |
+| PART ov042 | 16 | 12 | 0 | 0 | 28 | 57.1% |
 | PART ov043 | 9 | 0 | 0 | 37 | 46 | 19.6% |
 | PART ov044 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov045 | 16 | 11 | 0 | 0 | 27 | 59.3% |
@@ -70,7 +70,7 @@ SDK/library identifications are tracked separately; see
 | PART ov058 | 18 | 19 | 0 | 0 | 37 | 48.6% |
 | PART ov059 | 22 | 10 | 0 | 0 | 32 | 68.8% |
 | PART ov060 | 23 | 10 | 0 | 0 | 33 | 69.7% |
-| PART ov061 | 15 | 13 | 0 | 0 | 28 | 53.6% |
+| PART ov061 | 16 | 12 | 0 | 0 | 28 | 57.1% |
 | PART ov062 | 9 | 0 | 0 | 37 | 46 | 19.6% |
 | PART ov063 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov064 | 16 | 11 | 0 | 0 | 27 | 59.3% |
@@ -90,7 +90,7 @@ SDK/library identifications are tracked separately; see
 | PART ov078 | 18 | 19 | 0 | 0 | 37 | 48.6% |
 | PART ov079 | 22 | 10 | 0 | 0 | 32 | 68.8% |
 | PART ov080 | 23 | 10 | 0 | 0 | 33 | 69.7% |
-| PART ov081 | 15 | 13 | 0 | 0 | 28 | 53.6% |
+| PART ov081 | 16 | 12 | 0 | 0 | 28 | 57.1% |
 | PART ov082 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov083 | 16 | 10 | 0 | 1 | 27 | 59.3% |
 | PART ov084 | 22 | 14 | 0 | 0 | 36 | 61.1% |
@@ -107,7 +107,7 @@ SDK/library identifications are tracked separately; see
 | PART ov095 | 18 | 19 | 0 | 0 | 37 | 48.6% |
 | PART ov096 | 22 | 10 | 0 | 0 | 32 | 68.8% |
 | PART ov097 | 23 | 10 | 0 | 0 | 33 | 69.7% |
-| PART ov098 | 15 | 13 | 0 | 0 | 28 | 53.6% |
+| PART ov098 | 16 | 12 | 0 | 0 | 28 | 57.1% |
 | PART ov099 | 29 | 11 | 0 | 0 | 40 | 72.5% |
 | PART ov100 | 16 | 11 | 0 | 0 | 27 | 59.3% |
 | PART ov101 | 22 | 14 | 0 | 0 | 36 | 61.1% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | PART ov301 | 17 | 1 | 0 | 0 | 18 | 94.4% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **13538** | **2515** | **432** | **6755** | **23240** | **58.3%** |
+| **TOTAL** | **13542** | **2511** | **432** | **6755** | **23240** | **58.3%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,398,648** | **4,728,790** | **29.58%** |
+| **1,399,432** | **4,728,790** | **29.59%** |
