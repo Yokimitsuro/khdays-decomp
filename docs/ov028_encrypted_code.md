@@ -1,5 +1,20 @@
 # ov028 encrypted/self-modifying code (anti-tamper) — why ov001 can't reach 100% matched C
 
+> **2026-07-19 — this is DS Protect 1.10**, a commercial anti-piracy library used by 300+ DS
+> titles, not game code. Identified via the decomp.me community and verified here by
+> decrypting the bodies with `tools/dsprot_decrypt.py`: the plaintext maps line for line onto
+> the public decompilation at <https://github.com/taxicat1/dsprot> (branch `1.10`), down to
+> the literal `0x320` obfuscation offset visible in each prologue.
+>
+> The eight encrypted symbols are, in address order, `MACOwner_IsBad`, `ROMTest_IsBad`,
+> then `DSProt_Detect{Flashcart,NotFlashcart,Emulator,NotEmulator,Dummy,NotDummy}`. It also
+> explains two long-standing puzzles: the `0x88888889` reciprocal is `i % 15 == 0` in the key
+> derivation, and `0208a994` needs mwcc 1.2 sp4 because it is third-party precompiled
+> middleware. The same pattern appears in nine overlays.
+>
+> **None of this changes the section classification below.** The bodies are still encrypted in
+> the static ROM, so the region stays `.rodata`. See the skill's `references/ov028-dsprotect.md`.
+
 ## Summary
 
 `config/arm9/overlays/ov028/delinks.txt` marks `0x0208abd0..0x0208b568` (2456 bytes)
