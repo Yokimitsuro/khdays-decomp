@@ -14,17 +14,26 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-echo "== 1/5 barriendo stubs sombreados"
+echo "== 1/6 propagando gemelas byte-identicas"
+# POR QUE ESTA AQUI (2026-07-19): `dedupprop.py` propaga un .c casado a sus gemelas byte-identicas
+# (mismos bytes tras enmascarar relocs). Es GRATIS y la skill lo pone como primer paso del bucle de
+# familias... y aun asi estuve un dia entero casando funcion por funcion sin ejecutarlo ni una vez.
+# Cuando por fin lo lance: 32 matches y 4 rescates de nonmatching/ de golpe -- ov008 resulto tener
+# un espejo byte-identico de toda la pantalla de seleccion de ov026 que llevaba media tarde
+# haciendo a mano. Depender de acordarse no funciona; por eso vive en el gate y no en una nota.
+python tools/dedupprop.py --write | tail -3
+
+echo "== 2/6 barriendo stubs sombreados"
 python tools/audit_shadowed.py --fix | tail -1
 
-echo "== 2/5 restaurando los binarios de referencia"
+echo "== 3/6 restaurando los binarios de referencia"
 cp dsd_extract/arm9/arm9.bin dsd_extract/arm9/itcm.bin dsd_extract/arm9/dtcm.bin build/build/
 for f in dsd_extract/arm9_overlays/ov*.bin; do
     b=$(basename "$f" .bin)
     cp "$f" "build/build/arm9_$b.bin"
 done
 
-echo "== 3/5 configure (OBLIGATORIO tras borrar stubs)"
+echo "== 4/6 configure (OBLIGATORIO tras borrar stubs)"
 # NO silenciar la salida: configure.py imprime el stdout/stderr del subproceso que falla.
 # Sin esto, un fallo intermitente de gen_delinks.py solo se ve como "failed: ..." sin causa
 # (visto 4 veces el 2026-07-19, siempre verde al repetir). Con la salida visible se puede
@@ -43,13 +52,13 @@ if [ "$cfg_ok" != "1" ]; then
     exit 1
 fi
 
-echo "== 4/5 ninja"
+echo "== 5/6 ninja"
 if ! ninja; then
     echo "!! ninja FALLO -- el dsd check que viene despues seria un falso verde. Abortando."
     exit 1
 fi
 
-echo "== 5/5 dsd check modules"
+echo "== 6/6 dsd check modules"
 ok=$(tools/dsd.exe check modules --config-path config/arm9/config.yaml -f 2>&1 | grep -c ": OK" || true)
 echo "DSD_OK=$ok"
 if [ "$ok" != "306" ]; then
