@@ -72,9 +72,17 @@ def body_of(path, sym):
 
 PLACEHOLDER = re.compile(r'^(FUN_|func_|DAT_|data_|sub_|thunk_)', re.I)
 
+# ★ A name ending in _0xADDR is a SHAPE match, not an identification.  The skill
+# documents 87 different veneers all called SNDi_UnlockMutex_0xADDR while tail-
+# calling different targets, and `OS_IsTickAvailable_0x01ff8138` is really a
+# per-player input mask.  Deriving `OS_IsTickAvailable_Wrapper` from one of these
+# does not just fail to help -- it MANUFACTURES A NEW LIE and gives it a name
+# that no longer even carries the _0x tell.  Junk in, junk laundered.
+JUNK_SDK = re.compile(r'_0x[0-9a-fA-F]{6,8}$')
+
 def is_named(sym):
-    """A callee is grounding only if IT has a real name."""
-    return not PLACEHOLDER.match(sym)
+    """A callee is grounding only if IT has a real, non-shape-matched name."""
+    return not PLACEHOLDER.match(sym) and not JUNK_SDK.search(sym)
 
 
 def calls_in(body):
@@ -113,9 +121,12 @@ def classify(sym, body):
             if args and re.match(r'^(0x[0-9a-fA-F]+|\d+)$', args[0]):
                 v = int(args[0], 0)
                 return 'FWD_CONST', '%s_%02X' % (callee.replace('_impl', ''), v)
-            if not consts:
-                return 'FWD_PLAIN', '%s_Wrapper' % callee.replace('_impl', '')
-            return 'FWD_NAMED', None
+            # NO generic `<callee>_Wrapper`: it collides (three different
+            # functions forwarding to GFXi_EnqueueCommand all wanted the same
+            # name) and it says nothing the callee did not already say.  A
+            # forwarder only earns an automatic name when a leading CONSTANT
+            # selects a variant, which is the case handled above.
+            return 'FWD_PLAIN', None
         return 'FWD_UNNAMED', None
 
     # critical section around a global access
