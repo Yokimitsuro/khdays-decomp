@@ -25,7 +25,14 @@ for f in dsd_extract/arm9_overlays/ov*.bin; do
 done
 
 echo "== 3/5 configure (OBLIGATORIO tras borrar stubs)"
-python tools/configure.py >/dev/null
+# NO silenciar la salida: configure.py imprime el stdout/stderr del subproceso que falla.
+# Sin esto, un fallo intermitente de gen_delinks.py solo se ve como "failed: ..." sin causa
+# (visto 4 veces el 2026-07-19, siempre verde al repetir). Con la salida visible se puede
+# diagnosticar en lugar de reintentar a ciegas.
+if ! python tools/configure.py; then
+    echo "!! configure FALLO -- revisa el mensaje de arriba. Si es transitorio, repite el gate."
+    exit 1
+fi
 
 echo "== 4/5 ninja"
 if ! ninja; then
