@@ -53,6 +53,23 @@
  * And ruled out in the other direction (these make it WORSE, 404): deriving s.d or s.f
  * from the local instead of the struct member.
  *
+ * Retried 2026-07-20 (asked directly whether ov301 can be closed), five more spellings,
+ * following this note's own advice to make the live ranges differ:
+ *   both constants inlined as literals at their single use, removing the locals entirely
+ *     -- byte-identical to the version with locals, so the locals were never the thing;
+ *   the six field assignments INTERLEAVED (a, d, b, e, c, f) so each constant dies
+ *     immediately -- much worse, 88 differing bytes at 0x8;
+ *   the same interleave with the constants inlined -- also 88;
+ *   the whole bounding-box block moved above the pointer stores -- 404, 4 SHORT;
+ *   the box written straight through a `struct blk6 *` to the destination instead of
+ *     built in a local and copied -- 388, 20 SHORT, so the local struct plus block copy is
+ *     load-bearing.
+ * Note the ROM puts ONE of the three in a caller-saved register (uVar4 -> r3, the register
+ * pushed only for alignment) and keeps the other two callee-saved; we use r6, r7 and lr.
+ * So this is not "callee-saved versus caller-saved" as a whole -- it is a three-way
+ * tie-break where the ROM was willing to spend the alignment filler on a value that dies
+ * before the first call, and mwcc is not.
+ *
  * NEXT STEP: the axis is which register a short-lived constant gets when several compete
  * and none is live across a call. state.md's note that caller-saved values are ordered by
  * USE COUNT and live range (not declaration order) fits: all three constants here have
