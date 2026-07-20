@@ -1,22 +1,36 @@
-/* EQUIVALENT BUT NOT BYTE-EXACT -- 33 bytes, 2026-07-19.
+/* EQUIVALENT BUT NOT BYTE-EXACT -- 33 differing bytes.
  *
- * TERCERA aparicion del residuo de **SALIDA UNICA**: el ROM salta con `bne <fin>` a un `pop`
- * compartido (tres veces aqui) y mwcc emite `popne` en cada guarda. Las otras dos:
+ * THIRD appearance of the SINGLE-EXIT residue: the ROM branches with `bne <end>` to one
+ * shared `pop` (three times here) and mwcc emits a predicated `popne` at each guard.  The
+ * other two:
  *   src/overlays/ov048/nonmatching/func_ov048_020b359c.c
  *   src/overlays/ov036/nonmatching/func_ov036_020b35f8.c
  *
- * ★ NEGATIVO UTIL (2026-07-19): reescribirla en forma **anidada con salida unica real** --
- *   `if (a() == 0 && b() == 0) { ...; if (c() == 0) { ...; } }` -- deja los `popne` EXACTAMENTE
- *   igual (33 bytes, mismos tres). O sea que no es la forma del control de flujo en C: mwcc
- *   convierte cualquier salida en un epilogo predicado cuando el epilogo es una sola instruccion.
- *   Con esto la clase queda acotada: **no se ataca desde la estructura del fuente.**
+ * USEFUL NEGATIVE (2026-07-19): rewriting it in a genuinely nested single-exit form --
+ *   `if (a() == 0 && b() == 0) { ...; if (c() == 0) { ...; } }` -- leaves the `popne`s
+ *   EXACTLY as they were, same 33 bytes, same three.  So it is not the shape of the control
+ *   flow in C: mwcc turns any exit into a predicated epilogue when the epilogue is a single
+ *   instruction.
  *
- * Residuo secundario (mismo que en el park de ov036_020b35f8): en el bloque final el ROM carga
- * `self` en r0 al FINAL, justo antes de la llamada, y usa r0/r1/r2 en otro orden; mwcc precarga
- * `mov r0, r4` y desplaza los tres registros.
+ * ADDED 2026-07-20: an explicit `goto end;` with a label before the closing brace, both with
+ * and without a trailing `return;`, is also identical.  mwcc normalises it to the same thing.
+ * So the class is now bounded on three separate spellings of the same idea, and the note's
+ * conclusion stands: THIS IS NOT ATTACKABLE FROM THE SOURCE'S CONTROL FLOW.
  *
- * Familia de 4. Modo ARM. Arity de los seis callees verificada. */
-
+ * The one axis nobody has tried is making the epilogue LONGER than a single instruction, so
+ * that predication is not available to mwcc -- but this function has no frame to grow, so it
+ * would have to come from somewhere else.
+ *
+ * Secondary residue (same as in the ov036_020b35f8 park): in the final block the ROM loads
+ * `self` into r0 LAST, immediately before the call, and orders r0/r1/r2 differently; mwcc
+ * preloads `mov r0, r4` and shifts all three.
+ *
+ * Family of 4.  ARM mode.  Arity of all six callees verified.
+ *
+ * NOTE the 64-bit ORs below were already correct here before 2026-07-20, and they are the
+ * construct that unblocked three OTHER families that day -- see codegen-cracks.md.  A file
+ * that fails on one residue can still be the only place a construct is written down right.
+ */
 extern int func_ov022_02083f90(void);
 extern void func_ov022_0209145c(int a, int b);
 extern void func_ov022_02091474(int a);
