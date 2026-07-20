@@ -32,6 +32,16 @@
  *    off to r1. So the structure was never the problem, and typing is not the
  *    lever here. Kept below anyway: it is much better C for the port.
  *
+ *  - * 2026-07-20 (later): the `register` axis, which had just closed ov301 at 16/16 --
+ *    that function was also a pure "which register" residue and twelve other spellings had
+ *    failed on it.  Four forms here: register on `off`, on `res`, on both, and on `off`
+ *    declared first.  All four still colour `off` to r1.  The difference from ov301 is
+ *    instructive: there `register` was applied to a POINTER held live across a whole block,
+ *    which changed the candidate set the allocator would draw from; here both values are
+ *    short-lived scratch in a six-instruction tail, and asking for a register does not
+ *    change which one it picks.  So `register` steers WHETHER a value gets a register, not
+ *    WHICH -- do not expect it to break a two-colouring tie.
+ *
  * Retest only if a new mwcc build is added to the toolkit.
  */
 extern void MI_CpuFill8(void *dest, int val, int size);
