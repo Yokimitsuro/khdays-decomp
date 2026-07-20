@@ -1,74 +1,46 @@
-struct A {
-    /* 0x00 */ char pad00[0x20];
-    /* 0x20 */ unsigned short m;
-    /* 0x22 */ char pad22[0x88 - 0x22];
-    /* 0x88 */ int f88;
-    /* 0x8c */ int f8c;
-    /* 0x90 */ int f90;
-    /* 0x94 */ int f94;
-    /* 0x98 */ int f98;
-    /* 0x9c */ int f9c;
-    /* 0xa0 */ int fa0;
-    /* 0xa4 */ int fa4;
-    /* 0xa8 */ int fa8;
-    /* 0xac */ int fac;
-    /* 0xb0 */ int fb0;
-    /* 0xb4 */ int fb4;
-    /* 0xb8 */ int fb8;
-    /* 0xbc */ int fbc;
-    /* 0xc0 */ int fc0;
-    /* 0xc4 */ int fc4;
-    /* 0xc8 */ int fc8;
-    /* 0xcc */ int fcc;
-    /* 0xd0 */ int fd0;
-    /* 0xd4 */ int fd4;
-};
+/* Fold one record's contributions into the accumulator, scaled by the accumulator's
+ * own factor at +0x20.
+ *
+ * This is the closer of the tally chain: OvNNN_TallySlots and OvNNN_TallyScaledSlots
+ * both run it once they have walked their four slots.  It is a leaf, fully unrolled in
+ * the ROM, and splits into two halves:
+ *
+ *  - seven SCALED contributions (`mla`), reading small signed fields out of the record
+ *    at +0x2a..+0x30 and multiplying each by the factor before adding.  +0x2a is
+ *    UNSIGNED (ldrb) while +0x2b..+0x2f are signed (ldrsb) and +0x30 is a full word --
+ *    getting any of those widths or signs wrong changes the instruction, so they are
+ *    load-bearing, not cosmetic.
+ *  - thirteen UNSCALED word counters, record +0x54.. added onto accumulator +0xa4...
+ *
+ * The scaled group is emitted in the ROM's own field order, which is NOT ascending:
+ * +0x2e is folded before +0x2d, and +0x30 before +0x2f.  That ordering is presumably
+ * the source order and reproducing it is required.
+ *
+ * Note this makes the second parameter of the Tally* callers the ACCUMULATOR rather
+ * than a plain parameter block -- it owns both the scale factor and these counters.
+ */
+void func_ov009_0204f404(char *acc, char *rec) {
+    int scale = *(unsigned short *)(acc + 0x20);
 
-struct B {
-    /* 0x00 */ char pad00[0x2a];
-    /* 0x2a */ unsigned char b2a;
-    /* 0x2b */ signed char b2b;
-    /* 0x2c */ signed char b2c;
-    /* 0x2d */ signed char b2d;
-    /* 0x2e */ signed char b2e;
-    /* 0x2f */ signed char b2f;
-    /* 0x30 */ int w30;
-    /* 0x34 */ char pad34[0x54 - 0x34];
-    /* 0x54 */ int w54;
-    /* 0x58 */ int w58;
-    /* 0x5c */ int w5c;
-    /* 0x60 */ int w60;
-    /* 0x64 */ int w64;
-    /* 0x68 */ int w68;
-    /* 0x6c */ int w6c;
-    /* 0x70 */ int w70;
-    /* 0x74 */ int w74;
-    /* 0x78 */ int w78;
-    /* 0x7c */ int w7c;
-    /* 0x80 */ int w80;
-    /* 0x84 */ int w84;
-};
+    *(int *)(acc + 0x88) = *(int *)(acc + 0x88) + *(unsigned char *)(rec + 0x2a) * scale;
+    *(int *)(acc + 0x8c) = *(int *)(acc + 0x8c) + *(signed char *)(rec + 0x2b) * scale;
+    *(int *)(acc + 0x90) = *(int *)(acc + 0x90) + *(signed char *)(rec + 0x2c) * scale;
+    *(int *)(acc + 0x94) = *(int *)(acc + 0x94) + *(signed char *)(rec + 0x2e) * scale;
+    *(int *)(acc + 0x98) = *(int *)(acc + 0x98) + *(signed char *)(rec + 0x2d) * scale;
+    *(int *)(acc + 0x9c) = *(int *)(acc + 0x9c) + *(int *)(rec + 0x30) * scale;
+    *(int *)(acc + 0xa0) = *(int *)(acc + 0xa0) + *(signed char *)(rec + 0x2f) * scale;
 
-void func_ov009_0204f404(struct A *a, struct B *b) {
-    unsigned short m = a->m;
-    a->f88 += b->b2a * m;
-    a->f8c += b->b2b * m;
-    a->f90 += b->b2c * m;
-    a->f94 += b->b2e * m;
-    a->f98 += b->b2d * m;
-    a->f9c += b->w30 * m;
-    a->fa0 += b->b2f * m;
-    a->fa4 += b->w54;
-    a->fa8 += b->w58;
-    a->fac += b->w5c;
-    a->fb0 += b->w60;
-    a->fb4 += b->w64;
-    a->fb8 += b->w68;
-    a->fbc += b->w6c;
-    a->fc0 += b->w70;
-    a->fc4 += b->w74;
-    a->fc8 += b->w78;
-    a->fcc += b->w7c;
-    a->fd0 += b->w80;
-    a->fd4 += b->w84;
+    *(int *)(acc + 0xa4) = *(int *)(acc + 0xa4) + *(int *)(rec + 0x54);
+    *(int *)(acc + 0xa8) = *(int *)(acc + 0xa8) + *(int *)(rec + 0x58);
+    *(int *)(acc + 0xac) = *(int *)(acc + 0xac) + *(int *)(rec + 0x5c);
+    *(int *)(acc + 0xb0) = *(int *)(acc + 0xb0) + *(int *)(rec + 0x60);
+    *(int *)(acc + 0xb4) = *(int *)(acc + 0xb4) + *(int *)(rec + 0x64);
+    *(int *)(acc + 0xb8) = *(int *)(acc + 0xb8) + *(int *)(rec + 0x68);
+    *(int *)(acc + 0xbc) = *(int *)(acc + 0xbc) + *(int *)(rec + 0x6c);
+    *(int *)(acc + 0xc0) = *(int *)(acc + 0xc0) + *(int *)(rec + 0x70);
+    *(int *)(acc + 0xc4) = *(int *)(acc + 0xc4) + *(int *)(rec + 0x74);
+    *(int *)(acc + 0xc8) = *(int *)(acc + 0xc8) + *(int *)(rec + 0x78);
+    *(int *)(acc + 0xcc) = *(int *)(acc + 0xcc) + *(int *)(rec + 0x7c);
+    *(int *)(acc + 0xd0) = *(int *)(acc + 0xd0) + *(int *)(rec + 0x80);
+    *(int *)(acc + 0xd4) = *(int *)(acc + 0xd4) + *(int *)(rec + 0x84);
 }
