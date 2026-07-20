@@ -23,7 +23,11 @@ extern int func_ov002_02050b90(int v);
 extern int func_ov002_02050b68(int v);
 extern int func_ov002_02050a54(int v);
 
-void func_ov002_0204cc9c(Ov002Owner *owner, int value) {
+/* Takes THREE parameters: the call site in ov022 (func_ov022_02083178) sets r0,
+ * r1 AND r2.  The body never reads the third, which is why a 2-param definition
+ * also compiles byte-identically -- a callee's own code can never settle its
+ * arity, only its callers can. */
+void func_ov002_0204cc9c(Ov002Owner *owner, int value, int unused) {
     Ov002Value *c = owner->v;
 
     c->prev = c->value;
