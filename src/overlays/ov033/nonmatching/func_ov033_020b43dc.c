@@ -35,9 +35,14 @@
  * local -- and none beats the 27 of the plain form: 32, 56, 53, 56.  So the pairs door is
  * closed here as well, which is worth knowing before someone spends a session on it.
  *
- * This is the callee-saved-permutation class, and the axes are exhausted at the single and
- * double level.  What has NOT been tried is a different mwcc build (tools/build_sweep.py);
- * given the C is instruction-perfect, that is now the cheapest remaining test.
+ * BUILD SWEEP RUN (2026-07-20), since the note above named it as the cheapest remaining
+ * test: all 27 mwccarm builds, and none is closer.  Every 2.0 line and 3.0/136_patched and
+ * 3.0/patch4 come out 28 off, 3.0/136 will not compile this source at all, and every dsi
+ * build produces 336 bytes instead of 332.  So the compiler version is not the variable
+ * here either, and that avenue is now closed rather than merely untried.
+ *
+ * This is the callee-saved-permutation class with singles, doubles and builds all
+ * exhausted.  Do not re-run any of them; what it needs is an idea nobody has had yet.
  */
 extern void func_ov022_020ad44c(void *out, char *self);
 extern int func_ov022_020a23a4(char *self, int kind, void *a, void *b);
