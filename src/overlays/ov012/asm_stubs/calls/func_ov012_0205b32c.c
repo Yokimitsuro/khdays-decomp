@@ -1,6 +1,6 @@
-extern void GXS_LoadBG3Scr(void);
-extern void GXS_LoadBG3Scr_0x020074cc(void);
-extern void GXS_LoadBG3Scr_0x0200758c(void);
+extern void GX_LoadBG0Scr(void);
+extern void GX_LoadBG1Scr(void);
+extern void GX_LoadBG2Scr(void);
 
 asm void func_ov012_0205b32c(void)
 {
@@ -21,17 +21,17 @@ asm void func_ov012_0205b32c(void)
     dcd     0xe5902008
     dcd     0xe280000c
     dcd     0xe3a01000
-    bl      GXS_LoadBG3Scr
+    bl      GX_LoadBG0Scr
     dcd     0xea000008
     dcd     0xe5902008
     dcd     0xe280000c
     dcd     0xe3a01000
-    bl      GXS_LoadBG3Scr_0x020074cc
+    bl      GX_LoadBG1Scr
     dcd     0xea000003
     dcd     0xe5902008
     dcd     0xe280000c
     dcd     0xe3a01000
-    bl      GXS_LoadBG3Scr_0x0200758c
+    bl      GX_LoadBG2Scr
     mov r0, #1
     dcd     0xe8bd8008
 }

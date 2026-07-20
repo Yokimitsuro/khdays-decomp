@@ -5,7 +5,7 @@
  * (heap[2], set up by func_ov000_0204d72c) into BG3 character VRAM: load the file
  * (func_0201ef9c), resolve its data pointer (func_020119d4), flush the CPU cache
  * over it (DC_FlushRange), copy it to sub-BG3 char base 0x7000
- * (GXS_LoadBG3Char_0x020077cc), then free the transient load handle. */
+ * (GX_LoadBG1Char), then free the transient load handle. */
 
 typedef void *StateFn;
 
@@ -15,7 +15,7 @@ extern void  func_02024b04(int id, void *player, int, int);
 extern void *func_0201ef9c(unsigned int addr, int mode);
 extern void  func_020119d4(void *handle, void **out);
 extern void  DC_FlushRange(void *addr, int len);
-extern void  GXS_LoadBG3Char_0x020077cc(void *src, int offset, int size);
+extern void  GX_LoadBG1Char(void *src, int offset, int size);
 extern void  NNSi_FndFreeFromDefaultHeap(void *handle);
 extern void  func_0201e374(int brightness);
 extern void  func_0201e3cc(int brightness);
@@ -32,7 +32,7 @@ StateFn func_ov000_0204de30(void) {
             void *handle = func_0201ef9c(((h[2] + 0x8000 & 0xfffffc) << 7) | 0x80000000, 0xe);
             func_020119d4(handle, &res);
             DC_FlushRange(*(void **)((char *)res + 0x14), *(int *)((char *)res + 0x10));
-            GXS_LoadBG3Char_0x020077cc(*(void **)((char *)res + 0x14), 0x7000, *(int *)((char *)res + 0x10));
+            GX_LoadBG1Char(*(void **)((char *)res + 0x14), 0x7000, *(int *)((char *)res + 0x10));
             if (handle != 0) {
                 NNSi_FndFreeFromDefaultHeap(handle);
             }

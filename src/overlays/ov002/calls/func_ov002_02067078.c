@@ -12,8 +12,8 @@ extern int func_02011a20(int block, void *out);
 extern int func_02011988(int block, void *out);
 extern int func_02011a6c(int block, void *out);
 extern void GXS_LoadBGPltt(void *src, int offset, unsigned int size);
-extern void GXS_LoadBG3Char_0x020079ac(void *src, int offset, unsigned int size);
-extern void GXS_LoadBG3Scr_0x020076ac(void *src, int offset, unsigned int size);
+extern void GXS_LoadBG3Char(void *src, int offset, unsigned int size);
+extern void GXS_LoadBG3Scr(void *src, int offset, unsigned int size);
 extern void func_0202552c(int arc);
 extern void func_ov002_02052af4(int page, int a);
 extern void func_ov002_020637d4(int arg, int a);
@@ -31,8 +31,8 @@ void func_ov002_02067078(int page) {
     func_02011a6c(func_020255d4(arc, 6, 0), &scr);
 
     GXS_LoadBGPltt((void *)pltt[3], 0, pltt[2]);
-    GXS_LoadBG3Char_0x020079ac((void *)chr[5], 0, chr[4]);
-    GXS_LoadBG3Scr_0x020076ac((char *)scr + 0xc, 0, scr[2]);
+    GXS_LoadBG3Char((void *)chr[5], 0, chr[4]);
+    GXS_LoadBG3Scr((char *)scr + 0xc, 0, scr[2]);
 
     func_0202552c(arc);
     func_ov002_02052af4(page, 1);

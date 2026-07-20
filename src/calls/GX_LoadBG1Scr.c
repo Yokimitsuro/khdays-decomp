@@ -5,7 +5,7 @@
  * differ only in which G2/G2S pointer getter they call.
  *
  * The C symbol keeps the index's name for delinking, but THAT NAME IS WRONG: the SDK identifier
- * shape-matched all 8 to "GXS_LoadBG3Scr". The getter is what identifies it -- G2_* is the main engine,
+ * shape-matched all 8 to "GX_LoadBG0Scr". The getter is what identifies it -- G2_* is the main engine,
  * G2S_* the sub engine, and the BGn in the getter is the real BG number. Ghidra carries the
  * correct name (GX_LoadBG1Scr). */
 extern void *G2_GetBG1ScrPtr(void);
@@ -13,7 +13,7 @@ extern void MI_DmaCopy16(int dmaNo, const void *src, void *dst, unsigned int siz
 extern void MIi_CpuCopy16(const void *src, void *dst, unsigned int size);
 extern int data_020422b8;
 
-void GXS_LoadBG3Scr_0x020074cc(const void *src, unsigned int offset, unsigned int size) {
+void GX_LoadBG1Scr(const void *src, unsigned int offset, unsigned int size) {
     unsigned char *base = (unsigned char *)G2_GetBG1ScrPtr();
 
     if (data_020422b8 != -1 && size > 0x1c) {
