@@ -1,5 +1,5 @@
-/* func_ov010_0204cb3c — title-screen / 2D-engine setup (580B). PROVEN lookahead
- * register-allocation tie → belongs in nonmatching/. The reconstruction is CORRECT:
+/* func_ov010_0204cb3c ? title-screen / 2D-engine setup (580B). PROVEN lookahead
+ * register-allocation tie ? belongs in nonmatching/. The reconstruction is CORRECT:
  * the first ~0x180 bytes are byte-exact and all 24 relocs align. The remaining diff
  * is a back-half callee-saved allocation cascade: mwcc lookahead-holds the sub-engine
  * address 0x04001000 in r6 (computed in the first DISPCNT block, reused in the second),
@@ -9,29 +9,29 @@
  * 3.0/136) and 8 source forms (zero-unify / separate-ptr / direct-const / sub-var /
  * flag-early / decl-reorder). Same unsteerable class as func_ov010_0204cac0. See memory
  * reference_mwcc136_unlock. NOTE: func_0202f7fc takes 2 args here (leftover r2/r3 at the
- * call site) — passing more forces a callee-saved hold + extra mov.
+ * call site) ? passing more forces a callee-saved hold + extra mov.
  */
 extern int NNSi_FndGetCurrentRootHeap(void);
-extern int func_02023650(void);
+extern int OS_IsThreadAvailable_0x02023650(void);
 extern void func_0202362c(int a);
 extern void func_0201e1d0(void);
 extern void func_02023c30(int a);
-extern void func_020058bc(int a);
-extern void func_02006128(int a);
-extern void func_02005b4c(int a);
-extern void func_020061d0(int a);
-extern void *func_02006810(void);
-extern void func_01ff8740(int a, void *b, int n);
-extern void func_02007154(void *p, int a, int b);
+extern void GX_SetBankForBG(int a);
+extern void GX_SetBankForSubBG(int a);
+extern void GX_SetBankForOBJ(int a);
+extern void GX_SetBankForSubOBJ(int a);
+extern void *G2_GetBG3ScrPtr(void);
+extern void MIi_CpuClearFast(int a, void *b, int n);
+extern void GX_LoadBGPltt(void *p, int a, int b);
 extern void func_ov010_0204cac0(int handle, char *name);
 extern int *func_ov010_0204cb04(int heap, int flag);
 extern void func_0202f7fc(int *p, char *name);
 extern void func_0202f834(unsigned int *p, int a, unsigned int q, unsigned short *rect);
 extern void func_0201e374(int a);
 extern void func_0201e3cc(int a);
-extern unsigned short data_0204cf88[];
-extern char data_0204cfb4[];
-extern char data_0204cfc8[];
+extern unsigned short data_ov010_0204cf88[];
+extern char data_ov010_0204cfb4[];
+extern char data_ov010_0204cfc8[];
 extern void func_ov010_0204ce60(void);
 
 struct Frame {
@@ -49,9 +49,9 @@ void *func_ov010_0204cb3c(unsigned int param) {
     int *node;
 
     heap = (unsigned int *)NNSi_FndGetCurrentRootHeap();
-    f.v26 = data_0204cf88[1];
-    f.v28 = data_0204cf88[0];
-    iVar4 = func_02023650();
+    f.v26 = data_ov010_0204cf88[1];
+    f.v28 = data_ov010_0204cf88[0];
+    iVar4 = OS_IsThreadAvailable_0x02023650();
     func_0202362c(0);
     {
         volatile unsigned short *pal = (volatile unsigned short *)0x05000000;
@@ -69,10 +69,10 @@ void *func_ov010_0204cb3c(unsigned int param) {
         reg[0] &= 0xc7ffffff;
         reg[0] &= 0xf8ffffff;
     }
-    func_020058bc(3);
-    func_02006128(4);
-    func_02005b4c(0x70);
-    func_020061d0(8);
+    GX_SetBankForBG(3);
+    GX_SetBankForSubBG(4);
+    GX_SetBankForOBJ(0x70);
+    GX_SetBankForSubOBJ(8);
     {
         volatile unsigned short *bg = (volatile unsigned short *)0x04000008;
         bg[0] = bg[0] & ~3 | 3;
@@ -81,19 +81,19 @@ void *func_ov010_0204cb3c(unsigned int param) {
         bg[3] = bg[3] & ~3;
         bg[0x17e] |= 0x8000;
     }
-    buf = func_02006810();
-    func_01ff8740(0, buf, 0x600);
+    buf = G2_GetBG3ScrPtr();
+    MIi_CpuClearFast(0, buf, 0x600);
     u8 = *(volatile unsigned short *)0x0400000e & 0x43 | 0x304;
     *(volatile unsigned short *)0x0400000e = (unsigned short)u8;
-    func_02007154(&f, 0, 4);
-    func_ov010_0204cac0((int)heap, data_0204cfb4);
+    GX_LoadBGPltt(&f, 0, 4);
+    func_ov010_0204cac0((int)heap, data_ov010_0204cfb4);
     if (param == 0xffffffff) {
         node = func_ov010_0204cb04((int)heap, 1);
     } else {
         node = func_ov010_0204cb04((int)heap, 0);
     }
     heap[0x1d] = (unsigned int)node;
-    func_0202f7fc((int *)(heap + 3), data_0204cfc8);
+    func_0202f7fc((int *)(heap + 3), data_ov010_0204cfc8);
     f.rect[2] = 0x20;
     f.rect[3] = 0x18;
     f.rect[0] = 0;
