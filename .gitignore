@@ -86,6 +86,8 @@ __pycache__/
 # NO deben subirse -- son locales y efimeros (se llegaron a colar 3.393 ficheros el 2026-07-19).
 /build/try/
 /build/sweep/
+/build/dme/
+/build/poolexp/
 
 # Scratch de renombrados (local, regenerable)
 /build/_switch_rename.txt
