@@ -181,7 +181,9 @@ def main():
            "typedef signed int s32;    typedef unsigned int u32;",
            "typedef signed long long s64; typedef unsigned long long u64;"]
     for o in pool:
-        sym = relocs[o]
+        sym = relocs.get(o)
+        if sym is None:
+            continue          # constante literal en el pool: no hay simbolo que declarar
         ctx.append("extern %s;" % ("void %s()" % sym if sym.startswith("func_")
                                    else "char %s[]" % sym))
     # Todo reloc dentro del codigo es un destino de llamada y necesita su extern. NO filtrar
