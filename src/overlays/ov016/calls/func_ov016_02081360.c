@@ -21,24 +21,33 @@ typedef struct {
     int nField04;            /* +0x04 */
     unsigned char bField08;   /* +0x08 */
     char pad09[3];
-} Ov017EmitParams;          /* 0xc */
+    int nField0c;            /* +0x0c */
+    int nField10;            /* +0x10 */
+    int nField14;            /* +0x14 */
+    unsigned char bField18;   /* +0x18 */
+    char pad19[3];
+} Ov016EmitParams;          /* 0x1c */
 
 extern int func_02021948(void *self, void *desc);
 extern int func_02021980(void *self, void *desc);
 extern int func_02021994(void *self, void *desc);
-extern int func_ov017_02080938(unsigned short id, Ov017EmitParams *params);
+extern int func_ov016_02081f64(unsigned short id, Ov016EmitParams *params);
 extern void func_ov002_0207643c(int target, int value);
 
-int func_ov017_02080cb4(void *self, char *descs) {
-    Ov017EmitParams params;
+int func_ov016_02081360(void *self, char *descs) {
+    Ov016EmitParams params;
     int target;
     int id;
 
     params.nField00 = func_02021948(self, descs + 0x10);
     params.nField04 = func_02021994(self, descs + 0x18);
     params.bField08 = func_02021980(self, descs + 0x20);
+    params.nField0c = func_02021994(self, descs + 0x28);
+    params.nField10 = func_02021994(self, descs + 0x30);
+    params.nField14 = func_02021994(self, descs + 0x38);
+    params.bField18 = func_02021980(self, descs + 0x40);
     target = func_02021980(self, descs);
     id = func_02021980(self, descs + 0x8);
-    func_ov002_0207643c(target, func_ov017_02080938((unsigned short)id, &params));
+    func_ov002_0207643c(target, func_ov016_02081f64((unsigned short)id, &params));
     return 1;
 }
