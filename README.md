@@ -22,11 +22,11 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **14,305** / ~23,240 (~61.6% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **1,533,128** / 4,728,790 (~32.42% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. Counts byte-exact C only: `asm_stubs/` and `nonmatching/` are both excluded. |
+| Real C-decompiled matched functions | **14,330** / ~23,240 (~61.7% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **1,535,530** / 4,728,790 (~32.47% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. Counts byte-exact C only: `asm_stubs/` and `nonmatching/` are both excluded. |
 | Inline ASM / ASM stub matched functions | **2,304** / ~23,240 (~9.9%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
-| SDK/library byte-match identifications | **364** / ~23,240 (~1.6%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **6,267** / ~23,240 (~27.0%) | Functions known to the project but not implemented as C |
+| SDK/library byte-match identifications | **351** / ~23,240 (~1.5%) | NitroSDK or library functions identified separately by byte matching |
+| Named but not decompiled | **6,255** / ~23,240 (~26.9%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | Fully-decompiled modules: `ov001`, `ov028`, `ov290`, `ov300`, `ov302`. A few precompiled-middleware translation units (e.g. the `ov028` anti-tamper crypto core) build with an older `mwccarm` via a per-file compiler override (`config/arm9/file_compilers.json`). |
