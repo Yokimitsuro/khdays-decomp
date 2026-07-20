@@ -15,10 +15,17 @@
  *   handle resolved at the top.
  *
  * SOLVED, do not redo:
- *  - the two `orr rN, rN, #0` sequences are REAL and worth 16 bytes.  Plain `x |= 0` is
- *    folded away; `*(volatile int *)x |= 0` keeps the read-modify-write.  Whatever the
- *    source said, it forced the compiler to emit a no-op OR, so this is presumably a macro
- *    or bitfield helper instantiated with a zero mask.
+ *  - the two `orr rN, rN, #0` sequences are REAL.  ** CORRECTED 2026-07-20: volatile does
+ *    NOT emit the orr. **  It brings back the LOAD and the STORE, which is the +16 measured
+ *    here (4 bytes x 2 per site), but mwcc still folds the `| 0` itself.  Five spellings
+ *    were measured on the sibling func_ov033_020b3970, which has the identical block: plain
+ *    `|= 0`, volatile `|= 0`, explicit `*p = *p | 0`, the same through a volatile pointer
+ *    local, and reading into a plain int first.  None emits the orr.
+ *    The ROM PAIRS the no-op OR with a separate base register (`add r0, r5, #0x64` then
+ *    `[r0, #0x404]`, where the folded offset 0x468 would be perfectly encodable), and it
+ *    does so at both sites here and again in ov033.  One construct probably produces both
+ *    -- most likely a macro or inline helper taking a base pointer and a mask that is zero
+ *    at these call sites.  That is the single open question for both functions.
  *  - the 0x31 dispatch is a JUMP-TO shape (`cmp #0x31 ; beq <block>` with the other path
  *    falling through), which needs the inverted spelling `if (x != 0x31) { other } else
  *    { this }`.  Same lever as func_ov046_020b3770 in this overlay.
