@@ -19,9 +19,22 @@
  * `(*p)-- == 1` (that one goes +2 bytes).
  *
  * Same class as func_ov010_0204cac0 and func_ov107_020c9a10: the compiler picks
- * the tight colouring, the ROM spent a spare register, and no source form found
- * so far moves it.  Three instances in one day suggests the lever, if it exists,
- * is one idiom rather than three separate ones.
+ * the tight colouring, the ROM spent a spare register.
+ *
+ * ★ DIAGNOSTIC, from searching the matched corpus for this exact instruction
+ * shape (six functions produce it).  `subs rN, rM, #1` with N != M means THE
+ * PRE-DECREMENT VALUE IS STILL LIVE.  The clean example is func_02034730:
+ *       int iv = index - 1;      ...      *(rec + 0x14) = index;
+ * `index` is read again after the subtract, so mwcc must put `iv` somewhere
+ * else.  (Beware the false positives: several of the six are `subs r2, r1, #1`
+ * with r1 = 0, which is just how mwcc materialises -1 when a zero is already in
+ * a register -- not a decrement at all.)
+ *
+ * So the question for whoever picks this up is NOT "how do I force r2", it is
+ * "what later use of the pre-decrement counter am I missing?".  In this
+ * function nothing appears to read it again, which is why the park stands -- but
+ * that is a claim about my reading of the tail, and it is the thing to re-check
+ * first.
  */
 /* Script VM command: interpolate a value on an actor over a countdown.
  * Operands live at fixed offsets in the command: +0 actor id, +0x08 and +0x10
