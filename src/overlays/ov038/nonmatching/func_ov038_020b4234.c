@@ -45,7 +45,7 @@
  * of functions filed under exactly that label. What it needs is a fresh idea, not another
  * pass over these axes.
  */
-extern void func_02014dc4(void *p);
+extern void func_02014dc4(void *base, int item);
 extern void func_0202accc(void *p, unsigned short i, int a, short m);
 extern void func_01fff774(void *p, unsigned short i, int z);
 
@@ -62,7 +62,7 @@ void func_ov038_020b4234(int p0, int *self, int mode) {
     m = (short)mode;
     for (i = 0; i < 5; i++) {
         if (self[i + 4] != 0) {
-            func_02014dc4((char *)self + 0x24);
+            func_02014dc4((char *)self + 0x24, self[i + 4]);
             self[i + 4] = 0;
         }
         func_0202accc((char *)self + 4, (unsigned short)i, self[0x43], m);
