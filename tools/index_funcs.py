@@ -78,7 +78,9 @@ print("  thumb: %d  arm: %d  (mode from symbols.txt for %d of them)" %
 # --- deduplicacion: clave = bytes + relocs (idem comportamiento) ---
 groups = defaultdict(list)
 for name, d in index.items():
-    key = d["hex"] + "|" + "|".join("%d:%s" % r for r in d["relocs"])
+    # relocs son LISTAS [off, sym] (vienen de JSON), no tuplas: "%d:%s" % r
+    # las desempaqueta mal y revienta con TypeError. Indexar explicitamente.
+    key = d["hex"] + "|" + "|".join("%d:%s" % (r[0], r[1]) for r in d["relocs"])
     groups[key].append(name)
 dups = {k: v for k, v in groups.items() if len(v) > 1}
 total_dup_funcs = sum(len(v) for v in dups.values())
