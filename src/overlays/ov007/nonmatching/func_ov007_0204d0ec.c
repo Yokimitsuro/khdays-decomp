@@ -16,6 +16,19 @@
  *     ov032/ov052/ov072 family the same day).  Same diff at 0x34.  Kept below anyway
  *     because it is far better C for the port.
  *
+ * Retried 2026-07-20 (asked directly whether ov007 can be closed).  Eight more axes, all
+ * still 8 differing bytes at 0x34:
+ *   declaration order of `ret` and `frame` swapped; all locals declared then assigned
+ *   separately; the `frame` local dropped entirely and root->frame read twice; the else
+ *   branch's two statements swapped (re-confirming the earlier note); BOTH branches'
+ *   statements swapped together; volatile on the else branch's store; volatile on every
+ *   store of that field; and the field itself declared volatile in the struct.
+ * The pool layout is IDENTICAL between ROM and ours -- both handlers land at 0x74 and 0x7c
+ * -- so this really is only the two predicated instructions, not a knock-on effect.
+ * Note the ROM is INCONSISTENT: the B-button block emits load-then-store and the empty-line
+ * block store-then-load, from what must be the same source shape.  Whatever picks the order
+ * is not statement order, not volatility, and not the live ranges of these locals.
+ *
  * An earlier note claimed "no mwcc generation matches (verify_sweep)".  Treat that as a
  * prior, not a verdict: 14k functions match byte-exactly with this exact compiler, so a
  * build difference is the least likely explanation, not the first.
