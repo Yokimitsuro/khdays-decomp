@@ -13,6 +13,12 @@
  * EMPATE: 13 bytes, un bloque entero desplazado UN registro (ROM r1/r2, mwcc r0/r1). El resto
  * de las 125 instrucciones casa exactamente.
  *
+ * Retried 2026-07-20: the zero written to the six accumulator words is the value the ROM
+ * puts in r1 and we put in r0, and everything downstream shifts with it.  Hoisting it into
+ * a local, both plain and `register`, changes nothing -- consistent with the limit recorded
+ * in codegen-cracks.md, that `register` steers whether a value is kept in a register and not
+ * which one it lands in.  This is the callee-saved-permutation class.
+ *
  * Cuatro arreglos que SI eran reales y quedan anotados porque valen para toda la familia:
  *   - Orden de las dos Vec3 de pila: la ultima declarada va al offset MAS BAJO.
  *   - La asignacion del campo de bits NO lleva `& 1` (el ROM enmascara con 0xff, o sea el ancho
