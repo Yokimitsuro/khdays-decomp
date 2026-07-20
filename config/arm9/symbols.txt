@@ -2328,7 +2328,7 @@ data_0204bda8 kind:bss addr:0x0204bda8
 data_0204bdbc kind:bss addr:0x0204bdbc
 data_0204be04 kind:bss addr:0x0204be04
 data_0204be08 kind:bss addr:0x0204be08
-data_0204be08_alias kind:bss addr:0x0204be08
+data_0204be08_params kind:bss addr:0x0204be08
 data_0204be0a kind:bss addr:0x0204be0a
 data_0204be10 kind:bss addr:0x0204be10
 data_0204be14 kind:bss addr:0x0204be14
