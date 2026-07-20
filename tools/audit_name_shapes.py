@@ -14,6 +14,12 @@ relocations and therefore identical in size; an outlier is a misnamed function.
 Found func_ov166_020cc624 (312 bytes) sitting among ten 72-byte members of the
 c5c0 spawn family, from the 2026-07-18 batch.  That was the batch's only bad row.
 
+Only SHAPE families are checked.  A stem whose majority members are not themselves
+byte-identical is a semantic name -- MarshalFxAndDispatch covers seven functions in
+four sizes -- and varying sizes under one of those means nothing.  Requiring the
+majority to be a real family is what separates the one true hit from three false
+ones; without it this check cries wolf and gets ignored.
+
 Usage:
     python tools/audit_name_shapes.py                     # audit ~/ghidra_scripts
     python tools/audit_name_shapes.py <script.py> [...]   # audit specific tables
@@ -72,6 +78,11 @@ def main(argv):
         if len(sizes) == 1:
             continue
         majority, count = sizes.most_common(1)[0]
+        if count * 2 <= len(members):
+            continue                      # no majority: a semantic name, not a family
+        shapes = set(shape for _, _, size, shape in members if size == majority)
+        if len(shapes) != 1:
+            continue                      # majority is not byte-identical either
         for script, key, size, _ in members:
             if size != majority:
                 suspects += 1
