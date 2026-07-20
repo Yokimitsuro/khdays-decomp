@@ -75,11 +75,29 @@ def main():
     hits = []
     for p in sorted(parked):
         s = read(p)
+        # what this file actually PASSES, which is the claim that matters when the
+        # declaration makes none
+        calls = collections.defaultdict(collections.Counter)
+        for m in CALL_RE.finditer(s):
+            if 'extern' in s[max(0, m.start() - 80):m.start()]:
+                continue
+            calls[m.group(1)][argcount(m.group(2))] += 1
+
         bad = []
         for m in EXTERN_RE.finditer(s):
             name, args = m.group(1), m.group(2)
-            if args.strip() in ('', 'void'):
-                continue          # K&R / void decls carry no arity claim
+            if args.strip() == '':
+                # `extern int f();` is not a declaration, it is the absence of one: it
+                # disables the very check that catches a dropped argument, so the calls
+                # below it compile silently at any count.  Judge them directly.
+                seen = used.get(name)
+                for mine, n in sorted(calls.get(name, {}).items()):
+                    if seen and mine not in seen:
+                        bad.append('%s: NO PROTOTYPE, called with %d (x%d), tree ONLY uses %s'
+                                   % (name, mine, n, dict(seen)))
+                continue
+            if args.strip() == 'void':
+                continue          # an explicit (void) is a real claim of zero
             mine = argcount(args)
             seen = used.get(name)
             if not seen:

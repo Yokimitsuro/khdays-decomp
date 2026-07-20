@@ -33,6 +33,19 @@
  * this the known arg-setup-order / scheduling tie class, not something the C can steer: no
  * ordering of the statements changes which registers are free at that point.
  *
+ * Retried 2026-07-20 after a run of parks that turned out to be untested axes rather
+ * than ties.  This one held.  Additionally ruled out, all still 0xbc:
+ *   - hoisting the 0 and the 0x400 into locals declared before the conversions (the
+ *     lever that fixed the 96-byte Tally family, and the ROM's own early `mov r6,#0`
+ *     made it look promising);
+ *   - a second index local for the second conversion, and an `action` local for the
+ *     c634 argument;
+ *   - a local for the callback pointer (+4 bytes, worse);
+ *   - propagating c634's return value out of this function, i.e. checklist item 5.
+ *     Several externs in the tree declare func_0203c634 as returning int, so this was
+ *     a real candidate; it costs 4 bytes and does not move 0xbc.
+ * Arity of func_0203c634 re-confirmed as 3 from matched call sites.
+ *
  * Everything else here is confirmed and reusable -- the maths is byte-exact (it is the same
  * conversion that matched outright in func_ov228_020d01e8). Retry only under a different mwcc
  * build; do not re-derive the constants or re-litigate the double conversion. */
