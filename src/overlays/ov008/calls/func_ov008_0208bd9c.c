@@ -28,26 +28,26 @@ extern void CARD_UnlockBackup(unsigned short lockId);
 extern void func_0200e164(unsigned short lockId);
 extern void func_02020904(void);
 extern void func_020208f0(void);
-extern int func_ov025_020b0894(int a, void *buf, int size);
+extern int func_ov008_0208b930(int a, void *buf, int size);
 extern long long func_020031d4(void);
 extern int func_02020368(long long value, int divisor, int c);
 extern void MATH_CalcSHA1(void *digest, const void *data, int len);
-extern void func_ov025_020b09d4(int a, int b, int c);
+extern void func_ov008_0208ba70(int a, int b, int c);
 
 extern unsigned short data_0204be10;
 extern long long data_0204be1c;
 extern int *data_0204be18;
 extern char *data_0204be14;
-extern CardTransferCtx data_ov025_020b5760;
+extern CardTransferCtx data_ov008_02090fb4;
 
-int func_ov025_020b0d00(int slot) {
+int func_ov008_0208bd9c(int slot) {
     int probe;
     int *pCounter;
     long long elapsed;
 
     CARD_UnlockBackup(data_0204be10);
     func_02020904();
-    if (func_ov025_020b0894(0, &probe, 1) != 0) {
+    if (func_ov008_0208b930(0, &probe, 1) != 0) {
         func_0200e164(data_0204be10);
         func_020208f0();
         return 0;
@@ -57,9 +57,9 @@ int func_ov025_020b0d00(int slot) {
     *pCounter += func_02020368(elapsed << 6, 0x1ff6210, 0);
     MATH_CalcSHA1(data_0204be14 + 4, data_0204be14 + 0x18, 0x1cac);
     *(int *)data_0204be14 = 0xc8f592a6;
-    data_ov025_020b5760.blockCounter = 0;
-    data_ov025_020b5760.slot = slot;
-    func_ov025_020b09d4((data_ov025_020b5760.slot << 1) * 0x2018 + 0x20,
+    data_ov008_02090fb4.blockCounter = 0;
+    data_ov008_02090fb4.slot = slot;
+    func_ov008_0208ba70((data_ov008_02090fb4.slot << 1) * 0x2018 + 0x20,
                         (int)data_0204be14, 0x2018);
     return 1;
 }

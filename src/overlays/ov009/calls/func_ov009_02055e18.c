@@ -1,7 +1,7 @@
 /* Commit the pending save: stamp the play-time counter, sign the work buffer with
  * SHA-1, write the magic, and queue the backup write for the chosen slot.
  *
- * Byte-identical twin of the other (ov009 / ov025) -- same code, differing only
+ * Byte-identical triplet across ov008, ov009 and ov025 -- same code, differing only
  * in the two overlay-local callees and the CardTransferCtx global.
  *
  * Three orderings the ROM forces, all of them the "mwcc puts an operation where
