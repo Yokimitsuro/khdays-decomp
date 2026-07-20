@@ -291,19 +291,19 @@ def main():
           "print('named=%d missing=%d err=%d'%(ok,len(miss),len(err)))",
           "print('MISS='+str(miss[:20]))",
           "print('ERR='+str(err[:20]))",
-          # A leaked transaction makes every later Save fail; close ours the documented way.
-          "ti=p.getCurrentTransactionInfo()",
-          "if ti is not None:",
-          "    lf=ti.getClass().getDeclaredField('list'); lf.setAccessible(True); Ls=lf.get(ti)",
-          "    bf=ti.getClass().getDeclaredField('baseId'); bf.setAccessible(True); base=bf.get(ti)",
-          "    for i in range(Ls.size()):",
-          "        e=Ls.get(i); s=e.getClass().getDeclaredField('status'); s.setAccessible(True)",
-          "        if str(s.get(e))=='NOT_DONE':",
-          "            try: p.endTransaction(base+i,True)",
-          "            except: pass",
-          "try: p.getDomainFile().save(monitor); print('SAVED_OK')",
-          "except:",
-          "    import sys; print('SAVE_FAIL '+str(sys.exc_info()[1]))"]
+          # CLEAN PATTERN: drain the analysis this script queued, then STOP.
+          # Do NOT force-close transactions and do NOT save from inside: closing
+          # our own transaction is what leaves queued background analysis with
+          # none, which pops "No transaction is open" (BackgroundCommandTask) at
+          # the user long after the script reports success. Save with a separate
+          # save_program call. See references/tools.md.
+          "try:",
+          "    from ghidra.app.plugin.core.analysis import AutoAnalysisManager",
+          "    AutoAnalysisManager.getAnalysisManager(p).startAnalysis(monitor)",
+          "    print('drained')",
+          "except Exception, e:",
+          "    print('drain failed: %s' % e)",
+          "print('isChanged=%s -- save with a separate save_program call' % p.isChanged())"]
     gsdir = os.environ.get('GHIDRA_SCRIPTS_DIR', os.path.expanduser('~/ghidra_scripts'))
     if not os.path.isdir(gsdir):
         os.makedirs(gsdir)
