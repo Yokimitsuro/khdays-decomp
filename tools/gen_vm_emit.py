@@ -67,10 +67,14 @@ def analyse(name):
                     ops.append((pending[0], pending[1], None, None))
                     pending = None
                 ops.append(("CALL", sym, None, None))
-        elif pending is not None and i.mnemonic in ("str", "strb"):
+        elif pending is not None and i.mnemonic in ("str", "strb", "strh"):
             m2 = re.match(r"^r0, \[(sp|r1), #(0x[0-9a-f]+|\d+)\]$", i.op_str)
             off = int(m2.group(2), 0) if m2 else 0
-            ops.append((pending[0], pending[1], off, 1 if i.mnemonic == "strb" else 4))
+            # strb/strh/str are 1/2/4 -- an earlier version treated everything
+            # that was not strb as a word, so halfword slots silently became ints
+            # and every field after them shifted.
+            w = {"strb": 1, "strh": 2}.get(i.mnemonic, 4)
+            ops.append((pending[0], pending[1], off, w))
             pending = None
         elif pending is not None and i.mnemonic == "str" and i.op_str == "r0, [sp]":
             ops.append((pending[0], pending[1], 0, 4))
@@ -101,6 +105,8 @@ def emit(name, e, frame, ops, rel):
             cur = off
         if w == 4:
             lines.append("    int nField%02x;            /* +0x%02x */" % (off, off))
+        elif w == 2:
+            lines.append("    short nField%02x;          /* +0x%02x */" % (off, off))
         else:
             lines.append("    unsigned char bField%02x;   /* +0x%02x */" % (off, off))
         cur += w
@@ -129,7 +135,7 @@ def emit(name, e, frame, ops, rel):
             seen_regs += 1
             body.append("    %s = %s(self, %s);" % (lhs, f, arg))
         else:
-            nm = ("nField%02x" if w == 4 else "bField%02x") % off
+            nm = ("nField%02x" if w in (2, 4) else "bField%02x") % off
             body.append("    params.%s = %s(self, %s);" % (nm, f, arg))
     # The ROM keeps the builder id as a full word and truncates AT THE USE
     # (lsls/lsrs immediately before the call). Declaring id as unsigned short

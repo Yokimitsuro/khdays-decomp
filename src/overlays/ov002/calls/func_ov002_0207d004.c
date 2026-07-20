@@ -17,34 +17,41 @@ typedef struct {
     short nField0e;          /* +0x0e */
     int nField10;            /* +0x10 */
     int nField14;            /* +0x14 */
-    int nField18;            /* +0x18 */
-    unsigned char bField1c;   /* +0x1c */
-    char pad1d[3];
-} Ov014EmitParams;          /* 0x20 */
+    short nField18;          /* +0x18 */
+    short nField1a;          /* +0x1a */
+    short nField1c;          /* +0x1c */
+    short nField1e;          /* +0x1e */
+    int nField20;            /* +0x20 */
+    int nField24;            /* +0x24 */
+} Ov002EmitParams;          /* 0x28 */
 
 extern int func_02021948(void *self, void *desc);
 extern int func_02021980(void *self, void *desc);
 extern int func_02021994(void *self, void *desc);
-extern int func_ov014_0207ffdc(unsigned short id, Ov014EmitParams *params);
+extern int func_ov002_020795b4(unsigned short id, Ov002EmitParams *params);
 extern void func_ov002_0207643c(int target, int value);
 
-int func_ov014_02080664(void *self, char *descs) {
-    Ov014EmitParams params;
+int func_ov002_0207d004(void *self, char *descs) {
+    Ov002EmitParams params;
     int target;
     int id;
 
     target = func_02021980(self, descs);
     id = func_02021980(self, descs + 0x8);
     params.nField00 = func_02021948(self, descs + 0x10);
-    params.nField04 = func_02021994(self, descs + 0x18);
-    params.bField08 = func_02021980(self, descs + 0x20);
-    params.nField0a = func_02021994(self, descs + 0x28);
-    params.nField0c = func_02021994(self, descs + 0x30);
-    params.nField0e = func_02021994(self, descs + 0x38);
-    params.nField10 = func_02021994(self, descs + 0x40);
-    params.bField1c = func_02021980(self, descs + 0x48);
-    params.nField14 = func_02021994(self, descs + 0x50);
-    params.nField18 = func_02021994(self, descs + 0x58);
-    func_ov002_0207643c(target, func_ov014_0207ffdc((unsigned short)id, &params));
+    params.nField20 = func_02021994(self, descs + 0x18);
+    params.nField24 = func_02021994(self, descs + 0x20);
+    params.nField1a = func_02021980(self, descs + 0x28);
+    params.nField1c = func_02021980(self, descs + 0x30);
+    params.nField1e = func_02021980(self, descs + 0x38);
+    params.nField04 = func_02021994(self, descs + 0x40);
+    params.bField08 = func_02021980(self, descs + 0x48);
+    params.nField0a = func_02021994(self, descs + 0x50);
+    params.nField0c = func_02021994(self, descs + 0x58);
+    params.nField0e = func_02021994(self, descs + 0x60);
+    params.nField10 = func_02021980(self, descs + 0x68);
+    params.nField14 = func_02021980(self, descs + 0x70);
+    params.nField18 = func_02021980(self, descs + 0x78);
+    func_ov002_0207643c(target, func_ov002_020795b4((unsigned short)id, &params));
     return 1;
 }
