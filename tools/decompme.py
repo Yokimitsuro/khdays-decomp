@@ -184,8 +184,11 @@ def main():
         sym = relocs[o]
         ctx.append("extern %s;" % ("void %s()" % sym if sym.startswith("func_")
                                    else "char %s[]" % sym))
+    # Todo reloc dentro del codigo es un destino de llamada y necesita su extern. NO filtrar
+    # por el prefijo `func_`: muchos callees llevan nombre de SDK (NNSi_*, OS_*, FS_*) y el
+    # scratch no compilaba por falta de esa declaracion.
     for o, sym in relocs.items():
-        if o < code_end and sym.startswith("func_"):
+        if o < code_end:
             ctx.append("extern void %s();" % sym)
     context = "\n".join(dict.fromkeys(ctx))
 
