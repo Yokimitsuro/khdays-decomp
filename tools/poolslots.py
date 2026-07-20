@@ -51,7 +51,13 @@ if __name__ == '__main__':
         print(']')
         print('TYPE="%s *"' % typ)
     else:
-        for space, a, fn in rows[:40]:
+        # --all prints every row.  The default truncates for readability, and that
+        # truncation has bitten once: a script scraping this stdout took 40 of 61
+        # slots and reported success, because a truncated list cannot tell its
+        # reader it was truncated.  ANY tool consuming this must pass --all.
+        limit = len(rows) if '--all' in sys.argv else 40
+        for space, a, fn in rows[:limit]:
             print('  %-12s %08x   %s' % (space or 'main', a, fn))
-        if len(rows) > 40:
-            print('  ... and %d more' % (len(rows) - 40))
+        if len(rows) > limit:
+            print('  ... and %d more (pass --all to list them; REQUIRED if you are scraping this)'
+                  % (len(rows) - limit))
