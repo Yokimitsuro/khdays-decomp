@@ -44,6 +44,20 @@
  * corpus contains no known-good C that produces this, which is a real negative
  * and worth having.
  *
+ * ⚠ THIS FILE NOW HOLDS FORM 5, the CLOSEST one -- not form 9, which is what it
+ * held until 2026-07-20 simply because it was the last one tried. A parked file
+ * must carry the best-known source, or the next person measures the wrong thing:
+ * a build sweep run against form 9 reported 52 bytes off for our compiler and 47
+ * for the dsi line, which says nothing about how close the function really is.
+ *
+ * BUILD SWEEP RUN 2026-07-20 against form 5, and it settles nothing -- read the
+ * number before trusting it. Every 2.0/* build plus 3.0_136_patched and
+ * 3.0_patch4 report "52 off", but that is a byte COUNT, and form 5 is one
+ * instruction short inside the loop, so everything after it shifts by two bytes
+ * and most of the function counts as differing. The 1.2 line is a genuine size
+ * miss (140-144). So: no build is closer, the compiler axis is closed, and the
+ * 52 is an artifact of the shift, not a measure of distance.
+ *
  * NEXT LEVER, still untried: the copy and the r2 placement are probably one
  * cause. Something must be keeping the counter live past its increment -- an
  * aliasing barrier, or the stored value being a second variable mwcc coalesces
@@ -51,11 +65,6 @@
  * `short`/`char` widened on store, or storing through a volatile destination).
  * Not build-swept: a nine-form search is not exhausted enough for a sweep to mean
  * anything, and the compiler is not the suspect for a single scratch copy. */
-typedef struct {
-    char _0[0x6c];
-    int nSlots[4];
-} Ov002Module;
-
 extern int data_ov002_0207fa20;
 extern int data_ov002_0207f468;
 
@@ -70,6 +79,7 @@ extern void func_ov002_020761d8(void);
 
 void *func_ov002_020760ec(void) {
     char *self = (char *)NNSi_FndGetCurrentRootHeap();
+    char *slot;
     int i;
 
     (&data_ov002_0207fa20)[1] = (int)self;
@@ -77,8 +87,10 @@ void *func_ov002_020760ec(void) {
     func_02030cf8(5, (void *)&func_ov002_0207605c);
 
     *(int *)(self + 0x64) = 0x1000;
+    slot = self;
     for (i = 0; i < 4; i++) {
-        ((Ov002Module *)self)->nSlots[i] = i;
+        *(int *)(slot + 0x6c) = i;
+        slot += 4;
     }
 
     func_ov002_0207682c();
