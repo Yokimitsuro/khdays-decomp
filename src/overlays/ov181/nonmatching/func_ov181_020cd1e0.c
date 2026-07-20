@@ -1,34 +1,52 @@
-/* func_ov181_020cd1e0 -- cabeza de una familia de 10 miembros (ov181..ov183 y compañia).
+/* func_ov181_020cd1e0 -- head of a 10-member family (ov181..ov183 and company).
  *
- * Semantica COMPLETA: pide al gestor el objetivo actual (func_ov107_020cab14, que devuelve el
- * nodo y escribe la distancia al cuadrado en la salida de pila). Si no hay objetivo, marca el
- * modo 2 en el byte 0x1c7 del propietario y termina el estado sin sucesor. Si lo hay: resta a
- * la raiz de la distancia los dos radios (campo 0x80 de objetivo y propietario), fija el
- * temporizador en +0x20 a `campo_0x2c * 30 / 20`, calcula el rumbo hacia el objetivo con
- * VEC_Subtract + func_020050b4, interpola la orientacion (func_0202f384 + func_01ffa724 con
- * peso 0x100) y, si el byte de bloqueo de +0xc esta libre, reafina al propietario (modo 3) y
- * encadena func_ov181_020cd300.
+ * FULL SEMANTICS: ask the manager for the current target (func_ov107_020cab14, which
+ * returns the node and writes the SQUARED distance to its stack out-parameter).  With no
+ * target, set mode 2 in the owner's byte at 0x1c7 and end the state with no successor.
+ * With one: subtract both radii (field 0x80 of target and of owner) from the square root
+ * of the distance, set the timer at +0x20 to `field_0x2c * 30 / 20`, take the bearing to
+ * the target with VEC_Subtract + func_020050b4, interpolate the orientation (func_0202f384
+ * + func_01ffa724 at weight 0x100) and, if the lock byte at +0xc is free, re-aim the owner
+ * (mode 3) and chain func_ov181_020cd300.
  *
- * EMPATE: DOS BYTES. El ROM usa r7 para `target` y r6 para `owner`; mwcc los reparte al reves.
- * Instruccion por instruccion identico en todo lo demas.
+ * TIE: TWO BYTES.  The ROM holds `target` in r7 and `owner` in r6; mwcc assigns them the
+ * other way round.  Instruction for instruction identical otherwise.
  *
- * Ejes agotados el 2026-07-19:
- *   - 120 permutaciones del orden de declaracion (las 5 locales): TODAS dan lo mismo. Aqui el
- *     crack de "orden de declaracion = orden de registros" NO aplica.
- *   - Formas del guard: probar `target == 0` vs `s[4] == 0`; definir target antes o despues del
- *     guard; el store como `s[4] = (int)(target = ...)`. Esto SI bajo de 5 a 2 bytes -- la forma
- *     buena es `s[4] = (int)func(...); target = (int *)s[4];`.
- *   - Quitar `owner` (mete 14 bytes), quitar `target`, meter los dos en un helper `inline`
- *     (77 bytes: el helper cambia el orden de evaluacion entero).
- *   - Unir `dist` y el Vec3 en una sola struct de pila: 2 bytes igual.
- *   - 12 combinaciones de tipo (int*/char*/void*/unsigned* para cada uno).
- *   - **Los 27 compiladores** (tools/allcc.py): todas las 2.0/3.0 y las dsi hasta 1.3p1 dan
- *     EXACTAMENTE 2; las dsi 1.6 dan 10. Ninguna acierta.
+ * Axes exhausted 2026-07-19:
+ *   - 120 permutations of the declaration order (all 5 locals): all identical.  The
+ *     "declaration order = register order" crack does NOT apply here.
+ *   - guard spellings: `target == 0` vs `s[4] == 0`; target defined before or after the
+ *     guard; the store as `s[4] = (int)(target = ...)`.  This DID come down from 5 bytes
+ *     to 2 -- the good form is `s[4] = (int)func(...); target = (int *)s[4];`.
+ *   - dropping `owner` (costs 14 bytes), dropping `target`, putting both in an `inline`
+ *     helper (77 bytes: the helper changes the whole evaluation order).
+ *   - merging `dist` and the Vec3 into one stack struct: still 2 bytes.
+ *   - 12 type combinations (int, char, void and unsigned pointers for each).
+ *   - ALL 27 COMPILERS (tools/allcc.py): every 2.0/3.0 and the dsi builds up to 1.3p1 give
+ *     EXACTLY 2; the dsi 1.6 builds give 10.  None is right.
  *
- * Lo que queda por probar, si alguien vuelve: que decide mwcc entre r6 y r7 para dos locales
- * vivas a la vez cuando el orden de definicion no manda. Aqui `owner` tiene 1 uso y `target` 2,
- * y el ROM le da el registro BAJO al de menos usos -- justo al reves que nuestra build. Si eso
- * se confirma en otra funcion, es una regla nueva y desbloquea esta familia entera.
+ * Added 2026-07-20, from applying the day's cracks to the 344 B sibling func_ov181_020cd300
+ * (same r6/r7 tie, 37 differing lines, unmoved by all of these):
+ *   - the split `field = f(...); local = field;` read-back that cracked func_ov141_020cce98;
+ *   - assigning `owner` BEFORE the call instead of after the guard (48 lines, worse);
+ *   - converting the locals to POINTER type with array indexing, i.e. the exact shape of
+ *     func_ov141_020cce98, which matches and has this same one-use/two-use pattern.
+ *   That last one is the interesting negative: the shape that matches in the small function
+ *   does not carry to the large one, so whatever picks r6/r7 is not the spelling of these
+ *   two locals.
+ *
+ * The open hypothesis is still worth testing: what decides mwcc between r6 and r7 for two
+ * locals live at once when definition order does not.  Here `owner` has 1 use and `target`
+ * 2, and the ROM gives the LOW register to the one with FEWER uses -- the opposite of our
+ * build.  Confirm that on another function and it is a new rule that unblocks this family.
+ *
+ * NOTE: this file did not COMPILE between 2026-07-19 and 2026-07-20.  The type-combination
+ * line above listed pointer types separated by slashes, and an "int-star-slash" sequence
+ * accidentally spelled a comment terminator, closing this block early and leaving the Vec3
+ * typedef below to be parsed as code.  A parked file that does not compile cannot be
+ * re-tested, which defeats the whole point of parking it with a write-up.  Verify a park
+ * still builds before committing it -- and mind that hazard when writing ABOUT pointer
+ * types inside a block comment, which is exactly how this note first reintroduced it.
  */
 typedef struct { int x, y, z; } Vec3;
 

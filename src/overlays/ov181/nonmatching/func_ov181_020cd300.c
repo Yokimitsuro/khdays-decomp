@@ -15,7 +15,20 @@
  * Ruled out for the r6/r7 swap:
  *  - ALL 120 permutations of the five local declarations (scripted).
  *  - `owner` scoped into a block at its point of use.
- *  - dropping `owner` entirely and inlining `*obj` (that one changes the push list). */
+ *  - dropping `owner` entirely and inlining `*obj` (that one changes the push list).
+ *
+ * Retried 2026-07-20 with the day's cracks; all three leave the 37 differing lines exactly
+ * where they were:
+ *  - the split read-back `obj[4] = f(...); target = obj[4];` that cracked
+ *    func_ov141_020cce98 (the chained form already here is equivalent for the `str r0`);
+ *  - assigning `owner` BEFORE the call rather than after the guard: 48 lines, worse;
+ *  - converting both locals to POINTER type with array indexing -- that is the exact shape
+ *    of func_ov141_020cce98, which MATCHES and has the same one-use/two-use pattern in the
+ *    same radius-subtraction idiom.
+ * That last negative is the informative one: the spelling that matches in the small sibling
+ * does not carry to this one, so whatever picks r6 vs r7 here is not the spelling of these
+ * two locals.  See func_ov181_020cd1e0's note for the fewer-uses-gets-the-low-register
+ * hypothesis, which is still the best open lead for this family. */
 extern int  func_ov107_020cab14(int obj, int *out);
 extern void func_0203c634(int self, int index, void *cb);
 extern int  FX_Sqrt(int x);
