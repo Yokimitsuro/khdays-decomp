@@ -2772,6 +2772,10 @@ src/auto/func_02022148.c:
     complete
     .text       start:0x02022148 end:0x0202214c
 
+src/auto/func_0202214c.c:
+    complete
+    .text       start:0x0202214c end:0x0202216a
+
 src/calls/func_0202216c.c:
     complete
     .text       start:0x0202216c end:0x0202219e
@@ -2996,6 +3000,10 @@ src/calls/func_02023768.c:
     complete
     .text       start:0x02023768 end:0x02023778
 
+src/calls/func_0202390c.c:
+    complete
+    .text       start:0x0202390c end:0x02023930
+
 src/calls/func_02023930.c:
     complete
     .text       start:0x02023930 end:0x02023960
@@ -3091,6 +3099,10 @@ src/calls/func_0202417c.c:
 src/auto/func_020241b0.c:
     complete
     .text       start:0x020241b0 end:0x020241f8
+
+src/calls/func_0202423c.c:
+    complete
+    .text       start:0x0202423c end:0x02024264
 
 src/calls/func_02024264.c:
     complete
@@ -4395,6 +4407,10 @@ src/calls/func_02033b24.c:
 src/calls/func_02033b78.c:
     complete
     .text       start:0x02033b78 end:0x02033bb4
+
+src/calls/func_02033bb4.c:
+    complete
+    .text       start:0x02033bb4 end:0x02033bd4
 
 src/calls/func_02033bd4.c:
     complete
