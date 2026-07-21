@@ -36,6 +36,14 @@ src/overlays/ov027/auto/func_ov027_02083164.c:
     complete
     .text       start:0x02083164 end:0x02083168
 
+src/overlays/ov027/calls/func_ov027_0208344c.c:
+    complete
+    .text       start:0x0208344c end:0x0208346c
+
+src/overlays/ov027/calls/func_ov027_02083c1c.c:
+    complete
+    .text       start:0x02083c1c end:0x02083c40
+
 src/overlays/ov027/calls/func_ov027_02083cb8.c:
     complete
     .text       start:0x02083cb8 end:0x02083ccc
