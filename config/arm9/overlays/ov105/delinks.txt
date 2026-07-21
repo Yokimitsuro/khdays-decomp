@@ -19,6 +19,10 @@ src/overlays/ov105/calls/func_ov105_020bd03c.c:
     complete
     .text       start:0x020bd03c end:0x020bd058
 
+src/overlays/ov105/calls/func_ov105_020bd058.c:
+    complete
+    .text       start:0x020bd058 end:0x020bd0a0
+
 src/overlays/ov105/calls/func_ov105_020bd4dc.c:
     complete
     .text       start:0x020bd4dc end:0x020bd4f8
@@ -43,9 +47,25 @@ src/overlays/ov105/calls/func_ov105_020bd7a4.c:
     complete
     .text       start:0x020bd7a4 end:0x020bd7c4
 
+src/overlays/ov105/calls/func_ov105_020bda5c.c:
+    complete
+    .text       start:0x020bda5c end:0x020bda94
+
+src/overlays/ov105/calls/func_ov105_020bda94.c:
+    complete
+    .text       start:0x020bda94 end:0x020bdad4
+
 src/overlays/ov105/calls/func_ov105_020bdc5c.c:
     complete
     .text       start:0x020bdc5c end:0x020bdc6c
+
+src/overlays/ov105/calls/func_ov105_020bdc6c.c:
+    complete
+    .text       start:0x020bdc6c end:0x020bdcac
+
+src/overlays/ov105/calls/func_ov105_020bdd98.c:
+    complete
+    .text       start:0x020bdd98 end:0x020bddd8
 
 src/overlays/ov105/calls/func_ov105_020be49c.c:
     complete
@@ -63,21 +83,57 @@ src/overlays/ov105/calls/func_ov105_020be56c.c:
     complete
     .text       start:0x020be56c end:0x020be5cc
 
+src/overlays/ov105/calls/func_ov105_020be5cc.c:
+    complete
+    .text       start:0x020be5cc end:0x020be604
+
 src/overlays/ov105/calls/func_ov105_020be850.c:
     complete
     .text       start:0x020be850 end:0x020be880
+
+src/overlays/ov105/calls/func_ov105_020be8b0.c:
+    complete
+    .text       start:0x020be8b0 end:0x020be8d8
+
+src/overlays/ov105/calls/func_ov105_020be8d8.c:
+    complete
+    .text       start:0x020be8d8 end:0x020be900
+
+src/overlays/ov105/calls/func_ov105_020beb98.c:
+    complete
+    .text       start:0x020beb98 end:0x020bebcc
+
+src/overlays/ov105/calls/func_ov105_020bebcc.c:
+    complete
+    .text       start:0x020bebcc end:0x020bebf4
 
 src/overlays/ov105/calls/func_ov105_020bec64.c:
     complete
     .text       start:0x020bec64 end:0x020becc4
 
+src/overlays/ov105/calls/func_ov105_020becc4.c:
+    complete
+    .text       start:0x020becc4 end:0x020becfc
+
 src/overlays/ov105/calls/func_ov105_020bef44.c:
     complete
     .text       start:0x020bef44 end:0x020bef74
 
+src/overlays/ov105/calls/func_ov105_020befe0.c:
+    complete
+    .text       start:0x020befe0 end:0x020bf008
+
 src/overlays/ov105/calls/func_ov105_020bf008.c:
     complete
     .text       start:0x020bf008 end:0x020bf038
+
+src/overlays/ov105/calls/func_ov105_020bf038.c:
+    complete
+    .text       start:0x020bf038 end:0x020bf070
+
+src/overlays/ov105/calls/func_ov105_020bf0e0.c:
+    complete
+    .text       start:0x020bf0e0 end:0x020bf120
 
 src/overlays/ov105/calls/func_ov105_020bf1e4.c:
     complete
@@ -107,6 +163,10 @@ src/overlays/ov105/calls/func_ov105_020bf480.c:
     complete
     .text       start:0x020bf480 end:0x020bf4a0
 
+src/overlays/ov105/calls/func_ov105_020bf4a0.c:
+    complete
+    .text       start:0x020bf4a0 end:0x020bf4cc
+
 src/overlays/ov105/calls/func_ov105_020bf64c.c:
     complete
     .text       start:0x020bf64c end:0x020bf66c
@@ -130,3 +190,7 @@ src/calls/WM_EndKeySharing_0x020bf900.c:
 src/overlays/ov105/calls/func_ov105_020bf90c.c:
     complete
     .text       start:0x020bf90c end:0x020bf928
+
+src/overlays/ov105/calls/func_ov105_020bf9c0.c:
+    complete
+    .text       start:0x020bf9c0 end:0x020bf9f4

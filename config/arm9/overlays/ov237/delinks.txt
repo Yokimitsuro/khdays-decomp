@@ -20,6 +20,10 @@ src/calls/WM_EndKeySharing_0x020cc800.c:
     complete
     .text       start:0x020cc800 end:0x020cc80c
 
+src/overlays/ov237/calls/func_ov237_020cc80c.c:
+    complete
+    .text       start:0x020cc80c end:0x020cc840
+
 src/overlays/ov237/auto/func_ov237_020cc840.c:
     complete
     .text       start:0x020cc840 end:0x020cc8a8

@@ -64,6 +64,10 @@ src/overlays/ov107/calls/func_ov107_020c0dd0.c:
     complete
     .text       start:0x020c0dd0 end:0x020c0e6c
 
+src/overlays/ov107/calls/func_ov107_020c0e6c.c:
+    complete
+    .text       start:0x020c0e6c end:0x020c0ea0
+
 src/overlays/ov107/auto/func_ov107_020c1348.c:
     complete
     .text       start:0x020c1348 end:0x020c1370
