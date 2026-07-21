@@ -1,55 +1,49 @@
-/* NONMATCHING -- 320/320 B. Structure and constants are right; what remains is register
- * COLOURING: mwcc spends a callee-saved (r6) where the ROM uses scratch (ip for the umull
- * low half, r3 for the table pointer), plus one scheduling swap around `adds ip,ip,#0`.
+/* Enter the "circle-strafe" state: cancel the current action (mode 6), face a random heading from
+ * the RNG (angle -> sin/cos table into node[5]/[7]), zero the velocity via two kVecZero pushes
+ * (modes 2 and 4), reset the strafe timers/flags and seed a fresh strafe duration (0x14 + d11) at
+ * +0x6f, set the turn speed at +0x5c to 0x5000, and re-register the think callback.
  *
- * Head of a 5-member family (320 B).
+ * Rep of a 5-overlay byte-identical group (ov214/215/216/217/264).
  *
- * SOLVED here -- do NOT rediscover:
- *  - the Q12 radians -> 16-bit angle conversion is the documented form from
- *    codegen-cracks.md, and it reproduced the whole 64-bit multiply block first try:
- *        idx = (unsigned short)(((long long)rad * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4;
- *    with sin/cos read as data_0203d210[idx*2] and [idx*2+1].
- *  - `data_02041dc8` is passed to func_ov107_020c0b90 TWICE, and the ROM copies it to a
- *    STACK TEMPORARY once and passes that. Passing the global directly is 12 B of frame
- *    short (0x14 vs 8). Same crack as ov147_020cc00c.
- *
- * Ruled out for the r6/ip colouring: `z` in an inner block vs at function scope, `idx`
- * declared as unsigned short (that one is 4 B LONG), and inlining the func_02023f08 call
- * instead of holding `rad`. */
-struct vec { int x, y, z; };
+ * NON-MATCHING (equivalent), size-exact (320). Every idiom reproduces: the 0x28be60db9391 angle
+ * divide into data_0203d210, the struct-by-value kVecZero pushes (ldmia/stmia), and the RNG
+ * `+ 0x14`. The only residue is register allocation of the angle-math temporaries: the ROM colours
+ * the 64-bit-multiply low half and the sin/cos table base with SCRATCH registers (r12, r3), while
+ * mwcc 139 puts them in a callee-saved r6 (adding r3/r6 to the push list) -- 34 bytes of cascading
+ * register fields. The matched template func_ov120_020ccd90 uses the identical angle idiom and
+ * colours it with scratch, so this is a per-function register-pressure difference, not the idiom;
+ * build_sweep shows no build reproduces it, and cast-chain / inlined-RNG spellings do not move it. */
+struct Vec3 { int x, y, z; };
 extern void func_ov107_020c9264(int owner, int mode, int b);
-extern int  func_02023f08(void);
-extern void func_ov107_020c0b90(int owner, int mode, struct vec v, int flag);
-extern int  func_02023eb4();
-extern void func_0203c634(int self, int index, void *cb);
+extern int func_02023f08(void);
 extern short data_0203d210[];
-extern struct vec data_02041dc8;
+extern struct Vec3 data_02041dc8;
+extern void func_ov107_020c0b90(int owner, int mode, struct Vec3 v, int c);
+extern int func_02023eb4();
+extern void func_0203c634(int self, int idx, void *cb);
 extern void func_ov214_020cdf24(void);
 
-void func_ov214_020cdde4(int self) {
-    int *obj = *(int **)(self + 4);
-    int rad;
+void func_ov214_020cdde4(int param_1) {
+    int *node = *(int **)(param_1 + 4);
     int idx;
-    struct vec z;
-
-    func_ov107_020c9264(*obj, 6, 0);
-    rad = func_02023f08();
-    idx = (unsigned short)(((long long)rad * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4;
-    obj[5] = data_0203d210[idx * 2];
-    obj[6] = 0;
-    obj[7] = data_0203d210[idx * 2 + 1];
-    z = data_02041dc8;
-    func_ov107_020c0b90(*obj, 2, z, 0);
-    func_ov107_020c0b90(*obj, 4, z, 0);
-    *(signed char *)((int)obj + 0x70) = 0;
-    *(signed char *)((int)obj + 0x71) = 0;
-    *(signed char *)((int)obj + 0x73) = 0;
-    *(signed char *)((int)obj + 0x6e) = 0;
-    *(signed char *)((int)obj + 0x6f) = (signed char)(func_02023eb4(0xb) + 0x14);
-    *(signed char *)((int)obj + 0x74) = 0;
-    obj[0x16] = 0;
-    obj[0x1e] = 0;
-    obj[0x17] = 0x5000;
-    obj[0x18] = 0;
-    func_0203c634(self, *(signed char *)(self + 0x20), &func_ov214_020cdf24);
+    struct Vec3 v;
+    func_ov107_020c9264(*node, 6, 0);
+    idx = (int)(((unsigned)(((long long)func_02023f08() * 0x28be60db9391LL + 0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
+    node[5] = data_0203d210[idx * 2];
+    node[6] = 0;
+    node[7] = data_0203d210[idx * 2 + 1];
+    v = data_02041dc8;
+    func_ov107_020c0b90(*node, 2, v, 0);
+    func_ov107_020c0b90(*node, 4, v, 0);
+    *(char *)((char *)node + 0x70) = 0;
+    *(char *)((char *)node + 0x71) = 0;
+    *(char *)((char *)node + 0x73) = 0;
+    *(char *)((char *)node + 0x6e) = 0;
+    *(char *)((char *)node + 0x6f) = func_02023eb4(0xb) + 0x14;
+    *(char *)((char *)node + 0x74) = 0;
+    *(int *)((char *)node + 0x58) = 0;
+    *(int *)((char *)node + 0x78) = 0;
+    *(int *)((char *)node + 0x5c) = 0x5000;
+    *(int *)((char *)node + 0x60) = 0;
+    func_0203c634(param_1, *(signed char *)((char *)param_1 + 0x20), &func_ov214_020cdf24);
 }
