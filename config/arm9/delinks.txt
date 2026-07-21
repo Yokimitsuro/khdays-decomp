@@ -4548,6 +4548,10 @@ src/calls/func_02035830.c:
     complete
     .text       start:0x02035830 end:0x0203583c
 
+src/calls/func_020358a4.c:
+    complete
+    .text       start:0x020358a4 end:0x020358c0
+
 src/calls/func_020359b4.c:
     complete
     .text       start:0x020359b4 end:0x020359f0
