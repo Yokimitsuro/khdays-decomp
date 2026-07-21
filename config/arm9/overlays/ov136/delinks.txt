@@ -8,7 +8,7 @@ src/overlays/ov136/calls/func_ov136_020d1980.c:
     complete
     .text       start:0x020d1980 end:0x020d1998
 
-src/overlays/ov136/asm_stubs/calls/func_ov136_020d1998.c:
+src/overlays/ov136/calls/func_ov136_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
@@ -32,7 +32,7 @@ src/overlays/ov136/asm_stubs/calls/func_ov136_020d1d24.c:
     complete
     .text       start:0x020d1d24 end:0x020d1ea8
 
-src/overlays/ov136/asm_stubs/calls/func_ov136_020d1ea8.c:
+src/overlays/ov136/calls/func_ov136_020d1ea8.c:
     complete
     .text       start:0x020d1ea8 end:0x020d1fa4
 
@@ -48,7 +48,7 @@ src/overlays/ov136/auto/func_ov136_020d2258.c:
     complete
     .text       start:0x020d2258 end:0x020d2288
 
-src/overlays/ov136/asm_stubs/calls/func_ov136_020d2288.c:
+src/overlays/ov136/calls/func_ov136_020d2288.c:
     complete
     .text       start:0x020d2288 end:0x020d234c
 

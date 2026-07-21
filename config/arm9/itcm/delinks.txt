@@ -17,6 +17,14 @@ libs/nitro/fs/calls/FSi_WaitForCardThread.c:
     complete
     .text       start:0x01ff8110 end:0x01ff8128
 
+src/calls/OS_IsTickAvailable.c:
+    complete
+    .text       start:0x01ff8128 end:0x01ff8138
+
+src/calls/OS_IsTickAvailable_0x01ff8138.c:
+    complete
+    .text       start:0x01ff8138 end:0x01ff8148
+
 libs/nitro/os/calls/OSi_FinalizeReset.c:
     complete
     .text       start:0x01ff82fc end:0x01ff8330
@@ -77,6 +85,22 @@ src/auto/func_01ff8ab0.c:
     complete
     .text       start:0x01ff8ab0 end:0x01ff8ad4
 
+src/auto/FX_GetDivResult.c:
+    complete
+    .text       start:0x01ff8ad4 end:0x01ff8b0c
+
+src/auto/FX_InvAsync.c:
+    complete
+    .text       start:0x01ff8b0c end:0x01ff8b3c
+
+src/auto/FX_GetSqrtResult.c:
+    complete
+    .text       start:0x01ff8b3c end:0x01ff8b68
+
+src/auto/FX_DivAsync.c:
+    complete
+    .text       start:0x01ff8b68 end:0x01ff8b90
+
 libs/nitro/fx/auto/VEC_Add.c:
     complete
     .text       start:0x01ff8b90 end:0x01ff8bc4
@@ -84,6 +108,10 @@ libs/nitro/fx/auto/VEC_Add.c:
 libs/nitro/fx/auto/VEC_Subtract.c:
     complete
     .text       start:0x01ff8bc4 end:0x01ff8bf8
+
+src/auto/VEC_MultAdd.c:
+    complete
+    .text       start:0x01ff8e38 end:0x01ff8e94
 
 libs/nitro/mtx/asm_stubs/auto/MTX_Identity33_.c:
     complete

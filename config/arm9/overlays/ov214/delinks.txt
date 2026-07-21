@@ -168,7 +168,7 @@ src/overlays/ov214/calls/func_ov214_020ce748.c:
     complete
     .text       start:0x020ce748 end:0x020ce768
 
-src/overlays/ov214/asm_stubs/calls/func_ov214_020ce768.c:
+src/overlays/ov214/calls/func_ov214_020ce768.c:
     complete
     .text       start:0x020ce768 end:0x020ce860
 

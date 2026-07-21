@@ -12,6 +12,10 @@ src/overlays/ov257/calls/func_ov257_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
+src/overlays/ov257/calls/func_ov257_020cc5d0.c:
+    complete
+    .text       start:0x020cc5d0 end:0x020cc678
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cca20.c:
     complete
     .text       start:0x020cca20 end:0x020cca2c
@@ -32,6 +36,10 @@ src/overlays/ov257/calls/func_ov257_020cd370.c:
     complete
     .text       start:0x020cd370 end:0x020cd57c
 
+src/overlays/ov257/calls/func_ov257_020cd60c.c:
+    complete
+    .text       start:0x020cd60c end:0x020cd674
+
 src/overlays/ov257/calls/func_ov257_020cd6f0.c:
     complete
     .text       start:0x020cd6f0 end:0x020cd72c
@@ -44,9 +52,17 @@ src/overlays/ov257/calls/func_ov257_020ce308.c:
     complete
     .text       start:0x020ce308 end:0x020ce380
 
+src/overlays/ov257/calls/func_ov257_020ce504.c:
+    complete
+    .text       start:0x020ce504 end:0x020ce594
+
 src/overlays/ov257/calls/func_ov257_020ce594.c:
     complete
     .text       start:0x020ce594 end:0x020ce60c
+
+src/overlays/ov257/calls/func_ov257_020ce784.c:
+    complete
+    .text       start:0x020ce784 end:0x020ce814
 
 src/overlays/ov257/calls/func_ov257_020ce814.c:
     complete
@@ -56,9 +72,17 @@ src/overlays/ov257/calls/func_ov257_020cfb50.c:
     complete
     .text       start:0x020cfb50 end:0x020cfbac
 
+src/overlays/ov257/calls/func_ov257_020d0900.c:
+    complete
+    .text       start:0x020d0900 end:0x020d096c
+
 src/overlays/ov257/calls/func_ov257_020d2474.c:
     complete
     .text       start:0x020d2474 end:0x020d24dc
+
+src/overlays/ov257/calls/func_ov257_020d24dc.c:
+    complete
+    .text       start:0x020d24dc end:0x020d2530
 
 src/overlays/ov257/auto/func_ov257_020d25fc.c:
     complete
@@ -80,9 +104,29 @@ src/overlays/ov257/calls/func_ov257_020d2b18.c:
     complete
     .text       start:0x020d2b18 end:0x020d2b38
 
+src/overlays/ov257/calls/func_ov257_020d2b38.c:
+    complete
+    .text       start:0x020d2b38 end:0x020d2b80
+
+src/overlays/ov257/auto/func_ov257_020d2bf0.c:
+    complete
+    .text       start:0x020d2bf0 end:0x020d2c20
+
+src/overlays/ov257/calls/func_ov257_020d2c20.c:
+    complete
+    .text       start:0x020d2c20 end:0x020d2c8c
+
 src/overlays/ov257/auto/func_ov257_020d2e28.c:
     complete
     .text       start:0x020d2e28 end:0x020d2e40
+
+src/overlays/ov257/calls/func_ov257_020d2f8c.c:
+    complete
+    .text       start:0x020d2f8c end:0x020d2fe4
+
+src/overlays/ov257/calls/func_ov257_020d2fe4.c:
+    complete
+    .text       start:0x020d2fe4 end:0x020d3044
 
 src/overlays/ov257/calls/func_ov257_020d3044.c:
     complete

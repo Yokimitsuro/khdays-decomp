@@ -36,6 +36,10 @@ src/overlays/ov107/calls/func_ov107_020c0c80.c:
     complete
     .text       start:0x020c0c80 end:0x020c0c94
 
+src/overlays/ov107/calls/func_ov107_020c0c94.c:
+    complete
+    .text       start:0x020c0c94 end:0x020c0cfc
+
 src/overlays/ov107/auto/func_ov107_020c0cfc.c:
     complete
     .text       start:0x020c0cfc end:0x020c0d14
@@ -48,6 +52,14 @@ src/overlays/ov107/calls/func_ov107_020c0db4.c:
     complete
     .text       start:0x020c0db4 end:0x020c0dd0
 
+src/overlays/ov107/calls/func_ov107_020c0dd0.c:
+    complete
+    .text       start:0x020c0dd0 end:0x020c0e6c
+
+src/overlays/ov107/auto/func_ov107_020c1348.c:
+    complete
+    .text       start:0x020c1348 end:0x020c1370
+
 src/overlays/ov107/auto/func_ov107_020c1c8c.c:
     complete
     .text       start:0x020c1c8c end:0x020c1c94
@@ -59,6 +71,10 @@ src/overlays/ov107/calls/func_ov107_020c1dac.c:
 src/overlays/ov107/calls/func_ov107_020c1f28.c:
     complete
     .text       start:0x020c1f28 end:0x020c1f4c
+
+src/overlays/ov107/calls/func_ov107_020c24f0.c:
+    complete
+    .text       start:0x020c24f0 end:0x020c2548
 
 src/overlays/ov107/calls/func_ov107_020c26d8.c:
     complete
@@ -80,9 +96,33 @@ src/overlays/ov107/calls/func_ov107_020c2a84.c:
     complete
     .text       start:0x020c2a84 end:0x020c2a9c
 
+src/overlays/ov107/calls/func_ov107_020c2a9c.c:
+    complete
+    .text       start:0x020c2a9c end:0x020c2b20
+
+src/overlays/ov107/calls/func_ov107_020c2b94.c:
+    complete
+    .text       start:0x020c2b94 end:0x020c2bd4
+
 src/calls/WM_EndKeySharing_0x020c3190.c:
     complete
     .text       start:0x020c3190 end:0x020c319c
+
+src/overlays/ov107/calls/func_ov107_020c3c74.c:
+    complete
+    .text       start:0x020c3c74 end:0x020c3d84
+
+src/overlays/ov107/calls/func_ov107_020c3d84.c:
+    complete
+    .text       start:0x020c3d84 end:0x020c3dc8
+
+src/overlays/ov107/calls/func_ov107_020c4ecc.c:
+    complete
+    .text       start:0x020c4ecc end:0x020c4efc
+
+src/overlays/ov107/calls/func_ov107_020c5c14.c:
+    complete
+    .text       start:0x020c5c14 end:0x020c5c54
 
 src/overlays/ov107/calls/func_ov107_020c5c54.c:
     complete
@@ -104,17 +144,45 @@ src/overlays/ov107/calls/func_ov107_020c9074.c:
     complete
     .text       start:0x020c9074 end:0x020c9094
 
+src/overlays/ov107/auto/func_ov107_020c9440.c:
+    complete
+    .text       start:0x020c9440 end:0x020c9474
+
 src/overlays/ov107/calls/func_ov107_020c9554.c:
     complete
     .text       start:0x020c9554 end:0x020c9566
+
+src/overlays/ov107/calls/func_ov107_020c95d0.c:
+    complete
+    .text       start:0x020c95d0 end:0x020c9618
 
 src/overlays/ov107/auto/func_ov107_020c96bc.c:
     complete
     .text       start:0x020c96bc end:0x020c96c8
 
+src/overlays/ov107/calls/func_ov107_020c96c8.c:
+    complete
+    .text       start:0x020c96c8 end:0x020c9730
+
+src/overlays/ov107/calls/func_ov107_020c980c.c:
+    complete
+    .text       start:0x020c980c end:0x020c9848
+
 src/calls/OS_IsThreadAvailable_0x020c9848.c:
     complete
     .text       start:0x020c9848 end:0x020c9858
+
+src/overlays/ov107/calls/func_ov107_020c9960.c:
+    complete
+    .text       start:0x020c9960 end:0x020c9a10
+
+src/overlays/ov107/calls/func_ov107_020c9ac0.c:
+    complete
+    .text       start:0x020c9ac0 end:0x020c9aec
+
+src/overlays/ov107/calls/func_ov107_020c9b3c.c:
+    complete
+    .text       start:0x020c9b3c end:0x020c9b68
 
 src/overlays/ov107/calls/func_ov107_020c9c0c.c:
     complete
@@ -123,6 +191,10 @@ src/overlays/ov107/calls/func_ov107_020c9c0c.c:
 src/overlays/ov107/calls/func_ov107_020c9c1c.c:
     complete
     .text       start:0x020c9c1c end:0x020c9c24
+
+src/overlays/ov107/calls/func_ov107_020c9c24.c:
+    complete
+    .text       start:0x020c9c24 end:0x020c9c90
 
 src/overlays/ov107/calls/func_ov107_020c9eac.c:
     complete
@@ -163,6 +235,10 @@ src/overlays/ov107/calls/func_ov107_020cb208.c:
 src/overlays/ov107/calls/func_ov107_020cb268.c:
     complete
     .text       start:0x020cb268 end:0x020cb28c
+
+src/overlays/ov107/calls/func_ov107_020cb51c.c:
+    complete
+    .text       start:0x020cb51c end:0x020cb544
 
 src/overlays/ov107/auto/func_ov107_020cb570.c:
     complete

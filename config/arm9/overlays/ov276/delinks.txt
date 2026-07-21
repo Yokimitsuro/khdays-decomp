@@ -44,7 +44,7 @@ src/overlays/ov276/asm_stubs/calls/func_ov276_020d0374.c:
     complete
     .text       start:0x020d0374 end:0x020d044c
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d044c.c:
+src/overlays/ov276/calls/func_ov276_020d044c.c:
     complete
     .text       start:0x020d044c end:0x020d0504
 
@@ -112,7 +112,7 @@ src/overlays/ov276/calls/func_ov276_020d13b8.c:
     complete
     .text       start:0x020d13b8 end:0x020d1420
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d1420.c:
+src/overlays/ov276/calls/func_ov276_020d1420.c:
     complete
     .text       start:0x020d1420 end:0x020d1560
 
@@ -128,11 +128,11 @@ src/overlays/ov276/calls/func_ov276_020d1738.c:
     complete
     .text       start:0x020d1738 end:0x020d1808
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d1808.c:
+src/overlays/ov276/calls/func_ov276_020d1808.c:
     complete
     .text       start:0x020d1808 end:0x020d198c
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d198c.c:
+src/overlays/ov276/calls/func_ov276_020d198c.c:
     complete
     .text       start:0x020d198c end:0x020d1b44
 
@@ -200,6 +200,6 @@ src/overlays/ov276/calls/func_ov276_020d2a20.c:
     complete
     .text       start:0x020d2a20 end:0x020d2a60
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d2a60.c:
+src/overlays/ov276/calls/func_ov276_020d2a60.c:
     complete
     .text       start:0x020d2a60 end:0x020d2b88

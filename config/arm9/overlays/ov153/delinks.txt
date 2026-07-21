@@ -8,7 +8,7 @@ src/overlays/ov153/calls/func_ov153_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov153/asm_stubs/calls/func_ov153_020cbf38.c:
+src/overlays/ov153/calls/func_ov153_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -96,7 +96,7 @@ src/overlays/ov153/calls/func_ov153_020ccbf0.c:
     complete
     .text       start:0x020ccbf0 end:0x020ccc28
 
-src/overlays/ov153/asm_stubs/calls/func_ov153_020ccc28.c:
+src/overlays/ov153/calls/func_ov153_020ccc28.c:
     complete
     .text       start:0x020ccc28 end:0x020cccf8
 

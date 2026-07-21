@@ -16,7 +16,7 @@ src/overlays/ov060/calls/func_ov060_020b5a5c.c:
     complete
     .text       start:0x020b5a5c end:0x020b5a90
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b5a90.c:
+src/overlays/ov060/calls/func_ov060_020b5a90.c:
     complete
     .text       start:0x020b5a90 end:0x020b5ca4
 
@@ -44,11 +44,11 @@ src/overlays/ov060/asm_stubs/calls/func_ov060_020b5e98.c:
     complete
     .text       start:0x020b5e98 end:0x020b5ef8
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b5ef8.c:
+src/overlays/ov060/calls/func_ov060_020b5ef8.c:
     complete
     .text       start:0x020b5ef8 end:0x020b5f6c
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b5f6c.c:
+src/overlays/ov060/calls/func_ov060_020b5f6c.c:
     complete
     .text       start:0x020b5f6c end:0x020b6040
 
@@ -68,7 +68,7 @@ src/overlays/ov060/calls/func_ov060_020b63c8.c:
     complete
     .text       start:0x020b63c8 end:0x020b6410
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6410.c:
+src/overlays/ov060/calls/func_ov060_020b6410.c:
     complete
     .text       start:0x020b6410 end:0x020b6470
 
@@ -104,23 +104,23 @@ src/overlays/ov060/calls/func_ov060_020b68f8.c:
     complete
     .text       start:0x020b68f8 end:0x020b6a24
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6a24.c:
+src/overlays/ov060/calls/func_ov060_020b6a24.c:
     complete
     .text       start:0x020b6a24 end:0x020b6aa0
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6aa0.c:
+src/overlays/ov060/calls/func_ov060_020b6aa0.c:
     complete
     .text       start:0x020b6aa0 end:0x020b6b20
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6b20.c:
+src/overlays/ov060/calls/func_ov060_020b6b20.c:
     complete
     .text       start:0x020b6b20 end:0x020b6b9c
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6b9c.c:
+src/overlays/ov060/calls/func_ov060_020b6b9c.c:
     complete
     .text       start:0x020b6b9c end:0x020b6bf8
 
-src/overlays/ov060/asm_stubs/calls/func_ov060_020b6bf8.c:
+src/overlays/ov060/calls/func_ov060_020b6bf8.c:
     complete
     .text       start:0x020b6bf8 end:0x020b6c78
 

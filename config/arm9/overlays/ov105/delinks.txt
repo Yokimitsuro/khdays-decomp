@@ -3,6 +3,10 @@
     .data       start:0x020bfa00 end:0x020bfa20 kind:data align:32
     .bss        start:0x020bfa20 end:0x020c0680 kind:bss align:32
 
+src/overlays/ov105/calls/func_ov105_020bce30.c:
+    complete
+    .text       start:0x020bce30 end:0x020bcea0
+
 src/overlays/ov105/calls/func_ov105_020bcea0.c:
     complete
     .text       start:0x020bcea0 end:0x020bceb8
@@ -18,6 +22,22 @@ src/overlays/ov105/calls/func_ov105_020bd03c.c:
 src/overlays/ov105/calls/func_ov105_020bd4dc.c:
     complete
     .text       start:0x020bd4dc end:0x020bd4f8
+
+src/overlays/ov105/calls/func_ov105_020bd4f8.c:
+    complete
+    .text       start:0x020bd4f8 end:0x020bd528
+
+src/overlays/ov105/calls/func_ov105_020bd528.c:
+    complete
+    .text       start:0x020bd528 end:0x020bd558
+
+src/overlays/ov105/calls/func_ov105_020bd558.c:
+    complete
+    .text       start:0x020bd558 end:0x020bd59c
+
+src/overlays/ov105/calls/func_ov105_020bd59c.c:
+    complete
+    .text       start:0x020bd59c end:0x020bd674
 
 src/overlays/ov105/calls/func_ov105_020bd7a4.c:
     complete
@@ -35,9 +55,21 @@ src/overlays/ov105/calls/func_ov105_020be4ac.c:
     complete
     .text       start:0x020be4ac end:0x020be4c8
 
+src/overlays/ov105/calls/func_ov105_020be4c8.c:
+    complete
+    .text       start:0x020be4c8 end:0x020be508
+
+src/overlays/ov105/calls/func_ov105_020be56c.c:
+    complete
+    .text       start:0x020be56c end:0x020be5cc
+
 src/overlays/ov105/calls/func_ov105_020be850.c:
     complete
     .text       start:0x020be850 end:0x020be880
+
+src/overlays/ov105/calls/func_ov105_020bec64.c:
+    complete
+    .text       start:0x020bec64 end:0x020becc4
 
 src/overlays/ov105/calls/func_ov105_020bef44.c:
     complete
@@ -78,6 +110,14 @@ src/overlays/ov105/calls/func_ov105_020bf480.c:
 src/overlays/ov105/calls/func_ov105_020bf64c.c:
     complete
     .text       start:0x020bf64c end:0x020bf66c
+
+src/overlays/ov105/calls/func_ov105_020bf66c.c:
+    complete
+    .text       start:0x020bf66c end:0x020bf6b4
+
+src/overlays/ov105/calls/func_ov105_020bf6b4.c:
+    complete
+    .text       start:0x020bf6b4 end:0x020bf704
 
 src/overlays/ov105/calls/func_ov105_020bf8b8.c:
     complete

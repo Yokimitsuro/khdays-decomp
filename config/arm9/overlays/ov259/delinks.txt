@@ -12,6 +12,10 @@ src/overlays/ov259/calls/func_ov259_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc8
 
+src/overlays/ov259/calls/func_ov259_020cc508.c:
+    complete
+    .text       start:0x020cc508 end:0x020cc590
+
 src/overlays/ov259/calls/func_ov259_020ccde8.c:
     complete
     .text       start:0x020ccde8 end:0x020cce44
@@ -31,6 +35,10 @@ src/overlays/ov259/calls/func_ov259_020cddbc.c:
 src/overlays/ov259/calls/func_ov259_020cdef8.c:
     complete
     .text       start:0x020cdef8 end:0x020ce184
+
+src/overlays/ov259/calls/func_ov259_020ce2a8.c:
+    complete
+    .text       start:0x020ce2a8 end:0x020ce310
 
 src/overlays/ov259/calls/func_ov259_020ce310.c:
     complete
@@ -59,6 +67,18 @@ src/overlays/ov259/calls/func_ov259_020cea14.c:
 src/overlays/ov259/calls/func_ov259_020ceb38.c:
     complete
     .text       start:0x020ceb38 end:0x020ceb9c
+
+src/overlays/ov259/calls/func_ov259_020cef48.c:
+    complete
+    .text       start:0x020cef48 end:0x020cef8c
+
+src/overlays/ov259/calls/func_ov259_020cef8c.c:
+    complete
+    .text       start:0x020cef8c end:0x020ceff4
+
+src/overlays/ov259/calls/func_ov259_020ceff4.c:
+    complete
+    .text       start:0x020ceff4 end:0x020cf040
 
 src/overlays/ov259/calls/func_ov259_020cf6d0.c:
     complete
@@ -92,6 +112,10 @@ src/calls/WM_EndKeySharing_0x020d1bec.c:
     complete
     .text       start:0x020d1bec end:0x020d1bf8
 
+src/overlays/ov259/auto/func_ov259_020d1bf8.c:
+    complete
+    .text       start:0x020d1bf8 end:0x020d1c28
+
 src/overlays/ov259/calls/func_ov259_020d1c28.c:
     complete
     .text       start:0x020d1c28 end:0x020d1c44
@@ -112,6 +136,10 @@ src/overlays/ov259/calls/func_ov259_020d1f24.c:
     complete
     .text       start:0x020d1f24 end:0x020d1fd0
 
+src/overlays/ov259/auto/func_ov259_020d2254.c:
+    complete
+    .text       start:0x020d2254 end:0x020d2288
+
 src/overlays/ov259/calls/func_ov259_020d2288.c:
     complete
     .text       start:0x020d2288 end:0x020d22b0
@@ -128,6 +156,10 @@ src/calls/WM_EndKeySharing_0x020d28c0.c:
     complete
     .text       start:0x020d28c0 end:0x020d28cc
 
+src/overlays/ov259/calls/func_ov259_020d28cc.c:
+    complete
+    .text       start:0x020d28cc end:0x020d2904
+
 src/overlays/ov259/auto/func_ov259_020d29a8.c:
     complete
     .text       start:0x020d29a8 end:0x020d29b0
@@ -143,3 +175,7 @@ src/overlays/ov259/calls/func_ov259_020d2a0c.c:
 src/overlays/ov259/calls/func_ov259_020d2ab4.c:
     complete
     .text       start:0x020d2ab4 end:0x020d2b2c
+
+src/overlays/ov259/calls/func_ov259_020d2b2c.c:
+    complete
+    .text       start:0x020d2b2c end:0x020d2b90

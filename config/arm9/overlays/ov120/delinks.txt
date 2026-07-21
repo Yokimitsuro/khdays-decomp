@@ -8,7 +8,7 @@ src/overlays/ov120/calls/func_ov120_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cbf38.c:
+src/overlays/ov120/calls/func_ov120_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -132,7 +132,7 @@ src/calls/func_ov120_020cda8c.c:
     complete
     .text       start:0x020cda8c end:0x020cdaf8
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cdaf8.c:
+src/overlays/ov120/calls/func_ov120_020cdaf8.c:
     complete
     .text       start:0x020cdaf8 end:0x020cdb80
 

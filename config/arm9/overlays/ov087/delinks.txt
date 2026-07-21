@@ -20,7 +20,7 @@ src/overlays/ov087/asm_stubs/calls/func_ov087_020b81dc.c:
     complete
     .text       start:0x020b81dc end:0x020b8418
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b8418.c:
+src/overlays/ov087/calls/func_ov087_020b8418.c:
     complete
     .text       start:0x020b8418 end:0x020b84cc
 
@@ -28,7 +28,7 @@ src/overlays/ov087/calls/func_ov087_020b84cc.c:
     complete
     .text       start:0x020b84cc end:0x020b84d0
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b84d0.c:
+src/overlays/ov087/calls/func_ov087_020b84d0.c:
     complete
     .text       start:0x020b84d0 end:0x020b8608
 
@@ -44,11 +44,11 @@ src/overlays/ov087/calls/func_ov087_020b8850.c:
     complete
     .text       start:0x020b8850 end:0x020b8888
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b8888.c:
+src/overlays/ov087/calls/func_ov087_020b8888.c:
     complete
     .text       start:0x020b8888 end:0x020b893c
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b893c.c:
+src/overlays/ov087/calls/func_ov087_020b893c.c:
     complete
     .text       start:0x020b893c end:0x020b89cc
 
@@ -56,7 +56,7 @@ src/overlays/ov087/calls/func_ov087_020b89cc.c:
     complete
     .text       start:0x020b89cc end:0x020b8a0c
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b8a0c.c:
+src/overlays/ov087/calls/func_ov087_020b8a0c.c:
     complete
     .text       start:0x020b8a0c end:0x020b8a8c
 
@@ -84,11 +84,11 @@ src/overlays/ov087/asm_stubs/calls/func_ov087_020b8fa4.c:
     complete
     .text       start:0x020b8fa4 end:0x020b915c
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b915c.c:
+src/overlays/ov087/calls/func_ov087_020b915c.c:
     complete
     .text       start:0x020b915c end:0x020b91e4
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b91e4.c:
+src/overlays/ov087/calls/func_ov087_020b91e4.c:
     complete
     .text       start:0x020b91e4 end:0x020b9288
 
@@ -96,7 +96,7 @@ src/overlays/ov087/asm_stubs/calls/func_ov087_020b9288.c:
     complete
     .text       start:0x020b9288 end:0x020b9344
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b9344.c:
+src/overlays/ov087/calls/func_ov087_020b9344.c:
     complete
     .text       start:0x020b9344 end:0x020b93f8
 

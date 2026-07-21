@@ -208,6 +208,10 @@ src/calls/WM_EndKeySharing_0x020d5d3c.c:
     complete
     .text       start:0x020d5d3c end:0x020d5d48
 
+src/overlays/ov211/calls/func_ov211_020d5d48.c:
+    complete
+    .text       start:0x020d5d48 end:0x020d5db8
+
 src/overlays/ov211/calls/func_ov211_020d5db8.c:
     complete
     .text       start:0x020d5db8 end:0x020d5df0

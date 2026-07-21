@@ -104,6 +104,10 @@ src/overlays/ov119/calls/func_ov119_020cf6fc.c:
     complete
     .text       start:0x020cf6fc end:0x020cf7b0
 
+src/overlays/ov119/calls/func_ov119_020cf7b0.c:
+    complete
+    .text       start:0x020cf7b0 end:0x020cf804
+
 src/overlays/ov119/calls/func_ov119_020cf804.c:
     complete
     .text       start:0x020cf804 end:0x020cf848

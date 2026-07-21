@@ -8,11 +8,11 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_ov082_0x020b8100.c:
     complete
     .text       start:0x020b8100 end:0x020b8114
 
-src/overlays/ov082/asm_stubs/calls/func_ov082_020b8114.c:
+src/overlays/ov082/calls/func_ov082_020b8114.c:
     complete
     .text       start:0x020b8114 end:0x020b8194
 
-src/overlays/ov082/asm_stubs/calls/func_ov082_020b8194.c:
+src/overlays/ov082/calls/func_ov082_020b8194.c:
     complete
     .text       start:0x020b8194 end:0x020b81f4
 
@@ -20,7 +20,7 @@ src/overlays/ov082/asm_stubs/calls/func_ov082_020b81f4.c:
     complete
     .text       start:0x020b81f4 end:0x020b843c
 
-src/overlays/ov082/asm_stubs/calls/func_ov082_020b843c.c:
+src/overlays/ov082/calls/func_ov082_020b843c.c:
     complete
     .text       start:0x020b843c end:0x020b84dc
 
@@ -88,7 +88,7 @@ src/overlays/ov082/auto/func_ov082_020b8b38.c:
     complete
     .text       start:0x020b8b38 end:0x020b8b5c
 
-src/overlays/ov082/asm_stubs/calls/func_ov082_020b8b5c.c:
+src/overlays/ov082/calls/func_ov082_020b8b5c.c:
     complete
     .text       start:0x020b8b5c end:0x020b8bd4
 

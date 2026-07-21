@@ -8,7 +8,7 @@ src/overlays/ov162/calls/func_ov162_020cdd40.c:
     complete
     .text       start:0x020cdd40 end:0x020cdd58
 
-src/overlays/ov162/asm_stubs/calls/func_ov162_020cdd58.c:
+src/overlays/ov162/calls/func_ov162_020cdd58.c:
     complete
     .text       start:0x020cdd58 end:0x020cdde4
 
@@ -36,6 +36,10 @@ src/overlays/ov162/asm_stubs/calls/func_ov162_020ce2cc.c:
     complete
     .text       start:0x020ce2cc end:0x020ce414
 
+src/overlays/ov162/calls/func_ov162_020ce414.c:
+    complete
+    .text       start:0x020ce414 end:0x020ce45c
+
 src/overlays/ov162/calls/func_ov162_020ce45c.c:
     complete
     .text       start:0x020ce45c end:0x020ce4b4
@@ -51,6 +55,10 @@ src/overlays/ov162/auto/func_ov162_020ce560.c:
 src/overlays/ov162/calls/func_ov162_020ce59c.c:
     complete
     .text       start:0x020ce59c end:0x020ce600
+
+src/overlays/ov162/calls/func_ov162_020ce600.c:
+    complete
+    .text       start:0x020ce600 end:0x020ce648
 
 src/overlays/ov162/calls/func_ov162_020ce648.c:
     complete
@@ -75,6 +83,10 @@ src/overlays/ov162/calls/func_ov162_020ce77c.c:
 src/overlays/ov162/calls/func_ov162_020ce7dc.c:
     complete
     .text       start:0x020ce7dc end:0x020ce7fc
+
+src/overlays/ov162/calls/func_ov162_020ce7fc.c:
+    complete
+    .text       start:0x020ce7fc end:0x020ce844
 
 src/overlays/ov162/calls/func_ov162_020ce844.c:
     complete
@@ -148,7 +160,7 @@ src/overlays/ov162/calls/func_ov162_020cf580.c:
     complete
     .text       start:0x020cf580 end:0x020cf5e0
 
-src/overlays/ov162/asm_stubs/calls/func_ov162_020cf5e0.c:
+src/overlays/ov162/calls/func_ov162_020cf5e0.c:
     complete
     .text       start:0x020cf5e0 end:0x020cf650
 
@@ -168,11 +180,11 @@ src/overlays/ov162/calls/func_ov162_020cf89c.c:
     complete
     .text       start:0x020cf89c end:0x020cf8d0
 
-src/overlays/ov162/asm_stubs/calls/func_ov162_020cf8d0.c:
+src/overlays/ov162/calls/func_ov162_020cf8d0.c:
     complete
     .text       start:0x020cf8d0 end:0x020cf954
 
-src/overlays/ov162/asm_stubs/calls/func_ov162_020cf954.c:
+src/overlays/ov162/calls/func_ov162_020cf954.c:
     complete
     .text       start:0x020cf954 end:0x020cfb40
 

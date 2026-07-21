@@ -44,7 +44,7 @@ src/overlays/ov205/auto/func_ov205_020d3ff4.c:
     complete
     .text       start:0x020d3ff4 end:0x020d4034
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4034.c:
+src/overlays/ov205/calls/func_ov205_020d4034.c:
     complete
     .text       start:0x020d4034 end:0x020d4108
 

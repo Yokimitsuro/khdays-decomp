@@ -11,7 +11,7 @@ src/overlays/ov301/calls/func_ov301_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
-src/overlays/ov301/asm_stubs/calls/func_ov301_020cbfc4.c:
+src/overlays/ov301/calls/func_ov301_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc15c
 

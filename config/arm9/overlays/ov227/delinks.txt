@@ -20,6 +20,18 @@ src/overlays/ov227/calls/func_ov227_020cfd80.c:
     complete
     .text       start:0x020cfd80 end:0x020cfdbc
 
+src/overlays/ov227/calls/func_ov227_020d0224.c:
+    complete
+    .text       start:0x020d0224 end:0x020d027c
+
+src/overlays/ov227/calls/func_ov227_020d027c.c:
+    complete
+    .text       start:0x020d027c end:0x020d02a0
+
+src/overlays/ov227/calls/func_ov227_020d05d4.c:
+    complete
+    .text       start:0x020d05d4 end:0x020d0640
+
 src/overlays/ov227/calls/func_ov227_020d0640.c:
     complete
     .text       start:0x020d0640 end:0x020d06c4
@@ -40,9 +52,17 @@ src/overlays/ov227/calls/func_ov227_020d1144.c:
     complete
     .text       start:0x020d1144 end:0x020d1158
 
+src/overlays/ov227/calls/func_ov227_020d1158.c:
+    complete
+    .text       start:0x020d1158 end:0x020d11d0
+
 src/overlays/ov227/calls/func_ov227_020d14bc.c:
     complete
     .text       start:0x020d14bc end:0x020d157c
+
+src/overlays/ov227/calls/func_ov227_020d157c.c:
+    complete
+    .text       start:0x020d157c end:0x020d1664
 
 src/overlays/ov227/calls/func_ov227_020d1664.c:
     complete
@@ -63,6 +83,10 @@ src/overlays/ov227/calls/func_ov227_020d1e68.c:
 src/overlays/ov227/calls/func_ov227_020d1f44.c:
     complete
     .text       start:0x020d1f44 end:0x020d1fc4
+
+src/overlays/ov227/calls/func_ov227_020d1fc4.c:
+    complete
+    .text       start:0x020d1fc4 end:0x020d2058
 
 src/overlays/ov227/calls/func_ov227_020d2058.c:
     complete
@@ -168,6 +192,10 @@ src/overlays/ov227/calls/func_ov227_020d3e0c.c:
     complete
     .text       start:0x020d3e0c end:0x020d3e40
 
+src/overlays/ov227/calls/func_ov227_020d3fb0.c:
+    complete
+    .text       start:0x020d3fb0 end:0x020d3ff0
+
 src/overlays/ov227/calls/func_ov227_020d428c.c:
     complete
     .text       start:0x020d428c end:0x020d42d8
@@ -187,3 +215,7 @@ src/overlays/ov227/auto/func_ov227_020d44e4.c:
 src/overlays/ov227/auto/func_ov227_020d4590.c:
     complete
     .text       start:0x020d4590 end:0x020d4594
+
+src/overlays/ov227/calls/func_ov227_020d4594.c:
+    complete
+    .text       start:0x020d4594 end:0x020d4600

@@ -68,7 +68,7 @@ src/overlays/ov239/asm_stubs/calls/func_ov239_020cca38.c:
     complete
     .text       start:0x020cca38 end:0x020ccad0
 
-src/overlays/ov239/asm_stubs/calls/func_ov239_020ccad0.c:
+src/overlays/ov239/calls/func_ov239_020ccad0.c:
     complete
     .text       start:0x020ccad0 end:0x020ccb88
 

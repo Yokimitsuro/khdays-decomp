@@ -400,9 +400,21 @@ src/overlays/ov005/calls/func_ov005_0204ef70.c:
     complete
     .text       start:0x0204ef70 end:0x0204f078
 
+src/overlays/ov005/calls/func_ov005_0204f078.c:
+    complete
+    .text       start:0x0204f078 end:0x0204f1ec
+
 src/overlays/ov005/auto/func_ov005_0204f354.c:
     complete
     .text       start:0x0204f354 end:0x0204f49c
+
+src/overlays/ov005/calls/func_ov005_0204f49c.c:
+    complete
+    .text       start:0x0204f49c end:0x0204f4fc
+
+src/overlays/ov005/calls/func_ov005_0204f4fc.c:
+    complete
+    .text       start:0x0204f4fc end:0x0204f594
 
 src/overlays/ov005/auto/func_ov005_0204f594.c:
     complete
@@ -452,9 +464,21 @@ src/overlays/ov005/auto/func_ov005_02050f98.c:
     complete
     .text       start:0x02050f98 end:0x02050f9c
 
+src/overlays/ov005/calls/func_ov005_020515dc.c:
+    complete
+    .text       start:0x020515dc end:0x020516b4
+
+src/overlays/ov005/calls/func_ov005_020516b4.c:
+    complete
+    .text       start:0x020516b4 end:0x02051724
+
 libs/nitro/fx/calls/FX_Inv_0x020522ec.c:
     complete
     .text       start:0x020522ec end:0x020522fc
+
+src/overlays/ov005/calls/func_ov005_02053b80.c:
+    complete
+    .text       start:0x02053b80 end:0x02053c58
 
 src/overlays/ov005/calls/func_ov005_02053e24.c:
     complete
@@ -464,9 +488,17 @@ src/overlays/ov005/calls/func_ov005_02053e34.c:
     complete
     .text       start:0x02053e34 end:0x02053e44
 
+src/overlays/ov005/calls/func_ov005_02053ebc.c:
+    complete
+    .text       start:0x02053ebc end:0x02053ef0
+
 src/overlays/ov005/calls/func_ov005_02054164.c:
     complete
     .text       start:0x02054164 end:0x02054184
+
+src/overlays/ov005/calls/func_ov005_02054774.c:
+    complete
+    .text       start:0x02054774 end:0x020547e4
 
 src/overlays/ov005/auto/func_ov005_02054eb8.c:
     complete

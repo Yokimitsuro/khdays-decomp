@@ -8,7 +8,7 @@ src/overlays/ov123/calls/func_ov123_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cbf38.c:
+src/overlays/ov123/calls/func_ov123_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -55,6 +55,10 @@ src/overlays/ov123/calls/func_ov123_020cc524.c:
 src/overlays/ov123/asm_stubs/calls/func_ov123_020cc570.c:
     complete
     .text       start:0x020cc570 end:0x020cc6e8
+
+src/overlays/ov123/auto/func_ov123_020cc6e8.c:
+    complete
+    .text       start:0x020cc6e8 end:0x020cc718
 
 src/overlays/ov123/asm_stubs/calls/func_ov123_020cc718.c:
     complete
@@ -168,7 +172,7 @@ src/calls/func_ov123_020cd9ec.c:
     complete
     .text       start:0x020cd9ec end:0x020cda50
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cda50.c:
+src/overlays/ov123/calls/func_ov123_020cda50.c:
     complete
     .text       start:0x020cda50 end:0x020cdae4
 

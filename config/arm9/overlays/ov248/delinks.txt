@@ -136,6 +136,10 @@ src/overlays/ov248/calls/func_ov248_020ceae0.c:
     complete
     .text       start:0x020ceae0 end:0x020ceb7c
 
+src/overlays/ov248/calls/func_ov248_020cee90.c:
+    complete
+    .text       start:0x020cee90 end:0x020cef94
+
 src/overlays/ov248/calls/func_ov248_020cf0b0.c:
     complete
     .text       start:0x020cf0b0 end:0x020cf0fc

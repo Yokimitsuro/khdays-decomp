@@ -28,7 +28,7 @@ src/overlays/ov118/calls/func_ov118_020cfe08.c:
     complete
     .text       start:0x020cfe08 end:0x020cfe24
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020cfe24.c:
+src/overlays/ov118/calls/func_ov118_020cfe24.c:
     complete
     .text       start:0x020cfe24 end:0x020cfe98
 
@@ -88,11 +88,11 @@ src/overlays/ov118/calls/func_ov118_020d080c.c:
     complete
     .text       start:0x020d080c end:0x020d086c
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020d086c.c:
+src/overlays/ov118/calls/func_ov118_020d086c.c:
     complete
     .text       start:0x020d086c end:0x020d08f4
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020d08f4.c:
+src/overlays/ov118/calls/func_ov118_020d08f4.c:
     complete
     .text       start:0x020d08f4 end:0x020d0a00
 
@@ -100,7 +100,7 @@ src/overlays/ov118/calls/func_ov118_020d0a00.c:
     complete
     .text       start:0x020d0a00 end:0x020d0a34
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020d0a34.c:
+src/overlays/ov118/calls/func_ov118_020d0a34.c:
     complete
     .text       start:0x020d0a34 end:0x020d0b78
 
@@ -136,7 +136,7 @@ src/overlays/ov118/asm_stubs/calls/func_ov118_020d11d4.c:
     complete
     .text       start:0x020d11d4 end:0x020d12d8
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020d12d8.c:
+src/overlays/ov118/calls/func_ov118_020d12d8.c:
     complete
     .text       start:0x020d12d8 end:0x020d13cc
 

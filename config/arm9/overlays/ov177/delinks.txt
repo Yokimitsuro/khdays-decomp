@@ -8,7 +8,7 @@ src/overlays/ov177/calls/func_ov177_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov177/asm_stubs/calls/func_ov177_020d37b8.c:
+src/overlays/ov177/calls/func_ov177_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
@@ -44,7 +44,7 @@ src/overlays/ov177/calls/func_ov177_020d3e74.c:
     complete
     .text       start:0x020d3e74 end:0x020d3ea4
 
-src/overlays/ov177/asm_stubs/calls/func_ov177_020d3ea4.c:
+src/overlays/ov177/calls/func_ov177_020d3ea4.c:
     complete
     .text       start:0x020d3ea4 end:0x020d3fdc
 
@@ -132,7 +132,7 @@ src/overlays/ov177/calls/func_ov177_020d52f0.c:
     complete
     .text       start:0x020d52f0 end:0x020d546c
 
-src/overlays/ov177/asm_stubs/calls/func_ov177_020d546c.c:
+src/overlays/ov177/calls/func_ov177_020d546c.c:
     complete
     .text       start:0x020d546c end:0x020d5508
 
@@ -188,7 +188,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020d5c78.c:
     complete
     .text       start:0x020d5c78 end:0x020d5c84
 
-src/overlays/ov177/asm_stubs/calls/func_ov177_020d5c84.c:
+src/overlays/ov177/calls/func_ov177_020d5c84.c:
     complete
     .text       start:0x020d5c84 end:0x020d5d0c
 

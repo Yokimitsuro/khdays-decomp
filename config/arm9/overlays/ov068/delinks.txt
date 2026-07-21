@@ -20,7 +20,7 @@ src/overlays/ov068/asm_stubs/calls/func_ov068_020b5afc.c:
     complete
     .text       start:0x020b5afc end:0x020b5d38
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b5d38.c:
+src/overlays/ov068/calls/func_ov068_020b5d38.c:
     complete
     .text       start:0x020b5d38 end:0x020b5dec
 
@@ -28,7 +28,7 @@ src/overlays/ov068/auto/func_ov068_020b5dec.c:
     complete
     .text       start:0x020b5dec end:0x020b5df0
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b5df0.c:
+src/overlays/ov068/calls/func_ov068_020b5df0.c:
     complete
     .text       start:0x020b5df0 end:0x020b5f28
 
@@ -44,11 +44,11 @@ src/overlays/ov068/calls/func_ov068_020b6170.c:
     complete
     .text       start:0x020b6170 end:0x020b61a8
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b61a8.c:
+src/overlays/ov068/calls/func_ov068_020b61a8.c:
     complete
     .text       start:0x020b61a8 end:0x020b625c
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b625c.c:
+src/overlays/ov068/calls/func_ov068_020b625c.c:
     complete
     .text       start:0x020b625c end:0x020b62ec
 
@@ -56,7 +56,7 @@ src/overlays/ov068/calls/func_ov068_020b62ec.c:
     complete
     .text       start:0x020b62ec end:0x020b632c
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b632c.c:
+src/overlays/ov068/calls/func_ov068_020b632c.c:
     complete
     .text       start:0x020b632c end:0x020b63ac
 
@@ -84,11 +84,11 @@ src/overlays/ov068/asm_stubs/calls/func_ov068_020b68c4.c:
     complete
     .text       start:0x020b68c4 end:0x020b6a7c
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b6a7c.c:
+src/overlays/ov068/calls/func_ov068_020b6a7c.c:
     complete
     .text       start:0x020b6a7c end:0x020b6b04
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b6b04.c:
+src/overlays/ov068/calls/func_ov068_020b6b04.c:
     complete
     .text       start:0x020b6b04 end:0x020b6ba8
 
@@ -96,7 +96,7 @@ src/overlays/ov068/asm_stubs/calls/func_ov068_020b6ba8.c:
     complete
     .text       start:0x020b6ba8 end:0x020b6c64
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b6c64.c:
+src/overlays/ov068/calls/func_ov068_020b6c64.c:
     complete
     .text       start:0x020b6c64 end:0x020b6d18
 

@@ -12,6 +12,14 @@ src/overlays/ov252/calls/func_ov252_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc8
 
+src/overlays/ov252/calls/func_ov252_020cc970.c:
+    complete
+    .text       start:0x020cc970 end:0x020cca44
+
+src/overlays/ov252/calls/func_ov252_020cca44.c:
+    complete
+    .text       start:0x020cca44 end:0x020cca68
+
 src/overlays/ov252/calls/func_ov252_020cdaa0.c:
     complete
     .text       start:0x020cdaa0 end:0x020cdafc

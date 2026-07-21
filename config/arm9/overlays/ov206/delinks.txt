@@ -32,6 +32,10 @@ src/overlays/ov206/calls/func_ov206_020cc8c8.c:
     complete
     .text       start:0x020cc8c8 end:0x020cc9b4
 
+src/overlays/ov206/calls/func_ov206_020ccb78.c:
+    complete
+    .text       start:0x020ccb78 end:0x020ccbc0
+
 src/overlays/ov206/calls/func_ov206_020ccbc0.c:
     complete
     .text       start:0x020ccbc0 end:0x020ccc3c

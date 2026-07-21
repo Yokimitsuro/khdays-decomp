@@ -64,7 +64,7 @@ src/overlays/ov240/asm_stubs/calls/func_ov240_020ce8e8.c:
     complete
     .text       start:0x020ce8e8 end:0x020ce97c
 
-src/overlays/ov240/asm_stubs/calls/func_ov240_020ce97c.c:
+src/overlays/ov240/calls/func_ov240_020ce97c.c:
     complete
     .text       start:0x020ce97c end:0x020cea34
 
@@ -100,7 +100,7 @@ src/overlays/ov240/calls/func_ov240_020cee40.c:
     complete
     .text       start:0x020cee40 end:0x020cee7c
 
-src/overlays/ov240/asm_stubs/calls/func_ov240_020cee7c.c:
+src/overlays/ov240/calls/func_ov240_020cee7c.c:
     complete
     .text       start:0x020cee7c end:0x020ceee0
 
@@ -160,7 +160,7 @@ src/overlays/ov240/asm_stubs/calls/func_ov240_020cf8c0.c:
     complete
     .text       start:0x020cf8c0 end:0x020cf998
 
-src/overlays/ov240/asm_stubs/calls/func_ov240_020cf998.c:
+src/overlays/ov240/calls/func_ov240_020cf998.c:
     complete
     .text       start:0x020cf998 end:0x020cfa2c
 

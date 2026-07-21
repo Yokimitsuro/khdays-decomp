@@ -8,7 +8,7 @@ src/overlays/ov189/calls/func_ov189_020cfb60.c:
     complete
     .text       start:0x020cfb60 end:0x020cfb78
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020cfb78.c:
+src/overlays/ov189/calls/func_ov189_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
@@ -40,7 +40,7 @@ src/overlays/ov189/calls/func_ov189_020d0288.c:
     complete
     .text       start:0x020d0288 end:0x020d02c0
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d02c0.c:
+src/overlays/ov189/calls/func_ov189_020d02c0.c:
     complete
     .text       start:0x020d02c0 end:0x020d0410
 
@@ -64,7 +64,7 @@ src/overlays/ov189/asm_stubs/calls/func_ov189_020d0718.c:
     complete
     .text       start:0x020d0718 end:0x020d0998
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0998.c:
+src/overlays/ov189/calls/func_ov189_020d0998.c:
     complete
     .text       start:0x020d0998 end:0x020d0a50
 
@@ -72,7 +72,7 @@ src/overlays/ov189/calls/func_ov189_020d0a50.c:
     complete
     .text       start:0x020d0a50 end:0x020d0c20
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0c20.c:
+src/overlays/ov189/calls/func_ov189_020d0c20.c:
     complete
     .text       start:0x020d0c20 end:0x020d0cbc
 
@@ -96,7 +96,7 @@ src/overlays/ov189/calls/func_ov189_020d0f10.c:
     complete
     .text       start:0x020d0f10 end:0x020d0f44
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0f44.c:
+src/overlays/ov189/calls/func_ov189_020d0f44.c:
     complete
     .text       start:0x020d0f44 end:0x020d0fa8
 
@@ -104,7 +104,7 @@ src/overlays/ov189/calls/func_ov189_020d0fa8.c:
     complete
     .text       start:0x020d0fa8 end:0x020d10f8
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d10f8.c:
+src/overlays/ov189/calls/func_ov189_020d10f8.c:
     complete
     .text       start:0x020d10f8 end:0x020d1164
 
@@ -144,11 +144,11 @@ src/calls/func_ov189_020d1800.c:
     complete
     .text       start:0x020d1800 end:0x020d1874
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d1874.c:
+src/overlays/ov189/calls/func_ov189_020d1874.c:
     complete
     .text       start:0x020d1874 end:0x020d1910
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d1910.c:
+src/overlays/ov189/calls/func_ov189_020d1910.c:
     complete
     .text       start:0x020d1910 end:0x020d19c4
 
@@ -160,7 +160,7 @@ src/overlays/ov189/calls/func_ov189_020d1a10.c:
     complete
     .text       start:0x020d1a10 end:0x020d1a44
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d1a44.c:
+src/overlays/ov189/calls/func_ov189_020d1a44.c:
     complete
     .text       start:0x020d1a44 end:0x020d1aac
 

@@ -8,7 +8,7 @@ src/overlays/ov168/calls/func_ov168_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d37b8.c:
+src/overlays/ov168/calls/func_ov168_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
@@ -44,7 +44,7 @@ src/overlays/ov168/calls/func_ov168_020d3e74.c:
     complete
     .text       start:0x020d3e74 end:0x020d3ea4
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d3ea4.c:
+src/overlays/ov168/calls/func_ov168_020d3ea4.c:
     complete
     .text       start:0x020d3ea4 end:0x020d3fdc
 
@@ -132,7 +132,7 @@ src/overlays/ov168/asm_stubs/calls/func_ov168_020d5254.c:
     complete
     .text       start:0x020d5254 end:0x020d53d0
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d53d0.c:
+src/overlays/ov168/calls/func_ov168_020d53d0.c:
     complete
     .text       start:0x020d53d0 end:0x020d546c
 

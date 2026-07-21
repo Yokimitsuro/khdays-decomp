@@ -40,7 +40,7 @@ src/overlays/ov243/calls/func_ov243_020d3c48.c:
     complete
     .text       start:0x020d3c48 end:0x020d3c94
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d3c94.c:
+src/overlays/ov243/calls/func_ov243_020d3c94.c:
     complete
     .text       start:0x020d3c94 end:0x020d3d78
 

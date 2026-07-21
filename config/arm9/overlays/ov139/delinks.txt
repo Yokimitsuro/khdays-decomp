@@ -8,7 +8,7 @@ src/overlays/ov139/calls/func_ov139_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov139/asm_stubs/calls/func_ov139_020cbf38.c:
+src/overlays/ov139/calls/func_ov139_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 

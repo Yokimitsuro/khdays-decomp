@@ -12,6 +12,10 @@ src/overlays/ov043/calls/func_ov043_020b351c.c:
     complete
     .text       start:0x020b351c end:0x020b3544
 
+src/overlays/ov043/calls/func_ov043_020b37a4.c:
+    complete
+    .text       start:0x020b37a4 end:0x020b37dc
+
 src/overlays/ov043/calls/func_ov043_020b3810.c:
     complete
     .text       start:0x020b3810 end:0x020b3828

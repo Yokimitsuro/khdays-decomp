@@ -36,7 +36,7 @@ src/overlays/ov066/asm_stubs/calls/func_ov066_020b5e30.c:
     complete
     .text       start:0x020b5e30 end:0x020b5ec8
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b5ec8.c:
+src/overlays/ov066/calls/func_ov066_020b5ec8.c:
     complete
     .text       start:0x020b5ec8 end:0x020b5fa4
 
@@ -56,15 +56,15 @@ src/overlays/ov066/calls/func_ov066_020b60b4.c:
     complete
     .text       start:0x020b60b4 end:0x020b60f0
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b60f0.c:
+src/overlays/ov066/calls/func_ov066_020b60f0.c:
     complete
     .text       start:0x020b60f0 end:0x020b6150
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b6150.c:
+src/overlays/ov066/calls/func_ov066_020b6150.c:
     complete
     .text       start:0x020b6150 end:0x020b61b0
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b61b0.c:
+src/overlays/ov066/calls/func_ov066_020b61b0.c:
     complete
     .text       start:0x020b61b0 end:0x020b623c
 
@@ -80,7 +80,7 @@ src/overlays/ov066/calls/func_ov066_020b6398.c:
     complete
     .text       start:0x020b6398 end:0x020b63fc
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b63fc.c:
+src/overlays/ov066/calls/func_ov066_020b63fc.c:
     complete
     .text       start:0x020b63fc end:0x020b6454
 
@@ -88,7 +88,7 @@ src/overlays/ov066/asm_stubs/calls/func_ov066_020b6454.c:
     complete
     .text       start:0x020b6454 end:0x020b6634
 
-src/overlays/ov066/asm_stubs/calls/func_ov066_020b6634.c:
+src/overlays/ov066/calls/func_ov066_020b6634.c:
     complete
     .text       start:0x020b6634 end:0x020b66d0
 

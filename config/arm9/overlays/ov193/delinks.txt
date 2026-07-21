@@ -8,7 +8,7 @@ src/overlays/ov193/calls/func_ov193_020d37a0.c:
     complete
     .text       start:0x020d37a0 end:0x020d37b8
 
-src/overlays/ov193/asm_stubs/calls/func_ov193_020d37b8.c:
+src/overlays/ov193/calls/func_ov193_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 

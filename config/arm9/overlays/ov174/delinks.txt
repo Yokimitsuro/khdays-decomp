@@ -8,7 +8,7 @@ src/overlays/ov174/calls/func_ov174_020cfb60.c:
     complete
     .text       start:0x020cfb60 end:0x020cfb78
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020cfb78.c:
+src/overlays/ov174/calls/func_ov174_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
@@ -80,7 +80,7 @@ src/overlays/ov174/calls/func_ov174_020d0b7c.c:
     complete
     .text       start:0x020d0b7c end:0x020d0be4
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d0be4.c:
+src/overlays/ov174/calls/func_ov174_020d0be4.c:
     complete
     .text       start:0x020d0be4 end:0x020d0c68
 
@@ -144,7 +144,7 @@ src/overlays/ov174/calls/func_ov174_020d1b6c.c:
     complete
     .text       start:0x020d1b6c end:0x020d1c44
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d1c44.c:
+src/overlays/ov174/calls/func_ov174_020d1c44.c:
     complete
     .text       start:0x020d1c44 end:0x020d1d68
 

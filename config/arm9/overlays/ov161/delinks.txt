@@ -8,7 +8,7 @@ src/overlays/ov161/calls/func_ov161_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov161/asm_stubs/calls/func_ov161_020cbf38.c:
+src/overlays/ov161/calls/func_ov161_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -36,6 +36,10 @@ src/overlays/ov161/asm_stubs/calls/func_ov161_020cc4ac.c:
     complete
     .text       start:0x020cc4ac end:0x020cc5f4
 
+src/overlays/ov161/calls/func_ov161_020cc5f4.c:
+    complete
+    .text       start:0x020cc5f4 end:0x020cc63c
+
 src/overlays/ov161/calls/func_ov161_020cc63c.c:
     complete
     .text       start:0x020cc63c end:0x020cc694
@@ -51,6 +55,10 @@ src/overlays/ov161/auto/func_ov161_020cc740.c:
 src/overlays/ov161/calls/func_ov161_020cc77c.c:
     complete
     .text       start:0x020cc77c end:0x020cc7e0
+
+src/overlays/ov161/calls/func_ov161_020cc7e0.c:
+    complete
+    .text       start:0x020cc7e0 end:0x020cc828
 
 src/overlays/ov161/calls/func_ov161_020cc828.c:
     complete
@@ -75,6 +83,10 @@ src/overlays/ov161/calls/func_ov161_020cc95c.c:
 src/overlays/ov161/calls/func_ov161_020cc9bc.c:
     complete
     .text       start:0x020cc9bc end:0x020cc9dc
+
+src/overlays/ov161/calls/func_ov161_020cc9dc.c:
+    complete
+    .text       start:0x020cc9dc end:0x020cca24
 
 src/overlays/ov161/calls/func_ov161_020cca24.c:
     complete
@@ -148,7 +160,7 @@ src/overlays/ov161/calls/func_ov161_020cd760.c:
     complete
     .text       start:0x020cd760 end:0x020cd7c0
 
-src/overlays/ov161/asm_stubs/calls/func_ov161_020cd7c0.c:
+src/overlays/ov161/calls/func_ov161_020cd7c0.c:
     complete
     .text       start:0x020cd7c0 end:0x020cd830
 
@@ -168,11 +180,11 @@ src/overlays/ov161/calls/func_ov161_020cda7c.c:
     complete
     .text       start:0x020cda7c end:0x020cdab0
 
-src/overlays/ov161/asm_stubs/calls/func_ov161_020cdab0.c:
+src/overlays/ov161/calls/func_ov161_020cdab0.c:
     complete
     .text       start:0x020cdab0 end:0x020cdb34
 
-src/overlays/ov161/asm_stubs/calls/func_ov161_020cdb34.c:
+src/overlays/ov161/calls/func_ov161_020cdb34.c:
     complete
     .text       start:0x020cdb34 end:0x020cdd20
 

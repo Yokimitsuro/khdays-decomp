@@ -8,7 +8,7 @@ src/overlays/ov124/calls/func_ov124_020cfb60.c:
     complete
     .text       start:0x020cfb60 end:0x020cfb78
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020cfb78.c:
+src/overlays/ov124/calls/func_ov124_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
@@ -55,6 +55,10 @@ src/overlays/ov124/calls/func_ov124_020d0164.c:
 src/overlays/ov124/asm_stubs/calls/func_ov124_020d01b0.c:
     complete
     .text       start:0x020d01b0 end:0x020d0328
+
+src/overlays/ov124/auto/func_ov124_020d0328.c:
+    complete
+    .text       start:0x020d0328 end:0x020d0358
 
 src/overlays/ov124/asm_stubs/calls/func_ov124_020d0358.c:
     complete
@@ -168,7 +172,7 @@ src/calls/func_ov124_020d162c.c:
     complete
     .text       start:0x020d162c end:0x020d1690
 
-src/overlays/ov124/asm_stubs/calls/func_ov124_020d1690.c:
+src/overlays/ov124/calls/func_ov124_020d1690.c:
     complete
     .text       start:0x020d1690 end:0x020d1724
 

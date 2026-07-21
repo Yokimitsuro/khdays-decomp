@@ -56,7 +56,7 @@ src/overlays/ov203/auto/func_ov203_020d4388.c:
     complete
     .text       start:0x020d4388 end:0x020d43cc
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d43cc.c:
+src/overlays/ov203/calls/func_ov203_020d43cc.c:
     complete
     .text       start:0x020d43cc end:0x020d44c8
 
@@ -104,11 +104,19 @@ src/overlays/ov203/calls/func_ov203_020d4ad8.c:
     complete
     .text       start:0x020d4ad8 end:0x020d4b38
 
+src/overlays/ov203/calls/func_ov203_020d4b38.c:
+    complete
+    .text       start:0x020d4b38 end:0x020d4b7c
+
 src/overlays/ov203/calls/func_ov203_020d4b7c.c:
     complete
     .text       start:0x020d4b7c end:0x020d4d20
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d4d54.c:
+src/overlays/ov203/calls/func_ov203_020d4d20.c:
+    complete
+    .text       start:0x020d4d20 end:0x020d4d54
+
+src/overlays/ov203/calls/func_ov203_020d4d54.c:
     complete
     .text       start:0x020d4d54 end:0x020d4dd8
 
@@ -124,11 +132,11 @@ src/overlays/ov203/calls/func_ov203_020d5030.c:
     complete
     .text       start:0x020d5030 end:0x020d50ac
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d50ac.c:
+src/overlays/ov203/calls/func_ov203_020d50ac.c:
     complete
     .text       start:0x020d50ac end:0x020d5118
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d5118.c:
+src/overlays/ov203/calls/func_ov203_020d5118.c:
     complete
     .text       start:0x020d5118 end:0x020d51e4
 
@@ -136,7 +144,7 @@ src/overlays/ov203/asm_stubs/calls/func_ov203_020d51e4.c:
     complete
     .text       start:0x020d51e4 end:0x020d5678
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d5678.c:
+src/overlays/ov203/calls/func_ov203_020d5678.c:
     complete
     .text       start:0x020d5678 end:0x020d572c
 
@@ -168,11 +176,15 @@ src/overlays/ov203/calls/func_ov203_020d6308.c:
     complete
     .text       start:0x020d6308 end:0x020d63bc
 
+src/overlays/ov203/calls/func_ov203_020d63bc.c:
+    complete
+    .text       start:0x020d63bc end:0x020d6404
+
 src/overlays/ov203/calls/func_ov203_020d6404.c:
     complete
     .text       start:0x020d6404 end:0x020d645c
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d645c.c:
+src/overlays/ov203/calls/func_ov203_020d645c.c:
     complete
     .text       start:0x020d645c end:0x020d6508
 
@@ -184,11 +196,15 @@ src/overlays/ov203/calls/func_ov203_020d6544.c:
     complete
     .text       start:0x020d6544 end:0x020d65a8
 
+src/overlays/ov203/calls/func_ov203_020d65a8.c:
+    complete
+    .text       start:0x020d65a8 end:0x020d65f0
+
 src/overlays/ov203/calls/func_ov203_020d65f0.c:
     complete
     .text       start:0x020d65f0 end:0x020d6638
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d6638.c:
+src/overlays/ov203/calls/func_ov203_020d6638.c:
     complete
     .text       start:0x020d6638 end:0x020d66b8
 

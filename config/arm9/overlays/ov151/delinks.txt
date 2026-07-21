@@ -8,7 +8,7 @@ src/overlays/ov151/calls/func_ov151_020cbf20.c:
     complete
     .text       start:0x020cbf20 end:0x020cbf38
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020cbf38.c:
+src/overlays/ov151/calls/func_ov151_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
@@ -40,7 +40,7 @@ src/overlays/ov151/calls/func_ov151_020cc5ac.c:
     complete
     .text       start:0x020cc5ac end:0x020cc5e8
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020cc5e8.c:
+src/overlays/ov151/calls/func_ov151_020cc5e8.c:
     complete
     .text       start:0x020cc5e8 end:0x020cc714
 
@@ -108,7 +108,7 @@ src/overlays/ov151/asm_stubs/calls/func_ov151_020ccfa0.c:
     complete
     .text       start:0x020ccfa0 end:0x020cd084
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020cd084.c:
+src/overlays/ov151/calls/func_ov151_020cd084.c:
     complete
     .text       start:0x020cd084 end:0x020cd118
 
@@ -132,7 +132,7 @@ src/overlays/ov151/asm_stubs/calls/func_ov151_020cd910.c:
     complete
     .text       start:0x020cd910 end:0x020cdaac
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020cdaac.c:
+src/overlays/ov151/calls/func_ov151_020cdaac.c:
     complete
     .text       start:0x020cdaac end:0x020cdb80
 
@@ -168,7 +168,7 @@ src/overlays/ov151/calls/func_ov151_020ce008.c:
     complete
     .text       start:0x020ce008 end:0x020ce088
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020ce088.c:
+src/overlays/ov151/calls/func_ov151_020ce088.c:
     complete
     .text       start:0x020ce088 end:0x020ce114
 
@@ -192,7 +192,7 @@ src/overlays/ov151/asm_stubs/calls/func_ov151_020ce4f0.c:
     complete
     .text       start:0x020ce4f0 end:0x020ce5a4
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020ce5a4.c:
+src/overlays/ov151/calls/func_ov151_020ce5a4.c:
     complete
     .text       start:0x020ce5a4 end:0x020ce658
 
@@ -200,7 +200,7 @@ src/calls/func_ov151_020ce658.c:
     complete
     .text       start:0x020ce658 end:0x020ce6d8
 
-src/overlays/ov151/asm_stubs/calls/func_ov151_020ce6d8.c:
+src/overlays/ov151/calls/func_ov151_020ce6d8.c:
     complete
     .text       start:0x020ce6d8 end:0x020ce79c
 

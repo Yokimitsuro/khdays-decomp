@@ -123,7 +123,7 @@ src/overlays/ov014/calls/func_ov014_02080520.c:
     complete
     .text       start:0x02080520 end:0x02080540
 
-src/overlays/ov014/asm_stubs/calls/func_ov014_02080540.c:
+src/overlays/ov014/calls/func_ov014_02080540.c:
     complete
     .text       start:0x02080540 end:0x020805cc
 
@@ -143,7 +143,7 @@ src/overlays/ov014/calls/func_ov014_02080718.c:
     complete
     .text       start:0x02080718 end:0x020807c2
 
-src/overlays/ov014/asm_stubs/calls/func_ov014_020807c4.c:
+src/overlays/ov014/calls/func_ov014_020807c4.c:
     complete
     .text       start:0x020807c4 end:0x02080826
 

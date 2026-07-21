@@ -168,7 +168,7 @@ src/overlays/ov217/calls/func_ov217_020d2388.c:
     complete
     .text       start:0x020d2388 end:0x020d23a8
 
-src/overlays/ov217/asm_stubs/calls/func_ov217_020d23a8.c:
+src/overlays/ov217/calls/func_ov217_020d23a8.c:
     complete
     .text       start:0x020d23a8 end:0x020d24a0
 

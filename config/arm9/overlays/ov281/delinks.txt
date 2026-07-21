@@ -40,7 +40,7 @@ src/overlays/ov281/calls/func_ov281_020cc654.c:
     complete
     .text       start:0x020cc654 end:0x020cc68c
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cc68c.c:
+src/overlays/ov281/calls/func_ov281_020cc68c.c:
     complete
     .text       start:0x020cc68c end:0x020cc7dc
 
@@ -64,7 +64,7 @@ src/overlays/ov281/asm_stubs/calls/func_ov281_020ccae4.c:
     complete
     .text       start:0x020ccae4 end:0x020ccd68
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020ccd68.c:
+src/overlays/ov281/calls/func_ov281_020ccd68.c:
     complete
     .text       start:0x020ccd68 end:0x020cce20
 
@@ -72,7 +72,7 @@ src/overlays/ov281/calls/func_ov281_020cce20.c:
     complete
     .text       start:0x020cce20 end:0x020ccff0
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020ccff0.c:
+src/overlays/ov281/calls/func_ov281_020ccff0.c:
     complete
     .text       start:0x020ccff0 end:0x020cd08c
 
@@ -96,7 +96,7 @@ src/overlays/ov281/calls/func_ov281_020cd2e0.c:
     complete
     .text       start:0x020cd2e0 end:0x020cd314
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cd314.c:
+src/overlays/ov281/calls/func_ov281_020cd314.c:
     complete
     .text       start:0x020cd314 end:0x020cd378
 
@@ -104,7 +104,7 @@ src/overlays/ov281/calls/func_ov281_020cd378.c:
     complete
     .text       start:0x020cd378 end:0x020cd4c8
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cd4c8.c:
+src/overlays/ov281/calls/func_ov281_020cd4c8.c:
     complete
     .text       start:0x020cd4c8 end:0x020cd534
 
@@ -144,11 +144,11 @@ src/overlays/ov281/calls/func_ov281_020cdbd0.c:
     complete
     .text       start:0x020cdbd0 end:0x020cdc44
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cdc44.c:
+src/overlays/ov281/calls/func_ov281_020cdc44.c:
     complete
     .text       start:0x020cdc44 end:0x020cdce0
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cdce0.c:
+src/overlays/ov281/calls/func_ov281_020cdce0.c:
     complete
     .text       start:0x020cdce0 end:0x020cdd94
 
@@ -160,7 +160,7 @@ src/overlays/ov281/calls/func_ov281_020cdde0.c:
     complete
     .text       start:0x020cdde0 end:0x020cde14
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020cde14.c:
+src/overlays/ov281/calls/func_ov281_020cde14.c:
     complete
     .text       start:0x020cde14 end:0x020cde7c
 

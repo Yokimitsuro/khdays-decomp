@@ -8,11 +8,11 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_ov044_0x020b3220.c:
     complete
     .text       start:0x020b3220 end:0x020b3234
 
-src/overlays/ov044/asm_stubs/calls/func_ov044_020b3234.c:
+src/overlays/ov044/calls/func_ov044_020b3234.c:
     complete
     .text       start:0x020b3234 end:0x020b32b4
 
-src/overlays/ov044/asm_stubs/calls/func_ov044_020b32b4.c:
+src/overlays/ov044/calls/func_ov044_020b32b4.c:
     complete
     .text       start:0x020b32b4 end:0x020b3314
 
@@ -20,7 +20,7 @@ src/overlays/ov044/asm_stubs/calls/func_ov044_020b3314.c:
     complete
     .text       start:0x020b3314 end:0x020b355c
 
-src/overlays/ov044/asm_stubs/calls/func_ov044_020b355c.c:
+src/overlays/ov044/calls/func_ov044_020b355c.c:
     complete
     .text       start:0x020b355c end:0x020b35fc
 
@@ -88,7 +88,7 @@ src/overlays/ov044/auto/func_ov044_020b3c58.c:
     complete
     .text       start:0x020b3c58 end:0x020b3c7c
 
-src/overlays/ov044/asm_stubs/calls/func_ov044_020b3c7c.c:
+src/overlays/ov044/calls/func_ov044_020b3c7c.c:
     complete
     .text       start:0x020b3c7c end:0x020b3cf4
 
