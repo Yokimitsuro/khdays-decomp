@@ -1,47 +1,44 @@
-/* NONMATCHING: equivalent C, global callee-saved coloring-direction tie
- * (count=5, 208B). Logic/structure/size byte-exact. Same class as ov127/ov142.
+/* NON-MATCHING: compiler-scheduler artifact only (register allocation + structure are exact).
+ * Family of 5: ov030_020b3f30 / ov044_020b3b64 / ov063_020b6364 / ov082_020b8a44 / ov099_020bb104.
  *
- * BEST FORM (2026-07-20): 32 bytes differ, down from 54. The improvement was
- * hoisting `slot` to function scope and declaring the long-lived locals in the
- * ROM's register order `obj, i, slot, acc7, acc8` -- that pins obj->r4 and
- * slot->r6 correctly (the old form left slot loop-scoped, so it never took part
- * in the function-scope coloring). What still ties:
- *   - {i, acc7, acc8}: ROM colours i->r5, acc7->r7, acc8->r8; mwcc gives
- *     i->r7, acc7->r8, acc8->r5. The three are initialised to 0 and mwcc
- *     coalesces the zero-copies in the opposite direction. Init order
- *     (i-first, acc=i copies, do/while) was tried -- all 35, i.e. worse.
- *   - {p, j} scratch: ROM p->r2, j->r1; mwcc p->r1, j->r2.
- * The ov131 nested-block crack (2026-07-20) does NOT transfer: it reassigns a
- * PAIR of pointers tied for one register slot; this is a 3-way accumulator
- * colour plus a scratch swap, a different flavour.
+ * Spawn four particle emitters into the owner's emitter pool (self+0x234, stride 0x170, up to 8
+ * slots). Per emitter: find the first free slot (byte +0x12c == 0, else reuse the last), zero the
+ * transform accumulators, reset the 3x scale (+0xb0/+0xb4/+0xb8 = 0x1000) and orientation
+ * (+0x150 = 0x1000) via 020b4048, copy the owner's palette handle (ctx+0x490), seed life 0xa000 /
+ * kind 0x119a / sprite id (ctx+0x66 low byte), mark used, stamp per-emitter angle (+0x2000 each)
+ * and spin (+0x3fff each), hand off to 020b4024. ctx = *(int*)(self+0xdb4).
  *
- * Semantics: for i in 0..3, scan up to 8 slots at this+0x234 (stride 0x170)
- * for the first with byte[+0x12c]==0; init that slot (0x148/0x14c=0, 0x150/
- * 0xb0/0xb4/0xb8=0x1000, 0x138=obj->0x490, 0x154=0xa000, 0x158=0x119a, 0x15c=
- * (s16)obj->0x66, 0x12c=1, 0x130=0, 0x134=i*0x2000, 0x15e=i*0x3fff), call
- * func_ov030_020b4048 mid-init and func_ov030_020b4024 at end. */
+ * After steering the callee-saved allocation to the ROM's (ctx=r4, i=r5, slot=r6, angle=r7,
+ * spin=r8 -- via the ctx/i/slot/angle/spin decl order + declaring j before p), the ONLY residue is
+ * instruction scheduling the retail compiler does differently:
+ *   (A) the 0x119a pool load: the ROM emits it AFTER the 0xa000 store and hoists `mov r1,#1` up;
+ *       mwcc hoists the `ldr [pc]` before the 0xa000 store and drops `mov r1,#1` to last.
+ *   (B) the loop-tail spin split: the ROM brackets angle between i++ and the second half of the
+ *       spin add; mwcc emits both spin halves adjacent.
+ * Neither is reachable from source (a pool load cannot be de-hoisted; the split recombines when
+ * spelled explicitly). build_sweep reports "24 off" on every one of the 27 mwcc builds, so no
+ * available compiler schedules it this way -- the retail scheduler (likely 3.0 >=140, a build we
+ * do not have) is the difference. Filed as a scheduler-version tie, not a source defect.
+ */
+
 extern void func_ov030_020b4048(int slot, int b);
 extern void func_ov030_020b4024(int slot);
 
-void func_ov030_020b3f30(int this_) {
-    int obj;
-    int i;
+void func_ov030_020b3f30(int self) {
+    int ctx = *(int *)(self + 0xdb4);
+    int i = 0;
     int slot;
-    int acc7;
-    int acc8;
-
-    obj = *(int *)(this_ + 0xdb4);
-    acc7 = 0;
-    acc8 = 0;
-
-    for (i = 0; i < 4; i++) {
-        char *p = (char *)(this_ + 0x234);
-        int j;
-        for (j = 0; j < 8; j++) {
-            slot = (int)p;
-            if (*(unsigned char *)(p + 0x12c) == 0) break;
-            p += 0x170;
-        }
+    int angle = 0;
+    int spin = 0;
+    do {
+        int j = 0;
+        int p = self + 0x234;
+        do {
+            slot = p;
+            if (*(unsigned char *)(slot + 0x12c) == 0) break;
+            j++;
+            p = slot + 0x170;
+        } while (j < 8);
         *(int *)(slot + 0x148) = 0;
         *(int *)(slot + 0x14c) = 0;
         *(int *)(slot + 0x150) = 0x1000;
@@ -49,16 +46,17 @@ void func_ov030_020b3f30(int this_) {
         *(int *)(slot + 0xb8) = 0x1000;
         *(int *)(slot + 0xb4) = 0x1000;
         *(int *)(slot + 0xb0) = 0x1000;
-        *(int *)(slot + 0x138) = *(int *)(obj + 0x490);
+        *(int *)(slot + 0x138) = *(int *)(ctx + 0x490);
         *(int *)(slot + 0x154) = 0xa000;
         *(int *)(slot + 0x158) = 0x119a;
-        *(signed char *)(slot + 0x15c) = *(short *)(obj + 0x66);
+        *(signed char *)(slot + 0x15c) = *(short *)(ctx + 0x66);
         *(unsigned char *)(slot + 0x12c) = 1;
         *(int *)(slot + 0x130) = 0;
-        *(int *)(slot + 0x134) = acc7;
-        *(unsigned short *)(slot + 0x15e) = acc8;
+        *(int *)(slot + 0x134) = angle;
+        *(short *)(slot + 0x15e) = spin;
         func_ov030_020b4024(slot);
-        acc7 += 0x2000;
-        acc8 += 0x3fff;
-    }
+        spin += 0x3fff;
+        i++;
+        angle += 0x2000;
+    } while (i < 4);
 }
