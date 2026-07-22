@@ -296,6 +296,10 @@ src/calls/func_020027f0.c:
     complete
     .text       start:0x020027f0 end:0x02002838
 
+libs/nitro/os/calls/OS_InitArenaEx.c:
+    complete
+    .text       start:0x0200293c end:0x020029a8
+
 libs/nitro/os/auto/OS_GetArenaHi.c:
     complete
     .text       start:0x020029a8 end:0x020029bc
@@ -315,6 +319,10 @@ libs/nitro/os/auto/OS_SetArenaHi.c:
 libs/nitro/os/auto/OS_SetArenaLo.c:
     complete
     .text       start:0x02002b70 end:0x02002b84
+
+libs/nitro/os/calls/OS_AllocFromArenaLo.c:
+    complete
+    .text       start:0x02002b84 end:0x02002bf0
 
 libs/nitro/nns/auto/DLAddFront.c:
     complete
@@ -1555,6 +1563,10 @@ libs/nitro/nns/auto/NNS_FndGetPrevListObject.c:
 src/calls/func_02010154.c:
     complete
     .text       start:0x02010154 end:0x0201019c
+
+libs/nitro/nns/calls/FindContainHeap.c:
+    complete
+    .text       start:0x0201019c end:0x02010204
 
 libs/nitro/nns/calls/FindListContainHeap.c:
     complete
