@@ -76,6 +76,10 @@ src/overlays/ov030/calls/func_ov030_020b3edc.c:
     complete
     .text       start:0x020b3edc end:0x020b3efa
 
+src/overlays/ov030/calls/func_ov030_020b3efc.c:
+    complete
+    .text       start:0x020b3efc end:0x020b3f30
+
 src/overlays/ov030/asm_stubs/calls/func_ov030_020b3f30.c:
     complete
     .text       start:0x020b3f30 end:0x020b4000
