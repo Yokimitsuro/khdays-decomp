@@ -784,6 +784,10 @@ src/calls/GXS_LoadBG3Char.c:
     complete
     .text       start:0x020079ac end:0x02007a0c
 
+libs/nitro/gx/calls/GX_EndLoadBGExtPltt.c:
+    complete
+    .text       start:0x02007b1c end:0x02007b64
+
 libs/nitro/gx/calls/GX_EndLoadOBJExtPltt.c:
     complete
     .text       start:0x02007c18 end:0x02007c5c
@@ -799,6 +803,10 @@ libs/nitro/gx/calls/GXS_BeginLoadOBJExtPltt.c:
 libs/nitro/gx/calls/GXS_EndLoadOBJExtPltt.c:
     complete
     .text       start:0x02007d94 end:0x02007dd4
+
+libs/nitro/gx/calls/GX_EndLoadTex.c:
+    complete
+    .text       start:0x02007f70 end:0x02007fbc
 
 libs/nitro/gx/calls/GX_BeginLoadTexPltt.c:
     complete
@@ -948,6 +956,10 @@ src/calls/func_02008f44.c:
     complete
     .text       start:0x02008f44 end:0x02008fdc
 
+libs/nitro/snd/calls/SND_DestroyWaveArc.c:
+    complete
+    .text       start:0x02008fdc end:0x02009024
+
 libs/nitro/snd/auto/SND_GetFirstInstDataPos.c:
     complete
     .text       start:0x02009024 end:0x02009044
@@ -1060,6 +1072,14 @@ libs/nitro/fs/calls/FS_ConvertPathToFileID.c:
     complete
     .text       start:0x0200abb8 end:0x0200abf8
 
+libs/nitro/fs/calls/FS_OpenFileDirect.c:
+    complete
+    .text       start:0x0200abf8 end:0x0200ac40
+
+libs/nitro/fs/calls/FS_OpenFile.c:
+    complete
+    .text       start:0x0200acb0 end:0x0200acf8
+
 libs/nitro/fs/calls/FS_CloseFile.c:
     complete
     .text       start:0x0200acf8 end:0x0200ad34
@@ -1123,6 +1143,10 @@ src/calls/FS_EndOverlay.c:
 libs/nitro/fs/calls/FS_UnloadOverlayImage.c:
     complete
     .text       start:0x0200b69c end:0x0200b6ac
+
+libs/nitro/fs/calls/FS_UnloadOverlay.c:
+    complete
+    .text       start:0x0200b700 end:0x0200b74c
 
 src/auto/func_0200b74c.c:
     complete
@@ -1391,6 +1415,10 @@ src/calls/func_0200f3c0.c:
 libs/nitro/nitro/calls/CTRDG_IsOptionCartridge.c:
     complete
     .text       start:0x0200f3f8 end:0x0200f420
+
+libs/nitro/nitro/auto/CTRDGi_ChangeLatestAccessCycle.c:
+    complete
+    .text       start:0x0200f544 end:0x0200f58c
 
 src/calls/CTRDGi_LockByProcessor.c:
     complete
