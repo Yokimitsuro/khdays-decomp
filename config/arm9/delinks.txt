@@ -3504,7 +3504,7 @@ src/auto/func_0202a1b8.c:
     complete
     .text       start:0x0202a1b8 end:0x0202a208
 
-src/asm_stubs/calls/func_0202a388.c:
+src/calls/func_0202a388.c:
     complete
     .text       start:0x0202a388 end:0x0202a3cc
 
