@@ -100,7 +100,7 @@ src/overlays/ov292/calls/func_ov292_020d4580.c:
     complete
     .text       start:0x020d4580 end:0x020d45bc
 
-libs/nitro/nns/asm_stubs/calls/AllocatorFreeForExpHeap_0x020d45bc.c:
+libs/nitro/nns/calls/AllocatorFreeForExpHeap_0x020d45bc.c:
     complete
     .text       start:0x020d45bc end:0x020d45cc
 

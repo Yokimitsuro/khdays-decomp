@@ -108,6 +108,10 @@ src/calls/OSi_DoUnlockByWord.c:
     complete
     .text       start:0x02001614 end:0x02001688
 
+libs/nitro/os/calls/OS_UnlockByWord_0x02001688.c:
+    complete
+    .text       start:0x02001688 end:0x02001698
+
 src/calls/OSi_DoTryLockByWord.c:
     complete
     .text       start:0x02001698 end:0x02001704
@@ -780,6 +784,10 @@ src/calls/GXS_LoadBG3Char.c:
     complete
     .text       start:0x020079ac end:0x02007a0c
 
+libs/nitro/gx/calls/GX_EndLoadOBJExtPltt.c:
+    complete
+    .text       start:0x02007c18 end:0x02007c5c
+
 libs/nitro/gx/calls/GXS_BeginLoadBGExtPltt.c:
     complete
     .text       start:0x02007c5c end:0x02007c74
@@ -788,9 +796,17 @@ libs/nitro/gx/calls/GXS_BeginLoadOBJExtPltt.c:
     complete
     .text       start:0x02007d18 end:0x02007d30
 
+libs/nitro/gx/calls/GXS_EndLoadOBJExtPltt.c:
+    complete
+    .text       start:0x02007d94 end:0x02007dd4
+
 libs/nitro/gx/calls/GX_BeginLoadTexPltt.c:
     complete
     .text       start:0x02007fbc end:0x02007ff0
+
+libs/nitro/gx/calls/GX_EndLoadTexPltt.c:
+    complete
+    .text       start:0x0200805c end:0x020080a0
 
 libs/nitro/snd/calls/SND_PrepareSeq.c:
     complete
@@ -819,6 +835,10 @@ libs/nitro/snd/calls/SND_SetTrackAllocatableChannel.c:
 libs/nitro/snd/calls/SND_StartTimer.c:
     complete
     .text       start:0x020081e0 end:0x02008208
+
+libs/nitro/snd/calls/SND_SetupAlarm.c:
+    complete
+    .text       start:0x0200826c end:0x020082ac
 
 libs/nitro/snd/calls/SND_SetChannelVolume.c:
     complete
@@ -851,6 +871,10 @@ libs/nitro/snd/calls/SNDi_SetTrackParam.c:
 src/calls/func_02008458.c:
     complete
     .text       start:0x02008458 end:0x02008478
+
+libs/nitro/snd/calls/PushCommand_impl.c:
+    complete
+    .text       start:0x02008478 end:0x020084bc
 
 libs/nitro/snd/calls/SNDi_UnlockMutex_0x020084f4.c:
     complete
@@ -1051,6 +1075,10 @@ src/calls/func_0200adf4.c:
 libs/nitro/fs/calls/FS_ReadFileAsync.c:
     complete
     .text       start:0x0200ae3c end:0x0200ae4c
+
+libs/nitro/fs/calls/OS_UnlockByWord_0x0200ae4c.c:
+    complete
+    .text       start:0x0200ae4c end:0x0200ae5c
 
 libs/nitro/fs/calls/FSi_OnRomReadDone.c:
     complete
@@ -1408,6 +1436,10 @@ src/calls/func_0200fad0.c:
     complete
     .text       start:0x0200fad0 end:0x0200fbc0
 
+libs/nitro/nitro/calls/MATH_CalcSHA1.c:
+    complete
+    .text       start:0x0200fbc0 end:0x0200fc00
+
 src/calls/func_0200fe88.c:
     complete
     .text       start:0x0200fe88 end:0x0200ff20
@@ -1544,6 +1576,10 @@ libs/nitro/nns/calls/AllocatorFreeForExpHeap.c:
     complete
     .text       start:0x02010d48 end:0x02010d58
 
+libs/nitro/nns/calls/AllocatorAllocForExpHeap_0x02010d58.c:
+    complete
+    .text       start:0x02010d58 end:0x02010d6c
+
 src/auto/func_02010d6c.c:
     complete
     .text       start:0x02010d6c end:0x02010d70
@@ -1551,6 +1587,10 @@ src/auto/func_02010d6c.c:
 src/calls/func_02010d70.c:
     complete
     .text       start:0x02010d70 end:0x02010d90
+
+libs/nitro/nns/calls/AllocatorFreeForExpHeap_0x02010d90.c:
+    complete
+    .text       start:0x02010d90 end:0x02010da0
 
 src/calls/func_02010da0.c:
     complete
@@ -1564,7 +1604,7 @@ libs/nitro/nns/calls/NNS_FndAllocFromAllocator.c:
     complete
     .text       start:0x02010dd8 end:0x02010dec
 
-libs/nitro/nns/asm_stubs/calls/NNS_FndFreeToAllocator.c:
+libs/nitro/nns/calls/NNS_FndFreeToAllocator.c:
     complete
     .text       start:0x02010dec end:0x02010e00
 

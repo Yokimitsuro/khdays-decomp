@@ -2332,6 +2332,14 @@ src/overlays/ov025/calls/func_ov025_020afaa8.c:
     complete
     .text       start:0x020afaa8 end:0x020afae8
 
+src/overlays/ov025/calls/OSi_IrqDma0_0x020afcbc.c:
+    complete
+    .text       start:0x020afcbc end:0x020afccc
+
+src/overlays/ov025/calls/OSi_IrqDma0_0x020afccc.c:
+    complete
+    .text       start:0x020afccc end:0x020afcdc
+
 src/overlays/ov025/calls/func_ov025_020afcdc.c:
     complete
     .text       start:0x020afcdc end:0x020afcf0
@@ -2359,6 +2367,10 @@ src/overlays/ov025/calls/func_ov025_020b00ec.c:
 src/overlays/ov025/calls/func_ov025_020b0250.c:
     complete
     .text       start:0x020b0250 end:0x020b02b8
+
+src/overlays/ov025/calls/OSi_IrqDma0_0x020b07dc.c:
+    complete
+    .text       start:0x020b07dc end:0x020b07ec
 
 src/overlays/ov025/calls/func_ov025_020b07ec.c:
     complete

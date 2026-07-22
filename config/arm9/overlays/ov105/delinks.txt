@@ -47,6 +47,10 @@ src/overlays/ov105/calls/func_ov105_020bd7a4.c:
     complete
     .text       start:0x020bd7a4 end:0x020bd7c4
 
+src/overlays/ov105/calls/OS_UnlockByWord_0x020bd9ec.c:
+    complete
+    .text       start:0x020bd9ec end:0x020bd9fc
+
 src/overlays/ov105/calls/func_ov105_020bda5c.c:
     complete
     .text       start:0x020bda5c end:0x020bda94

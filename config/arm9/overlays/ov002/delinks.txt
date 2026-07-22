@@ -2156,6 +2156,10 @@ src/overlays/ov002/calls/func_ov002_0206fb5c.c:
     complete
     .text       start:0x0206fb5c end:0x0206fb74
 
+src/overlays/ov002/calls/OSi_IrqTimer3_0x0206fb74.c:
+    complete
+    .text       start:0x0206fb74 end:0x0206fb84
+
 src/overlays/ov002/calls/func_ov002_0206ff6c.c:
     complete
     .text       start:0x0206ff6c end:0x0206ffa4
