@@ -1296,6 +1296,10 @@ src/calls/func_0200d0b0.c:
     complete
     .text       start:0x0200d0b0 end:0x0200d0dc
 
+src/calls/func_0200d0dc.c:
+    complete
+    .text       start:0x0200d0dc end:0x0200d138
+
 libs/nitro/pxi/calls/PXIi_SendCommand.c:
     complete
     .text       start:0x0200d138 end:0x0200d164
@@ -4963,6 +4967,10 @@ src/auto/func_02033e00.c:
 src/calls/func_02033e48.c:
     complete
     .text       start:0x02033e48 end:0x02033ea0
+
+src/auto/func_02033ea0.c:
+    complete
+    .text       start:0x02033ea0 end:0x02033ef8
 
 src/calls/func_02033ef8.c:
     complete
