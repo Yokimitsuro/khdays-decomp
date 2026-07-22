@@ -2255,6 +2255,7 @@ data_02047354 kind:bss addr:0x02047354
 data_02047360 kind:bss addr:0x02047360
 data_02047364 kind:bss addr:0x02047364
 data_02047370 kind:bss addr:0x02047370
+data_02047370_budget kind:bss addr:0x02047370
 data_02047384 kind:bss addr:0x02047384
 data_02047390 kind:bss addr:0x02047390
 data_02047394 kind:bss addr:0x02047394
