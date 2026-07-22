@@ -1300,6 +1300,10 @@ src/auto/func_02010e30.c:
     complete
     .text       start:0x02010e30 end:0x02010e38
 
+src/calls/func_02010e38.c:
+    complete
+    .text       start:0x02010e38 end:0x02010e80
+
 src/auto/func_020110ec.c:
     complete
     .text       start:0x020110ec end:0x020110f4
@@ -2899,6 +2903,10 @@ src/calls/func_02023198.c:
 src/calls/func_02023340.c:
     complete
     .text       start:0x02023340 end:0x02023364
+
+src/calls/func_02023364.c:
+    complete
+    .text       start:0x02023364 end:0x020233b0
 
 src/calls/func_020233b0.c:
     complete

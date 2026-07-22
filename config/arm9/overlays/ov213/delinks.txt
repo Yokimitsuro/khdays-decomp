@@ -120,6 +120,10 @@ src/overlays/ov213/calls/func_ov213_020d0758.c:
     complete
     .text       start:0x020d0758 end:0x020d0790
 
+src/overlays/ov213/calls/func_ov213_020d0790.c:
+    complete
+    .text       start:0x020d0790 end:0x020d07c4
+
 src/overlays/ov213/calls/func_ov213_020d095c.c:
     complete
     .text       start:0x020d095c end:0x020d09a8

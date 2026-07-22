@@ -88,7 +88,7 @@ src/overlays/ov182/calls/func_ov182_020cefcc.c:
     complete
     .text       start:0x020cefcc end:0x020cf000
 
-src/overlays/ov182/asm_stubs/calls/func_ov182_020cf000.c:
+src/overlays/ov182/calls/func_ov182_020cf000.c:
     complete
     .text       start:0x020cf000 end:0x020cf120
 
