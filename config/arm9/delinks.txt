@@ -2628,6 +2628,14 @@ src/auto/strncpy.c:
     complete
     .text       start:0x0201f9ec end:0x0201fa3c
 
+src/auto/func_0201fa3c.c:
+    complete
+    .text       start:0x0201fa3c end:0x0201fa6c
+
+src/auto/func_0201fa6c.c:
+    complete
+    .text       start:0x0201fa6c end:0x0201fabc
+
 libs/msl/c/calls/strncmp.c:
     complete
     .text       start:0x0201fbd0 end:0x0201fc04
@@ -4435,6 +4443,10 @@ src/calls/func_02032d10.c:
 src/calls/func_02032d6c.c:
     complete
     .text       start:0x02032d6c end:0x02032db8
+
+src/calls/func_02032f0c.c:
+    complete
+    .text       start:0x02032f0c end:0x02032f5c
 
 src/calls/func_02033500.c:
     complete
