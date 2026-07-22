@@ -141,6 +141,10 @@ libs/nitro/mtx/asm_stubs/auto/MTX_Copy43To44_.c:
     complete
     .text       start:0x01ff9460 end:0x01ff9494
 
+libs/nitro/mtx/calls/MTX_ScaleApply43.c:
+    complete
+    .text       start:0x01ff9494 end:0x01ff94c8
+
 libs/nitro/mtx/asm_stubs/auto/MTX_RotY43_.c:
     complete
     .text       start:0x01ff94e8 end:0x01ff9502

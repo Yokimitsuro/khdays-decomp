@@ -272,6 +272,10 @@ src/calls/OS_UnlockMutex.c:
     complete
     .text       start:0x020025f4 end:0x02002650
 
+libs/nitro/os/calls/OSi_UnlockAllMutex.c:
+    complete
+    .text       start:0x02002650 end:0x0200268c
+
 libs/nitro/os/auto/OSi_EnqueueTail.c:
     complete
     .text       start:0x0200268c end:0x020026b0
@@ -419,6 +423,10 @@ src/calls/func_02003a20.c:
 libs/nitro/os/asm_stubs/auto/OsCountZeroBits.c:
     complete
     .text       start:0x02003aa4 end:0x02003aac
+
+libs/nitro/os/auto/OSi_InitVramExclusive.c:
+    complete
+    .text       start:0x02003aac end:0x02003ae0
 
 src/calls/OSi_UnlockVram.c:
     complete
@@ -924,6 +932,10 @@ libs/nitro/snd/auto/SND_GetWaveDataCount.c:
     complete
     .text       start:0x020091f4 end:0x020091fc
 
+libs/nitro/snd/calls/SND_SetWaveDataAddress.c:
+    complete
+    .text       start:0x020091fc end:0x02009230
+
 src/calls/WM_EndKeySharing_0x0200926c.c:
     complete
     .text       start:0x0200926c end:0x02009278
@@ -1020,6 +1032,14 @@ libs/nitro/fs/auto/FS_InitFile.c:
     complete
     .text       start:0x0200a9d0 end:0x0200a9f8
 
+libs/nitro/fs/calls/FS_ConvertPathToFileID.c:
+    complete
+    .text       start:0x0200abb8 end:0x0200abf8
+
+libs/nitro/fs/calls/FS_CloseFile.c:
+    complete
+    .text       start:0x0200acf8 end:0x0200ad34
+
 src/calls/FS_WaitAsync.c:
     complete
     .text       start:0x0200ad34 end:0x0200adf4
@@ -1059,6 +1079,10 @@ libs/nitro/fs/calls/FS_TryLoadTable.c:
 libs/nitro/fs/auto/FSi_GetOverlayBinarySize.c:
     complete
     .text       start:0x0200b120 end:0x0200b13c
+
+libs/nitro/fs/calls/FS_ClearOverlayImage.c:
+    complete
+    .text       start:0x0200b13c end:0x0200b178
 
 src/calls/FS_GetOverlayFileID.c:
     complete
