@@ -1944,6 +1944,10 @@ src/calls/func_02019d30.c:
     complete
     .text       start:0x02019d30 end:0x02019d4c
 
+src/auto/func_02019d4c.c:
+    complete
+    .text       start:0x02019d4c end:0x02019d94
+
 libs/nitro/snd/calls/SND_ClearChannelBit.c:
     complete
     .text       start:0x02019d94 end:0x02019db4
@@ -4188,6 +4192,10 @@ src/calls/func_02030fcc.c:
     complete
     .text       start:0x02030fcc end:0x02030fdc
 
+src/auto/func_020310e8.c:
+    complete
+    .text       start:0x020310e8 end:0x0203112c
+
 src/auto/func_0203112c.c:
     complete
     .text       start:0x0203112c end:0x02031130
@@ -4496,6 +4504,10 @@ src/calls/func_02033cc8.c:
     complete
     .text       start:0x02033cc8 end:0x02033d0c
 
+src/auto/func_02033e00.c:
+    complete
+    .text       start:0x02033e00 end:0x02033e48
+
 src/calls/func_02033e48.c:
     complete
     .text       start:0x02033e48 end:0x02033ea0
@@ -4667,6 +4679,10 @@ src/calls/func_02035978.c:
 src/calls/func_020359b4.c:
     complete
     .text       start:0x020359b4 end:0x020359f0
+
+src/calls/func_020359f0.c:
+    complete
+    .text       start:0x020359f0 end:0x02035a34
 
 src/calls/func_02035a34.c:
     complete
