@@ -1396,6 +1396,14 @@ src/calls/func_02011558.c:
     complete
     .text       start:0x02011558 end:0x02011594
 
+src/calls/func_02011594.c:
+    complete
+    .text       start:0x02011594 end:0x020115b8
+
+src/calls/func_020115b8.c:
+    complete
+    .text       start:0x020115b8 end:0x02011640
+
 libs/nitro/gx/calls/GFXi_EnqueueCommand.c:
     complete
     .text       start:0x02011640 end:0x020116a8
@@ -2032,7 +2040,7 @@ src/calls/func_0201a238.c:
     complete
     .text       start:0x0201a238 end:0x0201a284
 
-src/asm_stubs/calls/func_0201a284.c:
+src/calls/func_0201a284.c:
     complete
     .text       start:0x0201a284 end:0x0201a2ac
 
@@ -2684,6 +2692,10 @@ src/calls/func_02020914.c:
     complete
     .text       start:0x02020914 end:0x02020928
 
+src/calls/func_02020928.c:
+    complete
+    .text       start:0x02020928 end:0x02020974
+
 src/auto/func_02020974.c:
     complete
     .text       start:0x02020974 end:0x02020976
@@ -2820,7 +2832,7 @@ src/calls/func_02022324.c:
     complete
     .text       start:0x02022324 end:0x02022360
 
-src/asm_stubs/calls/func_02022360.c:
+src/calls/func_02022360.c:
     complete
     .text       start:0x02022360 end:0x0202237c
 
@@ -3260,6 +3272,10 @@ src/calls/func_02024d68.c:
     complete
     .text       start:0x02024d68 end:0x02024da4
 
+src/calls/func_02024e34.c:
+    complete
+    .text       start:0x02024e34 end:0x02024e5c
+
 src/calls/func_02024e5c.c:
     complete
     .text       start:0x02024e5c end:0x02024e6c
@@ -3292,15 +3308,15 @@ src/calls/func_020255f0.c:
     complete
     .text       start:0x020255f0 end:0x02025640
 
-src/asm_stubs/auto/func_02025640.c:
+src/auto/func_02025640.c:
     complete
     .text       start:0x02025640 end:0x02025668
 
-src/asm_stubs/auto/func_02025668.c:
+src/auto/func_02025668.c:
     complete
     .text       start:0x02025668 end:0x02025694
 
-src/asm_stubs/auto/func_02025694.c:
+src/auto/func_02025694.c:
     complete
     .text       start:0x02025694 end:0x020256b8
 
@@ -3796,7 +3812,7 @@ src/calls/func_0202c57c.c:
     complete
     .text       start:0x0202c57c end:0x0202c594
 
-src/asm_stubs/calls/func_0202c594.c:
+src/calls/func_0202c594.c:
     complete
     .text       start:0x0202c594 end:0x0202c5b8
 
@@ -4376,6 +4392,10 @@ src/calls/func_02032d6c.c:
     complete
     .text       start:0x02032d6c end:0x02032db8
 
+src/calls/func_02033500.c:
+    complete
+    .text       start:0x02033500 end:0x0203355c
+
 src/asm_stubs/calls/func_0203355c.c:
     complete
     .text       start:0x0203355c end:0x0203358c
@@ -4467,6 +4487,10 @@ src/calls/func_02033f88.c:
 src/calls/func_02033fb4.c:
     complete
     .text       start:0x02033fb4 end:0x02033fec
+
+src/calls/func_02033fec.c:
+    complete
+    .text       start:0x02033fec end:0x02034014
 
 src/calls/func_02034014.c:
     complete
@@ -4563,6 +4587,10 @@ src/calls/func_02035708.c:
 src/calls/func_02035794.c:
     complete
     .text       start:0x02035794 end:0x020357c8
+
+src/auto/func_020357c8.c:
+    complete
+    .text       start:0x020357c8 end:0x020357f4
 
 src/calls/func_020357f4.c:
     complete

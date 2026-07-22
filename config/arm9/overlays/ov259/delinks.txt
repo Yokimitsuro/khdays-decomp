@@ -104,6 +104,10 @@ src/overlays/ov259/calls/func_ov259_020d1840.c:
     complete
     .text       start:0x020d1840 end:0x020d1874
 
+src/overlays/ov259/calls/func_ov259_020d1aa4.c:
+    complete
+    .text       start:0x020d1aa4 end:0x020d1ad4
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d1be0.c:
     complete
     .text       start:0x020d1be0 end:0x020d1bec

@@ -100,6 +100,10 @@ src/overlays/ov282/calls/func_ov282_020d1b04.c:
     complete
     .text       start:0x020d1b04 end:0x020d1c14
 
+src/overlays/ov282/calls/func_ov282_020d1f24.c:
+    complete
+    .text       start:0x020d1f24 end:0x020d1fe4
+
 src/overlays/ov282/calls/func_ov282_020d1fe4.c:
     complete
     .text       start:0x020d1fe4 end:0x020d2018

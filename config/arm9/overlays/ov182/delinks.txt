@@ -100,7 +100,7 @@ src/overlays/ov182/asm_stubs/calls/func_ov182_020cf120.c:
     complete
     .text       start:0x020cf120 end:0x020cf278
 
-src/overlays/ov182/asm_stubs/calls/func_ov182_020cf278.c:
+src/overlays/ov182/calls/func_ov182_020cf278.c:
     complete
     .text       start:0x020cf278 end:0x020cf398
 

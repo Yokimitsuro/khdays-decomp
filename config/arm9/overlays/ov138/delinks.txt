@@ -16,6 +16,10 @@ src/overlays/ov138/calls/func_ov138_020cfe88.c:
     complete
     .text       start:0x020cfe88 end:0x020cfed0
 
+src/overlays/ov138/calls/func_ov138_020cfed0.c:
+    complete
+    .text       start:0x020cfed0 end:0x020cff1c
+
 src/overlays/ov138/calls/func_ov138_020cff1c.c:
     complete
     .text       start:0x020cff1c end:0x020cffd8

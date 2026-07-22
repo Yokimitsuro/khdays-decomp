@@ -72,7 +72,7 @@ src/overlays/ov044/calls/func_ov044_020b3b10.c:
     complete
     .text       start:0x020b3b10 end:0x020b3b2e
 
-src/overlays/ov044/asm_stubs/calls/func_ov044_020b3b30.c:
+src/overlays/ov044/calls/func_ov044_020b3b30.c:
     complete
     .text       start:0x020b3b30 end:0x020b3b64
 

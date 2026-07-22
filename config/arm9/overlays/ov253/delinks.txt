@@ -16,6 +16,10 @@ src/overlays/ov253/calls/func_ov253_020cc9fc.c:
     complete
     .text       start:0x020cc9fc end:0x020cca7c
 
+src/overlays/ov253/calls/func_ov253_020cca7c.c:
+    complete
+    .text       start:0x020cca7c end:0x020ccad8
+
 src/calls/WM_EndKeySharing_0x020cccf4.c:
     complete
     .text       start:0x020cccf4 end:0x020ccd00
@@ -96,6 +100,10 @@ src/overlays/ov253/calls/func_ov253_020ced24.c:
     complete
     .text       start:0x020ced24 end:0x020cedc4
 
+src/overlays/ov253/calls/func_ov253_020ceff4.c:
+    complete
+    .text       start:0x020ceff4 end:0x020cf04c
+
 src/overlays/ov253/calls/func_ov253_020cf04c.c:
     complete
     .text       start:0x020cf04c end:0x020cf08c
@@ -160,6 +168,10 @@ src/overlays/ov253/calls/func_ov253_020d1b2c.c:
     complete
     .text       start:0x020d1b2c end:0x020d1b80
 
+src/overlays/ov253/calls/func_ov253_020d1cf0.c:
+    complete
+    .text       start:0x020d1cf0 end:0x020d1d28
+
 src/overlays/ov253/calls/func_ov253_020d1dec.c:
     complete
     .text       start:0x020d1dec end:0x020d1e38
@@ -183,6 +195,10 @@ src/overlays/ov253/calls/func_ov253_020d26a8.c:
 src/overlays/ov253/calls/func_ov253_020d26c8.c:
     complete
     .text       start:0x020d26c8 end:0x020d26e0
+
+src/overlays/ov253/auto/func_ov253_020d27f8.c:
+    complete
+    .text       start:0x020d27f8 end:0x020d2824
 
 src/overlays/ov253/calls/func_ov253_020d2824.c:
     complete
@@ -243,6 +259,10 @@ src/overlays/ov253/calls/func_ov253_020d3118.c:
 src/overlays/ov253/calls/func_ov253_020d3164.c:
     complete
     .text       start:0x020d3164 end:0x020d31a0
+
+src/overlays/ov253/auto/func_ov253_020d3388.c:
+    complete
+    .text       start:0x020d3388 end:0x020d33d8
 
 src/overlays/ov253/calls/func_ov253_020d3a30.c:
     complete

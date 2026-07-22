@@ -16,6 +16,14 @@ src/overlays/ov278/calls/func_ov278_020cc5c0.c:
     complete
     .text       start:0x020cc5c0 end:0x020cc630
 
+src/overlays/ov278/calls/func_ov278_020cc838.c:
+    complete
+    .text       start:0x020cc838 end:0x020cc86c
+
+src/overlays/ov278/calls/func_ov278_020ccd14.c:
+    complete
+    .text       start:0x020ccd14 end:0x020ccd68
+
 src/overlays/ov278/calls/func_ov278_020cce20.c:
     complete
     .text       start:0x020cce20 end:0x020cce54
@@ -27,6 +35,10 @@ src/overlays/ov278/calls/func_ov278_020cd300.c:
 src/overlays/ov278/calls/func_ov278_020cd508.c:
     complete
     .text       start:0x020cd508 end:0x020cd5a0
+
+src/overlays/ov278/calls/func_ov278_020cd8cc.c:
+    complete
+    .text       start:0x020cd8cc end:0x020cd918
 
 src/overlays/ov278/calls/func_ov278_020cdc84.c:
     complete
@@ -43,6 +55,10 @@ src/overlays/ov278/calls/func_ov278_020ce430.c:
 src/overlays/ov278/calls/WM_EndKeySharing_ov278_0x020ce6fc.c:
     complete
     .text       start:0x020ce6fc end:0x020ce708
+
+src/overlays/ov278/calls/func_ov278_020ce7d4.c:
+    complete
+    .text       start:0x020ce7d4 end:0x020ce820
 
 src/overlays/ov278/calls/func_ov278_020ced5c.c:
     complete
@@ -192,6 +208,10 @@ src/overlays/ov278/calls/func_ov278_020d3348.c:
     complete
     .text       start:0x020d3348 end:0x020d337c
 
+src/overlays/ov278/calls/func_ov278_020d337c.c:
+    complete
+    .text       start:0x020d337c end:0x020d33f4
+
 src/overlays/ov278/calls/func_ov278_020d3698.c:
     complete
     .text       start:0x020d3698 end:0x020d36cc
@@ -276,6 +296,10 @@ src/overlays/ov278/calls/func_ov278_020d5d88.c:
     complete
     .text       start:0x020d5d88 end:0x020d5dbc
 
+src/overlays/ov278/calls/func_ov278_020d5dbc.c:
+    complete
+    .text       start:0x020d5dbc end:0x020d5e1c
+
 src/overlays/ov278/auto/func_ov278_020d5eb0.c:
     complete
     .text       start:0x020d5eb0 end:0x020d5ec8
@@ -283,6 +307,10 @@ src/overlays/ov278/auto/func_ov278_020d5eb0.c:
 src/overlays/ov278/calls/func_ov278_020d5ec8.c:
     complete
     .text       start:0x020d5ec8 end:0x020d5ee8
+
+src/overlays/ov278/calls/func_ov278_020d5ee8.c:
+    complete
+    .text       start:0x020d5ee8 end:0x020d5f50
 
 src/overlays/ov278/auto/func_ov278_020d601c.c:
     complete

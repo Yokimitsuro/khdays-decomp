@@ -16,6 +16,14 @@ src/overlays/ov236/calls/func_ov236_020cc5c0.c:
     complete
     .text       start:0x020cc5c0 end:0x020cc630
 
+src/overlays/ov236/calls/func_ov236_020cc838.c:
+    complete
+    .text       start:0x020cc838 end:0x020cc86c
+
+src/overlays/ov236/calls/func_ov236_020ccd14.c:
+    complete
+    .text       start:0x020ccd14 end:0x020ccd68
+
 src/overlays/ov236/calls/func_ov236_020cce20.c:
     complete
     .text       start:0x020cce20 end:0x020cce54
@@ -27,6 +35,10 @@ src/overlays/ov236/calls/func_ov236_020cd300.c:
 src/overlays/ov236/auto/func_ov236_020cd508.c:
     complete
     .text       start:0x020cd508 end:0x020cd5a0
+
+src/overlays/ov236/calls/func_ov236_020cd8cc.c:
+    complete
+    .text       start:0x020cd8cc end:0x020cd918
 
 src/overlays/ov236/calls/func_ov236_020cdc84.c:
     complete
@@ -43,6 +55,10 @@ src/overlays/ov236/calls/func_ov236_020ce430.c:
 src/overlays/ov236/calls/WM_EndKeySharing_ov236_0x020ce6fc.c:
     complete
     .text       start:0x020ce6fc end:0x020ce708
+
+src/overlays/ov236/calls/func_ov236_020ce7d4.c:
+    complete
+    .text       start:0x020ce7d4 end:0x020ce820
 
 src/overlays/ov236/calls/func_ov236_020ced5c.c:
     complete
@@ -192,6 +208,10 @@ src/overlays/ov236/calls/func_ov236_020d3394.c:
     complete
     .text       start:0x020d3394 end:0x020d33c8
 
+src/overlays/ov236/calls/func_ov236_020d33c8.c:
+    complete
+    .text       start:0x020d33c8 end:0x020d3440
+
 src/overlays/ov236/calls/func_ov236_020d36e4.c:
     complete
     .text       start:0x020d36e4 end:0x020d3718
@@ -276,6 +296,10 @@ src/overlays/ov236/calls/func_ov236_020d5dd4.c:
     complete
     .text       start:0x020d5dd4 end:0x020d5e08
 
+src/overlays/ov236/calls/func_ov236_020d5e08.c:
+    complete
+    .text       start:0x020d5e08 end:0x020d5e68
+
 src/overlays/ov236/auto/func_ov236_020d5efc.c:
     complete
     .text       start:0x020d5efc end:0x020d5f14
@@ -283,6 +307,10 @@ src/overlays/ov236/auto/func_ov236_020d5efc.c:
 src/overlays/ov236/calls/func_ov236_020d5f14.c:
     complete
     .text       start:0x020d5f14 end:0x020d5f34
+
+src/overlays/ov236/calls/func_ov236_020d5f34.c:
+    complete
+    .text       start:0x020d5f34 end:0x020d5f9c
 
 src/overlays/ov236/auto/func_ov236_020d6068.c:
     complete

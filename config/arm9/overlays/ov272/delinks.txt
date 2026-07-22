@@ -52,6 +52,10 @@ src/overlays/ov272/calls/func_ov272_020d0e38.c:
     complete
     .text       start:0x020d0e38 end:0x020d0f28
 
+src/overlays/ov272/calls/func_ov272_020d0f28.c:
+    complete
+    .text       start:0x020d0f28 end:0x020d1000
+
 src/overlays/ov272/calls/func_ov272_020d1000.c:
     complete
     .text       start:0x020d1000 end:0x020d1034

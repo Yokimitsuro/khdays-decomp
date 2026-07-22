@@ -36,7 +36,7 @@ src/overlays/ov118/calls/func_ov118_020cfe98.c:
     complete
     .text       start:0x020cfe98 end:0x020cfeb0
 
-src/overlays/ov118/asm_stubs/calls/func_ov118_020cfeb0.c:
+src/overlays/ov118/calls/func_ov118_020cfeb0.c:
     complete
     .text       start:0x020cfeb0 end:0x020cff94
 

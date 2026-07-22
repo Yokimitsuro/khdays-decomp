@@ -28,6 +28,10 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc370.c:
     complete
     .text       start:0x020cc370 end:0x020cc37c
 
+libs/nitro/wm/calls/WM_EndKeySharing_ov173_0x020cc37c.c:
+    complete
+    .text       start:0x020cc37c end:0x020cc388
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cc388.c:
     complete
     .text       start:0x020cc388 end:0x020cc394

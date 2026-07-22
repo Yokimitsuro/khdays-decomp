@@ -76,7 +76,7 @@ src/overlays/ov087/asm_stubs/calls/func_ov087_020b8e34.c:
     complete
     .text       start:0x020b8e34 end:0x020b8f4c
 
-src/overlays/ov087/asm_stubs/calls/func_ov087_020b8f4c.c:
+src/overlays/ov087/calls/func_ov087_020b8f4c.c:
     complete
     .text       start:0x020b8f4c end:0x020b8fa4
 

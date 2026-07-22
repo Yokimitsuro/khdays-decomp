@@ -72,6 +72,10 @@ src/overlays/ov158/calls/func_ov158_020cd138.c:
     complete
     .text       start:0x020cd138 end:0x020cd174
 
+src/overlays/ov158/calls/func_ov158_020cd174.c:
+    complete
+    .text       start:0x020cd174 end:0x020cd200
+
 src/overlays/ov158/calls/func_ov158_020cd200.c:
     complete
     .text       start:0x020cd200 end:0x020cd2d0
