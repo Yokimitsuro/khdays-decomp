@@ -11,7 +11,7 @@ src/overlays/ov294/calls/func_ov294_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
-src/overlays/ov294/asm_stubs/calls/func_ov294_020d1a24.c:
+src/overlays/ov294/calls/func_ov294_020d1a24.c:
     complete
     .text       start:0x020d1a24 end:0x020d1b80
 
@@ -51,7 +51,7 @@ src/overlays/ov294/calls/func_ov294_020d1f94.c:
     complete
     .text       start:0x020d1f94 end:0x020d2008
 
-src/overlays/ov294/asm_stubs/calls/func_ov294_020d2008.c:
+src/overlays/ov294/calls/func_ov294_020d2008.c:
     complete
     .text       start:0x020d2008 end:0x020d2454
 

@@ -11,7 +11,7 @@ src/overlays/ov295/calls/func_ov295_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov295/asm_stubs/calls/func_ov295_020d3844.c:
+src/overlays/ov295/calls/func_ov295_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d39a0
 
@@ -51,7 +51,7 @@ src/overlays/ov295/calls/func_ov295_020d3db4.c:
     complete
     .text       start:0x020d3db4 end:0x020d3e28
 
-src/overlays/ov295/asm_stubs/calls/func_ov295_020d3e28.c:
+src/overlays/ov295/calls/func_ov295_020d3e28.c:
     complete
     .text       start:0x020d3e28 end:0x020d4274
 
