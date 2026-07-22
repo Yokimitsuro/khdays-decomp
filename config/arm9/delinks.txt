@@ -720,6 +720,30 @@ src/calls/G3X_SetHOffset.c:
     complete
     .text       start:0x020070b0 end:0x020070c0
 
+libs/nitro/gx/calls/GX_LoadBGPltt.c:
+    complete
+    .text       start:0x02007154 end:0x020071a8
+
+libs/nitro/gx/calls/GXS_LoadBGPltt.c:
+    complete
+    .text       start:0x020071a8 end:0x02007200
+
+libs/nitro/gx/calls/GX_LoadOBJPltt.c:
+    complete
+    .text       start:0x02007200 end:0x02007258
+
+libs/nitro/gx/calls/GXS_LoadOBJPltt.c:
+    complete
+    .text       start:0x02007258 end:0x020072b0
+
+libs/nitro/gx/calls/GX_LoadOAM.c:
+    complete
+    .text       start:0x020072b0 end:0x02007304
+
+libs/nitro/gx/calls/GXS_LoadOAM.c:
+    complete
+    .text       start:0x02007304 end:0x0200735c
+
 src/calls/GX_LoadBG0Scr.c:
     complete
     .text       start:0x0200740c end:0x0200746c
@@ -795,6 +819,10 @@ libs/nitro/gx/calls/GX_EndLoadOBJExtPltt.c:
 libs/nitro/gx/calls/GXS_BeginLoadBGExtPltt.c:
     complete
     .text       start:0x02007c5c end:0x02007c74
+
+libs/nitro/gx/calls/GXS_EndLoadBGExtPltt.c:
+    complete
+    .text       start:0x02007cd8 end:0x02007d18
 
 libs/nitro/gx/calls/GXS_BeginLoadOBJExtPltt.c:
     complete
@@ -1144,10 +1172,6 @@ libs/nitro/fs/calls/FS_UnloadOverlayImage.c:
     complete
     .text       start:0x0200b69c end:0x0200b6ac
 
-libs/nitro/fs/calls/FS_UnloadOverlay.c:
-    complete
-    .text       start:0x0200b700 end:0x0200b74c
-
 src/auto/func_0200b74c.c:
     complete
     .text       start:0x0200b74c end:0x0200b79c
@@ -1487,6 +1511,10 @@ libs/nitro/nns/auto/NNS_FndInitList.c:
 libs/nitro/nns/auto/SetFirstObject.c:
     complete
     .text       start:0x0200ff94 end:0x0200ffc0
+
+libs/nitro/nns/calls/NNS_FndAppendListObject.c:
+    complete
+    .text       start:0x0200ffc0 end:0x02010014
 
 libs/nitro/nns/auto/NNS_FndGetNextListObject.c:
     complete
