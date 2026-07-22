@@ -141,6 +141,18 @@ libs/nitro/mtx/asm_stubs/auto/MTX_RotY43_.c:
     complete
     .text       start:0x01ff94e8 end:0x01ff9502
 
+libs/nitro/gx/calls/G3_LoadMtx43.c:
+    complete
+    .text       start:0x01ff9d0c end:0x01ff9d28
+
+libs/nitro/gx/calls/G3_MultMtx43.c:
+    complete
+    .text       start:0x01ff9d28 end:0x01ff9d44
+
+libs/nitro/gx/calls/G3_MultMtx33.c:
+    complete
+    .text       start:0x01ff9d44 end:0x01ff9d60
+
 libs/nitro/gx/asm_stubs/auto/GX_SendFifo48B.c:
     complete
     .text       start:0x01ff9d60 end:0x01ff9d84
