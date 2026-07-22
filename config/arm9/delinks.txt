@@ -1888,6 +1888,10 @@ src/calls/func_02019120.c:
     complete
     .text       start:0x02019120 end:0x02019194
 
+src/auto/func_02019194.c:
+    complete
+    .text       start:0x02019194 end:0x020191e0
+
 src/auto/func_020191e0.c:
     complete
     .text       start:0x020191e0 end:0x02019218
@@ -2748,6 +2752,10 @@ src/calls/func_02020aa8.c:
     complete
     .text       start:0x02020aa8 end:0x02020ab4
 
+src/calls/func_02020c7c.c:
+    complete
+    .text       start:0x02020c7c end:0x02020cc6
+
 src/calls/func_02020cc8.c:
     complete
     .text       start:0x02020cc8 end:0x02020cf8
@@ -3103,6 +3111,10 @@ src/calls/func_02023c40.c:
 src/calls/func_02023c50.c:
     complete
     .text       start:0x02023c50 end:0x02023c60
+
+src/auto/func_02023e34.c:
+    complete
+    .text       start:0x02023e34 end:0x02023e80
 
 src/auto/func_02023e80.c:
     complete
@@ -4727,6 +4739,10 @@ src/calls/func_02035fb0.c:
 src/calls/func_02035ffc.c:
     complete
     .text       start:0x02035ffc end:0x0203602c
+
+src/calls/func_02036298.c:
+    complete
+    .text       start:0x02036298 end:0x020362e6
 
 src/auto/func_020362e8.c:
     complete
