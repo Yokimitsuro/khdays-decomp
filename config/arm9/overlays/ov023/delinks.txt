@@ -188,6 +188,10 @@ src/overlays/ov023/calls/func_ov023_02084bac.c:
     complete
     .text       start:0x02084bac end:0x02084be6
 
+src/overlays/ov023/calls/func_ov023_02084be8.c:
+    complete
+    .text       start:0x02084be8 end:0x02084c30
+
 src/overlays/ov023/calls/func_ov023_02084c30.c:
     complete
     .text       start:0x02084c30 end:0x02084c5e

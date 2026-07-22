@@ -1840,6 +1840,10 @@ src/overlays/ov002/auto/func_ov002_0206b9cc.c:
     complete
     .text       start:0x0206b9cc end:0x0206b9e4
 
+src/overlays/ov002/calls/func_ov002_0206b9e4.c:
+    complete
+    .text       start:0x0206b9e4 end:0x0206ba28
+
 src/overlays/ov002/calls/func_ov002_0206ba28.c:
     complete
     .text       start:0x0206ba28 end:0x0206ba48
