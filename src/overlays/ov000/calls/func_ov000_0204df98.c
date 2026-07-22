@@ -1,10 +1,4 @@
 /* func_ov000_0204df98 -- Scene 1 (boot/logo) hand-off state, ov000.
- * NONMATCHING: semantically byte-exact except one scratch-register permutation
- * (r1<->r2 on base vs increment-temp) in the phase-1 case-2 counter bump; every
- * other instruction matches. mwcc keeps the live compared value in r0 and the
- * base in r1 there; no C form reproduces the exact r1/r2 pairing without changing
- * the instruction count. Kept here for the PC port (logic is exact).
- *
  * A 3-phase sub-state machine (phase counter = u16 at heap+0x4c50) that waits for
  * the next scene to become ready before advancing:
  *   phase 0: reset the retry/attempt counters (heap+0x4c52/+0x4c53), run
@@ -14,12 +8,20 @@
  *            result 0 probe func_020235d0 and set a flag). Once the attempt counter
  *            (heap+0x4c52) reaches 3, phase++.
  *   phase 2: advance to func_ov000_0204e270.
- * Any other phase (and the fall-through of 0/1) returns 0 (stay). */
+ * Any other phase (and the fall-through of 0/1) returns 0 (stay). 
+ *
+ * Both calls to func_ov000_02054e48 pass an argument: the extern here said `(void)` and the
+ * definition takes one (tools/audit_extern_sig.py names it). In phase 0 the argument is the same
+ * 0 the two byte fields are cleared with -- one constant doing double duty, which is why it looks
+ * argument-free -- and in phase 1 it is the freshly incremented attempt counter, the very value
+ * the `< 3` test compares. Binding that increment to a local is what makes the ROM's
+ * `and r0,r2,#0xff` serve both the compare and the call.
+ */
 
 typedef void *StateFn;
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
-extern void  func_ov000_02054e48(void);
+extern void  func_ov000_02054e48(int a);
 extern int   func_ov000_02054e7c(void);
 extern int   func_020235d0(int, int);
 extern void  func_02023930(void *classDesc, int arg);
@@ -35,7 +37,7 @@ StateFn func_ov000_0204df98(void) {
     case 0:
         *(unsigned char *)(h + 0x4c53) = 0;
         *(unsigned char *)(h + 0x4c52) = 0;
-        func_ov000_02054e48();
+        func_ov000_02054e48(0);
         func_0201e374(0x10);
         func_0201e3cc(0x10);
         (*(unsigned short *)(h + 0x4c50))++;
@@ -54,8 +56,11 @@ StateFn func_ov000_0204df98(void) {
             (*(unsigned char *)(h + 0x4c53))++;
             /* fallthrough */
         case 2:
-            if (++*(unsigned char *)(h + 0x4c52) < 3) {
-                func_ov000_02054e48();
+            {
+                unsigned char n = ++*(unsigned char *)(h + 0x4c52);
+                if (n < 3) {
+                    func_ov000_02054e48(n);
+                }
             }
             break;
         }
