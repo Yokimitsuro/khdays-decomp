@@ -808,9 +808,17 @@ src/calls/GXS_LoadBG3Char.c:
     complete
     .text       start:0x020079ac end:0x02007a0c
 
+libs/nitro/gx/calls/GX_LoadBGExtPltt.c:
+    complete
+    .text       start:0x02007aac end:0x02007b1c
+
 libs/nitro/gx/calls/GX_EndLoadBGExtPltt.c:
     complete
     .text       start:0x02007b1c end:0x02007b64
+
+libs/nitro/gx/calls/GX_LoadOBJExtPltt.c:
+    complete
+    .text       start:0x02007bac end:0x02007c18
 
 libs/nitro/gx/calls/GX_EndLoadOBJExtPltt.c:
     complete
@@ -820,6 +828,10 @@ libs/nitro/gx/calls/GXS_BeginLoadBGExtPltt.c:
     complete
     .text       start:0x02007c5c end:0x02007c74
 
+libs/nitro/gx/calls/GXS_LoadBGExtPltt.c:
+    complete
+    .text       start:0x02007c74 end:0x02007cd8
+
 libs/nitro/gx/calls/GXS_EndLoadBGExtPltt.c:
     complete
     .text       start:0x02007cd8 end:0x02007d18
@@ -828,9 +840,17 @@ libs/nitro/gx/calls/GXS_BeginLoadOBJExtPltt.c:
     complete
     .text       start:0x02007d18 end:0x02007d30
 
+libs/nitro/gx/calls/GXS_LoadOBJExtPltt.c:
+    complete
+    .text       start:0x02007d30 end:0x02007d94
+
 libs/nitro/gx/calls/GXS_EndLoadOBJExtPltt.c:
     complete
     .text       start:0x02007d94 end:0x02007dd4
+
+libs/nitro/gx/calls/GX_BeginLoadTex.c:
+    complete
+    .text       start:0x02007dd4 end:0x02007e30
 
 libs/nitro/gx/calls/GX_EndLoadTex.c:
     complete
@@ -839,6 +859,10 @@ libs/nitro/gx/calls/GX_EndLoadTex.c:
 libs/nitro/gx/calls/GX_BeginLoadTexPltt.c:
     complete
     .text       start:0x02007fbc end:0x02007ff0
+
+libs/nitro/gx/calls/GX_LoadTexPltt.c:
+    complete
+    .text       start:0x02007ff0 end:0x0200805c
 
 libs/nitro/gx/calls/GX_EndLoadTexPltt.c:
     complete
@@ -1395,6 +1419,10 @@ src/calls/WM_EndKeySharing_0x0200e90c.c:
 src/calls/WM_EndKeySharing_0x0200e918.c:
     complete
     .text       start:0x0200e918 end:0x0200e924
+
+libs/nitro/card/auto/CARDi_SetRomOp.c:
+    complete
+    .text       start:0x0200e9b0 end:0x0200ea10
 
 src/calls/func_0200ee0c.c:
     complete
