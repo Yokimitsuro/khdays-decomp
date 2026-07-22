@@ -24,6 +24,10 @@ src/calls/WM_EndKeySharing_0x020cccf4.c:
     complete
     .text       start:0x020cccf4 end:0x020ccd00
 
+src/overlays/ov253/calls/func_ov253_020cce54.c:
+    complete
+    .text       start:0x020cce54 end:0x020cceb0
+
 src/overlays/ov253/auto/func_ov253_020cceb0.c:
     complete
     .text       start:0x020cceb0 end:0x020ccef4
@@ -275,6 +279,10 @@ src/overlays/ov253/calls/func_ov253_020d3a78.c:
 src/overlays/ov253/calls/func_ov253_020d3c38.c:
     complete
     .text       start:0x020d3c38 end:0x020d3c78
+
+src/overlays/ov253/calls/func_ov253_020d3c78.c:
+    complete
+    .text       start:0x020d3c78 end:0x020d3cac
 
 src/overlays/ov253/calls/func_ov253_020d3e3c.c:
     complete
