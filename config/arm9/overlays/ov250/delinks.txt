@@ -80,6 +80,10 @@ src/overlays/ov250/calls/func_ov250_020d08fc.c:
     complete
     .text       start:0x020d08fc end:0x020d0988
 
+src/overlays/ov250/calls/func_ov250_020d0988.c:
+    complete
+    .text       start:0x020d0988 end:0x020d09d4
+
 src/overlays/ov250/asm_stubs/calls/func_ov250_020d09d4.c:
     complete
     .text       start:0x020d09d4 end:0x020d0c00

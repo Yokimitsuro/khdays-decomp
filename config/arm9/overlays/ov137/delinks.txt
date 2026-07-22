@@ -16,6 +16,10 @@ src/overlays/ov137/calls/func_ov137_020cc248.c:
     complete
     .text       start:0x020cc248 end:0x020cc290
 
+src/overlays/ov137/calls/func_ov137_020cc290.c:
+    complete
+    .text       start:0x020cc290 end:0x020cc2dc
+
 src/overlays/ov137/calls/func_ov137_020cc2dc.c:
     complete
     .text       start:0x020cc2dc end:0x020cc398

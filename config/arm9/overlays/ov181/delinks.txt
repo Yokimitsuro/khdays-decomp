@@ -80,6 +80,10 @@ src/overlays/ov181/calls/func_ov181_020cce8c.c:
     complete
     .text       start:0x020cce8c end:0x020ccf18
 
+src/overlays/ov181/calls/func_ov181_020ccf18.c:
+    complete
+    .text       start:0x020ccf18 end:0x020ccf64
+
 src/overlays/ov181/asm_stubs/calls/func_ov181_020ccf64.c:
     complete
     .text       start:0x020ccf64 end:0x020cd1ac
