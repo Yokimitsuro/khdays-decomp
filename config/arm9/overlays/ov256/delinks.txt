@@ -152,6 +152,10 @@ src/overlays/ov256/auto/func_ov256_020d0e44.c:
     complete
     .text       start:0x020d0e44 end:0x020d0e5c
 
+src/overlays/ov256/calls/func_ov256_020d1068.c:
+    complete
+    .text       start:0x020d1068 end:0x020d108c
+
 src/overlays/ov256/calls/func_ov256_020d10b0.c:
     complete
     .text       start:0x020d10b0 end:0x020d10ec

@@ -124,6 +124,10 @@ src/overlays/ov107/calls/func_ov107_020c2b94.c:
     complete
     .text       start:0x020c2b94 end:0x020c2bd4
 
+src/overlays/ov107/calls/func_ov107_020c2f7c.c:
+    complete
+    .text       start:0x020c2f7c end:0x020c2f94
+
 src/calls/WM_EndKeySharing_0x020c3190.c:
     complete
     .text       start:0x020c3190 end:0x020c319c
@@ -243,6 +247,10 @@ src/overlays/ov107/calls/func_ov107_020ca900.c:
 src/overlays/ov107/auto/func_ov107_020cafb4.c:
     complete
     .text       start:0x020cafb4 end:0x020cafd8
+
+src/overlays/ov107/calls/func_ov107_020cb100.c:
+    complete
+    .text       start:0x020cb100 end:0x020cb124
 
 src/overlays/ov107/calls/func_ov107_020cb124.c:
     complete

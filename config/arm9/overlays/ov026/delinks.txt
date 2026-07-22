@@ -20,6 +20,10 @@ src/overlays/ov026/auto/func_ov026_02082a3c.c:
     complete
     .text       start:0x02082a3c end:0x02082a44
 
+src/overlays/ov026/calls/func_ov026_02082aac.c:
+    complete
+    .text       start:0x02082aac end:0x02082ad0
+
 src/overlays/ov026/calls/func_ov026_02082ad0.c:
     complete
     .text       start:0x02082ad0 end:0x02082af0
