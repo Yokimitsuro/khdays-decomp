@@ -16,6 +16,10 @@ src/overlays/ov202/asm_stubs/calls/func_ov202_020cbfc8.c:
     complete
     .text       start:0x020cbfc8 end:0x020cc218
 
+src/overlays/ov202/calls/func_ov202_020cc218.c:
+    complete
+    .text       start:0x020cc218 end:0x020cc260
+
 src/overlays/ov202/calls/func_ov202_020cc260.c:
     complete
     .text       start:0x020cc260 end:0x020cc284

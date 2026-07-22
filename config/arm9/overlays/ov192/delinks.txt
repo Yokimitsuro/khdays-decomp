@@ -40,6 +40,10 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020d2040.c:
     complete
     .text       start:0x020d2040 end:0x020d204c
 
+src/overlays/ov192/calls/func_ov192_020d204c.c:
+    complete
+    .text       start:0x020d204c end:0x020d2090
+
 src/overlays/ov192/asm_stubs/calls/func_ov192_020d2090.c:
     complete
     .text       start:0x020d2090 end:0x020d21dc
