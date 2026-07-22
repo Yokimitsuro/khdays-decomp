@@ -7,5 +7,5 @@ long long func_01ff8a14(int num, int denom)
     FX_DivAsync(num, denom);
     while (*reg_divcnt & 0x8000) {
     }
-    return *(volatile long long *)0x040002a0;
+    return *(long long *)0x040002a0;
 }

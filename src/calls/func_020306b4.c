@@ -1,14 +1,21 @@
+/* True when func_02030670 reports ready and the mode func_02001030 returns is one of
+ * 0, 1, 9 or 10.  The membership test is a switch -- an if-chain gives a different
+ * compare tree. */
 extern int func_02030670(void);
 extern int func_02001030(void);
 
 int func_020306b4(void) {
-    int r4 = 0;
-    if (func_02030670() == 0) return r4;
-    {
-        int v = func_02001030();
-        if ((v >= 0 && v <= 1) || (v >= 9 && v <= 0xa)) {
-            r4 = 1;
-        }
+    int r = 0;
+    if (func_02030670() == 0) {
+        return r;
     }
-    return r4;
+    switch (func_02001030()) {
+    case 0:
+    case 1:
+    case 9:
+    case 10:
+        r = 1;
+        break;
+    }
+    return r;
 }

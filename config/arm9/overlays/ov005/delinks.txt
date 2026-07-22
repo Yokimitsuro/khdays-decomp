@@ -488,6 +488,14 @@ libs/nitro/fx/calls/FX_Inv_0x020522ec.c:
     complete
     .text       start:0x020522ec end:0x020522fc
 
+src/overlays/ov005/calls/func_ov005_0205234c.c:
+    complete
+    .text       start:0x0205234c end:0x02052384
+
+src/overlays/ov005/auto/func_ov005_02053370.c:
+    complete
+    .text       start:0x02053370 end:0x020533a8
+
 src/overlays/ov005/calls/func_ov005_020533a8.c:
     complete
     .text       start:0x020533a8 end:0x020533d8

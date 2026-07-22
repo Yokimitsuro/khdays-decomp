@@ -1,11 +1,14 @@
-/* Spawn a child object via func_0203c5c0 (callback 020d4e80), link it back to this object, copy
- * *(child)+0x384 into its +4 field and store it at +0x214. */
-extern int func_0203c5c0(int a, int b, int c, void *cb, int flag, int *out);
-extern void func_ov229_020d4e80(int);
-void func_ov223_020d4e24(int param_1) {
-    int obj;
-    func_0203c5c0(*(int *)(param_1 + 0x3c), 0x64, 0x14, (void *)&func_ov229_020d4e80, 0, &obj);
-    *(int *)obj = param_1;
-    *(int *)(obj + 4) = *(int *)(*(int *)obj + 0x384);
-    *(int *)(param_1 + 0x214) = obj;
+/* Spawns the child object through func_0203c5c0 (callback func_ov223_020d4f5c, class 0x64,
+ * size 0xc), seeds its first word from +0x394 of the owner and returns it.
+ *
+ * func_0203c5c0 takes SIX arguments: the last two (the flag and the out-pointer) ride on
+ * the stack, and the out slot is the third word of the frame. */
+extern void *func_0203c5c0(int a, int b, int c, void *cb, int flag, void **out);
+extern void func_ov223_020d4f5c(int);
+
+void *func_ov223_020d4e24(char *self) {
+    void *out;
+    func_0203c5c0(*(int *)(self + 0x3c), 0x64, 0xc, (void *)func_ov223_020d4f5c, 0, &out);
+    *(int *)out = *(int *)(self + 0x394);
+    return out;
 }

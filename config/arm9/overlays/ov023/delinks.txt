@@ -48,6 +48,10 @@ src/overlays/ov023/calls/func_ov023_02083690.c:
     complete
     .text       start:0x02083690 end:0x020836c0
 
+src/overlays/ov023/calls/func_ov023_020836c0.c:
+    complete
+    .text       start:0x020836c0 end:0x020836fe
+
 src/overlays/ov023/calls/func_ov023_02083758.c:
     complete
     .text       start:0x02083758 end:0x02083784
