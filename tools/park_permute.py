@@ -12,14 +12,20 @@
    tamano ya coincide y solo bailan los registros, esto son 24 compilaciones y medio
    minuto -- hazlo ANTES de escribir una nota de empate.
 
+   ⚠ RESULTADO DEL BARRIDO COMPLETO (2026-07-22): sobre los 297 parks que quedaban,
+   CERO se resuelven solo con el orden de declaracion. O sea: la palanca es real (cerro
+   func_ov008_0208b148) pero **no basta por si sola**; hace falta que el stream ya sea
+   correcto por otro motivo. Uso correcto = de una en una, DESPUES de haber arreglado la
+   forma (arity, bucle, cast), no como barrido de pesca.
+
    Solo permuta el bloque de declaraciones del principio del cuerpo, y solo si NINGUN
    inicializador menciona a otro de los declarados (asi el reordenado es equivalente:
    los inicializadores se evaluan en orden). Si hay dependencias, no toca el fichero.
 """
-import os, re, sys, glob, json, itertools, subprocess, tempfile
+import os, re, sys, glob, json, math, itertools, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MAXPERM = 720
+MAXPERM = 24   # 4 locales; mas que eso el barrido completo tarda horas
 
 DECL = re.compile(
     r'^(\s+)((?:unsigned |signed |const |volatile |register |struct \w+ |union \w+ |'
@@ -93,9 +99,14 @@ def try_park(path, func, thumb, quiet=False):
         return None
     head, decls, tail = parts
     n = len(decls)
+    total = math.factorial(n)
+    if total > MAXPERM:
+        # OJO: generar las permutaciones ANTES de mirar cuantas son revienta con
+        # MemoryError en cuanto un park declara 12 locales (479 millones).
+        if not quiet:
+            print('%-28s %d locales: %d permutaciones, saltado' % (func, n, total))
+        return None
     perms = list(itertools.permutations(range(n)))
-    if len(perms) > MAXPERM:
-        perms = perms[:MAXPERM]
     tmp = os.path.join(ROOT, 'build', 'try', 'permute')
     os.makedirs(tmp, exist_ok=True)
     out = os.path.join(tmp, func + '.c')
