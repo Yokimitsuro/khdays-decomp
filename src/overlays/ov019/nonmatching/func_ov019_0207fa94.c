@@ -1,36 +1,19 @@
-/* UNFINISHED -- 512 vs 500 B THUMB. Verify with --thumb or the numbers are noise.
- * ov019 is 4/5 and this is the ONLY function standing between it and 100%.
+/* ** SUPERSEDED 2026-07-22: THIS FUNCTION IS MATCHED. See staging/ov019/.
+ * ov019 is now 5/5.
  *
- * ** 2026-07-22: FOUR RELOCS IN THIS FILE WERE NEVER RELOCS. Fixed, and it matters more
- * than the 4 bytes it saved (516 -> 512): the reloc SET is now correct, so this file can
- * now in principle verify. Before, it could not have -- any size fix would still have
- * failed on reloc names.
- *   - data_ov019_0207fc78 / _7c / _80 are POOL LITERALS, not variables. The pool words are
- *     0x140B, 0x1415, 0x141F and the ROM does ONE `ldr r0, [pc]`. Reading them as extern
- *     ints costs a second load each (address, then value).
- *   - data_ov019_0207fc84 is the POOL SLOT; the datum it points at is
- *     data_ov019_0207fd78 (the OS_SPrintf format string). Naming the slot instead of the
- *     target is the classic Ghidra pool trap.
- *   How to tell, always: cross-check against the reloc table in func_index.json. Those four
- *   addresses appear NOWHERE in it. No reloc at that offset => it is a literal.
+ * The note that used to sit here blamed "frame layout of the five local buffers", and
+ * the lever I had added to it -- "declare names[256] first", carried over from
+ * func_ov147_020cc00c -- was WRONG. The match declares names[256] LAST.
  *
- * WHAT IS LEFT: 12 bytes and the frame layout. Five local buffers (header[6], scratch[16],
- * found[16], fmtbuf[4], names[256]) plus the output struct, and mwcc assigns them different
- * sp offsets than the ROM, which cascades register allocation across the loops.
- * ROM frame: names at sp+0x84, fmtbuf at sp+0x74, scratch at sp+0x54, found at sp+0x34,
- * out at sp+0x10, header at sp+8, the two saved ids at sp+0 and sp+4.
+ * The real cause was a WRONGLY SIZED STRUCT. `struct namelist` was modelled with 7
+ * words; the ROM's frame puts `out` at sp+0x10 and `found` at sp+0x34, so it occupies
+ * 0x24 = 36 bytes = NINE words. Two trailing padding fields fix the frame and
+ * everything downstream follows.
  *
- * ** THE LEVER TO TRY FIRST (new, 2026-07-22): func_ov147_020cc00c was stuck on exactly
- * this class -- a stack-layout diff whose note recorded that all 24 permutations of its
- * locals had been swept, scripted, twice. It was matched by declaring the BIG BUFFER FIRST
- * *and* restructuring the control flow at the same time (an explicit `goto` for a guard
- * instead of a compound `if`, and the branch arms written in the ROM's fall-through order).
- * The permutation sweep alone could not find it because the declaration order only pays off
- * together with the control-flow shape. So: declare `names[256]` first, and rewrite the
- * mode==3 / iter-loop split to follow the ROM's branch order, before concluding anything.
- *
- * Also still true from the earlier pass: the header reshuffle wants data_ov019_0207fd40 held
- * as an unsigned-char BASE pointer (ldrb [base,#k]), not a signed indexed access.
+ * Generalisable, and cheaper than any search: when a frame diff involves an aggregate,
+ * measure the gap between its sp offset and the next object's and check it against your
+ * struct's size. A struct that is too small silently shifts every later slot, which
+ * reads exactly like "mwcc lays things out differently".
  */
 extern char *func_02021948(int a, unsigned short *b);
 extern int func_02021980(int a, unsigned short *b);
