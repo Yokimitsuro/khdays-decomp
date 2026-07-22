@@ -1,22 +1,29 @@
-/* UNFINISHED -- 120/120 bytes, 14 differing. Head of a SIX-member family
- * (ov000, ov005, ov008, ov009, ov025, ov026), so cracking it pays 6 functions.
+/* ** SUPERSEDED 2026-07-22: MATCHED, and the whole family with it (six functions
+ * across ov000, ov005, ov008, ov009, ov025, ov026). See staging/ov000/.
  *
- * The whole diff is which registers the two predicated short-circuit chains use:
- *      ROM:   addne r0, r5, r4, lsl #2 ; ldrne r1, [r0,#0x14] ; cmpne r1, r8
- *                                        ldrne r2, [r0,#0x34] ; cmpne r2, r8
- *      ours:  addne r1, r5, r4, lsl #2 ; ldrne r0, [r1,#0x14] ; cmpne r0, r8
- *                                        ldrne r0, [r1,#0x34] ; cmpne r0, r8
- * The ROM gives the two loaded values TWO DISTINCT registers (r1, r2) and puts the
- * pointer in r0; we reuse r0 for both loads and put the pointer in r1. Everything
- * else -- the 0x4000/0xa70 base split held in sb, the -1 kept in r8 via `mvn`, the
- * two un-merged calls, the loop -- already matches.
+ * THE ANSWER WAS ARITY. func_02032634 takes THREE arguments, not one:
+ *     func_02032634(a, previous[i + 5], previous[i + 13]);
+ * The two loaded values sit in r1 and r2 because they ARE the call's arguments. The
+ * ROM's `ldrne r1,[r0,#0x14]` / `ldrne r2,[r0,#0x34]` load them straight into the
+ * argument registers. Nothing about register allocation was ever involved.
  *
- * RULED OUT 2026-07-22: naming the two loaded values as locals, which is the obvious
- * reading of "the ROM keeps both live". Three spellings, all 128 B = 8 OVER:
- * two locals reused across both branches, a walking `p = base + i` plus two locals,
- * and four separate locals. Introducing the locals defeats mwcc's if-conversion of
- * the `&&` chain, so the predication collapses and the function grows. Whatever makes
- * the ROM spend a second register does NOT come from the values being named.
+ * ** AND THE NOTE THAT USED TO SIT HERE WAS MEASURING THE WRONG AXIS. It said the diff
+ * was "which registers the two predicated chains use", recorded three ruled-out
+ * spellings of naming the values as locals, and concluded "whatever makes the ROM spend
+ * a second register does NOT come from the values being named". Every word of that is
+ * true and all of it is useless, because the question was never why a second register
+ * appears -- it was what wants a value in r1 and r2, and the answer to that is always
+ * "a call".
+ *
+ * The project's own checklist says exactly this: when a diff is a value in an unexpected
+ * register, check the arity of every call that could want it, BEFORE concluding register
+ * allocation. I wrote a ruled-out note without running it. Second time in this session:
+ * the same omission produced the false "the struct rewrite makes it worse" note on
+ * func_ov294_020d1a24 (retracted in c9113c1f).
+ *
+ * The pattern worth naming: I run the checklist when I am trying to MATCH a function,
+ * and skip it when I am trying to EXPLAIN one. A ruled-out note is a claim about the
+ * function and needs the same evidence as a park.
  */
 extern int func_02032634();
 
