@@ -16,31 +16,40 @@
  * negative, in which case the slot is marked -1 and skipped. Its priority is
  * (unsigned char)(desc[0x54] + 1 - i), so slot 0 outranks slot 1.
  *
- * self+0x4a74 and self+0x4a38 are past the 0xfff immediate range, so mwcc splits both.
- *
  * ------------------------------------------------------------------------------------------
- * NONMATCHING: 648/648 bytes with the structure fully correct -- same instructions, same order,
- * same block layout. What is left is REGISTER ALLOCATION, and the root cause is identified:
+ * NONMATCHING: 648/648, same instructions in the same order and the same block layout. The
+ * residue is a uniform ONE-REGISTER ROTATION of the callee-saved set:
+ *     ROM   obj=r4  i=r5  keys=r6  desc=r7  self=r8  base=sb  -1=sl
+ *     mine  -1=r4   obj=r5 ...                       desc=sb  self=sl
+ * Both push the identical register set; mwcc simply hands r4 to a temporary before obj.
  *
- *   ROM:  three separate `mvn` of -1, one per loop (sl at 0x90, r5 at 0x1c0, r5 at 0x21c)
- *   mine: ONE hoisted -1 shared across the whole function, and it takes r4
+ * !! THE PREVIOUS NOTE'S DIAGNOSIS IS RETRACTED. It read:
+ *     "ROM: three separate `mvn` of -1, one per loop / mine: ONE hoisted -1 shared across the
+ *      whole function, and it takes r4 ... Retry only with a way to stop the -1 CSE."
+ * That CSE is GONE. Rewriting the object as ONE struct typed on the parameter (the
+ * func_ov000_020552b4 lever, commit 110af975) instead of inline casts off an `int self` makes
+ * mwcc materialise -1 three times, exactly like the ROM -- confirmed by disassembly, three
+ * `mvn` on each side. So the stated blocker no longer exists, and the rotation survives it.
+ * Anyone retrying should NOT go hunting the CSE; it is not there any more.
  *
- * That one CSE shifts everything down a slot:
- *   ROM   obj=r4  i=r5  keys=r6  desc=r7  self=r8  base=sb  -1=sl
- *   mine  -1=r4   obj=r5 keys=r7 i=r8     desc=sb  self=sl
- * So the usual decl-order lever cannot reach it -- the -1 is allocated before any declared local.
+ * Also worth knowing, because it is the opposite of what the old note concluded: the `base`
+ * local (self + 0x4000) is NOT needed once the parameter is typed. Adding it back on top of the
+ * struct changes nothing -- 100 differing lines either way. The ROM's repeated address add is a
+ * consequence of the offsets exceeding the 12-bit ldr immediate, not an idiom to imitate.
  *
- * Everything else was steered successfully and is worth keeping:
+ * Ruled out for the rotation, all leaving exactly 100 differing lines: obj initialised in its
+ * own declaration; `keys` declared before `i`; the base local restored (both with the style
+ * field read through it and through the struct). Giving the -1 its own named local is worse --
+ * 636 bytes, 142 lines.
+ *
+ * Everything else was steered successfully and must be kept:
  *   - the NULL return has to fall into the shared `mov r0,r4 ; pop` (guard written `!= 0`);
  *   - the loop uses the word-index form (`((int *)obj)[i + 0xd]`), or mwcc strength-reduces to a
  *     walking pointer;
- *   - `base` (self+0x4000) IS a real local: removing it costs 4 bytes, because mwcc then folds
- *     the whole self+0x4a74 per use rather than keeping the +0x4000 half in a register;
  *   - the keys select is written `>= 0 ||` so the +0x18 arm is emitted first (addge before
  *     addlt); the `!(a < 0 && b < 0)` form gives the same test with the arms swapped.
  *
- * Retry only with a way to stop the -1 CSE (or under a different mwcc build). Do not re-derive
- * the semantics; they are settled. */
+ * Do not re-derive the semantics; they are settled. */
 
 typedef struct {
     void *head;
@@ -56,29 +65,31 @@ typedef struct {
     unsigned b3 : 1;
 } Flags84;
 
+typedef struct {
+    char reserved[0x4a38];
+    NNSFndList children;         /* +0x4a38 */
+    char reserved2[0x2c];
+    int focused;                 /* +0x4a70 */
+    int style;                   /* +0x4a74 */
+} Root;
+
 extern void *NNSi_FndAllocFromDefaultExpHeap(unsigned int size);
 extern void *MI_CpuFill8(void *dst, unsigned char v, unsigned int n);
 extern void *MI_CpuCopy8(const void *src, void *dst, unsigned int n);
 extern void func_02035f84(void *p);
-extern int WM_EndKeySharing_0x02032444(int self, int key, int a);
-extern void func_020325b8(int self, int slot, int prio);
-extern void func_02032680(int self, int slot, int a);
-extern void func_ov000_02055c48(int self, void *obj, int n, void *a, void *b, int span);
-extern void func_ov000_02055bfc(int self, void *obj, void *a);
-extern void func_02032710(int self, int slot, int a);
-extern void func_02032760(int self, int slot, int a);
+extern int WM_EndKeySharing_0x02032444(Root *self, int key, int a);
+extern void func_020325b8(Root *self, int slot, int prio);
+extern void func_02032680(Root *self, int slot, int a);
+extern void func_ov000_02055c48(Root *self, void *obj, int n, void *a, void *b, int span);
+extern void func_ov000_02055bfc(Root *self, void *obj, void *a);
+extern void func_02032710(Root *self, int slot, int a);
+extern void func_02032760(Root *self, int slot, int a);
 extern void NNS_FndAppendListObject(NNSFndList *list, void *obj);
 
-void *func_ov000_0205579c(int self, char *desc) {
-    /* Declaration order IS the r4..sb allocation order: obj=r4, i=r5, keys=r6, then the
-     * parameters (desc=r7, self=r8). */
+void *func_ov000_0205579c(Root *self, char *desc) {
     char *obj;
     int i;
     char *keys;
-    char *base;
-
-    /* Guarded `!= 0` so the NULL return falls into the shared `mov r0,r4 ; pop` at the end,
-     * which is where the ROM's beq goes; the early-return form predicates it instead. */
     obj = NNSi_FndAllocFromDefaultExpHeap(0x9c);
     if (obj != 0) {
         MI_CpuFill8(obj, 0, 0x9c);
@@ -101,7 +112,6 @@ void *func_ov000_0205579c(int self, char *desc) {
             ((Flags84 *)(obj + 0x84))->b0 = 0;
         }
 
-        base = (char *)(self + 0x4000);
         for (i = 0; i < 2; i++) {
             ((int *)obj)[i + 0xd] = ((int *)desc)[i + 2];
             ((int *)obj)[i + 0xf] = ((int *)desc)[i + 4];
@@ -115,7 +125,7 @@ void *func_ov000_0205579c(int self, char *desc) {
             ((int *)obj)[i + 5] =
                 WM_EndKeySharing_0x02032444(self, ((int *)keys)[i], *(int *)(desc + 4));
             func_020325b8(self, ((int *)obj)[i + 5], (unsigned char)(*(int *)(desc + 0x54) + 1 - i));
-            func_02032680(self, ((int *)obj)[i + 5], *(int *)(base + 0xa74));
+            func_02032680(self, ((int *)obj)[i + 5], self->style);
         }
 
         *(int *)(obj + 0x10) = *(int *)(desc + 4);
@@ -153,7 +163,7 @@ void *func_ov000_0205579c(int self, char *desc) {
         }
 
         ((Flags84 *)(obj + 0x84))->b3 = (*(int *)(desc + 0x50) & 8) != 0;
-        NNS_FndAppendListObject((NNSFndList *)(self + 0x4a38), obj);
+        NNS_FndAppendListObject(&self->children, obj);
     }
 
     return obj;
