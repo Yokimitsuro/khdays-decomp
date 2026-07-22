@@ -4408,7 +4408,7 @@ src/calls/func_02033500.c:
     complete
     .text       start:0x02033500 end:0x0203355c
 
-src/asm_stubs/calls/func_0203355c.c:
+src/calls/func_0203355c.c:
     complete
     .text       start:0x0203355c end:0x0203358c
 
