@@ -36,6 +36,10 @@ src/overlays/ov157/calls/func_ov157_020ce3c4.c:
     complete
     .text       start:0x020ce3c4 end:0x020ce400
 
+src/overlays/ov157/calls/func_ov157_020ce400.c:
+    complete
+    .text       start:0x020ce400 end:0x020ce444
+
 src/overlays/ov157/asm_stubs/calls/func_ov157_020ce444.c:
     complete
     .text       start:0x020ce444 end:0x020ce590

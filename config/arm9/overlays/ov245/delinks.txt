@@ -128,6 +128,10 @@ src/overlays/ov245/auto/func_ov245_020ced50.c:
     complete
     .text       start:0x020ced50 end:0x020ced68
 
+src/overlays/ov245/calls/func_ov245_020ced68.c:
+    complete
+    .text       start:0x020ced68 end:0x020cee24
+
 src/overlays/ov245/auto/func_ov245_020cee24.c:
     complete
     .text       start:0x020cee24 end:0x020cee28

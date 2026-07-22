@@ -36,6 +36,10 @@ src/overlays/ov156/calls/func_ov156_020cc5a4.c:
     complete
     .text       start:0x020cc5a4 end:0x020cc5e0
 
+src/overlays/ov156/calls/func_ov156_020cc5e0.c:
+    complete
+    .text       start:0x020cc5e0 end:0x020cc624
+
 src/overlays/ov156/asm_stubs/calls/func_ov156_020cc624.c:
     complete
     .text       start:0x020cc624 end:0x020cc770

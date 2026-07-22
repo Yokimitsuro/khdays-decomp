@@ -40,6 +40,10 @@ src/overlays/ov124/calls/func_ov124_020cffcc.c:
     complete
     .text       start:0x020cffcc end:0x020d001c
 
+src/overlays/ov124/calls/func_ov124_020d001c.c:
+    complete
+    .text       start:0x020d001c end:0x020d0060
+
 src/overlays/ov124/asm_stubs/calls/func_ov124_020d0060.c:
     complete
     .text       start:0x020d0060 end:0x020d0158

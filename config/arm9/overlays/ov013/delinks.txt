@@ -7,7 +7,7 @@ src/overlays/ov013/asm_stubs/calls/func_ov013_0207fa40.c:
     complete
     .text       start:0x0207fa40 end:0x0207fba4
 
-src/overlays/ov013/asm_stubs/calls/func_ov013_0207fba4.c:
+src/overlays/ov013/calls/func_ov013_0207fba4.c:
     complete
     .text       start:0x0207fba4 end:0x0207fbe4
 

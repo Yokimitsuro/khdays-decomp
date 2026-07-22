@@ -16,6 +16,10 @@ src/overlays/ov161/asm_stubs/calls/func_ov161_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc214
 
+src/overlays/ov161/calls/func_ov161_020cc214.c:
+    complete
+    .text       start:0x020cc214 end:0x020cc25c
+
 src/overlays/ov161/calls/func_ov161_020cc25c.c:
     complete
     .text       start:0x020cc25c end:0x020cc280

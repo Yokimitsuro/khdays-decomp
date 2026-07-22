@@ -24,6 +24,10 @@ src/overlays/ov284/asm_stubs/calls/func_ov284_020cc0a0.c:
     complete
     .text       start:0x020cc0a0 end:0x020cc37c
 
+src/overlays/ov284/calls/func_ov284_020cc37c.c:
+    complete
+    .text       start:0x020cc37c end:0x020cc3c4
+
 src/overlays/ov284/calls/func_ov284_020cc3c4.c:
     complete
     .text       start:0x020cc3c4 end:0x020cc400

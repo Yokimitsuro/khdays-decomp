@@ -153,6 +153,10 @@ src/calls/func_01ffa13c.c:
     complete
     .text       start:0x01ffa13c end:0x01ffa1b8
 
+src/calls/func_01ffa1b8.c:
+    complete
+    .text       start:0x01ffa1b8 end:0x01ffa1f8
+
 src/auto/func_01ffa42c.c:
     complete
     .text       start:0x01ffa42c end:0x01ffa450
