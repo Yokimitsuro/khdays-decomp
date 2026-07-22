@@ -81,6 +81,10 @@ src/calls/func_01ff8a50.c:
     complete
     .text       start:0x01ff8a50 end:0x01ff8a7c
 
+libs/nitro/fx/calls/FX_Sqrt.c:
+    complete
+    .text       start:0x01ff8a7c end:0x01ff8ab0
+
 src/auto/func_01ff8ab0.c:
     complete
     .text       start:0x01ff8ab0 end:0x01ff8ad4

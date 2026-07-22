@@ -404,6 +404,10 @@ src/calls/func_020038e8.c:
     complete
     .text       start:0x020038e8 end:0x0200391c
 
+libs/nitro/os/calls/OSi_SendToPxi.c:
+    complete
+    .text       start:0x0200391c end:0x02003948
+
 src/asm_stubs/calls/func_02003948.c:
     complete
     .text       start:0x02003948 end:0x02003a04
@@ -676,6 +680,18 @@ libs/nitro/gx/auto/G2x_SetBlendBrightness_.c:
     complete
     .text       start:0x02006bac end:0x02006bd4
 
+libs/nitro/gx/calls/G3X_ClearFifo.c:
+    complete
+    .text       start:0x02006dd8 end:0x02006e00
+
+libs/nitro/gx/calls/G3X_GetClipMtx.c:
+    complete
+    .text       start:0x02006f28 end:0x02006f58
+
+libs/nitro/gx/calls/G3X_GetVectorMtx.c:
+    complete
+    .text       start:0x02006f58 end:0x02006f88
+
 src/auto/G3X_SetClearColor.c:
     complete
     .text       start:0x02006f88 end:0x02006fb0
@@ -764,6 +780,10 @@ libs/nitro/gx/calls/GXS_BeginLoadOBJExtPltt.c:
     complete
     .text       start:0x02007d18 end:0x02007d30
 
+libs/nitro/gx/calls/GX_BeginLoadTexPltt.c:
+    complete
+    .text       start:0x02007fbc end:0x02007ff0
+
 libs/nitro/snd/calls/SND_PrepareSeq.c:
     complete
     .text       start:0x020080c0 end:0x020080e8
@@ -788,6 +808,10 @@ libs/nitro/snd/calls/SND_SetTrackAllocatableChannel.c:
     complete
     .text       start:0x020081b8 end:0x020081e0
 
+libs/nitro/snd/calls/SND_StartTimer.c:
+    complete
+    .text       start:0x020081e0 end:0x02008208
+
 libs/nitro/snd/calls/SND_SetChannelVolume.c:
     complete
     .text       start:0x020082ec end:0x02008314
@@ -807,6 +831,14 @@ libs/nitro/snd/calls/SND_InvalidateWaveData.c:
 libs/nitro/snd/calls/SND_SetOutputSelector.c:
     complete
     .text       start:0x020083e0 end:0x02008408
+
+libs/nitro/snd/calls/SNDi_SetPlayerParam.c:
+    complete
+    .text       start:0x02008408 end:0x02008430
+
+libs/nitro/snd/calls/SNDi_SetTrackParam.c:
+    complete
+    .text       start:0x02008430 end:0x02008458
 
 src/calls/func_02008458.c:
     complete
@@ -868,9 +900,17 @@ src/calls/SNDi_IncAlarmId.c:
     complete
     .text       start:0x02008c5c end:0x02008c7c
 
+libs/nitro/snd/calls/SND_GetPlayerStatus.c:
+    complete
+    .text       start:0x02008cf0 end:0x02008d1c
+
 src/calls/func_02008d1c.c:
     complete
     .text       start:0x02008d1c end:0x02008d64
+
+libs/nitro/snd/calls/SNDi_GetFinishedCommandTag.c:
+    complete
+    .text       start:0x02008d64 end:0x02008d8c
 
 src/calls/func_02008f44.c:
     complete
@@ -912,6 +952,10 @@ src/calls/FSi_ReadTable.c:
     complete
     .text       start:0x020097c4 end:0x02009884
 
+libs/nitro/fs/calls/FSi_SeekDirDirect.c:
+    complete
+    .text       start:0x02009884 end:0x020098b8
+
 src/auto/FSi_ReadFileCommand.c:
     complete
     .text       start:0x020098b8 end:0x020098e4
@@ -947,6 +991,10 @@ libs/nitro/fs/calls/FSi_ReadMemoryCore.c:
 src/calls/FSi_ExecuteAsyncCommand.c:
     complete
     .text       start:0x0200a3d4 end:0x0200a468
+
+libs/nitro/fs/calls/FS_InitArchive.c:
+    complete
+    .text       start:0x0200a650 end:0x0200a67c
 
 src/calls/FS_FindArchive.c:
     complete
@@ -1395,6 +1443,10 @@ libs/nitro/nns/auto/InitMBlock.c:
 src/calls/WM_EndKeySharing_0x020107f0.c:
     complete
     .text       start:0x020107f0 end:0x020107fc
+
+libs/nitro/nns/calls/NNS_FndAllocFromExpHeapEx.c:
+    complete
+    .text       start:0x020107fc end:0x0201082c
 
 src/calls/func_0201098c.c:
     complete
