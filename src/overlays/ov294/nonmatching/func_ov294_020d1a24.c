@@ -1,3 +1,17 @@
+/* 2026-07-20: the STRUCT REWRITE AXIS WAS TRIED HERE AND MAKES IT WORSE. Do not repeat.
+ * The pointer-cast rule from codegen-cracks.md ("if you are casting pointers the C is
+ * wrong") cracked ov029_020b2ee0 and improved ov301_020cbfc4 from 102 to 80 differing
+ * bytes, so it looked like the obvious next lever -- especially since this object is
+ * clearly the SAME TYPE as ov301_020cbfc4's (fn pointers at 8/0xc/0x30/0x1d0, byte 2 at
+ * 0x1c9, the int block at 0x64..0x70, and 0x9c/0x144/0x22c/0x384/0x388).
+ * Measured, both 348/348 with correct relocs:
+ *      this file, hand-computed offsets:  19 differing bytes, first at 0x51
+ *      full struct rewrite:               62 differing bytes, first at 0x20
+ * So the rule is a prior, not a law: it is about writing what the original author wrote,
+ * and where a modelled layout guesses wrong (field grouping, pointer element type) it
+ * moves the codegen further away. Keep the offsets here until the layout is known from
+ * the Ghidra type rather than inferred.
+ */
 /* NONMATCHING - 348/348 B, THREE instructions from exact. Was parked as a
  * "scheduler tie ... register-pressure driven, not source-steerable; confirmed
  * unreproducible across all 26 mwcc generations and statement reorders".
