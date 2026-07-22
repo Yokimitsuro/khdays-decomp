@@ -1,3 +1,13 @@
+/* func_ov026_020866a8 -- ov026 layout pass: release the two five-entry row bands at +0xc360
+ * (entries 5..9 and 10..14), then re-window the panel at +0xc160 twice (the small 0x50x0x18 box
+ * at 0x60,0x70 first, then the full-width 0xa0-tall strip) and refresh item 0x3f of the widget
+ * table at +0x2ab0.
+ *
+ * Two source-order facts decide the whole register assignment, and neither is a tie:
+ *  - the declaration order below (st, rows, handle, i, panel) is the one that colours them as the
+ *    ROM does; tools/declperm.py finds it (4 of the 120 orders reach 4 bytes, this is one).
+ *  - `rows` must be computed BEFORE `handle`: both need mwcc to split a >4095 offset into an
+ *    `add #0xN000` temporary, and the two temporaries get r0/r1 in source order. */
 extern char *data_ov026_02091368;
 extern void func_02032450(int handle, int cell);
 extern void func_0203011c(void *p, int a, int b, int c, int d);
@@ -6,11 +16,15 @@ extern void func_ov026_020843e8(void *p, int cell, int on);
 
 /* Refreshes the five detail rows and re-lays out both panels, then silences the hover sound. */
 void func_ov026_020866a8(void) {
-    char *st = *(char **)&data_ov026_02091368;
-    int handle = *(int *)(st + 0xbfb0);
-    int *rows = (int *)(st + 0xc360);
-    char *panel = st + 0xc160;
+    char *st;
+    int *rows;
+    int handle;
     int i;
+    char *panel;
+    st = *(char **)&data_ov026_02091368;
+    rows = (int *)(st + 0xc360);
+    handle = *(int *)(st + 0xbfb0);
+    panel = st + 0xc160;
     for (i = 0; i < 5; i++) {
         func_02032450(handle, rows[i + 5]);
         func_02032450(handle, rows[i + 10]);
