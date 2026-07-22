@@ -1,16 +1,27 @@
-/* 2026-07-20: the STRUCT REWRITE AXIS WAS TRIED HERE AND MAKES IT WORSE. Do not repeat.
- * The pointer-cast rule from codegen-cracks.md ("if you are casting pointers the C is
- * wrong") cracked ov029_020b2ee0 and improved ov301_020cbfc4 from 102 to 80 differing
- * bytes, so it looked like the obvious next lever -- especially since this object is
- * clearly the SAME TYPE as ov301_020cbfc4's (fn pointers at 8/0xc/0x30/0x1d0, byte 2 at
- * 0x1c9, the int block at 0x64..0x70, and 0x9c/0x144/0x22c/0x384/0x388).
- * Measured, both 348/348 with correct relocs:
- *      this file, hand-computed offsets:  19 differing bytes, first at 0x51
- *      full struct rewrite:               62 differing bytes, first at 0x20
- * So the rule is a prior, not a law: it is about writing what the original author wrote,
- * and where a modelled layout guesses wrong (field grouping, pointer element type) it
- * moves the codegen further away. Keep the offsets here until the layout is known from
- * the Ghidra type rather than inferred.
+/* ** RETRACTED 2026-07-22: THIS FILE IS SUPERSEDED. THE FUNCTION IS MATCHED.
+ * The match is a FULL STRUCT REWRITE -- exactly the axis the note that used to sit here
+ * declared "makes it worse, do not repeat". That note was wrong and it was mine.
+ * See staging/ov294/ for the matching source (and ov295/ov296, same source retargeted).
+ *
+ * WHY MY STRUCT ATTEMPT FAILED, since the lesson is the point:
+ *   1. ARITY. I declared func_ov107_020c9440 with ONE parameter; it takes TWO,
+ *      (obj, 0). The dropped trailing zero is the single most common cause of a
+ *      false park in this project and it is item 2 of the pre-park checklist.
+ *      I did not run the checklist because I was testing a "method", not a function.
+ *   2. POINTER ELEMENT TYPE. p384 is `char *`, so the ROM's `+4` is four bytes. I
+ *      typed it `int *` and wrote `+ 1`, which is the same address but a different
+ *      expression for mwcc to schedule.
+ *   3. Return type: func_ov107_020c319c returns `int`, not `long long`. I inherited
+ *      the `long long` from the older file, where a previous pass had already
+ *      measured it to be invisible AT THAT CALL SITE -- true there, not in general.
+ *
+ * THE GENERAL LESSON, which is worse than the specific one: I ran ONE formulation of
+ * a technique, it came out 62 bytes off against the old file's 19, and I wrote a
+ * confident "the rule is a prior, not a law" note generalising from that single
+ * failure. A negative result about a METHOD needs the method executed correctly
+ * first -- otherwise you are measuring your own bug and blaming the technique.
+ * This is the "a confident write-up is a tell, not evidence" rule, and I had just
+ * finished quoting it at other people.
  */
 /* NONMATCHING - 348/348 B, THREE instructions from exact. Was parked as a
  * "scheduler tie ... register-pressure driven, not source-steerable; confirmed
