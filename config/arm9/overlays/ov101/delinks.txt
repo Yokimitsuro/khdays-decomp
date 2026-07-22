@@ -56,7 +56,7 @@ src/overlays/ov101/calls/func_ov101_020bafb4.c:
     complete
     .text       start:0x020bafb4 end:0x020bb010
 
-libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020bb010.c:
+libs/nitro/wm/calls/WM_EndKeySharing_0x020bb010.c:
     complete
     .text       start:0x020bb010 end:0x020bb01c
 

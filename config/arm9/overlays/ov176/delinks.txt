@@ -24,7 +24,7 @@ src/overlays/ov176/calls/func_ov176_020cff7c.c:
     complete
     .text       start:0x020cff7c end:0x020cffbc
 
-libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_ov176_0x020cffbc.c:
+libs/nitro/wm/calls/WM_EndKeySharing_ov176_0x020cffbc.c:
     complete
     .text       start:0x020cffbc end:0x020cffc8
 

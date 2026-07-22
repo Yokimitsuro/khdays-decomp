@@ -184,7 +184,7 @@ src/overlays/ov069/calls/func_ov069_020ba1c4.c:
     complete
     .text       start:0x020ba1c4 end:0x020ba244
 
-libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020ba244.c:
+libs/nitro/wm/calls/WM_EndKeySharing_0x020ba244.c:
     complete
     .text       start:0x020ba244 end:0x020ba250
 

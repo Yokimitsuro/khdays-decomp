@@ -65,7 +65,7 @@ libs/nitro/mi/asm_stubs/auto/MI_Zero36B.c:
     complete
     .text       start:0x01ff89f4 end:0x01ff8a02
 
-libs/nitro/fx/asm_stubs/calls/FX_Inv.c:
+libs/nitro/fx/calls/FX_Inv.c:
     complete
     .text       start:0x01ff8a04 end:0x01ff8a14
 
@@ -73,7 +73,7 @@ src/calls/func_01ff8a14.c:
     complete
     .text       start:0x01ff8a14 end:0x01ff8a40
 
-libs/nitro/fx/asm_stubs/calls/FX_Inv_0x01ff8a40.c:
+libs/nitro/fx/calls/FX_Inv_0x01ff8a40.c:
     complete
     .text       start:0x01ff8a40 end:0x01ff8a50
 

@@ -56,7 +56,7 @@ src/overlays/ov058/calls/func_ov058_020b663c.c:
     complete
     .text       start:0x020b663c end:0x020b6680
 
-libs/nitro/wm/asm_stubs/calls/WM_EndKeySharing_0x020b6680.c:
+libs/nitro/wm/calls/WM_EndKeySharing_0x020b6680.c:
     complete
     .text       start:0x020b6680 end:0x020b668c
 
