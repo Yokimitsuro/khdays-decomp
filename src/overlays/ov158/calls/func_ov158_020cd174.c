@@ -7,20 +7,16 @@
  * range. Firing parks the owner in state 4 (+0x1c7) and dispatches through func_0203c634 with the
  * action id from the caller's +0x20.
  *
- * NONMATCHING: 140/140 bytes, every instruction in the right place. Only r6/r7 are swapped:
- * the ROM gives the target r7 and the owner r6, mwcc gives the first-assigned callee-saved value
- * r6 and the second r7 -- it allocates ascending where the ROM went descending. Carries through
- * to the two radius loads and one `str r0` vs `str r6`.
  *
- * ⚠ This BLOCKS a 4-member family (ov158/159/246/247) -- dedupprop will not propagate from a
- * nonmatching rep -- so it is worth another attempt with fresh eyes.
- * Tried and rejected:
- *   decl order gap/owner/target and gap/target/owner  -> identical, so it is first-use driven,
- *     not decl-order driven (consistent with the deferred-ties note: decl order is inert here).
- *   dropping the `target` local and using ctx[2] directly -> mwcc reloads it, 156 B (+16).
- * The `owner` local IS load-bearing and must stay: without it mwcc reloads ctx[0] after FX_Sqrt
- * instead of caching it across the call, which costs a callee-saved register, and the frame then
- * needs an explicit `sub sp,#4` instead of reusing the pushed r3 slot (144 B). */
+ * Two things closed it, and the note's "mwcc allocates ascending where the ROM went descending"
+ * was a symptom of the first. The ROM stores the acquire result straight out of r0 and keeps the
+ * flag-setting copy in r7, which `target = acquire(...); ctx[2] = target;` cannot produce -- write
+ * the STORE first and bind the local from the slot (`ctx[2] = acquire(...); target = ctx[2];`).
+ * mwcc forwards the value, so there is no reload and no size cost. With that in place the r6/r7
+ * pair between `target` and `owner` is pure declaration order, and tools/declperm.py finds it:
+ * 12 of the 24 orders match, all of them with `target` declared after `owner`.
+ */
+
 extern int func_ov107_020cab14(int owner, int *distSq);
 extern int FX_Sqrt(int x);
 extern void func_0203c634(int self, int action, int arg);
@@ -28,12 +24,12 @@ extern void func_0203c634(int self, int action, int arg);
 void func_ov158_020cd174(int self) {
     int *ctx;
     int gap;
-    int target;
     int owner;
+    int target;
 
     ctx = *(int **)(self + 4);
-    target = func_ov107_020cab14(ctx[0], &gap);
-    ctx[2] = target;
+    ctx[2] = func_ov107_020cab14(ctx[0], &gap);
+    target = ctx[2];
     if (target == 0) {
         gap = 0x7fffffff;
     } else {
