@@ -124,7 +124,7 @@ src/overlays/ov117/asm_stubs/calls/func_ov117_020cd2f4.c:
     complete
     .text       start:0x020cd2f4 end:0x020cd494
 
-src/overlays/ov117/asm_stubs/calls/func_ov117_020cd494.c:
+src/overlays/ov117/calls/func_ov117_020cd494.c:
     complete
     .text       start:0x020cd494 end:0x020cd594
 
