@@ -112,7 +112,7 @@ src/overlays/ov192/asm_stubs/calls/func_ov192_020d2ff4.c:
     complete
     .text       start:0x020d2ff4 end:0x020d3190
 
-src/overlays/ov192/asm_stubs/calls/func_ov192_020d3190.c:
+src/overlays/ov192/calls/func_ov192_020d3190.c:
     complete
     .text       start:0x020d3190 end:0x020d32b0
 

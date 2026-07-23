@@ -108,7 +108,7 @@ src/overlays/ov143/calls/func_ov143_020d4988.c:
     complete
     .text       start:0x020d4988 end:0x020d4a5c
 
-src/overlays/ov143/asm_stubs/calls/func_ov143_020d4a5c.c:
+src/overlays/ov143/calls/func_ov143_020d4a5c.c:
     complete
     .text       start:0x020d4a5c end:0x020d4b30
 
