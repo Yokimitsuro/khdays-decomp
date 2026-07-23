@@ -80,7 +80,7 @@ src/overlays/ov163/calls/func_ov163_020cedf8.c:
     complete
     .text       start:0x020cedf8 end:0x020cee34
 
-src/calls/func_ov163_020cee34.c:
+src/overlays/ov163/calls/func_ov163_020cee34.c:
     complete
     .text       start:0x020cee34 end:0x020ceefc
 

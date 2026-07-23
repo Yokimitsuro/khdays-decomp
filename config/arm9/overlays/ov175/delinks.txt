@@ -216,7 +216,7 @@ src/overlays/ov175/calls/func_ov175_020ce730.c:
     complete
     .text       start:0x020ce730 end:0x020ce768
 
-src/calls/func_ov175_020ce768.c:
+src/overlays/ov175/calls/func_ov175_020ce768.c:
     complete
     .text       start:0x020ce768 end:0x020ce844
 

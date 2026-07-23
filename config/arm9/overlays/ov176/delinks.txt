@@ -216,7 +216,7 @@ src/overlays/ov176/calls/func_ov176_020d2370.c:
     complete
     .text       start:0x020d2370 end:0x020d23a8
 
-src/calls/func_ov176_020d23a8.c:
+src/overlays/ov176/calls/func_ov176_020d23a8.c:
     complete
     .text       start:0x020d23a8 end:0x020d2484
 
