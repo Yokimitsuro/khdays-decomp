@@ -9,6 +9,7 @@ Usage: _run_mwcc.py <out.o> <in.c>
 import json
 import os
 import subprocess
+import time
 import sys
 from pathlib import Path
 
@@ -49,6 +50,20 @@ if comp_path.exists():
         mwcc_bin = ROOT / "tools" / "mwccarm" / ver / "mwccarm.exe"
 
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
-sys.exit(subprocess.run(
-    [str(mwcc_bin), *FLAGS, *extra, "-o", str(out_path), str(src_path)], env=env
-).returncode)
+cmd = [str(mwcc_bin), *FLAGS, *extra, "-o", str(out_path), str(src_path)]
+
+# The FLEXlm license check fails intermittently under a parallel ninja build: a
+# different, arbitrary translation unit dies on every full-tree run, and the exact
+# same command succeeds when re-run on its own. Retry before believing a failure --
+# a real diagnostic fails all four attempts and is then reported as usual.
+for attempt in range(8):
+    r = subprocess.run(cmd, env=env, capture_output=True, text=True)
+    if r.returncode == 0:
+        sys.stdout.write(r.stdout)
+        sys.stderr.write(r.stderr)
+        sys.exit(0)
+    time.sleep(0.25 * (attempt + 1))
+
+sys.stdout.write(r.stdout)
+sys.stderr.write(r.stderr)
+sys.exit(r.returncode)
