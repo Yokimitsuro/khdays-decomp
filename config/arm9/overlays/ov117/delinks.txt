@@ -76,6 +76,10 @@ src/overlays/ov117/calls/func_ov117_020cc9fc.c:
     complete
     .text       start:0x020cc9fc end:0x020cca64
 
+src/overlays/ov117/calls/func_ov117_020cca64.c:
+    complete
+    .text       start:0x020cca64 end:0x020ccafc
+
 src/overlays/ov117/calls/func_ov117_020ccafc.c:
     complete
     .text       start:0x020ccafc end:0x020ccbcc
