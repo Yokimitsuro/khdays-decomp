@@ -22,11 +22,11 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **15,438** / ~23,240 (~66.4% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **1,625,416** / 4,728,790 (~34.37% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. Counts byte-exact C only: `asm_stubs/` and `nonmatching/` are both excluded. |
+| Real C-decompiled matched functions | **15,446** / ~23,240 (~66.5% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **1,626,468** / 4,728,790 (~34.40% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. Counts byte-exact C only: `asm_stubs/` and `nonmatching/` are both excluded. |
 | Inline ASM / ASM stub matched functions | **2,156** / ~23,240 (~9.3%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
 | SDK/library byte-match identifications | **217** / ~23,240 (~0.9%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **5,429** / ~23,240 (~23.4%) | Functions known to the project but not implemented as C |
+| Named but not decompiled | **5,421** / ~23,240 (~23.3%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | Fully-decompiled modules: `ov001`, `ov028`, `ov290`, `ov300`, `ov302`. A few precompiled-middleware translation units (e.g. the `ov028` anti-tamper crypto core) build with an older `mwccarm` via a per-file compiler override (`config/arm9/file_compilers.json`). |
