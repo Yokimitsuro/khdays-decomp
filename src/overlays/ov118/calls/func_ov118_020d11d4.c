@@ -1,3 +1,10 @@
+/* func_ov118_020d11d4 -- AI state: re-aim and re-arm the strafe step.
+ *
+ * The Q12 scale of the step (w38 * 0x6488, rounded with +0x800) is brought back down with a
+ * 64-bit LOGICAL SHIFT, not a division: `/ 4096` on a signed long long makes mwcc call the
+ * 64-bit divide helper, while `(unsigned long long)x >> 12` is the ROM's inline
+ * `lsr r2,r2,#0xc ; orr r2,r2,r3,lsl #20`. Worth 12 bytes and three instructions.
+ * Byte-identical twin of func_ov117_020cd594. */
 extern int func_0202f384();
 extern int func_01ffa724();
 extern int func_0202f188();
@@ -42,7 +49,7 @@ struct Obj {
     signed char b20;           /* 0x20 */
 };
 
-void func_ov117_020cd594(struct Obj *o)
+void func_ov118_020d11d4(struct Obj *o)
 {
     struct Mid *m;
     char local[16];
@@ -53,7 +60,7 @@ void func_ov117_020cd594(struct Obj *o)
     func_01ffa724(0x100, m->buf2c, m->buf2c);
 
     func_0202f188(local, &data_02042270,
-                  ((long long)m->w38 * 0x6488 + 0x800) / 4096);
+                  (int)((unsigned long long)((long long)m->w38 * 0x6488 + 0x800) >> 12));
 
     m->w38 = m->w38 + o->sub->w2c;
     func_0203c9d0(m->inner->w384 + 4, local);
