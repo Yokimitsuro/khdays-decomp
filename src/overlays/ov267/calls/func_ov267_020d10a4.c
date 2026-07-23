@@ -1,9 +1,9 @@
-/* func_ov212_020cd494 -- push the current stance byte out to the sub-object's state channels.
+/* func_ov267_020d10a4 -- push the current stance byte out to the sub-object's state channels.
  *
  * Stances 0..2 drive channels 2 and 4; anything else drives channel 0 with the stance rebased
  * by 3, so the two groups index separate tables. func_0203c7ac(sub, 0) then closes the update.
  *
- * One of a 3-member shape family; the twins live in ov266/ov267.
+ * One of a 3-member shape family; the twins live in ov212/ov266.
  *
  * Four things are load-bearing and each was checked against the disassembly, not the decompiler:
  *  - it is a SWITCH, not an `||` chain. Written as `s == 0 || s == 1 || s == 2` mwcc range-folds
@@ -27,7 +27,7 @@ typedef struct {
 extern void func_0203b9fc(void *sub, int channel, short value, int flag);
 extern void func_0203c7ac(void *sub, int a);
 
-void func_ov212_020cd494(int obj) {
+void func_ov267_020d10a4(int obj) {
     switch (*(signed char *)(obj + 0x310)) {
     case 0:
     case 1:
