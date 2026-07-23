@@ -1,8 +1,16 @@
+/* func_ov022_0209bf54 -- reset the actor's 0x2aa4 action block and re-seed it from the
+ * per-actor table row at data_0204c3d8 + kind * 0x44 (kind = the byte at obj+9).
+ * Row byte +0x31 selects the mode: 1 or 4 -> mode 1, 3 -> mode 2, anything else leaves
+ * the block cleared. Row +0x30 and +0x32 supply the two parameters.
+ *
+ * The block pointer is UNSIGNED char: p[0xf] is read back into p[0xc], and the ROM's
+ * plain ldrb there is what rules out a signed char (which costs a ldrsb with a register
+ * offset in THUMB). */
 extern int data_0204c3d8;
 
 void func_ov022_0209bf54(int obj) {
     unsigned char b = *(unsigned char *)(obj + 9);
-    char *p = (char *)(obj + 0x2aa4);
+    unsigned char *p = (unsigned char *)(obj + 0x2aa4);
     int tbl = (int)&data_0204c3d8 + b * 0x44;
     char c;
     *(int *)p = 0;
