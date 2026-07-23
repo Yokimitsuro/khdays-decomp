@@ -124,7 +124,7 @@ src/overlays/ov188/calls/func_ov188_020cf624.c:
     complete
     .text       start:0x020cf624 end:0x020cf680
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020cf680.c:
+src/overlays/ov188/calls/func_ov188_020cf680.c:
     complete
     .text       start:0x020cf680 end:0x020cf79c
 
@@ -192,6 +192,6 @@ src/overlays/ov188/calls/func_ov188_020d0128.c:
     complete
     .text       start:0x020d0128 end:0x020d015c
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020d015c.c:
+src/overlays/ov188/calls/func_ov188_020d015c.c:
     complete
     .text       start:0x020d015c end:0x020d0278
