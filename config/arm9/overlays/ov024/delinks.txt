@@ -60,6 +60,10 @@ src/calls/OS_IsThreadAvailable_0x02083358.c:
     complete
     .text       start:0x02083358 end:0x02083368
 
+src/overlays/ov024/calls/func_ov024_02083368.c:
+    complete
+    .text       start:0x02083368 end:0x020833b8
+
 src/overlays/ov024/calls/func_ov024_020833b8.c:
     complete
     .text       start:0x020833b8 end:0x020833da

@@ -180,6 +180,10 @@ src/overlays/ov185/calls/func_ov185_020d0150.c:
     complete
     .text       start:0x020d0150 end:0x020d0360
 
+src/overlays/ov185/calls/func_ov185_020d0360.c:
+    complete
+    .text       start:0x020d0360 end:0x020d0464
+
 src/overlays/ov185/calls/func_ov185_020d0464.c:
     complete
     .text       start:0x020d0464 end:0x020d04cc
@@ -223,6 +227,10 @@ src/overlays/ov185/calls/func_ov185_020d0af4.c:
 src/overlays/ov185/calls/func_ov185_020d0bbc.c:
     complete
     .text       start:0x020d0bbc end:0x020d0c18
+
+src/overlays/ov185/calls/func_ov185_020d0ffc.c:
+    complete
+    .text       start:0x020d0ffc end:0x020d1100
 
 src/overlays/ov185/calls/func_ov185_020d1100.c:
     complete
