@@ -72,7 +72,7 @@ src/overlays/ov289/calls/func_ov289_020d6188.c:
     complete
     .text       start:0x020d6188 end:0x020d61fc
 
-src/overlays/ov289/asm_stubs/calls/func_ov289_020d61fc.c:
+src/overlays/ov289/calls/func_ov289_020d61fc.c:
     complete
     .text       start:0x020d61fc end:0x020d62d8
 

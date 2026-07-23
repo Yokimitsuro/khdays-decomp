@@ -104,7 +104,7 @@ src/overlays/ov114/calls/func_ov114_020cd2b0.c:
     complete
     .text       start:0x020cd2b0 end:0x020cd2ec
 
-src/overlays/ov114/asm_stubs/calls/func_ov114_020cd2ec.c:
+src/overlays/ov114/calls/func_ov114_020cd2ec.c:
     complete
     .text       start:0x020cd2ec end:0x020cd37c
 
@@ -168,7 +168,7 @@ src/overlays/ov114/calls/func_ov114_020cde70.c:
     complete
     .text       start:0x020cde70 end:0x020cdeac
 
-src/overlays/ov114/asm_stubs/calls/func_ov114_020cdeac.c:
+src/overlays/ov114/calls/func_ov114_020cdeac.c:
     complete
     .text       start:0x020cdeac end:0x020cdf3c
 

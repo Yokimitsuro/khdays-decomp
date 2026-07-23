@@ -144,7 +144,7 @@ src/overlays/ov153/calls/func_ov153_020cd7f8.c:
     complete
     .text       start:0x020cd7f8 end:0x020cd8c4
 
-src/overlays/ov153/asm_stubs/calls/func_ov153_020cd8c4.c:
+src/overlays/ov153/calls/func_ov153_020cd8c4.c:
     complete
     .text       start:0x020cd8c4 end:0x020cd990
 
