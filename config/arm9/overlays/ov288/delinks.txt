@@ -104,6 +104,6 @@ src/overlays/ov288/calls/func_ov288_020d5174.c:
     complete
     .text       start:0x020d5174 end:0x020d5218
 
-src/overlays/ov288/asm_stubs/calls/func_ov288_020d5218.c:
+src/overlays/ov288/calls/func_ov288_020d5218.c:
     complete
     .text       start:0x020d5218 end:0x020d5314

@@ -104,6 +104,6 @@ src/overlays/ov289/calls/func_ov289_020d6f94.c:
     complete
     .text       start:0x020d6f94 end:0x020d7038
 
-src/overlays/ov289/asm_stubs/calls/func_ov289_020d7038.c:
+src/overlays/ov289/calls/func_ov289_020d7038.c:
     complete
     .text       start:0x020d7038 end:0x020d7134
