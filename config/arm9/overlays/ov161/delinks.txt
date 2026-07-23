@@ -148,7 +148,7 @@ src/overlays/ov161/calls/func_ov161_020cd534.c:
     complete
     .text       start:0x020cd534 end:0x020cd570
 
-src/calls/func_ov161_020cd570.c:
+src/overlays/ov161/calls/func_ov161_020cd570.c:
     complete
     .text       start:0x020cd570 end:0x020cd638
 

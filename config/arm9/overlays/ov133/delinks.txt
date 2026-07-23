@@ -80,7 +80,7 @@ src/overlays/ov133/calls/func_ov133_020d29f4.c:
     complete
     .text       start:0x020d29f4 end:0x020d2a30
 
-src/calls/func_ov133_020d2a30.c:
+src/overlays/ov133/calls/func_ov133_020d2a30.c:
     complete
     .text       start:0x020d2a30 end:0x020d2af8
 

@@ -116,7 +116,7 @@ src/overlays/ov197/calls/func_ov197_020cd320.c:
     complete
     .text       start:0x020cd320 end:0x020cd35c
 
-src/calls/func_ov197_020cd35c.c:
+src/overlays/ov197/calls/func_ov197_020cd35c.c:
     complete
     .text       start:0x020cd35c end:0x020cd3c0
 
@@ -168,7 +168,7 @@ src/overlays/ov197/calls/func_ov197_020cd9f0.c:
     complete
     .text       start:0x020cd9f0 end:0x020cda10
 
-src/calls/func_ov197_020cda10.c:
+src/overlays/ov197/calls/func_ov197_020cda10.c:
     complete
     .text       start:0x020cda10 end:0x020cdab0
 
