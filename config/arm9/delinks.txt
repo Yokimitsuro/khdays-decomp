@@ -5036,6 +5036,10 @@ src/calls/func_020343ec.c:
     complete
     .text       start:0x020343ec end:0x02034428
 
+src/calls/func_02034428.c:
+    complete
+    .text       start:0x02034428 end:0x0203445a
+
 src/calls/func_02034730.c:
     complete
     .text       start:0x02034730 end:0x020347ec
