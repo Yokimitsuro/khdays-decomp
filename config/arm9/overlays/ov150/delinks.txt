@@ -176,7 +176,7 @@ src/overlays/ov150/calls/func_ov150_020d1844.c:
     complete
     .text       start:0x020d1844 end:0x020d18f8
 
-src/overlays/ov150/asm_stubs/calls/func_ov150_020d18f8.c:
+src/overlays/ov150/calls/func_ov150_020d18f8.c:
     complete
     .text       start:0x020d18f8 end:0x020d1a20
 
