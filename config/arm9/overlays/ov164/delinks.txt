@@ -152,11 +152,11 @@ src/overlays/ov164/calls/func_ov164_020d1b70.c:
     complete
     .text       start:0x020d1b70 end:0x020d1ba4
 
-src/overlays/ov164/asm_stubs/calls/func_ov164_020d1ba4.c:
+src/overlays/ov164/calls/func_ov164_020d1ba4.c:
     complete
     .text       start:0x020d1ba4 end:0x020d1c4c
 
-src/overlays/ov164/asm_stubs/calls/func_ov164_020d1c4c.c:
+src/overlays/ov164/calls/func_ov164_020d1c4c.c:
     complete
     .text       start:0x020d1c4c end:0x020d1cf8
 
