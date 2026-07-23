@@ -140,7 +140,7 @@ src/overlays/ov189/calls/func_ov189_020d17cc.c:
     complete
     .text       start:0x020d17cc end:0x020d1800
 
-src/calls/func_ov189_020d1800.c:
+src/overlays/ov189/calls/func_ov189_020d1800.c:
     complete
     .text       start:0x020d1800 end:0x020d1874
 

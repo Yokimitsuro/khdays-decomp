@@ -128,7 +128,7 @@ src/overlays/ov121/calls/func_ov121_020cf878.c:
     complete
     .text       start:0x020cf878 end:0x020cf8ac
 
-src/calls/func_ov121_020cf8ac.c:
+src/overlays/ov121/calls/func_ov121_020cf8ac.c:
     complete
     .text       start:0x020cf8ac end:0x020cf918
 

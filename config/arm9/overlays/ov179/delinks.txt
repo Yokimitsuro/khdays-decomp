@@ -232,7 +232,7 @@ src/overlays/ov179/auto/func_ov179_020d45d0.c:
     complete
     .text       start:0x020d45d0 end:0x020d45d4
 
-src/calls/func_ov179_020d45d4.c:
+src/overlays/ov179/calls/func_ov179_020d45d4.c:
     complete
     .text       start:0x020d45d4 end:0x020d4640
 

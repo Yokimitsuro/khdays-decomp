@@ -232,6 +232,10 @@ src/overlays/ov185/calls/func_ov185_020d0bbc.c:
     complete
     .text       start:0x020d0bbc end:0x020d0c18
 
+src/overlays/ov185/calls/func_ov185_020d0efc.c:
+    complete
+    .text       start:0x020d0efc end:0x020d0ffc
+
 src/overlays/ov185/calls/func_ov185_020d0ffc.c:
     complete
     .text       start:0x020d0ffc end:0x020d1100

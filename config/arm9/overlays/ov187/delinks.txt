@@ -232,6 +232,10 @@ src/overlays/ov187/calls/func_ov187_020d661c.c:
     complete
     .text       start:0x020d661c end:0x020d6678
 
+src/overlays/ov187/calls/func_ov187_020d695c.c:
+    complete
+    .text       start:0x020d695c end:0x020d6a5c
+
 src/overlays/ov187/calls/func_ov187_020d6a5c.c:
     complete
     .text       start:0x020d6a5c end:0x020d6b60
