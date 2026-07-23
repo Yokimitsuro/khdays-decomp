@@ -95,11 +95,11 @@ src/overlays/ov012/calls/func_ov012_0205b984.c:
     complete
     .text       start:0x0205b984 end:0x0205b9a6
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205b9a8.c:
+src/overlays/ov012/calls/func_ov012_0205b9a8.c:
     complete
     .text       start:0x0205b9a8 end:0x0205b9de
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205b9e0.c:
+src/overlays/ov012/calls/func_ov012_0205b9e0.c:
     complete
     .text       start:0x0205b9e0 end:0x0205ba08
 
