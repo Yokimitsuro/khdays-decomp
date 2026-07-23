@@ -160,7 +160,7 @@ src/overlays/ov174/calls/func_ov174_020d1f40.c:
     complete
     .text       start:0x020d1f40 end:0x020d1fac
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d1fac.c:
+src/overlays/ov174/calls/func_ov174_020d1fac.c:
     complete
     .text       start:0x020d1fac end:0x020d20b8
 

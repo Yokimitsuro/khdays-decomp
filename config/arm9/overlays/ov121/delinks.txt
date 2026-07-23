@@ -48,7 +48,7 @@ src/overlays/ov121/auto/func_ov121_020ce5c0.c:
     complete
     .text       start:0x020ce5c0 end:0x020ce5f0
 
-src/overlays/ov121/asm_stubs/calls/func_ov121_020ce5f0.c:
+src/overlays/ov121/calls/func_ov121_020ce5f0.c:
     complete
     .text       start:0x020ce5f0 end:0x020ce6b8
 
@@ -140,7 +140,7 @@ src/overlays/ov121/calls/func_ov121_020cf9a0.c:
     complete
     .text       start:0x020cf9a0 end:0x020cfa14
 
-src/overlays/ov121/asm_stubs/calls/func_ov121_020cfa14.c:
+src/overlays/ov121/calls/func_ov121_020cfa14.c:
     complete
     .text       start:0x020cfa14 end:0x020cfad0
 
