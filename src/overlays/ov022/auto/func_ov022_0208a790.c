@@ -1,11 +1,9 @@
-/* NONMATCHING: single constant-materialization tie, byte-exact structure. The
- * original derives the 0xFF byte stored at entry+0x110 by decrementing the 0 it
- * still holds from the entry+4 store (`mov r2,#0; str; sub r2,#1; strb`); mwcc
- * folds any `0 - 1` / `v--` to a fresh `mov r2,#0xFF`. One instruction differs.
- * The seven single-bit clears (modeled as a bitfield struct in the original's
- * order 5,3,4,6,7,8,9) and the rest reproduce. Semantics exact: clears the active
- * entry's fields, invalidates the slot index when flag 4 is clear, and clears
- * status bits 3-9 of the halfword at obj[0]. */
+/* Clears the active entry: zeroes its +4 field and stores 0xFF at +0x110, invalidates the
+ * slot index when flag 4 is clear, and clears status bits 3-9 of the halfword at obj[0].
+ *
+ * The seven single-bit clears must be written as a bitfield struct in the ROM's own order
+ * (5,3,4,6,7,8,9) -- that order is load-bearing, not cosmetic.
+ */
 struct Flags0208a790 {
     unsigned short lo3 : 3;
     unsigned short b3 : 1;

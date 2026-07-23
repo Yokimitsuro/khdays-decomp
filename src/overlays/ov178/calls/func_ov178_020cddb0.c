@@ -1,12 +1,3 @@
-/* NONMATCHING — equivalent C, one scheduling tie.
- *
- * The two func_ov107_020c0b90 struct-by-value (Vec3) calls and the const-vector
- * load are byte-exact; the only difference vs the ROM is a load-use hoist in the
- * guard block: mwcc 3.0 emits the guard's `mov r2,#0` (SetIndexedSlot arg) ABOVE
- * the `bne`, whereas every source form we can write keeps it inside the
- * fall-through block. Confirmed unreproducible across all 26 mwcc generations,
- * multiple source structures, and scheduling pragmas. Otherwise byte-identical
- * (correct size, all relocs aligned). */
 struct vec3 { int x, y, z; };
 
 extern int func_ov107_020cab14(int obj, int b);

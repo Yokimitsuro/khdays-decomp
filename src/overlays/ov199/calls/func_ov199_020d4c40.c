@@ -20,12 +20,13 @@
  * matches without it, and reading uninitialised storage is not something to leave in
  * matched code.
  */
-/* NONMATCHING -- 216/216 B, 32 differing bytes, all in the head. The tail matches exactly.
- * Head of a 5-member family.
+/* Head of a 5-member family.  Byte-exact.
  *
- * The ROM HOISTS two constants above the branch so they serve both paths: `mov r2,#0` (the
- * third argument of the tail func_0203c634) and `mov r1,#2` (the 0x1c7 state) are emitted
- * before the `bne`. mwcc emits both inside the taken block.
+ * Why this looked impossible for so long: the ROM hoists two constants above the branch so
+ * they serve both paths -- `mov r2,#0` (third argument of the tail func_0203c634) and
+ * `mov r1,#2` (the 0x1c7 state). With the callee arities wrong those constants have no
+ * visible consumer, which reads exactly like a scheduler difference. Correct the arities
+ * and mwcc hoists them too.
  *
  * SOLVED here -- do NOT rediscover:
  *  - func_ov107_020c9264 is called here with NO arguments at all (no r0-r3 setup before the
