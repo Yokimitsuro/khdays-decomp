@@ -3,7 +3,6 @@
  * result/entry register, and the two draw calls; residue is ctx->r5/result->r4 where the ROM
  * uses ctx->r4/result->r5, plus one scheduling instruction. No decl order flips it.
  * (See git log for the full behaviour.) */
- */
 
 typedef void (*Callback)(void);
 

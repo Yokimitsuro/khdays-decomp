@@ -5,6 +5,9 @@
  * Behaviour: sync six bone SRT transforms (source+4 -> target+0x10) from actor handles at
  * +0x3c8..+0x3d4 into targets at +0x3ac(**)/+0x3c4/+0x3bc/+0x3c0/+0x3b8/+0x3b0(**), then finish
  * stale sub-task tags per animation state (+0x1c6) and flags (+0x1c4). */
+typedef struct {
+    int aRot[4];
+    int aTranslation[3];
     int aScale[3];
     unsigned char bFlags;
     unsigned char aPad29[3];

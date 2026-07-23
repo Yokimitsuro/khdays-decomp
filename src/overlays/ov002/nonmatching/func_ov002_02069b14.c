@@ -5,6 +5,8 @@
  * Behaviour: fill slot obj[0x8bd0][index*0x44] -- 3-word header from func_ov022_020881f8,
  * value at +0xc, tail at +0x10 via func_ov002_020726a0; func_02035c60 once when flag bit2
  * is clear and index==0. */
+typedef struct {
+    int a;
     int b;
     int c;
 } SlotHeader;
