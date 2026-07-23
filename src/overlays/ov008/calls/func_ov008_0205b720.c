@@ -1,7 +1,3 @@
-/* NONMATCHING: semantics correct. The ROM emits a redundant `orr r1,r5,#0` (a move of param_1)
- * before the shift, which mwcc elides (76B vs 80B); the predicated orreq/orrne order also follows
- * from it. "Our compiler is smarter" class, same as 0207350c / 02055ba4. NOTE: this function is
- * the P6 cursor->action mapping: cmd = (slot<<8) | 7, or | 8 when obj+0x14e0 is set. */
 /* func_ov008_0205b720 -- forward a cursor pick to the ov008 scroll widget as an action command.
  * Command = (slot << 8) | action, where action is 7 normally and 8 when the alternate-mode flag
  * (obj+0x14e0) is set. Only runs while a page transition is active (func_ov008_02051028 != 0). */
@@ -17,10 +13,18 @@ void func_ov008_0205b720(int param_1, unsigned int param_2, unsigned int param_3
     }
     {
         unsigned int cmd;
-        if (*(int *)(obj + 0x14e0) == 0) {
-            cmd = param_1 << 8 | 7;
+        /* The 64-bit OR is what makes mwcc emit the ROM's redundant `orr r1, r5, #0` copy of
+         * the slot before the shift: the bit it sets is bit 32, which the narrowing back to
+         * `unsigned int` discards, so the value is exactly `param_1` -- but the low half of
+         * the 64-bit OR still has to be materialised into its own register. Same family of
+         * codegen idioms as `(char *)0 + x` for `add rD, rS, #0`.
+         * The set arm is written first so its `orrne` is the one emitted first. */
+        unsigned int slot = (unsigned int)((unsigned long long)param_1 | 0x100000000LL);
+
+        if (*(int *)(obj + 0x14e0) != 0) {
+            cmd = slot << 8 | 8;
         } else {
-            cmd = param_1 << 8 | 8;
+            cmd = slot << 8 | 7;
         }
         func_ov008_020566f4(obj + 0x13fc, cmd);
         func_ov008_0205a8c4(obj);
