@@ -140,7 +140,7 @@ src/overlays/ov129/calls/func_ov129_020d6b70.c:
     complete
     .text       start:0x020d6b70 end:0x020d6c40
 
-src/overlays/ov129/asm_stubs/calls/func_ov129_020d6c40.c:
+src/overlays/ov129/calls/func_ov129_020d6c40.c:
     complete
     .text       start:0x020d6c40 end:0x020d6d34
 

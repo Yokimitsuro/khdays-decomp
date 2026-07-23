@@ -140,7 +140,7 @@ src/overlays/ov128/calls/func_ov128_020d4d50.c:
     complete
     .text       start:0x020d4d50 end:0x020d4e20
 
-src/overlays/ov128/asm_stubs/calls/func_ov128_020d4e20.c:
+src/overlays/ov128/calls/func_ov128_020d4e20.c:
     complete
     .text       start:0x020d4e20 end:0x020d4f14
 
