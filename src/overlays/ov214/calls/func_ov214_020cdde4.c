@@ -1,22 +1,17 @@
-/* Enter the "circle-strafe" state: cancel the current action (mode 6), face a random heading from
- * the RNG (angle -> sin/cos table into node[5]/[7]), zero the velocity via two kVecZero pushes
- * (modes 2 and 4), reset the strafe timers/flags and seed a fresh strafe duration (0x14 + d11) at
- * +0x6f, set the turn speed at +0x5c to 0x5000, and re-register the think callback.
+/*
+ * Enter the "advance" phase: kick animation mode 6, convert a fresh atan2 (func_02023f08) to a
+ * sin/cos facing in node[5..7], copy the constant offset vector data_02041dc8 and publish it to the
+ * owner via modes 2 and 4, clear the one-shot bytes and phase timers, seed the reach at +0x5c to
+ * 0x5000, and chain to the next state func_ov214_020cdf24.
  *
- * Rep of a 5-overlay byte-identical group (ov214/215/216/217/264).
- *
- * NON-MATCHING (equivalent), size-exact (320). Every idiom reproduces: the 0x28be60db9391 angle
- * divide into data_0203d210, the struct-by-value kVecZero pushes (ldmia/stmia), and the RNG
- * `+ 0x14`. The only residue is register allocation of the angle-math temporaries: the ROM colours
- * the 64-bit-multiply low half and the sin/cos table base with SCRATCH registers (r12, r3), while
- * mwcc 139 puts them in a callee-saved r6 (adding r3/r6 to the push list) -- 34 bytes of cascading
- * register fields. The matched template func_ov120_020ccd90 uses the identical angle idiom and
- * colours it with scratch, so this is a per-function register-pressure difference, not the idiom;
- * build_sweep shows no build reproduces it, and cast-chain / inlined-RNG spellings do not move it. */
+ * `const short data_0203d210[]` is load-bearing: without const mwcc must assume the node stores
+ * could write the sin/cos table, which reorders a table load; const is the aliasing fact that
+ * matches. One of a 5-member family (ov215/216/217/264); only the chained-state symbol differs.
+ */
 struct Vec3 { int x, y, z; };
 extern void func_ov107_020c9264(int owner, int mode, int b);
 extern int func_02023f08(void);
-extern short data_0203d210[];
+extern const short data_0203d210[];
 extern struct Vec3 data_02041dc8;
 extern void func_ov107_020c0b90(int owner, int mode, struct Vec3 v, int c);
 extern int func_02023eb4();
