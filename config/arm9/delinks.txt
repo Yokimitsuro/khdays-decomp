@@ -2020,6 +2020,14 @@ src/calls/func_02012b98.c:
     complete
     .text       start:0x02012b98 end:0x02012c2c
 
+src/calls/func_02012c2c.c:
+    complete
+    .text       start:0x02012c2c end:0x02012ca8
+
+src/calls/func_02012ca8.c:
+    complete
+    .text       start:0x02012ca8 end:0x02012d24
+
 src/calls/func_02012d24.c:
     complete
     .text       start:0x02012d24 end:0x02012d64
