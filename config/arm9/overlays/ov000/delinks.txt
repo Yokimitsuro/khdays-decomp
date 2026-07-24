@@ -8,6 +8,10 @@ src/overlays/ov000/calls/func_ov000_0204cac0.c:
     complete
     .text       start:0x0204cac0 end:0x0204cc90
 
+src/overlays/ov000/calls/func_ov000_0204cc90.c:
+    complete
+    .text       start:0x0204cc90 end:0x0204d208
+
 src/overlays/ov000/calls/func_ov000_0204d208.c:
     complete
     .text       start:0x0204d208 end:0x0204d244
