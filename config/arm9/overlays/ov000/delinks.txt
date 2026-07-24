@@ -124,7 +124,7 @@ src/overlays/ov000/calls/func_ov000_0204f36c.c:
     complete
     .text       start:0x0204f36c end:0x0204f404
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0204f404.c:
+src/overlays/ov000/calls/func_ov000_0204f404.c:
     complete
     .text       start:0x0204f404 end:0x0204f47c
 

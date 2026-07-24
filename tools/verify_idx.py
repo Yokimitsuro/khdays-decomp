@@ -33,7 +33,33 @@ def _load_sym_addrs():
     return out
 
 
+def _load_abs_syms():
+    """Linker-ABSOLUTE symbols from build/arm9.lcf, e.g. `OVERLAY_12_ID = 12;`.
+
+    NitroSDK's FS_OVERLAY_ID(name) is `(u32)&SDK_OVERLAY_name_ID`, i.e. the ADDRESS of an
+    absolute symbol, so the source takes an address and mwcc emits a literal-pool word plus a
+    relocation. The ROM is already linked: that word holds the plain value (12) and points into
+    no section, so dsd records no relocation there. Our object legitimately has one more reloc
+    than the ROM, and the real build resolves it from arm9.lcf -- func_ov001_0204ce40 has shipped
+    in calls/ that way with the gate at 306. Without this the tool reports `relocs difieren` on
+    C the build accepts, which is the one failure mode that makes it disagree with the gate.
+    """
+    out = {}
+    lcf = os.path.join(ROOT, "build", "arm9.lcf")
+    if not os.path.exists(lcf):
+        return out
+    import re as _re
+    pat = _re.compile(r'^\s*(\w+)\s*=\s*(0[xX][0-9a-fA-F]+|\d+)\s*;')
+    with open(lcf, encoding='utf-8', errors='replace') as fh:
+        for line in fh:
+            m = pat.match(line)
+            if m:
+                out[m.group(1)] = int(m.group(2), 0)
+    return out
+
+
 SYM_ADDR = _load_sym_addrs()
+ABS_SYM = _load_abs_syms()
 IDX = os.path.join(ROOT, "build", "func_index.json")
 
 def main():
@@ -67,11 +93,30 @@ def main():
         # an address to its FIRST symbol, so a legitimate alias reads as a mismatch
         # here. Compare ADDRESSES when the spellings differ -- only a genuine
         # address difference is an error.
-        same = set(mrel) == set(orel) and all(
-            mrel[o] == orel[o]
-            or (SYM_ADDR.get(mrel[o]) is not None
-                and SYM_ADDR.get(mrel[o]) == SYM_ADDR.get(orel[o]))
-            for o in mrel)
+        def _abs_ok(off):
+            """Our reloc points at a linker-absolute symbol and the ROM word holds its value."""
+            val = ABS_SYM.get(mrel[off])
+            if val is None or off + 4 > size:
+                return False
+            rom = int.from_bytes(orig[off:off + 4], "little")
+            if rom != val:
+                return False
+            o = orel.get(off)
+            # The ROM side is either absent (plain literal, no reloc) or recorded by the index
+            # as the literal itself, e.g. '0x0000001c'.
+            if o is None:
+                return True
+            try:
+                return int(o, 16) == val
+            except (TypeError, ValueError):
+                return False
+
+        same = all(
+            (o in orel and (mrel[o] == orel[o]
+                            or (SYM_ADDR.get(mrel[o]) is not None
+                                and SYM_ADDR.get(mrel[o]) == SYM_ADDR.get(orel[o]))))
+            or _abs_ok(o)
+            for o in mrel) and all(o in mrel for o in orel)
         if not same:
             print(">>> DIFIERE <<< relocs difieren\n  tuyas=%s\n  orig =%s" % (mrel, orel)); sys.exit(1)
     print(">>> MATCH <<< %d bytes, %d relocs" % (size, len(orel)))
