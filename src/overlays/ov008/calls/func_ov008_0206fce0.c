@@ -4,7 +4,7 @@
  * asks func_ov008_0205b708 whether the pick took. The first accepted slot is returned; if
  * all twelve are refused the cursor stays where it was.
  *
- * Two things had to be right for this to match, and the previous NONMATCHING note blamed the
+ * Two things had to be right for this to match, and the previous park note blamed the
  * compiler for both:
  *   - func_ov008_0205b720 takes ONE argument. The ROM's r1 and r2 at the call are not
  *     arguments at all: r1 is the dead high half of the `smull` that multiplies the quotient

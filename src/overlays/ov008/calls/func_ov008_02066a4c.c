@@ -2,7 +2,7 @@
  * zero), sample the touch state (func_ov008_02055dcc); if it is clear, advance the timed value
  * (func_02020400 over +0x18+1 and +0x1e78, a 64-bit result) and publish its high word.
  *
- * The old NONMATCHING note blamed "a guard-merge heuristic: build 139 folds the standalone
+ * The old park note blamed "a guard-merge heuristic: build 139 folds the standalone
  * `if (+0x30 != 0) return;` into the following idle-AND conditional-compare chain". It is not a
  * heuristic and not the build. Two ordinary source bugs:
  *   - the touch record is `unsigned short`, not `short`: the ROM reads it with `ldrh`, and a
