@@ -144,7 +144,7 @@ src/overlays/ov264/calls/func_ov264_020cdcf0.c:
     complete
     .text       start:0x020cdcf0 end:0x020cdde4
 
-src/overlays/ov264/asm_stubs/calls/func_ov264_020cdde4.c:
+src/overlays/ov264/calls/func_ov264_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020cdf24
 
@@ -180,7 +180,7 @@ src/overlays/ov264/calls/func_ov264_020ce8d4.c:
     complete
     .text       start:0x020ce8d4 end:0x020ce908
 
-src/overlays/ov264/asm_stubs/calls/func_ov264_020ce908.c:
+src/overlays/ov264/calls/func_ov264_020ce908.c:
     complete
     .text       start:0x020ce908 end:0x020ce9fc
 

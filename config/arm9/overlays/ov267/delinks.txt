@@ -204,6 +204,10 @@ src/overlays/ov267/calls/func_ov267_020d3ac8.c:
     complete
     .text       start:0x020d3ac8 end:0x020d3be4
 
+src/overlays/ov267/calls/func_ov267_020d3be4.c:
+    complete
+    .text       start:0x020d3be4 end:0x020d3d08
+
 src/overlays/ov267/calls/func_ov267_020d423c.c:
     complete
     .text       start:0x020d423c end:0x020d431c
@@ -227,6 +231,10 @@ src/overlays/ov267/calls/func_ov267_020d44c8.c:
 src/overlays/ov267/calls/func_ov267_020d44fc.c:
     complete
     .text       start:0x020d44fc end:0x020d454c
+
+src/overlays/ov267/calls/func_ov267_020d454c.c:
+    complete
+    .text       start:0x020d454c end:0x020d4664
 
 src/overlays/ov267/calls/func_ov267_020d4664.c:
     complete
