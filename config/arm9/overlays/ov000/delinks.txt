@@ -816,6 +816,10 @@ src/overlays/ov000/calls/func_ov000_0205721c.c:
     complete
     .text       start:0x0205721c end:0x020573e4
 
+src/overlays/ov000/calls/func_ov000_02057850.c:
+    complete
+    .text       start:0x02057850 end:0x02057dc4
+
 src/overlays/ov000/asm_stubs/calls/func_ov000_02057dc4.c:
     complete
     .text       start:0x02057dc4 end:0x020580fc

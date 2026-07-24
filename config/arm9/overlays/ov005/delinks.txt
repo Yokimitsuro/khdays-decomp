@@ -448,6 +448,10 @@ src/overlays/ov005/calls/func_ov005_0204f5e0.c:
     complete
     .text       start:0x0204f5e0 end:0x0204f7a8
 
+src/overlays/ov005/calls/func_ov005_0204fc14.c:
+    complete
+    .text       start:0x0204fc14 end:0x02050188
+
 src/overlays/ov005/calls/func_ov005_020504c0.c:
     complete
     .text       start:0x020504c0 end:0x020505e0
