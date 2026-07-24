@@ -45,6 +45,11 @@ SRC_DIRS = _discover_src_dirs()
 BUILD_DIR = ROOT / "build"
 
 ASM_MARKERS = (
+    # Any `asm <return-type> name(` body, whatever the return type is spelled as. The pattern
+    # below it lists only the builtin type keywords, so a typedef'd return type
+    # (`asm Ov000StateFn f(void)`, `asm u8 f(int)`) slipped through and the file was counted as
+    # real C. Seven ov000 files were mis-counted that way until 2026-07-24.
+    r"^\s*asm\s+[A-Za-z_]\w*\s*\**\s*[A-Za-z_]\w*\s*\(",
     r"\basm\s+(?:void|int|unsigned|signed|char|short|long|float|double|\*)",
     r"\b__asm\b",
     r"\bINLINE_ASM\b",
@@ -52,7 +57,7 @@ ASM_MARKERS = (
     r"\bGLOBAL_ASM\b",
     r"\bINCLUDE_ASM\b",
 )
-ASM_RE = re.compile("|".join(f"(?:{pat})" for pat in ASM_MARKERS))
+ASM_RE = re.compile("|".join(f"(?:{pat})" for pat in ASM_MARKERS), re.M)
 
 
 def load_json(path, default):

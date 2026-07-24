@@ -44,6 +44,13 @@ def compute_byte_progress():
         # 2026-07-17, which inflated it by every write-up ever parked.)
         if "asm_stubs" in path or "nonmatching" in path:
             continue
+        # The path is not enough. An ASM stub misfiled into calls/ or auto/ is counted here as
+        # byte-exact C and inflates the one metric the README calls honest -- and it is a silent
+        # inflation, because the file compiles, verifies byte-exact and passes the 306 gate.
+        # Classify by CONTENT as well. (17 ov000 files sat in calls/ with `asm { dcd ... }`
+        # bodies until 2026-07-24.)
+        if audit_progress.source_category(Path(path)) != "c_decompiled_matched":
+            continue
         c_names.add(os.path.basename(path)[:-2])  # strip .c
 
     total_bytes = 0
