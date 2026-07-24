@@ -38,12 +38,28 @@ def main():
     while '{' not in lines[j]:
         j += 1
     j += 1
-    decls = []
-    while j < len(lines) and re.match(r'^\s+[A-Za-z_][\w \*]*\s+\*?\w+\s*;\s*$', lines[j]):
-        decls.append(lines[j]); j += 1
+    # Collect the leading declaration block. A declaration WITH an initializer is split
+    # into a bare declaration plus an assignment; the assignments keep their source order,
+    # so only the declaration order is permuted (2026-07-24 -- before this, every park that
+    # wrote `int x = 0;` was simply out of the tool's reach, which is most of them).
+    decls, inits = [], []
+    bare = re.compile(r'^(\s+)([A-Za-z_][\w \*]*?\s+\*?)(\w+)\s*;\s*$')
+    withinit = re.compile(r'^(\s+)([A-Za-z_][\w \*]*?\s+\*?)(\w+)\s*=\s*(.+);\s*$')
+    while j < len(lines):
+        m = bare.match(lines[j])
+        if m:
+            decls.append('%s%s%s;\n' % (m.group(1), m.group(2), m.group(3)))
+            j += 1; continue
+        m = withinit.match(lines[j])
+        if m and not lines[j].lstrip().startswith(('return', 'if', 'for', 'while', 'do', 'switch')):
+            decls.append('%s%s%s;\n' % (m.group(1), m.group(2), m.group(3)))
+            inits.append('%s%s = %s;\n' % (m.group(1), m.group(3), m.group(4)))
+            j += 1; continue
+        break
     if len(decls) < 2:
-        raise SystemExit("menos de 2 declaraciones simples al principio del cuerpo -- separa los inicializadores")
-    head, tail = ''.join(lines[:j - len(decls)]), ''.join(lines[j:])
+        raise SystemExit("menos de 2 declaraciones al principio del cuerpo")
+    # one SOURCE line was consumed per declaration, whether or not it had an initializer
+    head, tail = ''.join(lines[:j - len(decls)]), ''.join(inits) + ''.join(lines[j:])
     orig = bytearray.fromhex(IDX[name]["hex"])
     orel = {o: s for o, s in IDX[name]["relocs"]}
     tmp = os.path.join(ROOT, "build", "try", "_declperm.c")
