@@ -128,7 +128,7 @@ src/overlays/ov000/calls/func_ov000_0204f404.c:
     complete
     .text       start:0x0204f404 end:0x0204f47c
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0204f47c.c:
+src/overlays/ov000/calls/func_ov000_0204f47c.c:
     complete
     .text       start:0x0204f47c end:0x0204f51c
 
@@ -928,7 +928,7 @@ src/overlays/ov000/calls/func_ov000_02059968.c:
     complete
     .text       start:0x02059968 end:0x020599bc
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_020599bc.c:
+src/overlays/ov000/calls/func_ov000_020599bc.c:
     complete
     .text       start:0x020599bc end:0x02059a68
 
@@ -976,7 +976,7 @@ src/overlays/ov000/calls/func_ov000_0205a19c.c:
     complete
     .text       start:0x0205a19c end:0x0205a3e0
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0205a3e0.c:
+src/overlays/ov000/calls/func_ov000_0205a3e0.c:
     complete
     .text       start:0x0205a3e0 end:0x0205a4bc
 
@@ -984,14 +984,14 @@ src/overlays/ov000/calls/func_ov000_0205a4bc.c:
     complete
     .text       start:0x0205a4bc end:0x0205a4d4
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0205a4d4.c:
+src/overlays/ov000/calls/func_ov000_0205a4d4.c:
     complete
     .text       start:0x0205a4d4 end:0x0205a554
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0205a554.c:
+src/overlays/ov000/calls/func_ov000_0205a554.c:
     complete
     .text       start:0x0205a554 end:0x0205a5e8
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0205a5e8.c:
+src/overlays/ov000/calls/func_ov000_0205a5e8.c:
     complete
     .text       start:0x0205a5e8 end:0x0205a6b0
