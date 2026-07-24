@@ -216,7 +216,7 @@ src/overlays/ov000/calls/func_ov000_02051ac4.c:
     complete
     .text       start:0x02051ac4 end:0x02051b98
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_02051b98.c:
+src/overlays/ov000/calls/func_ov000_02051b98.c:
     complete
     .text       start:0x02051b98 end:0x02051c48
 
