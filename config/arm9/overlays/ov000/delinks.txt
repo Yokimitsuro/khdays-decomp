@@ -168,13 +168,25 @@ src/overlays/ov000/calls/func_ov000_0204f7d0.c:
     complete
     .text       start:0x0204f7d0 end:0x0204f838
 
+src/overlays/ov000/calls/func_ov000_0204f838.c:
+    complete
+    .text       start:0x0204f838 end:0x0204faf0
+
 src/overlays/ov000/calls/func_ov000_0204faf0.c:
     complete
     .text       start:0x0204faf0 end:0x0204fc64
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_0204fc64.c:
+src/overlays/ov000/calls/func_ov000_0204fc64.c:
     complete
     .text       start:0x0204fc64 end:0x0204fdac
+
+src/overlays/ov000/calls/func_ov000_0204fdac.c:
+    complete
+    .text       start:0x0204fdac end:0x020500d0
+
+src/overlays/ov000/calls/func_ov000_020500d0.c:
+    complete
+    .text       start:0x020500d0 end:0x0205039c
 
 src/overlays/ov000/calls/func_ov000_0205039c.c:
     complete
