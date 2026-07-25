@@ -99,9 +99,10 @@ def main():
         try:
             orig, m = score(name, c, thumb)
         except SystemExit:
-            rows.append((9999, 9999, c, "compile failed")); continue
+            rows.append((9999, 9999, 9999, 9999, c, "compile failed")); continue
         if len(m) != len(orig):
-            rows.append((9998, 9998, 9998, c, "size %d != %d" % (len(m) * 4, len(orig) * 4)))
+            rows.append((9998, 9998, 9998, 9998, c,
+                         "size %d != %d" % (len(m) * 4, len(orig) * 4)))
             continue
         mn = sum(1 for a, b in zip(orig, m) if a[0] != b[0])
         op = sum(1 for a, b in zip(orig, m)
