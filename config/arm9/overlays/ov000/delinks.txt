@@ -908,7 +908,7 @@ src/overlays/ov000/calls/func_ov000_020589e4.c:
     complete
     .text       start:0x020589e4 end:0x02058a40
 
-src/overlays/ov000/asm_stubs/calls/func_ov000_02058a40.c:
+src/overlays/ov000/calls/func_ov000_02058a40.c:
     complete
     .text       start:0x02058a40 end:0x02058c28
 
