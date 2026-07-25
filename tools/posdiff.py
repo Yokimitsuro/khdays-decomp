@@ -14,10 +14,19 @@ with 4, and several hours went into optimising the wrong one.
 
 So: once the size already matches, align by POSITION and report two numbers.
 
-    mnemonic-mismatch   real structural distance -- wrong instruction, or the
-                        right instructions in the wrong order. RANK BY THIS.
+    mnemonic-mismatch   wrong instruction, or the right instructions in the wrong
+                        order.
+    operand-mismatch    same mnemonic, but a different immediate, memory offset or
+                        shift, with register NAMES normalised away.
     full-mismatch       the above plus register-naming differences. Useful as a
                         tie-break only, never as the primary score.
+
+RANK BY mnemonic + operand. Reporting the mnemonic count alone is a trap I fell into
+on func_ov000_02050ec4: a candidate came out `mnemonic-mismatch=0` and I read it as
+"the instruction stream is identical". It was not -- two adjacent loads had SWAPPED
+MEMORY OFFSETS (0xc94 and 0xc98), which is a real defect the mnemonic view cannot see
+because both instructions are `ldr`. The operand column exists so that cannot happen
+again. A candidate is structurally correct only when mnemonic AND operand are both 0.
 
 A candidate whose size differs is not comparable at all; those are reported as
 `size N` and sorted last, because a positional alignment of two different-length
@@ -50,6 +59,11 @@ def _mode(name):
                 if line.startswith(name + " ") and "kind:function(thumb" in line:
                     return True
     return False
+
+
+def _norm_regs(op_str):
+    """Blank out register NAMES so what is left is immediates, offsets and shifts."""
+    return re.sub(r"\b(r\d+|ip|lr|sl|fp|sb|sp)\b", "R", op_str)
 
 
 def disasm(code, thumb):
@@ -87,23 +101,30 @@ def main():
         except SystemExit:
             rows.append((9999, 9999, c, "compile failed")); continue
         if len(m) != len(orig):
-            rows.append((9998, 9998, c, "size %d != %d" % (len(m) * 4, len(orig) * 4)))
+            rows.append((9998, 9998, 9998, c, "size %d != %d" % (len(m) * 4, len(orig) * 4)))
             continue
         mn = sum(1 for a, b in zip(orig, m) if a[0] != b[0])
+        op = sum(1 for a, b in zip(orig, m)
+                 if a[0] == b[0] and _norm_regs(a[1]) != _norm_regs(b[1]))
         fl = sum(1 for a, b in zip(orig, m) if a != b)
-        rows.append((mn, fl, c, "ok"))
+        rows.append((mn + op, mn, op, fl, c, "ok"))
         if show:
             print("=== %s" % c)
             for k, (a, b) in enumerate(zip(orig, m)):
                 if a != b:
-                    tag = "MNEM" if a[0] != b[0] else "    "
+                    if a[0] != b[0]:
+                        tag = "MNEM"
+                    elif _norm_regs(a[1]) != _norm_regs(b[1]):
+                        tag = "OPND"
+                    else:
+                        tag = "    "
                     print("%s +0x%03X  %-34s | %s"
                           % (tag, k * 4, a[0] + " " + a[1], b[0] + " " + b[1]))
     rows.sort()
-    for mn, fl, c, note in rows:
+    for _tot, mn, op, fl, c, note in rows:
         head = "%-40s" % os.path.basename(c)
         if note == "ok":
-            print("%s mnemonic-mismatch=%-4d full-mismatch=%-4d" % (head, mn, fl))
+            print("%s mnemonic=%-4d operand=%-4d full=%-4d" % (head, mn, op, fl))
         else:
             print("%s %s" % (head, note))
 
