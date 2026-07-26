@@ -32,11 +32,11 @@ src/calls/func_02001030.c:
     complete
     .text       start:0x02001030 end:0x02001054
 
-src/asm_stubs/calls/func_02001054.c:
+src/calls/func_02001054.c:
     complete
     .text       start:0x02001054 end:0x0200108c
 
-src/asm_stubs/calls/func_0200108c.c:
+src/calls/func_0200108c.c:
     complete
     .text       start:0x0200108c end:0x020010c4
 
@@ -368,7 +368,7 @@ src/calls/OS_GetTickLo.c:
     complete
     .text       start:0x02003274 end:0x02003284
 
-src/asm_stubs/calls/func_02003284.c:
+src/calls/func_02003284.c:
     complete
     .text       start:0x02003284 end:0x020032f4
 
@@ -1044,7 +1044,7 @@ src/calls/PXI_SetFifoRecvCallback.c:
     complete
     .text       start:0x02009378 end:0x020093c4
 
-src/asm_stubs/calls/func_020093e8.c:
+src/calls/func_020093e8.c:
     complete
     .text       start:0x020093e8 end:0x02009470
 
@@ -2280,7 +2280,7 @@ src/auto/func_02017088.c:
     complete
     .text       start:0x02017088 end:0x020170c8
 
-src/asm_stubs/calls/func_020170c8.c:
+src/calls/func_020170c8.c:
     complete
     .text       start:0x020170c8 end:0x02017124
 
@@ -3884,7 +3884,7 @@ src/calls/func_02028d90.c:
     complete
     .text       start:0x02028d90 end:0x02028df0
 
-src/asm_stubs/calls/func_02028df0.c:
+src/calls/func_02028df0.c:
     complete
     .text       start:0x02028df0 end:0x02028e4c
 
