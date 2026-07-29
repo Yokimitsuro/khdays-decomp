@@ -1968,6 +1968,10 @@ src/overlays/ov008/calls/func_ov008_0206b7f8.c:
     complete
     .text       start:0x0206b7f8 end:0x0206b814
 
+src/overlays/ov008/calls/func_ov008_0206bca0.c:
+    complete
+    .text       start:0x0206bca0 end:0x0206bd40
+
 src/overlays/ov008/calls/func_ov008_0206bdf0.c:
     complete
     .text       start:0x0206bdf0 end:0x0206bfac
