@@ -1224,6 +1224,10 @@ src/overlays/ov008/auto/func_ov008_02058a04.c:
     complete
     .text       start:0x02058a04 end:0x02058a28
 
+src/overlays/ov008/calls/func_ov008_020592d4.c:
+    complete
+    .text       start:0x020592d4 end:0x020593cc
+
 src/calls/WM_EndKeySharing_0x020593cc.c:
     complete
     .text       start:0x020593cc end:0x020593d8
