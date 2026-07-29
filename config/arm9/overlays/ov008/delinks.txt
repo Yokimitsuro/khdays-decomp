@@ -1928,6 +1928,10 @@ src/overlays/ov008/calls/func_ov008_0206ac18.c:
     complete
     .text       start:0x0206ac18 end:0x0206ac8c
 
+src/overlays/ov008/calls/func_ov008_0206b158.c:
+    complete
+    .text       start:0x0206b158 end:0x0206b1f4
+
 src/overlays/ov008/calls/func_ov008_0206b1f4.c:
     complete
     .text       start:0x0206b1f4 end:0x0206b208
