@@ -1944,6 +1944,10 @@ src/overlays/ov008/calls/func_ov008_0206b71c.c:
     complete
     .text       start:0x0206b71c end:0x0206b754
 
+src/overlays/ov008/calls/func_ov008_0206b754.c:
+    complete
+    .text       start:0x0206b754 end:0x0206b7f8
+
 src/overlays/ov008/calls/func_ov008_0206b7f8.c:
     complete
     .text       start:0x0206b7f8 end:0x0206b814
