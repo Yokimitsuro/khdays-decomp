@@ -2180,6 +2180,10 @@ src/overlays/ov008/calls/func_ov008_020712f8.c:
     complete
     .text       start:0x020712f8 end:0x02071378
 
+src/overlays/ov008/calls/func_ov008_02071468.c:
+    complete
+    .text       start:0x02071468 end:0x02071508
+
 src/overlays/ov008/calls/func_ov008_020723d4.c:
     complete
     .text       start:0x020723d4 end:0x02072418
