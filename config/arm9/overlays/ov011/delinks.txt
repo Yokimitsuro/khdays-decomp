@@ -152,7 +152,7 @@ src/overlays/ov011/asm_stubs/calls/func_ov011_0205da60.c:
     complete
     .text       start:0x0205da60 end:0x0205dac8
 
-src/overlays/ov011/asm_stubs/calls/func_ov011_0205dac8.c:
+src/overlays/ov011/calls/func_ov011_0205dac8.c:
     complete
     .text       start:0x0205dac8 end:0x0205db90
 
