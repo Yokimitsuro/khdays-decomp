@@ -1952,6 +1952,10 @@ src/auto/func_02011f88.c:
     complete
     .text       start:0x02011f88 end:0x02011f94
 
+src/calls/func_020121c0.c:
+    complete
+    .text       start:0x020121c0 end:0x020122b8
+
 src/auto/func_020122b8.c:
     complete
     .text       start:0x020122b8 end:0x020122dc
