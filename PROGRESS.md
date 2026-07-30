@@ -9,8 +9,8 @@ SDK/library identifications are tracked separately; see
 | Module | C matched | ASM stubs | SDK id | Named only | Total | C % |
 |---|---:|---:|---:|---:|---:|---:|
 | PART itcm | 67 | 12 | 20 | 55 | 154 | 43.5% |
-| PART main | 1341 | 19 | 163 | 438 | 1961 | 68.4% |
-| PART ov000 | 261 | 1 | 0 | 0 | 262 | 99.6% |
+| PART main | 1343 | 19 | 163 | 436 | 1961 | 68.5% |
+| DONE ov000 | 262 | 0 | 0 | 0 | 262 | 100.0% |
 | DONE ov001 | 8 | 0 | 0 | 0 | 8 | 100.0% |
 | PART ov002 | 840 | 0 | 1 | 637 | 1478 | 56.8% |
 | PART ov003 | 20 | 8 | 0 | 0 | 28 | 71.4% |
@@ -18,7 +18,7 @@ SDK/library identifications are tracked separately; see
 | PART ov005 | 188 | 0 | 0 | 101 | 289 | 65.1% |
 | PART ov006 | 171 | 0 | 0 | 23 | 194 | 88.1% |
 | DONE ov007 | 14 | 0 | 0 | 0 | 14 | 100.0% |
-| PART ov008 | 895 | 0 | 0 | 341 | 1236 | 72.4% |
+| PART ov008 | 896 | 0 | 0 | 340 | 1236 | 72.5% |
 | DONE ov009 | 255 | 0 | 0 | 0 | 255 | 100.0% |
 | DONE ov010 | 7 | 0 | 0 | 0 | 7 | 100.0% |
 | PART ov011 | 24 | 16 | 0 | 0 | 40 | 60.0% |
@@ -34,7 +34,7 @@ SDK/library identifications are tracked separately; see
 | PART ov022 | 437 | 0 | 2 | 319 | 758 | 57.7% |
 | PART ov023 | 129 | 0 | 0 | 95 | 224 | 57.6% |
 | PART ov024 | 91 | 0 | 0 | 29 | 120 | 75.8% |
-| PART ov025 | 703 | 0 | 0 | 301 | 1004 | 70.0% |
+| PART ov025 | 704 | 0 | 0 | 300 | 1004 | 70.1% |
 | PART ov026 | 185 | 0 | 0 | 71 | 256 | 72.3% |
 | PART ov027 | 16 | 0 | 0 | 27 | 43 | 37.2% |
 | DONE ov028 | 9 | 0 | 0 | 0 | 9 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **15929** | **2023** | **216** | **5072** | **23240** | **68.5%** |
+| **TOTAL** | **15934** | **2022** | **216** | **5068** | **23240** | **68.6%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **1,775,128** | **4,728,790** | **37.54%** |
+| **1,777,348** | **4,728,790** | **37.59%** |
