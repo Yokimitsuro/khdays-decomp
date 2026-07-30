@@ -1900,6 +1900,10 @@ src/overlays/ov008/calls/func_ov008_02068e68.c:
     complete
     .text       start:0x02068e68 end:0x02069180
 
+src/overlays/ov008/calls/func_ov008_02069320.c:
+    complete
+    .text       start:0x02069320 end:0x020693c4
+
 src/calls/WM_EndKeySharing_0x020698ec.c:
     complete
     .text       start:0x020698ec end:0x020698f8
