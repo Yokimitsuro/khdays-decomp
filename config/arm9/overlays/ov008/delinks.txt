@@ -2840,6 +2840,10 @@ src/overlays/ov008/calls/func_ov008_0207d804.c:
     complete
     .text       start:0x0207d804 end:0x0207d888
 
+src/overlays/ov008/calls/func_ov008_0207dcc0.c:
+    complete
+    .text       start:0x0207dcc0 end:0x0207dd2c
+
 src/overlays/ov008/calls/func_ov008_0207ddc4.c:
     complete
     .text       start:0x0207ddc4 end:0x0207de00
