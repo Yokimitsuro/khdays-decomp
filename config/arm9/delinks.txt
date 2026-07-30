@@ -2100,6 +2100,10 @@ src/calls/func_02014148.c:
     complete
     .text       start:0x02014148 end:0x02014174
 
+src/calls/func_02014334.c:
+    complete
+    .text       start:0x02014334 end:0x0201449c
+
 src/auto/func_02014874.c:
     complete
     .text       start:0x02014874 end:0x02014950
