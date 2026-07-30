@@ -1236,6 +1236,10 @@ src/overlays/ov008/auto/func_ov008_02058a04.c:
     complete
     .text       start:0x02058a04 end:0x02058a28
 
+src/overlays/ov008/calls/func_ov008_02058bac.c:
+    complete
+    .text       start:0x02058bac end:0x02058c20
+
 src/overlays/ov008/calls/func_ov008_020592d4.c:
     complete
     .text       start:0x020592d4 end:0x020593cc
