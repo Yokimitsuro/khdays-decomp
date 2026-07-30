@@ -4700,6 +4700,10 @@ src/calls/func_02030d2c.c:
     complete
     .text       start:0x02030d2c end:0x02030d60
 
+src/calls/func_02030de4.c:
+    complete
+    .text       start:0x02030de4 end:0x02030e50
+
 src/calls/func_02030e50.c:
     complete
     .text       start:0x02030e50 end:0x02030e64
