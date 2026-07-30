@@ -1996,6 +1996,10 @@ src/overlays/ov008/calls/func_ov008_0206b4c0.c:
     complete
     .text       start:0x0206b4c0 end:0x0206b540
 
+src/overlays/ov008/calls/func_ov008_0206b5f4.c:
+    complete
+    .text       start:0x0206b5f4 end:0x0206b6ac
+
 src/overlays/ov008/calls/func_ov008_0206b6ac.c:
     complete
     .text       start:0x0206b6ac end:0x0206b6e4
