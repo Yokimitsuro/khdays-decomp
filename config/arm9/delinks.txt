@@ -4468,6 +4468,10 @@ src/auto/func_0202f110.c:
     complete
     .text       start:0x0202f110 end:0x0202f188
 
+src/calls/func_0202f188.c:
+    complete
+    .text       start:0x0202f188 end:0x0202f240
+
 src/calls/func_0202f384.c:
     complete
     .text       start:0x0202f384 end:0x0202f3b4
