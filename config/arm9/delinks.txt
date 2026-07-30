@@ -3776,6 +3776,10 @@ src/calls/func_02024c58.c:
     complete
     .text       start:0x02024c58 end:0x02024c94
 
+src/calls/func_02024c94.c:
+    complete
+    .text       start:0x02024c94 end:0x02024d68
+
 src/calls/func_02024d68.c:
     complete
     .text       start:0x02024d68 end:0x02024da4
@@ -4956,6 +4960,10 @@ src/calls/func_02032844.c:
     complete
     .text       start:0x02032844 end:0x02032870
 
+src/calls/func_02032af0.c:
+    complete
+    .text       start:0x02032af0 end:0x02032be8
+
 src/auto/func_02032cbc.c:
     complete
     .text       start:0x02032cbc end:0x02032d10
@@ -5051,6 +5059,10 @@ libs/nitro/snd/calls/SNDi_BroadcastChannelOp.c:
 src/calls/func_02033cc8.c:
     complete
     .text       start:0x02033cc8 end:0x02033d0c
+
+src/calls/func_02033d0c.c:
+    complete
+    .text       start:0x02033d0c end:0x02033e00
 
 src/auto/func_02033e00.c:
     complete
