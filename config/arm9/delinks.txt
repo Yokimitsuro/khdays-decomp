@@ -2116,6 +2116,10 @@ src/calls/func_02014334.c:
     complete
     .text       start:0x02014334 end:0x0201449c
 
+src/calls/func_0201449c.c:
+    complete
+    .text       start:0x0201449c end:0x020145c0
+
 src/auto/func_02014874.c:
     complete
     .text       start:0x02014874 end:0x02014950
@@ -2827,6 +2831,10 @@ src/calls/func_0201c464.c:
 src/calls/func_0201c5c0.c:
     complete
     .text       start:0x0201c5c0 end:0x0201c608
+
+src/calls/func_0201c734.c:
+    complete
+    .text       start:0x0201c734 end:0x0201c830
 
 src/calls/func_0201c830.c:
     complete
@@ -4700,6 +4708,10 @@ src/calls/func_02030a2c.c:
     complete
     .text       start:0x02030a2c end:0x02030a4c
 
+src/calls/func_02030b58.c:
+    complete
+    .text       start:0x02030b58 end:0x02030ccc
+
 src/calls/func_02030ccc.c:
     complete
     .text       start:0x02030ccc end:0x02030cf8
@@ -4736,6 +4748,10 @@ src/calls/func_02030fcc.c:
     complete
     .text       start:0x02030fcc end:0x02030fdc
 
+src/calls/func_02030fdc.c:
+    complete
+    .text       start:0x02030fdc end:0x020310e8
+
 src/auto/func_020310e8.c:
     complete
     .text       start:0x020310e8 end:0x0203112c
@@ -4743,6 +4759,10 @@ src/auto/func_020310e8.c:
 src/auto/func_0203112c.c:
     complete
     .text       start:0x0203112c end:0x02031130
+
+src/calls/func_02031130.c:
+    complete
+    .text       start:0x02031130 end:0x02031228
 
 src/calls/func_02031228.c:
     complete
@@ -4756,9 +4776,17 @@ src/calls/func_02031240.c:
     complete
     .text       start:0x02031240 end:0x02031258
 
+src/calls/func_02031258.c:
+    complete
+    .text       start:0x02031258 end:0x02031384
+
 src/calls/func_02031440.c:
     complete
     .text       start:0x02031440 end:0x020314a4
+
+src/calls/func_020314a4.c:
+    complete
+    .text       start:0x020314a4 end:0x02031574
 
 src/calls/func_02031574.c:
     complete
@@ -4823,6 +4851,10 @@ src/auto/func_02031bc8.c:
 src/calls/func_02031c30.c:
     complete
     .text       start:0x02031c30 end:0x02031c58
+
+src/calls/func_02031c58.c:
+    complete
+    .text       start:0x02031c58 end:0x02031d90
 
 src/calls/func_02031d90.c:
     complete
