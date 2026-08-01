@@ -3268,6 +3268,10 @@ src/auto/func_02021054.c:
     complete
     .text       start:0x02021054 end:0x02021060
 
+src/calls/func_02021294.c:
+    complete
+    .text       start:0x02021294 end:0x0202136c
+
 src/calls/func_02021404.c:
     complete
     .text       start:0x02021404 end:0x02021416
