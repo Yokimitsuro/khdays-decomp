@@ -3248,6 +3248,10 @@ src/calls/func_02020d10.c:
     complete
     .text       start:0x02020d10 end:0x02020d44
 
+src/calls/func_02020d44.c:
+    complete
+    .text       start:0x02020d44 end:0x02020e20
+
 src/calls/func_02020e20.c:
     complete
     .text       start:0x02020e20 end:0x02020e56
