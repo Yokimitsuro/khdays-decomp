@@ -62,6 +62,21 @@ SYM_ADDR = _load_sym_addrs()
 ABS_SYM = _load_abs_syms()
 IDX = os.path.join(ROOT, "build", "func_index.json")
 
+def _read_addends(o_path):
+    """RELA r_addend per .text offset (absent -> treated as 0 by the caller). mwccarm
+    emits .rela.text, so a struct-field address carries its field offset here rather than
+    in the (zeroed) literal-pool word."""
+    from elftools.elf.elffile import ELFFile
+    out = {}
+    elf = ELFFile(open(o_path, "rb"))
+    for s in elf.iter_sections():
+        if s.name == ".rela.text":
+            for r in s.iter_relocations():
+                if "r_addend" in r.entry:
+                    out[r["r_offset"]] = r["r_addend"]
+    return out
+
+
 def main():
     cpath = sys.argv[1]
     name = sys.argv[2]
@@ -75,6 +90,7 @@ def main():
     o = compile_c(cpath, thumb)
     mine, mrel_full = text_relocs(o)
     mrel = {off: nm for off, (nm, _t) in mrel_full.items()}
+    maddend = _read_addends(o)
     size = len(orig)
     if len(mine) != size:
         print(">>> DIFIERE <<< tamano %d != %d" % (len(mine), size)); sys.exit(1)
@@ -111,10 +127,24 @@ def main():
             except (TypeError, ValueError):
                 return False
 
+        def _mine_addr(off):
+            """Final target address of our reloc = symbol address + addend. mwcc emits a
+            struct-field reference (data_X.fieldN) as a reloc against the struct's base
+            symbol data_X with r_addend = the field offset, so the address it resolves to
+            is data_X + offset -- which equals the standalone symbol the ROM was delinked
+            against. Only ARM data relocs (R_ARM_ABS32, type 2) carry a meaningful address
+            addend; the pc-relative call reloc (type 1) uses -8 as a pipeline fixup, not an
+            address offset, so it is excluded."""
+            a = SYM_ADDR.get(mrel[off])
+            if a is None:
+                return None
+            typ = mrel_full[off][1]
+            return a + (maddend.get(off, 0) if typ == 2 else 0)
+
         same = all(
             (o in orel and (mrel[o] == orel[o]
-                            or (SYM_ADDR.get(mrel[o]) is not None
-                                and SYM_ADDR.get(mrel[o]) == SYM_ADDR.get(orel[o]))))
+                            or (_mine_addr(o) is not None
+                                and _mine_addr(o) == SYM_ADDR.get(orel[o]))))
             or _abs_ok(o)
             for o in mrel) and all(o in mrel for o in orel)
         if not same:
