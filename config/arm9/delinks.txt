@@ -3048,6 +3048,10 @@ src/calls/func_0201ea40.c:
     complete
     .text       start:0x0201ea40 end:0x0201ea6c
 
+src/calls/func_0201eea8.c:
+    complete
+    .text       start:0x0201eea8 end:0x0201ef58
+
 src/calls/func_0201ef58.c:
     complete
     .text       start:0x0201ef58 end:0x0201ef9c
