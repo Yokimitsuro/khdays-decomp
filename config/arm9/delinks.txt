@@ -3664,6 +3664,10 @@ src/calls/func_02023cc0.c:
     complete
     .text       start:0x02023cc0 end:0x02023d70
 
+src/calls/func_02023d70.c:
+    complete
+    .text       start:0x02023d70 end:0x02023e34
+
 src/auto/func_02023e34.c:
     complete
     .text       start:0x02023e34 end:0x02023e80
