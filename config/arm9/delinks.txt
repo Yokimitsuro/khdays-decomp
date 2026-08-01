@@ -3252,6 +3252,10 @@ src/calls/func_02020e20.c:
     complete
     .text       start:0x02020e20 end:0x02020e56
 
+src/calls/func_02020e58.c:
+    complete
+    .text       start:0x02020e58 end:0x02021048
+
 src/auto/func_02021048.c:
     complete
     .text       start:0x02021048 end:0x02021054
