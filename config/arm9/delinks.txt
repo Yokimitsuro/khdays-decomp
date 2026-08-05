@@ -952,7 +952,7 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_0x02008508.c:
     complete
     .text       start:0x02008508 end:0x0200851c
 
-src/asm_stubs/calls/func_02008788.c:
+src/calls/func_02008788.c:
     complete
     .text       start:0x02008788 end:0x020087c0
 
