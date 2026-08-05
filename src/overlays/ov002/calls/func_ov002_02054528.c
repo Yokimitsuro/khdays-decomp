@@ -1,24 +1,34 @@
 /*
  * func_ov002_02054528 - allocate and initialise a record from a template (ARM).
  *
- * Allocates a new record via func_ov002_02053f4c(param_1), then fills it: the type word (+0) from
- * param_3, seven template fields copied from param_2 (+2/+4/+0xa/+0xc signed, +6/+8 unsigned
- * halfwords, +0x18 word), the payload pointer (+0x10) from param_4, and the active flag (+0x14) set
- * to 1.
+ * Allocates a new record via func_ov002_02053f4c(param_1), then fills it: the type word from `type`,
+ * seven template fields copied from `tpl` (a/b/e/f signed, c/d unsigned halfwords, extra word), the
+ * payload pointer from `payload`, and the active flag set to 1.
  */
-extern int func_ov002_02053f4c(int a);
+typedef struct {
+    short type;            /* +0x00 */
+    short a, b;            /* +0x02, +0x04 */
+    unsigned short c, d;   /* +0x06, +0x08 */
+    short e, f;            /* +0x0a, +0x0c */
+    char _e[0x10 - 0xe];
+    int payload;           /* +0x10 */
+    int active;            /* +0x14 */
+    int extra;             /* +0x18 */
+} Ov002Rec;
 
-void func_ov002_02054528(int param_1, int param_2, int param_3, int param_4)
+extern int func_ov002_02053f4c(int param_1);
+
+void func_ov002_02054528(int param_1, Ov002Rec *tpl, int type, int payload)
 {
-    int obj = func_ov002_02053f4c(param_1);
-    *(short *)(obj + 0) = param_3;
-    *(short *)(obj + 2) = *(short *)(param_2 + 2);
-    *(short *)(obj + 4) = *(short *)(param_2 + 4);
-    *(unsigned short *)(obj + 6) = *(unsigned short *)(param_2 + 6);
-    *(unsigned short *)(obj + 8) = *(unsigned short *)(param_2 + 8);
-    *(short *)(obj + 0xa) = *(short *)(param_2 + 0xa);
-    *(short *)(obj + 0xc) = *(short *)(param_2 + 0xc);
-    *(int *)(obj + 0x10) = param_4;
-    *(int *)(obj + 0x18) = *(int *)(param_2 + 0x18);
-    *(int *)(obj + 0x14) = 1;
+    Ov002Rec *o = (Ov002Rec *)func_ov002_02053f4c(param_1);
+    o->type = type;
+    o->a = tpl->a;
+    o->b = tpl->b;
+    o->c = tpl->c;
+    o->d = tpl->d;
+    o->e = tpl->e;
+    o->f = tpl->f;
+    o->payload = payload;
+    o->extra = tpl->extra;
+    o->active = 1;
 }
