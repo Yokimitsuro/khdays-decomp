@@ -3928,6 +3928,14 @@ src/auto/func_02025694.c:
     complete
     .text       start:0x02025694 end:0x020256b8
 
+src/auto/func_020256b8.c:
+    complete
+    .text       start:0x020256b8 end:0x02025754
+
+src/auto/func_02025754.c:
+    complete
+    .text       start:0x02025754 end:0x02025800
+
 src/calls/func_02025800.c:
     complete
     .text       start:0x02025800 end:0x02025818
