@@ -1,17 +1,24 @@
-/* NONMATCHING — value-hold strategy tie (THUMB). Same calls, same table lookups,
- * same math; the register/scheduling strategy differs.
+/* NONMATCHING — narrow-value-extension placement tie (THUMB). Same calls, same table
+ * lookups, same math; only WHERE the u16 angle extension lands differs.
  *
- * The ROM masks both angle arguments to 16 bits up front and HOLDS the masked values
- * in callee-saved r5/r4 across all six MTX calls, deriving `>> 4` at each use. Every
- * mwcc build we have instead holds the RAW 32-bit params and re-masks (lsl#16;lsr#16)
- * on demand, which permutes register use throughout (68 of 108 bytes differ, but only
- * in register numbers / mask placement — the call sequence and reloc offsets align).
- * Declaring pre-masked locals does not help: mwcc CSEs them back to raw+mask-on-use.
- * Same hold-vs-recompute class as func_0202accc; consistent with retail = 3.0 >=140.
+ * The ROM masks both angle arguments to 16 bits IN THE PROLOGUE and HOLDS the masked
+ * values in callee-saved r5/r4 across the two leading MTX_Identity43_ calls, deriving
+ * `>> 4` (asrs r0,r5,#4) at each use. Our confirmed compiler (mwcc 3.0/139 patch4)
+ * instead HOLDS THE RAW params in r5/r4 and extends at the use site
+ * (lsls#16;lsrs#16;asrs#4). Both are 108 bytes with the identical instruction MULTISET
+ * (9 instrs of angle handling either way) — the diff is purely the extension PLACEMENT,
+ * cascading through register numbers. Everything after the second use-site extension
+ * aligns exactly. Confirmed-compiler diff is down to 28 positional diffs from this ONE
+ * root cause (was 68 under the earlier build sweep).
  *
- * Proven unsteerable: swept all 27 mwccarm builds x {-O4,p/s / -O4 / -O3,p / -O2};
- * none byte-matches (best is the same 68-byte register permutation). THUMB. Blob keeps
- * the build byte-exact.
+ * Exhaustively swept (~17 source forms, this file's history): param types int/uint/
+ * unsigned short; mask forms `&0xffff`, `(x<<16)>>16` (fuses to lsls;asrs#20 — shorter),
+ * `(unsigned short)`; up-front reassign `param&=0xffff`; named/register held locals;
+ * shared-subexpression short[] index; full MtxFx43 struct modeling. Every form holds raw
+ * and extends at use — mwcc defers narrow extension past the calls and no source form
+ * pulls it into the prologue. Best form (short[] shared index, 28 diffs) in
+ * build/try/0202119c.c. Same hold-vs-recompute class as func_0202accc. Blob keeps the
+ * build byte-exact.
  *
  * Build a rotation matrix into `param_1`: identity, then post-multiply by a rotation
  * about X by angle (param_2 & 0xffff)>>4 and about Y by angle (param_3 & 0xffff)>>4,
