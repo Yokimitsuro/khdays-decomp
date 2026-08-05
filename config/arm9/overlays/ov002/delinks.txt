@@ -3028,6 +3028,10 @@ src/overlays/ov002/calls/func_ov002_0207669c.c:
     complete
     .text       start:0x0207669c end:0x020766e0
 
+src/overlays/ov002/calls/func_ov002_020766e0.c:
+    complete
+    .text       start:0x020766e0 end:0x02076738
+
 src/overlays/ov002/calls/func_ov002_02076738.c:
     complete
     .text       start:0x02076738 end:0x02076770
