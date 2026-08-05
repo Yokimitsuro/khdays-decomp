@@ -488,6 +488,10 @@ src/overlays/ov006/auto/func_ov006_02053734.c:
     complete
     .text       start:0x02053734 end:0x020538a4
 
+src/overlays/ov006/calls/func_ov006_020538a4.c:
+    complete
+    .text       start:0x020538a4 end:0x02053b24
+
 src/overlays/ov006/calls/func_ov006_02053b24.c:
     complete
     .text       start:0x02053b24 end:0x02053cdc

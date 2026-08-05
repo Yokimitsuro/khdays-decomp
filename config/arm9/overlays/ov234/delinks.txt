@@ -12,7 +12,7 @@ src/overlays/ov234/calls/func_ov234_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
-src/overlays/ov234/asm_stubs/calls/func_ov234_020cbfc4.c:
+src/overlays/ov234/calls/func_ov234_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc1d8
 
@@ -32,7 +32,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc268.c:
     complete
     .text       start:0x020cc268 end:0x020cc274
 
-src/overlays/ov234/asm_stubs/calls/func_ov234_020cc274.c:
+src/overlays/ov234/calls/func_ov234_020cc274.c:
     complete
     .text       start:0x020cc274 end:0x020cc4e0
 
@@ -44,7 +44,7 @@ src/overlays/ov234/calls/func_ov234_020cc518.c:
     complete
     .text       start:0x020cc518 end:0x020cc574
 
-src/overlays/ov234/asm_stubs/calls/func_ov234_020cc574.c:
+src/overlays/ov234/calls/func_ov234_020cc574.c:
     complete
     .text       start:0x020cc574 end:0x020cc864
 
@@ -56,7 +56,7 @@ src/overlays/ov234/calls/func_ov234_020cc95c.c:
     complete
     .text       start:0x020cc95c end:0x020cca84
 
-src/overlays/ov234/asm_stubs/calls/func_ov234_020cca84.c:
+src/overlays/ov234/calls/func_ov234_020cca84.c:
     complete
     .text       start:0x020cca84 end:0x020ccedc
 
