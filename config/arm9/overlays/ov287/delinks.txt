@@ -36,7 +36,7 @@ src/overlays/ov287/calls/func_ov287_020cff10.c:
     complete
     .text       start:0x020cff10 end:0x020d0158
 
-src/overlays/ov287/asm_stubs/calls/func_ov287_020d0158.c:
+src/overlays/ov287/calls/func_ov287_020d0158.c:
     complete
     .text       start:0x020d0158 end:0x020d0228
 
