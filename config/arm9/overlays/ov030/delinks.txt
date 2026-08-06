@@ -132,6 +132,10 @@ src/overlays/ov030/calls/func_ov030_020b4800.c:
     complete
     .text       start:0x020b4800 end:0x020b4864
 
+src/overlays/ov030/calls/func_ov030_020b4864.c:
+    complete
+    .text       start:0x020b4864 end:0x020b4b9c
+
 src/overlays/ov030/calls/func_ov030_020b4b9c.c:
     complete
     .text       start:0x020b4b9c end:0x020b4c34
