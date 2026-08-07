@@ -63,7 +63,7 @@ src/calls/func_ov286_020d3e50.c:
     complete
     .text       start:0x020d3e50 end:0x020d3f18
 
-src/overlays/ov286/asm_stubs/calls/func_ov286_020d3f18.c:
+src/overlays/ov286/calls/func_ov286_020d3f18.c:
     complete
     .text       start:0x020d3f18 end:0x020d3fe8
 
