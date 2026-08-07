@@ -12,7 +12,7 @@ src/overlays/ov127/calls/func_ov127_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cbfc4.c:
+src/overlays/ov127/calls/func_ov127_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc1d0
 
@@ -32,7 +32,7 @@ src/overlays/ov127/calls/func_ov127_020cc2b4.c:
     complete
     .text       start:0x020cc2b4 end:0x020cc330
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cc330.c:
+src/overlays/ov127/calls/func_ov127_020cc330.c:
     complete
     .text       start:0x020cc330 end:0x020cc390
 
@@ -40,7 +40,7 @@ src/overlays/ov127/calls/func_ov127_020cc390.c:
     complete
     .text       start:0x020cc390 end:0x020cc3ec
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cc3ec.c:
+src/overlays/ov127/calls/func_ov127_020cc3ec.c:
     complete
     .text       start:0x020cc3ec end:0x020cc468
 
@@ -48,7 +48,7 @@ src/overlays/ov127/calls/func_ov127_020cc468.c:
     complete
     .text       start:0x020cc468 end:0x020cc5b8
 
-src/overlays/ov127/asm_stubs/calls/func_ov127_020cc5b8.c:
+src/overlays/ov127/calls/func_ov127_020cc5b8.c:
     complete
     .text       start:0x020cc5b8 end:0x020cc75c
 
