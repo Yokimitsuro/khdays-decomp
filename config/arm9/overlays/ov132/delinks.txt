@@ -140,7 +140,7 @@ src/overlays/ov132/calls/func_ov132_020cf6f8.c:
     complete
     .text       start:0x020cf6f8 end:0x020cf7c4
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020cf7c4.c:
+src/overlays/ov132/calls/func_ov132_020cf7c4.c:
     complete
     .text       start:0x020cf7c4 end:0x020cfc58
 
@@ -156,11 +156,11 @@ src/overlays/ov132/calls/func_ov132_020cfd40.c:
     complete
     .text       start:0x020cfd40 end:0x020cfe14
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020cfe14.c:
+src/overlays/ov132/calls/func_ov132_020cfe14.c:
     complete
     .text       start:0x020cfe14 end:0x020cff08
 
-src/overlays/ov132/asm_stubs/calls/func_ov132_020cff08.c:
+src/overlays/ov132/calls/func_ov132_020cff08.c:
     complete
     .text       start:0x020cff08 end:0x020d00d4
 
