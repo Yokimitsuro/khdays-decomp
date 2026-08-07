@@ -52,7 +52,7 @@ src/overlays/ov131/calls/func_ov131_020cc840.c:
     complete
     .text       start:0x020cc840 end:0x020cc89c
 
-src/overlays/ov131/asm_stubs/calls/func_ov131_020cc89c.c:
+src/overlays/ov131/calls/func_ov131_020cc89c.c:
     complete
     .text       start:0x020cc89c end:0x020ccb50
 
