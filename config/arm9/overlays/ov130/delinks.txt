@@ -32,7 +32,7 @@ src/overlays/ov130/calls/func_ov130_020cc2b4.c:
     complete
     .text       start:0x020cc2b4 end:0x020cc330
 
-src/overlays/ov130/asm_stubs/calls/func_ov130_020cc330.c:
+src/overlays/ov130/calls/func_ov130_020cc330.c:
     complete
     .text       start:0x020cc330 end:0x020cc390
 
