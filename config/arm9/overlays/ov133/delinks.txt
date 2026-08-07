@@ -140,7 +140,7 @@ src/overlays/ov133/calls/func_ov133_020d3338.c:
     complete
     .text       start:0x020d3338 end:0x020d3404
 
-src/overlays/ov133/asm_stubs/calls/func_ov133_020d3404.c:
+src/overlays/ov133/calls/func_ov133_020d3404.c:
     complete
     .text       start:0x020d3404 end:0x020d3898
 
