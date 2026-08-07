@@ -83,7 +83,7 @@ src/overlays/ov285/calls/func_ov285_020d2368.c:
     complete
     .text       start:0x020d2368 end:0x020d23f0
 
-src/overlays/ov285/asm_stubs/calls/func_ov285_020d23f0.c:
+src/overlays/ov285/calls/func_ov285_020d23f0.c:
     complete
     .text       start:0x020d23f0 end:0x020d25cc
 
