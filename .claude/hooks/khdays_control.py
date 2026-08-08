@@ -398,6 +398,24 @@ def cmd_set_candidate(args: argparse.Namespace, root: Path) -> int:
     return 0
 
 
+def cmd_set_mode(args: argparse.Namespace, root: Path) -> int:
+    """Correct the ARM/THUMB mode of the ACTIVE function.
+
+    `select` pins the mode once and `verify` then attempts that mode alone, so a lock
+    opened with the wrong `--mode` can never reach MATCH even on byte-exact C -- and
+    re-running `select` is refused while the lock is held. This is the only way out,
+    and it cannot be used to change which function is active.
+    """
+    active = load_active(root)
+    mode = args.mode
+    if mode == "detect":
+        mode = detect_mode(root, active["function"])
+    active["mode"] = mode
+    save_active(root, active)
+    print(f"{active['function']} mode={mode}")
+    return 0
+
+
 def cmd_record(args: argparse.Namespace, root: Path) -> int:
     active = load_active(root)
     active["current_diff"] = args.diff.strip()
@@ -551,6 +569,9 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("set-candidate")
     p.add_argument("candidate")
 
+    p = sub.add_parser("set-mode")
+    p.add_argument("mode", choices=["detect", "auto", "arm", "thumb"])
+
     p = sub.add_parser("record")
     p.add_argument("--diff", required=True)
     p.add_argument("--next", required=True)
@@ -578,6 +599,7 @@ def main() -> int:
         "status": cmd_status,
         "select": cmd_select,
         "set-candidate": cmd_set_candidate,
+        "set-mode": cmd_set_mode,
         "record": cmd_record,
         "semantic-init": cmd_semantic_init,
         "semantic-mark": cmd_semantic_mark,

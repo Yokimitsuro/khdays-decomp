@@ -51,9 +51,13 @@ if path is None:
 sov = src.split("_")[1]
 dov = dst.split("_")[1]
 s = io.open(path, encoding="utf-8").read()
+# The function's own name is never in the reloc map -- a function does not relocate
+# against itself -- so rename it explicitly. Without this the carved file defines the
+# source overlay's address suffix under the destination overlay's prefix.
+s = s.replace(src, dst)
 for k in sorted(ren, key=len, reverse=True):
     s = s.replace(k, ren[k])
-s = s.replace(sov, dov).replace(sov.capitalize() + "_", dov.capitalize() + "_")
+s = s.replace(sov, dov).replace(sov.capitalize(), dov.capitalize())
 out = os.path.join(ROOT, "build", "try", "g_" + dst + ".c")
 io.open(out, "w", encoding="utf-8").write(s)
 
