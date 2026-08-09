@@ -1680,6 +1680,10 @@ libs/nitro/nns/calls/NNS_FndAllocFromExpHeapEx.c:
     complete
     .text       start:0x020107fc end:0x0201082c
 
+libs/nitro/nns/calls/func_0201082c.c:
+    complete
+    .text       start:0x0201082c end:0x0201098c
+
 src/calls/func_0201098c.c:
     complete
     .text       start:0x0201098c end:0x020109c8
