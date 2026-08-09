@@ -124,6 +124,34 @@ def _index_symbols(root: Path) -> set[str]:
     return _INDEX_SYMBOLS
 
 
+def resolve_verify_symbol(root: Path, function: str) -> str:
+    """Resolve an address-form lock to the renamed symbol used by func_index.
+
+    Staging files intentionally retain func_ADDR basenames even after an SDK or
+    semantic symbol has replaced that placeholder in symbols.txt.  The lock
+    still identifies the same address, while verify_idx needs the current
+    indexed symbol name.
+    """
+    if function in _index_symbols(root):
+        return function
+    match = re.search(r"([0-9a-fA-F]{8})$", function)
+    if match is None:
+        return function
+    address = match.group(1).lower()
+    address_marker = f"addr:0x{address}"
+    for sym in (root / "config" / "arm9").rglob("symbols.txt"):
+        try:
+            for line in sym.read_text(encoding="utf-8", errors="replace").splitlines():
+                if address_marker not in line.lower():
+                    continue
+                symbol = line.split(None, 1)[0]
+                if symbol in _index_symbols(root):
+                    return symbol
+        except OSError:
+            continue
+    return function
+
+
 def validate_function(name: str, root: Path | None = None) -> str:
     """Accept the func_ADDR shapes, or any symbol the ROM index actually defines.
 
@@ -245,6 +273,7 @@ def ensure_real_c(path: Path) -> tuple[bool, str]:
 
 def verify_candidate(root: Path, active: dict[str, Any]) -> dict[str, Any]:
     function = active["function"]
+    verify_symbol = resolve_verify_symbol(root, function)
     candidate_rel = active.get("candidate", "")
     if not candidate_rel:
         raise SystemExit("Active function has no candidate path")
@@ -268,7 +297,7 @@ def verify_candidate(root: Path, active: dict[str, Any]) -> dict[str, Any]:
     configured = active.get("mode", "auto")
     modes = [configured] if configured in {"arm", "thumb"} else ["arm", "thumb"]
     for mode in modes:
-        cmd = [sys.executable, "tools/verify_idx.py", candidate_rel, function]
+        cmd = [sys.executable, "tools/verify_idx.py", candidate_rel, verify_symbol]
         if mode == "thumb":
             cmd.append("--thumb")
         proc = run_command(cmd, root)
@@ -284,6 +313,7 @@ def verify_candidate(root: Path, active: dict[str, Any]) -> dict[str, Any]:
             receipt = {
                 "schema_version": SCHEMA_VERSION,
                 "function": function,
+                "verify_symbol": verify_symbol,
                 "candidate": candidate_rel,
                 "checked_at": now_iso(),
                 "passed": True,
@@ -298,6 +328,7 @@ def verify_candidate(root: Path, active: dict[str, Any]) -> dict[str, Any]:
     receipt = {
         "schema_version": SCHEMA_VERSION,
         "function": function,
+        "verify_symbol": verify_symbol,
         "candidate": candidate_rel,
         "checked_at": now_iso(),
         "passed": False,
@@ -313,22 +344,24 @@ def integration_status(root: Path, function: str) -> dict[str, Any]:
     integrated: list[str] = []
     shadows: list[str] = []
     forbidden: list[str] = []
+    basenames = {function, resolve_verify_symbol(root, function)}
     # libs/ is a source root exactly like src/: gen_delinks.py and audit_progress.py both scan
     # it, and SDK/library symbols are delinked from libs/<vendor>/<module>/{auto,calls}.
     for top in ("src", "libs"):
         base = root / top
         if not base.exists():
             continue
-        for p in base.rglob(f"{function}.c"):
-            rel = p.relative_to(root).as_posix()
-            parts = set(p.parts)
-            if "calls" in parts or "auto" in parts:
-                integrated.append(rel)
-                ok, reason = ensure_real_c(p)
-                if not ok:
-                    forbidden.append(f"{rel}: {reason}")
-            if "asm_stubs" in parts:
-                shadows.append(rel)
+        for basename in basenames:
+            for p in base.rglob(f"{basename}.c"):
+                rel = p.relative_to(root).as_posix()
+                parts = set(p.parts)
+                if "calls" in parts or "auto" in parts:
+                    integrated.append(rel)
+                    ok, reason = ensure_real_c(p)
+                    if not ok:
+                        forbidden.append(f"{rel}: {reason}")
+                if "asm_stubs" in parts:
+                    shadows.append(rel)
     return {
         "integrated": sorted(integrated),
         "shadows": sorted(shadows),

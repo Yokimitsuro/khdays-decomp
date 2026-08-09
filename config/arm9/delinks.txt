@@ -1460,6 +1460,10 @@ src/calls/func_0200ee0c.c:
     complete
     .text       start:0x0200ee0c end:0x0200eea4
 
+src/calls/CARDi_ReadRom.c:
+    complete
+    .text       start:0x0200eea4 end:0x0200ef9c
+
 src/calls/WM_EndKeySharing_0x0200f004.c:
     complete
     .text       start:0x0200f004 end:0x0200f010
