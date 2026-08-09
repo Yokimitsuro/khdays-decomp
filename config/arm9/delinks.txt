@@ -1476,6 +1476,10 @@ src/calls/CARDi_GetRomAccessor.c:
     complete
     .text       start:0x0200f010 end:0x0200f01c
 
+src/calls/CARDi_OnFifoRecv.c:
+    complete
+    .text       start:0x0200f01c end:0x0200f050
+
 src/calls/func_0200f050.c:
     complete
     .text       start:0x0200f050 end:0x0200f0a0
