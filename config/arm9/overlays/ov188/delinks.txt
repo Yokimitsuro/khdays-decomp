@@ -12,7 +12,7 @@ src/overlays/ov188/calls/func_ov188_020cdd58.c:
     complete
     .text       start:0x020cdd58 end:0x020cdde4
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020cdde4.c:
+src/overlays/ov188/calls/func_ov188_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020ce1f0
 
@@ -24,7 +24,7 @@ src/overlays/ov188/calls/func_ov188_020ce230.c:
     complete
     .text       start:0x020ce230 end:0x020ce254
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020ce254.c:
+src/overlays/ov188/calls/func_ov188_020ce254.c:
     complete
     .text       start:0x020ce254 end:0x020ce450
 
@@ -48,7 +48,7 @@ src/overlays/ov188/calls/func_ov188_020ce5f0.c:
     complete
     .text       start:0x020ce5f0 end:0x020ce64c
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020ce64c.c:
+src/overlays/ov188/calls/func_ov188_020ce64c.c:
     complete
     .text       start:0x020ce64c end:0x020ce89c
 
@@ -60,7 +60,7 @@ src/overlays/ov188/auto/func_ov188_020ce8c8.c:
     complete
     .text       start:0x020ce8c8 end:0x020ce8f8
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020ce8f8.c:
+src/overlays/ov188/calls/func_ov188_020ce8f8.c:
     complete
     .text       start:0x020ce8f8 end:0x020ceb78
 
@@ -88,7 +88,7 @@ src/overlays/ov188/calls/func_ov188_020cef40.c:
     complete
     .text       start:0x020cef40 end:0x020cf00c
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020cf00c.c:
+src/overlays/ov188/calls/func_ov188_020cf00c.c:
     complete
     .text       start:0x020cf00c end:0x020cf0f0
 
@@ -132,7 +132,7 @@ src/overlays/ov188/calls/func_ov188_020cf79c.c:
     complete
     .text       start:0x020cf79c end:0x020cf818
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020cf818.c:
+src/overlays/ov188/calls/func_ov188_020cf818.c:
     complete
     .text       start:0x020cf818 end:0x020cf9ac
 
@@ -168,7 +168,7 @@ src/overlays/ov188/calls/func_ov188_020cfc8c.c:
     complete
     .text       start:0x020cfc8c end:0x020cfce0
 
-src/overlays/ov188/asm_stubs/calls/func_ov188_020cfce0.c:
+src/overlays/ov188/calls/func_ov188_020cfce0.c:
     complete
     .text       start:0x020cfce0 end:0x020cfed4
 

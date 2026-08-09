@@ -12,7 +12,7 @@ src/overlays/ov189/calls/func_ov189_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020cfc04.c:
+src/overlays/ov189/calls/func_ov189_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020d0010
 
@@ -24,7 +24,7 @@ src/overlays/ov189/calls/func_ov189_020d0050.c:
     complete
     .text       start:0x020d0050 end:0x020d0074
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0074.c:
+src/overlays/ov189/calls/func_ov189_020d0074.c:
     complete
     .text       start:0x020d0074 end:0x020d0270
 
@@ -48,7 +48,7 @@ src/overlays/ov189/calls/func_ov189_020d0410.c:
     complete
     .text       start:0x020d0410 end:0x020d046c
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d046c.c:
+src/overlays/ov189/calls/func_ov189_020d046c.c:
     complete
     .text       start:0x020d046c end:0x020d06bc
 
@@ -60,7 +60,7 @@ src/overlays/ov189/auto/func_ov189_020d06e8.c:
     complete
     .text       start:0x020d06e8 end:0x020d0718
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0718.c:
+src/overlays/ov189/calls/func_ov189_020d0718.c:
     complete
     .text       start:0x020d0718 end:0x020d0998
 
@@ -88,7 +88,7 @@ src/overlays/ov189/calls/func_ov189_020d0d60.c:
     complete
     .text       start:0x020d0d60 end:0x020d0e2c
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d0e2c.c:
+src/overlays/ov189/calls/func_ov189_020d0e2c.c:
     complete
     .text       start:0x020d0e2c end:0x020d0f10
 
@@ -132,7 +132,7 @@ src/overlays/ov189/calls/func_ov189_020d15bc.c:
     complete
     .text       start:0x020d15bc end:0x020d1638
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d1638.c:
+src/overlays/ov189/calls/func_ov189_020d1638.c:
     complete
     .text       start:0x020d1638 end:0x020d17cc
 
@@ -168,7 +168,7 @@ src/overlays/ov189/calls/func_ov189_020d1aac.c:
     complete
     .text       start:0x020d1aac end:0x020d1b00
 
-src/overlays/ov189/asm_stubs/calls/func_ov189_020d1b00.c:
+src/overlays/ov189/calls/func_ov189_020d1b00.c:
     complete
     .text       start:0x020d1b00 end:0x020d1cf4
 
