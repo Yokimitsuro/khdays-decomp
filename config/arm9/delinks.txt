@@ -1464,6 +1464,10 @@ src/calls/CARDi_ReadRom.c:
     complete
     .text       start:0x0200eea4 end:0x0200ef9c
 
+src/calls/CARD_Init.c:
+    complete
+    .text       start:0x0200ef9c end:0x0200f004
+
 src/calls/WM_EndKeySharing_0x0200f004.c:
     complete
     .text       start:0x0200f004 end:0x0200f010
