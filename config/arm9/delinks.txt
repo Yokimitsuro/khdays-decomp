@@ -1600,6 +1600,10 @@ src/calls/NNS_FndInsertListObject.c:
     complete
     .text       start:0x02010064 end:0x020100c8
 
+src/auto/NNS_FndRemoveListObject.c:
+    complete
+    .text       start:0x020100c8 end:0x02010128
+
 libs/nitro/nns/auto/NNS_FndGetNextListObject.c:
     complete
     .text       start:0x02010128 end:0x02010140
