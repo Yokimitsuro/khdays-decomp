@@ -1484,6 +1484,10 @@ src/calls/func_0200f050.c:
     complete
     .text       start:0x0200f050 end:0x0200f0a0
 
+src/calls/CARDi_Request.c:
+    complete
+    .text       start:0x0200f0a0 end:0x0200f1f4
+
 src/calls/func_0200f1f4.c:
     complete
     .text       start:0x0200f1f4 end:0x0200f220
