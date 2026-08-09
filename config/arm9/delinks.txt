@@ -3420,7 +3420,7 @@ libs/msl/c/calls/strlen.c:
     complete
     .text       start:0x0201f908 end:0x0201f924
 
-src/auto/strncpy.c:
+libs/msl/c/auto/strncpy.c:
     complete
     .text       start:0x0201f9ec end:0x0201fa3c
 
