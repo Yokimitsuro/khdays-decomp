@@ -1212,7 +1212,7 @@ src/calls/func_0200c2c8.c:
     complete
     .text       start:0x0200c2c8 end:0x0200c340
 
-src/calls/func_0200c4fc.c:
+libs/nitro/card/calls/func_0200c4fc.c:
     complete
     .text       start:0x0200c4fc end:0x0200c5fc
 
@@ -1444,15 +1444,15 @@ libs/nitro/card/auto/CARDi_SetRomOp.c:
     complete
     .text       start:0x0200e9b0 end:0x0200ea10
 
-src/calls/func_0200ea64.c:
+libs/nitro/card/calls/func_0200ea64.c:
     complete
     .text       start:0x0200ea64 end:0x0200eb34
 
-src/calls/func_0200eb34.c:
+libs/nitro/card/calls/func_0200eb34.c:
     complete
     .text       start:0x0200eb34 end:0x0200ecc0
 
-src/calls/func_0200ecc0.c:
+libs/nitro/card/calls/func_0200ecc0.c:
     complete
     .text       start:0x0200ecc0 end:0x0200edb0
 
@@ -1460,11 +1460,11 @@ src/calls/func_0200ee0c.c:
     complete
     .text       start:0x0200ee0c end:0x0200eea4
 
-src/calls/CARDi_ReadRom.c:
+libs/nitro/card/calls/CARDi_ReadRom.c:
     complete
     .text       start:0x0200eea4 end:0x0200ef9c
 
-src/calls/CARD_Init.c:
+libs/nitro/card/calls/CARD_Init.c:
     complete
     .text       start:0x0200ef9c end:0x0200f004
 
@@ -1476,7 +1476,7 @@ src/calls/CARDi_GetRomAccessor.c:
     complete
     .text       start:0x0200f010 end:0x0200f01c
 
-src/calls/CARDi_OnFifoRecv.c:
+libs/nitro/card/calls/CARDi_OnFifoRecv.c:
     complete
     .text       start:0x0200f01c end:0x0200f050
 
@@ -1484,7 +1484,7 @@ src/calls/func_0200f050.c:
     complete
     .text       start:0x0200f050 end:0x0200f0a0
 
-src/calls/CARDi_Request.c:
+libs/nitro/card/calls/CARDi_Request.c:
     complete
     .text       start:0x0200f0a0 end:0x0200f1f4
 
@@ -1592,15 +1592,15 @@ libs/nitro/nns/calls/NNS_FndAppendListObject.c:
     complete
     .text       start:0x0200ffc0 end:0x02010014
 
-src/calls/NNS_FndPrependListObject.c:
+libs/nitro/nns/calls/NNS_FndPrependListObject.c:
     complete
     .text       start:0x02010014 end:0x02010064
 
-src/calls/NNS_FndInsertListObject.c:
+libs/nitro/nns/calls/NNS_FndInsertListObject.c:
     complete
     .text       start:0x02010064 end:0x020100c8
 
-src/auto/NNS_FndRemoveListObject.c:
+libs/nitro/nns/auto/NNS_FndRemoveListObject.c:
     complete
     .text       start:0x020100c8 end:0x02010128
 
@@ -1624,7 +1624,7 @@ libs/nitro/nns/calls/FindListContainHeap.c:
     complete
     .text       start:0x02010204 end:0x0201022c
 
-src/calls/NNSi_FndInitHeapHead.c:
+libs/nitro/nns/calls/NNSi_FndInitHeapHead.c:
     complete
     .text       start:0x0201022c end:0x020102a8
 
@@ -1648,7 +1648,7 @@ libs/nitro/nns/auto/InitMBlock.c:
     complete
     .text       start:0x02010344 end:0x02010370
 
-src/calls/InitExpHeap.c:
+libs/nitro/nns/calls/InitExpHeap.c:
     complete
     .text       start:0x02010370 end:0x020103e4
 
