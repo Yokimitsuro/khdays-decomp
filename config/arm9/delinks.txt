@@ -1212,6 +1212,10 @@ src/calls/func_0200c2c8.c:
     complete
     .text       start:0x0200c2c8 end:0x0200c340
 
+src/calls/func_0200c4fc.c:
+    complete
+    .text       start:0x0200c4fc end:0x0200c5fc
+
 src/calls/func_0200c5fc.c:
     complete
     .text       start:0x0200c5fc end:0x0200c694
@@ -1439,6 +1443,18 @@ src/calls/WM_EndKeySharing_0x0200e918.c:
 libs/nitro/card/auto/CARDi_SetRomOp.c:
     complete
     .text       start:0x0200e9b0 end:0x0200ea10
+
+src/calls/func_0200ea64.c:
+    complete
+    .text       start:0x0200ea64 end:0x0200eb34
+
+src/calls/func_0200eb34.c:
+    complete
+    .text       start:0x0200eb34 end:0x0200ecc0
+
+src/calls/func_0200ecc0.c:
+    complete
+    .text       start:0x0200ecc0 end:0x0200edb0
 
 src/calls/func_0200ee0c.c:
     complete
