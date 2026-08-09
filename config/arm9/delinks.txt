@@ -1656,6 +1656,10 @@ libs/nitro/nns/calls/func_020103e4.c:
     complete
     .text       start:0x020103e4 end:0x02010564
 
+libs/nitro/nns/calls/AllocFromHead.c:
+    complete
+    .text       start:0x02010564 end:0x02010618
+
 src/calls/WM_EndKeySharing_0x020107f0.c:
     complete
     .text       start:0x020107f0 end:0x020107fc
