@@ -1624,6 +1624,10 @@ libs/nitro/nns/calls/FindListContainHeap.c:
     complete
     .text       start:0x02010204 end:0x0201022c
 
+src/calls/NNSi_FndInitHeapHead.c:
+    complete
+    .text       start:0x0201022c end:0x020102a8
+
 libs/nitro/nns/calls/NNSi_FndFinalizeHeap.c:
     complete
     .text       start:0x020102a8 end:0x020102c0
