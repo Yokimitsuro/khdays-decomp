@@ -1592,6 +1592,10 @@ libs/nitro/nns/calls/NNS_FndAppendListObject.c:
     complete
     .text       start:0x0200ffc0 end:0x02010014
 
+src/calls/NNS_FndPrependListObject.c:
+    complete
+    .text       start:0x02010014 end:0x02010064
+
 libs/nitro/nns/auto/NNS_FndGetNextListObject.c:
     complete
     .text       start:0x02010128 end:0x02010140
