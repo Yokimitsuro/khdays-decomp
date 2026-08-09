@@ -37,6 +37,10 @@ src/calls/func_01ff8410.c:
     complete
     .text       start:0x01ff8410 end:0x01ff84b8
 
+libs/nitro/os/auto/func_01ff84b8.c:
+    complete
+    .text       start:0x01ff84b8 end:0x01ff8590
+
 libs/nitro/mi/calls/MIi_DmaSetParams.c:
     complete
     .text       start:0x01ff8590 end:0x01ff85d0
@@ -48,6 +52,10 @@ src/calls/func_01ff85d0.c:
 src/auto/func_01ff8640.c:
     complete
     .text       start:0x01ff8640 end:0x01ff8664
+
+libs/nitro/mi/auto/func_01ff8664.c:
+    complete
+    .text       start:0x01ff8664 end:0x01ff86c8
 
 libs/nitro/mi/asm_stubs/auto/MI_Copy36B.c:
     complete
@@ -113,13 +121,33 @@ libs/nitro/fx/auto/VEC_Subtract.c:
     complete
     .text       start:0x01ff8bc4 end:0x01ff8bf8
 
+libs/nitro/fx/auto/VEC_DotProduct.c:
+    complete
+    .text       start:0x01ff8bf8 end:0x01ff8c34
+
+libs/nitro/fx/auto/VEC_CrossProduct.c:
+    complete
+    .text       start:0x01ff8c34 end:0x01ff8cb8
+
+libs/nitro/fx/auto/VEC_Mag.c:
+    complete
+    .text       start:0x01ff8cb8 end:0x01ff8d18
+
 src/auto/VEC_MultAdd.c:
     complete
     .text       start:0x01ff8e38 end:0x01ff8e94
 
+libs/nitro/fx/auto/func_01ff8e94.c:
+    complete
+    .text       start:0x01ff8e94 end:0x01ff8f10
+
 libs/nitro/mtx/asm_stubs/auto/MTX_Identity33_.c:
     complete
     .text       start:0x01ff8f10 end:0x01ff8f34
+
+libs/nitro/mtx/auto/MTX_ScaleApply33.c:
+    complete
+    .text       start:0x01ff8f34 end:0x01ff8ff4
 
 libs/nitro/mtx/auto/MTX_RotX33_.c:
     complete
@@ -132,6 +160,18 @@ libs/nitro/mtx/asm_stubs/auto/MTX_RotY33_.c:
 libs/nitro/mtx/asm_stubs/auto/MTX_RotZ33_.c:
     complete
     .text       start:0x01ff902c end:0x01ff9044
+
+libs/nitro/mtx/auto/func_01ff9044.c:
+    complete
+    .text       start:0x01ff9044 end:0x01ff919c
+
+libs/nitro/mtx/auto/MTX_Concat33.c:
+    complete
+    .text       start:0x01ff919c end:0x01ff93bc
+
+libs/nitro/mtx/auto/MTX_MultVec33.c:
+    complete
+    .text       start:0x01ff93bc end:0x01ff9438
 
 libs/nitro/mtx/asm_stubs/auto/MTX_Identity43_.c:
     complete
@@ -148,6 +188,22 @@ libs/nitro/mtx/calls/MTX_ScaleApply43.c:
 libs/nitro/mtx/asm_stubs/auto/MTX_RotY43_.c:
     complete
     .text       start:0x01ff94e8 end:0x01ff9502
+
+libs/nitro/mtx/calls/MTX_Inverse43.c:
+    complete
+    .text       start:0x01ff9504 end:0x01ff9890
+
+libs/nitro/mtx/auto/MTX_Concat43.c:
+    complete
+    .text       start:0x01ff9890 end:0x01ff9b64
+
+libs/nitro/mtx/auto/MTX_MultVec43.c:
+    complete
+    .text       start:0x01ff9b64 end:0x01ff9c04
+
+libs/nitro/mtx/calls/func_01ff9c04.c:
+    complete
+    .text       start:0x01ff9c04 end:0x01ff9d0c
 
 libs/nitro/gx/calls/G3_LoadMtx43.c:
     complete
@@ -169,6 +225,18 @@ src/auto/func_01ff9d84.c:
     complete
     .text       start:0x01ff9d84 end:0x01ff9d90
 
+libs/nitro/nns/calls/func_01ff9d90.c:
+    complete
+    .text       start:0x01ff9d90 end:0x01ff9f00
+
+libs/nitro/nns/calls/func_01ff9f00.c:
+    complete
+    .text       start:0x01ff9f00 end:0x01ff9fd4
+
+libs/nitro/nns/auto/func_01ff9fd4.c:
+    complete
+    .text       start:0x01ff9fd4 end:0x01ffa13c
+
 src/calls/func_01ffa13c.c:
     complete
     .text       start:0x01ffa13c end:0x01ffa1b8
@@ -177,17 +245,37 @@ src/calls/func_01ffa1b8.c:
     complete
     .text       start:0x01ffa1b8 end:0x01ffa1f8
 
+libs/nitro/nns/calls/func_01ffa218.c:
+    complete
+    .text       start:0x01ffa218 end:0x01ffa2dc
+
+libs/nitro/nns/calls/func_01ffa2dc.c:
+    complete
+    .text       start:0x01ffa2dc end:0x01ffa42c
+
 src/auto/func_01ffa42c.c:
     complete
     .text       start:0x01ffa42c end:0x01ffa450
+
+libs/nitro/nns/calls/func_01ffa450.c:
+    complete
+    .text       start:0x01ffa450 end:0x01ffa598
 
 src/auto/func_01ffa5b8.c:
     complete
     .text       start:0x01ffa5b8 end:0x01ffa5dc
 
+libs/nitro/nns/calls/func_01ffa5dc.c:
+    complete
+    .text       start:0x01ffa5dc end:0x01ffa724
+
 src/calls/func_01ffa724.c:
     complete
     .text       start:0x01ffa724 end:0x01ffa764
+
+libs/nitro/nns/calls/func_01ffa764.c:
+    complete
+    .text       start:0x01ffa764 end:0x01ffa7fc
 
 src/calls/func_01ffbbac.c:
     complete
