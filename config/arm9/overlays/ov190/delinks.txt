@@ -60,7 +60,7 @@ src/overlays/ov190/auto/func_ov190_020d4328.c:
     complete
     .text       start:0x020d4328 end:0x020d4358
 
-src/overlays/ov190/asm_stubs/calls/func_ov190_020d4358.c:
+src/overlays/ov190/calls/func_ov190_020d4358.c:
     complete
     .text       start:0x020d4358 end:0x020d45d8
 
