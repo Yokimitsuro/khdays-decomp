@@ -80,23 +80,23 @@ libs/nitro/os/calls/OSi_IrqTimer3.c:
     complete
     .text       start:0x02001234 end:0x02001244
 
-src/calls/OS_InitIrqTable.c:
+libs/nitro/os/calls/OS_InitIrqTable.c:
     complete
     .text       start:0x02001244 end:0x0200125c
 
-src/auto/OS_SetIrqMask.c:
+libs/nitro/os/auto/OS_SetIrqMask.c:
     complete
     .text       start:0x02001400 end:0x0200142c
 
-src/auto/OS_EnableIrqMask.c:
+libs/nitro/os/auto/OS_EnableIrqMask.c:
     complete
     .text       start:0x0200142c end:0x0200145c
 
-src/auto/OS_DisableIrqMask.c:
+libs/nitro/os/auto/OS_DisableIrqMask.c:
     complete
     .text       start:0x0200145c end:0x0200148c
 
-src/auto/OS_ResetRequestIrqMask.c:
+libs/nitro/os/auto/OS_ResetRequestIrqMask.c:
     complete
     .text       start:0x0200148c end:0x020014b8
 
@@ -108,7 +108,7 @@ libs/nitro/os/calls/OS_UnlockByWord.c:
     complete
     .text       start:0x02001604 end:0x02001614
 
-src/calls/OSi_DoUnlockByWord.c:
+libs/nitro/os/calls/OSi_DoUnlockByWord.c:
     complete
     .text       start:0x02001614 end:0x02001688
 
@@ -116,7 +116,7 @@ libs/nitro/os/calls/OS_UnlockByWord_0x02001688.c:
     complete
     .text       start:0x02001688 end:0x02001698
 
-src/calls/OSi_DoTryLockByWord.c:
+libs/nitro/os/calls/OSi_DoTryLockByWord.c:
     complete
     .text       start:0x02001698 end:0x02001704
 
@@ -156,11 +156,11 @@ src/calls/func_020018ec.c:
     complete
     .text       start:0x020018ec end:0x02001904
 
-src/auto/OSi_RemoveLinkFromQueue.c:
+libs/nitro/os/auto/OSi_RemoveLinkFromQueue.c:
     complete
     .text       start:0x0200197c end:0x020019b0
 
-src/auto/OSi_RemoveMutexLinkFromQueue.c:
+libs/nitro/os/auto/OSi_RemoveMutexLinkFromQueue.c:
     complete
     .text       start:0x02001a04 end:0x02001a34
 
@@ -200,11 +200,11 @@ src/calls/func_02001f10.c:
     complete
     .text       start:0x02001f10 end:0x02001f60
 
-src/calls/OS_WakeupThread.c:
+libs/nitro/os/calls/OS_WakeupThread.c:
     complete
     .text       start:0x02001f60 end:0x02001fc8
 
-src/calls/OS_WakeupThreadDirect.c:
+libs/nitro/os/calls/OS_WakeupThreadDirect.c:
     complete
     .text       start:0x02001fc8 end:0x02001ff0
 
@@ -248,7 +248,7 @@ src/auto/func_0200233c.c:
     complete
     .text       start:0x0200233c end:0x02002344
 
-src/calls/OS_GetConsoleType.c:
+libs/nitro/os/calls/OS_GetConsoleType.c:
     complete
     .text       start:0x02002344 end:0x0200235c
 
@@ -256,15 +256,15 @@ libs/nitro/os/auto/OS_InitMessageQueue.c:
     complete
     .text       start:0x0200235c end:0x02002384
 
-src/calls/OS_SendMessage.c:
+libs/nitro/os/calls/OS_SendMessage.c:
     complete
     .text       start:0x02002384 end:0x02002418
 
-src/calls/OS_ReceiveMessage.c:
+libs/nitro/os/calls/OS_ReceiveMessage.c:
     complete
     .text       start:0x02002418 end:0x020024bc
 
-src/calls/OS_JamMessage.c:
+libs/nitro/os/calls/OS_JamMessage.c:
     complete
     .text       start:0x020024bc end:0x02002558
 
@@ -272,11 +272,11 @@ libs/nitro/os/auto/OS_InitMutex.c:
     complete
     .text       start:0x02002558 end:0x02002570
 
-src/calls/OS_LockMutex.c:
+libs/nitro/os/calls/OS_LockMutex.c:
     complete
     .text       start:0x02002570 end:0x020025f4
 
-src/calls/OS_UnlockMutex.c:
+libs/nitro/os/calls/OS_UnlockMutex.c:
     complete
     .text       start:0x020025f4 end:0x02002650
 
@@ -336,7 +336,7 @@ libs/nitro/nns/auto/DLExtract.c:
     complete
     .text       start:0x02002c0c end:0x02002c34
 
-src/calls/OS_FreeToHeap.c:
+libs/nitro/os/calls/OS_FreeToHeap.c:
     complete
     .text       start:0x02002de4 end:0x02002e4c
 
@@ -352,7 +352,7 @@ src/asm_stubs/calls/func_0200302c.c:
     complete
     .text       start:0x0200302c end:0x020030a8
 
-src/calls/OSi_SetTimerReserved.c:
+libs/nitro/os/calls/OSi_SetTimerReserved.c:
     complete
     .text       start:0x020030a8 end:0x020030c4
 
@@ -364,11 +364,11 @@ src/calls/func_020030e4.c:
     complete
     .text       start:0x020030e4 end:0x0200315c
 
-src/calls/OS_IsTickAvailable_0x0200315c.c:
+libs/nitro/os/calls/OS_IsTickAvailable_0x0200315c.c:
     complete
     .text       start:0x0200315c end:0x0200316c
 
-src/calls/OS_GetTickLo.c:
+libs/nitro/os/calls/OS_GetTickLo.c:
     complete
     .text       start:0x02003274 end:0x02003284
 
@@ -388,7 +388,7 @@ libs/nitro/os/auto/OS_CreateAlarm.c:
     complete
     .text       start:0x02003400 end:0x02003410
 
-src/calls/OS_SetAlarm.c:
+libs/nitro/os/calls/OS_SetAlarm.c:
     complete
     .text       start:0x0200353c end:0x020035a8
 
@@ -444,7 +444,7 @@ libs/nitro/os/auto/OSi_InitVramExclusive.c:
     complete
     .text       start:0x02003aac end:0x02003ae0
 
-src/calls/OSi_UnlockVram.c:
+libs/nitro/os/calls/OSi_UnlockVram.c:
     complete
     .text       start:0x02003ae0 end:0x02003b68
 
@@ -452,31 +452,31 @@ libs/nitro/os/calls/OS_Terminate.c:
     complete
     .text       start:0x02003c38 end:0x02003c48
 
-src/calls/MI_SetWramBank.c:
+libs/nitro/mi/calls/MI_SetWramBank.c:
     complete
     .text       start:0x02003c54 end:0x02003c64
 
-src/calls/MI_DmaFill32.c:
+libs/nitro/mi/calls/MI_DmaFill32.c:
     complete
     .text       start:0x02003c64 end:0x02003ce4
 
-src/calls/MI_DmaFill32Async.c:
+libs/nitro/mi/calls/MI_DmaFill32Async.c:
     complete
     .text       start:0x02003dc0 end:0x02003e84
 
-src/calls/MI_WaitDma.c:
+libs/nitro/mi/calls/MI_WaitDma.c:
     complete
     .text       start:0x02003f1c end:0x02003f84
 
-src/calls/MI_StopDma.c:
+libs/nitro/mi/calls/MI_StopDma.c:
     complete
     .text       start:0x02003f84 end:0x02004000
 
-src/calls/MI_SendGXCommandAsync.c:
+libs/nitro/mi/calls/MI_SendGXCommandAsync.c:
     complete
     .text       start:0x020040d8 end:0x020041d0
 
-src/calls/MIi_DMAFastCallback.c:
+libs/nitro/mi/calls/MIi_DMAFastCallback.c:
     complete
     .text       start:0x02004394 end:0x020043c0
 
@@ -500,7 +500,7 @@ libs/nitro/mtx/auto/MTX_Rot22_.c:
     complete
     .text       start:0x02004638 end:0x02004644
 
-src/auto/MTX_ScaleApply22.c:
+libs/nitro/mtx/auto/MTX_ScaleApply22.c:
     complete
     .text       start:0x02004644 end:0x0200469c
 
@@ -520,7 +520,7 @@ src/auto/func_02005418.c:
     complete
     .text       start:0x02005418 end:0x02005430
 
-src/auto/GX_VBlankIntr.c:
+libs/nitro/gx/auto/GX_VBlankIntr.c:
     complete
     .text       start:0x020055fc end:0x02005630
 
@@ -628,71 +628,71 @@ libs/nitro/gx/calls/GX_DisableBankForSubOBJExtPltt_0x02006638.c:
     complete
     .text       start:0x02006638 end:0x02006660
 
-src/calls/GX_GetBankForBGExtPltt.c:
+libs/nitro/gx/calls/GX_GetBankForBGExtPltt.c:
     complete
     .text       start:0x02006660 end:0x02006670
 
-src/auto/G2_GetBG0ScrPtr.c:
+libs/nitro/gx/auto/G2_GetBG0ScrPtr.c:
     complete
     .text       start:0x02006670 end:0x020066a4
 
-src/auto/G2S_GetBG0ScrPtr.c:
+libs/nitro/gx/auto/G2S_GetBG0ScrPtr.c:
     complete
     .text       start:0x020066a4 end:0x020066c4
 
-src/auto/G2_GetBG1ScrPtr.c:
+libs/nitro/gx/auto/G2_GetBG1ScrPtr.c:
     complete
     .text       start:0x020066c4 end:0x020066f8
 
-src/auto/G2S_GetBG1ScrPtr.c:
+libs/nitro/gx/auto/G2S_GetBG1ScrPtr.c:
     complete
     .text       start:0x020066f8 end:0x02006718
 
-src/auto/G2_GetBG2ScrPtr.c:
+libs/nitro/gx/auto/G2_GetBG2ScrPtr.c:
     complete
     .text       start:0x02006718 end:0x0200679c
 
-src/auto/G2S_GetBG2ScrPtr.c:
+libs/nitro/gx/auto/G2S_GetBG2ScrPtr.c:
     complete
     .text       start:0x0200679c end:0x02006810
 
-src/auto/G2_GetBG3ScrPtr.c:
+libs/nitro/gx/auto/G2_GetBG3ScrPtr.c:
     complete
     .text       start:0x02006810 end:0x02006894
 
-src/auto/G2S_GetBG3ScrPtr.c:
+libs/nitro/gx/auto/G2S_GetBG3ScrPtr.c:
     complete
     .text       start:0x02006894 end:0x02006908
 
-src/auto/G2_GetBG0CharPtr.c:
+libs/nitro/gx/auto/G2_GetBG0CharPtr.c:
     complete
     .text       start:0x02006908 end:0x0200693c
 
-src/auto/G2S_GetBG0CharPtr.c:
+libs/nitro/gx/auto/G2S_GetBG0CharPtr.c:
     complete
     .text       start:0x0200693c end:0x0200695c
 
-src/auto/G2_GetBG1CharPtr.c:
+libs/nitro/gx/auto/G2_GetBG1CharPtr.c:
     complete
     .text       start:0x0200695c end:0x02006990
 
-src/auto/G2S_GetBG1CharPtr.c:
+libs/nitro/gx/auto/G2S_GetBG1CharPtr.c:
     complete
     .text       start:0x02006990 end:0x020069b0
 
-src/auto/G2_GetBG2CharPtr.c:
+libs/nitro/gx/auto/G2_GetBG2CharPtr.c:
     complete
     .text       start:0x020069b0 end:0x02006a00
 
-src/auto/G2S_GetBG2CharPtr.c:
+libs/nitro/gx/auto/G2S_GetBG2CharPtr.c:
     complete
     .text       start:0x02006a00 end:0x02006a40
 
-src/auto/G2_GetBG3CharPtr.c:
+libs/nitro/gx/auto/G2_GetBG3CharPtr.c:
     complete
     .text       start:0x02006a40 end:0x02006a98
 
-src/auto/G2S_GetBG3CharPtr.c:
+libs/nitro/gx/auto/G2S_GetBG3CharPtr.c:
     complete
     .text       start:0x02006a98 end:0x02006ae0
 
@@ -716,19 +716,19 @@ libs/nitro/gx/calls/G3X_GetVectorMtx.c:
     complete
     .text       start:0x02006f58 end:0x02006f88
 
-src/auto/G3X_SetClearColor.c:
+libs/nitro/gx/auto/G3X_SetClearColor.c:
     complete
     .text       start:0x02006f88 end:0x02006fb0
 
-src/auto/G3X_GetMtxStackLevelPV.c:
+libs/nitro/gx/auto/G3X_GetMtxStackLevelPV.c:
     complete
     .text       start:0x02007050 end:0x02007080
 
-src/auto/G3X_GetMtxStackLevelPJ.c:
+libs/nitro/gx/auto/G3X_GetMtxStackLevelPJ.c:
     complete
     .text       start:0x02007080 end:0x020070b0
 
-src/calls/G3X_SetHOffset.c:
+libs/nitro/gx/calls/G3X_SetHOffset.c:
     complete
     .text       start:0x020070b0 end:0x020070c0
 
@@ -756,67 +756,67 @@ libs/nitro/gx/calls/GXS_LoadOAM.c:
     complete
     .text       start:0x02007304 end:0x0200735c
 
-src/calls/GX_LoadBG0Scr.c:
+libs/nitro/gx/calls/GX_LoadBG0Scr.c:
     complete
     .text       start:0x0200740c end:0x0200746c
 
-src/calls/GXS_LoadBG0Scr.c:
+libs/nitro/gx/calls/GXS_LoadBG0Scr.c:
     complete
     .text       start:0x0200746c end:0x020074cc
 
-src/calls/GX_LoadBG1Scr.c:
+libs/nitro/gx/calls/GX_LoadBG1Scr.c:
     complete
     .text       start:0x020074cc end:0x0200752c
 
-src/calls/GXS_LoadBG1Scr.c:
+libs/nitro/gx/calls/GXS_LoadBG1Scr.c:
     complete
     .text       start:0x0200752c end:0x0200758c
 
-src/calls/GX_LoadBG2Scr.c:
+libs/nitro/gx/calls/GX_LoadBG2Scr.c:
     complete
     .text       start:0x0200758c end:0x020075ec
 
-src/calls/GXS_LoadBG2Scr.c:
+libs/nitro/gx/calls/GXS_LoadBG2Scr.c:
     complete
     .text       start:0x020075ec end:0x0200764c
 
-src/calls/GX_LoadBG3Scr.c:
+libs/nitro/gx/calls/GX_LoadBG3Scr.c:
     complete
     .text       start:0x0200764c end:0x020076ac
 
-src/calls/GXS_LoadBG3Scr.c:
+libs/nitro/gx/calls/GXS_LoadBG3Scr.c:
     complete
     .text       start:0x020076ac end:0x0200770c
 
-src/calls/GX_LoadBG0Char.c:
+libs/nitro/gx/calls/GX_LoadBG0Char.c:
     complete
     .text       start:0x0200770c end:0x0200776c
 
-src/calls/GXS_LoadBG0Char.c:
+libs/nitro/gx/calls/GXS_LoadBG0Char.c:
     complete
     .text       start:0x0200776c end:0x020077cc
 
-src/calls/GX_LoadBG1Char.c:
+libs/nitro/gx/calls/GX_LoadBG1Char.c:
     complete
     .text       start:0x020077cc end:0x0200782c
 
-src/calls/GXS_LoadBG1Char.c:
+libs/nitro/gx/calls/GXS_LoadBG1Char.c:
     complete
     .text       start:0x0200782c end:0x0200788c
 
-src/calls/GX_LoadBG2Char.c:
+libs/nitro/gx/calls/GX_LoadBG2Char.c:
     complete
     .text       start:0x0200788c end:0x020078ec
 
-src/calls/GXS_LoadBG2Char.c:
+libs/nitro/gx/calls/GXS_LoadBG2Char.c:
     complete
     .text       start:0x020078ec end:0x0200794c
 
-src/calls/GX_LoadBG3Char.c:
+libs/nitro/gx/calls/GX_LoadBG3Char.c:
     complete
     .text       start:0x0200794c end:0x020079ac
 
-src/calls/GXS_LoadBG3Char.c:
+libs/nitro/gx/calls/GXS_LoadBG3Char.c:
     complete
     .text       start:0x020079ac end:0x02007a0c
 
@@ -968,7 +968,7 @@ src/calls/func_02008a14.c:
     complete
     .text       start:0x02008a14 end:0x02008a64
 
-src/calls/SND_CountReservedCommand.c:
+libs/nitro/snd/calls/SND_CountReservedCommand.c:
     complete
     .text       start:0x02008a64 end:0x02008aa0
 
@@ -996,11 +996,11 @@ src/calls/IsCommandAvailable.c:
     complete
     .text       start:0x02008bec end:0x02008c2c
 
-src/calls/SND_AlarmInit.c:
+libs/nitro/snd/calls/SND_AlarmInit.c:
     complete
     .text       start:0x02008c2c end:0x02008c5c
 
-src/calls/SNDi_IncAlarmId.c:
+libs/nitro/snd/calls/SNDi_IncAlarmId.c:
     complete
     .text       start:0x02008c5c end:0x02008c7c
 
@@ -1040,11 +1040,11 @@ src/calls/WM_EndKeySharing_0x0200926c.c:
     complete
     .text       start:0x0200926c end:0x02009278
 
-src/calls/PXI_InitFifo.c:
+libs/nitro/pxi/calls/PXI_InitFifo.c:
     complete
     .text       start:0x02009278 end:0x02009378
 
-src/calls/PXI_SetFifoRecvCallback.c:
+libs/nitro/pxi/calls/PXI_SetFifoRecvCallback.c:
     complete
     .text       start:0x02009378 end:0x020093c4
 
@@ -1052,15 +1052,15 @@ src/calls/func_020093e8.c:
     complete
     .text       start:0x020093e8 end:0x02009470
 
-src/calls/FSi_ReleaseCommand.c:
+libs/nitro/fs/calls/FSi_ReleaseCommand.c:
     complete
     .text       start:0x02009588 end:0x020095e4
 
-src/auto/FSi_StrNICmp.c:
+libs/nitro/fs/auto/FSi_StrNICmp.c:
     complete
     .text       start:0x02009774 end:0x020097c4
 
-src/calls/FSi_ReadTable.c:
+libs/nitro/fs/calls/FSi_ReadTable.c:
     complete
     .text       start:0x020097c4 end:0x02009884
 
@@ -1068,11 +1068,11 @@ libs/nitro/fs/calls/FSi_SeekDirDirect.c:
     complete
     .text       start:0x02009884 end:0x020098b8
 
-src/auto/FSi_ReadFileCommand.c:
+libs/nitro/fs/auto/FSi_ReadFileCommand.c:
     complete
     .text       start:0x020098b8 end:0x020098e4
 
-src/auto/FSi_WriteFileCommand.c:
+libs/nitro/fs/auto/FSi_WriteFileCommand.c:
     complete
     .text       start:0x020098e4 end:0x02009910
 
@@ -1084,7 +1084,7 @@ src/auto/func_0200a10c.c:
     complete
     .text       start:0x0200a10c end:0x0200a114
 
-src/auto/FSi_GetPackedName.c:
+libs/nitro/fs/auto/FSi_GetPackedName.c:
     complete
     .text       start:0x0200a114 end:0x0200a16c
 
@@ -1100,7 +1100,7 @@ libs/nitro/fs/calls/FSi_ReadMemoryCore.c:
     complete
     .text       start:0x0200a1a8 end:0x0200a1c0
 
-src/calls/FSi_ExecuteAsyncCommand.c:
+libs/nitro/fs/calls/FSi_ExecuteAsyncCommand.c:
     complete
     .text       start:0x0200a3d4 end:0x0200a468
 
@@ -1108,7 +1108,7 @@ libs/nitro/fs/calls/FS_InitArchive.c:
     complete
     .text       start:0x0200a650 end:0x0200a67c
 
-src/calls/FS_FindArchive.c:
+libs/nitro/fs/calls/FS_FindArchive.c:
     complete
     .text       start:0x0200a67c end:0x0200a6bc
 
@@ -1120,7 +1120,7 @@ libs/nitro/fs/auto/FS_SetArchiveProc.c:
     complete
     .text       start:0x0200a904 end:0x0200a924
 
-src/calls/FS_NotifyArchiveAsyncEnd.c:
+libs/nitro/fs/calls/FS_NotifyArchiveAsyncEnd.c:
     complete
     .text       start:0x0200a924 end:0x0200a9a8
 
@@ -1148,7 +1148,7 @@ libs/nitro/fs/calls/FS_CloseFile.c:
     complete
     .text       start:0x0200acf8 end:0x0200ad34
 
-src/calls/FS_WaitAsync.c:
+libs/nitro/fs/calls/FS_WaitAsync.c:
     complete
     .text       start:0x0200ad34 end:0x0200adf4
 
@@ -1196,11 +1196,11 @@ libs/nitro/fs/calls/FS_ClearOverlayImage.c:
     complete
     .text       start:0x0200b13c end:0x0200b178
 
-src/calls/FS_GetOverlayFileID.c:
+libs/nitro/fs/calls/FS_GetOverlayFileID.c:
     complete
     .text       start:0x0200b178 end:0x0200b1a0
 
-src/calls/FS_EndOverlay.c:
+libs/nitro/fs/calls/FS_EndOverlay.c:
     complete
     .text       start:0x0200b5ac end:0x0200b69c
 
@@ -1228,7 +1228,7 @@ src/calls/func_0200c694.c:
     complete
     .text       start:0x0200c694 end:0x0200c730
 
-src/calls/GX_GetBankForOBJExtPltt.c:
+libs/nitro/gx/calls/GX_GetBankForOBJExtPltt.c:
     complete
     .text       start:0x0200c730 end:0x0200c740
 
@@ -1400,15 +1400,15 @@ src/calls/srand_0x0200e090.c:
     complete
     .text       start:0x0200e090 end:0x0200e0a0
 
-src/calls/CARDi_WaitAsync.c:
+libs/nitro/card/calls/CARDi_WaitAsync.c:
     complete
     .text       start:0x0200e0a0 end:0x0200e0ec
 
-src/calls/CARDi_TryWaitAsync.c:
+libs/nitro/card/calls/CARDi_TryWaitAsync.c:
     complete
     .text       start:0x0200e0ec end:0x0200e108
 
-src/calls/CARD_GetResultCode.c:
+libs/nitro/card/calls/CARD_GetResultCode.c:
     complete
     .text       start:0x0200e108 end:0x0200e11c
 
@@ -1432,7 +1432,7 @@ src/calls/func_0200e18c.c:
     complete
     .text       start:0x0200e18c end:0x0200e1a0
 
-src/calls/CARD_GetBackupSectorSize.c:
+libs/nitro/card/calls/CARD_GetBackupSectorSize.c:
     complete
     .text       start:0x0200e7c0 end:0x0200e7d4
 
@@ -1476,7 +1476,7 @@ src/calls/WM_EndKeySharing_0x0200f004.c:
     complete
     .text       start:0x0200f004 end:0x0200f010
 
-src/calls/CARDi_GetRomAccessor.c:
+libs/nitro/card/calls/CARDi_GetRomAccessor.c:
     complete
     .text       start:0x0200f010 end:0x0200f01c
 
@@ -1508,7 +1508,7 @@ src/calls/func_0200f284.c:
     complete
     .text       start:0x0200f284 end:0x0200f310
 
-src/calls/CARDi_CheckPulledOutCore.c:
+libs/nitro/card/calls/CARDi_CheckPulledOutCore.c:
     complete
     .text       start:0x0200f310 end:0x0200f370
 
@@ -1524,7 +1524,7 @@ libs/nitro/nitro/auto/CTRDGi_ChangeLatestAccessCycle.c:
     complete
     .text       start:0x0200f544 end:0x0200f58c
 
-src/calls/CTRDGi_LockByProcessor.c:
+libs/nitro/nitro/calls/CTRDGi_LockByProcessor.c:
     complete
     .text       start:0x0200f5c0 end:0x0200f61c
 
@@ -1532,7 +1532,7 @@ libs/nitro/nitro/calls/CTRDGi_UnlockByProcessor.c:
     complete
     .text       start:0x0200f61c end:0x0200f640
 
-src/calls/CTRDG_Enable.c:
+libs/nitro/nitro/calls/CTRDG_Enable.c:
     complete
     .text       start:0x0200f690 end:0x0200f6d8
 
@@ -1792,7 +1792,7 @@ libs/nitro/nns/calls/NNS_FndFreeToAllocator.c:
     complete
     .text       start:0x02010dec end:0x02010e00
 
-src/calls/NNS_FndInitAllocatorForExpHeap.c:
+libs/nitro/nns/calls/NNS_FndInitAllocatorForExpHeap.c:
     complete
     .text       start:0x02010e00 end:0x02010e18
 
@@ -4688,7 +4688,7 @@ src/calls/func_0202bfa0.c:
     complete
     .text       start:0x0202bfa0 end:0x0202bfb8
 
-src/calls/CARD_GetResultCode_0x0202bfb8.c:
+libs/nitro/card/calls/CARD_GetResultCode_0x0202bfb8.c:
     complete
     .text       start:0x0202bfb8 end:0x0202bfcc
 
@@ -5092,7 +5092,7 @@ src/calls/func_02030640.c:
     complete
     .text       start:0x02030640 end:0x0203065c
 
-src/calls/CARD_GetResultCode_0x0203065c.c:
+libs/nitro/card/calls/CARD_GetResultCode_0x0203065c.c:
     complete
     .text       start:0x0203065c end:0x02030670
 
@@ -5228,7 +5228,7 @@ src/auto/func_020315c0.c:
     complete
     .text       start:0x020315c0 end:0x020315f4
 
-src/calls/CARDi_GetRomAccessor_0x020315f4.c:
+libs/nitro/card/calls/CARDi_GetRomAccessor_0x020315f4.c:
     complete
     .text       start:0x020315f4 end:0x02031600
 
