@@ -1648,6 +1648,10 @@ libs/nitro/nns/auto/InitMBlock.c:
     complete
     .text       start:0x02010344 end:0x02010370
 
+src/calls/InitExpHeap.c:
+    complete
+    .text       start:0x02010370 end:0x020103e4
+
 src/calls/WM_EndKeySharing_0x020107f0.c:
     complete
     .text       start:0x020107f0 end:0x020107fc
