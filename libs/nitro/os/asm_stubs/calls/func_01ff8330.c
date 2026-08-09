@@ -1,6 +1,9 @@
-extern char data_027e0000[];
-extern void INITi_CpuClear32(unsigned int data, void *dst, unsigned int size);
+typedef unsigned int u32;
 
+extern char data_027e0000[];
+extern void INITi_CpuClear32(u32 data, void *destination, u32 size);
+
+/* NitroSDK OSi_DoBoot: restoring r0-r10 and transferring control is ABI-level. */
 asm void func_01ff8330(void)
 {
     mov     ip, #0x4000000
@@ -13,11 +16,11 @@ asm void func_01ff8330(void)
     str     r0, [r1]
 
     ldr     r1, =0x04000180
-_wait1:
+waitForArm7Reset:
     ldrh    r0, [r1]
     and     r0, r0, #0xf
     cmp     r0, #1
-    bne     _wait1
+    bne     waitForArm7Reset
     mov     r0, #0x100
     strh    r0, [r1]
 
@@ -41,11 +44,11 @@ _wait1:
     bl      INITi_CpuClear32
 
     ldr     r1, =0x04000180
-_wait2:
+waitForArm7Boot:
     ldrh    r0, [r1]
     and     r0, r0, #0xf
     cmp     r0, #1
-    beq     _wait2
+    beq     waitForArm7Boot
     mov     r0, #0
     strh    r0, [r1]
 

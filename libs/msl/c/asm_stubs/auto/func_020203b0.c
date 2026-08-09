@@ -1,4 +1,6 @@
-asm void func_020203b0(void)
+typedef unsigned long long u64;
+
+asm u64 func_020203b0(u64 left, u64 right)
 {
     stmdb sp!, {r4, r5, lr}
     umull r5, r4, r0, r2

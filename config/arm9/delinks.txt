@@ -4,6 +4,62 @@
     .data       start:0x020422a0 end:0x020442a0 kind:data align:32
     .bss        start:0x020442a0 end:0x0204cac0 kind:bss align:32
 
+libs/nitro/os/asm_stubs/auto/IsDebugger.c:
+    complete
+    .text       start:0x02000072 end:0x02000076
+
+libs/nitro/os/asm_stubs/auto/CpuSet.c:
+    complete
+    .text       start:0x020000cc end:0x020000d0
+
+libs/nitro/os/asm_stubs/auto/Mod.c:
+    complete
+    .text       start:0x0200012a end:0x02000130
+
+libs/nitro/os/asm_stubs/auto/BitUnPack.c:
+    complete
+    .text       start:0x0200018a end:0x0200018e
+
+libs/nitro/os/asm_stubs/auto/VBlankIntrWait.c:
+    complete
+    .text       start:0x020001fc end:0x02000202
+
+libs/nitro/os/asm_stubs/auto/Div.c:
+    complete
+    .text       start:0x02000264 end:0x02000268
+
+libs/nitro/os/asm_stubs/auto/IntrWait.c:
+    complete
+    .text       start:0x020002de end:0x020002e2
+
+libs/nitro/os/asm_stubs/auto/RLUnCompReadNormalWrite8bit.c:
+    complete
+    .text       start:0x0200034e end:0x02000352
+
+libs/nitro/os/asm_stubs/auto/LZ77UnCompReadNormalWrite8bit.c:
+    complete
+    .text       start:0x020003ac end:0x020003b0
+
+libs/nitro/os/asm_stubs/auto/LZ77UnCompReadByCallbackWrite16bit.c:
+    complete
+    .text       start:0x02000414 end:0x02000418
+
+libs/nitro/os/asm_stubs/auto/GetCRC16.c:
+    complete
+    .text       start:0x0200047e end:0x02000482
+
+libs/nitro/os/asm_stubs/auto/RLUnCompReadByCallbackWrite16bit.c:
+    complete
+    .text       start:0x020004ee end:0x020004f2
+
+libs/nitro/os/asm_stubs/auto/Halt.c:
+    complete
+    .text       start:0x02000568 end:0x0200056c
+
+libs/nitro/os/asm_stubs/auto/CpuFastSet.c:
+    complete
+    .text       start:0x020005ca end:0x020005ce
+
 libs/nitro/nitro/auto/AutoloadCallback.c:
     complete
     .text       start:0x02000a74 end:0x02000a78
@@ -164,7 +220,7 @@ libs/nitro/os/auto/OSi_RemoveMutexLinkFromQueue.c:
     complete
     .text       start:0x02001a04 end:0x02001a34
 
-libs/nitro/os/asm_stubs/calls/OSi_InsertThreadByPriority.c:
+libs/nitro/os/calls/OSi_InsertThreadByPriority.c:
     complete
     .text       start:0x02001a34 end:0x02001a94
 
@@ -348,7 +404,7 @@ libs/nitro/os/asm_stubs/calls/OSi_GetAndDisplayContext.c:
     complete
     .text       start:0x02002f88 end:0x02002f9c
 
-src/asm_stubs/calls/func_0200302c.c:
+libs/nitro/os/asm_stubs/calls/func_0200302c.c:
     complete
     .text       start:0x0200302c end:0x020030a8
 
@@ -408,7 +464,7 @@ src/calls/func_020037a0.c:
     complete
     .text       start:0x020037a0 end:0x020037e8
 
-src/asm_stubs/auto/func_0200386c.c:
+libs/nitro/os/asm_stubs/auto/func_0200386c.c:
     complete
     .text       start:0x0200386c end:0x02003878
 
@@ -428,7 +484,7 @@ libs/nitro/os/calls/OSi_SendToPxi.c:
     complete
     .text       start:0x0200391c end:0x02003948
 
-src/asm_stubs/calls/func_02003948.c:
+libs/nitro/os/asm_stubs/calls/func_02003948.c:
     complete
     .text       start:0x02003948 end:0x02003a04
 
@@ -1372,7 +1428,7 @@ src/calls/func_0200dce0.c:
     complete
     .text       start:0x0200dce0 end:0x0200dcf0
 
-src/asm_stubs/calls/func_0200dcf0.c:
+libs/nitro/rtc/asm_stubs/calls/func_0200dcf0.c:
     complete
     .text       start:0x0200dcf0 end:0x0200dd08
 
@@ -3144,7 +3200,7 @@ src/calls/func_0201c354.c:
     complete
     .text       start:0x0201c354 end:0x0201c39c
 
-src/asm_stubs/calls/func_0201c39c.c:
+libs/nitro/snd/calls/func_0201c39c.c:
     complete
     .text       start:0x0201c39c end:0x0201c464
 
@@ -3464,7 +3520,7 @@ src/calls/WM_EndKeySharing_0x0202019c.c:
     complete
     .text       start:0x0202019c end:0x020201a8
 
-src/asm_stubs/auto/func_020203b0.c:
+libs/msl/c/asm_stubs/auto/func_020203b0.c:
     complete
     .text       start:0x020203b0 end:0x020203d0
 

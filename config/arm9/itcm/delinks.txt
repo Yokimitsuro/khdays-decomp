@@ -25,13 +25,25 @@ libs/nitro/os/calls/OS_IsTickAvailable_0x01ff8138.c:
     complete
     .text       start:0x01ff8138 end:0x01ff8148
 
+libs/nitro/os/asm_stubs/calls/func_01ff8148.c:
+    complete
+    .text       start:0x01ff8148 end:0x01ff81a0
+
+libs/nitro/os/asm_stubs/calls/func_01ff81a0.c:
+    complete
+    .text       start:0x01ff81a0 end:0x01ff82fc
+
 libs/nitro/os/calls/OSi_FinalizeReset.c:
     complete
     .text       start:0x01ff82fc end:0x01ff8330
 
-src/asm_stubs/calls/func_01ff8330.c:
+libs/nitro/os/asm_stubs/calls/func_01ff8330.c:
     complete
     .text       start:0x01ff8330 end:0x01ff83fc
+
+libs/nitro/os/asm_stubs/auto/INITi_CpuClear32.c:
+    complete
+    .text       start:0x01ff83fc end:0x01ff8410
 
 src/calls/func_01ff8410.c:
     complete
@@ -57,6 +69,34 @@ libs/nitro/mi/auto/func_01ff8664.c:
     complete
     .text       start:0x01ff8664 end:0x01ff86c8
 
+libs/nitro/mi/asm_stubs/auto/MIi_CpuClear16.c:
+    complete
+    .text       start:0x01ff86c8 end:0x01ff86e0
+
+libs/nitro/mi/asm_stubs/auto/MIi_CpuCopy16.c:
+    complete
+    .text       start:0x01ff86e0 end:0x01ff86fc
+
+libs/nitro/os/asm_stubs/auto/INITi_CpuClear32_0x01ff86fc.c:
+    complete
+    .text       start:0x01ff86fc end:0x01ff8710
+
+libs/nitro/mi/asm_stubs/auto/MIi_CpuCopy32.c:
+    complete
+    .text       start:0x01ff8710 end:0x01ff8728
+
+libs/nitro/mi/asm_stubs/auto/MIi_CpuSend32.c:
+    complete
+    .text       start:0x01ff8728 end:0x01ff8740
+
+libs/nitro/mi/asm_stubs/auto/MIi_CpuClearFast.c:
+    complete
+    .text       start:0x01ff8740 end:0x01ff878c
+
+libs/nitro/mi/asm_stubs/auto/MIi_CpuCopyFast.c:
+    complete
+    .text       start:0x01ff878c end:0x01ff87c4
+
 libs/nitro/mi/asm_stubs/auto/MI_Copy36B.c:
     complete
     .text       start:0x01ff87c4 end:0x01ff87e0
@@ -68,6 +108,14 @@ libs/nitro/mi/asm_stubs/auto/MI_Copy48B.c:
 libs/nitro/mi/asm_stubs/auto/MI_Copy64B.c:
     complete
     .text       start:0x01ff8804 end:0x01ff8830
+
+libs/nitro/mi/asm_stubs/auto/MI_CpuFill8.c:
+    complete
+    .text       start:0x01ff8830 end:0x01ff88c4
+
+libs/nitro/mi/asm_stubs/auto/MI_CpuCopy8.c:
+    complete
+    .text       start:0x01ff88c4 end:0x01ff89f4
 
 libs/nitro/mi/asm_stubs/auto/MI_Zero36B.c:
     complete
@@ -133,6 +181,10 @@ libs/nitro/fx/auto/VEC_Mag.c:
     complete
     .text       start:0x01ff8cb8 end:0x01ff8d18
 
+libs/nitro/fx/asm_stubs/auto/func_01ff8d18.c:
+    complete
+    .text       start:0x01ff8d18 end:0x01ff8e38
+
 libs/nitro/fx/auto/VEC_MultAdd.c:
     complete
     .text       start:0x01ff8e38 end:0x01ff8e94
@@ -184,6 +236,10 @@ libs/nitro/mtx/asm_stubs/auto/MTX_Copy43To44_.c:
 libs/nitro/mtx/calls/MTX_ScaleApply43.c:
     complete
     .text       start:0x01ff9494 end:0x01ff94c8
+
+libs/nitro/mtx/asm_stubs/auto/MTX_RotX43_.c:
+    complete
+    .text       start:0x01ff94c8 end:0x01ff94e6
 
 libs/nitro/mtx/asm_stubs/auto/MTX_RotY43_.c:
     complete
