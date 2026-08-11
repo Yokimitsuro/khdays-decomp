@@ -168,7 +168,7 @@ src/overlays/ov190/calls/func_ov190_020d56ec.c:
     complete
     .text       start:0x020d56ec end:0x020d5740
 
-src/overlays/ov190/asm_stubs/calls/func_ov190_020d5740.c:
+src/overlays/ov190/calls/func_ov190_020d5740.c:
     complete
     .text       start:0x020d5740 end:0x020d5934
 
