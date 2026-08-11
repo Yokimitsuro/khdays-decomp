@@ -60,7 +60,7 @@ src/overlays/ov281/auto/func_ov281_020ccab4.c:
     complete
     .text       start:0x020ccab4 end:0x020ccae4
 
-src/overlays/ov281/asm_stubs/calls/func_ov281_020ccae4.c:
+src/overlays/ov281/calls/func_ov281_020ccae4.c:
     complete
     .text       start:0x020ccae4 end:0x020ccd68
 
