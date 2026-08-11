@@ -22,6 +22,20 @@ FLAGS = [
     "-inline", "on,noauto", "-Cpp_exceptions", "off", "-gccext,on",
 ]
 
+
+def load_json_retry(path, attempts=20):
+    """Read a generated JSON sidecar across a concurrent replace/write window."""
+    for attempt in range(attempts):
+        try:
+            text = path.read_text(encoding="utf-8")
+            if not text.strip():
+                raise json.JSONDecodeError("empty generated sidecar", text, 0)
+            return json.loads(text)
+        except (OSError, json.JSONDecodeError):
+            if attempt + 1 == attempts:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+
 # Path of this source file relative to the repo root — used for both the
 # thumb/arm mode map and the per-file compiler override map.
 out_path = Path(sys.argv[1])
@@ -33,7 +47,7 @@ rel = src_path.resolve().relative_to(ROOT).as_posix()
 modes_path = ROOT / "build" / "file_modes.json"
 extra = []
 if modes_path.exists():
-    modes = json.loads(modes_path.read_text(encoding="utf-8"))
+    modes = load_json_retry(modes_path)
     if modes.get(rel) == "thumb":
         extra.append("-thumb")
 
@@ -44,7 +58,7 @@ if modes_path.exists():
 mwcc_bin = MWCCARM
 comp_path = ROOT / "build" / "file_compilers.json"
 if comp_path.exists():
-    cmap = json.loads(comp_path.read_text(encoding="utf-8"))
+    cmap = load_json_retry(comp_path)
     ver = cmap.get(rel)
     if ver:
         mwcc_bin = ROOT / "tools" / "mwccarm" / ver / "mwccarm.exe"

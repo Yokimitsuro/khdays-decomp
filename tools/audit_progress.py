@@ -45,6 +45,11 @@ SRC_DIRS = _discover_src_dirs()
 BUILD_DIR = ROOT / "build"
 
 ASM_MARKERS = (
+    # MWCC also accepts a bare inline block, `asm { ... }`.  This is not a
+    # function declaration, so the return-type patterns below do not see it.
+    # Match it only at the start of a source line to avoid flagging prose such
+    # as "the old asm stub" inside comments.
+    r"^\s*asm\s*(?:\{|\()",
     # Any `asm <return-type> name(` body, whatever the return type is spelled as. The pattern
     # below it lists only the builtin type keywords, so a typedef'd return type
     # (`asm Ov000StateFn f(void)`, `asm u8 f(int)`) slipped through and the file was counted as

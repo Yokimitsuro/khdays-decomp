@@ -84,6 +84,10 @@ src/calls/func_02000f48.c:
     complete
     .text       start:0x02000f48 end:0x02000fb4
 
+src/calls/func_02000fb4.c:
+    complete
+    .text       start:0x02000fb4 end:0x02001020
+
 src/calls/srand.c:
     complete
     .text       start:0x02001020 end:0x02001030
