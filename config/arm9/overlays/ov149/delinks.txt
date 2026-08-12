@@ -12,7 +12,7 @@ src/overlays/ov149/calls/func_ov149_020cdd58.c:
     complete
     .text       start:0x020cdd58 end:0x020cdde4
 
-src/overlays/ov149/asm_stubs/calls/func_ov149_020cdde4.c:
+src/overlays/ov149/calls/func_ov149_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020ce054
 
