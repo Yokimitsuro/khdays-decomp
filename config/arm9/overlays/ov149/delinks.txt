@@ -28,7 +28,7 @@ src/overlays/ov149/calls/func_ov149_020ce0e4.c:
     complete
     .text       start:0x020ce0e4 end:0x020ce114
 
-src/overlays/ov149/asm_stubs/calls/func_ov149_020ce114.c:
+src/overlays/ov149/calls/func_ov149_020ce114.c:
     complete
     .text       start:0x020ce114 end:0x020ce370
 
