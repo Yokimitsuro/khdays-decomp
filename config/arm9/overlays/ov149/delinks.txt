@@ -96,7 +96,7 @@ src/overlays/ov149/calls/func_ov149_020cecbc.c:
     complete
     .text       start:0x020cecbc end:0x020ced48
 
-src/overlays/ov149/asm_stubs/calls/func_ov149_020ced48.c:
+src/overlays/ov149/calls/func_ov149_020ced48.c:
     complete
     .text       start:0x020ced48 end:0x020ceee4
 
