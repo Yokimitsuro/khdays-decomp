@@ -1,0 +1,112 @@
+/* Constructor for this enemy: install the five entry points, set the appearance
+ * flags, subscribe the main item, allocate the two child slots and open the
+ * particle pool.
+ *
+ * Same template as func_ov147_020cdd34 with three differences: the flags60 nibble
+ * is 0x46 instead of 0x4e, the child slots are ALLOCATED through func_0203d15c
+ * rather than living inline in the object, and the owner sits at +0x38c so the
+ * slot pointer can take +0x390. */
+typedef unsigned short u16;
+
+struct ChildIds {
+    int values[2];
+};
+
+struct Subitem {
+    char pad00[0x5c];
+    unsigned int flags5c;
+};
+
+struct PoolEntry {
+    int value;
+    int pad04;
+    unsigned int flags : 8;
+};
+
+struct ChildSlot {
+    struct Subitem *child;
+    int pad04;
+};
+
+struct Obj {
+    char pad00[0x08];
+    void (*fn08)(void);
+    void (*fn0c)(void);
+    char pad10[0x0c];
+    void (*fn1c)(void);
+    char pad20[0x10];
+    void (*fn30)(void);
+    char pad34[0x2c];
+    u16 flags60;
+    char pad62[0x02];
+    int camera[4];
+    char pad74[0x28];
+    struct Subitem *subscriber9c;
+    char padA0[0x10e];
+    u16 flags1ae;
+    char pad1b0[0x20];
+    void (*fn1d0)(void);
+    char pad1d4[0x58];
+    char pool22c[0x158];
+    struct Subitem *subitem384;
+    struct PoolEntry *poolEntry388;
+    struct Obj *owner38c;
+    struct ChildSlot *slots390;
+};
+
+extern const struct ChildIds data_ov149_020d0758;
+extern void func_ov149_020cf9ac(void);
+extern void func_ov149_020cf9ec(void);
+extern void func_ov149_020cfa24(void);
+extern void func_ov149_020cfc00(void);
+extern void func_ov149_020cfad8(void);
+
+extern void *func_ov107_020c9440(struct Obj *owner, int index);
+extern struct Subitem *func_0203b898(void *item);
+extern void func_0203bfb4(struct Subitem *subscriber, struct Subitem *item);
+extern void func_0203b9fc(struct Subitem *item, int state, int zero, int enabled);
+extern void func_0203c7ac(struct Subitem *item, int value);
+extern void *func_0203d15c(int size);
+extern void func_ov107_020c9074(struct Obj *owner, struct Subitem *item);
+extern struct PoolEntry *func_01fffca8(void *pool, int elementSize, int capacity);
+extern int func_ov107_020c319c(void *camera);
+
+void func_ov149_020cf804(struct Obj *self)
+{
+    struct ChildIds ids = data_ov149_020d0758;
+    unsigned int flags;
+    int i;
+
+    self->fn08 = func_ov149_020cf9ac;
+    self->fn0c = func_ov149_020cf9ec;
+    self->fn1c = func_ov149_020cfa24;
+    self->fn30 = func_ov149_020cfc00;
+    self->fn1d0 = func_ov149_020cfad8;
+
+    flags = self->flags60;
+    self->flags60 = flags & ~0xff00 |
+        (((((flags << 0x10) >> 0x18) | 0x46) << 0x18) >> 0x10);
+    self->flags1ae |= 4;
+    self->camera[3] = 0x700;
+
+    self->subscriber9c->flags5c |= 4;
+
+    self->subitem384 = func_0203b898(func_ov107_020c9440(self->owner38c, 6));
+    func_0203bfb4(self->subscriber9c, self->subitem384);
+    func_0203b9fc(self->subitem384, 0, 0, 1);
+    func_0203b9fc(self->subitem384, 2, 0, 1);
+    func_0203c7ac(self->subitem384, 0);
+
+    self->slots390 = func_0203d15c(0x10);
+
+    for (i = 0; i < 2; i++) {
+        self->slots390[i].child =
+            func_0203b898(func_ov107_020c9440(self->owner38c, ids.values[i]));
+        func_ov107_020c9074(self->owner38c, self->slots390[i].child);
+        self->slots390[i].child->flags5c |= 2;
+    }
+
+    self->poolEntry388 = func_01fffca8(self->pool22c, 0x10, 0x64);
+    self->poolEntry388->value = func_ov107_020c319c(self->camera);
+    self->poolEntry388->flags |= 2;
+}
