@@ -40,7 +40,7 @@ src/overlays/ov120/calls/func_ov120_020cc50c.c:
     complete
     .text       start:0x020cc50c end:0x020cc568
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cc568.c:
+src/overlays/ov120/calls/func_ov120_020cc568.c:
     complete
     .text       start:0x020cc568 end:0x020cc7a0
 
