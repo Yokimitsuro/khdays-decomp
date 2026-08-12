@@ -12,7 +12,7 @@ src/overlays/ov122/calls/func_ov122_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020cfc04.c:
+src/overlays/ov122/calls/func_ov122_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfe78
 
@@ -24,7 +24,7 @@ src/overlays/ov122/calls/func_ov122_020cfec0.c:
     complete
     .text       start:0x020cfec0 end:0x020cfee4
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020cfee4.c:
+src/overlays/ov122/calls/func_ov122_020cfee4.c:
     complete
     .text       start:0x020cfee4 end:0x020d0084
 
@@ -32,7 +32,7 @@ src/overlays/ov122/calls/func_ov122_020d0084.c:
     complete
     .text       start:0x020d0084 end:0x020d00b4
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020d00b4.c:
+src/overlays/ov122/calls/func_ov122_020d00b4.c:
     complete
     .text       start:0x020d00b4 end:0x020d014c
 
@@ -40,7 +40,7 @@ src/overlays/ov122/calls/func_ov122_020d014c.c:
     complete
     .text       start:0x020d014c end:0x020d01a8
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020d01a8.c:
+src/overlays/ov122/calls/func_ov122_020d01a8.c:
     complete
     .text       start:0x020d01a8 end:0x020d03e0
 
@@ -92,7 +92,7 @@ src/overlays/ov122/calls/func_ov122_020d0b48.c:
     complete
     .text       start:0x020d0b48 end:0x020d0bac
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020d0bac.c:
+src/overlays/ov122/calls/func_ov122_020d0bac.c:
     complete
     .text       start:0x020d0bac end:0x020d0de0
 
@@ -108,7 +108,7 @@ src/overlays/ov122/calls/func_ov122_020d0ee0.c:
     complete
     .text       start:0x020d0ee0 end:0x020d0f3c
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020d0f3c.c:
+src/overlays/ov122/calls/func_ov122_020d0f3c.c:
     complete
     .text       start:0x020d0f3c end:0x020d1278
 
@@ -116,7 +116,7 @@ src/overlays/ov122/calls/func_ov122_020d1278.c:
     complete
     .text       start:0x020d1278 end:0x020d12f4
 
-src/overlays/ov122/asm_stubs/calls/func_ov122_020d12f4.c:
+src/overlays/ov122/calls/func_ov122_020d12f4.c:
     complete
     .text       start:0x020d12f4 end:0x020d1638
 
