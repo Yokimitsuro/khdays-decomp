@@ -116,7 +116,7 @@ src/overlays/ov120/calls/func_ov120_020cd638.c:
     complete
     .text       start:0x020cd638 end:0x020cd6b4
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cd6b4.c:
+src/overlays/ov120/calls/func_ov120_020cd6b4.c:
     complete
     .text       start:0x020cd6b4 end:0x020cd9f8
 
