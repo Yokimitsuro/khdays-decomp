@@ -160,7 +160,7 @@ src/overlays/ov147/calls/func_ov147_020cd8dc.c:
     complete
     .text       start:0x020cd8dc end:0x020cd938
 
-src/calls/func_ov147_020cd938.c:
+src/overlays/ov147/calls/func_ov147_020cd938.c:
     complete
     .text       start:0x020cd938 end:0x020cd9fc
 
@@ -216,7 +216,7 @@ src/overlays/ov147/calls/func_ov147_020ce068.c:
     complete
     .text       start:0x020ce068 end:0x020ce09c
 
-src/calls/func_ov147_020ce09c.c:
+src/overlays/ov147/calls/func_ov147_020ce09c.c:
     complete
     .text       start:0x020ce09c end:0x020ce100
 
@@ -232,7 +232,7 @@ src/overlays/ov147/calls/func_ov147_020ce1f4.c:
     complete
     .text       start:0x020ce1f4 end:0x020ce26c
 
-src/calls/func_ov147_020ce26c.c:
+src/overlays/ov147/calls/func_ov147_020ce26c.c:
     complete
     .text       start:0x020ce26c end:0x020ce2d0
 
