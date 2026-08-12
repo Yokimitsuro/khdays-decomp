@@ -32,7 +32,7 @@ src/overlays/ov120/calls/func_ov120_020cc444.c:
     complete
     .text       start:0x020cc444 end:0x020cc474
 
-src/overlays/ov120/asm_stubs/calls/func_ov120_020cc474.c:
+src/overlays/ov120/calls/func_ov120_020cc474.c:
     complete
     .text       start:0x020cc474 end:0x020cc50c
 
