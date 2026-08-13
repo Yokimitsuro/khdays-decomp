@@ -2328,6 +2328,10 @@ src/overlays/ov002/calls/func_ov002_0206edc8.c:
     complete
     .text       start:0x0206edc8 end:0x0206edf0
 
+src/overlays/ov002/calls/func_ov002_0206edf0.c:
+    complete
+    .text       start:0x0206edf0 end:0x0206ee38
+
 src/overlays/ov002/auto/func_ov002_0206f0c8.c:
     complete
     .text       start:0x0206f0c8 end:0x0206f0d0
