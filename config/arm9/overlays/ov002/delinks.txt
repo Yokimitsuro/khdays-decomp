@@ -3668,6 +3668,10 @@ src/overlays/ov002/calls/func_ov002_0207d450.c:
     complete
     .text       start:0x0207d450 end:0x0207d48a
 
+src/overlays/ov002/calls/func_ov002_0207d48c.c:
+    complete
+    .text       start:0x0207d48c end:0x0207d4dc
+
 src/overlays/ov002/calls/func_ov002_0207d610.c:
     complete
     .text       start:0x0207d610 end:0x0207d696
