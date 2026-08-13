@@ -56,7 +56,7 @@ src/overlays/ov264/calls/func_ov264_020cca58.c:
     complete
     .text       start:0x020cca58 end:0x020ccab4
 
-src/overlays/ov264/asm_stubs/calls/func_ov264_020ccab4.c:
+src/overlays/ov264/calls/func_ov264_020ccab4.c:
     complete
     .text       start:0x020ccab4 end:0x020ccde8
 
