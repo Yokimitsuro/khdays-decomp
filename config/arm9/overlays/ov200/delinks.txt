@@ -24,6 +24,10 @@ src/overlays/ov200/calls/func_ov200_020ce190.c:
     complete
     .text       start:0x020ce190 end:0x020ce1c8
 
+src/overlays/ov200/calls/func_ov200_020ce4b8.c:
+    complete
+    .text       start:0x020ce4b8 end:0x020ce638
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020ce638.c:
     complete
     .text       start:0x020ce638 end:0x020ce644
