@@ -1,0 +1,7 @@
+target .text:  968 bytes
+matched .text: 968 bytes
+non-relocation word differences: 0
+target relocations:  43
+matched relocations: 43
+relocation offset/symbol semantics identical: True
+MATCH: byte-exact instruction/data stream after canonical relocation normalization

@@ -1,0 +1,94 @@
+--- code.c	2026-08-13 15:09:34.000000000 +0000
++++ /mnt/data/func_ov264_020cc1fc_BYTE_EXACT_MATCH/code_MATCH.c	2026-08-14 01:01:12.513504393 +0000
+@@ -8,8 +8,9 @@
+ 
+     kinds = data_ov264_020cebc4;
+     params.w[0] = -0x190b;
+-    params.w[2] = -0x1fc4;
+     params.w[1] = -6;
++    params.w[2] = -0x1fc4;
++    params.w[3] = params.w[0] + 0x3217;
+     params.w[4] = params.w[1] + 0x2cc3;
+     params.w[5] = params.w[2] + 0x2597;
+     *(void **)(self + 0x8) = (void *)func_ov264_020cc5c4;
+@@ -21,7 +22,6 @@
+     *(void **)(self + 0x1dc) = (void *)func_ov264_020cc9e0;
+     *(void **)(self + 0x1e0) = (void *)func_ov264_020ccde8;
+     *(void **)(self + 0x1e4) = (void *)func_ov264_020cce14;
+-    params.w[3] = params.w[0] + 0x3217;
+     *(int *)(self + 0x70) = 0x1400;
+     *(int *)(self + 0x64) = 0;
+     *(int *)(self + 0x68) = 0x1400;
+@@ -29,11 +29,16 @@
+     *(ParamBlock *)(self + 0x1fc) = params;
+     *(char *)(self + 0x1c9) = 1;
+     {
+-        u16 v = *(u16 *)(self + 0x60);
+-    *(u16 *)(self + 0x1ae) |= 8;
+-        *(u16 *)(self + 0x60) =
+-            (u16)((v & ~0xff00)
+-                  | (((((unsigned int)v << 0x10) >> 0x18 | 0x20) << 0x18) >> 0x10));
++        unsigned int v = *(u16 *)(self + 0x60);
++        unsigned int low = v & ~0xff00;
++        v <<= 16;
++        v >>= 24;
++        v |= 0x20;
++        v <<= 24;
++        v >>= 16;
++        v |= low;
++        *(u16 *)(self + 0x60) = (u16)v;
++        *(u16 *)(self + 0x1ae) |= 8;
+     }
+ 
+     {
+@@ -51,9 +56,8 @@
+     *(int *)(self + 0x438) = func_0203bdfc(*(void **)(self + 0x384), data_ov264_020cec2c);
+ 
+     {
+-        void *sub = func_0203b898(func_ov107_020c9440(self, 0xa));
+-        *(void **)(self + 0x420) = sub;
+-        *(void **)((char *)sub + 0x6c) = (void *)func_ov264_020cc09c;
++        *(void **)(self + 0x420) = func_0203b898(func_ov107_020c9440(self, 0xa));
++        *(void **)(*(char **)(self + 0x420) + 0x6c) = (void *)func_ov264_020cc09c;
+         *(char **)(*(char **)(self + 0x420) + 0x84) = self;
+         func_0203c7ac(*(void **)(self + 0x420), 0);
+         *(int *)(self + 0x434) = func_0203bdfc(*(void **)(self + 0x420), data_ov264_020cec38);
+@@ -74,24 +78,21 @@
+     for (i = 0; i < 5; i++) {
+         void *node;
+         if (i <= 0) {
+-            unsigned int addr =
+-                (*(int *)((char *)OS_IsThreadAvailable_0x020c9848() + 0x88) + 0x8000) & 0x00fffffc;
++            void *os = OS_IsThreadAvailable_0x020c9848();
++            unsigned int kind = kinds.w[i] & 0x1ff;
++            unsigned int addr = (*(int *)((char *)os + 0x88) + 0x8000) & 0x00fffffc;
+             addr = addr << 7;
+             addr = addr | 0x80000000;
+-            node = func_0203b898((void *)((kinds.w[i] & (unsigned int)params.w[0] >> 0x17) | addr));
++            node = func_0203b898((void *)(kind | addr));
+         } else {
+             node = func_0203b898(func_ov107_020c9440(self, kinds.w[i]));
+         }
+-        ((Slot *)(self + 0x440))[i].node = node;
+-        func_ov107_020c9074(self, node);
++        func_ov107_020c9074(self, (((Slot *)(self + 0x440))[i].node = node));
+         *(int *)((char *)((Slot *)(self + 0x440))[i].node + 0x5c) |= 2;
+     }
+ 
+-    {
+-        void *node = func_0203c1b0(func_ov107_020c9440(self, 0xe), 0x22);
+-        *(void **)(self + 0x3c4) = node;
+-        func_ov107_020c9074(self, node);
+-    }
++    *(void **)(self + 0x3c4) = func_0203c1b0(func_ov107_020c9440(self, 0xe), 0x22);
++    func_ov107_020c9074(self, *(void **)(self + 0x3c4));
+     *(int *)(*(char **)(self + 0x3c4) + 0x5c) |= 2;
+     *(void **)(self + 0x3c0) = func_ov264_020ce9fc(self);
+ 
+@@ -106,4 +107,4 @@
+         *(void **)(self + 0x3b0) = node;
+     }
+     func_0203355c(0x15d);
+-}
+\ No newline at end of file
++}
