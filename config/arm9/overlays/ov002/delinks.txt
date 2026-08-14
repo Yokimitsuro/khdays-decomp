@@ -1620,6 +1620,10 @@ src/overlays/ov002/calls/func_ov002_02066074.c:
     complete
     .text       start:0x02066074 end:0x020660b0
 
+src/overlays/ov002/calls/func_ov002_020661f0.c:
+    complete
+    .text       start:0x020661f0 end:0x02066248
+
 src/overlays/ov002/auto/func_ov002_02066248.c:
     complete
     .text       start:0x02066248 end:0x0206625c
