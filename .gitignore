@@ -100,3 +100,6 @@ build/active_function.json
 build/semantic_receipts/
 build/match_receipts/
 build/completed_functions/
+
+# Agent working files: sweep scripts, receipts and diff helpers.
+scratchpad/
