@@ -12,7 +12,7 @@ SDK/library identifications are tracked separately; see
 | PART main | 1488 | 28 | 150 | 295 | 1961 | 75.9% |
 | DONE ov000 | 262 | 0 | 0 | 0 | 262 | 100.0% |
 | DONE ov001 | 8 | 0 | 0 | 0 | 8 | 100.0% |
-| PART ov002 | 1009 | 0 | 1 | 468 | 1478 | 68.3% |
+| PART ov002 | 1010 | 0 | 1 | 467 | 1478 | 68.3% |
 | PART ov003 | 24 | 4 | 0 | 0 | 28 | 85.7% |
 | PART ov004 | 55 | 0 | 0 | 28 | 83 | 66.3% |
 | PART ov005 | 188 | 0 | 0 | 101 | 289 | 65.1% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **16640** | **1757** | **183** | **4660** | **23240** | **71.6%** |
+| **TOTAL** | **16641** | **1757** | **183** | **4659** | **23240** | **71.6%** |
 
 ## Byte progress
 
@@ -317,4 +317,4 @@ to how decomp.dev reports progress:
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **2,006,782** | **4,728,790** | **42.44%** |
+| **2,007,438** | **4,728,790** | **42.45%** |
