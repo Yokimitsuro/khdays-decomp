@@ -24,6 +24,10 @@ src/overlays/ov271/calls/func_ov271_020cffb0.c:
     complete
     .text       start:0x020cffb0 end:0x020cffe8
 
+src/overlays/ov271/calls/func_ov271_020d02d8.c:
+    complete
+    .text       start:0x020d02d8 end:0x020d0458
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d0458.c:
     complete
     .text       start:0x020d0458 end:0x020d0464

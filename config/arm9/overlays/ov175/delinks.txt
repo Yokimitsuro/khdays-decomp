@@ -172,7 +172,7 @@ src/overlays/ov175/calls/func_ov175_020ce210.c:
     complete
     .text       start:0x020ce210 end:0x020ce244
 
-src/overlays/ov175/asm_stubs/calls/func_ov175_020ce244.c:
+src/overlays/ov175/calls/func_ov175_020ce244.c:
     complete
     .text       start:0x020ce244 end:0x020ce3a4
 
