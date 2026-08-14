@@ -16,7 +16,7 @@ src/overlays/ov003/calls/func_ov003_0204cb44.c:
     complete
     .text       start:0x0204cb44 end:0x0204cba0
 
-src/overlays/ov003/asm_stubs/calls/func_ov003_0204cba0.c:
+src/overlays/ov003/calls/func_ov003_0204cba0.c:
     complete
     .text       start:0x0204cba0 end:0x0204d1c0
 
