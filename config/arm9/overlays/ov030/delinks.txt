@@ -148,11 +148,11 @@ src/overlays/ov030/calls/func_ov030_020b4c50.c:
     complete
     .text       start:0x020b4c50 end:0x020b4cd4
 
-src/overlays/ov030/asm_stubs/calls/func_ov030_020b4cd4.c:
+src/overlays/ov030/calls/func_ov030_020b4cd4.c:
     complete
     .text       start:0x020b4cd4 end:0x020b4fe0
 
-src/overlays/ov030/asm_stubs/calls/func_ov030_020b4fe0.c:
+src/overlays/ov030/calls/func_ov030_020b4fe0.c:
     complete
     .text       start:0x020b4fe0 end:0x020b54dc
 
@@ -164,6 +164,6 @@ src/overlays/ov030/calls/func_ov030_020b55d0.c:
     complete
     .text       start:0x020b55d0 end:0x020b564c
 
-src/overlays/ov030/asm_stubs/calls/func_ov030_020b564c.c:
+src/overlays/ov030/calls/func_ov030_020b564c.c:
     complete
     .text       start:0x020b564c end:0x020b5860

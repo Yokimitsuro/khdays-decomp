@@ -188,7 +188,7 @@ src/overlays/ov152/asm_stubs/calls/func_ov152_020d5c4c.c:
     complete
     .text       start:0x020d5c4c end:0x020d5d70
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d5d70.c:
+src/overlays/ov152/calls/func_ov152_020d5d70.c:
     complete
     .text       start:0x020d5d70 end:0x020d5e24
 
