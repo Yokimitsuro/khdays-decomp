@@ -35,9 +35,9 @@ extern Ov002PanelSession *data_ov002_0207f620;
 
 extern int func_ov002_02053bb8(int nItemId);
 extern void func_ov002_02053cd4(int nItemId);
-extern void func_ov002_0205abe0(int nSlot, int nState, int nKind);
-extern void func_ov002_0205ad5c(int nSlot, int nKind, u16 nTile, u16 nAttr,
-                                int bRightAlign);
+extern void func_ov002_0205abe0(int nSlot, int nState, int nValue);
+extern void func_ov002_0205ad5c(int nSlot, int nColumn, int nTile,
+                                int nPalette, int bRightAlign);
 extern void func_ov002_0205aa3c(int nSlot, int nValue, int nColumn,
                                 int bRightAlign, int bShowZero);
 extern void MIi_CpuClear16(int nValue, int pDest, int nSize);
