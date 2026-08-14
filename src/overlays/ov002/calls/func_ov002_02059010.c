@@ -3,10 +3,9 @@ typedef unsigned short u16;
 
 typedef struct {
     unsigned long long qwStart;
-    int nDuration;
-    int nPhase;
+    unsigned long long qwInterval;
     int bActive;
-    int nField0014;
+    int nPhase;
 } Ov002GaugeSlot;
 
 typedef struct {
