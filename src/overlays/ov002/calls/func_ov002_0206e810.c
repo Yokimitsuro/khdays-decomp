@@ -1,11 +1,15 @@
 /* Allocate the event context, blank every slot table and hand back the tick
  * routine the caller should install.
  *
- * Ghidra models this object as Ov002EventContext, already carrying the six
- * tables; this function proved the header in front of them, which was padding
- * before: a version halfword at +0, four handles filled with 0xffff at +2, a
- * count at +0xa and the current index at +0xb. data_ov002_0207fa04 was already
- * typed Ov002EventContext*.
+ * Ghidra models this object as Ov002EventContext. Its tables are two identical
+ * 0x120-byte banks at +0xc; the claim routine proves that shape by holding one
+ * bank in a register. This function proved the header in front of them, which
+ * was padding before: a version halfword at +0, four handles filled with 0xffff
+ * at +2, a count at +0xa and the current index at +0xb. data_ov002_0207fa04 was
+ * already typed Ov002EventContext*.
+ *
+ * All six tables are cleared by one loop walking them in step, so the codegen
+ * view below stays flat: the nested shape does not reproduce the shared index.
  */
 
 typedef struct {
@@ -13,10 +17,10 @@ typedef struct {
     short aHandles[4];                  /* +0x002, filled with 0xffff */
     unsigned char nCount;               /* +0x00a */
     signed char nCurrent;               /* +0x00b */
-    int aHandlers[0x20];                   /* +0x00c */
+    int aHandlers[0x20];                /* +0x00c  bank 0 */
     int aSlots[0x20];                   /* +0x08c */
     unsigned char aFlags[0x20];          /* +0x10c */
-    int aHandlersAlt[0x20];                   /* +0x12c */
+    int aHandlersAlt[0x20];             /* +0x12c  bank 1 */
     int aSlotsAlt[0x20];                   /* +0x1ac */
     unsigned char aFlagsAlt[0x20];         /* +0x22c */
 } Ov002EventContext;                        /* 0x24c */
