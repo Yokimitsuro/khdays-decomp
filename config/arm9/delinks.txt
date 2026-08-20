@@ -3524,7 +3524,7 @@ src/calls/WM_EndKeySharing_0x0202019c.c:
     complete
     .text       start:0x0202019c end:0x020201a8
 
-libs/msl/c/asm_stubs/auto/func_020203b0.c:
+libs/msl/c/asm_stubs/auto/_ll_mul.c:
     complete
     .text       start:0x020203b0 end:0x020203d0
 
