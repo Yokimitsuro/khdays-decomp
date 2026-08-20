@@ -1,29 +1,37 @@
+/* Find the key entry registered under the given id, or NULL.
+ *
+ * Ghidra models the owner as Ov002RootContext, with pKeyEntries at +0x8d14 and
+ * bKeyEntryCount at +0x8d19, and the record as Ov002KeyEntry. The local structs
+ * are the codegen view of those fields: reading the count straight out of the
+ * loop condition, rather than through a local, is what puts the two live values
+ * in the registers the original uses.
+ */
+
 extern char *data_ov002_0207fa00;
 
 typedef struct {
     char pad00[0x40];
-    short nId;                      /* +0x40 */
-    short pad42;
-} Ov002NamedEntry;                  /* 0x44 */
+    short nKey;                      /* +0x40 */
+    short nValue;                 /* +0x42 */
+} Ov002KeyEntry;                 /* 0x44 */
 
 typedef struct {
-    Ov002NamedEntry *pList;         /* +0x00 */
+    Ov002KeyEntry *pKeyEntries;         /* +0x00 */
     unsigned char pad04;
-    unsigned char nCount;           /* +0x05 */
+    unsigned char nKeyEntryCount;           /* +0x05 */
     unsigned char pad06[2];
-} Ov002NameTable;
+} Ov002KeyEntryTable;
 
-/* Find the registered entry carrying the given id, or NULL. */
-Ov002NamedEntry *func_ov002_0206d084(int nId)
+Ov002KeyEntry *func_ov002_0206d084(int nId)
 {
     int i;
-    Ov002NameTable *pTable;
+    Ov002KeyEntryTable *pTable;
 
-    pTable = (Ov002NameTable *)(data_ov002_0207fa00 + 0x8d14);
+    pTable = (Ov002KeyEntryTable *)(data_ov002_0207fa00 + 0x8d14);
 
-    for (i = 0; i < pTable->nCount; i++) {
-        if (nId == pTable->pList[i].nId) {
-            return &pTable->pList[i];
+    for (i = 0; i < pTable->nKeyEntryCount; i++) {
+        if (nId == pTable->pKeyEntries[i].nKey) {
+            return &pTable->pKeyEntries[i];
         }
     }
     return 0;
