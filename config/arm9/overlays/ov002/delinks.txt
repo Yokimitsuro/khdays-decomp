@@ -3968,6 +3968,10 @@ src/overlays/ov002/calls/func_ov002_02079104.c:
     complete
     .text       start:0x02079104 end:0x02079110
 
+src/overlays/ov002/calls/func_ov002_02079110.c:
+    complete
+    .text       start:0x02079110 end:0x02079224
+
 src/overlays/ov002/calls/func_ov002_02079224.c:
     complete
     .text       start:0x02079224 end:0x02079268
