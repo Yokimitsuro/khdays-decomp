@@ -7,12 +7,14 @@ extern int func_ov002_02076468(int nId);
 extern void func_ov002_0207a650(int nOwner, u16 wA, u16 wB, u16 wStateField,
                                 int bStateWidth, void *pPos, int nAngle);
 
-/* Script VM command: start a line element from the command's operands.
+/* Script VM command: spawn a placed piece from the command's operands.
  *
- * Same family as the other spawn commands. The word baked into the command at
- * +0x1c is read before anything else here and splits into the state field and
- * its width, the three fixed point operands form the position, and the raw
- * angle is divided by 0x168 and kept signed.
+ * The spawner this calls places a piece's node with its class's placement
+ * parameters; the line element has its own command and its own spawner. Same
+ * family otherwise: the word baked into the command at +0x1c is read before
+ * anything else here and splits into the state field and its width, the three
+ * fixed point operands form the position, and the raw angle is divided by 0x168
+ * and kept signed.
  *
  * Always returns 1.
  */
