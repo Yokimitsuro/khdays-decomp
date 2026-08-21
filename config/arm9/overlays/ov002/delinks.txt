@@ -4420,6 +4420,10 @@ src/overlays/ov002/calls/func_ov002_0207ceac.c:
     complete
     .text       start:0x0207ceac end:0x0207cf58
 
+src/overlays/ov002/calls/func_ov002_0207cf58.c:
+    complete
+    .text       start:0x0207cf58 end:0x0207d004
+
 src/overlays/ov002/calls/func_ov002_0207d004.c:
     complete
     .text       start:0x0207d004 end:0x0207d0ee
