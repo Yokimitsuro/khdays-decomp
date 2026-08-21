@@ -4376,6 +4376,10 @@ src/overlays/ov002/auto/func_ov002_0207c6c0.c:
     complete
     .text       start:0x0207c6c0 end:0x0207c700
 
+src/overlays/ov002/calls/func_ov002_0207c700.c:
+    complete
+    .text       start:0x0207c700 end:0x0207c770
+
 src/overlays/ov002/calls/func_ov002_0207c770.c:
     complete
     .text       start:0x0207c770 end:0x0207c788
