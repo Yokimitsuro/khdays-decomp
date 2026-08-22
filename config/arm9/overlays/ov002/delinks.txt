@@ -244,6 +244,10 @@ src/overlays/ov002/auto/func_ov002_02051b20.c:
     complete
     .text       start:0x02051b20 end:0x02051b2e
 
+src/overlays/ov002/calls/func_ov002_02051b30.c:
+    complete
+    .text       start:0x02051b30 end:0x02051c88
+
 src/overlays/ov002/calls/func_ov002_02051c88.c:
     complete
     .text       start:0x02051c88 end:0x02051cbc
