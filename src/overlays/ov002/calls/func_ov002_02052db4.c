@@ -1,11 +1,14 @@
 /*
- * Ov002_GetItemResource - what a UI item id resolves to.
+ * Ov002_GetItemFlag - the flag that goes with a UI item id.
  *
- * Most ids map to a slot in the item resource table and the answer is simply
- * that slot's entry. The seven ids that do not are the ones that stand for a
- * background layer instead - three on the main engine, all four on the sub
- * engine - and for those the answer is that layer's colour mode bit, read
- * straight out of its control register.
+ * Most ids map to a slot, and the answer is that slot's enable word, reached
+ * through the item resource table at +0x1c past its head. The seven ids that do
+ * not are the ones standing for a background layer - three on the main engine,
+ * all four on the sub engine - and for those the answer is that layer's colour
+ * mode bit, read straight out of its control register.
+ *
+ * Not to be confused with the resource lookup at 02053bb8, which answers with
+ * the buffer to draw into; that one owns the GetItemResource name.
  *
  * ARM. Two things are faithful to the ROM rather than to good sense: the answer
  * is returned uninitialised when the id is neither, which is what the original
