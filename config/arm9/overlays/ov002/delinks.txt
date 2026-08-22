@@ -432,6 +432,10 @@ src/overlays/ov002/calls/func_ov002_0205311c.c:
     complete
     .text       start:0x0205311c end:0x02053190
 
+src/overlays/ov002/calls/func_ov002_02053190.c:
+    complete
+    .text       start:0x02053190 end:0x02053220
+
 src/overlays/ov002/calls/func_ov002_02053220.c:
     complete
     .text       start:0x02053220 end:0x02053260
