@@ -5,19 +5,19 @@
  * sides at once: the inner rows get the base tile plus five, the outermost pair
  * plus eight, and one closing row plus two. When the span is odd and the source
  * is tall enough, that closing row sits one past the far edge instead of on it.
- * Every tile carries the surface's mode nibble in its top four bits.
+ * Every tile carries the surface's palette number in its top four bits.
  *
  * ARM. The tile word is rebuilt at each call rather than hoisted, which is what
  * the ROM does - it reloads the mode byte and the base for all five sites.
  *
- * Byte-exact lever, and it is the whole function: the mode nibble is placed by
+ * Byte-exact lever, and it is the whole function: the palette nibble is placed by
  * casting the shifted byte to unsigned short, NOT by masking it. Both spellings
  * emit the same lsl #28 with the lsr #16 folded into the orr, but the cast is
  * what makes mwcc order the pack the ROM's way - the shift emitted before the
  * base's addition, with the or writing back into the shifted operand's
  * register. Written as (base + k) | (mode << 28 >> 16) the addition comes out
- * first; written as (mode << 28 >> 16) | (base + k) the two temporaries swap
- * registers. Only the halfword cast gives both at once, and the mode half must
+ * first; written as (palette << 28 >> 16) | (base + k) the two temporaries swap
+ * registers. Only the halfword cast gives both at once, and the palette half must
  * still be written first.
  */
 
