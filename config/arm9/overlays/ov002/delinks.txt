@@ -880,6 +880,10 @@ src/overlays/ov002/calls/func_ov002_020555c8.c:
     complete
     .text       start:0x020555c8 end:0x02055608
 
+src/overlays/ov002/calls/func_ov002_02055608.c:
+    complete
+    .text       start:0x02055608 end:0x020556dc
+
 src/overlays/ov002/calls/func_ov002_020556dc.c:
     complete
     .text       start:0x020556dc end:0x02055730
