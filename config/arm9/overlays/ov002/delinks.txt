@@ -88,6 +88,14 @@ src/overlays/ov002/calls/func_ov002_0204e594.c:
     complete
     .text       start:0x0204e594 end:0x0204e6e0
 
+src/overlays/ov002/calls/func_ov002_0204e6e0.c:
+    complete
+    .text       start:0x0204e6e0 end:0x0204e864
+
+src/overlays/ov002/calls/func_ov002_0204e864.c:
+    complete
+    .text       start:0x0204e864 end:0x0204e9e8
+
 src/overlays/ov002/calls/func_ov002_02050a08.c:
     complete
     .text       start:0x02050a08 end:0x02050a54
