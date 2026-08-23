@@ -2212,6 +2212,10 @@ src/overlays/ov002/calls/func_ov002_02063270.c:
     complete
     .text       start:0x02063270 end:0x02063294
 
+src/overlays/ov002/calls/func_ov002_02063294.c:
+    complete
+    .text       start:0x02063294 end:0x0206333c
+
 src/overlays/ov002/auto/func_ov002_0206333c.c:
     complete
     .text       start:0x0206333c end:0x02063350
@@ -2223,6 +2227,10 @@ src/overlays/ov002/calls/func_ov002_02063350.c:
 src/overlays/ov002/calls/func_ov002_02063398.c:
     complete
     .text       start:0x02063398 end:0x020633d8
+
+src/overlays/ov002/calls/func_ov002_020633d8.c:
+    complete
+    .text       start:0x020633d8 end:0x020634f4
 
 src/calls/WM_EndKeySharing_0x02063574.c:
     complete
