@@ -2000,6 +2000,10 @@ src/overlays/ov002/calls/func_ov002_02061474.c:
     complete
     .text       start:0x02061474 end:0x020614d4
 
+src/overlays/ov002/calls/func_ov002_020614d4.c:
+    complete
+    .text       start:0x020614d4 end:0x020615fc
+
 src/overlays/ov002/calls/func_ov002_020615fc.c:
     complete
     .text       start:0x020615fc end:0x020616a0
