@@ -333,13 +333,33 @@ libs/nitro/nns/calls/func_01ffa764.c:
     complete
     .text       start:0x01ffa764 end:0x01ffa7fc
 
+libs/nitro/nns/calls/func_01ffb234.c:
+    complete
+    .text       start:0x01ffb234 end:0x01ffb304
+
 src/calls/func_01ffbbac.c:
     complete
     .text       start:0x01ffbbac end:0x01ffbbf0
 
+libs/nitro/nns/calls/func_01ffc0d0.c:
+    complete
+    .text       start:0x01ffc0d0 end:0x01ffc164
+
+libs/nitro/nns/calls/func_01ffcbac.c:
+    complete
+    .text       start:0x01ffcbac end:0x01ffcc1c
+
+src/calls/func_01ffcec0.c:
+    complete
+    .text       start:0x01ffcec0 end:0x01ffcf0c
+
 libs/nitro/fx/calls/VEC_DotProductFx16.c:
     complete
     .text       start:0x01ffcf0c end:0x01ffcf48
+
+libs/nitro/fx/auto/func_01ffcf48.c:
+    complete
+    .text       start:0x01ffcf48 end:0x01ffcfd0
 
 src/calls/func_01ffd0e8.c:
     complete
@@ -369,6 +389,14 @@ src/calls/func_01ffeba0.c:
     complete
     .text       start:0x01ffeba0 end:0x01ffec0c
 
+src/calls/func_01ffedf4.c:
+    complete
+    .text       start:0x01ffedf4 end:0x01ffee50
+
+src/calls/func_01ffef34.c:
+    complete
+    .text       start:0x01ffef34 end:0x01ffefb4
+
 src/auto/func_01fff75c.c:
     complete
     .text       start:0x01fff75c end:0x01fff774
@@ -376,6 +404,18 @@ src/auto/func_01fff75c.c:
 src/calls/func_01fff774.c:
     complete
     .text       start:0x01fff774 end:0x01fff7a4
+
+src/calls/func_01fff7a4.c:
+    complete
+    .text       start:0x01fff7a4 end:0x01fff7f0
+
+src/calls/func_01fff7f0.c:
+    complete
+    .text       start:0x01fff7f0 end:0x01fff83c
+
+src/calls/func_01fff83c.c:
+    complete
+    .text       start:0x01fff83c end:0x01fff888
 
 src/calls/func_01fff888.c:
     complete
@@ -468,3 +508,7 @@ src/calls/func_01fffde0.c:
 src/calls/func_01fffe14.c:
     complete
     .text       start:0x01fffe14 end:0x01fffe68
+
+src/calls/func_01fffe68.c:
+    complete
+    .text       start:0x01fffe68 end:0x01fffed0
