@@ -1,43 +1,54 @@
-extern int VEC_Add();
+typedef signed int s32;
+typedef unsigned char u8;
 
-typedef struct { int x, y, z; } Vec3;
+typedef struct VecFx32 {
+    s32 x;
+    s32 y;
+    s32 z;
+} VecFx32;
 
-typedef struct {
-    char pad0[0x10];
-    Vec3 v10;
-    Vec3 v1c;
-    Vec3 v28;
-    int f34;
-    int f38;
-    int f3c;
-    int f40;
-    char pad44[0x10];
-    Vec3 v54;
-} Obj;
+typedef struct CollCastState {
+    s32 mode00;
+    void *modelDataA04;
+    void *modelDataB08;
+    u8 pad0c[4];
+    VecFx32 modelStart10;
+    VecFx32 direction1c;
+    VecFx32 origin28;
+    s32 minX34;
+    s32 minZ38;
+    s32 maxX3c;
+    s32 maxZ40;
+    VecFx32 unitDirection44;
+    s32 directionLength50;
+    VecFx32 modelEnd54;
+} CollCastState;
 
-typedef struct {
-    char pad0[0x64];
-    Vec3 v64;
-} Other;
+typedef struct CollisionModelBlob {
+    u8 pad00[0x64];
+    VecFx32 castOffset64;
+} CollisionModelBlob;
 
-void func_01ffeba0(Obj *obj, Other *other)
+extern void VEC_Add(const VecFx32 *, const VecFx32 *, VecFx32 *);
+
+void func_01ffeba0(CollCastState *state, CollisionModelBlob *model)
 {
-    VEC_Add(&obj->v28, &other->v64, &obj->v10);
-    VEC_Add(&obj->v10, &obj->v1c, &obj->v54);
+    VEC_Add(&state->origin28, &model->castOffset64, &state->modelStart10);
+    VEC_Add(&state->modelStart10, &state->direction1c, &state->modelEnd54);
 
-    if (obj->v10.x < obj->v54.x) {
-        obj->f34 = obj->v10.x;
-        obj->f3c = obj->v54.x;
+    if (state->modelStart10.x < state->modelEnd54.x) {
+        state->minX34 = state->modelStart10.x;
+        state->maxX3c = state->modelEnd54.x;
     } else {
-        obj->f34 = obj->v54.x;
-        obj->f3c = obj->v10.x;
+        state->minX34 = state->modelEnd54.x;
+        state->maxX3c = state->modelStart10.x;
     }
 
-    if (obj->v10.z < obj->v54.z) {
-        obj->f38 = obj->v10.z;
-        obj->f40 = obj->v54.z;
+    if (state->modelStart10.z < state->modelEnd54.z) {
+        state->minZ38 = state->modelStart10.z;
+        state->maxZ40 = state->modelEnd54.z;
     } else {
-        obj->f38 = obj->v54.z;
-        obj->f40 = obj->v10.z;
+        state->minZ38 = state->modelEnd54.z;
+        state->maxZ40 = state->modelStart10.z;
     }
 }
