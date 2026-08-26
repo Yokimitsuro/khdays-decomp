@@ -4404,6 +4404,10 @@ src/calls/func_02028768.c:
     complete
     .text       start:0x02028768 end:0x020287e8
 
+src/calls/func_02028bb4.c:
+    complete
+    .text       start:0x02028bb4 end:0x02028d6e
+
 src/auto/func_02028d70.c:
     complete
     .text       start:0x02028d70 end:0x02028d74

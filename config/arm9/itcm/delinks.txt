@@ -349,6 +349,14 @@ src/auto/func_01ffd144.c:
     complete
     .text       start:0x01ffd144 end:0x01ffd184
 
+src/calls/func_01ffd4a4.c:
+    complete
+    .text       start:0x01ffd4a4 end:0x01ffd824
+
+src/calls/func_01ffd824.c:
+    complete
+    .text       start:0x01ffd824 end:0x01ffdb54
+
 src/calls/func_01ffe3c8.c:
     complete
     .text       start:0x01ffe3c8 end:0x01ffe460
