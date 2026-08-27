@@ -4352,6 +4352,10 @@ src/overlays/ov002/calls/func_ov002_02075528.c:
     complete
     .text       start:0x02075528 end:0x02075576
 
+src/overlays/ov002/calls/func_ov002_02075578.c:
+    complete
+    .text       start:0x02075578 end:0x02075628
+
 src/overlays/ov002/calls/func_ov002_02075628.c:
     complete
     .text       start:0x02075628 end:0x0207568c
