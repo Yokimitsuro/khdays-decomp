@@ -1649,6 +1649,7 @@ data_ov002_0207ef3c kind:data(any) addr:0x0207ef3c
 data_ov002_0207ef54 kind:data(any) addr:0x0207ef54
 data_ov002_0207ef68 kind:data(any) addr:0x0207ef68
 data_ov002_0207ef80 kind:data(any) addr:0x0207ef80
+data_ov002_0207ef80_offsets kind:data(any) addr:0x0207ef80
 data_ov002_0207efb0 kind:data(any) addr:0x0207efb0
 data_ov002_0207efbc kind:data(any) addr:0x0207efbc
 data_ov002_0207efc0 kind:data(any) addr:0x0207efc0

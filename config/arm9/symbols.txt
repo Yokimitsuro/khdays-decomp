@@ -1142,6 +1142,7 @@ WM_EndKeySharing_0x0202019c kind:function(arm,size=0xc) addr:0x0202019c
 func_020201a8 kind:function(arm,size=0x10) addr:0x020201a8
 func_020201b8 kind:function(arm,size=0x1b0) addr:0x020201b8
 func_02020368 kind:function(arm,size=0xc) addr:0x02020368
+_ll_udiv kind:function(arm,size=0xc) addr:0x02020368
 func_02020374 kind:function(arm,size=0x3c) addr:0x02020374
 _ll_mul kind:function(arm,size=0x20) addr:0x020203b0
 func_020203d0 kind:function(arm,size=0x30) addr:0x020203d0
