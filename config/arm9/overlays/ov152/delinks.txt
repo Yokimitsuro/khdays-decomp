@@ -152,7 +152,7 @@ src/overlays/ov152/calls/func_ov152_020d5688.c:
     complete
     .text       start:0x020d5688 end:0x020d56c4
 
-src/calls/func_ov152_020d56c4.c:
+src/overlays/ov152/calls/func_ov152_020d56c4.c:
     complete
     .text       start:0x020d56c4 end:0x020d578c
 
@@ -196,7 +196,7 @@ src/overlays/ov152/calls/func_ov152_020d5e24.c:
     complete
     .text       start:0x020d5e24 end:0x020d5ed8
 
-src/calls/func_ov152_020d5ed8.c:
+src/overlays/ov152/calls/func_ov152_020d5ed8.c:
     complete
     .text       start:0x020d5ed8 end:0x020d5f58
 

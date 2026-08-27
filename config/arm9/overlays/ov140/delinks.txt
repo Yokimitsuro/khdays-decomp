@@ -108,7 +108,7 @@ src/overlays/ov140/calls/func_ov140_020d0f24.c:
     complete
     .text       start:0x020d0f24 end:0x020d0f58
 
-src/calls/func_ov140_020d0f58.c:
+src/overlays/ov140/calls/func_ov140_020d0f58.c:
     complete
     .text       start:0x020d0f58 end:0x020d0ff4
 
@@ -128,7 +128,7 @@ src/overlays/ov140/calls/func_ov140_020d11e4.c:
     complete
     .text       start:0x020d11e4 end:0x020d1280
 
-src/calls/func_ov140_020d1280.c:
+src/overlays/ov140/calls/func_ov140_020d1280.c:
     complete
     .text       start:0x020d1280 end:0x020d1324
 

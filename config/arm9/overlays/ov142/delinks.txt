@@ -176,7 +176,7 @@ src/overlays/ov142/calls/func_ov142_020d1840.c:
     complete
     .text       start:0x020d1840 end:0x020d18f4
 
-src/calls/func_ov142_020d18f4.c:
+src/overlays/ov142/calls/func_ov142_020d18f4.c:
     complete
     .text       start:0x020d18f4 end:0x020d1950
 

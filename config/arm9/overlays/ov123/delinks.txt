@@ -84,7 +84,7 @@ src/overlays/ov123/calls/func_ov123_020cca58.c:
     complete
     .text       start:0x020cca58 end:0x020cca94
 
-src/calls/func_ov123_020cca94.c:
+src/overlays/ov123/calls/func_ov123_020cca94.c:
     complete
     .text       start:0x020cca94 end:0x020ccb34
 
@@ -156,11 +156,11 @@ src/overlays/ov123/calls/func_ov123_020cd760.c:
     complete
     .text       start:0x020cd760 end:0x020cd814
 
-src/calls/func_ov123_020cd814.c:
+src/overlays/ov123/calls/func_ov123_020cd814.c:
     complete
     .text       start:0x020cd814 end:0x020cd870
 
-src/calls/func_ov123_020cd870.c:
+src/overlays/ov123/calls/func_ov123_020cd870.c:
     complete
     .text       start:0x020cd870 end:0x020cd8cc
 
@@ -172,7 +172,7 @@ src/overlays/ov123/calls/func_ov123_020cd974.c:
     complete
     .text       start:0x020cd974 end:0x020cd9ec
 
-src/calls/func_ov123_020cd9ec.c:
+src/overlays/ov123/calls/func_ov123_020cd9ec.c:
     complete
     .text       start:0x020cd9ec end:0x020cda50
 
@@ -184,7 +184,7 @@ src/overlays/ov123/calls/func_ov123_020cdae4.c:
     complete
     .text       start:0x020cdae4 end:0x020cdb38
 
-src/calls/func_ov123_020cdb38.c:
+src/overlays/ov123/calls/func_ov123_020cdb38.c:
     complete
     .text       start:0x020cdb38 end:0x020cdbf8
 

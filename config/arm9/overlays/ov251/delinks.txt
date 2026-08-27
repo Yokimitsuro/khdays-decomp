@@ -144,7 +144,7 @@ src/overlays/ov251/calls/func_ov251_020d5334.c:
     complete
     .text       start:0x020d5334 end:0x020d5368
 
-src/calls/func_ov251_020d5368.c:
+src/overlays/ov251/calls/func_ov251_020d5368.c:
     complete
     .text       start:0x020d5368 end:0x020d5434
 

@@ -116,7 +116,7 @@ src/overlays/ov239/calls/func_ov239_020cd14c.c:
     complete
     .text       start:0x020cd14c end:0x020cd190
 
-src/calls/func_ov239_020cd190.c:
+src/overlays/ov239/calls/func_ov239_020cd190.c:
     complete
     .text       start:0x020cd190 end:0x020cd224
 

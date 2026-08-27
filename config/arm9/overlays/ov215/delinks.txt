@@ -104,7 +104,7 @@ src/overlays/ov215/calls/func_ov215_020d11dc.c:
     complete
     .text       start:0x020d11dc end:0x020d12a8
 
-src/calls/func_ov215_020d12a8.c:
+src/overlays/ov215/calls/func_ov215_020d12a8.c:
     complete
     .text       start:0x020d12a8 end:0x020d1340
 

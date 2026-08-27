@@ -128,7 +128,7 @@ src/overlays/ov204/calls/func_ov204_020d13b0.c:
     complete
     .text       start:0x020d13b0 end:0x020d1420
 
-src/calls/func_ov204_020d1420.c:
+src/overlays/ov204/calls/func_ov204_020d1420.c:
     complete
     .text       start:0x020d1420 end:0x020d14a0
 
@@ -136,7 +136,7 @@ src/overlays/ov204/calls/func_ov204_020d14a0.c:
     complete
     .text       start:0x020d14a0 end:0x020d1518
 
-src/calls/func_ov204_020d1518.c:
+src/overlays/ov204/calls/func_ov204_020d1518.c:
     complete
     .text       start:0x020d1518 end:0x020d15a4
 
@@ -188,7 +188,7 @@ src/overlays/ov204/calls/func_ov204_020d2810.c:
     complete
     .text       start:0x020d2810 end:0x020d2850
 
-src/calls/func_ov204_020d2850.c:
+src/overlays/ov204/calls/func_ov204_020d2850.c:
     complete
     .text       start:0x020d2850 end:0x020d2904
 

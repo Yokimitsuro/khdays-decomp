@@ -76,7 +76,7 @@ src/overlays/ov284/calls/func_ov284_020cca9c.c:
     complete
     .text       start:0x020cca9c end:0x020ccad8
 
-src/calls/func_ov284_020ccad8.c:
+src/overlays/ov284/calls/func_ov284_020ccad8.c:
     complete
     .text       start:0x020ccad8 end:0x020ccb30
 

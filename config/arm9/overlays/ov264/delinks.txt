@@ -104,7 +104,7 @@ src/overlays/ov264/calls/func_ov264_020cd59c.c:
     complete
     .text       start:0x020cd59c end:0x020cd668
 
-src/calls/func_ov264_020cd668.c:
+src/overlays/ov264/calls/func_ov264_020cd668.c:
     complete
     .text       start:0x020cd668 end:0x020cd700
 
@@ -128,7 +128,7 @@ src/overlays/ov264/calls/func_ov264_020cd8ac.c:
     complete
     .text       start:0x020cd8ac end:0x020cda04
 
-src/calls/func_ov264_020cda04.c:
+src/overlays/ov264/calls/func_ov264_020cda04.c:
     complete
     .text       start:0x020cda04 end:0x020cdac0
 
@@ -156,7 +156,7 @@ src/overlays/ov264/calls/func_ov264_020cdf68.c:
     complete
     .text       start:0x020cdf68 end:0x020ce5cc
 
-src/calls/func_ov264_020ce5cc.c:
+src/overlays/ov264/calls/func_ov264_020ce5cc.c:
     complete
     .text       start:0x020ce5cc end:0x020ce664
 

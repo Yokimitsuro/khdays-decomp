@@ -108,7 +108,7 @@ src/overlays/ov139/calls/func_ov139_020cd2e4.c:
     complete
     .text       start:0x020cd2e4 end:0x020cd318
 
-src/calls/func_ov139_020cd318.c:
+src/overlays/ov139/calls/func_ov139_020cd318.c:
     complete
     .text       start:0x020cd318 end:0x020cd3b4
 
@@ -128,7 +128,7 @@ src/overlays/ov139/calls/func_ov139_020cd5a4.c:
     complete
     .text       start:0x020cd5a4 end:0x020cd640
 
-src/calls/func_ov139_020cd640.c:
+src/overlays/ov139/calls/func_ov139_020cd640.c:
     complete
     .text       start:0x020cd640 end:0x020cd6e4
 

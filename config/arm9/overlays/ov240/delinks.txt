@@ -124,7 +124,7 @@ src/overlays/ov240/calls/func_ov240_020cf250.c:
     complete
     .text       start:0x020cf250 end:0x020cf294
 
-src/calls/func_ov240_020cf294.c:
+src/overlays/ov240/calls/func_ov240_020cf294.c:
     complete
     .text       start:0x020cf294 end:0x020cf334
 

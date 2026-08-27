@@ -59,7 +59,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cc970.c:
     complete
     .text       start:0x020cc970 end:0x020cca50
 
-src/calls/func_ov144_020cca50.c:
+src/overlays/ov144/calls/func_ov144_020cca50.c:
     complete
     .text       start:0x020cca50 end:0x020ccabc
 
@@ -75,7 +75,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020ccb34.c:
     complete
     .text       start:0x020ccb34 end:0x020ccda0
 
-src/calls/func_ov144_020ccda0.c:
+src/overlays/ov144/calls/func_ov144_020ccda0.c:
     complete
     .text       start:0x020ccda0 end:0x020cce0c
 
@@ -123,7 +123,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cd820.c:
     complete
     .text       start:0x020cd820 end:0x020cd928
 
-src/calls/func_ov144_020cd928.c:
+src/overlays/ov144/calls/func_ov144_020cd928.c:
     complete
     .text       start:0x020cd928 end:0x020cd9ac
 

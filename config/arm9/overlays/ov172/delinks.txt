@@ -188,7 +188,7 @@ src/overlays/ov172/calls/func_ov172_020d1f28.c:
     complete
     .text       start:0x020d1f28 end:0x020d1fb0
 
-src/calls/func_ov172_020d1fb0.c:
+src/overlays/ov172/calls/func_ov172_020d1fb0.c:
     complete
     .text       start:0x020d1fb0 end:0x020d200c
 
@@ -216,7 +216,7 @@ src/overlays/ov172/calls/func_ov172_020d249c.c:
     complete
     .text       start:0x020d249c end:0x020d24d4
 
-src/calls/func_ov172_020d24d4.c:
+src/overlays/ov172/calls/func_ov172_020d24d4.c:
     complete
     .text       start:0x020d24d4 end:0x020d25dc
 

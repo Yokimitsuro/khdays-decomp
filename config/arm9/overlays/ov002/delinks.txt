@@ -1344,7 +1344,7 @@ src/overlays/ov002/calls/func_ov002_0205979c.c:
     complete
     .text       start:0x0205979c end:0x02059810
 
-src/auto/func_ov002_02059810.c:
+src/overlays/ov002/auto/func_ov002_02059810.c:
     complete
     .text       start:0x02059810 end:0x02059848
 
@@ -2484,7 +2484,7 @@ src/overlays/ov002/auto/func_ov002_02064808.c:
     complete
     .text       start:0x02064808 end:0x0206480c
 
-src/auto/func_ov002_0206480c.c:
+src/overlays/ov002/auto/func_ov002_0206480c.c:
     complete
     .text       start:0x0206480c end:0x0206484c
 
