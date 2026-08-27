@@ -341,9 +341,25 @@ libs/nitro/nns/calls/func_01ffaa14.c:
     complete
     .text       start:0x01ffaa14 end:0x01ffae5c
 
+libs/nitro/nns/calls/func_01ffae5c.c:
+    complete
+    .text       start:0x01ffae5c end:0x01ffaf9c
+
+libs/nitro/nns/calls/func_01ffaf9c.c:
+    complete
+    .text       start:0x01ffaf9c end:0x01ffb234
+
 libs/nitro/nns/calls/func_01ffb234.c:
     complete
     .text       start:0x01ffb234 end:0x01ffb304
+
+libs/nitro/nns/calls/func_01ffb304.c:
+    complete
+    .text       start:0x01ffb304 end:0x01ffb8fc
+
+libs/nitro/nns/calls/func_01ffb8fc.c:
+    complete
+    .text       start:0x01ffb8fc end:0x01ffba90
 
 libs/nitro/nns/auto/func_01ffba90.c:
     complete

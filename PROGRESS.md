@@ -8,7 +8,7 @@ SDK/library identifications are tracked separately; see
 
 | Module | C matched | ASM stubs | SDK id | Named only | Total | C % |
 |---|---:|---:|---:|---:|---:|---:|
-| PART itcm | 111 | 26 | 0 | 17 | 154 | 72.1% |
+| PART itcm | 115 | 26 | 0 | 13 | 154 | 74.7% |
 | PART main | 1489 | 28 | 150 | 294 | 1961 | 75.9% |
 | DONE ov000 | 262 | 0 | 0 | 0 | 262 | 100.0% |
 | DONE ov001 | 8 | 0 | 0 | 0 | 8 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **17066** | **1749** | **181** | **4244** | **23240** | **73.4%** |
+| **TOTAL** | **17070** | **1749** | **181** | **4240** | **23240** | **73.5%** |
 
 ## Byte progress
 
