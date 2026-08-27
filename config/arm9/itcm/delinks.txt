@@ -9,7 +9,7 @@ src/calls/OS_IsThreadAvailable.c:
     complete
     .text       start:0x01ff80a8 end:0x01ff80b8
 
-src/calls/func_01ff80b8.c:
+libs/nitro/gx/calls/func_01ff80b8.c:
     complete
     .text       start:0x01ff80b8 end:0x01ff8110
 
@@ -57,11 +57,11 @@ libs/nitro/mi/calls/MIi_DmaSetParams.c:
     complete
     .text       start:0x01ff8590 end:0x01ff85d0
 
-src/calls/func_01ff85d0.c:
+libs/nitro/mi/calls/func_01ff85d0.c:
     complete
     .text       start:0x01ff85d0 end:0x01ff8640
 
-src/auto/func_01ff8640.c:
+libs/nitro/mi/auto/func_01ff8640.c:
     complete
     .text       start:0x01ff8640 end:0x01ff8664
 
@@ -125,7 +125,7 @@ libs/nitro/fx/calls/FX_Inv.c:
     complete
     .text       start:0x01ff8a04 end:0x01ff8a14
 
-src/calls/func_01ff8a14.c:
+libs/nitro/fx/calls/func_01ff8a14.c:
     complete
     .text       start:0x01ff8a14 end:0x01ff8a40
 
@@ -133,7 +133,7 @@ libs/nitro/fx/calls/FX_Inv_0x01ff8a40.c:
     complete
     .text       start:0x01ff8a40 end:0x01ff8a50
 
-src/calls/func_01ff8a50.c:
+libs/nitro/fx/calls/func_01ff8a50.c:
     complete
     .text       start:0x01ff8a50 end:0x01ff8a7c
 
@@ -141,7 +141,7 @@ libs/nitro/fx/calls/FX_Sqrt.c:
     complete
     .text       start:0x01ff8a7c end:0x01ff8ab0
 
-src/auto/func_01ff8ab0.c:
+libs/nitro/fx/auto/func_01ff8ab0.c:
     complete
     .text       start:0x01ff8ab0 end:0x01ff8ad4
 
