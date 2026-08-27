@@ -333,6 +333,14 @@ libs/nitro/nns/calls/func_01ffa764.c:
     complete
     .text       start:0x01ffa764 end:0x01ffa7fc
 
+libs/nitro/fx/auto/func_01ffa7fc.c:
+    complete
+    .text       start:0x01ffa7fc end:0x01ffaa14
+
+libs/nitro/nns/calls/func_01ffaa14.c:
+    complete
+    .text       start:0x01ffaa14 end:0x01ffae5c
+
 libs/nitro/nns/calls/func_01ffb234.c:
     complete
     .text       start:0x01ffb234 end:0x01ffb304
