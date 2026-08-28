@@ -3,8 +3,8 @@ typedef unsigned char u8;
 
 typedef struct Ov002EventSlot {
     char pad0000[0x14];
-    s8 bMatchAny;               /* 0x14 */
-    s8 nLevel : 7;              /* 0x15 */
+    s8 nCtxTableIndex;          /* 0x14 */
+    s8 nResolvedValue : 7;      /* 0x15 */
     s8 bMuted : 1;
     char pad0016[2];
     struct Ov002EventSlot *pNext;   /* 0x18 */
@@ -16,9 +16,12 @@ extern char *data_ov002_0207fa04;   /* the ov002 event context */
  *
  * Bit 12 of the id picks which of the context's two banks holds it, and the id
  * with that bit taken back off indexes the bank.  The slot is stamped first:
- * its match byte from the caller, its level set to every bit -- so it matches
- * whatever level is current -- and its muted bit from whether the caller's flag
- * was set at all.
+ * its table index from the caller, its resolved value set to every bit -- which
+ * reads as -1, so the slot stays unresolved until its refresh hook runs -- and
+ * its muted bit from whether the caller's flag was set at all.
+ *
+ * The index names an entry of the byte table at +0x17 of the ov002 link
+ * context; Ov002_RefreshSlotValue is what turns it into the resolved value.
  *
  * Nothing is linked while bit 0 of the bank's flag byte for that id is up.
  * Otherwise the slot goes on the tail of the list, or becomes the list when
@@ -44,8 +47,8 @@ void func_ov002_0206ee38(int nEventId, int nMatch, int bMuted, int nUnused,
         pBank += 0xc;
     }
 
-    pSlot->bMatchAny = (s8)nMatch;
-    pSlot->nLevel = 0x7f;
+    pSlot->nCtxTableIndex = (s8)nMatch;
+    pSlot->nResolvedValue = 0x7f;
     pSlot->bMuted = (s8)(bMuted != 0);
 
     nAllowed = ((*(u8 *)(pBank + nEventId + 0x100) & 1) == 0);
