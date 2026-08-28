@@ -24,7 +24,7 @@ typedef struct Ov002SpotHolder {
 } Ov002SpotHolder;
 
 typedef struct Ov002SpotDesc {
-    s8 nKind;               /* negative means the kind is not available */
+    s8 nAnimSlot;           /* animation slot; negative means unavailable */
     char pad001[7];
 } Ov002SpotDesc;
 
@@ -51,7 +51,7 @@ void *func_ov002_020779dc(int nKind, int a1, int a2, int a3, int a4)
     Ov002Spawned *pSpawned;
     int nSpot;
 
-    if (data_ov002_0207e67c[nKind].nKind < 0) {
+    if (data_ov002_0207e67c[nKind].nAnimSlot < 0) {
         return 0;
     }
 

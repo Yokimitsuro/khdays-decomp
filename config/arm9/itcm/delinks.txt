@@ -181,7 +181,7 @@ libs/nitro/fx/auto/VEC_Mag.c:
     complete
     .text       start:0x01ff8cb8 end:0x01ff8d18
 
-libs/nitro/fx/asm_stubs/auto/func_01ff8d18.c:
+libs/nitro/fx/auto/func_01ff8d18.c:
     complete
     .text       start:0x01ff8d18 end:0x01ff8e38
 
