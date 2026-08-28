@@ -2336,7 +2336,7 @@ src/overlays/ov002/calls/func_ov002_02063714.c:
     complete
     .text       start:0x02063714 end:0x0206373c
 
-src/calls/OS_IsThreadAvailable_0x0206373c.c:
+src/overlays/ov002/calls/OS_IsThreadAvailable_0x0206373c.c:
     complete
     .text       start:0x0206373c end:0x0206374c
 
