@@ -25,7 +25,7 @@ typedef struct Ov002SpotStage {
     char pad050[4];
     char *pRows;
     char pad058[4];
-    void *pOwnedBits;       /* one bit per spot that already has an owner */
+    void *pFreeBits;        /* one bit per spot id, set while the id is free */
     char pad060[0x24c8];
     Ov002Vec3 aSpots[1];    /* where each spot was last spawned */
 } Ov002SpotStage;
@@ -56,7 +56,7 @@ void *func_ov002_02077b64(int nIndex, int a1, int a2, int a3,
     Ov002Rng rng;
 
     pStage = data_ov002_0207fa28.pStage;
-    if (func_02025694(pStage->pOwnedBits, nIndex) == 0) {
+    if (func_02025694(pStage->pFreeBits, nIndex) == 0) {
         pStage = data_ov002_0207fa28.pStage;
         func_ov002_02077df0(pStage->pRows + pStage->nRowStride * nIndex);
     }

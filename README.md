@@ -24,9 +24,9 @@ identifications are not counted as real C decompilation.
 |---|---:|---|
 | Real C-decompiled matched functions | **17,115** / ~23,241 (~73.6% by function count) | Functions implemented in C and verified byte-exact |
 | Real C-decompiled matched **bytes** | **2,132,758** / 4,728,802 (~45.10% by code bytes) | The honest metric — matches how decomp.dev reports progress. Function-count % is inflated because most decomped functions are small trampolines and setters; large semantic functions are still ASM stubs. Counts byte-exact C only: `asm_stubs/` and `nonmatching/` are both excluded. |
-| Inline ASM / ASM stub matched functions | **1,749** / ~23,241 (~7.5%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
+| Inline ASM / ASM stub matched functions | **1,750** / ~23,241 (~7.5%) | Temporary ASM-based placeholders under `src/asm_stubs/`; useful for matching, not counted as C decompilation |
 | SDK/library byte-match identifications | **181** / ~23,241 (~0.8%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **4,196** / ~23,241 (~18.1%) | Functions known to the project but not implemented as C |
+| Named but not decompiled | **4,195** / ~23,241 (~18.0%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | Fully-decompiled modules now include `ov031`, `ov188` and `ov189`; see `PROGRESS.md` for the complete generated list. A few precompiled-middleware translation units (e.g. the `ov028` anti-tamper crypto core) build with an older `mwccarm` via a per-file compiler override (`config/arm9/file_compilers.json`). |

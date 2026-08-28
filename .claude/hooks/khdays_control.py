@@ -26,6 +26,17 @@ FORBIDDEN_C = [
     re.compile(r"\b__asm\b", re.IGNORECASE),
     re.compile(r"\bdcd\b", re.IGNORECASE),
 ]
+# mwccarm 3.0 build 139 exposes no CLZ intrinsic: __builtin_clz, __clz, _lc,
+# __CLZ and __cntlz all compile to an external call rather than to the
+# instruction, so a routine that uses CLZ cannot be written in plain C with
+# the confirmed toolchain. Exactly one shape is therefore allowed through:
+# a line that is a single `asm { clz dst, src }` and nothing else, as used
+# by src/overlays/ov003/calls/func_ov003_0204d74c.c. Anything wider -- a
+# multi-line block, a second instruction, an operand that is not a bare
+# identifier -- stays forbidden.
+ALLOWED_ASM = [
+    re.compile(r"^\s*asm\s*\{\s*clz\s+\w+\s*,\s*\w+\s*\}\s*$", re.IGNORECASE),
+]
 BOOL_FIELDS = {
     "ghidra_inspected",
     "function_rename_readback",
@@ -263,11 +274,22 @@ def ensure_real_c(path: Path) -> tuple[bool, str]:
     if not path.exists():
         return False, f"candidate missing: {path}"
     text = path.read_text(encoding="utf-8", errors="replace")
+    allowed = 0
+    kept = []
+    for raw in text.split("\n"):
+        if any(p.match(raw) for p in ALLOWED_ASM):
+            allowed += 1
+            kept.append("")
+            continue
+        kept.append(raw)
+    text = "\n".join(kept)
     for pattern in FORBIDDEN_C:
         match = pattern.search(text)
         if match:
             line = text.count("\n", 0, match.start()) + 1
             return False, f"forbidden embedded assembly token at line {line}: {match.group(0)!r}"
+    if allowed:
+        return True, f"real C scan passed ({allowed} allowed clz line(s))"
     return True, "real C scan passed"
 
 
