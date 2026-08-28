@@ -17,7 +17,7 @@ typedef struct {
  * further address constants.
  */
 typedef struct {
-    u16 wRosterId;          /* 0x00 */
+    u16 wPanelTotal;        /* 0x00 */
     s8  bRequestId;         /* 0x02 */
     u8  pad03;
     s16 nRequestParam;      /* 0x04 */
@@ -40,7 +40,7 @@ typedef struct {
     void *pInstance;        /* 0x00 */
     void *pSlots;           /* 0x04 */
     int aPad08[2];
-    int nRosterId;          /* 0x10 */
+    int nPanelTotal;        /* 0x10 */
     int pad14;
     int nRaw;               /* 0x18 */
     int nScaleIn;           /* 0x1c */
@@ -107,7 +107,7 @@ void func_ov002_0206a6b8(void)
     nSeat = func_02030788();
 
     *(u16 *)(pRoot + 0x8da2) = 0;
-    *(u16 *)(pRep + 0) = (u16)pSeats->nRosterId;
+    *(u16 *)(pRep + 0) = (u16)pSeats->nPanelTotal;
 
     if ((data_0204c240 & 2) != 0) {
         if ((data_0204c240 & 2) != 0 && *(u16 *)&data_0204c254[0xe] == 2) {
