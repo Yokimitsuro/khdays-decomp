@@ -369,6 +369,10 @@ src/calls/func_01ffbbac.c:
     complete
     .text       start:0x01ffbbac end:0x01ffbbf0
 
+libs/nitro/nns/calls/func_01ffbbf0.c:
+    complete
+    .text       start:0x01ffbbf0 end:0x01ffc0d0
+
 libs/nitro/nns/calls/func_01ffc0d0.c:
     complete
     .text       start:0x01ffc0d0 end:0x01ffc164
