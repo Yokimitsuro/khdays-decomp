@@ -429,6 +429,10 @@ src/calls/func_01ffd824.c:
     complete
     .text       start:0x01ffd824 end:0x01ffdb54
 
+src/calls/func_01ffdb54.c:
+    complete
+    .text       start:0x01ffdb54 end:0x01ffdd58
+
 src/calls/func_01ffe3c8.c:
     complete
     .text       start:0x01ffe3c8 end:0x01ffe460
