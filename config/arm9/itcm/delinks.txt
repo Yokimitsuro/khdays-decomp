@@ -485,6 +485,10 @@ src/calls/func_01ffefb4.c:
     complete
     .text       start:0x01ffefb4 end:0x01fff0e0
 
+src/calls/func_01fff0e0.c:
+    complete
+    .text       start:0x01fff0e0 end:0x01fff290
+
 src/calls/func_01fff290.c:
     complete
     .text       start:0x01fff290 end:0x01fff554
