@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "exceptions": {
+    "func_ov002_02077560": {
+      "kind": "single_inline_clz",
+      "approved_by": "user",
+      "approved_at": "2026-08-30",
+      "scope": "Exactly one inline CLZ nValue, nValue block; all surrounding implementation remains C.",
+      "reason": "The user explicitly authorized ASM for the unresolved CLZ primitive after the pure-C attempts and compiler investigation.",
+      "classification": "authorized_asm_exception",
+      "counts_as_real_c": false
+    }
+  }
+}

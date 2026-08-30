@@ -15,8 +15,9 @@ typedef struct Ov002SpotHolder {
 
 extern Ov002SpotHolder data_ov002_0207fa28;
 
-/* mwcc 3.0 has no CLZ intrinsic, so the one instruction has to be spelled out;
-   everything around it is ordinary C. */
+/* User-authorized native CLZ exception, 2026-08-30.
+ * Exactly this instruction is permitted; this file is not counted as pure C.
+ * See config/arm9/asm_exceptions.json. */
 static inline u32 Clz(u32 nValue)
 {
     asm { clz nValue, nValue }
