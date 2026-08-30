@@ -449,6 +449,10 @@ src/calls/func_01ffe460.c:
     complete
     .text       start:0x01ffe460 end:0x01ffe4f4
 
+src/calls/func_01ffe4f4.c:
+    complete
+    .text       start:0x01ffe4f4 end:0x01ffe82c
+
 src/calls/func_01ffe82c.c:
     complete
     .text       start:0x01ffe82c end:0x01ffeba0
