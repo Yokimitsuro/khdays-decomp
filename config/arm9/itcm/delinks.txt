@@ -417,6 +417,10 @@ src/auto/func_01ffd144.c:
     complete
     .text       start:0x01ffd144 end:0x01ffd184
 
+src/calls/func_01ffd184.c:
+    complete
+    .text       start:0x01ffd184 end:0x01ffd4a4
+
 src/calls/func_01ffd4a4.c:
     complete
     .text       start:0x01ffd4a4 end:0x01ffd824
