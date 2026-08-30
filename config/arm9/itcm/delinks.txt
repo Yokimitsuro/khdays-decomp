@@ -381,6 +381,10 @@ libs/nitro/nns/calls/func_01ffc164.c:
     complete
     .text       start:0x01ffc164 end:0x01ffc450
 
+libs/nitro/nns/calls/func_01ffc450.c:
+    complete
+    .text       start:0x01ffc450 end:0x01ffcbac
+
 libs/nitro/nns/calls/func_01ffcbac.c:
     complete
     .text       start:0x01ffcbac end:0x01ffcc1c
