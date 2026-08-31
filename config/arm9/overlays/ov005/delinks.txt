@@ -852,6 +852,10 @@ src/overlays/ov005/calls/func_ov005_02057784.c:
     complete
     .text       start:0x02057784 end:0x020577a0
 
+src/overlays/ov005/calls/func_ov005_020577a0.c:
+    complete
+    .text       start:0x020577a0 end:0x020578c4
+
 src/overlays/ov005/auto/func_ov005_020578c4.c:
     complete
     .text       start:0x020578c4 end:0x020578f4
