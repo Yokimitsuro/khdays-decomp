@@ -27,7 +27,7 @@ extern char data_ov004_020510b0[];
 
 extern void func_0202a634(void *object, void *resource, int mode, int style);
 extern void func_0202afc4(void *object, int enabled);
-extern void func_ov004_020506cc(void *object);
+extern void func_ov004_020506cc(int valueFx12);
 extern void func_02023c60(void *object);
 extern void func_02032388(void *manager, SpriteManagerInit *init);
 extern void *WM_EndKeySharing_0x02032444(void *manager, int index, int arg);
@@ -60,7 +60,7 @@ void func_ov004_0204fd60(void) {
         offset += 0x108;
     }
 
-    func_ov004_020506cc(*(void **)((char *)data_ov004_02051384 + 0x5568));
+    func_ov004_020506cc(*(int *)((char *)data_ov004_02051384 + 0x5568));
     func_02023c60((char *)data_ov004_02051384 + 0xac0);
     *(int *)((char *)data_ov004_02051384 + 0x55ec) = 0;
 
@@ -134,4 +134,3 @@ void func_ov004_0204fd60(void) {
 
     GX_LoadBGPltt(data_ov004_020510b0, 0, 8);
 }
-
