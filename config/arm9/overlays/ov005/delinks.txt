@@ -472,7 +472,7 @@ src/overlays/ov005/calls/func_ov005_020506a4.c:
     complete
     .text       start:0x020506a4 end:0x02050724
 
-src/calls/WM_EndKeySharing_0x02050724.c:
+src/overlays/ov005/calls/WM_EndKeySharing_0x02050724.c:
     complete
     .text       start:0x02050724 end:0x02050730
 
@@ -544,7 +544,7 @@ src/overlays/ov005/calls/func_ov005_02052118.c:
     complete
     .text       start:0x02052118 end:0x020522ec
 
-libs/nitro/fx/calls/FX_Inv_0x020522ec.c:
+src/overlays/ov005/calls/FX_Inv_0x020522ec.c:
     complete
     .text       start:0x020522ec end:0x020522fc
 
