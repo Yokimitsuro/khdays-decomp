@@ -63,27 +63,27 @@ class ReportTests(unittest.TestCase):
 
     def test_checked_in_manifest_is_source_bound(self):
         entries = report_asm.load_verified_matches()
-        self.assertEqual(len(entries), 26)
-        self.assertEqual(sum(e["kind"] == "authorized_clz" for e in entries.values()), 1)
+        self.assertEqual(len(entries), 27)
+        self.assertEqual(sum(e["kind"] == "authorized_clz" for e in entries.values()), 2)
         self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 25)
 
     def test_closed_modules_keep_honest_real_c_counts(self):
         entries = report_asm.load_verified_matches()
         functions = []
-        for unit, count in [("ov002", 1477), ("itcm", 129)]:
+        for unit, count in [("ov002", 1477), ("ov003", 27), ("itcm", 129)]:
             functions.extend(function(f"{unit}_real_{i}", "c_decompiled_matched", unit) for i in range(count))
         for name, entry in entries.items():
-            unit = "ov002" if entry["kind"] == "authorized_clz" else "itcm"
+            unit = name.split("_")[1] if entry["kind"] == "authorized_clz" else "itcm"
             f = function(name, "asm_stub_matched", unit, entry["source"], entry["size"])
             f["mode"] = entry["mode"]
             functions.append(f)
         matched = gen_report.build_report(functions, entries)
         pure_c = gen_report.build_report(functions, {})
-        self.assertEqual(matched["measures"]["completeUnits"], 2)
+        self.assertEqual(matched["measures"]["completeUnits"], 3)
         for unit in matched["units"]:
             self.assertEqual(unit["measures"]["matchedCodePercent"], 100)
         counts = {u["name"]: u["measures"]["matchedFunctions"] for u in pure_c["units"]}
-        self.assertEqual(counts, {"ov002": 1477, "itcm": 129})
+        self.assertEqual(counts, {"ov002": 1477, "ov003": 27, "itcm": 129})
 
 
 class AttestationTests(unittest.TestCase):

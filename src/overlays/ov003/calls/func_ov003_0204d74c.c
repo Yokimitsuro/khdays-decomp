@@ -42,10 +42,11 @@ extern void func_0200fc00(void *pBase, int nCount, unsigned int nWidth,
 extern unsigned int func_02030788(void);
 extern int func_ov003_0204d73c(const void *pLeft, const void *pRight);
 
-static inline unsigned int Clz(unsigned int value)
+/* Authorized single-instruction exception; this source is not pure C. */
+static inline unsigned int Clz(unsigned int nValue)
 {
-    asm { clz value, value }
-    return value;
+    asm { clz nValue, nValue }
+    return nValue;
 }
 
 void func_ov003_0204d74c(void)
@@ -119,4 +120,3 @@ void func_ov003_0204d74c(void)
     }
     data_0204c300.nLocalRankGroup = (u8)nGroup;
 }
-

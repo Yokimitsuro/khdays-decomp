@@ -207,6 +207,14 @@
       "source": "src/overlays/ov002/calls/func_ov002_02077560.c",
       "source_sha256": "41f8f4ad3790ed33c8d6ff7f49f9ee7a31413161bbf41b76b8c846fb0a28888e",
       "target_sha256": "952e8b2925837566aa0a639f1785105356e8ba50bf12113c2f82a17e8a56c230"
+    },
+    "func_ov003_0204d74c": {
+      "kind": "authorized_clz",
+      "mode": "arm",
+      "size": 576,
+      "source": "src/overlays/ov003/calls/func_ov003_0204d74c.c",
+      "source_sha256": "b3d889a801e2554787752c68f3d67a0e2d2c558e936b8d5ea9ccd309aefaff97",
+      "target_sha256": "b97dbd98de132ddcd2afe50d2e898935fc1de228f0fd88c3b5485ad9c419404d"
     }
   },
   "schema_version": 1
