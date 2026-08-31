@@ -240,6 +240,10 @@ src/overlays/ov006/calls/func_ov006_0204e5bc.c:
     complete
     .text       start:0x0204e5bc end:0x0204e5e4
 
+src/overlays/ov006/calls/func_ov006_0204e5e4.c:
+    complete
+    .text       start:0x0204e5e4 end:0x0204e8b0
+
 src/overlays/ov006/calls/func_ov006_0204eca4.c:
     complete
     .text       start:0x0204eca4 end:0x0204ecdc
