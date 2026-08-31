@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate an objdiff/decomp.dev report with honest C progress.
+"""Generate decomp.dev matching coverage and a separate real-C-only report.
 
-Only functions classified as ``c_decompiled_matched`` are reported as complete.
-ASM stubs, inline ASM placeholders, SDK identifications, and named-only symbols
-are deliberately excluded from the main matched progress calculation.
+The main report includes real C plus source-hashed, byte-verified canonical SDK
+assembly and explicitly authorized CLZ exceptions. Other stubs and SDK names
+remain incomplete. report_c.json and the progress audit retain pure-C metrics.
 
 Emits `progress_categories` per unit so decomp.dev can show separate bars
 for NitroSDK identifications, per-overlay progress, and main-module code.
@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import audit_progress
+from report_asm import is_verified_match, load_verified_matches
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -84,8 +85,7 @@ def measures(funcs):
     }
 
 
-def main():
-    audited_functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
+def build_report(audited_functions, verified_asm):
     units = defaultdict(list)
 
     for func in audited_functions:
@@ -96,7 +96,7 @@ def main():
             "size": func["size"],
             "category": category,
             "progress_category": pc,
-            "matched": category == "c_decompiled_matched",
+            "matched": category == "c_decompiled_matched" or is_verified_match(func, verified_asm),
         })
 
     report_units = []
@@ -147,29 +147,42 @@ def main():
         return cat_id
 
     categories = [
-        {"id": cid, "name": label_for(cid)}
+        {"id": cid, "name": label_for(cid),
+         "measures": measures([f for f in all_funcs if f["progress_category"] == cid])}
         for cid in sorted(all_categories)
     ]
 
-    report = {
+    return {
         "measures": aggregate,
         "units": report_units,
         "version": 2,
         "categories": categories,
     }
 
+
+def main():
+    audited_functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
+    verified_asm = load_verified_matches()
+    report = build_report(audited_functions, verified_asm)
+    c_report = build_report(audited_functions, {})
     build_dir = ROOT / "build"
     build_dir.mkdir(exist_ok=True)
     with (build_dir / "report.json").open("w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, sort_keys=True)
         f.write("\n")
+    with (build_dir / "report_c.json").open("w", encoding="utf-8") as f:
+        json.dump(c_report, f, indent=2, sort_keys=True)
+        f.write("\n")
 
+    aggregate = report["measures"]
     print(
         "report.json -> "
-        f"{len(units)} unidades, {aggregate['matchedCodePercent']:.2f}% C code "
+        f"{len(report['units'])} units, {aggregate['matchedCodePercent']:.2f}% verified matching code "
         f"({aggregate['matchedCode']}/{aggregate['totalCode']} bytes), "
         f"{aggregate['matchedFunctions']}/{aggregate['totalFunctions']} funcs"
     )
+    print(f"report_c.json -> {c_report['measures']['matchedCodePercent']:.2f}% real C; "
+          f"approved non-C sources: {len(verified_asm)}")
 
 
 if __name__ == "__main__":

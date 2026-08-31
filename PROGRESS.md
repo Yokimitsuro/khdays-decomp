@@ -312,8 +312,9 @@ SDK/library identifications are tracked separately; see
 
 Function-count percentages count each decomp'd function equally,
 which inflates progress when the decomp'd set is dominated by small
-trampolines and wrappers. The byte-based percentage below is closer
-to how decomp.dev reports progress:
+trampolines and wrappers. The byte-based percentage below counts real C only.
+decomp.dev matching coverage additionally includes the source-hashed, verified
+SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|

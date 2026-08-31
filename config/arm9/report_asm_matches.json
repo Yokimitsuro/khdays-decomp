@@ -1,0 +1,213 @@
+{
+  "functions": {
+    "GX_SendFifo48B": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 36,
+      "source": "libs/nitro/gx/asm_stubs/auto/GX_SendFifo48B.c",
+      "source_sha256": "7a0a13c9fde05010bcba283b436b4924ea0b571f47c4591f935de8eafd813f22",
+      "target_sha256": "ecb39de0efdc5098c0ec15af8680ae4059d24aa68073f502354c1a80dab27a84"
+    },
+    "INITi_CpuClear32": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 20,
+      "source": "libs/nitro/os/asm_stubs/auto/INITi_CpuClear32.c",
+      "source_sha256": "6d5287203c65bcdd6434b90dbfed252d47c3abfb7e4c93d678608bc78661e0a4",
+      "target_sha256": "3cfd563af82d5813c8180f4b189a1e34d77a9c562334d174657e0d116c7d988e"
+    },
+    "INITi_CpuClear32_0x01ff86fc": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 20,
+      "source": "libs/nitro/os/asm_stubs/auto/INITi_CpuClear32_0x01ff86fc.c",
+      "source_sha256": "019e854cdcf54e0763cf3d873f2eceed51c14ccf768bf7cd4aa4975148e15d19",
+      "target_sha256": "3cfd563af82d5813c8180f4b189a1e34d77a9c562334d174657e0d116c7d988e"
+    },
+    "MI_Copy36B": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 28,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_Copy36B.c",
+      "source_sha256": "0792032aa8dc094c099dec394fb219d7e0a68cd5e6616c56689bfd2d28ba398e",
+      "target_sha256": "589bf04eb1792b8434ef1e17b8b3895652d792c16c85de3730dd17223abbfa3a"
+    },
+    "MI_Copy48B": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 36,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_Copy48B.c",
+      "source_sha256": "34c8a02f35b2bcef42a701f056184d60146edf817b4ed4caf9d1b40d1a5c4010",
+      "target_sha256": "d9a84fcf48143a2bbf70e084ee6b1a76fbae459cced44c3166f72b5ab5aa6ca9"
+    },
+    "MI_Copy64B": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 44,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_Copy64B.c",
+      "source_sha256": "6c4f4b62e7493f93608901fc1bd8053c5f9ff5be6f79d2c2c0ae250e5dea38b8",
+      "target_sha256": "cb45d51c411b14ca622d146ba77e1b16c6076b1e5710228cbb14fb41a3268a27"
+    },
+    "MI_CpuCopy8": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 304,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_CpuCopy8.c",
+      "source_sha256": "99d93b5c1a8224a9e9ec0c8191618fd99705a0fbe44db691f9b50d1bfab16b10",
+      "target_sha256": "9c23b2fac113088842e50833d03da93628c9e0a12066d5136299ea38f1df8c0b"
+    },
+    "MI_CpuFill8": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 148,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_CpuFill8.c",
+      "source_sha256": "b75e444d78a08d2dac84be6253835fb276311fb153de35e9a8e7e8e91451ca6e",
+      "target_sha256": "c88796aaf6fcd87ae6cbd3d7000128d6e4035339a3b826a851053a0ba02d07a8"
+    },
+    "MI_Zero36B": {
+      "kind": "canonical_sdk_asm",
+      "mode": "thumb",
+      "size": 14,
+      "source": "libs/nitro/mi/asm_stubs/auto/MI_Zero36B.c",
+      "source_sha256": "c19b7715c2bb626e04ed0420bf9582cfaeab636d442eb5446ee96a41bb3e8b1e",
+      "target_sha256": "9346be17ffed8b6569f19dbca263f47f5c29991a8431170b97ece7d6bc64ebc9"
+    },
+    "MIi_CpuClear16": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 24,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuClear16.c",
+      "source_sha256": "624db4cbadd3995cec63d8c0ee073554438561d3d4fa2ed3d85d75730d62c076",
+      "target_sha256": "d2d14fd6d81c53ad277449040bee12a49b3865b82e204ddf1788ba2d8b785bc7"
+    },
+    "MIi_CpuClearFast": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 76,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuClearFast.c",
+      "source_sha256": "471648d05af276792ef8479f5ee7bc013f2bd7b9053aa123a5c17e10d305d51a",
+      "target_sha256": "78d9fa528b10650a11d403d7be899508367353e15fa6b5fb691566cf9b9e2f71"
+    },
+    "MIi_CpuCopy16": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 28,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuCopy16.c",
+      "source_sha256": "5ec8262fee83dc27c4b2ee9a281d2849dd61b8fd3a308338c6f6950af28291fc",
+      "target_sha256": "b13a643d9bdfb04665304652c4e2d7e061e91b77f7832e6f3e9f50e62e37bda8"
+    },
+    "MIi_CpuCopy32": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 24,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuCopy32.c",
+      "source_sha256": "e6afdce5bf86fc957654906bd98ee41b3c0b05eeb91d26b9acfcdc59cfeb1d5e",
+      "target_sha256": "11b33393cb66eec6392d208c96cdea91fc66ad9d1ea9b3ad8d32a727d66489b8"
+    },
+    "MIi_CpuCopyFast": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 56,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuCopyFast.c",
+      "source_sha256": "89ec46e5f682efacb1296dcb5bb1c6754537aee9ef1b8180b9ac1154d8af6b36",
+      "target_sha256": "03dedb056d93e4d67f696cbce2aa102d149753258cf8d227ad819003781b5a3d"
+    },
+    "MIi_CpuSend32": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 24,
+      "source": "libs/nitro/mi/asm_stubs/auto/MIi_CpuSend32.c",
+      "source_sha256": "2ec608007531c937058bbc683bb91d60efb944f13adcbf42aba56fb0773304b4",
+      "target_sha256": "ed10452abe309f9ccabb5a302958ab0346751b510769f47abc86894b97589a5f"
+    },
+    "MTX_Copy43To44_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 52,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_Copy43To44_.c",
+      "source_sha256": "ba9cffeffbf9e6f31f87eda4725996ef2342656cdb2664b65d511ee586001cdc",
+      "target_sha256": "75b0254b3a5e01952ca153c4fcbfc61814d772d542a0b4838fb701a3fb43b580"
+    },
+    "MTX_Identity33_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 36,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_Identity33_.c",
+      "source_sha256": "2418acb658c5156070b1d0839be67a15845dd58a3050567c94f5fb54f8e22d26",
+      "target_sha256": "2f436dbece5b115fccfb27246b8ddaacbd01e820707ac3d57181122f12b64f37"
+    },
+    "MTX_Identity43_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 40,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_Identity43_.c",
+      "source_sha256": "480f3e026f6d8bbba7789fdc77a8175938609005efda28b9a4ff4c31f1322dae",
+      "target_sha256": "5aa80ef15096ef9bcf995983c2a274f91eaa7f9d8c9b2a733d0b29e1fb61d460"
+    },
+    "MTX_RotX43_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "thumb",
+      "size": 30,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_RotX43_.c",
+      "source_sha256": "9dda368f7541aaeddc0d7aa0a5c5e4d8d60cc856c4957e62b9cc5f932299049c",
+      "target_sha256": "714d2cd17ba947201e28b76261c3db637fcdccc56d609e5fbb637c0677f3fab3"
+    },
+    "MTX_RotY33_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "thumb",
+      "size": 28,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_RotY33_.c",
+      "source_sha256": "07ac6816acecfa9f6e9305d0989a21f84a75295a5e15c824a863a686b6ffcde3",
+      "target_sha256": "f2909671f3fa927b0e9b6a32f865d7d34ec31619ceb15a2e3ce3a2f90e54a942"
+    },
+    "MTX_RotY43_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "thumb",
+      "size": 26,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_RotY43_.c",
+      "source_sha256": "9e3ad9d73d44636f03f61b1d443b15ff43c99a719ead321b36e892d3a29d541f",
+      "target_sha256": "1bb0b5b0d900b6f7d79c1b969c29ec6eed6cc12a4bf9b4b8419b66da56561296"
+    },
+    "MTX_RotZ33_": {
+      "kind": "canonical_sdk_asm",
+      "mode": "thumb",
+      "size": 24,
+      "source": "libs/nitro/mtx/asm_stubs/auto/MTX_RotZ33_.c",
+      "source_sha256": "87fe4b27cd5ae7eb92d581dd7872c945949f8c1c114e8adaf7d8ee12eb2125dc",
+      "target_sha256": "a6d1dfbde73c8c629d95075631c88a75bd015ed65668060e607581c807711fed"
+    },
+    "func_01ff8148": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 88,
+      "source": "libs/nitro/os/asm_stubs/calls/func_01ff8148.c",
+      "source_sha256": "2f5434b3e88583352e45d4c74b71b2e2654186f9be71c05f462d1a49d7a1f0df",
+      "target_sha256": "fa29a5cdf862cb70f2ce32514531e2878e2b40f6d5ed90e8588f8655cd530095"
+    },
+    "func_01ff81a0": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 348,
+      "source": "libs/nitro/os/asm_stubs/calls/func_01ff81a0.c",
+      "source_sha256": "3c2d48b4d886f3c015b553088a4d9b6b1a95351d0022e359aa3c6776ad9f0cf2",
+      "target_sha256": "3fe46e26a668ee2c1bb69ec96727cc27c72c084bf6a7c255c60e365cf085e25a"
+    },
+    "func_01ff8330": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 204,
+      "source": "libs/nitro/os/asm_stubs/calls/func_01ff8330.c",
+      "source_sha256": "df57f07776df9413585a41cc2987d2b3bf3f3087da97e0688174052bc352c1db",
+      "target_sha256": "e9aa4710e4f3edf8d3b6cf84fce31e928cc13108750becc7d3acf63970920879"
+    },
+    "func_ov002_02077560": {
+      "kind": "authorized_clz",
+      "mode": "arm",
+      "size": 132,
+      "source": "src/overlays/ov002/calls/func_ov002_02077560.c",
+      "source_sha256": "41f8f4ad3790ed33c8d6ff7f49f9ee7a31413161bbf41b76b8c846fb0a28888e",
+      "target_sha256": "952e8b2925837566aa0a639f1785105356e8ba50bf12113c2f82a17e8a56c230"
+    }
+  },
+  "schema_version": 1
+}

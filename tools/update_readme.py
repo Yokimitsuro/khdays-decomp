@@ -3,8 +3,8 @@
 
 Usa la MISMA clasificacion que `tools/progress.py` (audit_progress +
 compute_byte_progress) para que README.md y PROGRESS.md nunca discrepen.
-Reescribe solo las celdas de conteo de cada fila; deja intactas etiquetas y
-descripciones.
+Reescribe los conteos y las descripciones de politica generadas; conserva
+las etiquetas y el resto del documento.
 """
 import os
 import re
@@ -15,6 +15,23 @@ import progress  # for compute_byte_progress (import is side-effect-free)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 README = os.path.join(ROOT, "README.md")
+
+
+def update_policy_descriptions(text):
+    descriptions = {
+        "Real C-decompiled matched **bytes**": (
+            "Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. "
+            "decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ "
+            "exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md)."),
+        "Inline ASM / ASM stub matched functions": (
+            "ASM implementations, including temporary game stubs, canonical library assembly and "
+            "authorized inline exceptions; never counted as real C. Only explicitly verified "
+            "manifest entries contribute to decomp.dev matching coverage."),
+    }
+    for label, description in descriptions.items():
+        pattern = r"^(\| " + re.escape(label) + r" \|[^|]*\|)[^\n]*$"
+        text = re.sub(pattern, lambda m: m.group(1) + " " + description + " |", text, flags=re.M)
+    return text
 
 
 def main():
@@ -49,6 +66,7 @@ def main():
     for pat, repl in subs:
         txt, n = re.subn(pat, repl, txt)
         changed += n
+    txt = update_policy_descriptions(txt)
 
     open(README, "w", encoding="utf-8", newline="\n").write(txt)
     print(

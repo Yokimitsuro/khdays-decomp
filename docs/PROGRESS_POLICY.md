@@ -34,3 +34,22 @@ The goal is to keep progress reporting honest and useful for contributors and
 external project trackers such as decomp.dev. Byte-exact matching remains the
 technical verification gate, but public C progress only counts real C
 implementations.
+
+## decomp.dev matching coverage
+
+The primary `YKGP_report` artifact reports byte-exact matching coverage, not
+pure-C completion. In addition to real C it includes only the sources listed in
+`config/arm9/report_asm_matches.json`: the individually authorized CLZ exception
+and the verified canonical SDK assembly completing ITCM. This is not permission
+to count other game stubs, inline assembly, or SDK identifications as complete.
+
+Each entry records its source hash, target hash, mode, and verified size. Source
+hashes normalize line endings so Windows and CI agree. Changes invalidate the
+attestation and stop report generation until `python tools/verify_report_asm.py`
+passes byte and relocation verification again. Adding a game entry also requires
+the explicit single-CLZ authorization in `config/arm9/asm_exceptions.json`.
+
+Thus ov002 and ITCM can report 100% matching while the unchanged C audit reports
+1477/1478 and 129/154 real-C functions respectively. `PROGRESS.md`, `README.md`,
+and `build/report_c.json` continue to exclude every ASM source from real C.
+The workflow uploads `report_c.json` with `YKGP_progress_audit` for comparison.
