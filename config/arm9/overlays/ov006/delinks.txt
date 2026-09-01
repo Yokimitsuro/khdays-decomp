@@ -476,6 +476,10 @@ src/overlays/ov006/calls/func_ov006_020502e4.c:
     complete
     .text       start:0x020502e4 end:0x02050360
 
+src/overlays/ov006/calls/func_ov006_02050360.c:
+    complete
+    .text       start:0x02050360 end:0x020505b0
+
 src/overlays/ov006/calls/CARDi_GetRomAccessor_0x020505b0.c:
     complete
     .text       start:0x020505b0 end:0x020505bc
