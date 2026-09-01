@@ -73,8 +73,8 @@ __pycache__/
 !/sdk/include/main.h
 !/sdk/include/mmap.h
 
-# Local-only decomp skill (project reference, not redistributed)
-/.claude/skills/
+# Local-only agent configuration and decomp skills (not redistributed)
+/.claude/
 
 # ── Ghidra project (ROM-derived disassembly DB — never commit) ───────────────
 *.gpr
