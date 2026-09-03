@@ -195,3 +195,7 @@ src/overlays/ov275/calls/func_ov275_020d5420.c:
 src/overlays/ov275/calls/func_ov275_020d5ed8.c:
     complete
     .text       start:0x020d5ed8 end:0x020d5fb4
+
+src/overlays/ov275/data/ov275_strings_020d60e0.c:
+    complete
+    .data       start:0x020d60e0 end:0x020d6160

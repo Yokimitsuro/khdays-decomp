@@ -251,3 +251,7 @@ src/overlays/ov178/asm_stubs/calls/func_ov178_020cecdc.c:
 src/overlays/ov178/calls/func_ov178_020cee40.c:
     complete
     .text       start:0x020cee40 end:0x020cee70
+
+src/overlays/ov178/data/ov178_strings_020ceea0.c:
+    complete
+    .data       start:0x020ceea0 end:0x020ceec0

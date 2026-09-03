@@ -135,3 +135,7 @@ src/overlays/ov272/calls/func_ov272_020d3478.c:
 src/overlays/ov272/calls/func_ov272_020d34f0.c:
     complete
     .text       start:0x020d34f0 end:0x020d3568
+
+src/overlays/ov272/data/ov272_strings_020d35a0.c:
+    complete
+    .data       start:0x020d35a0 end:0x020d3600

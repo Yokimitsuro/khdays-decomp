@@ -139,3 +139,7 @@ src/overlays/ov235/calls/func_ov235_020d224c.c:
 src/overlays/ov235/calls/func_ov235_020d22b0.c:
     complete
     .text       start:0x020d22b0 end:0x020d22d0
+
+src/overlays/ov235/data/ov235_strings_020d2580.c:
+    complete
+    .data       start:0x020d2580 end:0x020d25e0

@@ -307,3 +307,11 @@ src/overlays/ov186/calls/func_ov186_020d3404.c:
 src/overlays/ov186/calls/func_ov186_020d3438.c:
     complete
     .text       start:0x020d3438 end:0x020d34b0
+
+src/overlays/ov186/data/ov186_strings_020d34e4.c:
+    complete
+    .data       start:0x020d34e4 end:0x020d34f0
+
+src/overlays/ov186/data/ov186_strings_020d34f4.c:
+    complete
+    .data       start:0x020d34f4 end:0x020d3500

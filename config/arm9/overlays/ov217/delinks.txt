@@ -203,3 +203,7 @@ src/overlays/ov217/calls/func_ov217_020d2770.c:
 src/overlays/ov217/auto/func_ov217_020d2820.c:
     complete
     .text       start:0x020d2820 end:0x020d2824
+
+src/overlays/ov217/data/ov217_strings_020d2880.c:
+    complete
+    .data       start:0x020d2880 end:0x020d28a0

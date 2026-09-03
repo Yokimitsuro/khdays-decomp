@@ -191,3 +191,7 @@ src/overlays/ov158/calls/func_ov158_020ceee0.c:
 src/overlays/ov158/auto/func_ov158_020cef18.c:
     complete
     .text       start:0x020cef18 end:0x020cefec
+
+src/overlays/ov158/data/ov158_strings_020cf580.c:
+    complete
+    .data       start:0x020cf580 end:0x020cf5a0

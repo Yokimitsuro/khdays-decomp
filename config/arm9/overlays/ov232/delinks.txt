@@ -211,3 +211,7 @@ src/overlays/ov232/calls/func_ov232_020d3180.c:
 src/overlays/ov232/calls/func_ov232_020d31b8.c:
     complete
     .text       start:0x020d31b8 end:0x020d32ac
+
+src/overlays/ov232/data/ov232_strings_020d36a0.c:
+    complete
+    .data       start:0x020d36a0 end:0x020d3700

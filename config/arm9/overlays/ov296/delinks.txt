@@ -58,3 +58,7 @@ src/overlays/ov296/calls/func_ov296_020d5c48.c:
 src/overlays/ov296/calls/func_ov296_020d6094.c:
     complete
     .text       start:0x020d6094 end:0x020d615c
+
+src/overlays/ov296/data/ov296_strings_020d6160.c:
+    complete
+    .data       start:0x020d6160 end:0x020d6180

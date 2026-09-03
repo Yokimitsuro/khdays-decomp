@@ -59,3 +59,7 @@ src/overlays/ov007/calls/func_ov007_0204d364.c:
 src/overlays/ov007/auto/func_ov007_0204d374.c:
     complete
     .text       start:0x0204d374 end:0x0204d3ac
+
+src/overlays/ov007/data/ov007_strings_0204d3d8.c:
+    complete
+    .data       start:0x0204d3d8 end:0x0204d420

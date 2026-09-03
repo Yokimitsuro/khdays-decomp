@@ -183,3 +183,7 @@ src/overlays/ov139/calls/func_ov139_020ceae8.c:
 src/overlays/ov139/calls/func_ov139_020ceb48.c:
     complete
     .text       start:0x020ceb48 end:0x020cebfc
+
+src/overlays/ov139/data/ov139_strings_020cec80.c:
+    complete
+    .data       start:0x020cec80 end:0x020ceca0

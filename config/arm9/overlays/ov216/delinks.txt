@@ -203,3 +203,7 @@ src/overlays/ov216/calls/func_ov216_020ceb30.c:
 src/overlays/ov216/auto/func_ov216_020cebe0.c:
     complete
     .text       start:0x020cebe0 end:0x020cebe4
+
+src/overlays/ov216/data/ov216_strings_020cec40.c:
+    complete
+    .data       start:0x020cec40 end:0x020cec60

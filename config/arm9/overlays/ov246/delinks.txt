@@ -195,3 +195,7 @@ src/overlays/ov246/auto/func_ov246_020d29fc.c:
 src/overlays/ov246/calls/func_ov246_020d2a34.c:
     complete
     .text       start:0x020d2a34 end:0x020d2b8c
+
+src/overlays/ov246/data/ov246_strings_020d3120.c:
+    complete
+    .data       start:0x020d3120 end:0x020d3140

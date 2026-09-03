@@ -175,3 +175,7 @@ src/overlays/ov114/calls/func_ov114_020cdeac.c:
 src/overlays/ov114/calls/func_ov114_020cdf3c.c:
     complete
     .text       start:0x020cdf3c end:0x020cdfb4
+
+src/overlays/ov114/data/ov114_strings_020cdfe0.c:
+    complete
+    .data       start:0x020cdfe0 end:0x020ce000

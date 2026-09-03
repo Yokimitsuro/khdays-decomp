@@ -111,3 +111,11 @@ src/overlays/ov083/asm_stubs/calls/func_ov083_020b9848.c:
 src/overlays/ov083/calls/func_ov083_020b9944.c:
     complete
     .text       start:0x020b9944 end:0x020b995c
+
+src/overlays/ov083/data/ov083_strings_020b995c.c:
+    complete
+    .rodata     start:0x020b995c end:0x020b998c
+
+src/overlays/ov083/data/ov083_strings_020b9a88.c:
+    complete
+    .data       start:0x020b9a88 end:0x020b9b00

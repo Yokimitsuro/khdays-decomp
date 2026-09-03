@@ -1159,3 +1159,19 @@ src/overlays/ov005/auto/func_ov005_0205b0e4.c:
 src/overlays/ov005/calls/func_ov005_0205b100.c:
     complete
     .text       start:0x0205b100 end:0x0205b2dc
+
+src/overlays/ov005/data/ov005_strings_0205b4c0.c:
+    complete
+    .data       start:0x0205b4c0 end:0x0205b4dc
+
+src/overlays/ov005/data/ov005_strings_0205b50c.c:
+    complete
+    .data       start:0x0205b50c end:0x0205b588
+
+src/overlays/ov005/data/ov005_strings_0205b5a4.c:
+    complete
+    .data       start:0x0205b5a4 end:0x0205b620
+
+src/overlays/ov005/data/ov005_strings_0205b788.c:
+    complete
+    .data       start:0x0205b788 end:0x0205b79c

@@ -159,3 +159,7 @@ src/overlays/ov117/calls/func_ov117_020cdb7c.c:
 src/overlays/ov117/calls/func_ov117_020cdbb0.c:
     complete
     .text       start:0x020cdbb0 end:0x020cdc28
+
+src/overlays/ov117/data/ov117_strings_020cdc64.c:
+    complete
+    .data       start:0x020cdc64 end:0x020cdc80

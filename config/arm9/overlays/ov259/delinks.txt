@@ -183,3 +183,7 @@ src/overlays/ov259/calls/func_ov259_020d2ab4.c:
 src/overlays/ov259/calls/func_ov259_020d2b2c.c:
     complete
     .text       start:0x020d2b2c end:0x020d2b90
+
+src/overlays/ov259/data/ov259_strings_020d2fc0.c:
+    complete
+    .data       start:0x020d2fc0 end:0x020d3000

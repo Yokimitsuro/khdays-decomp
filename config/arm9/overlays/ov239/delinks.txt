@@ -171,3 +171,7 @@ src/overlays/ov239/calls/func_ov239_020cdb08.c:
 src/overlays/ov239/asm_stubs/calls/func_ov239_020cdb2c.c:
     complete
     .text       start:0x020cdb2c end:0x020cdc20
+
+src/overlays/ov239/data/ov239_strings_020cdc40.c:
+    complete
+    .data       start:0x020cdc40 end:0x020cdc80

@@ -139,3 +139,15 @@ src/overlays/ov072/asm_stubs/calls/func_ov072_020ba40c.c:
 src/overlays/ov072/calls/func_ov072_020ba5b0.c:
     complete
     .text       start:0x020ba5b0 end:0x020ba5c8
+
+src/overlays/ov072/data/ov072_strings_020ba618.c:
+    complete
+    .rodata     start:0x020ba618 end:0x020ba6a8
+
+src/overlays/ov072/data/ov072_strings_020ba6c0.c:
+    complete
+    .data       start:0x020ba6c0 end:0x020ba6d4
+
+src/overlays/ov072/data/ov072_strings_020ba6e8.c:
+    complete
+    .data       start:0x020ba6e8 end:0x020ba7a0

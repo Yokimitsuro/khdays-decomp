@@ -231,3 +231,11 @@ src/overlays/ov142/auto/func_ov142_020d25a4.c:
 src/overlays/ov142/calls/func_ov142_020d25dc.c:
     complete
     .text       start:0x020d25dc end:0x020d25fc
+
+src/overlays/ov142/data/ov142_strings_020d2680.c:
+    complete
+    .data       start:0x020d2680 end:0x020d268c
+
+src/overlays/ov142/data/ov142_strings_020d2690.c:
+    complete
+    .data       start:0x020d2690 end:0x020d26c0

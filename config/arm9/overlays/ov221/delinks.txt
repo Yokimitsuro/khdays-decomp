@@ -267,3 +267,7 @@ src/overlays/ov221/calls/func_ov221_020d4ba0.c:
 src/overlays/ov221/calls/func_ov221_020d4cd4.c:
     complete
     .text       start:0x020d4cd4 end:0x020d4da8
+
+src/overlays/ov221/data/ov221_strings_020d4e00.c:
+    complete
+    .data       start:0x020d4e00 end:0x020d4e54

@@ -135,3 +135,11 @@ src/overlays/ov090/calls/func_ov090_020bca30.c:
 src/overlays/ov090/calls/func_ov090_020bcaf8.c:
     complete
     .text       start:0x020bcaf8 end:0x020bcb10
+
+src/overlays/ov090/data/ov090_strings_020bcb1c.c:
+    complete
+    .rodata     start:0x020bcb1c end:0x020bcb4c
+
+src/overlays/ov090/data/ov090_strings_020bcb74.c:
+    complete
+    .data       start:0x020bcb74 end:0x020bcc00

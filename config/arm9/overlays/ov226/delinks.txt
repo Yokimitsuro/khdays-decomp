@@ -231,3 +231,7 @@ src/overlays/ov226/calls/func_ov226_020d4454.c:
 src/overlays/ov226/auto/func_ov226_020d4538.c:
     complete
     .text       start:0x020d4538 end:0x020d453c
+
+src/overlays/ov226/data/ov226_strings_020d4b60.c:
+    complete
+    .data       start:0x020d4b60 end:0x020d4bc0

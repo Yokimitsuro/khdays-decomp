@@ -5915,3 +5915,83 @@ src/overlays/ov002/calls/func_ov002_0207daf0.c:
 src/overlays/ov002/calls/func_ov002_0207db30.c:
     complete
     .text       start:0x0207db30 end:0x0207db52
+
+src/overlays/ov002/data/ov002_strings_0207e844.c:
+    complete
+    .data       start:0x0207e844 end:0x0207e880
+
+src/overlays/ov002/data/ov002_strings_0207e8a8.c:
+    complete
+    .data       start:0x0207e8a8 end:0x0207e8b4
+
+src/overlays/ov002/data/ov002_strings_0207e8dc.c:
+    complete
+    .data       start:0x0207e8dc end:0x0207e988
+
+src/overlays/ov002/data/ov002_strings_0207eadc.c:
+    complete
+    .data       start:0x0207eadc end:0x0207eb08
+
+src/overlays/ov002/data/ov002_strings_0207eb10.c:
+    complete
+    .data       start:0x0207eb10 end:0x0207eb24
+
+src/overlays/ov002/data/ov002_strings_0207eb40.c:
+    complete
+    .data       start:0x0207eb40 end:0x0207ebb0
+
+src/overlays/ov002/data/ov002_strings_0207ebc4.c:
+    complete
+    .data       start:0x0207ebc4 end:0x0207ebf4
+
+src/overlays/ov002/data/ov002_strings_0207ecb4.c:
+    complete
+    .data       start:0x0207ecb4 end:0x0207ed1c
+
+src/overlays/ov002/data/ov002_strings_0207ed20.c:
+    complete
+    .data       start:0x0207ed20 end:0x0207ed74
+
+src/overlays/ov002/data/ov002_strings_0207ed88.c:
+    complete
+    .data       start:0x0207ed88 end:0x0207edf4
+
+src/overlays/ov002/data/ov002_strings_0207ee38.c:
+    complete
+    .data       start:0x0207ee38 end:0x0207ee70
+
+src/overlays/ov002/data/ov002_strings_0207ee98.c:
+    complete
+    .data       start:0x0207ee98 end:0x0207eeb0
+
+src/overlays/ov002/data/ov002_strings_0207eec4.c:
+    complete
+    .data       start:0x0207eec4 end:0x0207eed8
+
+src/overlays/ov002/data/ov002_strings_0207eefc.c:
+    complete
+    .data       start:0x0207eefc end:0x0207ef54
+
+src/overlays/ov002/data/ov002_strings_0207efb0.c:
+    complete
+    .data       start:0x0207efb0 end:0x0207f00c
+
+src/overlays/ov002/data/ov002_strings_0207f03c.c:
+    complete
+    .data       start:0x0207f03c end:0x0207f0a4
+
+src/overlays/ov002/data/ov002_strings_0207f0d4.c:
+    complete
+    .data       start:0x0207f0d4 end:0x0207f114
+
+src/overlays/ov002/data/ov002_strings_0207f11c.c:
+    complete
+    .data       start:0x0207f11c end:0x0207f134
+
+src/overlays/ov002/data/ov002_strings_0207f420.c:
+    complete
+    .data       start:0x0207f420 end:0x0207f454
+
+src/overlays/ov002/data/ov002_strings_0207f468.c:
+    complete
+    .data       start:0x0207f468 end:0x0207f484

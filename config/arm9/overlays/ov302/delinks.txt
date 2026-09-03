@@ -102,3 +102,7 @@ src/overlays/ov302/calls/func_ov302_020cc6dc.c:
 src/overlays/ov302/auto/func_ov302_020cc718.c:
     complete
     .text       start:0x020cc718 end:0x020cc720
+
+src/overlays/ov302/data/ov302_strings_020cc740.c:
+    complete
+    .data       start:0x020cc740 end:0x020cc760

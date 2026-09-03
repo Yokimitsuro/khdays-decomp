@@ -14,3 +14,7 @@ src/overlays/ov300/calls/func_ov300_020cbf38.c:
 src/overlays/ov300/auto/func_ov300_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cbfc8
+
+src/overlays/ov300/data/ov300_strings_020cbfe0.c:
+    complete
+    .data       start:0x020cbfe0 end:0x020cc000

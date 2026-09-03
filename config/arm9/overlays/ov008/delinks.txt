@@ -3679,3 +3679,83 @@ src/overlays/ov008/calls/func_ov008_0208e60c.c:
 src/overlays/ov008/auto/func_ov008_0208e650.c:
     complete
     .text       start:0x0208e650 end:0x0208e66c
+
+src/overlays/ov008/data/ov008_strings_0208f080.c:
+    complete
+    .rodata     start:0x0208f080 end:0x0208f110
+
+src/overlays/ov008/data/ov008_strings_0208ffb4.c:
+    complete
+    .data       start:0x0208ffb4 end:0x02090050
+
+src/overlays/ov008/data/ov008_strings_020900ec.c:
+    complete
+    .data       start:0x020900ec end:0x02090108
+
+src/overlays/ov008/data/ov008_strings_020901fc.c:
+    complete
+    .data       start:0x020901fc end:0x020902e8
+
+src/overlays/ov008/data/ov008_strings_0209032c.c:
+    complete
+    .data       start:0x0209032c end:0x02090344
+
+src/overlays/ov008/data/ov008_strings_02090348.c:
+    complete
+    .data       start:0x02090348 end:0x02090360
+
+src/overlays/ov008/data/ov008_strings_020903f0.c:
+    complete
+    .data       start:0x020903f0 end:0x0209041c
+
+src/overlays/ov008/data/ov008_strings_020904a4.c:
+    complete
+    .data       start:0x020904a4 end:0x020904f8
+
+src/overlays/ov008/data/ov008_strings_0209078c.c:
+    complete
+    .data       start:0x0209078c end:0x020907a0
+
+src/overlays/ov008/data/ov008_strings_020907f0.c:
+    complete
+    .data       start:0x020907f0 end:0x02090808
+
+src/overlays/ov008/data/ov008_strings_02090818.c:
+    complete
+    .data       start:0x02090818 end:0x0209082c
+
+src/overlays/ov008/data/ov008_strings_0209086c.c:
+    complete
+    .data       start:0x0209086c end:0x02090878
+
+src/overlays/ov008/data/ov008_strings_0209089c.c:
+    complete
+    .data       start:0x0209089c end:0x020908e0
+
+src/overlays/ov008/data/ov008_strings_02090920.c:
+    complete
+    .data       start:0x02090920 end:0x0209092c
+
+src/overlays/ov008/data/ov008_strings_020909a4.c:
+    complete
+    .data       start:0x020909a4 end:0x020909d4
+
+src/overlays/ov008/data/ov008_strings_02090b40.c:
+    complete
+    .data       start:0x02090b40 end:0x02090bb0
+
+src/overlays/ov008/data/ov008_strings_02090cf8.c:
+    complete
+    .data       start:0x02090cf8 end:0x02090d0c
+
+src/overlays/ov008/data/ov008_strings_02090d30.c:
+    complete
+    .data       start:0x02090d30 end:0x02090db0
+
+src/overlays/ov008/data/ov008_strings_02090dd8.c:
+    complete
+    .data       start:0x02090dd8 end:0x02090ea0
+
+src/overlays/ov008/data/ov008_strings_02090ed4.c:
+    complete
+    .data       start:0x02090ed4 end:0x02090f00

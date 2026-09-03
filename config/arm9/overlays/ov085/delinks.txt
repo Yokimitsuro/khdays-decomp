@@ -99,3 +99,11 @@ src/overlays/ov085/calls/func_ov085_020b8db0.c:
 src/overlays/ov085/calls/func_ov085_020b90d4.c:
     complete
     .text       start:0x020b90d4 end:0x020b90ec
+
+src/overlays/ov085/data/ov085_strings_020b90ec.c:
+    complete
+    .rodata     start:0x020b90ec end:0x020b912c
+
+src/overlays/ov085/data/ov085_strings_020b91e8.c:
+    complete
+    .data       start:0x020b91e8 end:0x020b9260

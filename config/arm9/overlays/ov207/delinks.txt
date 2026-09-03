@@ -195,3 +195,7 @@ src/overlays/ov207/calls/func_ov207_020d35fc.c:
 src/overlays/ov207/calls/func_ov207_020d40b4.c:
     complete
     .text       start:0x020d40b4 end:0x020d4190
+
+src/overlays/ov207/data/ov207_strings_020d42a0.c:
+    complete
+    .data       start:0x020d42a0 end:0x020d4320

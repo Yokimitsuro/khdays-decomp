@@ -335,3 +335,15 @@ src/overlays/ov004/calls/func_ov004_02051008.c:
 src/overlays/ov004/calls/func_ov004_0205102c.c:
     complete
     .text       start:0x0205102c end:0x0205104c
+
+src/overlays/ov004/data/ov004_strings_020511e0.c:
+    complete
+    .data       start:0x020511e0 end:0x02051210
+
+src/overlays/ov004/data/ov004_strings_02051224.c:
+    complete
+    .data       start:0x02051224 end:0x020512ec
+
+src/overlays/ov004/data/ov004_strings_02051328.c:
+    complete
+    .data       start:0x02051328 end:0x0205136c

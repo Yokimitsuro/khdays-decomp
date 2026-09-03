@@ -99,3 +99,11 @@ src/overlays/ov066/calls/func_ov066_020b66d0.c:
 src/overlays/ov066/calls/func_ov066_020b69f4.c:
     complete
     .text       start:0x020b69f4 end:0x020b6a0c
+
+src/overlays/ov066/data/ov066_strings_020b6a0c.c:
+    complete
+    .rodata     start:0x020b6a0c end:0x020b6a4c
+
+src/overlays/ov066/data/ov066_strings_020b6b08.c:
+    complete
+    .data       start:0x020b6b08 end:0x020b6b80

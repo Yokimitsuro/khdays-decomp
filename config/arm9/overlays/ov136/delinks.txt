@@ -159,3 +159,11 @@ src/overlays/ov136/calls/func_ov136_020d38f0.c:
 src/overlays/ov136/calls/func_ov136_020d3924.c:
     complete
     .text       start:0x020d3924 end:0x020d39d8
+
+src/overlays/ov136/data/ov136_strings_020d3a40.c:
+    complete
+    .data       start:0x020d3a40 end:0x020d3a60
+
+src/overlays/ov136/data/ov136_strings_020d3a64.c:
+    complete
+    .data       start:0x020d3a64 end:0x020d3a80

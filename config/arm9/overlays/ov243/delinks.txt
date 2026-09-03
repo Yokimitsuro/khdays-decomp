@@ -111,3 +111,7 @@ src/overlays/ov243/asm_stubs/calls/func_ov243_020d4720.c:
 src/overlays/ov243/asm_stubs/calls/func_ov243_020d4748.c:
     complete
     .text       start:0x020d4748 end:0x020d474a
+
+src/overlays/ov243/data/ov243_strings_020d476c.c:
+    complete
+    .data       start:0x020d476c end:0x020d4780

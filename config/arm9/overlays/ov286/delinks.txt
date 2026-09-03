@@ -94,3 +94,7 @@ src/overlays/ov286/calls/func_ov286_020d43ec.c:
 src/overlays/ov286/calls/func_ov286_020d44b4.c:
     complete
     .text       start:0x020d44b4 end:0x020d4568
+
+src/overlays/ov286/data/ov286_strings_020d4580.c:
+    complete
+    .data       start:0x020d4580 end:0x020d45a0

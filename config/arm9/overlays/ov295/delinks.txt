@@ -58,3 +58,7 @@ src/overlays/ov295/calls/func_ov295_020d3e28.c:
 src/overlays/ov295/calls/func_ov295_020d4274.c:
     complete
     .text       start:0x020d4274 end:0x020d433c
+
+src/overlays/ov295/data/ov295_strings_020d4340.c:
+    complete
+    .data       start:0x020d4340 end:0x020d4360

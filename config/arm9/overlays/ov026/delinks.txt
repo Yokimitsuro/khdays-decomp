@@ -747,3 +747,15 @@ src/overlays/ov026/calls/func_ov026_02090e74.c:
 src/overlays/ov026/auto/func_ov026_02090eb8.c:
     complete
     .text       start:0x02090eb8 end:0x02090ed4
+
+src/overlays/ov026/data/ov026_strings_02091214.c:
+    complete
+    .data       start:0x02091214 end:0x02091230
+
+src/overlays/ov026/data/ov026_strings_02091244.c:
+    complete
+    .data       start:0x02091244 end:0x0209130c
+
+src/overlays/ov026/data/ov026_strings_02091340.c:
+    complete
+    .data       start:0x02091340 end:0x02091360

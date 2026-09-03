@@ -195,3 +195,7 @@ src/overlays/ov247/auto/func_ov247_020d481c.c:
 src/overlays/ov247/calls/func_ov247_020d4854.c:
     complete
     .text       start:0x020d4854 end:0x020d49ac
+
+src/overlays/ov247/data/ov247_strings_020d4f40.c:
+    complete
+    .data       start:0x020d4f40 end:0x020d4f60

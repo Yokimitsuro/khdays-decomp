@@ -135,3 +135,11 @@ src/overlays/ov073/calls/func_ov073_020ba370.c:
 src/overlays/ov073/calls/func_ov073_020ba438.c:
     complete
     .text       start:0x020ba438 end:0x020ba450
+
+src/overlays/ov073/data/ov073_strings_020ba45c.c:
+    complete
+    .rodata     start:0x020ba45c end:0x020ba48c
+
+src/overlays/ov073/data/ov073_strings_020ba4b4.c:
+    complete
+    .data       start:0x020ba4b4 end:0x020ba540

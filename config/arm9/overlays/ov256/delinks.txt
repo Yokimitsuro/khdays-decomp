@@ -187,3 +187,7 @@ src/overlays/ov256/calls/func_ov256_020d15c0.c:
 src/overlays/ov256/calls/func_ov256_020d1ae8.c:
     complete
     .text       start:0x020d1ae8 end:0x020d1b2c
+
+src/overlays/ov256/data/ov256_strings_020d2680.c:
+    complete
+    .data       start:0x020d2680 end:0x020d2700

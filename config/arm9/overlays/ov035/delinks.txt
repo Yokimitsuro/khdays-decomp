@@ -127,3 +127,15 @@ src/overlays/ov035/asm_stubs/calls/func_ov035_020b482c.c:
 src/overlays/ov035/calls/func_ov035_020b4b48.c:
     complete
     .text       start:0x020b4b48 end:0x020b4b60
+
+src/overlays/ov035/data/ov035_strings_020b4b8c.c:
+    complete
+    .rodata     start:0x020b4b8c end:0x020b4bdc
+
+src/overlays/ov035/data/ov035_strings_020b4be0.c:
+    complete
+    .data       start:0x020b4be0 end:0x020b4bf4
+
+src/overlays/ov035/data/ov035_strings_020b4c1c.c:
+    complete
+    .data       start:0x020b4c1c end:0x020b4ca0

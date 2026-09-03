@@ -71,3 +71,7 @@ src/overlays/ov252/auto/func_ov252_020d3454.c:
 src/overlays/ov252/auto/func_ov252_020d3cf8.c:
     complete
     .text       start:0x020d3cf8 end:0x020d3d10
+
+src/overlays/ov252/data/ov252_strings_020d4520.c:
+    complete
+    .data       start:0x020d4520 end:0x020d45e0

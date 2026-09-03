@@ -167,3 +167,15 @@ src/overlays/ov030/calls/func_ov030_020b55d0.c:
 src/overlays/ov030/calls/func_ov030_020b564c.c:
     complete
     .text       start:0x020b564c end:0x020b5860
+
+src/overlays/ov030/data/ov030_strings_020b5860.c:
+    complete
+    .rodata     start:0x020b5860 end:0x020b58b0
+
+src/overlays/ov030/data/ov030_strings_020b58e0.c:
+    complete
+    .data       start:0x020b58e0 end:0x020b58f4
+
+src/overlays/ov030/data/ov030_strings_020b5908.c:
+    complete
+    .data       start:0x020b5908 end:0x020b5a00

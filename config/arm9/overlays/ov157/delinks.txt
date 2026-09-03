@@ -203,3 +203,7 @@ src/overlays/ov157/asm_stubs/calls/func_ov157_020d0318.c:
 src/overlays/ov157/asm_stubs/calls/func_ov157_020d03f4.c:
     complete
     .text       start:0x020d03f4 end:0x020d0b94
+
+src/overlays/ov157/data/ov157_strings_020d0c00.c:
+    complete
+    .data       start:0x020d0c00 end:0x020d0c20

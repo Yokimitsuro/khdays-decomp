@@ -199,3 +199,11 @@ src/overlays/ov069/calls/func_ov069_020ba4cc.c:
 src/overlays/ov069/calls/func_ov069_020ba71c.c:
     complete
     .text       start:0x020ba71c end:0x020ba7d0
+
+src/overlays/ov069/data/ov069_strings_020baa70.c:
+    complete
+    .data       start:0x020baa70 end:0x020baa84
+
+src/overlays/ov069/data/ov069_strings_020baab4.c:
+    complete
+    .data       start:0x020baab4 end:0x020baae0

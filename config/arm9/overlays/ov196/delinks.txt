@@ -203,3 +203,11 @@ src/overlays/ov196/calls/func_ov196_020d6234.c:
 src/overlays/ov196/asm_stubs/calls/func_ov196_020d6280.c:
     complete
     .text       start:0x020d6280 end:0x020d67cc
+
+src/overlays/ov196/data/ov196_strings_020d6860.c:
+    complete
+    .data       start:0x020d6860 end:0x020d6888
+
+src/overlays/ov196/data/ov196_strings_020d688c.c:
+    complete
+    .data       start:0x020d688c end:0x020d68a0

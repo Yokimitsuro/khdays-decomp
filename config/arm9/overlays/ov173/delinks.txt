@@ -207,3 +207,7 @@ src/overlays/ov173/calls/func_ov173_020ceb64.c:
 src/overlays/ov173/calls/func_ov173_020cec04.c:
     complete
     .text       start:0x020cec04 end:0x020cec98
+
+src/overlays/ov173/data/ov173_strings_020cecc0.c:
+    complete
+    .data       start:0x020cecc0 end:0x020cece0

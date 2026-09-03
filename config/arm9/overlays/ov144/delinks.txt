@@ -154,3 +154,7 @@ src/overlays/ov144/asm_stubs/calls/func_ov144_020cdb70.c:
 src/overlays/ov144/calls/func_ov144_020cdc2c.c:
     complete
     .text       start:0x020cdc2c end:0x020cdcc0
+
+src/overlays/ov144/data/ov144_strings_020cdce0.c:
+    complete
+    .data       start:0x020cdce0 end:0x020cdd00

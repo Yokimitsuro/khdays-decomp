@@ -147,3 +147,7 @@ src/overlays/ov130/calls/func_ov130_020cd59c.c:
 src/overlays/ov130/calls/func_ov130_020cd690.c:
     complete
     .text       start:0x020cd690 end:0x020cd740
+
+src/overlays/ov130/data/ov130_strings_020cd760.c:
+    complete
+    .data       start:0x020cd760 end:0x020cd780

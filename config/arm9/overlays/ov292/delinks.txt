@@ -127,3 +127,7 @@ src/overlays/ov292/calls/func_ov292_020d4784.c:
 src/overlays/ov292/calls/func_ov292_020d4824.c:
     complete
     .text       start:0x020d4824 end:0x020d48b8
+
+src/overlays/ov292/data/ov292_strings_020d48c0.c:
+    complete
+    .data       start:0x020d48c0 end:0x020d48e0

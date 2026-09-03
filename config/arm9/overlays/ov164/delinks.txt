@@ -227,3 +227,7 @@ src/overlays/ov164/calls/func_ov164_020d2bf4.c:
 src/overlays/ov164/calls/func_ov164_020d2c54.c:
     complete
     .text       start:0x020d2c54 end:0x020d2c74
+
+src/overlays/ov164/data/ov164_strings_020d2d00.c:
+    complete
+    .data       start:0x020d2d00 end:0x020d2d40

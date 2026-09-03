@@ -339,3 +339,7 @@ src/overlays/ov236/auto/func_ov236_020d6068.c:
 src/overlays/ov236/calls/func_ov236_020d6250.c:
     complete
     .text       start:0x020d6250 end:0x020d627c
+
+src/overlays/ov236/data/ov236_strings_020d64a0.c:
+    complete
+    .data       start:0x020d64a0 end:0x020d6520

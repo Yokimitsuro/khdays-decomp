@@ -227,3 +227,7 @@ src/overlays/ov202/asm_stubs/calls/func_ov202_020ceea4.c:
 src/overlays/ov202/calls/func_ov202_020cef30.c:
     complete
     .text       start:0x020cef30 end:0x020cef50
+
+src/overlays/ov202/data/ov202_strings_020cefe0.c:
+    complete
+    .data       start:0x020cefe0 end:0x020cf020

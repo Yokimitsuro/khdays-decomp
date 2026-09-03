@@ -111,3 +111,11 @@ src/overlays/ov089/calls/func_ov089_020bc000.c:
 src/overlays/ov089/calls/func_ov089_020bc030.c:
     complete
     .text       start:0x020bc030 end:0x020bc048
+
+src/overlays/ov089/data/ov089_strings_020bc048.c:
+    complete
+    .rodata     start:0x020bc048 end:0x020bc098
+
+src/overlays/ov089/data/ov089_strings_020bc0b4.c:
+    complete
+    .data       start:0x020bc0b4 end:0x020bc120

@@ -135,3 +135,11 @@ src/overlays/ov060/asm_stubs/calls/func_ov060_020b7020.c:
 src/overlays/ov060/calls/func_ov060_020b73f4.c:
     complete
     .text       start:0x020b73f4 end:0x020b740c
+
+src/overlays/ov060/data/ov060_strings_020b740c.c:
+    complete
+    .rodata     start:0x020b740c end:0x020b744c
+
+src/overlays/ov060/data/ov060_strings_020b7474.c:
+    complete
+    .data       start:0x020b7474 end:0x020b7500

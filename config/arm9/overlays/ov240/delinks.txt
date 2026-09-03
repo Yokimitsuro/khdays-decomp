@@ -171,3 +171,7 @@ src/overlays/ov240/calls/func_ov240_020cfa2c.c:
 src/overlays/ov240/calls/func_ov240_020cfa6c.c:
     complete
     .text       start:0x020cfa6c end:0x020cfb60
+
+src/overlays/ov240/data/ov240_strings_020cfb80.c:
+    complete
+    .data       start:0x020cfb80 end:0x020cfbc0

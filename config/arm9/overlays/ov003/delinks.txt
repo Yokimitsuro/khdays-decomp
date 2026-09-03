@@ -115,3 +115,11 @@ src/overlays/ov003/calls/func_ov003_0204f5cc.c:
 src/overlays/ov003/calls/func_ov003_0204f69c.c:
     complete
     .text       start:0x0204f69c end:0x0204f724
+
+src/overlays/ov003/data/ov003_strings_0204f740.c:
+    complete
+    .data       start:0x0204f740 end:0x0204f8bc
+
+src/overlays/ov003/data/ov003_strings_0204f944.c:
+    complete
+    .data       start:0x0204f944 end:0x0204f9a0

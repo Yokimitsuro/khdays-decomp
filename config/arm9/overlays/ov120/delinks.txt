@@ -163,3 +163,7 @@ src/overlays/ov120/calls/func_ov120_020cdd68.c:
 src/overlays/ov120/calls/func_ov120_020cde30.c:
     complete
     .text       start:0x020cde30 end:0x020cdee4
+
+src/overlays/ov120/data/ov120_strings_020cdf20.c:
+    complete
+    .data       start:0x020cdf20 end:0x020cdf80

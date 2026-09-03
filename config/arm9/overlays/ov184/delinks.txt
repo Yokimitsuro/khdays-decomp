@@ -211,3 +211,7 @@ src/overlays/ov184/calls/func_ov184_020d4368.c:
 src/overlays/ov184/calls/func_ov184_020d43e0.c:
     complete
     .text       start:0x020d43e0 end:0x020d4458
+
+src/overlays/ov184/data/ov184_strings_020d44a0.c:
+    complete
+    .data       start:0x020d44a0 end:0x020d44c0

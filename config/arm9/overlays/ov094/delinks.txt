@@ -159,3 +159,15 @@ src/overlays/ov094/asm_stubs/calls/func_ov094_020bbee0.c:
 src/overlays/ov094/calls/func_ov094_020bc0d4.c:
     complete
     .text       start:0x020bc0d4 end:0x020bc0ec
+
+src/overlays/ov094/data/ov094_strings_020bc0ec.c:
+    complete
+    .rodata     start:0x020bc0ec end:0x020bc12c
+
+src/overlays/ov094/data/ov094_strings_020bc160.c:
+    complete
+    .data       start:0x020bc160 end:0x020bc174
+
+src/overlays/ov094/data/ov094_strings_020bc188.c:
+    complete
+    .data       start:0x020bc188 end:0x020bc240

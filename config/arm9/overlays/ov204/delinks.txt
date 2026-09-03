@@ -219,3 +219,7 @@ src/overlays/ov204/asm_stubs/calls/func_ov204_020d3114.c:
 src/overlays/ov204/asm_stubs/calls/func_ov204_020d330c.c:
     complete
     .text       start:0x020d330c end:0x020d35c4
+
+src/overlays/ov204/data/ov204_strings_020d36a0.c:
+    complete
+    .data       start:0x020d36a0 end:0x020d36c0

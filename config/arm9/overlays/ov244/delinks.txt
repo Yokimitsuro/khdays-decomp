@@ -335,3 +335,7 @@ src/overlays/ov244/calls/func_ov244_020d3520.c:
 src/overlays/ov244/calls/func_ov244_020d35b0.c:
     complete
     .text       start:0x020d35b0 end:0x020d3628
+
+src/overlays/ov244/data/ov244_strings_020d37c0.c:
+    complete
+    .data       start:0x020d37c0 end:0x020d38c0

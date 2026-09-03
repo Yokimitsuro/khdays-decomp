@@ -251,3 +251,7 @@ src/overlays/ov147/calls/func_ov147_020ce390.c:
 src/overlays/ov147/calls/func_ov147_020ce41c.c:
     complete
     .text       start:0x020ce41c end:0x020ce8a0
+
+src/overlays/ov147/data/ov147_strings_020ce8c0.c:
+    complete
+    .data       start:0x020ce8c0 end:0x020ce8e0

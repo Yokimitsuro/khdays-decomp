@@ -119,3 +119,15 @@ src/overlays/ov068/asm_stubs/calls/func_ov068_020b6fe0.c:
 src/overlays/ov068/calls/func_ov068_020b72dc.c:
     complete
     .text       start:0x020b72dc end:0x020b72f4
+
+src/overlays/ov068/data/ov068_strings_020b72f4.c:
+    complete
+    .rodata     start:0x020b72f4 end:0x020b7344
+
+src/overlays/ov068/data/ov068_strings_020b7420.c:
+    complete
+    .data       start:0x020b7420 end:0x020b7434
+
+src/overlays/ov068/data/ov068_strings_020b745c.c:
+    complete
+    .data       start:0x020b745c end:0x020b7500

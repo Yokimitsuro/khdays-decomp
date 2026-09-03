@@ -239,3 +239,7 @@ src/overlays/ov248/calls/func_ov248_020d079c.c:
 src/overlays/ov248/calls/func_ov248_020d0b28.c:
     complete
     .text       start:0x020d0b28 end:0x020d0b58
+
+src/overlays/ov248/data/ov248_strings_020d0c20.c:
+    complete
+    .data       start:0x020d0c20 end:0x020d0c60

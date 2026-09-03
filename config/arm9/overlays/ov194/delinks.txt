@@ -203,3 +203,11 @@ src/overlays/ov194/calls/func_ov194_020ce9b4.c:
 src/overlays/ov194/asm_stubs/calls/func_ov194_020cea00.c:
     complete
     .text       start:0x020cea00 end:0x020cef4c
+
+src/overlays/ov194/data/ov194_strings_020cefe0.c:
+    complete
+    .data       start:0x020cefe0 end:0x020cf008
+
+src/overlays/ov194/data/ov194_strings_020cf00c.c:
+    complete
+    .data       start:0x020cf00c end:0x020cf020

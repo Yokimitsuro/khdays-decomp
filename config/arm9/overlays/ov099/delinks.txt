@@ -163,3 +163,11 @@ src/overlays/ov099/calls/func_ov099_020bc7a4.c:
 src/overlays/ov099/calls/func_ov099_020bc820.c:
     complete
     .text       start:0x020bc820 end:0x020bca34
+
+src/overlays/ov099/data/ov099_strings_020bca34.c:
+    complete
+    .rodata     start:0x020bca34 end:0x020bca74
+
+src/overlays/ov099/data/ov099_strings_020bcab4.c:
+    complete
+    .data       start:0x020bcab4 end:0x020bcbc0

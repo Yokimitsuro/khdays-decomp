@@ -127,3 +127,15 @@ src/overlays/ov093/asm_stubs/calls/func_ov093_020bc014.c:
 src/overlays/ov093/calls/func_ov093_020bc28c.c:
     complete
     .text       start:0x020bc28c end:0x020bc2a4
+
+src/overlays/ov093/data/ov093_strings_020bc2c4.c:
+    complete
+    .rodata     start:0x020bc2c4 end:0x020bc314
+
+src/overlays/ov093/data/ov093_strings_020bc320.c:
+    complete
+    .data       start:0x020bc320 end:0x020bc334
+
+src/overlays/ov093/data/ov093_strings_020bc348.c:
+    complete
+    .data       start:0x020bc348 end:0x020bc3c0

@@ -375,3 +375,7 @@ src/overlays/ov266/calls/func_ov266_020d3ce8.c:
 src/overlays/ov266/calls/func_ov266_020d3d58.c:
     complete
     .text       start:0x020d3d58 end:0x020d3d90
+
+src/overlays/ov266/data/ov266_strings_020d3f60.c:
+    complete
+    .data       start:0x020d3f60 end:0x020d3fe0

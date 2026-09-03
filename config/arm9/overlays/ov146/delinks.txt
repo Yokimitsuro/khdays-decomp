@@ -203,3 +203,7 @@ src/overlays/ov146/calls/func_ov146_020cf478.c:
 src/overlays/ov146/calls/func_ov146_020cf4bc.c:
     complete
     .text       start:0x020cf4bc end:0x020cf4f8
+
+src/overlays/ov146/data/ov146_strings_020cf520.c:
+    complete
+    .data       start:0x020cf520 end:0x020cf534

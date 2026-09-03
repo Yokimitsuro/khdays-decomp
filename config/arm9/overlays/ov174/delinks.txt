@@ -207,3 +207,7 @@ src/overlays/ov174/calls/func_ov174_020d27a4.c:
 src/overlays/ov174/calls/func_ov174_020d2844.c:
     complete
     .text       start:0x020d2844 end:0x020d28d8
+
+src/overlays/ov174/data/ov174_strings_020d2900.c:
+    complete
+    .data       start:0x020d2900 end:0x020d2920

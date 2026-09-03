@@ -111,3 +111,11 @@ src/overlays/ov071/calls/func_ov071_020b9940.c:
 src/overlays/ov071/calls/func_ov071_020b9970.c:
     complete
     .text       start:0x020b9970 end:0x020b9988
+
+src/overlays/ov071/data/ov071_strings_020b9988.c:
+    complete
+    .rodata     start:0x020b9988 end:0x020b99d8
+
+src/overlays/ov071/data/ov071_strings_020b99f4.c:
+    complete
+    .data       start:0x020b99f4 end:0x020b9a60

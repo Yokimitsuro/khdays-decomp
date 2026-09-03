@@ -227,3 +227,7 @@ src/overlays/ov171/asm_stubs/calls/func_ov171_020ce99c.c:
 src/overlays/ov171/asm_stubs/calls/func_ov171_020ced14.c:
     complete
     .text       start:0x020ced14 end:0x020ceeac
+
+src/overlays/ov171/data/ov171_strings_020ceec0.c:
+    complete
+    .data       start:0x020ceec0 end:0x020ceee0

@@ -94,3 +94,7 @@ src/overlays/ov285/calls/func_ov285_020d25cc.c:
 src/overlays/ov285/calls/func_ov285_020d2694.c:
     complete
     .text       start:0x020d2694 end:0x020d2748
+
+src/overlays/ov285/data/ov285_strings_020d2760.c:
+    complete
+    .data       start:0x020d2760 end:0x020d2780

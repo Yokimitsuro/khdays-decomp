@@ -75,3 +75,11 @@ src/overlays/ov106/calls/func_ov106_020b8a4c.c:
 src/overlays/ov106/calls/func_ov106_020b8a5c.c:
     complete
     .text       start:0x020b8a5c end:0x020b8a6c
+
+src/overlays/ov106/data/ov106_strings_020b8ab4.c:
+    complete
+    .data       start:0x020b8ab4 end:0x020b8af0
+
+src/overlays/ov106/data/ov106_strings_020b8b34.c:
+    complete
+    .data       start:0x020b8b34 end:0x020b8b60

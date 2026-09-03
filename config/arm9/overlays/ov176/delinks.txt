@@ -223,3 +223,7 @@ src/overlays/ov176/calls/func_ov176_020d23a8.c:
 src/overlays/ov176/asm_stubs/calls/func_ov176_020d2484.c:
     complete
     .text       start:0x020d2484 end:0x020d26b8
+
+src/overlays/ov176/data/ov176_strings_020d26e0.c:
+    complete
+    .data       start:0x020d26e0 end:0x020d2700

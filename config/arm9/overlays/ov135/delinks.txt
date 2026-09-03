@@ -159,3 +159,11 @@ src/overlays/ov135/calls/func_ov135_020d1ad0.c:
 src/overlays/ov135/calls/func_ov135_020d1b04.c:
     complete
     .text       start:0x020d1b04 end:0x020d1bb8
+
+src/overlays/ov135/data/ov135_strings_020d1c20.c:
+    complete
+    .data       start:0x020d1c20 end:0x020d1c40
+
+src/overlays/ov135/data/ov135_strings_020d1c44.c:
+    complete
+    .data       start:0x020d1c44 end:0x020d1c60

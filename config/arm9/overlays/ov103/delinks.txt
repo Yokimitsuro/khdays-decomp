@@ -135,3 +135,15 @@ src/overlays/ov103/asm_stubs/calls/func_ov103_020bbde8.c:
 src/overlays/ov103/calls/func_ov103_020bbfd4.c:
     complete
     .text       start:0x020bbfd4 end:0x020bbfec
+
+src/overlays/ov103/data/ov103_strings_020bbfec.c:
+    complete
+    .rodata     start:0x020bbfec end:0x020bc02c
+
+src/overlays/ov103/data/ov103_strings_020bc060.c:
+    complete
+    .data       start:0x020bc060 end:0x020bc074
+
+src/overlays/ov103/data/ov103_strings_020bc088.c:
+    complete
+    .data       start:0x020bc088 end:0x020bc120

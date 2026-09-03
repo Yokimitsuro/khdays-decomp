@@ -191,3 +191,7 @@ src/overlays/ov124/calls/func_ov124_020d1778.c:
 src/overlays/ov124/asm_stubs/calls/func_ov124_020d1838.c:
     complete
     .text       start:0x020d1838 end:0x020d1ed8
+
+src/overlays/ov124/data/ov124_strings_020d1f40.c:
+    complete
+    .data       start:0x020d1f40 end:0x020d1f60

@@ -251,3 +251,7 @@ src/overlays/ov180/asm_stubs/calls/func_ov180_020d655c.c:
 src/overlays/ov180/calls/func_ov180_020d66c0.c:
     complete
     .text       start:0x020d66c0 end:0x020d66f0
+
+src/overlays/ov180/data/ov180_strings_020d6720.c:
+    complete
+    .data       start:0x020d6720 end:0x020d6740

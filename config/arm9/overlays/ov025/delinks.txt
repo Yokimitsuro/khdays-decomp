@@ -2859,3 +2859,87 @@ src/overlays/ov025/calls/func_ov025_020b3570.c:
 src/overlays/ov025/auto/func_ov025_020b35b4.c:
     complete
     .text       start:0x020b35b4 end:0x020b35d0
+
+src/overlays/ov025/data/ov025_strings_020b3924.c:
+    complete
+    .rodata     start:0x020b3924 end:0x020b3934
+
+src/overlays/ov025/data/ov025_strings_020b3be0.c:
+    complete
+    .rodata     start:0x020b3be0 end:0x020b3c70
+
+src/overlays/ov025/data/ov025_strings_020b422c.c:
+    complete
+    .rodata     start:0x020b422c end:0x020b4234
+
+src/overlays/ov025/data/ov025_strings_020b49d8.c:
+    complete
+    .data       start:0x020b49d8 end:0x020b4a64
+
+src/overlays/ov025/data/ov025_strings_020b4b00.c:
+    complete
+    .data       start:0x020b4b00 end:0x020b4b30
+
+src/overlays/ov025/data/ov025_strings_020b4c24.c:
+    complete
+    .data       start:0x020b4c24 end:0x020b4cb4
+
+src/overlays/ov025/data/ov025_strings_020b4cf8.c:
+    complete
+    .data       start:0x020b4cf8 end:0x020b4d10
+
+src/overlays/ov025/data/ov025_strings_020b4d14.c:
+    complete
+    .data       start:0x020b4d14 end:0x020b4d2c
+
+src/overlays/ov025/data/ov025_strings_020b4dbc.c:
+    complete
+    .data       start:0x020b4dbc end:0x020b4de8
+
+src/overlays/ov025/data/ov025_strings_020b4e70.c:
+    complete
+    .data       start:0x020b4e70 end:0x020b4ec4
+
+src/overlays/ov025/data/ov025_strings_020b5158.c:
+    complete
+    .data       start:0x020b5158 end:0x020b516c
+
+src/overlays/ov025/data/ov025_strings_020b51b0.c:
+    complete
+    .data       start:0x020b51b0 end:0x020b51f8
+
+src/overlays/ov025/data/ov025_strings_020b523c.c:
+    complete
+    .data       start:0x020b523c end:0x020b5270
+
+src/overlays/ov025/data/ov025_strings_020b52d4.c:
+    complete
+    .data       start:0x020b52d4 end:0x020b52ec
+
+src/overlays/ov025/data/ov025_strings_020b52fc.c:
+    complete
+    .data       start:0x020b52fc end:0x020b5310
+
+src/overlays/ov025/data/ov025_strings_020b5350.c:
+    complete
+    .data       start:0x020b5350 end:0x020b535c
+
+src/overlays/ov025/data/ov025_strings_020b5380.c:
+    complete
+    .data       start:0x020b5380 end:0x020b53c4
+
+src/overlays/ov025/data/ov025_strings_020b5404.c:
+    complete
+    .data       start:0x020b5404 end:0x020b5410
+
+src/overlays/ov025/data/ov025_strings_020b5488.c:
+    complete
+    .data       start:0x020b5488 end:0x020b54b8
+
+src/overlays/ov025/data/ov025_strings_020b54f8.c:
+    complete
+    .data       start:0x020b54f8 end:0x020b5508
+
+src/overlays/ov025/data/ov025_strings_020b5674.c:
+    complete
+    .data       start:0x020b5674 end:0x020b56e4

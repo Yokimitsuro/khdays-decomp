@@ -51,3 +51,15 @@ src/overlays/ov043/calls/func_ov043_020b5330.c:
 src/overlays/ov043/calls/func_ov043_020b5724.c:
     complete
     .text       start:0x020b5724 end:0x020b573c
+
+src/overlays/ov043/data/ov043_strings_020b573c.c:
+    complete
+    .rodata     start:0x020b573c end:0x020b576c
+
+src/overlays/ov043/data/ov043_strings_020b57d4.c:
+    complete
+    .rodata     start:0x020b57d4 end:0x020b57f4
+
+src/overlays/ov043/data/ov043_strings_020b5828.c:
+    complete
+    .data       start:0x020b5828 end:0x020b58e0

@@ -107,3 +107,7 @@ src/overlays/ov289/calls/func_ov289_020d6f94.c:
 src/overlays/ov289/calls/func_ov289_020d7038.c:
     complete
     .text       start:0x020d7038 end:0x020d7134
+
+src/overlays/ov289/data/ov289_strings_020d7140.c:
+    complete
+    .data       start:0x020d7140 end:0x020d7160
