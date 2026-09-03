@@ -9,6 +9,7 @@ compiled object from build_path (not the delinked gap).
 Unmatched functions are left out of FILES; dsd will emit them as
 `_dsd_gap@MODULE_N.o` containing the raw original bytes.
 """
+import hashlib
 import json
 import os
 import re
@@ -136,6 +137,67 @@ def gen_files_block(symbols, src_by_name):
     return blocks, matched, gap, file_modes
 
 
+def unit_of(module_dir):
+    """config/arm9 -> main, config/arm9/itcm -> itcm, .../overlays/ov006 -> ov006."""
+    rel = module_dir.relative_to(ROOT / "config" / "arm9")
+    if rel == Path("."):
+        return "main"
+    return rel.parts[-1]
+
+
+def gen_data_block(unit, root=ROOT):
+    """FILE entries for reconstructed initialized DATA that the verifier has proved.
+
+    A range only enters the build on the strength of a receipt written by
+    tools/verify_data.py, and the receipt is re-checked against the source digest
+    here so an edited file drops back out instead of poisoning the link. Ranges are
+    merged per section: dsd places one section image at the declared start, so a
+    source must own a contiguous run and define its symbols in address order.
+    """
+    root = Path(root)
+    receipts_dir = root / "build" / "data_receipts"
+    if not receipts_dir.is_dir():
+        return [], {}, 0
+
+    by_source = {}
+    for path in sorted(receipts_dir.glob("*.json")):
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+        if receipt.get("module") != unit or receipt.get("start") is None:
+            continue
+        source = root / receipt.get("source", "")
+        if not source.is_file():
+            continue
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        if digest != receipt.get("source_sha256"):
+            continue
+        key = receipt["source"]
+        by_source.setdefault(key, []).append(
+            (receipt["section"], receipt["start"], receipt["end"])
+        )
+
+    blocks = []
+    modes = {}
+    count = 0
+    for source in sorted(by_source):
+        lines = [f"{source}:", "    complete"]
+        for section in sorted({item[0] for item in by_source[source]}):
+            spans = sorted((s, e) for sec, s, e in by_source[source] if sec == section)
+            merged = []
+            for start, end in spans:
+                if merged and start == merged[-1][1]:
+                    merged[-1][1] = end
+                else:
+                    merged.append([start, end])
+            for start, end in merged:
+                lines.append(
+                    f"    .{section:<10} start:0x{start:08x} end:0x{end:08x}"
+                )
+                count += 1
+        blocks.append("\n".join(lines) + "\n")
+        modes[source] = "arm"
+    return blocks, modes, count
+
+
 def write_text_retry(path, text, tries=8):
     """write_text con reintento sobre OSError.
 
@@ -170,9 +232,12 @@ def main():
     symbols = load_symbols(symbols_txt)
     src_by_name = index_sources()
     blocks, matched, gap, file_modes = gen_files_block(symbols, src_by_name)
+    data_blocks, data_modes, data_ranges = gen_data_block(unit_of(module_dir))
+    file_modes.update(data_modes)
 
     out = ["\n".join(header), ""]
     out.extend(blocks)
+    out.extend(data_blocks)
     write_text_retry(delinks_txt, "\n".join(out).rstrip() + "\n")
 
     # Merge into the shared file_modes.json (configure.py reads it to know
@@ -188,6 +253,7 @@ def main():
     print(
         f"{delinks_txt.relative_to(ROOT)}: "
         f"{matched} matched, {gap} gap ({len(symbols)} total)"
+        + (f", {data_ranges} verified data range(s)" if data_ranges else "")
     )
 
 

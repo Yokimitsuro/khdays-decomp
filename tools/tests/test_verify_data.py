@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import data_progress
+import gen_delinks
 import index_data
 import verify_data
 
@@ -83,6 +84,62 @@ class VerifiedRangeTests(unittest.TestCase):
         item = {"unit": "ov006", "section": "rodata", "start": 0x02056300, "end": 0x02056340}
         proved = [("ov006", "rodata", 0x0205630C, 0x020563A4)]
         self.assertEqual(data_progress._overlap(item, proved), 0x02056340 - 0x0205630C)
+
+
+class DataDelinkTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        self.receipts = self.root / "build" / "data_receipts"
+        self.receipts.mkdir(parents=True)
+        self.source = self.root / "src" / "ov006" / "tables.c"
+        self.source.parent.mkdir(parents=True)
+        self.source.write_text("const int x = 1;\n", encoding="utf-8")
+
+    def digest(self):
+        import hashlib
+
+        return hashlib.sha256(self.source.read_bytes()).hexdigest()
+
+    def receipt(self, symbol, start, end, **changes):
+        body = {
+            "symbol": symbol,
+            "module": "ov006",
+            "section": "rodata",
+            "start": start,
+            "end": end,
+            "source": "src/ov006/tables.c",
+            "source_sha256": self.digest(),
+        }
+        body.update(changes)
+        (self.receipts / f"{symbol}.json").write_text(json.dumps(body), encoding="utf-8")
+
+    def test_adjacent_symbols_become_one_range(self):
+        self.receipt("a", 0x0205628C, 0x0205629C)
+        self.receipt("b", 0x0205629C, 0x020562B0)
+        blocks, modes, count = gen_delinks.gen_data_block("ov006", self.root)
+        self.assertEqual(count, 1)
+        self.assertIn(".rodata     start:0x0205628c end:0x020562b0", blocks[0])
+        self.assertEqual(modes, {"src/ov006/tables.c": "arm"})
+
+    def test_a_gap_keeps_the_ranges_apart(self):
+        self.receipt("a", 0x0205628C, 0x0205629C)
+        self.receipt("c", 0x020562B0, 0x020562D0)
+        blocks, _modes, count = gen_delinks.gen_data_block("ov006", self.root)
+        self.assertEqual(count, 2)
+        self.assertIn("start:0x0205628c end:0x0205629c", blocks[0])
+        self.assertIn("start:0x020562b0 end:0x020562d0", blocks[0])
+
+    def test_an_edited_source_drops_out_of_the_build(self):
+        self.receipt("a", 0x0205628C, 0x0205629C)
+        self.source.write_text("const int x = 2;\n", encoding="utf-8")
+        blocks, modes, count = gen_delinks.gen_data_block("ov006", self.root)
+        self.assertEqual((blocks, modes, count), ([], {}, 0))
+
+    def test_another_module_is_not_claimed(self):
+        self.receipt("a", 0x0205628C, 0x0205629C)
+        self.assertEqual(gen_delinks.gen_data_block("ov009", self.root), ([], {}, 0))
 
 
 if __name__ == "__main__":

@@ -49,6 +49,13 @@ address, because overlays are loaded over one another and share addresses.
 A checkout without a delinked build has nothing to verify against, so it
 honestly reports zero matched DATA bytes.
 
+Verified DATA also enters the build. `gen_delinks.py` turns receipts into
+`.rodata`/`.data` ranges on the owning source file, merging adjacent symbols
+into one range and re-checking the source digest first, so an edited file drops
+back out of the link instead of poisoning it. A source therefore has to own a
+contiguous run and define its symbols in address order, because the linker
+places one section image at the declared start.
+
 Payloads stored in a data section but executed at runtime are classified
 separately. In particular, ov024's `0x659c`-byte MobiClip decoder payload is
 reported as `MobiClip executable payload` until its internal code and constant
