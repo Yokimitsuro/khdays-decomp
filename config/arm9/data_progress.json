@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "initialized_sections": ["rodata", "ctor", "data"],
+  "classification_overrides": [
+    {
+      "unit": "ov024",
+      "name": "mobiclip_decoder_payload",
+      "start": "0x0208c8c4",
+      "end": "0x02092e60",
+      "classification": "executable_payload",
+      "progress_category": "mobiclip_payload",
+      "reason": "Position-independent MobiClip decoder copied to fast memory and executed through a function pointer; do not treat a preserved blob as reconstructed DATA."
+    }
+  ],
+  "matched_ranges": []
+}

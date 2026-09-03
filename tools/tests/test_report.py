@@ -48,6 +48,25 @@ class ReportTests(unittest.TestCase):
         report = gen_report.build_report([self.c], {})
         self.assertEqual(report["categories"][0]["measures"]["matchedCode"], "4")
 
+    def test_initialized_data_is_reported_separately(self):
+        data = [dict(unit="ov002", section="rodata", start=0x1000, end=0x1020,
+                     size=0x20, matched=False)]
+        report = gen_report.build_report([self.c], {}, data)
+        self.assertEqual(report["measures"]["totalData"], "32")
+        self.assertEqual(report["measures"]["matchedData"], "0")
+        self.assertEqual(report["measures"]["matchedDataPercent"], 0)
+        self.assertFalse(report["units"][0]["metadata"]["complete"])
+
+    def test_executable_payload_has_its_own_category(self):
+        data = [dict(unit="ov024", section="rodata", start=0x208C8C4, end=0x2092E60,
+                     size=0x659C, matched=False, progress_category="mobiclip_payload",
+                     classification="executable_payload")]
+        report = gen_report.build_report([], {}, data)
+        category = report["categories"][0]
+        self.assertEqual(category["id"], "mobiclip_payload")
+        self.assertEqual(category["name"], "MobiClip executable payload")
+        self.assertEqual(category["measures"]["totalData"], str(0x659C))
+
     def test_empty_report(self):
         report = gen_report.build_report([], {})
         self.assertEqual(report["measures"]["totalUnits"], 0)

@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import audit_progress
+import data_progress
 from report_asm import is_verified_match, load_verified_matches
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,7 @@ def category_for_source(src_path, unit):
 
 CATEGORY_LABELS = {
     "main": "Main + ITCM + DTCM",
+    "mobiclip_payload": "MobiClip executable payload",
     "unknown": "Unknown / uncategorized",
 }
 # libs/nitro/<mod> and libs/msl/c become "NitroSDK: <mod>" etc.
@@ -57,9 +59,11 @@ NITRO_NICE = {
 }
 
 
-def measures(funcs):
+def measures(funcs, data_regions=()):
     total = sum(func["size"] for func in funcs)
     matched = sum(func["size"] for func in funcs if func["matched"])
+    total_data = sum(region["size"] for region in data_regions)
+    matched_data = sum(region["size"] for region in data_regions if region["matched"])
     total_functions = len(funcs)
     matched_functions = sum(1 for func in funcs if func["matched"])
     percent = 100.0 * matched / total if total else 100.0
@@ -70,9 +74,9 @@ def measures(funcs):
         "totalCode": str(total),
         "matchedCode": str(matched),
         "matchedCodePercent": percent,
-        "totalData": "0",
-        "matchedData": "0",
-        "matchedDataPercent": 100.0,
+        "totalData": str(total_data),
+        "matchedData": str(matched_data),
+        "matchedDataPercent": 100.0 * matched_data / total_data if total_data else 100.0,
         "totalFunctions": total_functions,
         "matchedFunctions": matched_functions,
         "matchedFunctionsPercent": (
@@ -80,13 +84,14 @@ def measures(funcs):
         ),
         "completeCode": str(matched),
         "completeCodePercent": percent,
-        "completeData": "0",
-        "completeDataPercent": 100.0,
+        "completeData": str(matched_data),
+        "completeDataPercent": 100.0 * matched_data / total_data if total_data else 100.0,
     }
 
 
-def build_report(audited_functions, verified_asm):
+def build_report(audited_functions, verified_asm, data_regions=()):
     units = defaultdict(list)
+    unit_data = defaultdict(list)
 
     for func in audited_functions:
         category = func["category"]
@@ -99,21 +104,31 @@ def build_report(audited_functions, verified_asm):
             "matched": category == "c_decompiled_matched" or is_verified_match(func, verified_asm),
         })
 
+    for region in data_regions:
+        item = dict(region)
+        item["progress_category"] = item.get("progress_category") or category_for_source(
+            None, item["unit"]
+        )
+        unit_data[item["unit"]].append(item)
+
     report_units = []
     all_categories = set()
-    for unit in sorted(units):
+    for unit in sorted(set(units) | set(unit_data)):
         funcs = sorted(units[unit], key=lambda item: item["name"])
+        data = unit_data[unit]
         # Attribute unit to the most-common progress category among its
         # functions (usually just one — overlays are self-contained).
         cat_count = defaultdict(int)
         for f in funcs:
             cat_count[f["progress_category"]] += f["size"] or 1
+        for region in data:
+            cat_count[region["progress_category"]] += region["size"] or 1
         unit_cats = sorted(cat_count, key=cat_count.get, reverse=True)
         primary = unit_cats[0] if unit_cats else "unknown"
         all_categories.update(unit_cats)
         report_units.append({
             "name": unit,
-            "measures": measures(funcs),
+            "measures": measures(funcs, data),
             "sections": [],
             "functions": [
                 {
@@ -125,14 +140,18 @@ def build_report(audited_functions, verified_asm):
             ],
             "metadata": {
                 "moduleName": unit,
-                "complete": all(func["matched"] for func in funcs),
+                "complete": (
+                    all(func["matched"] for func in funcs)
+                    and all(region["matched"] for region in data)
+                ),
                 "progressCategories": [primary],
             },
         })
 
     all_funcs = [func for funcs in units.values() for func in funcs]
-    aggregate = measures(all_funcs)
-    aggregate["totalUnits"] = len(units)
+    all_data = [region for regions in unit_data.values() for region in regions]
+    aggregate = measures(all_funcs, all_data)
+    aggregate["totalUnits"] = len(report_units)
     aggregate["completeUnits"] = sum(1 for unit in report_units if unit["metadata"]["complete"])
 
     def label_for(cat_id):
@@ -148,7 +167,10 @@ def build_report(audited_functions, verified_asm):
 
     categories = [
         {"id": cid, "name": label_for(cid),
-         "measures": measures([f for f in all_funcs if f["progress_category"] == cid])}
+         "measures": measures(
+             [f for f in all_funcs if f["progress_category"] == cid],
+             [r for r in all_data if r["progress_category"] == cid],
+         )}
         for cid in sorted(all_categories)
     ]
 
@@ -163,8 +185,9 @@ def build_report(audited_functions, verified_asm):
 def main():
     audited_functions, _unknown_sources, _shared_overlay_copies = audit_progress.classify_functions()
     verified_asm = load_verified_matches()
-    report = build_report(audited_functions, verified_asm)
-    c_report = build_report(audited_functions, {})
+    data_regions = data_progress.load_data_inventory()
+    report = build_report(audited_functions, verified_asm, data_regions)
+    c_report = build_report(audited_functions, {}, data_regions)
     build_dir = ROOT / "build"
     build_dir.mkdir(exist_ok=True)
     with (build_dir / "report.json").open("w", encoding="utf-8") as f:
@@ -179,7 +202,9 @@ def main():
         "report.json -> "
         f"{len(report['units'])} units, {aggregate['matchedCodePercent']:.2f}% verified matching code "
         f"({aggregate['matchedCode']}/{aggregate['totalCode']} bytes), "
-        f"{aggregate['matchedFunctions']}/{aggregate['totalFunctions']} funcs"
+        f"{aggregate['matchedFunctions']}/{aggregate['totalFunctions']} funcs, "
+        f"{aggregate['matchedDataPercent']:.2f}% DATA "
+        f"({aggregate['matchedData']}/{aggregate['totalData']} bytes)"
     )
     print(f"report_c.json -> {c_report['measures']['matchedCodePercent']:.2f}% real C; "
           f"approved non-C sources: {len(verified_asm)}")

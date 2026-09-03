@@ -28,6 +28,20 @@ A function may have a known or provisional name before it has a real C
 implementation. Names are useful for research, but they do not count as
 C-decompiled progress.
 
+## Initialized DATA
+
+The public report inventories initialized `.rodata`, `.ctor`, and `.data`
+section bytes from the checked-in module maps. BSS is excluded because it has
+no stored ROM bytes. DATA begins at 0% and advances only after byte and
+relocation verification; symbol names, extraction, `incbin`, embedded opcodes,
+or preserving an original binary blob do not count as reconstruction.
+
+Payloads stored in a data section but executed at runtime are classified
+separately. In particular, ov024's `0x659c`-byte MobiClip decoder payload is
+reported as `MobiClip executable payload` until its internal code and constant
+tables are carved and verified. Keeping the payload visible in the denominator
+does not claim that it is ordinary game DATA or decompiled source.
+
 ## Why this matters
 
 The goal is to keep progress reporting honest and useful for contributors and
@@ -53,3 +67,5 @@ Thus ov002, ov003, and ITCM can report 100% matching while the unchanged C audit
 1477/1478, 27/28, and 129/154 real-C functions respectively. `PROGRESS.md`, `README.md`,
 and `build/report_c.json` continue to exclude every ASM source from real C.
 The workflow uploads `report_c.json` with `YKGP_progress_audit` for comparison.
+Both reports use the same DATA inventory; their difference remains exclusively
+the treatment of verified non-C code.
