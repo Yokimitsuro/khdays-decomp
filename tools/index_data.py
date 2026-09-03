@@ -23,8 +23,6 @@ import json
 import os
 import re
 
-from elftools.elf.elffile import ELFFile
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DELINK = os.path.join(ROOT, "build", "delinks")
 INDEX_PATH = os.path.join(ROOT, "build", "data_index.json")
@@ -105,6 +103,10 @@ def resolve(bucket):
 
 
 def collect(o_path, variants):
+    # Imported here, not at module scope: the pure-logic helpers above are unit-tested
+    # in CI, which has no third-party packages installed.
+    from elftools.elf.elffile import ELFFile
+
     try:
         elf = ELFFile(open(o_path, "rb"))
     except Exception:

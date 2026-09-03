@@ -20,9 +20,6 @@ import sys
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from match import compile_c  # noqa: E402
-
-from elftools.elf.elffile import ELFFile  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX_PATH = os.path.join(ROOT, "build", "data_index.json")
@@ -55,6 +52,10 @@ SYM_ADDR = load_symbol_addresses()
 
 def extract(o_path, name):
     """Bytes, section and own relocations of one data symbol in a compiled object."""
+    # Local import so the module can be imported without pyelftools; CI runs the
+    # unit tests with a bare interpreter.
+    from elftools.elf.elffile import ELFFile
+
     elf = ELFFile(open(o_path, "rb"))
     sections = {}
     for i, section in enumerate(elf.iter_sections()):
@@ -120,6 +121,42 @@ def _repo_path(path):
         return os.path.abspath(path).replace("\\", "/")
 
 
+_COMPILED = {}
+
+
+def compiled(cpath):
+    """Compile once per file per process. A file of 48 string symbols would otherwise
+    pay 48 mwcc runs to prove the same object."""
+    from match import compile_c
+
+    key = os.path.abspath(cpath)
+    if key not in _COMPILED:
+        _COMPILED[key] = compile_c(cpath)
+    return _COMPILED[key]
+
+
+def symbols_in(cpath):
+    """Every initialized-data symbol the file defines, in address order where known."""
+    from elftools.elf.elffile import ELFFile
+
+    elf = ELFFile(open(compiled(cpath), "rb"))
+    sections = {
+        i for i, s in enumerate(elf.iter_sections())
+        if s.name in DATA_SECTIONS and s["sh_size"]
+    }
+    symtab = elf.get_section_by_name(".symtab")
+    out = []
+    for sym in symtab.iter_symbols():
+        if not sym.name or not sym["st_size"]:
+            continue
+        try:
+            if int(sym["st_shndx"]) in sections:
+                out.append(sym.name)
+        except (TypeError, ValueError):
+            continue
+    return sorted(set(out))
+
+
 def load_index():
     with open(INDEX_PATH) as fh:
         return json.load(fh)
@@ -144,7 +181,7 @@ def verify(cpath, name, index):
     orig_relocs = {off: sym for off, sym in entry["relocs"]}
     orig_addends = {int(k): v for k, v in entry.get("addends", {}).items()}
 
-    found = extract(compile_c(cpath), name)
+    found = extract(compiled(cpath), name)
     if found is None:
         return DIFFERS, "%s is not defined in any initialized-data section of %s" % (
             name, os.path.basename(cpath)), {}

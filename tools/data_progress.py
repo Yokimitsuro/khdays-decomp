@@ -142,7 +142,12 @@ def load_verified_ranges(root=ROOT):
     import sys
 
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    import verify_data
+    try:
+        import verify_data
+    except ImportError as exc:
+        # Verifying needs pyelftools and the compiler; a plain checkout has neither.
+        # Reporting zero is the honest answer there, not a crash.
+        return [], "the verifier is unavailable here (%s)" % exc
 
     index = json.loads(index_path.read_text(encoding="utf-8"))
     ranges = []
@@ -154,7 +159,11 @@ def load_verified_ranges(root=ROOT):
         if not source.is_file():
             rejected.append(f"{symbol}: source {receipt.get('source')} is gone")
             continue
-        status, message, info = verify_data.verify(str(source), symbol, index)
+        try:
+            status, message, info = verify_data.verify(str(source), symbol, index)
+        except ImportError as exc:
+            # The compiler front end is only pulled in when a proof is actually run.
+            return [], "the verifier is unavailable here (%s)" % exc
         if status != verify_data.MATCH:
             rejected.append(f"{symbol}: {message}")
             continue

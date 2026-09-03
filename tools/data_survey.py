@@ -76,16 +76,19 @@ def classify(entry):
     if entry["relocs"]:
         return "mixed", "%d relocs" % len(entry["relocs"])
 
-    # Printable-and-NUL is not enough: a table of small numbers is all printable too, and
-    # a first pass that only asked for that reported 2181 string symbols when most were
-    # numeric. Demand that it reads like text -- letters and spaces over half the bytes,
-    # and a first run long enough to be a word.
+    # Printable-and-NUL alone calls a u32 array of small values a string: 34, 35, 36 ...
+    # reads as '"...#...$...'. What separates them is that a u32 ramp leaves every non-NUL
+    # byte isolated, while even a two-letter string has them adjacent. So: all printable,
+    # NUL-terminated, a run of at least two, and content that looks like a name or a path.
     printable = sum(1 for b in blob if 32 <= b < 127 or b in (0, 9, 10, 13))
-    if printable == len(blob) and blob.count(0) and printable > 8:
-        letters = sum(1 for b in blob if 65 <= b <= 90 or 97 <= b <= 122 or b == 32)
-        head = blob.split(b"\0")[0]
-        if letters * 2 > len(blob) and len(head) >= 4:
-            return "strings", repr(head.decode("ascii", "replace")[:28])
+    runs = [len(part) for part in blob.split(b"\0") if part]
+    if printable == len(blob) and blob and blob[-1] == 0 and runs and max(runs) >= 2:
+        body = blob.replace(b"\0", b"")
+        good = sum(1 for c in body
+                   if chr(c).isalnum() or chr(c) in "/_-.&% +:,'()[]!?")
+        if good * 2 >= len(body):
+            head = blob.split(b"\0")[0].decode("ascii", "replace")
+            return "strings", repr(head[:28])
 
     if size in (128, 256) and max(blob) < size:
         off = sum(1 for i, b in enumerate(blob) if b != i)
