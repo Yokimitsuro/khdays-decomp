@@ -85,6 +85,11 @@ __pycache__/
 # Scratch del bucle de decomp: candidatos .c antes de verificarlos y barridos intermedios.
 # NO deben subirse -- son locales y efimeros (se llegaron a colar 3.393 ficheros el 2026-07-19).
 /build/try/
+# Standing rule: build/ is never uploaded. Ignore the whole tree and keep the two
+# tracked files as explicit exceptions.
+/build/*
+!/build/known_mismatches.txt
+!/build/decompiled.txt
 /build/sweep/
 /build/dme/
 /build/poolexp/
