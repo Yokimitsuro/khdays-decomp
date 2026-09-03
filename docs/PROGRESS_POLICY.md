@@ -46,8 +46,19 @@ report re-runs every receipt instead of trusting it, so an edited or deleted
 source stops counting by itself. Bytes are attributed per module as well as per
 address, because overlays are loaded over one another and share addresses.
 
-A checkout without a delinked build has nothing to verify against, so it
-honestly reports zero matched DATA bytes.
+What the public report can see is the checked-in `delinks.txt`. A `.rodata` or
+`.data` range appears in a FILE entry only because `gen_delinks.py` put it
+there, and it only does that for a symbol `verify_data.py` proved and whose
+source digest still matches, so the committed delinks are a record of
+verification rather than a claim made by hand. That is the same standard the
+code percentage already uses: a checkout has no ROM to compare against, so the
+tree is the evidence. `data_progress.py --verify` re-runs the byte and
+relocation proof wherever the delinked build and the compiler are present, and
+reports any drift between what the delinks claim and what the bytes support.
+
+Regions are split at the verified boundaries. The report counts a region only
+when it is wholly matched, so leaving a module's whole section as one region
+reported all-or-nothing and lost most of the proved bytes.
 
 Verified DATA also enters the build. `gen_delinks.py` turns receipts into
 `.rodata`/`.data` ranges on the owning source file, merging adjacent symbols

@@ -108,6 +108,40 @@ class VerifiedRangeTests(unittest.TestCase):
         self.assertEqual(data_progress._overlap(item, proved), 0x02056340 - 0x0205630C)
 
 
+class ReportedRangeTests(unittest.TestCase):
+    REGION = {"unit": "ov006", "section": "rodata", "start": 0x020561C0, "end": 0x020563A4}
+
+    def test_a_partly_proved_section_is_split_not_lost(self):
+        # The report counts a region only when it is wholly matched, so leaving a
+        # module's whole section as one region reported all-or-nothing: 6.01% against
+        # a real 31.15%.
+        proved = [("ov006", "rodata", 0x0205628C, 0x020563A4)]
+        pieces = data_progress._split_by_ranges(dict(self.REGION), proved)
+        self.assertEqual(len(pieces), 2)
+        self.assertEqual([p["matched"] for p in pieces], [False, True])
+        self.assertEqual(sum(p["size"] for p in pieces), 0x020563A4 - 0x020561C0)
+        self.assertEqual(sum(p["verified_bytes"] for p in pieces), 0x020563A4 - 0x0205628C)
+
+    def test_an_untouched_section_stays_one_unmatched_region(self):
+        pieces = data_progress._split_by_ranges(dict(self.REGION), [])
+        self.assertEqual(len(pieces), 1)
+        self.assertFalse(pieces[0]["matched"])
+        self.assertEqual(pieces[0]["verified_bytes"], 0)
+
+    def test_another_units_range_does_not_split_this_one(self):
+        proved = [("ov009", "data", 0x0205628C, 0x020563A4)]
+        pieces = data_progress._split_by_ranges(dict(self.REGION), proved)
+        self.assertEqual(len(pieces), 1)
+        self.assertFalse(pieces[0]["matched"])
+
+    def test_the_committed_delinks_are_what_the_report_reads(self):
+        ranges = data_progress.load_delinked_data_ranges()
+        self.assertTrue(ranges, "expected reconstructed DATA ranges in the delinks")
+        for unit, section, start, end in ranges:
+            self.assertIn(section, ("rodata", "ctor", "data"))
+            self.assertLess(start, end)
+
+
 class DataDelinkTests(unittest.TestCase):
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory()
