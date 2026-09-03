@@ -5916,6 +5916,18 @@ src/overlays/ov002/calls/func_ov002_0207db30.c:
     complete
     .text       start:0x0207db30 end:0x0207db52
 
+src/overlays/ov002/data/ov002_camera_shots.c:
+    complete
+    .data       start:0x0207e764 end:0x0207e830
+
+src/overlays/ov002/data/ov002_help_entries.c:
+    complete
+    .data       start:0x0207e98c end:0x0207e9c4
+
+src/overlays/ov002/data/ov002_help_pages.c:
+    complete
+    .rodata     start:0x0207dd14 end:0x0207dd7c
+
 src/overlays/ov002/data/ov002_map_page_ids.c:
     complete
     .rodata     start:0x0207e4a0 end:0x0207e4f8
@@ -5931,6 +5943,42 @@ src/overlays/ov002/data/ov002_panel_overlays.c:
 src/overlays/ov002/data/ov002_panel_row_fx.c:
     complete
     .rodata     start:0x0207e214 end:0x0207e358
+
+src/overlays/ov002/data/ov002_panel_scales.c:
+    complete
+    .rodata     start:0x0207dcc0 end:0x0207dd14
+
+src/overlays/ov002/data/ov002_pointers_0207dc60.c:
+    complete
+    .rodata     start:0x0207dc60 end:0x0207dc90
+
+src/overlays/ov002/data/ov002_pointers_0207e378.c:
+    complete
+    .rodata     start:0x0207e378 end:0x0207e388
+
+src/overlays/ov002/data/ov002_pointers_0207eb28.c:
+    complete
+    .data       start:0x0207eb28 end:0x0207eb2c
+
+src/overlays/ov002/data/ov002_pointers_0207ebf4.c:
+    complete
+    .data       start:0x0207ebf4 end:0x0207ec00
+
+src/overlays/ov002/data/ov002_pointers_0207eed8.c:
+    complete
+    .data       start:0x0207eed8 end:0x0207eee8
+
+src/overlays/ov002/data/ov002_pointers_0207f0a4.c:
+    complete
+    .data       start:0x0207f0a4 end:0x0207f0d4
+
+src/overlays/ov002/data/ov002_pointers_0207f134.c:
+    complete
+    .data       start:0x0207f134 end:0x0207f404
+
+src/overlays/ov002/data/ov002_pointers_0207f484.c:
+    complete
+    .data       start:0x0207f484 end:0x0207f58c
 
 src/overlays/ov002/data/ov002_spawn_rows.c:
     complete
@@ -6015,3 +6063,7 @@ src/overlays/ov002/data/ov002_strings_0207f420.c:
 src/overlays/ov002/data/ov002_strings_0207f468.c:
     complete
     .data       start:0x0207f468 end:0x0207f484
+
+src/overlays/ov002/data/ov002_tile_rows.c:
+    complete
+    .data       start:0x0207ea14 end:0x0207eadc

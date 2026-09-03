@@ -69,12 +69,23 @@ def classify(entry):
     blob = bytes.fromhex(entry["hex"])
     size = entry["size"]
 
-    if not any(blob):
-        return "zero", ""
-    if entry["relocs"] and size == 4 * len(entry["relocs"]):
-        return "pointers", "%d pointers" % len(entry["relocs"])
+    # Relocations decide first. A table of pointers is all zero in the image -- the
+    # target comes from the relocation -- so testing for zero bytes first filed 167
+    # symbols and 6896 bytes of pure function-pointer tables as empty space.
+    if entry["relocs"] and size % 4 == 0:
+        # Every word is either a relocation or zero: a pointer table, and a zero word
+        # is simply a null entry. Requiring size == 4*relocs missed those, and they
+        # are just as mechanical to write.
+        taken = {off for off, _sym in entry["relocs"]}
+        rest = [blob[i:i + 4] for i in range(0, size, 4) if i not in taken]
+        if all(word == b"\0\0\0\0" for word in rest):
+            nulls = len(rest)
+            return "pointers", "%d pointers%s" % (
+                len(entry["relocs"]), ", %d null" % nulls if nulls else "")
     if entry["relocs"]:
         return "mixed", "%d relocs" % len(entry["relocs"])
+    if not any(blob):
+        return "zero", ""
 
     # Printable-and-NUL alone calls a u32 array of small values a string: 34, 35, 36 ...
     # reads as '"...#...$...'. What separates them is that a u32 ramp leaves every non-NUL
