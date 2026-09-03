@@ -210,11 +210,39 @@ def main():
     print(context)
     print("\n" + "=" * 70)
 
+    # --candidate <fichero.c>: en vez del contexto sintetizado (que declara los callees como
+    # `void f()`), parte un candidato real en las dos mitades que pide decomp.me. Hace falta
+    # para reproducir en el scratch el MISMO residuo que se ve en local: los prototipos reales
+    # importan, un `void f()` cambia la promocion de argumentos.
+    cand_ctx = cand_src = None
+    if "--candidate" in sys.argv:
+        nl = chr(10)
+        cpath = sys.argv[sys.argv.index("--candidate") + 1]
+        clines = open(cpath, encoding="utf-8").read().split(nl)
+        defs = [j for j, x in enumerate(clines)
+                if (name + "(") in x and not x.lstrip().startswith("extern")
+                and not x.rstrip().endswith(";")]
+        if not defs:
+            raise SystemExit("no encuentro la definicion de %s en %s" % (name, cpath))
+        start = defs[0]
+        while start > 0 and (clines[start - 1].startswith(" *")
+                             or clines[start - 1].startswith("/*")):
+            start -= 1      # el comentario de cabecera va con la fuente, no con el contexto
+        cand_ctx = nl.join(clines[:start]).rstrip() + nl
+        cand_src = nl.join(clines[start:]).rstrip() + nl
+        print("[Context] del candidato %s (%d lineas)" % (cpath, cand_ctx.count(nl)))
+        print("[Source]  del candidato (%d lineas)" % cand_src.count(nl))
+
     if "--out" in sys.argv:
+        nl = chr(10)
         d = sys.argv[sys.argv.index("--out") + 1]
         os.makedirs(d, exist_ok=True)
-        open(os.path.join(d, name + ".s"), "w").write(asm + "\n")
-        open(os.path.join(d, name + ".ctx.c"), "w").write(context + "\n")
+        open(os.path.join(d, "target.s"), "w", newline=nl).write(asm + nl)
+        if cand_ctx is None:
+            open(os.path.join(d, "context.c"), "w", newline=nl).write(context + nl)
+        else:
+            open(os.path.join(d, "context.c"), "w", newline=nl).write(cand_ctx)
+            open(os.path.join(d, "source.c"), "w", newline=nl).write(cand_src)
         print("escrito en", d)
 
 if __name__ == "__main__":
