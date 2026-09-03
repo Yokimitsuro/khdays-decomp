@@ -122,12 +122,73 @@ def load_data_inventory(root=ROOT, policy_path=None):
     return inventory
 
 
+def load_verified_ranges(root=ROOT):
+    """Ranges proved by tools/verify_data.py, re-proved here instead of trusted.
+
+    A receipt records what was verified; it is not a licence to count it. Every
+    receipt is re-run against the ROM-derived index, so a stale or edited source
+    stops counting on its own. Where the index is absent -- CI has no ROM and no
+    delinked build -- there is nothing to check against and the honest answer is
+    an empty list, which is why the public number stays at zero there.
+    """
+    root = Path(root)
+    index_path = root / "build" / "data_index.json"
+    receipts_dir = root / "build" / "data_receipts"
+    if not index_path.exists():
+        return [], "no DATA index; run tools/index_data.py on a delinked build"
+    if not receipts_dir.is_dir():
+        return [], "no DATA receipts yet"
+
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import verify_data
+
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    ranges = []
+    rejected = []
+    for path in sorted(receipts_dir.glob("*.json")):
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+        symbol = receipt.get("symbol")
+        source = root / receipt.get("source", "")
+        if not source.is_file():
+            rejected.append(f"{symbol}: source {receipt.get('source')} is gone")
+            continue
+        status, message, info = verify_data.verify(str(source), symbol, index)
+        if status != verify_data.MATCH:
+            rejected.append(f"{symbol}: {message}")
+            continue
+        if info.get("start") is None:
+            rejected.append(f"{symbol}: verified but its address is unknown, so it cannot count")
+            continue
+        # Keyed by unit as well as address: overlays are loaded over each other, so
+        # ov006 .rodata and ov009 .data really do share addresses and an
+        # address-only match would count the same bytes for both.
+        ranges.append((info["module"], info["section"], info["start"], info["end"]))
+    return ranges, "; ".join(rejected)
+
+
+def _overlap(item, ranges):
+    return sum(
+        max(0, min(item["end"], end) - max(item["start"], start))
+        for unit, section, start, end in ranges
+        if unit == item["unit"] and section == item["section"]
+    )
+
+
 def main():
     inventory = load_data_inventory()
     total = sum(item["size"] for item in inventory)
-    matched = sum(item["size"] for item in inventory if item["matched"])
+    ranges, note = load_verified_ranges()
+    for item in inventory:
+        covered = _overlap(item, ranges)
+        item["verified_bytes"] = covered
+        item["matched"] = covered == item["size"] and item["size"] > 0
+    matched = sum(item["verified_bytes"] for item in inventory)
     percent = 100.0 * matched / total if total else 100.0
     print(f"initialized DATA: {matched}/{total} bytes ({percent:.2f}%)")
+    if note:
+        print(f"  not counted: {note}")
     for item in inventory:
         if item.get("classification") == "executable_payload":
             print(

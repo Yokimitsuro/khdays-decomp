@@ -36,6 +36,19 @@ no stored ROM bytes. DATA begins at 0% and advances only after byte and
 relocation verification; symbol names, extraction, `incbin`, embedded opcodes,
 or preserving an original binary blob do not count as reconstruction.
 
+`tools/index_data.py` builds the ground truth from the delinked objects and
+`tools/verify_data.py` proves one reconstructed symbol against it, masking
+relocated words and then comparing relocations by resolved target address so
+that two spellings of one address agree and two addresses do not. A symbol whose
+delinked objects disagree about their relocation targets is reported ambiguous
+and refused rather than certified. Verified symbols leave a receipt, and the
+report re-runs every receipt instead of trusting it, so an edited or deleted
+source stops counting by itself. Bytes are attributed per module as well as per
+address, because overlays are loaded over one another and share addresses.
+
+A checkout without a delinked build has nothing to verify against, so it
+honestly reports zero matched DATA bytes.
+
 Payloads stored in a data section but executed at runtime are classified
 separately. In particular, ov024's `0x659c`-byte MobiClip decoder payload is
 reported as `MobiClip executable payload` until its internal code and constant
