@@ -76,6 +76,34 @@ def reloc_targets(relocs):
     return tuple((off, SYM_ADDR.get(sym, sym)) for off, sym in relocs)
 
 
+def resolve(bucket):
+    """Pick one variant of a symbol. Returns (entry, conflict).
+
+    The freshest object wins, NOT the majority. build/delinks accumulates objects
+    from earlier runs -- gap numbering shifts as functions get matched, so an old
+    _dsd_gap@main_281.o survives beside the current _dsd_gap@main_282.o and still
+    carries whatever the config said back then. Counting heads let 37 stale objects
+    outvote the one dsd had just written, and reported a phantom relocation in the
+    sine table as if the delink genuinely disagreed with itself.
+
+    conflict is False when the objects agree, True when an older object was
+    overruled, and the ranked variants when equally fresh objects disagree -- only
+    that last case marks the entry ambiguous, because then there is no single target
+    to verify a reconstruction against.
+    """
+    ranked = sorted(bucket.values(), key=lambda item: (-item[2], -item[1]))
+    entry = ranked[0][0]
+    if len(ranked) == 1:
+        return entry, False
+    newest = ranked[0][2]
+    if any(item[2] >= newest for item in ranked[1:]):
+        variants = [
+            {"count": item[1], "relocs": item[0]["relocs"]} for item in ranked
+        ]
+        return dict(entry, ambiguous=variants), variants
+    return entry, True
+
+
 def collect(o_path, variants):
     try:
         elf = ELFFile(open(o_path, "rb"))
@@ -140,10 +168,12 @@ def collect(o_path, variants):
         }
         key = (entry["hex"], reloc_targets(entry["relocs"]))
         bucket = variants.setdefault(sym.name, {})
+        stamp = os.path.getmtime(o_path)
         if key in bucket:
             bucket[key][1] += 1
+            bucket[key][2] = max(bucket[key][2], stamp)
         else:
-            bucket[key] = [entry, 1]
+            bucket[key] = [entry, 1, stamp]
 
 
 def main():
@@ -158,24 +188,20 @@ def main():
     for o_path in sorted(glob.glob(os.path.join(DELINK, "*.o"))):
         collect(o_path, variants)
 
+    superseded = 0
     ambiguous = 0
     for name, bucket in variants.items():
-        ranked = sorted(bucket.values(), key=lambda item: -item[1])
-        entry = ranked[0][0]
-        if len(ranked) > 1:
-            # The objects of one module disagree about this symbol's content or about
-            # where its relocations point, and the targets are genuinely different
-            # addresses rather than two spellings of one. Keep the majority image but
-            # refuse to certify it: a reconstruction cannot be proved against a target
-            # the delink itself does not agree on.
+        entry, conflict = resolve(bucket)
+        if conflict is True:
+            superseded += 1
+        elif conflict:
             ambiguous += 1
-            entry = dict(entry, ambiguous=[
-                {"count": count, "relocs": item["relocs"]} for item, count in ranked
-            ])
             print("AMBIGUOUS %s (%s): %s" % (
                 name, entry["module"],
-                " vs ".join(str(item["relocs"]) for item, _ in ranked)[:160]))
+                " vs ".join(str(item["relocs"]) for item in conflict)[:160]))
         index[name] = entry
+    if superseded:
+        print("%d symbols read from the freshest object over an older one" % superseded)
     if ambiguous:
         print("%d symbols left ambiguous and cannot be verified" % ambiguous)
 

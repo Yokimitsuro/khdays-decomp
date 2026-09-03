@@ -33,6 +33,28 @@ class IndexDataTests(unittest.TestCase):
     def test_an_unknown_symbol_falls_back_to_its_spelling(self):
         self.assertEqual(index_data.reloc_targets([(4, "never_seen")]), ((4, "never_seen"),))
 
+    def test_the_freshest_object_beats_a_crowd_of_stale_ones(self):
+        # build/delinks keeps objects from earlier runs, so a majority vote let 37
+        # stale copies outvote the one dsd had just written and reported a phantom
+        # relocation as a genuine disagreement.
+        stale = {"hex": "aa", "relocs": [[0, "phantom"]], "module": "main"}
+        fresh = {"hex": "aa", "relocs": [], "module": "main"}
+        entry, conflict = index_data.resolve({1: [stale, 37, 100.0], 2: [fresh, 1, 200.0]})
+        self.assertEqual(entry["relocs"], [])
+        self.assertIs(conflict, True)
+        self.assertNotIn("ambiguous", entry)
+
+    def test_equally_fresh_objects_that_disagree_stay_ambiguous(self):
+        one = {"hex": "aa", "relocs": [[0, "alpha"]], "module": "main"}
+        two = {"hex": "aa", "relocs": [[0, "gamma"]], "module": "main"}
+        entry, conflict = index_data.resolve({1: [one, 3, 100.0], 2: [two, 3, 100.0]})
+        self.assertIsInstance(conflict, list)
+        self.assertIn("ambiguous", entry)
+
+    def test_a_single_variant_is_no_conflict(self):
+        only = {"hex": "aa", "relocs": [], "module": "main"}
+        self.assertEqual(index_data.resolve({1: [only, 5, 100.0]}), (only, False))
+
 
 class RepoPathTests(unittest.TestCase):
     def test_a_source_on_another_drive_does_not_raise(self):

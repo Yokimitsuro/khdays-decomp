@@ -5746,7 +5746,6 @@ from:0x0203d1e0 kind:load to:0x020200b4 module:main
 from:0x0203d1ec kind:load to:0x02020184 module:main
 from:0x0203d1f8 kind:load to:0x020207f4 module:main
 from:0x0203d204 kind:load to:0x02020808 module:main
-from:0x0204035c kind:load to:0x0208f021 module:overlays(8,24)
 from:0x0204185c kind:load to:0x020098b8 module:main
 from:0x02041860 kind:load to:0x020098e4 module:main
 from:0x02041864 kind:load to:0x02009910 module:main
