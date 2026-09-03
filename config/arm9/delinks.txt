@@ -6072,6 +6072,10 @@ src/calls/func_0203d194.c:
     complete
     .text       start:0x0203d194 end:0x0203d1bc
 
+libs/nitro/fx/auto/fx_atan_tables.c:
+    complete
+    .rodata     start:0x02041210 end:0x02041418
+
 libs/nitro/fx/auto/fx_sincos_table.c:
     complete
     .rodata     start:0x0203d210 end:0x02041210
