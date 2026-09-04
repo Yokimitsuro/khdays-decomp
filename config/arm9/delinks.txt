@@ -236,6 +236,10 @@ libs/nitro/os/calls/OS_TryLockCartridge.c:
     complete
     .text       start:0x02001704 end:0x02001724
 
+libs/nitro/os/asm_stubs/calls/OS_UnLockCartridge.c:
+    complete
+    .text       start:0x02001724 end:0x02001730
+
 libs/nitro/os/calls/OS_TryLockCartridge_0x02001730.c:
     complete
     .text       start:0x02001730 end:0x02001750
