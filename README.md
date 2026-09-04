@@ -22,10 +22,10 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **17,398** / ~23,241 (~74.9% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **2,286,982** / 4,728,802 (~48.36% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
+| Real C-decompiled matched functions | **17,399** / ~23,241 (~74.9% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **2,287,234** / 4,728,802 (~48.37% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
 | Inline ASM / ASM stub matched functions | **1,757** / ~23,241 (~7.6%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
-| SDK/library byte-match identifications | **162** / ~23,241 (~0.7%) | NitroSDK or library functions identified separately by byte matching |
+| SDK/library byte-match identifications | **161** / ~23,241 (~0.7%) | NitroSDK or library functions identified separately by byte matching |
 | Named but not decompiled | **3,924** / ~23,241 (~16.9%) | Functions known to the project but not implemented as C |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |

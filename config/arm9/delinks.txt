@@ -328,6 +328,10 @@ libs/nitro/os/calls/OSi_RescheduleThread.c:
     complete
     .text       start:0x02001adc end:0x02001ba4
 
+libs/nitro/os/calls/OS_CreateThread.c:
+    complete
+    .text       start:0x02001cf0 end:0x02001dec
+
 src/calls/func_02001dec.c:
     complete
     .text       start:0x02001dec end:0x02001e0c
