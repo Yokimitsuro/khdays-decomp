@@ -276,6 +276,10 @@ libs/nitro/os/asm_stubs/auto/OS_GetLockID.c:
     complete
     .text       start:0x020017f0 end:0x02001848
 
+libs/nitro/os/asm_stubs/auto/OS_ReleaseLockID.c:
+    complete
+    .text       start:0x02001848 end:0x02001878
+
 libs/nitro/os/calls/OS_SPrintf.c:
     complete
     .text       start:0x02001878 end:0x020018a0
