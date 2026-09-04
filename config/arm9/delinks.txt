@@ -212,6 +212,10 @@ libs/nitro/os/calls/OS_InitLock.c:
     complete
     .text       start:0x020014ec end:0x020015b8
 
+libs/nitro/os/calls/OSi_DoLockByWord.c:
+    complete
+    .text       start:0x020015b8 end:0x02001604
+
 libs/nitro/os/calls/OS_UnlockByWord.c:
     complete
     .text       start:0x02001604 end:0x02001614
