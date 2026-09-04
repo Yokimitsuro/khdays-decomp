@@ -76,6 +76,10 @@ libs/nitro/os/asm_stubs/auto/SoftReset.c:
     complete
     .text       start:0x02000792 end:0x02000796
 
+libs/nitro/os/asm_stubs/auto/INITi_CpuClear32_0x0200093c.c:
+    complete
+    .text       start:0x0200093c end:0x02000950
+
 libs/nitro/nitro/auto/AutoloadCallback.c:
     complete
     .text       start:0x02000a74 end:0x02000a78
@@ -119,6 +123,10 @@ src/calls/func_02001054.c:
 src/calls/func_0200108c.c:
     complete
     .text       start:0x0200108c end:0x020010c4
+
+libs/nitro/os/calls/OS_WaitIrq.c:
+    complete
+    .text       start:0x020010c4 end:0x02001138
 
 src/auto/func_02001138.c:
     complete
