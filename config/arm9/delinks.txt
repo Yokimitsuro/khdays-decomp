@@ -368,6 +368,10 @@ libs/nitro/os/calls/OSi_SelectThread.c:
     complete
     .text       start:0x02001ff0 end:0x02002018
 
+libs/nitro/os/calls/OS_RescheduleThread.c:
+    complete
+    .text       start:0x02002018 end:0x02002034
+
 libs/nitro/os/calls/OSi_WaitOnExitProc.c:
     complete
     .text       start:0x02002034 end:0x020020dc
