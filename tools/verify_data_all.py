@@ -14,6 +14,7 @@ import glob
 import hashlib
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -57,6 +58,27 @@ def main():
         if not os.path.isfile(cpath):
             continue
         names = verify_data.symbols_in(cpath)
+        # A symbol the source defines but the object does not carry in an initialized
+        # section went to .bss -- a zero-initialised array does. Checking only what the
+        # object holds would let it disappear silently inside a file whose other
+        # symbols are fine.
+        declared = set(re.findall(r"\b(data_\w+)\s*(?:\[|=)", open(cpath).read()))
+        missing = sorted(declared - set(names))
+        for name in missing:
+            print("    %s: defined here but not in any initialized-data section"
+                  " (a zero initialiser lands in .bss)" % name)
+        if missing:
+            failed += len(missing)
+            bad_files.append(cpath)
+        if not names:
+            # A file whose objects all land in .bss -- a zero-initialised array, say --
+            # defines nothing this tool can see, and reporting it as zero failures
+            # would be passing by checking nothing.
+            print("%-62s defines no initialized-data symbol" % (
+                os.path.relpath(cpath, ROOT).replace("\\", "/")))
+            failed += 1
+            bad_files.append(cpath)
+            continue
         results = []
         for name in names:
             status, message, info = verify_data.verify(cpath, name, index)
@@ -73,7 +95,7 @@ def main():
                 os.path.relpath(cpath, ROOT).replace("\\", "/"), len(good), len(bad)))
         for name, _status, message, _info in bad[:3]:
             print("    %s: %s" % (name, message.splitlines()[0]))
-        if args.receipt and not bad:
+        if args.receipt and not bad and not missing:
             for name, _status, _message, info in good:
                 write_receipt(cpath, name, info)
 

@@ -3,8 +3,6 @@
  * 1 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_ElementGatherActors (0x0207e6fc).
  */
 
 typedef unsigned char u8;

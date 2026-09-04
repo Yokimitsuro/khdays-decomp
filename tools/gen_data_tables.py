@@ -41,6 +41,10 @@ def runs_for(module, section, index, finished):
             continue
         shape = data_survey.classify(entry)[0]
         ok = shape in SHAPES and not entry["relocs"]
+        # An all-zero object in .data cannot be written: every zero initialiser lands
+        # in .bss, so the symbol would vanish from the linked image.
+        if shape == "zero" and entry["section"] == "data":
+            ok = False
         syms.append((entry["addr"], entry["size"], name, ok))
     syms.sort()
 

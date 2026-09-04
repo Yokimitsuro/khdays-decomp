@@ -3,8 +3,6 @@
  * 3 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_TickCameraTransition (0x0207e734, 0x0207e73c).
  */
 
 typedef unsigned char u8;

@@ -56,6 +56,23 @@ class IndexDataTests(unittest.TestCase):
         self.assertEqual(index_data.resolve({1: [only, 5, 100.0]}), (only, False))
 
 
+class LiteralRelocTests(unittest.TestCase):
+    """The delink models a data word as a relocation when its value looks like a
+    pointer. A literal on our side is right as long as it equals the address that
+    relocation resolves to -- both descriptions link to the same bytes."""
+
+    def test_a_literal_matching_the_resolved_target_is_accepted(self):
+        verify_data.SYM_ADDR["probe_sym"] = 0x0208F021
+        self.assertEqual(verify_data.target_of("probe_sym", 0x20), 0x0208F041)
+
+    def test_a_literal_that_resolves_elsewhere_is_not(self):
+        verify_data.SYM_ADDR["probe_sym"] = 0x0208F021
+        self.assertNotEqual(verify_data.target_of("probe_sym", 0x20), 0x0208F045)
+
+    def test_an_unknown_symbol_resolves_to_nothing(self):
+        self.assertIsNone(verify_data.target_of("never_defined_anywhere", 0))
+
+
 class RepoPathTests(unittest.TestCase):
     def test_a_source_on_another_drive_does_not_raise(self):
         # Windows relpath refuses to cross mounts; a scratch file must still get a

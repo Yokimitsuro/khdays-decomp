@@ -3,9 +3,6 @@
  * 5 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_OpenCaptionSurfaces (0x0207ec00, 0x0207ec50, 0x0207ec78).
- * Read by Ov002_SetCaptionText (0x0207ec28).
  */
 
 typedef unsigned char u8;

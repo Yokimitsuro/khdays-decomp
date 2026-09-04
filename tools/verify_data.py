@@ -206,7 +206,19 @@ def verify(cpath, name, index):
         return DIFFERS, "byte diff @0x%X of %d (relocated words masked): got %02x want %02x" % (
             first, size, mine[first], original[first]), {}
 
-    if set(my_relocs) != set(orig_relocs):
+    # The delink can model a data word as a relocation when its value happens to look
+    # like a pointer -- the sine table's word 0x0208f041 lands inside overlay 8, so dsd
+    # records it as data_ov008_0208f021 + 0x20 and zeroes the image. Both descriptions
+    # link to the same bytes, so a plain literal on our side is correct as long as it
+    # equals the address the ROM's relocation resolves to. Nothing else is forgiven.
+    literal_ok = set()
+    for off in set(orig_relocs) - set(my_relocs):
+        want = target_of(orig_relocs[off], orig_addends.get(off, 0))
+        if want is None or off + 4 > size:
+            continue
+        if int.from_bytes(mine[off:off + 4], "little") == want:
+            literal_ok.add(off)
+    if set(my_relocs) | literal_ok != set(orig_relocs):
         return DIFFERS, "relocation offsets differ\n  mine=%s\n  rom =%s" % (
             sorted(my_relocs), sorted(orig_relocs)), {}
     for off in sorted(my_relocs):

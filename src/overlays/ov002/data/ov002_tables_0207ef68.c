@@ -3,9 +3,6 @@
  * 2 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_CreateAndRestoreHud (0x0207ef68).
- * Read by Ov002_ScatterPlaceByIndex (0x0207ef80).
  */
 
 typedef unsigned char u8;

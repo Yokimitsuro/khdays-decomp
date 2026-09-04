@@ -3,18 +3,6 @@
  * 17 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_BeginSceneSetup (0x0207db54).
- * Read by Ov002_BeginTextCrawl (0x0207dc10).
- * Read by Ov002_BuildPanelLabels (0x0207dc38).
- * Read by Ov002_BuildTextItem (0x0207dbe8).
- * Read by Ov002_DrawSlotIcons (0x0207db7e, 0x0207db94).
- * Read by Ov002_FlushDirtyMaps (0x0207db68).
- * Read by Ov002_LoadPanelSlots (0x0207db8c, 0x0207dba8, 0x0207dbb8).
- * Read by Ov002_OpenPanelScreen (0x0207db9c, 0x0207dbc8).
- * Read by Ov002_PlaceIndexedSubDcItems (0x0207db84).
- * Read by Ov002_SetHelpMode (0x0207db78).
- * Read by Ov002_UpdateSceneFrame (0x0207db5c).
  */
 
 typedef unsigned char u8;

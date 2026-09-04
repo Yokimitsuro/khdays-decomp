@@ -30,7 +30,14 @@ INDEX_PATH = os.path.join(ROOT, "build", "data_index.json")
 DATA_SECTIONS = (".rodata", ".data", ".ctor")
 # _dsd_gap@ov006_10.o -> ov006, _dsd_gap@main_3.o -> main
 MODULE_RE = re.compile(r"^_dsd_gap@(?P<unit>[^_]+(?:_[a-z]+)*?)_\d+$")
-# data_ov006_0205630c / data_0204c058 -- the address is part of the name
+# data_ov006_0205630c / data_0204c058 -- the address is part of the name.
+#
+# Anchored to the END on purpose. dsd also emits names like data_ov002_0207ef80_offsets,
+# and those are ALIASES: a second name for the object already called
+# data_ov002_0207ef80, at the same address and the same size. Matching them too gave two
+# symbols one address, so the generators wrote two files covering the same bytes and the
+# delink refused with "overlaps with previous file". Leaving them without an address is
+# what keeps them out, and costs nothing, because the object they name is already indexed.
 ADDR_RE = re.compile(r"_(?P<addr>0[0-9a-fA-F]{7})$")
 
 

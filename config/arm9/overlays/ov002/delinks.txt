@@ -5992,6 +5992,82 @@ src/overlays/ov002/data/ov002_pointers_0207f484.c:
     complete
     .data       start:0x0207f484 end:0x0207f58c
 
+src/overlays/ov002/data/ov002_screens_0207e720.c:
+    complete
+    .data       start:0x0207e720 end:0x0207e734
+
+src/overlays/ov002/data/ov002_screens_0207e830.c:
+    complete
+    .data       start:0x0207e830 end:0x0207e844
+
+src/overlays/ov002/data/ov002_screens_0207e880.c:
+    complete
+    .data       start:0x0207e880 end:0x0207e8a8
+
+src/overlays/ov002/data/ov002_screens_0207e8b4.c:
+    complete
+    .data       start:0x0207e8b4 end:0x0207e8dc
+
+src/overlays/ov002/data/ov002_screens_0207e9cc.c:
+    complete
+    .data       start:0x0207e9cc end:0x0207e9f4
+
+src/overlays/ov002/data/ov002_screens_0207ea00.c:
+    complete
+    .data       start:0x0207ea00 end:0x0207ea14
+
+src/overlays/ov002/data/ov002_screens_0207eb2c.c:
+    complete
+    .data       start:0x0207eb2c end:0x0207eb40
+
+src/overlays/ov002/data/ov002_screens_0207ebb0.c:
+    complete
+    .data       start:0x0207ebb0 end:0x0207ebc4
+
+src/overlays/ov002/data/ov002_screens_0207eca0.c:
+    complete
+    .data       start:0x0207eca0 end:0x0207ecb4
+
+src/overlays/ov002/data/ov002_screens_0207ed74.c:
+    complete
+    .data       start:0x0207ed74 end:0x0207ed88
+
+src/overlays/ov002/data/ov002_screens_0207edf4.c:
+    complete
+    .data       start:0x0207edf4 end:0x0207ee08
+
+src/overlays/ov002/data/ov002_screens_0207ee70.c:
+    complete
+    .data       start:0x0207ee70 end:0x0207ee98
+
+src/overlays/ov002/data/ov002_screens_0207eeb0.c:
+    complete
+    .data       start:0x0207eeb0 end:0x0207eec4
+
+src/overlays/ov002/data/ov002_screens_0207eee8.c:
+    complete
+    .data       start:0x0207eee8 end:0x0207eefc
+
+src/overlays/ov002/data/ov002_screens_0207ef54.c:
+    complete
+    .data       start:0x0207ef54 end:0x0207ef68
+
+src/overlays/ov002/data/ov002_screens_0207f010.c:
+    complete
+    .data       start:0x0207f010 end:0x0207f024
+
+src/overlays/ov002/data/ov002_screens_0207f028.c:
+    complete
+    .data       start:0x0207f028 end:0x0207f03c
+
+src/overlays/ov002/data/ov002_screens_0207f40c.c:
+    complete
+    .data       start:0x0207f40c end:0x0207f420
+
+src/overlays/ov002/data/ov002_screens_0207f454.c:
+    complete
+    .data       start:0x0207f454 end:0x0207f468
+
 src/overlays/ov002/data/ov002_spawn_rows.c:
     complete
     .rodata     start:0x0207e67c end:0x0207e6fc
@@ -6068,6 +6144,10 @@ src/overlays/ov002/data/ov002_strings_0207f11c.c:
     complete
     .data       start:0x0207f11c end:0x0207f134
 
+src/overlays/ov002/data/ov002_strings_0207f404.c:
+    complete
+    .data       start:0x0207f404 end:0x0207f408
+
 src/overlays/ov002/data/ov002_strings_0207f420.c:
     complete
     .data       start:0x0207f420 end:0x0207f454
@@ -6104,6 +6184,10 @@ src/overlays/ov002/data/ov002_tables_0207e734.c:
     complete
     .data       start:0x0207e734 end:0x0207e764
 
+src/overlays/ov002/data/ov002_tables_0207e988.c:
+    complete
+    .data       start:0x0207e988 end:0x0207e98c
+
 src/overlays/ov002/data/ov002_tables_0207e9c4.c:
     complete
     .data       start:0x0207e9c4 end:0x0207e9cc
@@ -6112,13 +6196,21 @@ src/overlays/ov002/data/ov002_tables_0207e9f4.c:
     complete
     .data       start:0x0207e9f4 end:0x0207ea00
 
-src/overlays/ov002/data/ov002_tables_0207eb08.c:
+src/overlays/ov002/data/ov002_tables_0207eb0c.c:
     complete
     .data       start:0x0207eb0c end:0x0207eb10
+
+src/overlays/ov002/data/ov002_tables_0207eb24.c:
+    complete
+    .data       start:0x0207eb24 end:0x0207eb28
 
 src/overlays/ov002/data/ov002_tables_0207ec00.c:
     complete
     .data       start:0x0207ec00 end:0x0207eca0
+
+src/overlays/ov002/data/ov002_tables_0207ed1c.c:
+    complete
+    .data       start:0x0207ed1c end:0x0207ed20
 
 src/overlays/ov002/data/ov002_tables_0207ee08.c:
     complete
@@ -6128,9 +6220,25 @@ src/overlays/ov002/data/ov002_tables_0207ef68.c:
     complete
     .data       start:0x0207ef68 end:0x0207efb0
 
+src/overlays/ov002/data/ov002_tables_0207f00c.c:
+    complete
+    .data       start:0x0207f00c end:0x0207f010
+
+src/overlays/ov002/data/ov002_tables_0207f024.c:
+    complete
+    .data       start:0x0207f024 end:0x0207f028
+
 src/overlays/ov002/data/ov002_tables_0207f114.c:
     complete
     .data       start:0x0207f114 end:0x0207f118
+
+src/overlays/ov002/data/ov002_tables_0207f408.c:
+    complete
+    .data       start:0x0207f408 end:0x0207f40c
+
+src/overlays/ov002/data/ov002_tables_0207f58c.c:
+    complete
+    .data       start:0x0207f58c end:0x0207f590
 
 src/overlays/ov002/data/ov002_tile_rows.c:
     complete

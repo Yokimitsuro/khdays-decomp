@@ -3,11 +3,6 @@
  * 6 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_ResetFollowOffset (0x0207e19c).
- * Read by Ov002_SceneResetPanelFrame (0x0207e184).
- * Read by Ov002_SceneStepPanelCounters (0x0207e190).
- * Read by Ov002_SceneStepPanelFlash (0x0207e1a8, 0x0207e1cc, 0x0207e1f0).
  */
 
 typedef unsigned char u8;

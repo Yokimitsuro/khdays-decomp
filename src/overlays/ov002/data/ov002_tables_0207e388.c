@@ -3,18 +3,6 @@
  * 12 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
- *
- * Read by Ov002_CommitSlotChoice (0x0207e424).
- * Read by Ov002_DrawGaugeColumn (0x0207e3f4).
- * Read by Ov002_DrawLine (0x0207e444).
- * Read by Ov002_DrawMessageCaption (0x0207e3a0).
- * Read by Ov002_MapPageCreate (0x0207e480).
- * Read by Ov002_PlayCaptionCues (0x0207e388).
- * Read by Ov002_PlotMapIcon (0x0207e404).
- * Read by Ov002_PlotPageEmblem (0x0207e400).
- * Read by Ov002_PlotPageGlyph (0x0207e3fc).
- * Read by Ov002_PlotStroke (0x0207e434).
- * Read by Ov002_StopSlotSounds (0x0207e460).
  */
 
 typedef unsigned char u8;
