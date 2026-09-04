@@ -135,12 +135,22 @@ def report(idx, have, name, apply_to=None):
         if apply_to:
             src = open(have[other], newline="").read()
             ovnum = re.match(r"func_(ov\d+)_", name).group(1)
-            out = re.sub(
-                r"(func|data)_ov\d+_([0-9a-f]{8})",
-                lambda m: "%s_%s_%08x" % (m.group(1), ovnum,
-                                          int(m.group(2), 16) + d),
-                src)
             peer = re.match(r"func_(ov\d+)_", other).group(1)
+
+            def shift(m):
+                """Only the sibling's OWN symbols move.
+
+                A linked copy calls the same shared code its peer does, so a
+                symbol tagged with another overlay -- ov107's actor helpers, in
+                practice -- names one object both copies reach and must survive
+                the rewrite untouched.
+                """
+                kind, tag, addr = m.group(1), m.group(2), m.group(3)
+                if tag != peer:
+                    return m.group(0)
+                return "%s_%s_%08x" % (kind, ovnum, int(addr, 16) + d)
+
+            out = re.sub(r"(func|data)_(ov\d+)_([0-9a-f]{8})", shift, src)
             out = out.replace(peer.capitalize(), ovnum.capitalize())
             with open(apply_to, "w", newline="\n") as fh:
                 fh.write(out)
