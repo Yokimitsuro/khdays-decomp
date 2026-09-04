@@ -244,9 +244,29 @@ libs/nitro/os/calls/OS_TryLockCartridge_0x02001730.c:
     complete
     .text       start:0x02001730 end:0x02001750
 
+libs/nitro/os/auto/OSi_AllocateCartridgeBus.c:
+    complete
+    .text       start:0x02001750 end:0x02001768
+
+libs/nitro/os/auto/OSi_FreeCartridgeBus.c:
+    complete
+    .text       start:0x02001768 end:0x02001780
+
+libs/nitro/os/calls/OS_UnlockCard.c:
+    complete
+    .text       start:0x02001780 end:0x0200179c
+
+libs/nitro/os/calls/OS_UnlockCard_0x0200179c.c:
+    complete
+    .text       start:0x0200179c end:0x020017b8
+
 libs/nitro/os/auto/OSi_AllocateCardBus.c:
     complete
     .text       start:0x020017b8 end:0x020017d0
+
+libs/nitro/os/auto/OSi_FreeCardBus.c:
+    complete
+    .text       start:0x020017d0 end:0x020017e8
 
 libs/nitro/os/auto/OS_ReadOwnerOfLockWord.c:
     complete
