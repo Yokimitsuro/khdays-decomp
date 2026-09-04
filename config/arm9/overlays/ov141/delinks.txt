@@ -208,7 +208,7 @@ src/overlays/ov141/calls/func_ov141_020cdf7c.c:
     complete
     .text       start:0x020cdf7c end:0x020ce230
 
-src/overlays/ov141/asm_stubs/calls/func_ov141_020ce230.c:
+src/overlays/ov141/calls/func_ov141_020ce230.c:
     complete
     .text       start:0x020ce230 end:0x020ce76c
 
