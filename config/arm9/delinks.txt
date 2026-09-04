@@ -300,9 +300,17 @@ src/calls/func_020018ec.c:
     complete
     .text       start:0x020018ec end:0x02001904
 
+libs/nitro/os/auto/OSi_InsertLinkToQueue.c:
+    complete
+    .text       start:0x02001904 end:0x0200197c
+
 libs/nitro/os/auto/OSi_RemoveLinkFromQueue.c:
     complete
     .text       start:0x0200197c end:0x020019b0
+
+libs/nitro/os/auto/OSi_RemoveSpecifiedLinkFromQueue.c:
+    complete
+    .text       start:0x020019b0 end:0x02001a04
 
 libs/nitro/os/auto/OSi_RemoveMutexLinkFromQueue.c:
     complete
