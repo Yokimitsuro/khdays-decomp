@@ -476,7 +476,7 @@ libs/nitro/os/auto/OS_GetArenaLo.c:
     complete
     .text       start:0x020029bc end:0x020029d0
 
-src/calls/func_02002ab4.c:
+libs/nitro/os/calls/func_02002ab4.c:
     complete
     .text       start:0x02002ab4 end:0x02002b5c
 
