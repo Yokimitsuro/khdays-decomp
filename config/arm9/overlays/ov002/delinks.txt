@@ -5920,6 +5920,10 @@ src/overlays/ov002/data/ov002_camera_shots.c:
     complete
     .data       start:0x0207e764 end:0x0207e830
 
+src/overlays/ov002/data/ov002_gauge_tables.c:
+    complete
+    .rodata     start:0x0207dd7c end:0x0207deb8
+
 src/overlays/ov002/data/ov002_help_entries.c:
     complete
     .data       start:0x0207e98c end:0x0207e9c4
@@ -5927,6 +5931,10 @@ src/overlays/ov002/data/ov002_help_entries.c:
 src/overlays/ov002/data/ov002_help_pages.c:
     complete
     .rodata     start:0x0207dd14 end:0x0207dd7c
+
+src/overlays/ov002/data/ov002_hud_records.c:
+    complete
+    .rodata     start:0x0207e4f8 end:0x0207e640
 
 src/overlays/ov002/data/ov002_map_page_ids.c:
     complete
@@ -5947,6 +5955,10 @@ src/overlays/ov002/data/ov002_panel_row_fx.c:
 src/overlays/ov002/data/ov002_panel_scales.c:
     complete
     .rodata     start:0x0207dcc0 end:0x0207dd14
+
+src/overlays/ov002/data/ov002_peer_limit.c:
+    complete
+    .rodata     start:0x0207e67a end:0x0207e67c
 
 src/overlays/ov002/data/ov002_pointers_0207dc60.c:
     complete
@@ -6063,6 +6075,62 @@ src/overlays/ov002/data/ov002_strings_0207f420.c:
 src/overlays/ov002/data/ov002_strings_0207f468.c:
     complete
     .data       start:0x0207f468 end:0x0207f484
+
+src/overlays/ov002/data/ov002_tables_0207db54.c:
+    complete
+    .rodata     start:0x0207db54 end:0x0207dc60
+
+src/overlays/ov002/data/ov002_tables_0207dc90.c:
+    complete
+    .rodata     start:0x0207dc90 end:0x0207dcc0
+
+src/overlays/ov002/data/ov002_tables_0207e184.c:
+    complete
+    .rodata     start:0x0207e184 end:0x0207e214
+
+src/overlays/ov002/data/ov002_tables_0207e358.c:
+    complete
+    .rodata     start:0x0207e358 end:0x0207e378
+
+src/overlays/ov002/data/ov002_tables_0207e388.c:
+    complete
+    .rodata     start:0x0207e388 end:0x0207e4a0
+
+src/overlays/ov002/data/ov002_tables_0207e6fc.c:
+    complete
+    .rodata     start:0x0207e6fc end:0x0207e704
+
+src/overlays/ov002/data/ov002_tables_0207e734.c:
+    complete
+    .data       start:0x0207e734 end:0x0207e764
+
+src/overlays/ov002/data/ov002_tables_0207e9c4.c:
+    complete
+    .data       start:0x0207e9c4 end:0x0207e9cc
+
+src/overlays/ov002/data/ov002_tables_0207e9f4.c:
+    complete
+    .data       start:0x0207e9f4 end:0x0207ea00
+
+src/overlays/ov002/data/ov002_tables_0207eb08.c:
+    complete
+    .data       start:0x0207eb0c end:0x0207eb10
+
+src/overlays/ov002/data/ov002_tables_0207ec00.c:
+    complete
+    .data       start:0x0207ec00 end:0x0207eca0
+
+src/overlays/ov002/data/ov002_tables_0207ee08.c:
+    complete
+    .data       start:0x0207ee08 end:0x0207ee38
+
+src/overlays/ov002/data/ov002_tables_0207ef68.c:
+    complete
+    .data       start:0x0207ef68 end:0x0207efb0
+
+src/overlays/ov002/data/ov002_tables_0207f114.c:
+    complete
+    .data       start:0x0207f114 end:0x0207f118
 
 src/overlays/ov002/data/ov002_tile_rows.c:
     complete
