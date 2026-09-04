@@ -60,6 +60,22 @@ libs/nitro/os/asm_stubs/auto/CpuFastSet.c:
     complete
     .text       start:0x020005ca end:0x020005ce
 
+libs/nitro/os/asm_stubs/auto/WaitByLoop.c:
+    complete
+    .text       start:0x02000634 end:0x02000638
+
+libs/nitro/os/asm_stubs/auto/HuffUnCompReadByCallback.c:
+    complete
+    .text       start:0x02000696 end:0x0200069a
+
+libs/nitro/os/asm_stubs/auto/Sqrt.c:
+    complete
+    .text       start:0x02000726 end:0x0200072a
+
+libs/nitro/os/asm_stubs/auto/SoftReset.c:
+    complete
+    .text       start:0x02000792 end:0x02000796
+
 libs/nitro/nitro/auto/AutoloadCallback.c:
     complete
     .text       start:0x02000a74 end:0x02000a78
