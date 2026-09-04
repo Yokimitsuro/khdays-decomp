@@ -208,6 +208,10 @@ libs/nitro/os/asm_stubs/calls/OSi_InitStackChecker.c:
     complete
     .text       start:0x020014b8 end:0x020014ec
 
+libs/nitro/os/calls/OS_InitLock.c:
+    complete
+    .text       start:0x020014ec end:0x020015b8
+
 libs/nitro/os/calls/OS_UnlockByWord.c:
     complete
     .text       start:0x02001604 end:0x02001614

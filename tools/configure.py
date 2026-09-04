@@ -167,6 +167,35 @@ def emit_ninja(ninja_path: Path, src_files):
     ninja_path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
+
+# Fixed addresses the hardware owns, which no module covers, so `dsd lcf` cannot emit
+# them and the delink records a pool word pointing there as a plain literal. The retail
+# objects clearly referenced them as symbols: mwcc schedules a store through an extern
+# differently from one through a cast constant, and only the extern spelling reproduces
+# the original for OS_InitLock. Declaring them linker-absolute here gives the real link
+# a definition and lets verify_idx.py accept the extra relocation, the same route the
+# overlay-id symbols already take.
+ABSOLUTE_SYMBOLS = {
+    # The inter-processor lock word at the top of main RAM.
+    "data_027ffff0": 0x027FFFF0,
+}
+
+
+def add_absolute_symbols(lcf_path):
+    """Append our linker-absolute symbols to the SECTIONS block dsd just generated."""
+    text = lcf_path.read_text(encoding="utf-8")
+    wanted = ["    %s = 0x%08X;" % (name, addr)
+              for name, addr in sorted(ABSOLUTE_SYMBOLS.items())]
+    missing = [line for line in wanted if line not in text]
+    if not missing:
+        return
+    marker = "SECTIONS {" + "\n"
+    idx = text.index(marker) + len(marker)
+    text = text[:idx] + "\n".join(missing) + "\n" + text[idx:]
+    lcf_path.write_text(text, encoding="utf-8", newline="\n")
+    print("[configure] added %d absolute symbol(s) to the LCF" % len(missing))
+
+
 def run(*cmd, cwd=None):
     # Fallo fantasma (2026-07-18/19): gen_delinks.py sale con rc=1 y stdout Y stderr VACIOS, en
     # un overlay distinto cada vez y sin patron. Lanzado a mano justo despues, el mismo comando
@@ -211,6 +240,7 @@ def main():
     print("[configure] dsd lcf")
     run(str(DSD), "lcf", "--config-path",
         str(ROOT / "config" / "arm9" / "config.yaml"))
+    add_absolute_symbols(BUILD / "arm9.lcf")
 
     print("[configure] stage delinked .o files into build/link/")
     stage_delinked_objects(LINK)
