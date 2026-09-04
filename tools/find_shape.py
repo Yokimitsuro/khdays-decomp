@@ -1,88 +1,94 @@
-"""Ask whether a codegen shape has EVER been produced from real C in this repo.
+#!/usr/bin/env python3
+"""Rank already-carved functions by how closely their instruction SHAPE matches
+a pending one, so the nearest decompiled neighbour can be read before any source
+is invented.
 
-    python tools/find_shape.py
+    python tools/find_shape.py func_ov030_020b35dc
+    python tools/find_shape.py func_ov030_020b35dc --min 0.80 --top 12
 
-Before concluding "mwcc cannot emit X", state the positive form of X and search the
-matched corpus for it. This script is that search, kept because doing it by hand is
-how a false claim got written down: while matching func_ov000_02050ec4 the note said
-"mwcc never hoists a load above a store to a stack slot", and the corpus answered with
-49 byte-exact functions that do exactly that.
+The shape is the mnemonic sequence, so relocated operands, pool values and
+register choices do not matter. Only sources under a calls/ or auto/ directory
+count; asm_stubs are excluded, because a stub reproduces the ROM without saying
+anything about the C that produced it.
 
-Two rules are baked in, both learned the expensive way:
-
-  * Only real C in auto/ or calls/ counts. An asm_stubs blob reproduces the ROM with
-    any compiler, so including one makes the answer meaningless -- and a stub can sit
-    in calls/ with a decorative struct header, so the body is checked for `dcd`/`asm`
-    rather than trusting the directory.
-  * Validate the predicate against bytes you KNOW contain the shape before believing a
-    zero. A search that could never have matched returns zero just as convincingly as
-    a real absence.
-
-Edit the predicate below for the shape you are chasing. As written it looks for a load
-from a non-sp base immediately followed by a store to a stack slot, where the loaded
-value is still consumed afterwards.
+A neighbour above roughly 0.85 is usually worth reading in full: it tends to
+carry the return type, the argument spelling and the field vocabulary that the
+target needs.
 """
-import sys, os, re, json, glob
-sys.path.insert(0, "tools")
+import argparse
+import difflib
+import glob
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
 
-ROOT = os.path.abspath(".")
-IDX = json.load(open("build/func_index.json"))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IDX = os.path.join(ROOT, 'build', 'func_index.json')
 
-realc = {}
-for pat in ("src/**/calls/*.c", "src/**/auto/*.c"):
-    for f in glob.glob(pat, recursive=True):
-        n = f.replace("\\", "/")
-        if "/asm_stubs/" in n or "/nonmatching/" in n:
-            continue
-        body = open(f, encoding="utf-8", errors="replace").read()
-        if re.search(r"^\s*dcd |^asm ", body, re.M):     # an asm stub is not C
-            continue
-        realc[os.path.basename(f)[:-2]] = f
+_MD = {'arm': Cs(CS_ARCH_ARM, CS_MODE_ARM), 'thumb': Cs(CS_ARCH_ARM, CS_MODE_THUMB)}
 
-thumb_syms = set()
-for dirpath, _d, files in os.walk("config"):
-    if "symbols.txt" in files:
-        for line in open(os.path.join(dirpath, "symbols.txt"), encoding="utf-8",
-                         errors="replace"):
-            if "kind:function(thumb" in line:
-                thumb_syms.add(line.split()[0])
 
-arm = Cs(CS_ARCH_ARM, CS_MODE_ARM)
-thm = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
+def shape(entry):
+    md = _MD.get(entry.get('mode'), _MD['arm'])
+    return [i.mnemonic for i in md.disasm(bytes.fromhex(entry['hex']), 0)]
 
-LD = re.compile(r"^(r\d+|ip|lr), \[(r\d+|ip|lr)(, #(0x[0-9a-f]+|\d+))?\]$")
-ST = re.compile(r"^(r\d+|ip|lr), \[sp(, #(0x[0-9a-f]+|\d+))?\]$")
 
-hits = []
-for name, f in sorted(realc.items()):
-    e = IDX.get(name)
-    if not e or not e.get("hex"):
-        continue
-    md = thm if name in thumb_syms else arm
-    ins = list(md.disasm(bytes.fromhex(e["hex"]), 0))
-    for k in range(len(ins) - 1):
-        a, b = ins[k], ins[k + 1]
-        if a.mnemonic != "ldr" or b.mnemonic != "str":
-            continue
-        ma, mb = LD.match(a.op_str), ST.match(b.op_str)
-        if not ma or not mb:
-            continue
-        if ma.group(2) == "sp":            # want a non-sp base for the load
-            continue
-        dest = ma.group(1)
-        if dest == mb.group(1):            # storing what we just loaded is a copy
-            continue
-        # the loaded value must still be consumed after the store
-        used_after = any(dest in ins[j].op_str for j in range(k + 2, min(k + 10, len(ins))))
-        if used_after:
-            hits.append((name, f, k * 4, a.mnemonic + " " + a.op_str,
-                         b.mnemonic + " " + b.op_str))
-            break
+def carved():
+    """name -> path, for real C only"""
+    out = {}
+    for pat in ('src/**/*.c', 'libs/**/*.c'):
+        for p in glob.glob(os.path.join(ROOT, pat), recursive=True):
+            q = p.replace(os.sep, '/')
+            if '/asm_stubs/' in q:
+                continue
+            if '/calls/' not in q and '/auto/' not in q:
+                continue
+            out[os.path.basename(q)[:-2]] = q
+    return out
 
-print("matched real-C functions scanned: %d" % len(realc))
-print("functions containing load-before-stack-store with the value used later: %d"
-      % len(hits))
-for n, f, off, x, y in hits[:25]:
-    print("  %-28s +0x%03X  %-26s | %s" % (n, off, x, y))
-    print("      %s" % f)
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('function')
+    ap.add_argument('--min', type=float, default=0.75,
+                    help='lowest similarity to report (default 0.75)')
+    ap.add_argument('--top', type=int, default=10)
+    ap.add_argument('--span', type=float, default=2.0,
+                    help='only consider sizes within this factor (default 2.0)')
+    args = ap.parse_args()
+
+    idx = json.load(open(IDX))
+    if args.function not in idx:
+        raise SystemExit('%s is not in func_index' % args.function)
+    target = idx[args.function]
+    tshape = shape(target)
+    have = carved()
+
+    lo, hi = target['size'] / args.span, target['size'] * args.span
+    scored = []
+    for name, e in idx.items():
+        if name not in have or name == args.function:
+            continue
+        if not (lo <= e['size'] <= hi):
+            continue
+        r = difflib.SequenceMatcher(None, tshape, shape(e)).ratio()
+        if r >= args.min:
+            scored.append((r, name, e['size'], e.get('mode'), have[name]))
+
+    scored.sort(reverse=True)
+    print('%s: %d bytes, %s, %d instructions'
+          % (args.function, target['size'], target.get('mode'), len(tshape)))
+    if not scored:
+        print('no carved function scores at least %.2f' % args.min)
+        return
+    print('%d carved neighbours at or above %.2f:' % (len(scored), args.min))
+    for r, name, size, mode, path in scored[:args.top]:
+        print('  %.3f  %-30s %4dB %-5s %s'
+              % (r, name, size, mode, os.path.relpath(path, ROOT)))
+
+
+if __name__ == '__main__':
+    main()
