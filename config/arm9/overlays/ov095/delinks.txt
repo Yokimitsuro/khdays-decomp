@@ -152,6 +152,10 @@ src/overlays/ov095/calls/func_ov095_020bc918.c:
     complete
     .text       start:0x020bc918 end:0x020bc930
 
+src/overlays/ov095/data/ov095_pointers_020bcb08.c:
+    complete
+    .data       start:0x020bcb08 end:0x020bcb1c
+
 src/overlays/ov095/data/ov095_strings_020bc9a4.c:
     complete
     .rodata     start:0x020bc9a4 end:0x020bc9d4

@@ -136,6 +136,10 @@ src/overlays/ov257/calls/func_ov257_020d3044.c:
     complete
     .text       start:0x020d3044 end:0x020d3064
 
+src/overlays/ov257/data/ov257_pointers_020d3074.c:
+    complete
+    .rodata     start:0x020d3074 end:0x020d3094
+
 src/overlays/ov257/data/ov257_strings_020d3360.c:
     complete
     .data       start:0x020d3360 end:0x020d3400

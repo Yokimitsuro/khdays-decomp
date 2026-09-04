@@ -54,15 +54,26 @@ def runs_for(module, section, index, finished):
 def render(module, section, run, index):
     start = run[0][0]
     end = run[-1][0] + run[-1][1]
-    const = "const " if section == "rodata" else ""
+    # `const void *x[]` is a NON-const array of pointers to const, so it lands in
+    # .data. The array itself is made const by putting const after the star.
+    is_ro = section == "rodata"
 
+    # A table can point at another table in the same run. Declaring that one extern
+    # as well as defining it here is a conflicting declaration, and mwcc reports it
+    # far away, at the closing brace of the second table.
+    defined = {name for _addr, _size, name in run}
     targets = set()
+    pointed_here = set()
     for _addr, _size, name in run:
         for _off, sym in index[name]["relocs"]:
-            targets.add(sym)
+            if sym in defined:
+                pointed_here.add(sym)
+            else:
+                targets.add(sym)
     funcs = sorted(t for t in targets if t.startswith("func"))
     datas = sorted(t for t in targets if not t.startswith("func"))
-    all_functions = not datas
+    # A table that points at another table cannot be an array of function pointers.
+    all_functions = not datas and not pointed_here
 
     head = [
         "/* %s .%s pointer tables, 0x%08x-0x%08x.\n" % (module, section, start, end),
@@ -78,6 +89,16 @@ def render(module, section, run, index):
         head.append("extern void %s(void);\n" % sym)
     for sym in datas:
         head.append("extern int %s;\n" % sym)
+    # A table pointed at from an earlier table in the same file needs a forward
+    # declaration with its real type; without it the use site sees an undefined
+    # name, and declaring it `extern int` instead conflicts with the definition.
+    if all_functions:
+        decl = "const Ov_Fn " if is_ro else "Ov_Fn "
+    else:
+        decl = "void *const " if is_ro else "void *"
+    for _addr, size, name in run:
+        if name in pointed_here:
+            head.append("extern %s%s[%d];\n" % (decl, name, size // 4))
     head.append("\n")
 
     body = []
@@ -85,15 +106,15 @@ def render(module, section, run, index):
         entry = index[name]
         rel = {off: sym for off, sym in entry["relocs"]}
         count = size // 4
-        kind = "Ov_Fn" if all_functions else "void *"
-        joiner = "" if kind.endswith("*") else " "
-        body.append("%s%s%s%s[%d] = {\n" % (const, kind, joiner, name, count))
+        body.append("%s%s[%d] = {\n" % (decl, name, count))
         for i in range(count):
             sym = rel.get(i * 4)
             if sym is None:
                 cell = "0"
             elif all_functions:
                 cell = sym
+            elif sym in defined:
+                cell = sym          # an array in this file; it decays on its own
             elif sym.startswith("func"):
                 cell = "(void *)%s" % sym
             else:

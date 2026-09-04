@@ -120,6 +120,10 @@ src/overlays/ov087/calls/func_ov087_020b99bc.c:
     complete
     .text       start:0x020b99bc end:0x020b99d4
 
+src/overlays/ov087/data/ov087_pointers_020b9b28.c:
+    complete
+    .data       start:0x020b9b28 end:0x020b9b3c
+
 src/overlays/ov087/data/ov087_strings_020b99d4.c:
     complete
     .rodata     start:0x020b99d4 end:0x020b9a24

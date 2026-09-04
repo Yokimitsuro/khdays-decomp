@@ -120,6 +120,10 @@ src/overlays/ov049/calls/func_ov049_020b4adc.c:
     complete
     .text       start:0x020b4adc end:0x020b4af4
 
+src/overlays/ov049/data/ov049_pointers_020b4c48.c:
+    complete
+    .data       start:0x020b4c48 end:0x020b4c5c
+
 src/overlays/ov049/data/ov049_strings_020b4af4.c:
     complete
     .rodata     start:0x020b4af4 end:0x020b4b44

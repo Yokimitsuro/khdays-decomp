@@ -136,6 +136,10 @@ src/overlays/ov070/calls/func_ov070_020b9b0c.c:
     complete
     .text       start:0x020b9b0c end:0x020b9b24
 
+src/overlays/ov070/data/ov070_pointers_020b9bb4.c:
+    complete
+    .data       start:0x020b9bb4 end:0x020b9bdc
+
 src/overlays/ov070/data/ov070_strings_020b9b40.c:
     complete
     .rodata     start:0x020b9b40 end:0x020b9b90

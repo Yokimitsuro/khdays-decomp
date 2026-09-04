@@ -128,6 +128,10 @@ src/overlays/ov074/calls/func_ov074_020b9a28.c:
     complete
     .text       start:0x020b9a28 end:0x020b9a40
 
+src/overlays/ov074/data/ov074_pointers_020b9ae8.c:
+    complete
+    .data       start:0x020b9ae8 end:0x020b9afc
+
 src/overlays/ov074/data/ov074_strings_020b9a6c.c:
     complete
     .rodata     start:0x020b9a6c end:0x020b9abc

@@ -336,6 +336,18 @@ src/overlays/ov004/calls/func_ov004_0205102c.c:
     complete
     .text       start:0x0205102c end:0x0205104c
 
+src/overlays/ov004/data/ov004_pointers_020510a4.c:
+    complete
+    .rodata     start:0x020510a4 end:0x020510b0
+
+src/overlays/ov004/data/ov004_pointers_020510b8.c:
+    complete
+    .rodata     start:0x020510b8 end:0x020510cc
+
+src/overlays/ov004/data/ov004_pointers_02051300.c:
+    complete
+    .data       start:0x02051300 end:0x02051328
+
 src/overlays/ov004/data/ov004_strings_020511e0.c:
     complete
     .data       start:0x020511e0 end:0x02051210

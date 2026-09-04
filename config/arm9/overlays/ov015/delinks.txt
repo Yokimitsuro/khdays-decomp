@@ -107,3 +107,11 @@ src/overlays/ov015/calls/func_ov015_020827a0.c:
 src/overlays/ov015/calls/func_ov015_02082838.c:
     complete
     .text       start:0x02082838 end:0x020828d2
+
+src/overlays/ov015/data/ov015_pointers_020828d4.c:
+    complete
+    .rodata     start:0x020828d4 end:0x020828d8
+
+src/overlays/ov015/data/ov015_pointers_02082904.c:
+    complete
+    .data       start:0x02082904 end:0x02082960

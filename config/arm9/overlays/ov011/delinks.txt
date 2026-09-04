@@ -164,6 +164,14 @@ src/overlays/ov011/calls/func_ov011_0205dc4c.c:
     complete
     .text       start:0x0205dc4c end:0x0205dc7c
 
+src/overlays/ov011/data/ov011_pointers_0205dc90.c:
+    complete
+    .rodata     start:0x0205dc90 end:0x0205dca0
+
+src/overlays/ov011/data/ov011_pointers_0205e8b4.c:
+    complete
+    .data       start:0x0205e8b4 end:0x0205e8e4
+
 src/overlays/ov011/data/ov011_strings_0205e8e4.c:
     complete
     .data       start:0x0205e8e4 end:0x0205e960

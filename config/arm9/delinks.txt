@@ -6087,3 +6087,51 @@ libs/nitro/fx/auto/fx_sincos_table.c:
 libs/nitro/snd/auto/snd_decibel_table.c:
     complete
     .rodata     start:0x02041488 end:0x02041588
+
+src/data/main_pointers_0204185c.c:
+    complete
+    .rodata     start:0x0204185c end:0x02041880
+
+src/data/main_pointers_02041924.c:
+    complete
+    .rodata     start:0x02041924 end:0x020419c4
+
+src/data/main_pointers_02041e2c.c:
+    complete
+    .rodata     start:0x02041e2c end:0x02041e6c
+
+src/data/main_pointers_02041eac.c:
+    complete
+    .rodata     start:0x02041eac end:0x02041ecc
+
+src/data/main_pointers_02041fd4.c:
+    complete
+    .rodata     start:0x02041fd4 end:0x0204208c
+
+src/data/main_pointers_020423ec.c:
+    complete
+    .data       start:0x020423ec end:0x02042418
+
+src/data/main_pointers_02042494.c:
+    complete
+    .data       start:0x02042494 end:0x020424b4
+
+src/data/main_pointers_02042504.c:
+    complete
+    .data       start:0x02042504 end:0x0204252c
+
+src/data/main_pointers_020425ec.c:
+    complete
+    .data       start:0x020425ec end:0x02042730
+
+src/data/main_pointers_020427d4.c:
+    complete
+    .data       start:0x020427d4 end:0x020427f0
+
+src/data/main_pointers_02042910.c:
+    complete
+    .data       start:0x02042910 end:0x02042958
+
+src/data/main_pointers_02042a70.c:
+    complete
+    .data       start:0x02042a70 end:0x02042ac0

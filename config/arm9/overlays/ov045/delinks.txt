@@ -112,6 +112,10 @@ src/overlays/ov045/calls/func_ov045_020b4a64.c:
     complete
     .text       start:0x020b4a64 end:0x020b4a7c
 
+src/overlays/ov045/data/ov045_pointers_020b4b94.c:
+    complete
+    .data       start:0x020b4b94 end:0x020b4ba8
+
 src/overlays/ov045/data/ov045_strings_020b4a7c.c:
     complete
     .rodata     start:0x020b4a7c end:0x020b4aac

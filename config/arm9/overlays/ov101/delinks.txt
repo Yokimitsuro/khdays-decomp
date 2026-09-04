@@ -148,6 +148,10 @@ src/overlays/ov101/calls/func_ov101_020bbfe0.c:
     complete
     .text       start:0x020bbfe0 end:0x020bbff8
 
+src/overlays/ov101/data/ov101_pointers_020bc054.c:
+    complete
+    .data       start:0x020bc054 end:0x020bc068
+
 src/overlays/ov101/data/ov101_strings_020bbff8.c:
     complete
     .rodata     start:0x020bbff8 end:0x020bc038

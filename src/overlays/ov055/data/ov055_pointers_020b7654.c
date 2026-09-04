@@ -1,0 +1,26 @@
+/* ov055 .data pointer tables, 0x020b7654-0x020b7668.
+ *
+ * 1 table, all zero in the ROM image because every entry is a relocation;
+ * a zero word is a null entry.
+ */
+
+typedef void (*Ov_Fn)(void);
+
+extern void func_ov022_020915bc(void);
+extern void func_ov022_020916e0(void);
+extern void func_ov055_020b6644(void);
+extern void func_ov055_020b6700(void);
+
+Ov_Fn data_ov055_020b7654[5] = {
+
+    0,
+
+    func_ov022_020915bc,
+
+    func_ov055_020b6644,
+
+    func_ov022_020916e0,
+
+    func_ov055_020b6700,
+
+};

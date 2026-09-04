@@ -148,6 +148,10 @@ src/overlays/ov046/calls/func_ov046_020b4a40.c:
     complete
     .text       start:0x020b4a40 end:0x020b4a58
 
+src/overlays/ov046/data/ov046_pointers_020b4ab4.c:
+    complete
+    .data       start:0x020b4ab4 end:0x020b4ac8
+
 src/overlays/ov046/data/ov046_strings_020b4a58.c:
     complete
     .rodata     start:0x020b4a58 end:0x020b4a98

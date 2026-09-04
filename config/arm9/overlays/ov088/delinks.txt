@@ -136,6 +136,10 @@ src/overlays/ov088/calls/func_ov088_020bc1cc.c:
     complete
     .text       start:0x020bc1cc end:0x020bc1e4
 
+src/overlays/ov088/data/ov088_pointers_020bc274.c:
+    complete
+    .data       start:0x020bc274 end:0x020bc29c
+
 src/overlays/ov088/data/ov088_strings_020bc200.c:
     complete
     .rodata     start:0x020bc200 end:0x020bc250

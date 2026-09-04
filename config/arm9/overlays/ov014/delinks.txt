@@ -150,3 +150,7 @@ src/overlays/ov014/calls/func_ov014_020807c4.c:
 src/overlays/ov014/calls/func_ov014_02080828.c:
     complete
     .text       start:0x02080828 end:0x020808c2
+
+src/overlays/ov014/data/ov014_pointers_020808e0.c:
+    complete
+    .data       start:0x020808e0 end:0x02080920

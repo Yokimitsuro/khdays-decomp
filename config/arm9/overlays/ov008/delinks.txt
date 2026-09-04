@@ -3680,6 +3680,22 @@ src/overlays/ov008/auto/func_ov008_0208e650.c:
     complete
     .text       start:0x0208e650 end:0x0208e66c
 
+src/overlays/ov008/data/ov008_pointers_0208e87c.c:
+    complete
+    .rodata     start:0x0208e87c end:0x0208e8a4
+
+src/overlays/ov008/data/ov008_pointers_0208edd4.c:
+    complete
+    .rodata     start:0x0208edd4 end:0x0208ede0
+
+src/overlays/ov008/data/ov008_pointers_0208f14c.c:
+    complete
+    .rodata     start:0x0208f14c end:0x0208f15c
+
+src/overlays/ov008/data/ov008_pointers_0208fd8c.c:
+    complete
+    .rodata     start:0x0208fd8c end:0x0208fdc8
+
 src/overlays/ov008/data/ov008_strings_0208f080.c:
     complete
     .rodata     start:0x0208f080 end:0x0208f110

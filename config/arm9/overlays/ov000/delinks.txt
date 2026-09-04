@@ -1052,6 +1052,18 @@ src/overlays/ov000/calls/func_ov000_0205a5e8.c:
     complete
     .text       start:0x0205a5e8 end:0x0205a6b0
 
+src/overlays/ov000/data/ov000_pointers_0205a710.c:
+    complete
+    .rodata     start:0x0205a710 end:0x0205a734
+
+src/overlays/ov000/data/ov000_pointers_0205a86c.c:
+    complete
+    .rodata     start:0x0205a86c end:0x0205a884
+
+src/overlays/ov000/data/ov000_pointers_0205ab80.c:
+    complete
+    .data       start:0x0205ab80 end:0x0205ab88
+
 src/overlays/ov000/data/ov000_strings_0205a9ec.c:
     complete
     .data       start:0x0205a9ec end:0x0205aa34

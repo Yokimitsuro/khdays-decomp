@@ -100,6 +100,10 @@ src/overlays/ov047/calls/func_ov047_020b41f4.c:
     complete
     .text       start:0x020b41f4 end:0x020b420c
 
+src/overlays/ov047/data/ov047_pointers_020b42e0.c:
+    complete
+    .data       start:0x020b42e0 end:0x020b42f4
+
 src/overlays/ov047/data/ov047_strings_020b420c.c:
     complete
     .rodata     start:0x020b420c end:0x020b424c

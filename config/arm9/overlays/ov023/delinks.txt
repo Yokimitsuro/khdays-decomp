@@ -520,6 +520,26 @@ src/overlays/ov023/calls/func_ov023_02089cec.c:
     complete
     .text       start:0x02089cec end:0x02089cfc
 
+src/overlays/ov023/data/ov023_pointers_02089d14.c:
+    complete
+    .rodata     start:0x02089d14 end:0x02089d74
+
+src/overlays/ov023/data/ov023_pointers_02089e10.c:
+    complete
+    .rodata     start:0x02089e10 end:0x02089eb0
+
+src/overlays/ov023/data/ov023_pointers_0208a334.c:
+    complete
+    .data       start:0x0208a334 end:0x0208a5cc
+
+src/overlays/ov023/data/ov023_pointers_0208a66c.c:
+    complete
+    .data       start:0x0208a66c end:0x0208a69c
+
+src/overlays/ov023/data/ov023_pointers_0208a70c.c:
+    complete
+    .data       start:0x0208a70c end:0x0208a730
+
 src/overlays/ov023/data/ov023_strings_0208a018.c:
     complete
     .data       start:0x0208a018 end:0x0208a038

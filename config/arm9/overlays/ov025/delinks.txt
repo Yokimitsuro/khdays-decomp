@@ -2860,6 +2860,22 @@ src/overlays/ov025/auto/func_ov025_020b35b4.c:
     complete
     .text       start:0x020b35b4 end:0x020b35d0
 
+src/overlays/ov025/data/ov025_pointers_020b37e0.c:
+    complete
+    .rodata     start:0x020b37e0 end:0x020b3808
+
+src/overlays/ov025/data/ov025_pointers_020b3934.c:
+    complete
+    .rodata     start:0x020b3934 end:0x020b3940
+
+src/overlays/ov025/data/ov025_pointers_020b3cac.c:
+    complete
+    .rodata     start:0x020b3cac end:0x020b3cbc
+
+src/overlays/ov025/data/ov025_pointers_020b4220.c:
+    complete
+    .rodata     start:0x020b4220 end:0x020b4228
+
 src/overlays/ov025/data/ov025_strings_020b3924.c:
     complete
     .rodata     start:0x020b3924 end:0x020b3934

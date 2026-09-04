@@ -182,3 +182,7 @@ src/overlays/ov017/calls/func_ov017_02080dd0.c:
 src/overlays/ov017/asm_stubs/calls/func_ov017_02080dfc.c:
     complete
     .text       start:0x02080dfc end:0x02080e38
+
+src/overlays/ov017/data/ov017_pointers_02080e40.c:
+    complete
+    .data       start:0x02080e40 end:0x02080ea0

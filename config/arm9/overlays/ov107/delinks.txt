@@ -332,6 +332,10 @@ src/overlays/ov107/auto/func_ov107_020cb5f0.c:
     complete
     .text       start:0x020cb5f0 end:0x020cb5f8
 
+src/overlays/ov107/data/ov107_pointers_020cb5f8.c:
+    complete
+    .rodata     start:0x020cb5f8 end:0x020cb610
+
 src/overlays/ov107/data/ov107_strings_020cb638.c:
     complete
     .rodata     start:0x020cb638 end:0x020cb64c
