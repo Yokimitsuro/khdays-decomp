@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Install test dependencies
+        run: python -m pip install capstone==5.0.7
       - name: Generate progress audit
         run: python tools/audit_progress.py
       - name: Generate progress report
