@@ -93,6 +93,16 @@ def rel(p):
     return Path(p).resolve().relative_to(ROOT).as_posix()
 
 
+def source_rule(source):
+    """Ninja rule for one reconstructed source path."""
+    suffix = Path(source).suffix.lower()
+    if suffix == ".c":
+        return "mwcc"
+    if suffix in (".s", ".asm"):
+        return "armasm"
+    raise ValueError(f"unsupported reconstructed source type: {source}")
+
+
 def emit_ninja(ninja_path: Path, src_files):
     """Write build.ninja with compile + link rules for the prototype scope.
 
@@ -111,6 +121,11 @@ def emit_ninja(ninja_path: Path, src_files):
         # THUMB output.
         "  command = $python tools/_run_mwcc.py $out $in",
         "  description = MWCC $in",
+        "  restat = 1",
+        "",
+        "rule armasm",
+        "  command = $python tools/_run_armasm.py $out $in",
+        "  description = ARMASM $in",
         "  restat = 1",
         "",
         "rule mwld",
@@ -133,7 +148,11 @@ def emit_ninja(ninja_path: Path, src_files):
         # Implicit deps on file_modes.json (arm <-> thumb flips) and
         # file_compilers.json (per-file compiler-version overrides) so either
         # change invalidates any cached .o for this file.
-        lines.append(f"build {obj}: mwcc {src} | {modes_dep} {compilers_dep}")
+        rule = source_rule(src)
+        if rule == "mwcc":
+            lines.append(f"build {obj}: mwcc {src} | {modes_dep} {compilers_dep}")
+        else:
+            lines.append(f"build {obj}: armasm {src}")
 
     lines.append("")
     lines.append("build compile: phony " + " ".join(compiled_objs))
@@ -229,10 +248,14 @@ def main():
     compilers_text = src_compilers.read_text(encoding="utf-8") if src_compilers.exists() else "{}\n"
     (BUILD / "file_compilers.json").write_text(compilers_text, encoding="utf-8", newline="\n")
 
-    for module_dir in MODULES:
-        rel = module_dir.relative_to(ROOT)
-        print(f"[configure] regen delinks.txt for {rel}")
-        run(sys.executable, str(ROOT / "tools" / "gen_delinks.py"), str(module_dir))
+    skip_delinks = "--skip-delinks" in sys.argv
+    if skip_delinks:
+        print("[configure] preserving existing delinks.txt files (--skip-delinks)")
+    else:
+        for module_dir in MODULES:
+            rel = module_dir.relative_to(ROOT)
+            print(f"[configure] regen delinks.txt for {rel}")
+            run(sys.executable, str(ROOT / "tools" / "gen_delinks.py"), str(module_dir))
 
     print("[configure] dsd delink")
     run(str(DSD), "delink", "--config-path",

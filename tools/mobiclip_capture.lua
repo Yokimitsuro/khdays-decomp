@@ -7,6 +7,7 @@
 
 local ROOT = "E:/KH 3582/decomp/scratch/mobiclip/captures"
 local MAX_CAPTURES = 1
+local SKIP_DECODES = 30
 local BITSTREAM_BYTES = 0x10000
 
 local BEFORE_CALL = 0x02085a20
@@ -18,13 +19,21 @@ local TRANSFORM4_ITCM = 0x01ffba48
 local TRANSFORM4_OVERLAY = 0x0208e8a8
 local TRANSFORM8_ITCM = 0x01ffb890
 local TRANSFORM8_OVERLAY = 0x0208e6f0
+local VLC_ITCM = 0x01ffda00
+local VLC_OVERLAY = 0x02090860
+local COLOR_CONVERTER = 0x02086004
 
 local capture_count = 0
+local decode_count = 0
 local active = nil
 local transform4 = nil
 local transform8 = nil
+local vlc = nil
+local color = nil
 local transform4_count = 0
 local transform8_count = 0
+local vlc_count = 0
+local color_count = 0
 
 local function hex(value)
     return string.format("0x%08x", value)
@@ -78,6 +87,22 @@ local function read_coefficients(state, size)
     return values
 end
 
+local function read_words(address, count)
+    local values = {}
+    for i = 0, count - 1 do
+        values[#values + 1] = memory.readword(address + i * 2)
+    end
+    return values
+end
+
+local function read_dwords(address, count)
+    local values = {}
+    for i = 0, count - 1 do
+        values[#values + 1] = unsigned(memory.readdword(address + i * 4))
+    end
+    return values
+end
+
 local function write_array(file, name, values, comma)
     file:write("  \"" .. name .. "\": [")
     for i, value in ipairs(values) do
@@ -98,6 +123,32 @@ local function write_transform(info, coefficients, observed)
     write_array(file, "coefficients", coefficients, true)
     write_array(file, "prediction", info.prediction, true)
     write_array(file, "observed", observed, false)
+    file:write("}\n")
+    file:close()
+end
+
+local function write_vlc(info)
+    local file = assert(io.open(info.path, "w"))
+    file:write("{\n")
+    file:write(string.format("  \"sourceEntry\": \"%s\",\n", hex(info.source_entry)))
+    file:write(string.format("  \"runtimeEntry\": \"%s\",\n", hex(info.runtime_entry)))
+    file:write(string.format("  \"stateAddress\": \"%s\",\n", hex(info.state)))
+    file:write(string.format("  \"tableAddress\": \"%s\",\n", hex(info.table_address)))
+    file:write(string.format("  \"quantScanAddress\": \"%s\",\n", hex(info.quant_scan)))
+    file:write(string.format("  \"coefficientCount\": %d,\n", info.coefficient_count))
+    file:write(string.format("  \"cursorBefore\": \"%s\",\n", hex(info.cursor_before)))
+    file:write(string.format("  \"bitsRemainingBefore\": %d,\n", info.bits_before))
+    file:write(string.format("  \"reservoirBefore\": \"%s\",\n", hex(info.reservoir_before)))
+    file:write(string.format("  \"cursorAfter\": \"%s\",\n",
+        hex(unsigned(memory.getregister("arm9.r1")))))
+    file:write(string.format("  \"bitsRemainingAfter\": %d,\n",
+        memory.getregister("arm9.r2")))
+    file:write(string.format("  \"reservoirAfter\": \"%s\",\n",
+        hex(unsigned(memory.getregister("arm9.r3")))))
+    write_array(file, "nextInputWords", info.next_words, true)
+    write_array(file, "quantScan", info.quant_scan_entries, true)
+    write_array(file, "coefficients", read_coefficients(
+        info.state, info.coefficient_count == 16 and 4 or 8), false)
     file:write("}\n")
     file:close()
 end
@@ -172,6 +223,11 @@ local function before_decode()
     local height = read_u32(state + 0x08)
     if width == 0 or height == 0 or width > 1024 or height > 1024 then
         print("mobiclip_capture: rejected implausible state " .. hex(state))
+        return
+    end
+
+    decode_count = decode_count + 1
+    if decode_count <= SKIP_DECODES then
         return
     end
 
@@ -295,13 +351,148 @@ local function register_transform(source_entry, itcm_entry, size)
     end)
 end
 
+local function finish_vlc()
+    if not vlc then
+        return
+    end
+    write_vlc(vlc)
+    print("mobiclip_capture: saved VLC block -> " .. vlc.path)
+    vlc = nil
+end
+
+local function begin_vlc(source_entry, runtime_entry)
+    if capture_count == 0 or vlc_count >= 1 or vlc then
+        return
+    end
+
+    local state = unsigned(memory.getregister("arm9.r0"))
+    local quant_scan = unsigned(memory.getregister("arm9.r12"))
+    local coefficient_count
+    if quant_scan == state + 0x174 then
+        coefficient_count = 16
+    elseif quant_scan == state + 0x74 then
+        coefficient_count = 64
+    else
+        return
+    end
+
+    vlc_count = vlc_count + 1
+    local cursor = unsigned(memory.getregister("arm9.r1"))
+    local return_address = unsigned(memory.getregister("arm9.r14"))
+    return_address = return_address - (return_address % 2)
+    local stem = "frame_" .. string.format("%04d", capture_count)
+    vlc = {
+        source_entry = source_entry,
+        runtime_entry = runtime_entry,
+        state = state,
+        table_address = unsigned(read_u32(state + 0x3b8)),
+        quant_scan = quant_scan,
+        coefficient_count = coefficient_count,
+        cursor_before = cursor,
+        bits_before = memory.getregister("arm9.r2"),
+        reservoir_before = unsigned(memory.getregister("arm9.r3")),
+        next_words = read_words(cursor, 32),
+        quant_scan_entries = read_dwords(quant_scan, coefficient_count),
+        path = ROOT .. "/" .. stem .. "_vlc_" ..
+               string.format("%04d", vlc_count) .. ".json",
+    }
+    memory.registerexec(return_address, 2, finish_vlc)
+end
+
+local function register_vlc(source_entry, itcm_entry)
+    memory.registerexec(itcm_entry, 2, function()
+        begin_vlc(source_entry, itcm_entry)
+    end)
+    memory.registerexec(source_entry, 2, function()
+        begin_vlc(source_entry, source_entry)
+    end)
+end
+
+local function write_color_manifest(info)
+    local file = assert(io.open(info.path, "w"))
+    file:write("{\n")
+    file:write("  \"kind\": \"ycocg_to_rgb555\",\n")
+    file:write(string.format("  \"entry\": \"%s\",\n", hex(COLOR_CONVERTER)))
+    file:write(string.format("  \"lumaAddress\": \"%s\",\n", hex(info.luma)))
+    file:write(string.format("  \"chromaAddress\": \"%s\",\n", hex(info.chroma)))
+    file:write(string.format("  \"destinationAddress\": \"%s\",\n", hex(info.destination)))
+    file:write(string.format("  \"width\": %d,\n", info.width))
+    file:write(string.format("  \"height\": %d,\n", info.height))
+    file:write("  \"lumaStride\": 256,\n")
+    file:write("  \"chromaStride\": 256,\n")
+    file:write(string.format(
+        "  \"destinationStrideBytes\": %d,\n", info.destination_stride))
+    file:write("  \"files\": {\n")
+    file:write(string.format("    \"luma\": \"%s\",\n", info.luma_file))
+    file:write(string.format("    \"chroma\": \"%s\",\n", info.chroma_file))
+    file:write(string.format("    \"rgb555\": \"%s\"\n", info.output_file))
+    file:write("  }\n}\n")
+    file:close()
+end
+
+local function finish_color()
+    if not color then
+        return
+    end
+    write_range(
+        ROOT .. "/" .. color.output_file,
+        color.destination,
+        color.destination_stride * color.height)
+    write_color_manifest(color)
+    print("mobiclip_capture: saved YCoCg/RGB555 frame -> " .. color.path)
+    color = nil
+end
+
+local function begin_color()
+    if capture_count == 0 or color_count >= 1 or color then
+        return
+    end
+
+    local args = unsigned(memory.getregister("arm9.r0"))
+    local width = unsigned(read_u32(args + 0x10))
+    local height = unsigned(read_u32(args + 0x14))
+    local destination_stride = unsigned(read_u32(args + 0x0c))
+    if width == 0 or width > 0x100 or width % 16 ~= 0 or
+       height == 0 or height > 0x400 or height % 2 ~= 0 or
+       destination_stride < width * 2 then
+        return
+    end
+
+    color_count = color_count + 1
+    local stem = "frame_" .. string.format("%04d", capture_count) .. "_color_" ..
+                 string.format("%04d", color_count)
+    local return_address = unsigned(memory.getregister("arm9.r14"))
+    return_address = return_address - (return_address % 2)
+    color = {
+        luma = unsigned(read_u32(args + 0x00)),
+        chroma = unsigned(read_u32(args + 0x04)),
+        destination = unsigned(read_u32(args + 0x08)),
+        destination_stride = destination_stride,
+        width = width,
+        height = height,
+        luma_file = stem .. "_luma.bin",
+        chroma_file = stem .. "_chroma.bin",
+        output_file = stem .. "_rgb555.bin",
+        path = ROOT .. "/" .. stem .. ".json",
+    }
+    write_range(ROOT .. "/" .. color.luma_file, color.luma, 0x100 * height)
+    write_range(
+        ROOT .. "/" .. color.chroma_file,
+        color.chroma,
+        0x100 * math.floor(height / 2))
+    memory.registerexec(return_address, 2, finish_color)
+end
+
 memory.registerexec(BEFORE_CALL, 2, before_decode)
 memory.registerexec(AFTER_CALL, 2, after_decode)
 register_transform(TRANSFORM4_OVERLAY, TRANSFORM4_ITCM, 4)
 register_transform(TRANSFORM8_OVERLAY, TRANSFORM8_ITCM, 8)
+register_vlc(VLC_OVERLAY, VLC_ITCM)
+memory.registerexec(COLOR_CONVERTER, 2, begin_color)
 
 print("mobiclip_capture: armed for one frame")
 print("  output: " .. ROOT)
+print("  skipping the first " .. SKIP_DECODES .. " decoder calls")
 print("  start a cutscene; stop the script after the manifest is written")
 
 while true do

@@ -149,7 +149,8 @@ def gen_data_block(unit, root=ROOT):
     """FILE entries for reconstructed initialized DATA that the verifier has proved.
 
     A range only enters the build on the strength of a receipt written by
-    tools/verify_data.py, and the receipt is re-checked against the source digest
+    tools/verify_data.py or tools/verify_executable_data.py, and the receipt is
+    re-checked against the source digest
     here so an edited file drops back out instead of poisoning the link. Ranges are
     merged per section: dsd places one section image at the declared start, so a
     source must own a contiguous run and define its symbols in address order.

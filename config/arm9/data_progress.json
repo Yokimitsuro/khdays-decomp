@@ -9,7 +9,15 @@
       "end": "0x02092e60",
       "classification": "executable_payload",
       "progress_category": "mobiclip_payload",
-      "reason": "Position-independent MobiClip decoder copied to fast memory and executed through a function pointer; do not treat a preserved blob as reconstructed DATA."
+      "reason": "Position-independent MobiClip decoder copied to fast memory and executed through a function pointer; do not treat a preserved blob as reconstructed DATA.",
+      "verification": {
+        "format": "arm_mnemonic_payload_v1",
+        "source_symbol": "data_ov024_0208c8c4",
+        "section": "rodata",
+        "sha256": "5508ae5f765eb86e81b2ad8d76dccf6d4a30e3381d3e8b248fb8d4a6204b83f5",
+        "instruction_count": 5899,
+        "embedded_data_bytes": 2416
+      }
     }
   ],
   "matched_ranges": []

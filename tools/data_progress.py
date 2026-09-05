@@ -194,7 +194,7 @@ def load_delinked_data_ranges(root=ROOT):
 
 
 def load_verified_ranges(root=ROOT):
-    """Ranges proved by tools/verify_data.py, re-proved here instead of trusted.
+    """Ranges proved by a DATA verifier, re-proved here instead of trusted.
 
     A receipt records what was verified; it is not a licence to count it. Every
     receipt is re-run against the ROM-derived index, so a stale or edited source
@@ -205,37 +205,48 @@ def load_verified_ranges(root=ROOT):
     root = Path(root)
     index_path = root / "build" / "data_index.json"
     receipts_dir = root / "build" / "data_receipts"
-    if not index_path.exists():
-        return [], "no DATA index; run tools/index_data.py on a delinked build"
     if not receipts_dir.is_dir():
+        if not index_path.exists():
+            return [], "no DATA index; run tools/index_data.py on a delinked build"
         return [], "no DATA receipts yet"
 
     import sys
 
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    try:
-        import verify_data
-    except ImportError as exc:
-        # Verifying needs pyelftools and the compiler; a plain checkout has neither.
-        # Reporting zero is the honest answer there, not a crash.
-        return [], "the verifier is unavailable here (%s)" % exc
-
-    index = json.loads(index_path.read_text(encoding="utf-8"))
+    index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.exists() else None
     ranges = []
     rejected = []
     for path in sorted(receipts_dir.glob("*.json")):
         receipt = json.loads(path.read_text(encoding="utf-8"))
         symbol = receipt.get("symbol")
+        if receipt.get("kind") != "executable_payload" and index is None:
+            rejected.append(
+                f"{symbol}: no DATA index; run tools/index_data.py on a delinked build"
+            )
+            continue
         source = root / receipt.get("source", "")
         if not source.is_file():
             rejected.append(f"{symbol}: source {receipt.get('source')} is gone")
             continue
         try:
-            status, message, info = verify_data.verify(str(source), symbol, index)
+            if receipt.get("kind") == "executable_payload":
+                import verify_executable_data
+
+                status, message, info = verify_executable_data.verify(
+                    source,
+                    receipt.get("name"),
+                    root / "config/arm9/data_progress.json",
+                )
+                matched = verify_executable_data.MATCH
+            else:
+                import verify_data
+
+                status, message, info = verify_data.verify(str(source), symbol, index)
+                matched = verify_data.MATCH
         except ImportError as exc:
             # The compiler front end is only pulled in when a proof is actually run.
             return [], "the verifier is unavailable here (%s)" % exc
-        if status != verify_data.MATCH:
+        if status != matched:
             rejected.append(f"{symbol}: {message}")
             continue
         if info.get("start") is None:
@@ -276,9 +287,10 @@ def main():
             print(f"  not counted: {note}")
     for item in inventory:
         if item.get("classification") == "executable_payload":
+            state = "matched" if item["matched"] else "unmatched"
             print(
                 f"{item['name']}: {item['start']:#010x}-{item['end']:#010x} "
-                f"({item['size']} bytes, executable payload, unmatched)"
+                f"({item['size']} bytes, executable payload, {state})"
             )
 
 

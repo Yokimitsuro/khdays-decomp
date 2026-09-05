@@ -66,12 +66,21 @@ def extract(source, output):
                 "address": f"0x{address:08x}",
                 "size": f"0x{DECODE_TABLE_SIZE:x}",
                 "sha256": hashlib.sha256(table).hexdigest(),
+                "lookup_sha256": hashlib.sha256(table[:0x2000]).hexdigest(),
+                "residue_sha256": hashlib.sha256(table[0x2000:]).hexdigest(),
                 "path": str(table_path.resolve()),
                 "layout": "4096 little-endian uint16 VLC entries + 256 residue bytes",
+                "packed_entry": {
+                    "bits_0_3": "consumed bits including coefficient sign",
+                    "bits_4_8": "level magnitude",
+                    "bits_9_14": "run",
+                    "bit_15": "last",
+                },
+                "escape_prefix": "top seven reservoir bits equal 0b0000011",
             }
         )
     manifest = {
-        "schema_version": 2,
+        "schema_version": 3,
         "source": str(source.resolve()),
         "source_sha256": hashlib.sha256(overlay).hexdigest(),
         "overlay_base": f"0x{OVERLAY_BASE:08x}",

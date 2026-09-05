@@ -46,6 +46,13 @@ report re-runs every receipt instead of trusting it, so an edited or deleted
 source stops counting by itself. Bytes are attributed per module as well as per
 address, because overlays are loaded over one another and share addresses.
 
+Fully carved executable payloads use the narrower
+`tools/verify_executable_data.py` gate. It refuses opaque directives and numeric
+opcodes, requires one readable ARM mnemonic per instruction plus named/symbolic
+embedded DATA, checks exact size/SHA-256, and proves that GAS and the project
+MWLD preserve every byte. A separately tested semantic implementation is also
+required; mechanical disassembly alone is not enough.
+
 What the public report can see is the checked-in `delinks.txt`. A `.rodata` or
 `.data` range appears in a FILE entry only because `gen_delinks.py` put it
 there, and it only does that for a symbol `verify_data.py` proved and whose
@@ -68,10 +75,10 @@ contiguous run and define its symbols in address order, because the linker
 places one section image at the declared start.
 
 Payloads stored in a data section but executed at runtime are classified
-separately. In particular, ov024's `0x659c`-byte MobiClip decoder payload is
-reported as `MobiClip executable payload` until its internal code and constant
-tables are carved and verified. Keeping the payload visible in the denominator
-does not claim that it is ordinary game DATA or decompiled source.
+separately. ov024's `0x659c`-byte MobiClip decoder payload has now passed that
+gate and is reported as `MobiClip executable payload` at 26012/26012 bytes.
+Keeping the category separate makes clear that it is reconstructed executable
+middleware rather than ordinary game DATA.
 
 ## Why this matters
 

@@ -8,6 +8,11 @@ with their own extraction can reproduce the local analysis file with:
 
 ```text
 python tools/mobiclip_payload.py
+python tools/mobiclip_inventory.py
+python tools/mobiclip_semantic_data_probe.py
+python tools/mobiclip_control_metadata_probe.py
+python tools/mobiclip_mods.py
+python tools/mobiclip_frame_verify.py
 ```
 
 The default output is
@@ -19,6 +24,21 @@ For the currently supported ROM the helper verifies:
 - payload SHA-256: `5508ae5f765eb86e81b2ad8d76dccf6d4a30e3381d3e8b248fb8d4a6204b83f5`
 - ARM trampoline word: `0xea0005ba`
 - decoded entry: `0x0208dfb4` (`base + 0x16f0`)
+
+The second command verifies the same hash and performs recursive ARM traversal
+from the Ghidra-validated entries, direct branches and all relative dispatch
+tables (including reserved zero slots and signed backwards offsets). Its current
+exact split is:
+
+- `0x5c2c` bytes / 5899 instructions of reachable ARM code;
+- `0x0970` bytes in 39 embedded-data regions;
+- `0x659c` classified bytes in total, with no uncovered byte.
+
+The ignored output is `scratch/mobiclip/mobiclip_inventory.json`. The tool has
+an explicit region audit and fails if control-flow discovery disagrees with the
+proven data map. Computed writes to `pc` terminate a path, while continuations
+synthesized through `lr` are seeded explicitly; this prevents inline dispatch
+tables from being mistaken for conditional ARM instructions.
 
 ## Confirmed static layout
 
@@ -48,17 +68,46 @@ returns the payload and its caller stores the result at owner offset `+0x38`;
 `func_ov024_020859d4` later invokes that pointer with the decoder state kept at
 owner offset `+0x34`.
 
-## Progress accounting and next analysis
+## Progress accounting and integration
 
-The whole payload remains unmatched DATA. Extraction, Ghidra carving, names,
-or preserving it as a blob do not increase progress. `tools/data_progress.py`
-classifies it separately as `mobiclip_payload`; matched bytes will require a
-source reconstruction plus byte-and-relocation verification.
+The whole payload is now matched in the separate `mobiclip_payload` DATA
+category. Extraction, Ghidra carving, names, or preserving it as a blob still
+contribute zero by themselves; the counted source is the mnemonic ARM and
+typed/symbolic DATA reconstruction in
+`src/overlays/ov024/data/mobiclip_payload.s`, admitted only through the strict
+executable-payload verifier and the real ov024 build.
+
+A compiler probe also established the intended reconstruction route: the
+project's MWCC can place ordinary C functions in a `.data` section with
+read/write/execute flags while retaining function symbols. Therefore this
+payload can be rebuilt as semantic C plus typed tables in its original section;
+neither an `incbin`, inline opcodes nor a permanently opaque blob is required.
+This is a capability result only and does not itself count any matched bytes.
+
+`tools/mobiclip_semantic_data_probe.py` closes the compiler half for the
+recovered constants. It generates ordinary C declarations in ignored scratch,
+compiles them with MWCC into per-symbol `.mobiclip_semantic` sections, reads
+the duplicate-named ELF sections by symbol, and compares each symbol directly
+with the original payload range. Fourteen regions totaling 848 bytes match
+exactly; every emitted section has ELF flags 7 (write, allocate, execute).
+
+`tools/mobiclip_control_metadata_probe.py` closes the other 1568 embedded-data
+bytes. MWCC rejects a C initializer of the form `target - table` as a constant
+expression, so the tool emits symbolic tables with GNU `as`. Each non-reserved
+entry carries `R_ARM_REL32`; the real project `mwldarm` resolves those symbols
+at their retail addresses. The 25 linked region binaries then compare exactly
+with the extracted payload, including 209 unique code targets, signed backwards
+offsets, cross-table relative bases and reserved zero slots. Thus all `0x970`
+embedded-data bytes now have
+a semantic, reproducible byte proof. Those definitions are now interleaved in
+the integrated source, and the resulting ov024 image passes the project module
+checker byte for byte.
 
 The initial bit-reader and direct-callee targets described below are now
-complete. Dynamic work should still capture the `0x454`-byte decoder state and
-referenced frame buffers immediately before and after one frame so later
-semantic C/C++ can be checked byte by byte.
+complete. A DeSmuME run has also captured the complete `0x454`-byte decoder
+state and all referenced frame buffers immediately before and after a real
+P-frame. The semantic decoder reproduces that ARM execution byte for byte; the
+replay details and commands are recorded below.
 
 ## Recovered bitstream and P-frame core
 
@@ -114,6 +163,22 @@ coefficient index in its low byte and its inverse-quantization multiplier in
 the upper bits. The decoder writes `level * (entry >> 8)` to that indexed
 coefficient slot.
 
+The two source tables are contiguous, independent 0x2100-byte objects:
+
+- 0x020886c4: format variant 1
+- 0x0208a7c4: format variant 0
+
+Each contains 4096 little-endian uint16_t prefix entries followed by 256
+residue bytes. In a packed entry, bits 0-3 are the total consumed bits
+(including the coefficient sign), bits 4-8 are the level magnitude, bits 9-14
+are the run, and bit 15 is last. MobiClip_DecodeRunLevelCoefficients recognizes
+the seven-bit prefix 0000011 before the ordinary 12-bit lookup. Its next
+selector bits choose level extension, run extension, or a full escape with a
+one-bit last, six-bit run and signed 12-bit level. The level/run extension paths
+apply the appropriate 64-byte residue quadrant before applying the sign bit.
+This is now implemented independently in the semantic C++ and Python
+references.
+
 `MobiClip_AddCoefficients4x4` clears 16 coefficients, performs the separable
 4x4 inverse transform, adds the prediction and clamps the reconstructed output.
 `MobiClip_AddPFrameBlockCoefficients` selects either one 8x8 residual or as many
@@ -125,6 +190,13 @@ The 8x8 path uses 64 coefficients followed by 64 intermediate values. The 4x4
 path uses the first 16 coefficient values followed by 16 intermediate values.
 
 ## Intra prediction and motion interpolation
+
+The main P-frame loop computes a component-wise median from the left,
+upper-left and upper motion vectors and stores it at state offset 0x3bc.
+MobiClip_PredictMotionBlock then reads two signed Exp-Golomb deltas in x/y
+order, adds them to that prediction and records the resulting vector before
+selecting its luma/chroma interpolation phases. Both steps are implemented in
+the isolated C++ and Python references.
 
 The predicted intra-mode path is carved as:
 
@@ -146,6 +218,34 @@ the same for 8-byte-wide kernels. Additional width-4, width-2 and width-1
 specializations use 16, 8 and 4 entry points. Literal `0x7f7f7f7f` masks at
 `0x02091e4c`, `0x020925f8`, `0x02092af4` and `0x02092d88` prevent packed
 averaging carries from crossing byte lanes.
+
+## Native frame layout and RGB555 presentation
+
+Static tracing now confirms that the payload reconstructs native YCoCg rather
+than planar YUV. The decoder owns six historical luma pointers at state offset
+0x0c and six historical chroma pointers at offset 0x24. Every luma allocation
+has a fixed 256-byte row stride. Each chroma row is also 256 bytes: Co samples
+occupy bytes 0..127 and Cg samples occupy bytes 128..255, with one Co/Cg pair
+shared by a 2x2 luma group.
+
+The owner-side ring at offset 0x64 does not contain decoded-plane pointers. It
+records the quantizer from decoder state offset 0x3b4 for each completed frame.
+MobiClip_EmitFrame selects the current luma/chroma ring entries and calls
+MobiClip_YCoCgToBgr555 at 0x02086004. Its inverse color equations are:
+
+    R = clip5(Y + Co - Cg)
+    G = clip5(Y + Cg)
+    B = clip5(Y - Co - Cg)
+
+The output is Nintendo DS RGB555 with bit 15 set. The hand-unrolled ARM routine
+converts a 2x2 luma group per chroma sample and subtracts four from luma in a
+checkerboard pattern: odd columns of the first row, then even columns of the
+second. The semantic reference preserves this easy-to-miss bias.
+
+The C++ and Python references now implement this complete presentation step.
+The DeSmuME capture script records the native planes and the produced RGB555
+surface around the converter, and the Python CLI compares every visible pixel
+plus SHA-256 hashes while ignoring destination-row padding.
 
 ## Partial decoder-state type
 
@@ -172,17 +272,27 @@ are:
 | `0x3bc` | `predictedMotion` | median-predicted motion vector |
 | `0x3c4` | `motion[18]` | per-column motion history and border slots |
 
-These fields and the carved functions are analysis evidence, not matched DATA.
-The remaining completion gate is a semantic source reconstruction checked
-against emulator captures and an exact byte-and-relocation verifier. Until
-that exists, the honest MobiClip and global DATA percentages remain zero.
+These fields and the carved functions are analysis evidence; the matched claim
+comes from the independently verified source and integrated build. The
+standalone semantic reconstruction decodes complete real streams and matches a
+captured original-ARM P-frame. The production gate is now closed: ov024 and all
+306 project modules pass, MobiClip contributes exactly 26012 matched DATA
+bytes, and initialized-DATA progress is 94418/188336 bytes (50.13%).
 
 ## Semantic transform oracle
 
+The isolated C++ reconstruction now includes the word-oriented bit reader,
+unsigned/signed Exp-Golomb, the complete packed run/level VLC frontend and its
+three escape forms, run/level placement and dequantization, packed quant/scan
+construction, 4x4 and 8x8 inverse transforms, residual addition, byte clipping,
+intra prediction, recursive motion compensation, complete I/P frame decode and
+RGB555 presentation. Its allocation-free frame API takes caller-owned output,
+history, coefficient-table and motion-workspace buffers, so it can serve both
+host validation and the eventual Nintendo DS integration.
+
 `tools/mobiclip_reference.cpp` and its header contain the first isolated C++
-reconstruction: packed quant/scan unpacking, 4x4 and 8x8 inverse transforms,
-residual addition and byte clipping. It deliberately uses a general separable
-transform instead of reproducing the ARM routine's sparsity specializations.
+reconstruction and deliberately uses a general separable transform instead of
+reproducing the ARM routine's sparsity specializations.
 
 `tools/mobiclip_reference.py` implements the same semantics as a test oracle.
 It accepts a JSON object with `size`, `coefficients` and an optional
@@ -195,6 +305,27 @@ python tools/mobiclip_reference.py scratch/mobiclip/capture.json
 The output contains the signed residual and, when a prediction was supplied,
 the clipped reconstructed block. This is scaffolding for emulator comparison;
 it neither embeds payload bytes nor advances DATA progress.
+
+The Python oracle now also reconstructs complete I- and P-frames. It implements
+all sixteen compact motion-mode VLC contexts, recursive 16/8/4/2 block
+partitioning, six-frame history selection, half-pixel motion compensation,
+intra macroblocks and both residual partition schemes. `tools/mobiclip_mods.py`
+extracts a named `.mods` member from NitroFS into ignored scratch and validates
+the N2/N3 header plus every packet boundary. `tools/mobiclip_frame_verify.py`
+then decodes packets with the reconstructed oracle and compares planar YCoCg
+byte-for-byte against the independent FFmpeg decoder, reordering the two MODS
+chroma planes explicitly. The complete `mv/802.mods` stream matches exactly:
+4485/4485 frames (178 I + 4307 P at 256x160), quantizers 17 through 27, and
+53,895,145 consumed video bits were checked without a differing output byte.
+Six more complete streams (`808` and all five localized `839_*` files) also
+match, bringing the cross-stream total to 4859 frames (184 I + 4675 P). The
+audio-free `839_*` packets prove the final-word edge case: frame entry adds the
+same safe zero look-ahead used by the native caller/FFmpeg, while the standalone
+bit-reader API remains bounds-strict.
+
+This end-to-end semantic result is stronger than a transform-only synthetic
+test. Together with the mnemonic-source gate and exact ov024 module build it
+now supports the official MobiClip DATA claim.
 
 `tools/mobiclip_capture.lua` is the matching one-shot DeSmuME capture script.
 Create `scratch/mobiclip/captures`, load the script from DeSmuME's Lua window
@@ -210,3 +341,86 @@ the overlay fallback at `0x0208c8c4`. It writes:
 Pass either transform JSON back to `mobiclip_reference.py`. The result includes
 `matchesObserved` and exact `mismatchIndices`, which provides the intended
 byte-level transform oracle without committing any game data.
+
+The capture script also hooks MobiClip_DecodeRunLevelCoefficients at source
+0x02090860 and ITCM 0x01ffda00. Its first hit writes
+frame_NNNN_vlc_0001.json with the incoming/outgoing r1/r2/r3 state, the next 32
+refill words, the selected packed quant/scan table and the final coefficient
+block. Replay it with the matching locally extracted VLC table:
+
+    python tools/mobiclip_reference.py ^
+      scratch/mobiclip/captures/frame_0001_vlc_0001.json ^
+      --vlc-table scratch/mobiclip/coefficient_table_0_0208a7c4.bin
+
+The result independently reports both matchesRegisterState and
+matchesCoefficients. The complete MODS comparison closes the portable semantic
+path, and the nontrivial P-frame capture closes the original-ARM emulator gate.
+The integrated ov024 build now closes the remaining production gate.
+
+The same run also writes a frame_NNNN_color_0001.json manifest around the
+owner-side color converter. Replay it directly:
+
+    python tools/mobiclip_reference.py scratch/mobiclip/captures/frame_0001_color_0001.json
+
+The report contains matchesObserved, mismatchCount, mismatchIndices and the
+expected/observed visible-pixel SHA-256 values.
+
+### Original-ARM P-frame replay
+
+The retained local capture in `scratch/mobiclip/captures` is decoder call 31,
+not the trivial first I-frame. It starts at bitstream address `0x0233d158`,
+uses the ITCM payload at `0x01ff9a64`, and decodes a 256x160 P-frame. The ARM
+decoder advances 3638 bits and returns 456 bytes after word rounding; its QP
+changes from 26 to 27 and selects coefficient-table variant 0.
+
+Replay the complete captured call with:
+
+    python tools/mobiclip_capture_verify.py ^
+      scratch/mobiclip/captures/frame_0001_manifest.json
+
+The semantic result matches the ARM decoder's complete current luma and packed
+native chroma planes, all persistent state fields, and the unchanged history
+planes 1 through 5. The exact plane hashes are:
+
+- luma: `c4e27198d0540a7a3bb68f1e1dce88f2581a1c8fa174aa791da039190a678607`
+- native packed chroma: `4b764f5d1b553d6c46a3be45362f6d9fafe7e9d51717573ef063ca6f6c8a5ea0`
+
+The same call supplies real VLC, 4x4 transform, 8x8 transform, and RGB555
+sub-captures. All four replay exactly. RGB555 exposed the converter's
+checkerboard `-4` luminance bias, which is now represented in both semantic
+implementations; visible output on both sides hashes to
+`f9acf1f031fe1378bb2f6e61e38eff711ef21245281d2b84f297d3253a61b232`.
+The corrected C++ reference also compiles cleanly with the project's MWCC
+3.0 patch 4 configuration. A native host harness then runs that C++ decoder on
+the same captured P-frame and reports `lumaMatch=1`, `chromaMatch=1`,
+`stateMatch=1`, and `bitsConsumed=3638`. A second streaming harness decodes all
+4485 frames of `802.mods` with its real six-frame history rotation and matches
+FFmpeg byte for byte: 178 I-frames and 4307 P-frames.
+
+### Saved standalone Ghidra program
+
+The raw payload has been imported into an isolated Ghidra project at
+`scratch/mobiclip/ghidra/MobiClipPayload.gpr`; the shared `days.nds` program is
+not opened or modified by this workflow. `tools/ghidra/MobiclipCarve.java`
+recreates the carving from `mobiclip_inventory.json`, and
+`tools/ghidra/MobiclipAudit.java` verifies the saved result in read-only mode.
+The audited program uses `ARM:LE:32:v5t`, maps memory at
+`0x0208c8c4..0x02092e5f`, and contains 5899 instructions (23596 bytes), 2416
+defined DATA bytes and 257 discovered/seeded functions.
+
+### Exact mnemonic assembly candidate
+
+`tools/mobiclip_assembly_probe.py` renders every one of the 5899 carved ARM
+instructions as a mnemonic with a stable address label. The 39 embedded DATA
+regions are interleaved as named semantic/control tables; internal dispatch
+entries use symbolic relative expressions and the only numeric words are
+proved reserved zero entries. No payload bytes, `incbin`, `.inst` directives or
+numeric opcode words are used for code.
+
+The resulting `.rodata` is exactly `0x659c` bytes and hashes to
+`5508ae5f765eb86e81b2ad8d76dccf6d4a30e3381d3e8b248fb8d4a6204b83f5`.
+`tools/verify_executable_data.py` additionally passes the object through the
+project MWLD partial-link path and proves that all bytes remain unchanged. The
+generated source now owns `0x0208c8c4..0x02092e60` through ov024's normal
+delink/build path. `dsd check modules -f` reports every module OK, and the
+public report exposes `MobiClip executable payload` as 26012/26012 (100%).
