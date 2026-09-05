@@ -171,6 +171,14 @@ src/overlays/ov012/calls/func_ov012_0205c278.c:
     complete
     .text       start:0x0205c278 end:0x0205c29c
 
+src/overlays/ov012/data/ov012_opening_clip_0205c2a0.c:
+    complete
+    .data       start:0x0205c2a0 end:0x0205c2a4
+
+src/overlays/ov012/data/ov012_opening_data_0205c2bc.c:
+    complete
+    .data       start:0x0205c2bc end:0x0205cac0
+
 src/overlays/ov012/data/ov012_pointers_0205c2a4.c:
     complete
     .data       start:0x0205c2a4 end:0x0205c2bc
