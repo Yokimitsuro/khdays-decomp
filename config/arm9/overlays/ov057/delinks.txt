@@ -148,7 +148,7 @@ src/overlays/ov057/calls/func_ov057_020b6f2c.c:
     complete
     .text       start:0x020b6f2c end:0x020b6f94
 
-src/overlays/ov057/asm_stubs/calls/func_ov057_020b6f94.c:
+src/overlays/ov057/calls/func_ov057_020b6f94.c:
     complete
     .text       start:0x020b6f94 end:0x020b7140
 
