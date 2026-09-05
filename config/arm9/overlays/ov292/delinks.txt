@@ -12,7 +12,7 @@ src/overlays/ov292/calls/func_ov292_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov292/asm_stubs/calls/func_ov292_020d3844.c:
+src/overlays/ov292/calls/func_ov292_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d3a90
 
