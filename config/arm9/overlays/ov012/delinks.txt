@@ -23,7 +23,7 @@ src/overlays/ov012/calls/func_ov012_0205b03c.c:
     complete
     .text       start:0x0205b03c end:0x0205b0cc
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205b0cc.c:
+src/overlays/ov012/calls/func_ov012_0205b0cc.c:
     complete
     .text       start:0x0205b0cc end:0x0205b214
 
