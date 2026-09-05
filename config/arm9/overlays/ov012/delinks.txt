@@ -143,7 +143,7 @@ src/overlays/ov012/calls/func_ov012_0205bc08.c:
     complete
     .text       start:0x0205bc08 end:0x0205bcf0
 
-src/overlays/ov012/asm_stubs/calls/func_ov012_0205bcf0.c:
+src/overlays/ov012/calls/func_ov012_0205bcf0.c:
     complete
     .text       start:0x0205bcf0 end:0x0205be44
 
