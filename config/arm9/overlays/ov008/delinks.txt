@@ -1409,6 +1409,10 @@ src/overlays/ov008/calls/func_ov008_02058df0.c:
     .text       start:0x02058df0 end:0x020590b4
     .rodata     start:0x0208e8fc end:0x0208e958
 
+src/overlays/ov008/calls/func_ov008_020590b4.c:
+    complete
+    .text       start:0x020590b4 end:0x020592d4
+
 src/overlays/ov008/calls/func_ov008_020592d4.c:
     complete
     .text       start:0x020592d4 end:0x020593cc
