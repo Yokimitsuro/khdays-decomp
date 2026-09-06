@@ -1445,6 +1445,10 @@ src/calls/WM_EndKeySharing_0x0205968c.c:
     complete
     .text       start:0x0205968c end:0x02059698
 
+src/overlays/ov008/calls/func_ov008_02059698.c:
+    complete
+    .text       start:0x02059698 end:0x020597c4
+
 src/overlays/ov008/calls/func_ov008_020597c4.c:
     complete
     .text       start:0x020597c4 end:0x02059878
