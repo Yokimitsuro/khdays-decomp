@@ -199,6 +199,33 @@ def gen_data_block(unit, root=ROOT):
     return blocks, modes, count
 
 
+def merge_file_blocks(blocks):
+    """Combine code and DATA ownership for one translation unit into one FILE.
+
+    A source that emits automatic initializer templates must own its .text and
+    complete initialized-DATA section together. Duplicating the same path as two
+    FILE entries makes dsd treat them as separate objects, which cannot reproduce
+    compiler-local section relocations.
+    """
+    order = []
+    sections = {}
+    for block in blocks:
+        lines = [line for line in block.rstrip().splitlines() if line.strip()]
+        if len(lines) < 3 or not lines[0].endswith(":") or lines[1].strip() != "complete":
+            raise ValueError("Unrecognized generated FILE block: %r" % block)
+        source = lines[0][:-1]
+        if source not in sections:
+            order.append(source)
+            sections[source] = []
+        for line in lines[2:]:
+            if line not in sections[source]:
+                sections[source].append(line)
+    return [
+        "\n".join([source + ":", "    complete"] + sections[source]) + "\n"
+        for source in order
+    ]
+
+
 def write_text_retry(path, text, tries=8):
     """write_text con reintento sobre OSError.
 
@@ -237,8 +264,7 @@ def main():
     file_modes.update(data_modes)
 
     out = ["\n".join(header), ""]
-    out.extend(blocks)
-    out.extend(data_blocks)
+    out.extend(merge_file_blocks(blocks + data_blocks))
     write_text_retry(delinks_txt, "\n".join(out).rstrip() + "\n")
 
     # Merge into the shared file_modes.json (configure.py reads it to know

@@ -246,12 +246,124 @@ def verify(cpath, name, index):
         name, size, len(orig_relocs), section, where), info
 
 
+def verify_section_range(cpath, module, section, start, index):
+    """Verify one complete emitted DATA section at an inferred ROM address.
+
+    This covers real translation units whose automatic initializer templates
+    only have compiler-local labels. The whole section must be relocation-free,
+    fully covered by the ROM-derived index, and byte-exact. It is intentionally
+    stricter than symbol verification and cannot be used for a partial section.
+    """
+    from elftools.elf.elffile import ELFFile
+
+    section_name = "." + section.lstrip(".")
+    if section_name not in DATA_SECTIONS:
+        return REFUSED, "unsupported initialized-DATA section " + section_name, {}
+    with open(compiled(cpath), "rb") as stream:
+        elf = ELFFile(stream)
+        emitted_section = elf.get_section_by_name(section_name)
+        if emitted_section is None or not emitted_section["sh_size"]:
+            return DIFFERS, "%s emits no %s section" % (
+                os.path.basename(cpath), section_name), {}
+        for rel_name in (".rel" + section_name, ".rela" + section_name):
+            rel_section = elf.get_section_by_name(rel_name)
+            if rel_section is not None and rel_section.num_relocations():
+                return REFUSED, (
+                    "%s contains relocations; use named-symbol verification"
+                    % section_name), {}
+        emitted = emitted_section.data()
+    end = start + len(emitted)
+    expected = [None] * len(emitted)
+    covered_symbols = []
+    for name, entry in index.items():
+        if entry.get("module") != module or entry.get("section") != section_name[1:]:
+            continue
+        addr = entry.get("addr")
+        raw = bytes.fromhex(entry.get("hex", ""))
+        item_end = addr + len(raw) if addr is not None else None
+        if addr is None or item_end <= start or addr >= end:
+            continue
+        if entry.get("relocs"):
+            return REFUSED, "%s overlaps relocated symbol %s" % (section_name, name), {}
+        covered_symbols.append(name)
+        lo = max(addr, start)
+        hi = min(item_end, end)
+        for address in range(lo, hi):
+            value = raw[address - addr]
+            slot = address - start
+            if expected[slot] is not None and expected[slot] != value:
+                return REFUSED, "conflicting DATA index bytes at 0x%08x" % address, {}
+            expected[slot] = value
+    if any(value is None for value in expected):
+        first = expected.index(None)
+        return REFUSED, "DATA index does not cover 0x%08x" % (start + first), {}
+    expected = bytes(expected)
+    if emitted != expected:
+        first = next(i for i in range(len(emitted)) if emitted[i] != expected[i])
+        return DIFFERS, "byte diff @0x%X of %d: got %02x want %02x" % (
+            first, len(emitted), emitted[first], expected[first]), {}
+
+    info = {
+        "kind": "section_range",
+        "module": module,
+        "section": section_name[1:],
+        "start": start,
+        "end": end,
+        "size": len(emitted),
+        "relocs": 0,
+        "covered_symbols": covered_symbols,
+    }
+    return MATCH, "%s %d bytes, 0 relocs, 0x%08x-0x%08x" % (
+        section_name, len(emitted), start, end), info
+
+
+def write_receipt(cpath, name, info):
+    os.makedirs(RECEIPTS, exist_ok=True)
+    digest = hashlib.sha256(open(cpath, "rb").read()).hexdigest()
+    receipt = {
+        "schema_version": 1,
+        "symbol": name,
+        "source": _repo_path(cpath),
+        "source_sha256": digest,
+        "verified_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
+    }
+    receipt.update(info)
+    path = os.path.join(RECEIPTS, name + ".json")
+    with open(path, "w") as fh:
+        json.dump(receipt, fh, indent=2)
+    print("receipt: %s" % os.path.relpath(path, ROOT).replace("\\", "/"))
+
+
 def main():
+    if "--section-range" in sys.argv:
+        pos = sys.argv.index("--section-range")
+        if pos != 2 or len(sys.argv) < pos + 4:
+            raise SystemExit(
+                "usage: verify_data.py <source.c> --section-range <module> <section> <start> [--receipt]"
+            )
+        cpath = sys.argv[1]
+        module, section, start_text = sys.argv[pos + 1:pos + 4]
+        start = int(start_text, 0)
+        name = "section_range_%s_%s_%08x" % (module, section.lstrip("."), start)
+        status, message, info = verify_section_range(
+            cpath, module, section, start, load_index()
+        )
+        if status == REFUSED:
+            print(">>> REFUSED <<< " + message)
+            sys.exit(2)
+        if status == DIFFERS:
+            print(">>> DIFIERE <<< " + message)
+            sys.exit(1)
+        print(">>> MATCH <<< " + message)
+        if "--receipt" in sys.argv:
+            write_receipt(cpath, name, info)
+        sys.exit(0)
+
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(args) != 2:
         raise SystemExit(__doc__)
     cpath, name = args
-    write_receipt = "--receipt" in sys.argv
+    should_write_receipt = "--receipt" in sys.argv
 
     status, message, info = verify(cpath, name, load_index())
     if status == REFUSED:
@@ -262,21 +374,8 @@ def main():
         sys.exit(1)
     print(">>> MATCH <<< " + message)
 
-    if write_receipt:
-        os.makedirs(RECEIPTS, exist_ok=True)
-        digest = hashlib.sha256(open(cpath, "rb").read()).hexdigest()
-        receipt = {
-            "schema_version": 1,
-            "symbol": name,
-            "source": _repo_path(cpath),
-            "source_sha256": digest,
-            "verified_at": datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds"),
-        }
-        receipt.update(info)
-        path = os.path.join(RECEIPTS, name + ".json")
-        with open(path, "w") as fh:
-            json.dump(receipt, fh, indent=2)
-        print("receipt: %s" % os.path.relpath(path, ROOT).replace("\\", "/"))
+    if should_write_receipt:
+        write_receipt(cpath, name, info)
     sys.exit(0)
 
 

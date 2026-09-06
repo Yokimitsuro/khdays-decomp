@@ -77,6 +77,104 @@ def _read_addends(o_path):
     return out
 
 
+def _verified_local_data_relocs(o_path, original_relocs, mine_relocs, addends, module):
+    """Accept compiler-local DATA labels only when their complete section is proved.
+
+    Automatic aggregate initializers are emitted as local labels such as @38 or
+    the section symbol .rodata. A delinked gap cannot preserve those names and
+    records the public data label instead. The spelling may differ while the
+    relocation is exact, but only if all local labels imply one final section base
+    and the complete emitted section matches the ROM-derived DATA index byte-exact.
+    Relocated DATA sections remain on the ordinary named-symbol verification path.
+    """
+    from elftools.elf.elffile import ELFFile
+    import re
+
+    gap_unit = re.search(r"@(ov[0-9]+|main|itcm)(?:_|$)", module or "")
+    if gap_unit:
+        module = gap_unit.group(1)
+
+    index_path = os.path.join(ROOT, "build", "data_index.json")
+    if not os.path.exists(index_path):
+        return set(), ""
+    with open(index_path, encoding="utf-8") as fh:
+        data_index = json.load(fh)
+    if isinstance(data_index, dict) and "symbols" in data_index:
+        data_index = data_index["symbols"]
+
+    with open(o_path, "rb") as stream:
+        elf = ELFFile(stream)
+        symtab = elf.get_section_by_name(".symtab")
+        if symtab is None:
+            return set(), ""
+
+        inferred = {}
+        accepted = set()
+        for off, (mine_name, reloc_type) in mine_relocs.items():
+            expected_name = original_relocs.get(off)
+            if expected_name is None or mine_name == expected_name or reloc_type != 2:
+                continue
+            expected_address = SYM_ADDR.get(expected_name)
+            if expected_address is None:
+                continue
+            candidates = symtab.get_symbol_by_name(mine_name) or []
+            local = None
+            for symbol in candidates:
+                section_index = symbol["st_shndx"]
+                if (symbol["st_info"]["bind"] == "STB_LOCAL"
+                        and isinstance(section_index, int)):
+                    section = elf.get_section(section_index)
+                    if section is not None and section.name in (".rodata", ".data", ".ctor"):
+                        local = (symbol, section)
+                        break
+            if local is None:
+                continue
+            symbol, section = local
+            relative = symbol["st_value"] + addends.get(off, 0)
+            base = expected_address - relative
+            previous = inferred.get(section.name)
+            if previous is not None and previous[0] != base:
+                return set(), ""
+            inferred[section.name] = (base, section.data())
+            accepted.add(off)
+
+        if not accepted:
+            return set(), ""
+
+        notes = []
+        for section_name, (base, emitted) in inferred.items():
+            relocation_section = elf.get_section_by_name(".rela" + section_name)
+            if relocation_section is None:
+                relocation_section = elf.get_section_by_name(".rel" + section_name)
+            if relocation_section is not None and relocation_section.num_relocations():
+                return set(), ""
+
+            expected = [None] * len(emitted)
+            for entry in data_index.values():
+                if entry.get("module") != module or entry.get("section") != section_name[1:]:
+                    continue
+                start = entry.get("addr")
+                raw = bytes.fromhex(entry.get("hex", ""))
+                end = start + len(raw) if start is not None else None
+                if start is None or end <= base or start >= base + len(emitted):
+                    continue
+                if entry.get("relocs"):
+                    return set(), ""
+                lo = max(start, base)
+                hi = min(end, base + len(emitted))
+                for address in range(lo, hi):
+                    value = raw[address - start]
+                    slot = address - base
+                    if expected[slot] is not None and expected[slot] != value:
+                        return set(), ""
+                    expected[slot] = value
+            if any(value is None for value in expected) or bytes(expected) != emitted:
+                return set(), ""
+            notes.append("%s %d bytes @0x%08x" % (section_name, len(emitted), base))
+
+    return accepted, ", ".join(notes)
+
+
 def main():
     cpath = sys.argv[1]
     name = sys.argv[2]
@@ -91,6 +189,9 @@ def main():
     mine, mrel_full = text_relocs(o)
     mrel = {off: nm for off, (nm, _t) in mrel_full.items()}
     maddend = _read_addends(o)
+    local_relocs, local_data_note = _verified_local_data_relocs(
+        o, orel, mrel_full, maddend, e.get("module")
+    )
     size = len(orig)
     if len(mine) != size:
         print(">>> DIFIERE <<< tamano %d != %d" % (len(mine), size)); sys.exit(1)
@@ -144,12 +245,14 @@ def main():
         same = all(
             (o in orel and (mrel[o] == orel[o]
                             or (_mine_addr(o) is not None
-                                and _mine_addr(o) == SYM_ADDR.get(orel[o]))))
+                                and _mine_addr(o) == SYM_ADDR.get(orel[o]))
+                            or o in local_relocs))
             or _abs_ok(o)
             for o in mrel) and all(o in mrel for o in orel)
         if not same:
             print(">>> DIFIERE <<< relocs difieren\n  tuyas=%s\n  orig =%s" % (mrel, orel)); sys.exit(1)
-    print(">>> MATCH <<< %d bytes, %d relocs" % (size, len(orel)))
+    suffix = ("; " + local_data_note + " verified") if local_data_note else ""
+    print(">>> MATCH <<< %d bytes, %d relocs%s" % (size, len(orel), suffix))
     sys.exit(0)
 
 if __name__ == "__main__":

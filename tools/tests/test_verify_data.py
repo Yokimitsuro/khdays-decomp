@@ -3,6 +3,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import data_progress
@@ -80,6 +81,116 @@ class RepoPathTests(unittest.TestCase):
         path = verify_data._repo_path(str(Path(verify_data.ROOT) / "tools" / "verify_data.py"))
         self.assertTrue(path.endswith("tools/verify_data.py"))
         self.assertNotIn("\\", verify_data._repo_path("Z:/elsewhere/probe.c"))
+
+
+class SectionRangeVerificationTests(unittest.TestCase):
+    START = 0x0208E8FC
+
+    class Section:
+        def __init__(self, payload):
+            self.payload = payload
+
+        def __getitem__(self, key):
+            if key == "sh_size":
+                return len(self.payload)
+            raise KeyError(key)
+
+        def data(self):
+            return self.payload
+
+    class Relocations:
+        def __init__(self, count):
+            self.count = count
+
+        def num_relocations(self):
+            return self.count
+
+    class Elf:
+        def __init__(self, payload, relocations=0):
+            self.section = SectionRangeVerificationTests.Section(payload)
+            self.relocations = relocations
+
+        def get_section_by_name(self, name):
+            if name == ".rodata":
+                return self.section
+            if name in (".rel.rodata", ".rela.rodata") and self.relocations:
+                return SectionRangeVerificationTests.Relocations(self.relocations)
+            return None
+
+    def verify(self, payload, index, relocations=0):
+        fake = self.Elf(payload, relocations)
+        with tempfile.TemporaryDirectory() as directory:
+            obj = Path(directory) / "fake.o"
+            obj.write_bytes(b"not parsed because ELFFile is mocked")
+            with patch.object(verify_data, "compiled", return_value=str(obj)):
+                with patch("elftools.elf.elffile.ELFFile", return_value=fake):
+                    return verify_data.verify_section_range(
+                        str(obj), "ov008", "rodata", self.START, index
+                    )
+
+    def test_complete_exact_section_matches(self):
+        index = {
+            "first": {
+                "module": "ov008", "section": "rodata", "addr": self.START,
+                "hex": "0102", "relocs": [],
+            },
+            "second": {
+                "module": "ov008", "section": "rodata", "addr": self.START + 2,
+                "hex": "0304", "relocs": [],
+            },
+        }
+        status, _message, info = self.verify(b"\x01\x02\x03\x04", index)
+        self.assertEqual(status, verify_data.MATCH)
+        self.assertEqual((info["start"], info["end"], info["size"]),
+                         (self.START, self.START + 4, 4))
+
+    def test_one_wrong_byte_differs(self):
+        index = {
+            "all": {
+                "module": "ov008", "section": "rodata", "addr": self.START,
+                "hex": "01020304", "relocs": [],
+            },
+        }
+        status, message, _info = self.verify(b"\x01\x02\xff\x04", index)
+        self.assertEqual(status, verify_data.DIFFERS)
+        self.assertIn("byte diff @0x2", message)
+
+    def test_a_coverage_gap_is_refused(self):
+        index = {
+            "edges": {
+                "module": "ov008", "section": "rodata", "addr": self.START,
+                "hex": "0102", "relocs": [],
+            },
+        }
+        status, message, _info = self.verify(b"\x01\x02\x03\x04", index)
+        self.assertEqual(status, verify_data.REFUSED)
+        self.assertIn("does not cover", message)
+
+    def test_a_relocated_section_is_refused(self):
+        status, message, _info = self.verify(b"\x01\x02", {}, relocations=1)
+        self.assertEqual(status, verify_data.REFUSED)
+        self.assertIn("contains relocations", message)
+
+    def test_section_range_cli_writes_its_receipt(self):
+        info = {
+            "kind": "section_range", "module": "ov008", "section": "rodata",
+            "start": self.START, "end": self.START + 4, "size": 4, "relocs": 0,
+        }
+        argv = [
+            "verify_data.py", "source.c", "--section-range", "ov008",
+            "rodata", hex(self.START), "--receipt",
+        ]
+        with patch.object(sys, "argv", argv):
+            with patch.object(verify_data, "load_index", return_value={}):
+                with patch.object(
+                    verify_data, "verify_section_range",
+                    return_value=(verify_data.MATCH, "exact", info),
+                ):
+                    with patch.object(verify_data, "write_receipt") as writer:
+                        with self.assertRaises(SystemExit) as raised:
+                            verify_data.main()
+        self.assertEqual(raised.exception.code, 0)
+        writer.assert_called_once_with("source.c", "section_range_ov008_rodata_0208e8fc", info)
 
 
 class VerifiedRangeTests(unittest.TestCase):
@@ -213,6 +324,22 @@ class DataDelinkTests(unittest.TestCase):
     def test_another_module_is_not_claimed(self):
         self.receipt("a", 0x0205628C, 0x0205629C)
         self.assertEqual(gen_delinks.gen_data_block("ov009", self.root), ([], {}, 0))
+
+    def test_code_and_data_for_one_source_share_one_file_block(self):
+        code = (
+            "src/overlays/ov008/calls/func_ov008_02058df0.c:\n"
+            "    complete\n"
+            "    .text       start:0x02058df0 end:0x020590b4\n"
+        )
+        data = (
+            "src/overlays/ov008/calls/func_ov008_02058df0.c:\n"
+            "    complete\n"
+            "    .rodata     start:0x0208e8fc end:0x0208e958\n"
+        )
+        merged = gen_delinks.merge_file_blocks([code, data])
+        self.assertEqual(len(merged), 1)
+        self.assertIn(".text       start:0x02058df0 end:0x020590b4", merged[0])
+        self.assertIn(".rodata     start:0x0208e8fc end:0x0208e958", merged[0])
 
 
 if __name__ == "__main__":

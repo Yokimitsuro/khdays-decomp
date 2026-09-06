@@ -238,6 +238,17 @@ def load_verified_ranges(root=ROOT):
                     root / "config/arm9/data_progress.json",
                 )
                 matched = verify_executable_data.MATCH
+            elif receipt.get("kind") == "section_range":
+                import verify_data
+
+                status, message, info = verify_data.verify_section_range(
+                    str(source),
+                    receipt.get("module"),
+                    receipt.get("section"),
+                    receipt.get("start"),
+                    index,
+                )
+                matched = verify_data.MATCH
             else:
                 import verify_data
 
