@@ -403,3 +403,11 @@ src/overlays/ov024/data/ov024_strings_02093958.c:
 src/overlays/ov024/data/ov024_strings_020939ac.c:
     complete
     .data       start:0x020939ac end:0x020939c4
+
+src/overlays/ov024/data/ov024_vlc_variant0_0208a7c4.c:
+    complete
+    .rodata     start:0x0208a7c4 end:0x0208c8c4
+
+src/overlays/ov024/data/ov024_vlc_variant1_020886c4.c:
+    complete
+    .rodata     start:0x020886c4 end:0x0208a7c4
