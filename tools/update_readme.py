@@ -11,6 +11,7 @@ import re
 from collections import Counter
 
 import audit_progress
+import data_progress
 import progress  # for compute_byte_progress (import is side-effect-free)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,11 +44,15 @@ def main():
     sdk = cats["sdk_identified"]
     named = cats["named_only"]
     c_bytes, total_bytes = progress.compute_byte_progress()
+    data_regions = data_progress.load_data_inventory()
+    data_bytes = sum(item["verified_bytes"] for item in data_regions)
+    total_data_bytes = sum(item["size"] for item in data_regions)
 
     def pct(n):
         return 100.0 * n / total if total else 0.0
 
     byte_pct = 100.0 * c_bytes / total_bytes if total_bytes else 0.0
+    data_pct = 100.0 * data_bytes / total_data_bytes if total_data_bytes else 0.0
 
     txt = open(README, encoding="utf-8").read()
     subs = [
@@ -61,6 +66,9 @@ def main():
          r"\g<1>**{:,}** / ~{:,} (~{:.1f}%)".format(sdk, total, pct(sdk))),
         (r"(\| Named but not decompiled \| )\*\*[\d,]+\*\* / ~[\d,]+ \(~[\d.]+%\)",
          r"\g<1>**{:,}** / ~{:,} (~{:.1f}%)".format(named, total, pct(named))),
+        (r"(\| Initialized DATA \| )\*\*[\d,]+\*\* / [\d,]+ \(\*\*[\d.]+%\*\*\)",
+         r"\g<1>**{:,}** / {:,} (**{:.2f}%**)".format(
+             data_bytes, total_data_bytes, data_pct)),
     ]
     changed = 0
     for pat, repl in subs:
@@ -71,8 +79,9 @@ def main():
     open(README, "w", encoding="utf-8", newline="\n").write(txt)
     print(
         "README -> C={:,} ({:.1f}%), ASM={:,}, SDK={:,}, named={:,}, "
-        "bytes={:,}/{:,} ({:.2f}%) [{}/{} rows updated]".format(
-            c, pct(c), asm, sdk, named, c_bytes, total_bytes, byte_pct, changed, len(subs)
+        "bytes={:,}/{:,} ({:.2f}%), DATA={:,}/{:,} ({:.2f}%) [{}/{} rows updated]".format(
+            c, pct(c), asm, sdk, named, c_bytes, total_bytes, byte_pct,
+            data_bytes, total_data_bytes, data_pct, changed, len(subs)
         )
     )
 

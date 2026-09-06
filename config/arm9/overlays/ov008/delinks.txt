@@ -1693,6 +1693,10 @@ src/overlays/ov008/calls/func_ov008_0205b7d0.c:
     complete
     .text       start:0x0205b7d0 end:0x0205b7fc
 
+src/overlays/ov008/calls/func_ov008_0205b7fc.c:
+    complete
+    .text       start:0x0205b7fc end:0x0205b958
+
 src/overlays/ov008/calls/func_ov008_0205b958.c:
     complete
     .text       start:0x0205b958 end:0x0205b974
@@ -3916,3 +3920,7 @@ src/overlays/ov008/data/ov008_strings_02090dd8.c:
 src/overlays/ov008/data/ov008_strings_02090ed4.c:
     complete
     .data       start:0x02090ed4 end:0x02090f00
+
+src/overlays/ov008/data/ov008_tables_0208ee84.c:
+    complete
+    .rodata     start:0x0208ee84 end:0x0208f044
