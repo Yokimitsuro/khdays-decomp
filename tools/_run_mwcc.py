@@ -63,8 +63,15 @@ if comp_path.exists():
     if ver:
         mwcc_bin = ROOT / "tools" / "mwccarm" / ver / "mwccarm.exe"
 
+# Per-source language: the movie player's stream layer is C++, and its object
+# teardown only reproduces under -lang c++ (the deleting-destructor sequence has
+# no C99 spelling). A .cpp source swaps c99 for c++; everything else is unchanged.
+flags = list(FLAGS)
+if src_path.suffix.lower() in (".cpp", ".cp", ".cc"):
+    flags[flags.index("c99")] = "c++"
+
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
-cmd = [str(mwcc_bin), *FLAGS, *extra, "-o", str(out_path), str(src_path)]
+cmd = [str(mwcc_bin), *flags, *extra, "-o", str(out_path), str(src_path)]
 
 # The FLEXlm license check fails intermittently under a parallel ninja build: a
 # different, arbitrary translation unit dies on every full-tree run, and the exact

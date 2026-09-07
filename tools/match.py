@@ -20,10 +20,25 @@ FLAGS = ["-O4,p", "-proc", "arm946e", "-interworking", "-lang", "c99",
          "-enum", "int", "-char", "signed", "-inline", "on,noauto",
          "-Cpp_exceptions", "off", "-gccext,on"]
 
+def source_flags(cpath):
+    """Per-source language selection.
+
+    Most of the game is C99, but the movie player's stream layer is C++: its
+    object teardown compiles to the deleting-destructor sequence
+    `mov r0,this; ldr r1,[r0]; ldr r1,[r1,#4]; blx r1`, which `-lang c99`
+    never emits from any spelling of the same call. A `.cpp` source therefore
+    gets `-lang c++`; everything else keeps the confirmed C99 flags.
+    """
+    flags = list(FLAGS)
+    if os.path.splitext(cpath)[1].lower() in (".cpp", ".cp", ".cc"):
+        flags[flags.index("c99")] = "c++"
+    return flags
+
+
 def compile_c(cpath, thumb=False):
     o = cpath + ".o"
     env = dict(os.environ, LM_LICENSE_FILE=LIC)
-    flags = FLAGS + (["-thumb"] if thumb else [])
+    flags = source_flags(cpath) + (["-thumb"] if thumb else [])
     r = subprocess.run([MWCC, "-c", *flags, "-o", o, cpath],
                        capture_output=True, text=True, env=env)
     if r.returncode != 0:

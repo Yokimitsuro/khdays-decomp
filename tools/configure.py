@@ -56,7 +56,8 @@ def discover_modules():
             has_c = any(
                 p.is_file()
                 for sub in ("auto", "calls", "asm_stubs/auto", "asm_stubs/calls")
-                for p in (src_ov / sub).glob("*.c") if (src_ov / sub).exists()
+                for pattern in ("*.c", "*.cpp")
+                for p in (src_ov / sub).glob(pattern) if (src_ov / sub).exists()
             )
             if has_c:
                 modules.append(ov_dir)
@@ -96,7 +97,7 @@ def rel(p):
 def source_rule(source):
     """Ninja rule for one reconstructed source path."""
     suffix = Path(source).suffix.lower()
-    if suffix == ".c":
+    if suffix in (".c", ".cpp"):
         return "mwcc"
     if suffix in (".s", ".asm"):
         return "armasm"
