@@ -340,6 +340,10 @@ src/overlays/ov024/calls/func_ov024_02085140.c:
     complete
     .text       start:0x02085140 end:0x02085154
 
+src/overlays/ov024/calls/func_ov024_02085154.cpp:
+    complete
+    .text       start:0x02085154 end:0x02085700
+
 src/overlays/ov024/auto/func_ov024_02085868.c:
     complete
     .text       start:0x02085868 end:0x02085870
