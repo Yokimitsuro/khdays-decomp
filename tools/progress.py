@@ -41,8 +41,12 @@ def compute_byte_progress():
     # libs/<lib>/<module>/{auto,calls} and count as real C exactly like the game's own, which is
     # what the count table above has always done through audit_progress. Globbing only src/ here
     # under-reported this metric by 1.18 points (2026-08-29).
-    sources = (glob.glob(str(ROOT / "src" / "**" / "*.c"), recursive=True)
-               + glob.glob(str(ROOT / "libs" / "**" / "*.c"), recursive=True))
+    # .cpp counts as reconstructed source too: the movie player's stream layer
+    # is C++ and the build compiles those with -lang c++.
+    sources = [p
+               for top in ("src", "libs")
+               for pattern in ("*.c", "*.cpp")
+               for p in glob.glob(str(ROOT / top / "**" / pattern), recursive=True)]
     for path in sources:
         # asm_stubs are ASM blobs, and nonmatching/ is equivalent-but-unmatched C that is excluded
         # from the build entirely. Neither is byte-exact, so neither counts here -- this is the

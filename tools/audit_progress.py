@@ -130,7 +130,7 @@ def load_sources():
     for src_dir in SRC_DIRS:
         if not src_dir.exists():
             continue
-        for path in sorted(src_dir.glob("*.c")):
+        for path in sorted(list(src_dir.glob("*.c")) + list(src_dir.glob("*.cpp"))):
             name = path.stem
             category = source_category(path)
             entry = {
