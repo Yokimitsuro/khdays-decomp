@@ -31,8 +31,8 @@ struct MobiClipDecoder {
     void **apLuma;
     void **apChroma;
     void **apPlanes;
-    void *pUnk0068;
-    void *pUnk006c;
+    void *pScaleLuma;
+    void *pScaleChroma;
     void *apScratch[2];
     u8 pad0078[0x94 - 0x78];
     void *pIndex;
@@ -71,11 +71,11 @@ void func_ov024_02085700(MobiClipDecoder *pDecoder)
     if (pDecoder->apPlanes != 0) {
         WM_EndKeySharing_0x02083d00(pDecoder->apPlanes);
     }
-    if (pDecoder->pUnk0068 != 0) {
-        WM_EndKeySharing_0x02083d00(pDecoder->pUnk0068);
+    if (pDecoder->pScaleLuma != 0) {
+        WM_EndKeySharing_0x02083d00(pDecoder->pScaleLuma);
     }
-    if (pDecoder->pUnk006c != 0) {
-        WM_EndKeySharing_0x02083d00(pDecoder->pUnk006c);
+    if (pDecoder->pScaleChroma != 0) {
+        WM_EndKeySharing_0x02083d00(pDecoder->pScaleChroma);
     }
     for (j = 0; j < 2; j++) {
         if (pDecoder->apScratch[j] != 0) {
@@ -93,8 +93,8 @@ void func_ov024_02085700(MobiClipDecoder *pDecoder)
     pDecoder->pReader = 0;
     pDecoder->apLuma = 0;
     pDecoder->apChroma = 0;
-    pDecoder->pUnk0068 = 0;
-    pDecoder->pUnk006c = 0;
+    pDecoder->pScaleLuma = 0;
+    pDecoder->pScaleChroma = 0;
     pDecoder->apPlanes = 0;
     pDecoder->pAudioTracks = 0;
     pDecoder->pIndex = 0;
