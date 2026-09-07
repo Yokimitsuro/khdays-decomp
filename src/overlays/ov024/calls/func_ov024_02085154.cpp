@@ -42,7 +42,7 @@ struct MobiClipDecoder {
     s8 szSignature[5];
     s8 nVersion;
     u16 nHeaderWords;
-    int pad000c;
+    int nFrameCount;
     u32 nWidth;
     u32 nHeight;
     int pad0018;
@@ -65,15 +65,12 @@ struct MobiClipDecoder {
     void **apPlanes;
     int pad0068[2];
     void *apScratch[2];
-    u32 nFirstChunk;
-    int pad007c;
-    int pad0080;
-    int pad0084;
-    u32 nFirstOffset;
-    int pad008c;
-    int nReady;
+    int anChunkSize[2];
+    int anReadOffset[2];
+    int anChunkOffset[2];
+    int nParity;
     void *pIndex;
-    int nAllocated;
+    int nFrameIndex;
     int pad009c;
     int pad00a0;
     int pad00a4;
@@ -192,7 +189,7 @@ int func_ov024_02085154(MobiClipDecoder *pDecoder,
     if (pDecoder->apPlanes == 0) {
         return 0;
     }
-    pDecoder->nAllocated = 0;
+    pDecoder->nFrameIndex = 0;
     pDecoder->anLead[0] = 0;
     for (j = 1; j < MIN_SLOTS; j++) {
         pDecoder->anLead[j] = pDecoder->nSlots - j;
@@ -249,12 +246,12 @@ int func_ov024_02085154(MobiClipDecoder *pDecoder,
     }
 
     pDecoder->pReader->Read(&nFirst, 4);
-    pDecoder->nFirstChunk = nFirst >> 14;
-    pDecoder->nFirstOffset = nFirst & OFFSET_MASK;
-    pDecoder->pad0080 = 0;
+    pDecoder->anChunkSize[0] = nFirst >> 14;
+    pDecoder->anChunkOffset[0] = nFirst & OFFSET_MASK;
+    pDecoder->anReadOffset[0] = 0;
     pDecoder->pReader->Read(pDecoder->apScratch[0],
-                                        pDecoder->nFirstChunk + 4);
-    pDecoder->nReady = 1;
+                                        pDecoder->anChunkSize[0] + 4);
+    pDecoder->nParity = 1;
     return 1;
 }
 
