@@ -456,6 +456,10 @@ src/overlays/ov024/calls/func_ov024_020867ec.c:
     complete
     .text       start:0x020867ec end:0x02086800
 
+src/overlays/ov024/calls/func_ov024_02086800.cpp:
+    complete
+    .text       start:0x02086800 end:0x02086958
+
 src/overlays/ov024/data/mobiclip_payload.s:
     complete
     .rodata     start:0x0208c8c4 end:0x02092e60
