@@ -2068,6 +2068,14 @@ src/calls/WM_EndKeySharing_0x020b15a4.c:
     complete
     .text       start:0x020b15a4 end:0x020b15b0
 
+src/overlays/ov022/calls/func_ov022_020b15b0.c:
+    complete
+    .text       start:0x020b15b0 end:0x020b1660
+
+src/overlays/ov022/auto/func_ov022_020b1660.c:
+    complete
+    .text       start:0x020b1660 end:0x020b1730
+
 src/overlays/ov022/calls/func_ov022_020b1730.c:
     complete
     .text       start:0x020b1730 end:0x020b1848
