@@ -21,9 +21,42 @@
  * reproduces either signature, and the closest is 1528 bytes against 1472.
  *
  * Every word below is one readable mnemonic: no incbin, no .inst, no opcode
- * words. Assembles byte-exact, 1472 bytes, zero relocations.
- * See MobiClip_BlitRows in Ghidra for the algorithm and the field names, and
- * build/try/func_ov024_02086004.cpp for the readable C the port can use.
+ * words. Assembles byte-exact, 1472 bytes, zero relocations. The Ghidra
+ * function MobiClip_BlitRows carries the same notes and the field names.
+ *
+ * Reference implementation, for the port. Semantically equivalent; it is not
+ * what the original was compiled from, and it does not assemble to these
+ * bytes -- see above for why.
+ *
+ *     view: pLuma, pChroma, pDest, nStride, nWidth, nHeight, pTable
+ *
+ *     pTable += 0x100;
+ *     pRow1 = (u8 *)pDest + nStride;
+ *     nLumaGap   = 0x200 - nWidth;
+ *     nChromaGap = 0x100 - (nWidth >> 1);
+ *     nDestGap   = (nStride - nWidth) * 2;
+ *     y = nHeight;
+ *     do {
+ *         x = nWidth;
+ *         do {                            // eight of these per pass
+ *             cb = *pChroma; pChroma += 0x80;    // Co
+ *             cr = *pChroma; pChroma -= 0x7f;    // Cg, next quad
+ *             cb -= 0x80; cr -= 0x80;
+ *             pR = pTable + cr;
+ *             pG = pTable + (cb - cr);
+ *             pB = pG - cb * 2;
+ *             // the 2x2 luma quad at 0, 1, 0x100, 0x101, dithered on a
+ *             // checkerboard: pixels 1 and 2 look their luma up 4 lower
+ *             for each pixel p of the quad:
+ *                 w = pG[l] | (pR[l] << 5) | (pB[l] << 10) | 0x8000;
+ *             *pDest++ = w0 | (w1 << 16) | 0x80000000;   // top row
+ *             *pRow1++ = w2 | (w3 << 16) | 0x80000000;   // bottom row
+ *             x -= 16;
+ *         } while (x > 0);
+ *         pLuma += nLumaGap; pChroma += nChromaGap;
+ *         pDest += nDestGap; pRow1 += nDestGap;
+ *         y -= 2;
+ *     } while (y > 0);
  */
 struct MobiClipBlitView;
 
