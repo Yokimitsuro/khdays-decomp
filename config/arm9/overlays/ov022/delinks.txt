@@ -1024,6 +1024,10 @@ src/overlays/ov022/calls/func_ov022_0209093c.c:
     complete
     .text       start:0x0209093c end:0x02090978
 
+src/overlays/ov022/calls/func_ov022_02090c04.c:
+    complete
+    .text       start:0x02090c04 end:0x02090c7c
+
 src/overlays/ov022/calls/func_ov022_02090c7c.c:
     complete
     .text       start:0x02090c7c end:0x02090caa
@@ -1576,6 +1580,10 @@ src/overlays/ov022/auto/func_ov022_0209bd04.c:
     complete
     .text       start:0x0209bd04 end:0x0209bd10
 
+src/overlays/ov022/calls/func_ov022_0209bd10.c:
+    complete
+    .text       start:0x0209bd10 end:0x0209bdbc
+
 src/overlays/ov022/auto/func_ov022_0209bdbc.c:
     complete
     .text       start:0x0209bdbc end:0x0209be44
@@ -1712,6 +1720,10 @@ src/overlays/ov022/calls/func_ov022_0209fb60.c:
     complete
     .text       start:0x0209fb60 end:0x0209fb98
 
+src/overlays/ov022/calls/func_ov022_0209fb98.c:
+    complete
+    .text       start:0x0209fb98 end:0x0209fc48
+
 src/overlays/ov022/auto/func_ov022_0209fc48.c:
     complete
     .text       start:0x0209fc48 end:0x0209fc78
@@ -1759,6 +1771,14 @@ src/overlays/ov022/calls/func_ov022_020a0f2c.c:
 src/overlays/ov022/calls/func_ov022_020a0f60.c:
     complete
     .text       start:0x020a0f60 end:0x020a0fb8
+
+src/overlays/ov022/calls/func_ov022_020a0fb8.c:
+    complete
+    .text       start:0x020a0fb8 end:0x020a1064
+
+src/overlays/ov022/calls/func_ov022_020a1064.c:
+    complete
+    .text       start:0x020a1064 end:0x020a1118
 
 src/overlays/ov022/calls/func_ov022_020a1c28.c:
     complete
@@ -1824,6 +1844,10 @@ src/overlays/ov022/calls/func_ov022_020aa788.c:
     complete
     .text       start:0x020aa788 end:0x020aa824
 
+src/overlays/ov022/calls/func_ov022_020aa824.c:
+    complete
+    .text       start:0x020aa824 end:0x020aa8e8
+
 src/overlays/ov022/auto/func_ov022_020ab350.c:
     complete
     .text       start:0x020ab350 end:0x020ab378
@@ -1859,6 +1883,10 @@ src/overlays/ov022/calls/func_ov022_020acf14.c:
 src/overlays/ov022/calls/func_ov022_020ad0c0.c:
     complete
     .text       start:0x020ad0c0 end:0x020ad114
+
+src/overlays/ov022/calls/func_ov022_020ad114.c:
+    complete
+    .text       start:0x020ad114 end:0x020ad1b4
 
 src/overlays/ov022/calls/func_ov022_020ad1b4.c:
     complete
