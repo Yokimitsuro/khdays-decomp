@@ -92,14 +92,17 @@ def to_mnemonics(rom):
     return NL.join(lines)
 
 
-def render(function, body, header=None):
+def render(function, body, proto="void", header=None):
+    """`proto` is the parameter list, so a regenerated stub keeps the prototype
+    the function actually has instead of degrading to (void)."""
     note = header or (
         "/* %s: not compiler output. Checked in as one readable mnemonic per\n"
         " * ROM word -- no incbin, no .inst, no opcode words. Regenerate or\n"
-        " * re-validate with tools/gen_asm_stub.py.\n"
+        " * re-validate with tools/gen_asm_stub.py, and keep the header: the\n"
+        " * algorithm belongs here, not only in the assembly.\n"
         " */" % function)
-    return "%s%svoid %s(void);%s%sasm void %s(void)%s{%s%s%s}%s" % (
-        note, NL * 2, function, NL * 2, "", function, NL, NL, body, NL, NL)
+    return "%s%sasm void %s(%s)%s{%s%s%s}%s" % (
+        note, NL * 2, function, proto, NL, NL, body, NL, NL)
 
 
 def assemble(source):
@@ -124,6 +127,9 @@ def main():
     ap.add_argument("function")
     ap.add_argument("-o", "--out", help="write the stub here")
     ap.add_argument("--check", help="re-validate an existing stub instead")
+    ap.add_argument("--prototype", default="void",
+                    help="parameter list for the stub, so a regenerated file "
+                         "keeps the real prototype")
     args = ap.parse_args()
 
     rom = rom_bytes(args.function)
@@ -139,7 +145,7 @@ def main():
         return 0 if ok else 1
 
     body = to_mnemonics(rom)
-    source = render(args.function, body)
+    source = render(args.function, body, args.prototype)
     built, relocs = assemble(source)
     if built != rom:
         raise SystemExit("generated stub is not byte-exact; do not check it in")
