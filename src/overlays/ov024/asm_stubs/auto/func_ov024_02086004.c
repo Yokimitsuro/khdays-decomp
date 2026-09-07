@@ -26,11 +26,23 @@
  * columns as eight unrolled quads; the outer steps down two rows.
  *
  * HAND-WRITTEN ARM in the original, not compiler output, and the evidence is a
- * complete classification rather than a sample. Across all 21031 ARM functions
- * in the ROM, 426 save the full set of callee-saved registers WITHOUT ip, so
- * saving ip is not this compiler's stack-alignment pad. Exactly seven functions
- * save ip: five are the hand-written 64-bit division helpers, one is a
- * hand-written SHA-1 block transform, and the seventh is this routine. It also
+ * complete classification rather than a sample.
+ *
+ * The prologue pushes ten registers, and the tenth is a pad: nine words leave
+ * sp misaligned against an 8-byte boundary, ten do not. This compiler pads too,
+ * so the pad itself proves nothing -- what proves something is WHICH register
+ * it pads with. Of the 1210 ARM functions in the ROM that push all eight
+ * callee-saved registers, 427 take no pad at all and 783 do. Of those 783, 781
+ * pad with r3. Two pad with ip: this routine and a hand-written SHA-1 block
+ * transform. The choice is not data-dependent -- it is r3 in 781 cases out of
+ * 781 -- so no arrangement of C source moves it, and arity, register pressure
+ * and the compiler's complete pragma vocabulary were each swept without
+ * shifting it. (That vocabulary was enumerated exhaustively from the binary,
+ * 1233 pragmas, and contains nothing that governs stack alignment.)
+ *
+ * Seven functions in the ROM save ip in total: five are the hand-written 64-bit
+ * division helpers, one is that SHA-1 transform, and the seventh is this
+ * routine. It also
  * reads the chroma pair with two consecutive post-indexed byte loads through
  * one pointer, an idiom that occurs exactly once in the ROM -- here -- and in
  * none of the reconstructed sources; every C spelling tried folds it into a
