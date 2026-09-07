@@ -87,6 +87,24 @@ def immediate(token):
     return -value if match.group(1) else value
 
 
+# Branches the ROM and its candidates actually use. Carry is not modelled, so
+# the unsigned pair reads the same flags the signed one does; every comparison
+# in this routine is against a small non-negative count, where they agree.
+CONDITIONAL = {
+    "bgt": lambda m: not m.zero and not m.negative,
+    "bge": lambda m: m.zero or not m.negative,
+    "blt": lambda m: m.negative,
+    "ble": lambda m: m.zero or m.negative,
+    "bne": lambda m: not m.zero,
+    "beq": lambda m: m.zero,
+    "bhs": lambda m: not m.negative,
+    "blo": lambda m: m.negative,
+}
+
+# A miscounted loop would otherwise spin forever instead of failing.
+STEP_LIMIT = 5_000_000
+
+
 class Machine:
     """Just enough ARM to run this one function: no flags beyond Z and N, no
     conditional execution, and only the addressing modes it actually uses."""
@@ -137,7 +155,11 @@ class Machine:
 
     def run(self, decoded, length):
         pc = 0
+        steps = 0
         while pc < length:
+            steps += 1
+            if steps > STEP_LIMIT:
+                raise AssertionError("ran away: the loop never terminated")
             instruction = decoded[pc]
             mnemonic, operands = instruction.mnemonic, instruction.op_str
             following = pc + 4
@@ -210,8 +232,8 @@ class Machine:
                     address += 4
                 if writeback:
                     self.regs[base] = address
-            elif mnemonic == "bgt":
-                if not self.zero and not self.negative:
+            elif mnemonic in CONDITIONAL:
+                if CONDITIONAL[mnemonic](self):
                     following = int(operands[1:], 0)
             else:
                 raise AssertionError("unhandled mnemonic: %s %s" % (mnemonic, operands))
