@@ -420,6 +420,10 @@ src/overlays/ov024/auto/func_ov024_02086000.c:
     complete
     .text       start:0x02086000 end:0x02086004
 
+src/overlays/ov024/asm_stubs/auto/func_ov024_02086004.c:
+    complete
+    .text       start:0x02086004 end:0x020865c4
+
 src/overlays/ov024/auto/func_ov024_020865c4.c:
     complete
     .text       start:0x020865c4 end:0x020865d0
