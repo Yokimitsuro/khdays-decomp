@@ -176,6 +176,10 @@ src/calls/WM_EndKeySharing_0x02083d00.c:
     complete
     .text       start:0x02083d00 end:0x02083d0c
 
+src/overlays/ov024/calls/func_ov024_02083d0c.c:
+    complete
+    .text       start:0x02083d0c end:0x02083e28
+
 src/overlays/ov024/calls/func_ov024_02084054.c:
     complete
     .text       start:0x02084054 end:0x0208406c
