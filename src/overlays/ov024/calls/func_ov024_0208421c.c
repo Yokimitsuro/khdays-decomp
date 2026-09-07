@@ -21,7 +21,7 @@ struct MobiClipFrameTimer {
     void *pDecoder;
     u8 alarm[0x2c];
     s64 nStartTick;
-    u8 nQueued;
+    u8 nState;
     u8 nFrontBuffer;
     u8 bPrimed;
     u8 pad003b;
@@ -46,7 +46,7 @@ void func_ov024_0208421c(struct MobiClipFrameTimer *pTimer)
     u64 nDue;
 
     if (nAhead > 0) {
-        if (nAhead <= 3 && pTimer->nQueued < 4) {
+        if (nAhead <= 3 && pTimer->nState < 4) {
             func_ov024_02085080(pTimer->pDecoder);
         } else if (pTimer->bPrimed == 0) {
             OS_SetAlarm(pTimer->alarm, 1, (void *)&func_ov024_0208421c, pTimer);

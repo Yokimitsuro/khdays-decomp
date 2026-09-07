@@ -40,7 +40,7 @@ struct MobiClipFrameTimer {
     void *pStream;
     u8 alarm[0x2c];
     s64 nStartTick;
-    u8 nQueued;
+    u8 nState;
     u8 nFrontBuffer;
     u8 bPresented;
     u8 pad003b[0x40 - 0x3b];
@@ -206,7 +206,7 @@ int func_ov024_020846c0(struct MobiClipOpenRequest *pRequest)
         apSlots[i]->nConsumed = 0;
         apSlots[i]->nDecoded = 0;
         apSlots[i]->nPresented = 0;
-        apSlots[i]->nQueued = 0;
+        apSlots[i]->nState = 0;
         for (j = 0; j < RING_FRAMES; j++) {
             func_ov024_02085014(apSlots[i]->pStream);
             func_ov024_0208435c(apSlots[i]);
