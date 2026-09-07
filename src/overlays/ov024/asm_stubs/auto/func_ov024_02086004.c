@@ -47,6 +47,12 @@
  *
  * Reference implementation, for the port. Semantically equivalent; it is not
  * what the original was compiled from, and it does not assemble to these bytes.
+ * It is proven rather than asserted: tools/tests/test_mobiclip_blit_reference.py
+ * interprets this function's own instructions over synthetic buffers and
+ * compares the destination words, and it asserts its own sensitivity by
+ * mutating one claim at a time -- swap red and green, drop the dither, dither
+ * all four pixels, or move the chroma planes -- and requiring each to be
+ * caught. Change the algorithm below and that test tells you if you were right.
  *
  *     view: pLuma, pChroma, pDest, nStride, nWidth, nHeight, pTable
  *
