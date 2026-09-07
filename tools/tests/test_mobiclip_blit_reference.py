@@ -164,10 +164,27 @@ class Machine:
             elif mnemonic == "mov":
                 tokens = operands.split(",")
                 self.regs[register(tokens[0])] = self.source(tokens[1:]) & 0xFFFFFFFF
-            elif mnemonic == "lsl":
+            elif mnemonic in ("lsl", "lsr"):
                 tokens = operands.split(",")
-                self.regs[register(tokens[0])] = (
-                    self.regs[register(tokens[1])] << immediate(tokens[2])) & 0xFFFFFFFF
+                value = self.regs[register(tokens[1])] & 0xFFFFFFFF
+                amount = immediate(tokens[2])
+                value = value << amount if mnemonic == "lsl" else value >> amount
+                self.regs[register(tokens[0])] = value & 0xFFFFFFFF
+            elif mnemonic == "cmp":
+                left, right = operands.split(",", 1)
+                value = (self.regs[register(left)] - self.source(right.split(","))) & 0xFFFFFFFF
+                self.zero = value == 0
+                self.negative = bool(value & 0x80000000)
+            elif mnemonic == "ldm":
+                base, listed = operands.split(",", 1)
+                writeback = base.endswith("!")
+                base = register(base.rstrip("!"))
+                address = self.regs[base]
+                for reg in sorted(register(x) for x in listed.strip().strip("{}").split(",")):
+                    self.regs[reg] = self.word(address)
+                    address += 4
+                if writeback:
+                    self.regs[base] = address
             elif mnemonic == "bgt":
                 if not self.zero and not self.negative:
                     following = int(operands[1:], 0)
