@@ -31,6 +31,31 @@ if str(TOOLS) not in sys.path:
 
 FUNCTION = "func_ov024_02086004"
 INDEX = ROOT / "build" / "func_index.json"
+# The working candidate, when one exists. build/ is not tracked, so the test
+# that uses this skips in a fresh checkout and runs while the function is
+# being shaped, which is exactly when it is needed.
+CANDIDATE = ROOT / "build" / "try" / (FUNCTION + ".cpp")
+
+
+def compile_candidate():
+    """Compile the working candidate with the project compiler; None if it
+    fails, so a broken intermediate state skips rather than erroring."""
+    import os
+    import subprocess
+    from match import FLAGS, LIC, MWCC, text_relocs
+
+    flags = list(FLAGS)
+    flags[flags.index("c99")] = "c++"
+    obj = str(CANDIDATE.with_suffix(".test.o"))
+    if os.path.exists(obj):
+        os.remove(obj)
+    subprocess.run([MWCC, "-c"] + flags + ["-o", obj, str(CANDIDATE)],
+                   capture_output=True, text=True,
+                   env=dict(os.environ, LM_LICENSE_FILE=LIC, MWCIncludes="."))
+    if not os.path.exists(obj):
+        return None
+    body, _ = text_relocs(obj)
+    return bytes(body)
 
 try:
     from capstone import CS_ARCH_ARM, CS_MODE_ARM, Cs
@@ -290,6 +315,29 @@ class MobiClipBlitReferenceTest(unittest.TestCase):
 
     def test_the_chroma_planes_are_128_bytes_apart(self):
         self.assertNotEqual(reference(self.memory, chroma_plane=1), self.rom_output)
+
+    @unittest.skipUnless(CANDIDATE.is_file(), "no candidate under build/try")
+    def test_the_working_candidate_still_draws_the_rom_picture(self):
+        """A candidate is judged by instruction count while it is being shaped,
+        and a count cannot see undefined behaviour. One transformation moved a
+        variable's initialisation after the two expressions that read it, and
+        the compiler emitted smaller code precisely because the value was
+        undefined; the candidate then drew only the first row pair. So compile
+        whatever is in build/try and execute it."""
+        compiled = compile_candidate()
+        if compiled is None:
+            self.skipTest("the candidate does not compile")
+        engine = Cs(CS_ARCH_ARM, CS_MODE_ARM)
+        decoded = {i.address: i for i in engine.disasm(compiled, 0)}
+        self.assertEqual(len(decoded) * 4, len(compiled),
+                         "candidate did not decode cleanly")
+        memory = synthetic_memory()
+        machine = Machine(memory)
+        machine.regs[0] = VIEW
+        machine.regs[13] = STACK
+        machine.run(decoded, len(compiled))
+        self.assertEqual(bytes(memory[DEST:DEST + STRIDE * HEIGHT]),
+                         self.rom_output)
 
 
 if __name__ == "__main__":
