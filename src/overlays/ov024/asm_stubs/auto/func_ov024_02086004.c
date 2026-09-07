@@ -57,11 +57,18 @@
  * and in none of the reconstructed sources; every C spelling tried folds it
  * into a displaced load plus one increment, volatile and maximum register
  * pressure included. A semantically complete candidate was then run through
- * all 26 compilers in the tree, 15 flag variants and 150 pragma settings, and
- * none reproduces either signature.
+ * all 26 compilers in the tree, every optimisation level, every inline setting
+ * and the compiler's entire pragma vocabulary -- 1233 pragmas in both
+ * polarities, 2466 builds. Exactly one produces a smaller function, `thumb on`,
+ * which is a different instruction set and so no answer at all.
  *
  * That candidate has since been driven from 1656 bytes to 1496 against this
- * function's 1472, and the six remaining instructions are each accounted for.
+ * function's 1472, and what remains is not a rough similarity. The computation
+ * is identical instruction for instruction: 144 byte loads against 144, 32
+ * saturating ORs against 32, 16 bias subtractions against 16, 8 blue-window
+ * subtractions against 8, and each of the five packing shifts at 16 apiece in
+ * both. The candidate computes exactly what the ROM computes. Only the
+ * bookkeeping differs, and the six instructions of it are each accounted for.
  * Four are pointer advances: the ROM walks luma, chroma and both destination
  * rows inside its own loads and stores, and post-indexing survives only in a
  * rolled loop -- unrolled four or eight times, with one pointer or two and a
