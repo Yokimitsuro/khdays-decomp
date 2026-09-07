@@ -57,8 +57,23 @@
  * and in none of the reconstructed sources; every C spelling tried folds it
  * into a displaced load plus one increment, volatile and maximum register
  * pressure included. A semantically complete candidate was then run through
- * all 26 compilers in the tree, 15 flag variants and 150 pragma settings: none
- * reproduces either signature, and the closest is 1528 bytes against 1472.
+ * all 26 compilers in the tree, 15 flag variants and 150 pragma settings, and
+ * none reproduces either signature.
+ *
+ * That candidate has since been driven from 1656 bytes to 1496 against this
+ * function's 1472, and the six remaining instructions are each accounted for.
+ * Four are pointer advances: the ROM walks luma, chroma and both destination
+ * rows inside its own loads and stores, and post-indexing survives only in a
+ * rolled loop -- unrolled four or eight times, with one pointer or two and a
+ * constant or variable step, mwcc strength-reduces every p++ into a
+ * displacement and pays the advances at the loop boundary. One is the counter
+ * described above. The last is a spill of the width in the preamble, forced by
+ * the ldm that batches the pointer loads; four statement orderings compile to
+ * byte-identical output, and deriving the width instead of homing it costs
+ * more than it saves.
+ *
+ * The size gap is therefore not itself the evidence. The provenance rests on
+ * the two signatures, which is where it should rest.
  *
  * Every word below is one readable mnemonic: no incbin, no .inst, no opcode
  * words. Assembles byte-exact, 1472 bytes, zero relocations. Re-validate with
