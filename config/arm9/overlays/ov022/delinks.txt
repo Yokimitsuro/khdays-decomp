@@ -2068,6 +2068,10 @@ src/calls/WM_EndKeySharing_0x020b15a4.c:
     complete
     .text       start:0x020b15a4 end:0x020b15b0
 
+src/overlays/ov022/calls/func_ov022_020b1730.c:
+    complete
+    .text       start:0x020b1730 end:0x020b1848
+
 src/overlays/ov022/calls/func_ov022_020b1848.c:
     complete
     .text       start:0x020b1848 end:0x020b18cc
@@ -2079,6 +2083,10 @@ src/overlays/ov022/calls/func_ov022_020b18cc.c:
 src/overlays/ov022/calls/func_ov022_020b18e0.c:
     complete
     .text       start:0x020b18e0 end:0x020b18f8
+
+src/overlays/ov022/calls/func_ov022_020b18f8.c:
+    complete
+    .text       start:0x020b18f8 end:0x020b19cc
 
 src/overlays/ov022/calls/func_ov022_020b19cc.c:
     complete
