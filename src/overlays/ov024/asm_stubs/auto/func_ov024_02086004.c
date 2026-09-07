@@ -44,6 +44,14 @@
  * division helpers, one is that SHA-1 transform, and the seventh is this
  * routine.
  *
+ * Both loops here close with `subs` on the counter and then `bgt`, using the N
+ * and Z the subtraction already set for a signed greater-than. mwcc will not
+ * emit that pair in any form: across six spellings of the same countdown, a
+ * signed `> 0` or `>= 1` test always costs a separate `cmp` before the branch,
+ * and a `!= 0` test folds into `subs` but then branches `bne`. You can have the
+ * `subs` or the `bgt`, never both. Skipping the compare because you know the
+ * flags are right is what a person does.
+ *
  * It also reads the chroma pair with two consecutive post-indexed byte loads
  * through one pointer, an idiom that occurs exactly once in the ROM -- here --
  * and in none of the reconstructed sources; every C spelling tried folds it
