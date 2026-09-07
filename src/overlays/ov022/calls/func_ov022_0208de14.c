@@ -1,10 +1,12 @@
 /* Ov022_EnterReactionAtActor -- arm a reaction state on the context's slot.
  *
  * The sibling of the block entry, for the state that keeps its aim point in the
- * slot instead of on the stack: the actor's position is staged in the slot's
- * scratch vector, run through the notifier from there, and only then copied
- * into the aim field. Nothing raises it, so the slot is aimed at the actor's
- * feet.
+ * slot instead of on the stack: the actor's position is staged across the three
+ * words the running slot later uses for its power, its reach and its pending
+ * flag, run through the notifier from there, and only then copied into the aim
+ * field. Nothing raises it, so the slot is aimed at the actor's feet. The local
+ * vector below is how those three words are addressed as one object; the names
+ * they carry once the reaction is running are in the Ghidra type.
  *
  * As in the block entry the slot takes the actor's slot index and a fresh
  * sequence number, the node angle makes its round trip through the field's
