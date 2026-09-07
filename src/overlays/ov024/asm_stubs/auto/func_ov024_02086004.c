@@ -42,13 +42,14 @@
  *
  * Seven functions in the ROM save ip in total: five are the hand-written 64-bit
  * division helpers, one is that SHA-1 transform, and the seventh is this
- * routine. It also
- * reads the chroma pair with two consecutive post-indexed byte loads through
- * one pointer, an idiom that occurs exactly once in the ROM -- here -- and in
- * none of the reconstructed sources; every C spelling tried folds it into a
- * displaced load plus one increment, volatile and maximum register pressure
- * included. A semantically complete candidate was then run through all 26
- * compilers in the tree, 15 flag variants and 150 pragma settings: none
+ * routine.
+ *
+ * It also reads the chroma pair with two consecutive post-indexed byte loads
+ * through one pointer, an idiom that occurs exactly once in the ROM -- here --
+ * and in none of the reconstructed sources; every C spelling tried folds it
+ * into a displaced load plus one increment, volatile and maximum register
+ * pressure included. A semantically complete candidate was then run through
+ * all 26 compilers in the tree, 15 flag variants and 150 pragma settings: none
  * reproduces either signature, and the closest is 1528 bytes against 1472.
  *
  * Every word below is one readable mnemonic: no incbin, no .inst, no opcode
@@ -66,18 +67,22 @@
  * all four pixels, or move the chroma planes -- and requiring each to be
  * caught. Change the algorithm below and that test tells you if you were right.
  *
- *     view: pLuma, pChroma, pDest, nStride, nWidth, nHeight, pTable
+ *     view: pLuma, pChroma, pDest, nDestStrideBytes, nWidthPixels,
+ *           nHeightRows, pTable
+ *
+ *     The stride is in BYTES and the width is in PIXELS. They sit next to
+ *     each other and only the row-gap arithmetic below reveals it.
  *
  *     pTable += 0x100;                       // ramp is indexed signed
  *     pRow0 = (u16 *)pDest;
- *     pRow1 = (u16 *)((u8 *)pDest + nStride);
- *     nLumaGap   = 0x200 - nWidth;           // two luma rows of 256
- *     nChromaGap = 0x100 - (nWidth >> 1);    // one chroma row of 256
- *     nDestGap   = (nStride - nWidth) * 2;
+ *     pRow1 = (u16 *)((u8 *)pDest + nDestStrideBytes);
+ *     nLumaGap   = 0x200 - nWidthPixels;           // two luma rows of 256
+ *     nChromaGap = 0x100 - (nWidthPixels >> 1);    // one chroma row of 256
+ *     nDestGap   = (nDestStrideBytes - nWidthPixels) * 2;
  *
- *     y = nHeight;
+ *     y = nHeightRows;
  *     do {
- *         x = nWidth;
+ *         x = nWidthPixels;
  *         do {                               // eight of these unrolled
  *             int co = *pChroma - 0x80; pChroma += 0x80;
  *             int cg = *pChroma - 0x80; pChroma -= 0x7f;
