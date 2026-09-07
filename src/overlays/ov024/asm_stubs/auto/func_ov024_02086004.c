@@ -1,60 +1,88 @@
 /* MobiClip: turn one decoded frame into 15-bit pixels, two rows at a time.
  *
- * The colour tables are three windows into one lookup block, offset by the
- * chroma pair: red by Cr, green by Cb-Cr, blue by that minus twice Cb. Each
- * chroma sample covers a 2x2 luma quad, dithered on a checkerboard -- the two
- * pixels on one diagonal look their luma up four levels lower. Each pass emits
- * four pixels as two words, one into each of the two rows being written, so the
- * outer loop steps down two rows and the inner one covers sixteen columns per
- * pass, eight passes unrolled.
+ * The colour space is YCoCg, not YUV. One lookup block holds the saturating
+ * ramp, and the three channels are three windows into it, displaced by the
+ * chroma pair so that indexing a window with the luma performs the colour
+ * conversion and the clamp in one byte load:
  *
- * HAND-WRITTEN ARM in the original, not compiler output. Six measurements say
- * so: the prologue is the idiomatic `stmfd sp!, {r4-r12, lr}`, and only seven
- * functions in the whole ROM save ip -- none reconstructed, the other six being
- * the toolchain's own hand-written 64-bit helpers. It reads the chroma pair
- * with two consecutive post-indexed byte loads through one pointer, an idiom
- * that occurs exactly once in the ROM (here) and in none of the reconstructed
- * sources; the compiler folds that pattern into a displaced load plus a single
- * increment in every form tried, volatile and maximum register pressure
- * included. A semantically complete C candidate was then run through all 26
+ *     green  = pTable + Cg              G = Y + Cg
+ *     red    = pTable + Co - Cg         R = Y + Co - Cg
+ *     blue   = red    - 2 * Co          B = Y - Co - Cg
+ *
+ * Note the order the assembly computes them in: the FIRST window it builds is
+ * green, not red. Getting this backwards swaps red and green in the port while
+ * still looking self-consistent, which is the same class of mistake that gave
+ * the FFmpeg-based dumps their colour cast.
+ *
+ * The two chroma planes sit 128 bytes apart inside one 256-byte chroma row --
+ * Co then Cg -- which is why the routine reads them by stepping one pointer
+ * +0x80 and then -0x7f, landing on the next quad.
+ *
+ * Each chroma sample covers a 2x2 luma quad. The quad is dithered on a
+ * checkerboard: the two pixels on the anti-diagonal, (row, col+1) and
+ * (row+1, col), index the ramp four levels lower. Each quad emits two words,
+ * one per destination row, each holding two horizontally adjacent pixels as
+ * 0x8000 | R | G<<5 | B<<10 in each half. The inner loop covers sixteen
+ * columns as eight unrolled quads; the outer steps down two rows.
+ *
+ * HAND-WRITTEN ARM in the original, not compiler output, and the evidence is a
+ * complete classification rather than a sample. Across all 21031 ARM functions
+ * in the ROM, 426 save the full set of callee-saved registers WITHOUT ip, so
+ * saving ip is not this compiler's stack-alignment pad. Exactly seven functions
+ * save ip: five are the hand-written 64-bit division helpers, one is a
+ * hand-written SHA-1 block transform, and the seventh is this routine. It also
+ * reads the chroma pair with two consecutive post-indexed byte loads through
+ * one pointer, an idiom that occurs exactly once in the ROM -- here -- and in
+ * none of the reconstructed sources; every C spelling tried folds it into a
+ * displaced load plus one increment, volatile and maximum register pressure
+ * included. A semantically complete candidate was then run through all 26
  * compilers in the tree, 15 flag variants and 150 pragma settings: none
  * reproduces either signature, and the closest is 1528 bytes against 1472.
  *
  * Every word below is one readable mnemonic: no incbin, no .inst, no opcode
- * words. Assembles byte-exact, 1472 bytes, zero relocations. The Ghidra
+ * words. Assembles byte-exact, 1472 bytes, zero relocations. Re-validate with
+ * `python tools/gen_asm_stub.py <function> --check <this file>`, and keep this
+ * header: the algorithm belongs here, not only in the assembly. The Ghidra
  * function MobiClip_BlitRows carries the same notes and the field names.
  *
  * Reference implementation, for the port. Semantically equivalent; it is not
- * what the original was compiled from, and it does not assemble to these
- * bytes -- see above for why.
+ * what the original was compiled from, and it does not assemble to these bytes.
  *
  *     view: pLuma, pChroma, pDest, nStride, nWidth, nHeight, pTable
  *
- *     pTable += 0x100;
- *     pRow1 = (u8 *)pDest + nStride;
- *     nLumaGap   = 0x200 - nWidth;
- *     nChromaGap = 0x100 - (nWidth >> 1);
+ *     pTable += 0x100;                       // ramp is indexed signed
+ *     pRow0 = (u16 *)pDest;
+ *     pRow1 = (u16 *)((u8 *)pDest + nStride);
+ *     nLumaGap   = 0x200 - nWidth;           // two luma rows of 256
+ *     nChromaGap = 0x100 - (nWidth >> 1);    // one chroma row of 256
  *     nDestGap   = (nStride - nWidth) * 2;
+ *
  *     y = nHeight;
  *     do {
  *         x = nWidth;
- *         do {                            // eight of these per pass
- *             cb = *pChroma; pChroma += 0x80;    // Co
- *             cr = *pChroma; pChroma -= 0x7f;    // Cg, next quad
- *             cb -= 0x80; cr -= 0x80;
- *             pR = pTable + cr;
- *             pG = pTable + (cb - cr);
- *             pB = pG - cb * 2;
- *             // the 2x2 luma quad at 0, 1, 0x100, 0x101, dithered on a
- *             // checkerboard: pixels 1 and 2 look their luma up 4 lower
- *             for each pixel p of the quad:
- *                 w = pG[l] | (pR[l] << 5) | (pB[l] << 10) | 0x8000;
- *             *pDest++ = w0 | (w1 << 16) | 0x80000000;   // top row
- *             *pRow1++ = w2 | (w3 << 16) | 0x80000000;   // bottom row
- *             x -= 16;
+ *         do {                               // eight of these unrolled
+ *             int co = *pChroma - 0x80; pChroma += 0x80;
+ *             int cg = *pChroma - 0x80; pChroma -= 0x7f;
+ *             const u8 *pG = pTable + cg;
+ *             const u8 *pR = pTable + co - cg;
+ *             const u8 *pB = pR - co * 2;
+ *
+ *             int y00 = pLuma[0],       y01 = pLuma[1];
+ *             int y10 = pLuma[0x100],   y11 = pLuma[0x101];
+ *             pLuma += 2;
+ *             y01 -= 4;  y10 -= 4;           // checkerboard dither
+ *
+ *             #define PIX(l)  (0x8000u | pR[l] | (pG[l] << 5) | (pB[l] << 10))
+ *             *pRow0++ = PIX(y00);  *pRow0++ = PIX(y01);
+ *             *pRow1++ = PIX(y10);  *pRow1++ = PIX(y11);
+ *
+ *             x -= 2;
  *         } while (x > 0);
- *         pLuma += nLumaGap; pChroma += nChromaGap;
- *         pDest += nDestGap; pRow1 += nDestGap;
+ *
+ *         pLuma  += nLumaGap;
+ *         pChroma += nChromaGap;
+ *         pRow0 += nDestGap >> 1;
+ *         pRow1 += nDestGap >> 1;
  *         y -= 2;
  *     } while (y > 0);
  */
