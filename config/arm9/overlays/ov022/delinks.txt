@@ -972,6 +972,14 @@ src/overlays/ov022/calls/func_ov022_0208cf18.c:
     complete
     .text       start:0x0208cf18 end:0x0208cfbc
 
+src/overlays/ov022/calls/func_ov022_0208d5fc.c:
+    complete
+    .text       start:0x0208d5fc end:0x0208d6a8
+
+src/overlays/ov022/calls/func_ov022_0208d6a8.c:
+    complete
+    .text       start:0x0208d6a8 end:0x0208d758
+
 src/calls/WM_EndKeySharing_0x0208d758.c:
     complete
     .text       start:0x0208d758 end:0x0208d764
