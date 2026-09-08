@@ -1804,6 +1804,10 @@ src/overlays/ov022/calls/func_ov022_0209ccb0.c:
     complete
     .text       start:0x0209ccb0 end:0x0209ccf4
 
+src/overlays/ov022/calls/func_ov022_0209ccf4.c:
+    complete
+    .text       start:0x0209ccf4 end:0x0209cda8
+
 src/overlays/ov022/calls/func_ov022_0209cee8.c:
     complete
     .text       start:0x0209cee8 end:0x0209cf58
