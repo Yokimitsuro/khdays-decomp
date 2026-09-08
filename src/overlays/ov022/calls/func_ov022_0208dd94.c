@@ -29,7 +29,7 @@ struct ReactionTemplate {
 /* Ov022ActorSlot */
 struct ActorSlot {
     u8 pad000;
-    u8 bLive;                    /* 0x001 */
+    u8 nParts;                   /* 0x001, how many parts the slot owns */
     u8 pad002[6];
     u16 nSlotFlags;              /* 0x008 */
     u8 pad00a[0xae];
@@ -59,7 +59,7 @@ void func_ov022_0208dd94(struct ReactionCtx *pCtx, void *pSeq, int nSubKind,
 
     pSlot = func_ov022_0208b71c(pCtx, REACTION_KIND, REACTION_TAG, nSubKind,
                                 SLOT_SIZE);
-    pSlot->bLive = 1;
+    pSlot->nParts = 1;
     func_0202a634(&pSlot->nSlotFlags, pSeq, 1, SEQ_TRACKS);
     pSlot->tpl = *pTpl;
     pSlot->nState = 0;

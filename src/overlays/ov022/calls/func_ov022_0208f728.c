@@ -3,7 +3,7 @@
 /* Ov022_CreateSlotKind0d -- create a slot of pool kind 0xd from a template.
  *
  * The third of the slot constructors, between the reaction slot and the smaller
- * kind: ask the pool for the slot, mark it live, bind the sequence it plays,
+ * kind: ask the pool for the slot, set its part count, bind the sequence it plays,
  * then write the live fields straight from the template.
  *
  * The spread value is carried across all three words, the power comes from the
@@ -36,7 +36,7 @@ struct SlotTemplate {
 /* Ov022ActorSlot */
 struct ActorSlot {
     u8 pad000;
-    u8 bLive;                    /* 0x001 */
+    u8 nParts;                   /* 0x001, how many parts the slot owns */
     u8 pad002[6];
     u16 nSlotFlags;              /* 0x008 */
     u8 pad00a[0xae];
@@ -74,7 +74,7 @@ void func_ov022_0208f728(struct ReactionCtx *pCtx, void *pSeq, int nSubKind,
     struct ActorSlot *pSlot;
 
     pSlot = func_ov022_0208b71c(pCtx, SLOT_KIND, SLOT_TAG, nSubKind, SLOT_SIZE);
-    pSlot->bLive = 1;
+    pSlot->nParts = 1;
     func_0202a634(&pSlot->nSlotFlags, pSeq, 1, SEQ_TRACKS);
     pSlot->aEntryFlags[2] = pTpl->nWord5;
     pSlot->aEntryFlags[1] = pSlot->aEntryFlags[2];

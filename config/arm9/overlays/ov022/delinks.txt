@@ -932,6 +932,14 @@ src/overlays/ov022/calls/func_ov022_0208bbe4.c:
     complete
     .text       start:0x0208bbe4 end:0x0208bc3c
 
+src/overlays/ov022/calls/func_ov022_0208bc3c.c:
+    complete
+    .text       start:0x0208bc3c end:0x0208bce0
+
+src/overlays/ov022/calls/func_ov022_0208c924.c:
+    complete
+    .text       start:0x0208c924 end:0x0208c9b2
+
 src/overlays/ov022/calls/func_ov022_0208cb9c.c:
     complete
     .text       start:0x0208cb9c end:0x0208cbf8
