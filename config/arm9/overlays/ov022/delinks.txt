@@ -1400,6 +1400,10 @@ src/overlays/ov022/calls/func_ov022_02092b60.c:
     complete
     .text       start:0x02092b60 end:0x02092bfc
 
+src/overlays/ov022/calls/func_ov022_02092bfc.c:
+    complete
+    .text       start:0x02092bfc end:0x02092d68
+
 src/overlays/ov022/calls/func_ov022_02092d68.c:
     complete
     .text       start:0x02092d68 end:0x02092dc8
