@@ -2016,6 +2016,10 @@ src/overlays/ov022/calls/func_ov022_020a8020.c:
     complete
     .text       start:0x020a8020 end:0x020a8354
 
+src/overlays/ov022/calls/func_ov022_020a8ec0.c:
+    complete
+    .text       start:0x020a8ec0 end:0x020a947c
+
 src/overlays/ov022/calls/func_ov022_020aa788.c:
     complete
     .text       start:0x020aa788 end:0x020aa824
