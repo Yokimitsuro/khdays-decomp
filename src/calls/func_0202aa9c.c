@@ -47,7 +47,7 @@ extern void func_0202a984(MtxFx43 *matrix);
 extern void func_0202a9d0(void);
 
 extern VecFx32 data_02047458;
-extern volatile s16 data_0203d210[];
+extern const s16 data_0203d210[];
 extern MtxFx43 data_02047428;
 extern CameraState data_02047394;
 extern SceneNode *data_0204c1f4;

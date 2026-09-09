@@ -32,14 +32,19 @@ static inline BOOL IsMainBG(BGSelect bg)
     return bg <= BGSELECT_MAIN3;
 }
 
+/* GBATEK: DISPCNT for the two engines; bit 30 selects extended palettes. */
+#define REG_DISPCNT   (*(volatile u32 *)0x04000000)
+#define REG_DB_DISPCNT (*(volatile u32 *)0x04001000)
+#define DISPCNT_BG_EXT_PLTT 0x40000000
+
 static inline BOOL IsBGUseExtPlttMain(void)
 {
-    return (*(volatile u32 *)0x04000000 & 0x40000000) != 0;
+    return (REG_DISPCNT & DISPCNT_BG_EXT_PLTT) != 0;
 }
 
 static inline BOOL IsBGUseExtPlttSub(void)
 {
-    return (*(volatile u32 *)0x04001000 & 0x40000000) != 0;
+    return (REG_DB_DISPCNT & DISPCNT_BG_EXT_PLTT) != 0;
 }
 
 static inline BOOL IsBGUseExtPltt(BGSelect bg)
