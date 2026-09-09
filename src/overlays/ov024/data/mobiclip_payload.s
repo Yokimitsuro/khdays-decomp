@@ -14,7 +14,6 @@ MobiClip_Code_0208C8C4:
 gMobiClip_payload_header:
     /* payload_configuration */
     .byte 0x00, 0x01, 0x00, 0x00, 0x9e, 0x00, 0x00, 0x00
-    .size gMobiClip_payload_header, . - gMobiClip_payload_header
     /* control metadata 0x0208c8d0..0x0208c910 */
     .global gMobiClip_luma_interpolation_dispatch
     .type gMobiClip_luma_interpolation_dispatch, %object
@@ -38,7 +37,6 @@ gMobiClip_luma_interpolation:
     .word MobiClip_Code_020919FC - . + 0x34
     .word MobiClip_Code_02091BC8 - . + 0x38
     .word MobiClip_Code_02091D14 - . + 0x3c
-    .size gMobiClip_luma_interpolation_dispatch, . - gMobiClip_luma_interpolation_dispatch
     /* control metadata 0x0208c910..0x0208c950 */
     .global gMobiClip_chroma_interpolation_dispatch
     .type gMobiClip_chroma_interpolation_dispatch, %object
@@ -62,7 +60,6 @@ gMobiClip_chroma_interpolation:
     .word MobiClip_Code_0209232C - . + 0x34
     .word MobiClip_Code_0209244C - . + 0x38
     .word MobiClip_Code_0209252C - . + 0x3c
-    .size gMobiClip_chroma_interpolation_dispatch, . - gMobiClip_chroma_interpolation_dispatch
 MobiClip_Code_0208C950:
     push {r4, r5, r6, fp, ip, lr}
 MobiClip_Code_0208C954:
@@ -207,7 +204,6 @@ gMobiClip_pframe_macroblock:
     .word MobiClip_Code_0208CB54 - . + 0x24
     /* pframe_code_lengths */
     .byte 0x02, 0x02, 0x04, 0x05, 0x05, 0x05, 0x05, 0x04, 0x03, 0x03, 0x00, 0x00
-    .size gMobiClip_pframe_prefix_offsets_and_lengths, . - gMobiClip_pframe_prefix_offsets_and_lengths
 MobiClip_Code_0208CA98:
     str lr, [sp, #-4]!
 MobiClip_Code_0208CA9C:
@@ -365,7 +361,6 @@ gMobiClip_motion16_dispatch:
     .word MobiClip_Code_0209293C - . + 0x34
     .word MobiClip_Code_020929E8 - . + 0x38
     .word MobiClip_Code_02092A74 - . + 0x3c
-    .size gMobiClip_luma_kernel_dispatch, . - gMobiClip_luma_kernel_dispatch
 MobiClip_Code_0208CBE4:
     push {r4, r5, r6, fp, ip, lr}
 MobiClip_Code_0208CBE8:
@@ -509,7 +504,6 @@ gMobiClip_motion16_modes:
     .word MobiClip_Code_0208CDB0 - . + 0x24
     /* motion16_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x04, 0x04, 0x04, 0x00, 0x00, 0x04, 0x03, 0x00, 0x00
-    .size gMobiClip_motion16_selector_and_offsets, . - gMobiClip_motion16_selector_and_offsets
 MobiClip_Code_0208CD1C:
     mov r5, #4
 MobiClip_Code_0208CD20:
@@ -637,7 +631,6 @@ gMobiClip_motion8x16_dispatch:
     .word MobiClip_Code_02092A88 - . + 0x128
     .word MobiClip_Code_02092B3C - . + 0x12c
     .word MobiClip_Code_02092BD8 - . + 0x130
-    .size gMobiClip_chroma_kernel_dispatch, . - gMobiClip_chroma_kernel_dispatch
 MobiClip_Code_0208CE1C:
     push {r4, r5, r6, fp, ip, lr}
 MobiClip_Code_0208CE20:
@@ -781,7 +774,6 @@ gMobiClip_motion8x16_modes:
     .word MobiClip_Code_0208CFE8 - . + 0x24
     /* motion8x16_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x04, 0x04, 0x00, 0x00, 0x04, 0x04, 0x00, 0x00
-    .size gMobiClip_motion8x16_selector_and_offsets, . - gMobiClip_motion8x16_selector_and_offsets
 MobiClip_Code_0208CF54:
     mov r5, #4
 MobiClip_Code_0208CF58:
@@ -905,7 +897,6 @@ gMobiClip_intra16_dispatch:
     .word MobiClip_Code_02092CC8 - . + 0x118
     .word MobiClip_Code_02092C8C - . + 0x11c
     .word MobiClip_Code_02092CEC - . + 0x120
-    .size gMobiClip_chroma_narrow_kernel_dispatch, . - gMobiClip_chroma_narrow_kernel_dispatch
 MobiClip_Code_0208D044:
     push {r4, r5, r6, fp, ip, lr}
 MobiClip_Code_0208D048:
@@ -1051,7 +1042,6 @@ gMobiClip_intra16_modes_a:
     /* intra16_code_lengths */
     .byte 0x03, 0x01, 0x03, 0x03, 0x04, 0x05, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_intra16_selector_and_offsets, . - gMobiClip_intra16_selector_and_offsets
 MobiClip_Code_0208D194:
     mov r5, #4
 MobiClip_Code_0208D198:
@@ -1173,7 +1163,6 @@ gMobiClip_intra16_modes_b:
     .word MobiClip_Code_0208D334 - . + 0x24
     /* motion8x8_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x04, 0x04, 0x04, 0x00, 0x00, 0x03, 0x04, 0x00, 0x00
-    .size gMobiClip_motion8x8_selector_and_offsets, . - gMobiClip_motion8x8_selector_and_offsets
 MobiClip_Code_0208D2A0:
     mov r5, #4
 MobiClip_Code_0208D2A4:
@@ -1307,7 +1296,6 @@ gMobiClip_motion16x8_modes_a:
     .word MobiClip_Code_0208D458 - . + 0x24
     /* motion16x4_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x04, 0x04, 0x00, 0x00, 0x04, 0x04, 0x00, 0x00
-    .size gMobiClip_motion16x4_selector_and_offsets, . - gMobiClip_motion16x4_selector_and_offsets
 MobiClip_Code_0208D3C4:
     mov r5, #4
 MobiClip_Code_0208D3C8:
@@ -1441,7 +1429,6 @@ gMobiClip_motion16x8_modes_b:
     .word MobiClip_Code_0208D564 - . + 0x24
     /* motion16x2_code_lengths */
     .byte 0x03, 0x01, 0x03, 0x04, 0x04, 0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00
-    .size gMobiClip_motion16x2_selector_and_offsets, . - gMobiClip_motion16x2_selector_and_offsets
 MobiClip_Code_0208D4E8:
     mov r5, #4
 MobiClip_Code_0208D4EC:
@@ -1563,7 +1550,6 @@ gMobiClip_motion16x8_modes_c:
     .word MobiClip_Code_0208D688 - . + 0x24
     /* motion8x8_alt_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x04, 0x04, 0x00, 0x00, 0x04, 0x04, 0x00, 0x00
-    .size gMobiClip_motion8x8_alt_selector_and_offsets, . - gMobiClip_motion8x8_alt_selector_and_offsets
 MobiClip_Code_0208D5F4:
     mov r5, #4
 MobiClip_Code_0208D5F8:
@@ -1697,7 +1683,6 @@ gMobiClip_predicted_intra_modes_a:
     .word MobiClip_Code_0208D7AC - . + 0x24
     /* predicted_mode_a_code_lengths */
     .byte 0x03, 0x02, 0x02, 0x03, 0x04, 0x04, 0x00, 0x00, 0x04, 0x04, 0x00, 0x00
-    .size gMobiClip_predicted_mode_a_selector_and_offsets, . - gMobiClip_predicted_mode_a_selector_and_offsets
 MobiClip_Code_0208D718:
     mov r5, #4
 MobiClip_Code_0208D71C:
@@ -1831,7 +1816,6 @@ gMobiClip_predicted_intra_modes_b:
     .word MobiClip_Code_0208D8B8 - . + 0x24
     /* predicted_mode_b_code_lengths */
     .byte 0x03, 0x02, 0x02, 0x03, 0x03, 0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00
-    .size gMobiClip_predicted_mode_b_selector_and_offsets, . - gMobiClip_predicted_mode_b_selector_and_offsets
 MobiClip_Code_0208D83C:
     mov r5, #4
 MobiClip_Code_0208D840:
@@ -1954,7 +1938,6 @@ gMobiClip_predicted_intra_modes_c:
     /* predicted_mode_c_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x04, 0x04, 0x00, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_c_selector_and_offsets, . - gMobiClip_predicted_mode_c_selector_and_offsets
 MobiClip_Code_0208D954:
     mov r5, #4
 MobiClip_Code_0208D958:
@@ -2090,7 +2073,6 @@ gMobiClip_predicted_intra_modes_d:
     /* predicted_mode_d_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x03, 0x04, 0x00, 0x00, 0x05, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_d_selector_and_offsets, . - gMobiClip_predicted_mode_d_selector_and_offsets
 MobiClip_Code_0208DA94:
     mov r5, #4
 MobiClip_Code_0208DA98:
@@ -2225,7 +2207,6 @@ gMobiClip_predicted_intra_modes_e:
     /* predicted_mode_e_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x03, 0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_e_selector_and_offsets, . - gMobiClip_predicted_mode_e_selector_and_offsets
 MobiClip_Code_0208DBC4:
     mov r5, #4
 MobiClip_Code_0208DBC8:
@@ -2348,7 +2329,6 @@ gMobiClip_predicted_intra_modes_f:
     .word 0 /* reserved */
     /* predicted_mode_f_code_lengths */
     .byte 0x02, 0x02, 0x02, 0x03, 0x04, 0x05, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_f_selector_and_offsets, . - gMobiClip_predicted_mode_f_selector_and_offsets
 MobiClip_Code_0208DCE4:
     mov r5, #4
 MobiClip_Code_0208DCE8:
@@ -2470,7 +2450,6 @@ gMobiClip_predicted_intra_modes_g:
     .word 0 /* reserved */
     /* predicted_mode_g_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x03, 0x04, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_g_selector_and_offsets, . - gMobiClip_predicted_mode_g_selector_and_offsets
 MobiClip_Code_0208DDF4:
     mov r5, #4
 MobiClip_Code_0208DDF8:
@@ -2593,7 +2572,6 @@ gMobiClip_predicted_intra_modes_h:
     /* predicted_mode_h_code_lengths */
     .byte 0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     .byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    .size gMobiClip_predicted_mode_h_selector_and_offsets, . - gMobiClip_predicted_mode_h_selector_and_offsets
 MobiClip_Code_0208DF04:
     mov r5, #4
 MobiClip_Code_0208DF08:
@@ -2924,7 +2902,6 @@ gMobiClipIFrameResidualPermutation:
     .byte 0x1d, 0x0a, 0x1e, 0x05, 0x10, 0x2f, 0x37, 0x3b, 0x13, 0x3d, 0x3e, 0x09, 0x1c, 0x06, 0x15, 0x1a
     .byte 0x33, 0x11, 0x12, 0x14, 0x18, 0x20, 0x3c, 0x35, 0x19, 0x16, 0x3a, 0x30, 0x31, 0x32, 0x27, 0x34
     .byte 0x2b, 0x2d, 0x39, 0x38, 0x23, 0x36, 0x2e, 0x21, 0x25, 0x22, 0x24, 0x2c, 0x2a, 0x28, 0x29, 0x26
-    .size gMobiClipIFrameResidualPermutation, . - gMobiClipIFrameResidualPermutation
 MobiClip_Code_0208E1C8:
     push {r4, ip, lr}
 MobiClip_Code_0208E1CC:
@@ -3107,7 +3084,6 @@ gMobiClipPFrameResidualMask:
     .byte 0x06, 0x10, 0x3f, 0x1e, 0x17, 0x1d, 0x1b, 0x1c, 0x13, 0x18, 0x1a, 0x12, 0x11, 0x14, 0x15, 0x20
     .byte 0x2f, 0x16, 0x19, 0x37, 0x3d, 0x3e, 0x3b, 0x3c, 0x33, 0x35, 0x21, 0x24, 0x22, 0x28, 0x23, 0x2c
     .byte 0x30, 0x27, 0x2d, 0x25, 0x3a, 0x2b, 0x2e, 0x2a, 0x31, 0x34, 0x38, 0x32, 0x29, 0x26, 0x39, 0x36
-    .size gMobiClipPFrameResidualMask, . - gMobiClipPFrameResidualMask
 MobiClip_Code_0208E364:
     push {r4, ip, lr}
 MobiClip_Code_0208E368:
@@ -3323,7 +3299,6 @@ gMobiClip_intra_prediction:
     .word MobiClip_Code_0209058C - . + 0x44
     .word MobiClip_Code_02090674 - . + 0x48
     .word MobiClip_Code_0208E978 - . + 0x4c
-    .size gMobiClip_intra_prediction_dispatch, . - gMobiClip_intra_prediction_dispatch
 MobiClip_Code_0208E52C:
     tst r3, #0x80000000
 MobiClip_Code_0208E530:
@@ -3528,7 +3503,6 @@ MobiClip_Code_0208E6B4:
 gMobiClipIntraCoefficientMaskPadded:
     .byte 0x00, 0x0f, 0x00, 0x02, 0x01, 0x04, 0x08, 0x0c, 0x03, 0x0b, 0x0d, 0x0e, 0x07, 0x0a, 0x05, 0x09
     .byte 0x06, 0x00, 0x00, 0x00
-    .size gMobiClipIntraCoefficientMaskPadded, . - gMobiClipIntraCoefficientMaskPadded
 MobiClip_Code_0208E6CC:
     tst r3, #0x80000000
 MobiClip_Code_0208E6D0:
@@ -3628,7 +3602,6 @@ MobiClip_Code_0208E784:
     .type gMobiClipPFrameCoefficientMask, %object
 gMobiClipPFrameCoefficientMask:
     .byte 0x00, 0x04, 0x01, 0x08, 0x02, 0x0c, 0x03, 0x05, 0x0a, 0x0f, 0x07, 0x0d, 0x0e, 0x0b, 0x09, 0x06
-    .size gMobiClipPFrameCoefficientMask, . - gMobiClipPFrameCoefficientMask
 MobiClip_Code_0208E798:
     push {ip, lr}
 MobiClip_Code_0208E79C:
@@ -5096,7 +5069,6 @@ gMobiClip_intra8_neighbor:
     .word MobiClip_Code_0208F208 - . + 0x4
     .word MobiClip_Code_0208F164 - . + 0x8
     .word MobiClip_Code_0208F080 - . + 0xc
-    .size gMobiClip_intra8_neighbor_dispatch, . - gMobiClip_intra8_neighbor_dispatch
 MobiClip_Code_0208F308:
     sub r5, pc, #0x18
 MobiClip_Code_0208F30C:
@@ -7110,7 +7082,6 @@ gMobiClip_intra4_neighbor:
     .word MobiClip_Code_0209023C - . + 0x4
     .word MobiClip_Code_020901F0 - . + 0x8
     .word MobiClip_Code_02090184 - . + 0xc
-    .size gMobiClip_intra4_neighbor_dispatch, . - gMobiClip_intra4_neighbor_dispatch
 MobiClip_Code_020902BC:
     sub r5, pc, #0x18
 MobiClip_Code_020902C0:
@@ -8771,7 +8742,6 @@ gMobiClipQuant8BaseMatrices:
     .byte 0x22, 0x2b, 0x2b, 0x22, 0x22, 0x2e, 0x20, 0x2e, 0x20, 0x2e, 0x20, 0x2e, 0x22, 0x2b, 0x2b, 0x22
     .byte 0x22, 0x2b, 0x2b, 0x22, 0x20, 0x3a, 0x20, 0x24, 0x20, 0x3a, 0x20, 0x2b, 0x2b, 0x22, 0x22, 0x2b
     .byte 0x2b, 0x20, 0x2e, 0x20, 0x2e, 0x20, 0x22, 0x2b, 0x2b, 0x22, 0x20, 0x3a, 0x20, 0x2b, 0x2b, 0x20
-    .size gMobiClipQuant8BaseMatrices, . - gMobiClipQuant8BaseMatrices
     /* semantic constants 0x020910fc..0x0209113c */
     .global gMobiClipScan8
     .type gMobiClipScan8, %object
@@ -8780,7 +8750,6 @@ gMobiClipScan8:
     .byte 0x0c, 0x13, 0x1a, 0x21, 0x28, 0x30, 0x29, 0x22, 0x1b, 0x14, 0x0d, 0x06, 0x07, 0x0e, 0x15, 0x1c
     .byte 0x23, 0x2a, 0x31, 0x38, 0x39, 0x32, 0x2b, 0x24, 0x1d, 0x16, 0x0f, 0x17, 0x1e, 0x25, 0x2c, 0x33
     .byte 0x3a, 0x3b, 0x34, 0x2d, 0x26, 0x1f, 0x27, 0x2e, 0x35, 0x3c, 0x3d, 0x36, 0x2f, 0x37, 0x3e, 0x3f
-    .size gMobiClipScan8, . - gMobiClipScan8
     /* semantic constants 0x0209113c..0x0209119c */
     .global gMobiClipQuant4BaseMatrices
     .type gMobiClipQuant4BaseMatrices, %object
@@ -8791,13 +8760,11 @@ gMobiClipQuant4BaseMatrices:
     .byte 0x0e, 0x12, 0x12, 0x0e, 0x17, 0x0e, 0x12, 0x12, 0x12, 0x12, 0x17, 0x0e, 0x17, 0x12, 0x12, 0x17
     .byte 0x10, 0x14, 0x14, 0x10, 0x19, 0x10, 0x14, 0x14, 0x14, 0x14, 0x19, 0x10, 0x19, 0x14, 0x14, 0x19
     .byte 0x12, 0x17, 0x17, 0x12, 0x1d, 0x12, 0x17, 0x17, 0x17, 0x17, 0x1d, 0x12, 0x1d, 0x17, 0x17, 0x1d
-    .size gMobiClipQuant4BaseMatrices, . - gMobiClipQuant4BaseMatrices
     /* semantic constants 0x0209119c..0x020911ac */
     .global gMobiClipScan4
     .type gMobiClipScan4, %object
 gMobiClipScan4:
     .byte 0x00, 0x04, 0x01, 0x02, 0x05, 0x08, 0x0c, 0x09, 0x06, 0x03, 0x07, 0x0a, 0x0d, 0x0e, 0x0b, 0x0f
-    .size gMobiClipScan4, . - gMobiClipScan4
     /* semantic constants 0x020911ac..0x020911e2 */
     .global gMobiClipQpShift
     .type gMobiClipQpShift, %object
@@ -8806,7 +8773,6 @@ gMobiClipQpShift:
     .byte 0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x05, 0x05
     .byte 0x05, 0x05, 0x05, 0x05, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07
     .byte 0x08, 0x08, 0x08, 0x08, 0x08, 0x08
-    .size gMobiClipQpShift, . - gMobiClipQpShift
     /* semantic constants 0x020911e2..0x02091218 */
     .global gMobiClipQpMatrixSelector
     .type gMobiClipQpMatrixSelector, %object
@@ -8815,7 +8781,6 @@ gMobiClipQpMatrixSelector:
     .byte 0x04, 0x05, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00, 0x01
     .byte 0x02, 0x03, 0x04, 0x05, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05
     .byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x05
-    .size gMobiClipQpMatrixSelector, . - gMobiClipQpMatrixSelector
 MobiClip_Code_02091218:
     str r4, [r0, #0x3b4]
 MobiClip_Code_0209121C:
@@ -10383,7 +10348,6 @@ MobiClip_Code_02091E48:
     .type gMobiClipPackedAverageLaneMask, %object
 gMobiClipPackedAverageLaneMask:
     .byte 0x7f, 0x7f, 0x7f, 0x7f
-    .size gMobiClipPackedAverageLaneMask, . - gMobiClipPackedAverageLaneMask
 MobiClip_Code_02091E50:
     ldm r0, {r3, r4}
 MobiClip_Code_02091E54:
@@ -11369,7 +11333,6 @@ MobiClip_Code_020925F4:
     .type gMobiClipPackedAverageLaneMask1, %object
 gMobiClipPackedAverageLaneMask1:
     .byte 0x7f, 0x7f, 0x7f, 0x7f
-    .size gMobiClipPackedAverageLaneMask1, . - gMobiClipPackedAverageLaneMask1
 MobiClip_Code_020925FC:
     ldr r3, [r0], #0x100
 MobiClip_Code_02092600:
@@ -12011,7 +11974,6 @@ MobiClip_Code_02092AF0:
     .type gMobiClipPackedAverageLaneMask2, %object
 gMobiClipPackedAverageLaneMask2:
     .byte 0x7f, 0x7f, 0x7f, 0x7f
-    .size gMobiClipPackedAverageLaneMask2, . - gMobiClipPackedAverageLaneMask2
 MobiClip_Code_02092AF8:
     ldrh r3, [r0]
 MobiClip_Code_02092AFC:
@@ -12345,7 +12307,6 @@ MobiClip_Code_02092D84:
     .type gMobiClipPackedAverageLaneMask3, %object
 gMobiClipPackedAverageLaneMask3:
     .byte 0x7f, 0x7f, 0x7f, 0x7f
-    .size gMobiClipPackedAverageLaneMask3, . - gMobiClipPackedAverageLaneMask3
 MobiClip_Code_02092D8C:
     ldrb r3, [r0], #0x100
 MobiClip_Code_02092D90:
