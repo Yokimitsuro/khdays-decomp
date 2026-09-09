@@ -74,7 +74,7 @@ static inline BOOL Card_AdvanceReadPage(struct CARDRomStat *state)
     return common->len > 0;
 }
 
-static void func_0200ea64(void)
+void func_0200ea64(void)
 {
     struct CARDRomStat *state = &data_02046b20;
     struct CARDiCommon *common = &data_020464e0;
