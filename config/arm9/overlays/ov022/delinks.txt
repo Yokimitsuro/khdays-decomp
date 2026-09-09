@@ -1068,6 +1068,10 @@ src/calls/WM_EndKeySharing_0x0208d758.c:
     complete
     .text       start:0x0208d758 end:0x0208d764
 
+src/overlays/ov022/calls/func_ov022_0208d764.c:
+    complete
+    .text       start:0x0208d764 end:0x0208d9a0
+
 src/overlays/ov022/calls/func_ov022_0208d9a0.c:
     complete
     .text       start:0x0208d9a0 end:0x0208da8c
