@@ -29,7 +29,7 @@ extern void func_0203c634(int self, int idx, int cb);
 extern void func_ov107_020c9264(int actor, int a, int b);
 extern const short data_0203d210[];
 
-void func_ov129_020ccf5c(int *self)
+void func_ov129_020d65fc(int *self)
 {
     int *nd = (int *)self[1];
     int actor = *nd;

@@ -65,7 +65,7 @@ extern struct SpawnRing8 data_ov066_020b6a7c;
 extern char *data_ov066_020b6b80;
 extern short data_0203d210[];
 
-void func_ov066_020b3c54(char *self)
+void func_ov066_020b6454(char *self)
 {
     struct SpawnFrame f;
     char *blk;

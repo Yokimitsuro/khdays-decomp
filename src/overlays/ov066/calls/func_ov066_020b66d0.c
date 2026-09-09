@@ -32,7 +32,7 @@ extern void func_0202af1c(int a);
 extern int func_ov022_020a35f4(char *self, int n);
 extern char *data_ov066_020b6b80;
 
-int func_ov066_020b3ed0(char *self)
+int func_ov066_020b66d0(char *self)
 {
     struct VecFx32 vDelta;
     struct VecFx32 vTmp;

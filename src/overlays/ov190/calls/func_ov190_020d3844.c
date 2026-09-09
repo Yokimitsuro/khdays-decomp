@@ -44,7 +44,7 @@ extern void *func_01fffca8();
 extern long long func_ov107_020c319c();
 extern void func_0203355c();
 
-void func_ov190_020d7484(int param_1) {
+void func_ov190_020d3844(int param_1) {
     struct Box box;
     struct Pose g;
     char *pg;

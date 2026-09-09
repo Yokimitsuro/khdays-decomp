@@ -6,7 +6,7 @@ extern void NNSi_FndDestroyDoubleList(void *list);
 extern void func_01fffc24(void *list);
 extern int *func_01fffca8(void *list, int size, int rank);
 
-void func_ov128_020cc330(char *self, int nCount, const int *pSrc)
+void func_ov128_020d3bb0(char *self, int nCount, const int *pSrc)
 {
     int i;
 
