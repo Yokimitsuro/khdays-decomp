@@ -113,7 +113,7 @@ def verify(path, name, thumb):
     except Exception:
         return False
 
-matched, failed, rescued = [], [], []
+matched, failed, rescued, would_try = [], [], [], []
 for rep, twin in cands:
     src = open(done[rep], encoding="utf-8", errors="replace").read()
     new = subst(src, rep, twin)
@@ -134,6 +134,7 @@ for rep, twin in cands:
         continue
     tag = "  (rescues a nonmatching/)" if twin in attempted else ""
     if not WRITE:
+        would_try.append(twin)
         print("  would try %-26s <- %s%s" % (twin, rep, tag))
         continue
     open(path, "w", encoding="utf-8", newline="\n").write(new)
@@ -151,6 +152,12 @@ for rep, twin in cands:
         failed.append((twin, rep))
 
 print()
-print("matched=%d  failed=%d  rescued-from-nonmatching=%d" % (len(matched), len(failed), len(rescued)))
+if not WRITE:
+    print("DRY RUN: nothing was tried. %d candidate(s) would be attempted."
+          % len(would_try))
+    print("Re-run with --write to actually propagate and verify them.")
+else:
+    print("matched=%d  failed=%d  rescued-from-nonmatching=%d"
+          % (len(matched), len(failed), len(rescued)))
 for t in rescued:
     print("  retired nonmatching/%s.c" % t)
