@@ -7,7 +7,7 @@
 """
 import sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from match import compile_c, text_relocs
+from match import compile_c, text_relocs, func_section
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -62,15 +62,17 @@ SYM_ADDR = _load_sym_addrs()
 ABS_SYM = _load_abs_syms()
 IDX = os.path.join(ROOT, "build", "func_index.json")
 
-def _read_addends(o_path):
+def _read_addends(o_path, name):
     """RELA r_addend per .text offset (absent -> treated as 0 by the caller). mwccarm
     emits .rela.text, so a struct-field address carries its field offset here rather than
-    in the (zeroed) literal-pool word."""
+    in the (zeroed) literal-pool word. Only the .rela.text of `name`'s own section: every
+    function in the object has one, all named alike (see match.func_section)."""
     from elftools.elf.elffile import ELFFile
     out = {}
     elf = ELFFile(open(o_path, "rb"))
+    idx = func_section(elf, name)
     for s in elf.iter_sections():
-        if s.name == ".rela.text":
+        if s.name == ".rela.text" and s["sh_info"] == idx:
             for r in s.iter_relocations():
                 if "r_addend" in r.entry:
                     out[r["r_offset"]] = r["r_addend"]
@@ -175,26 +177,38 @@ def _verified_local_data_relocs(o_path, original_relocs, mine_relocs, addends, m
     return accepted, ", ".join(notes)
 
 
-def main():
-    cpath = sys.argv[1]
-    name = sys.argv[2]
-    thumb = "--thumb" in sys.argv
-    idx = json.load(open(IDX))
+_IDX_CACHE = None
+
+
+def _index():
+    """func_index.json, parsed once per process, so batch workers pay for it once."""
+    global _IDX_CACHE
+    if _IDX_CACHE is None:
+        with open(IDX) as fh:
+            _IDX_CACHE = json.load(fh)
+    return _IDX_CACHE
+
+
+def check(cpath, name, thumb):
+    """Grade one function: (exit code, verdict text). Failures main() has always
+    reported through SystemExit (unknown name, compile error, symbol absent from
+    the object) still raise it."""
+    idx = _index()
     if name not in idx:
         raise SystemExit("no en func_index: " + name)
     e = idx[name]
     orig = bytearray.fromhex(e["hex"])
     orel = {off: sym for off, sym in e["relocs"]}
     o = compile_c(cpath, thumb)
-    mine, mrel_full = text_relocs(o)
+    mine, mrel_full = text_relocs(o, name)
     mrel = {off: nm for off, (nm, _t) in mrel_full.items()}
-    maddend = _read_addends(o)
+    maddend = _read_addends(o, name)
     local_relocs, local_data_note = _verified_local_data_relocs(
         o, orel, mrel_full, maddend, e.get("module")
     )
     size = len(orig)
     if len(mine) != size:
-        print(">>> DIFIERE <<< tamano %d != %d" % (len(mine), size)); sys.exit(1)
+        return 1, ">>> DIFIERE <<< tamano %d != %d" % (len(mine), size)
     mt = bytearray(mine); ob = bytearray(orig)
     for off in set(mrel) | set(orel):
         for k in range(4):
@@ -202,7 +216,7 @@ def main():
                 mt[off + k] = 0; ob[off + k] = 0
     if mt != ob:
         d = [i for i in range(size) if mt[i] != ob[i]]
-        print(">>> DIFIERE <<< byte diff @0x%X (tras enmascarar relocs)" % d[0]); sys.exit(1)
+        return 1, ">>> DIFIERE <<< byte diff @0x%X (tras enmascarar relocs)" % d[0]
     if mrel != orel:
         # Two symbols may share one address, and func_020234e8 REQUIRES it: the
         # ROM's literal pool holds 0x0204be08 in two separate entries, and mwcc
@@ -250,10 +264,58 @@ def main():
             or _abs_ok(o)
             for o in mrel) and all(o in mrel for o in orel)
         if not same:
-            print(">>> DIFIERE <<< relocs difieren\n  tuyas=%s\n  orig =%s" % (mrel, orel)); sys.exit(1)
+            return 1, ">>> DIFIERE <<< relocs difieren\n  tuyas=%s\n  orig =%s" % (mrel, orel)
     suffix = ("; " + local_data_note + " verified") if local_data_note else ""
-    print(">>> MATCH <<< %d bytes, %d relocs%s" % (size, len(orel), suffix))
-    sys.exit(0)
+    return 0, ">>> MATCH <<< %d bytes, %d relocs%s" % (size, len(orel), suffix)
+
+
+def _batch_one(cpath):
+    name = os.path.splitext(os.path.basename(cpath))[0]
+    e = _index().get(name)
+    try:
+        rc, out = check(cpath, name, bool(e) and e["mode"] == "thumb")
+    except SystemExit as exc:
+        rc, out = 1, str(exc.code)
+    return cpath, rc, out
+
+
+def batch(args):
+    """verify_idx.py --batch [-j N] <file.c | @list.txt> ...
+
+    Grades many files across every core. Each worker process parses the index and
+    symbol tables once, not once per file. Function name = file stem, --thumb from
+    the index. Prints `path<TAB>exit code<TAB>verdict` per file in input order and
+    exits 0 only when every file matched. Files must be distinct: compile_c writes
+    <file>.o beside each source."""
+    from multiprocessing import Pool
+    jobs = os.cpu_count() or 1
+    files = []
+    it = iter(args)
+    for a in it:
+        if a == "-j":
+            jobs = int(next(it))
+        elif a.startswith("@"):
+            with open(a[1:], encoding="utf-8") as fh:
+                files += [line.strip() for line in fh if line.strip()]
+        else:
+            files.append(a)
+    files = list(dict.fromkeys(files))
+    bad = 0
+    with Pool(jobs) as pool:
+        for cpath, rc, out in pool.imap(_batch_one, files, chunksize=4):
+            bad += rc != 0
+            print("%s\t%d\t%s" % (cpath, rc, out.replace("\n", " | ")), flush=True)
+    print("%d files, %d match, %d not" % (len(files), len(files) - bad, bad), file=sys.stderr)
+    sys.exit(1 if bad else 0)
+
+
+def main():
+    if sys.argv[1:2] == ["--batch"]:
+        batch(sys.argv[2:])
+    rc, out = check(sys.argv[1], sys.argv[2], "--thumb" in sys.argv)
+    print(out)
+    sys.exit(rc)
+
 
 if __name__ == "__main__":
     main()
