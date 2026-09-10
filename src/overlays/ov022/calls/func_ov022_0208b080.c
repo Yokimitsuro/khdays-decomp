@@ -1,36 +1,3 @@
-/* NOT MATCHING -- 313 of 328 bytes, 76 of 82 instructions aligned.
- *
- * Exact size, exact instruction count and exact relocations. The prologue is
- * byte identical and so is everything from 0x98 on, including the whole
- * parameter block and the modulo-three phase. Six instructions differ, and only
- * by one register: the ROM puts the context's hit-list address in r1 and the
- * cone limit in r2, this source the other way round, and the three later
- * instructions that go through them inherit the swap.
- *
- * The cause is measured. On a minimal probe -- a call whose first argument is a
- * hoisted field read, plus two stores into a stack struct, one an address and
- * one a constant -- the rule is that the LATER of the two stores takes the
- * LOWER register. The ROM needs the hit list stored first and in the lower
- * register, which is the one combination that rule forbids, and the register
- * and the emitted store order are locked together through the source order.
- *
- * Confirmed from four independent directions: all 120 orderings of the five
- * query fills, the interleaving used by the matched sibling that calls the same
- * routine, dead stores singly and in pairs, and declaring the fields as a
- * nested sub-struct. In every arrangement the hit list reaches r1 only when its
- * store is emitted last. A scan of every matched ARM source for a
- * counterexample -- an address stored before a constant with the address in the
- * lower register -- returns zero hits in 15861 functions, so this compiler does
- * not emit the shape anywhere in the game.
- *
- * Also closed: Ghidra's exact field types, the hit array's element type, the
- * phase spelled four ways, the guard spelled four ways, the six declaration
- * orders, declaration initialisers, all six prologue orderings, and the call's
- * arguments and result through locals. Dropping the hoisted actor read does
- * give both the register and the store order, but costs the hoisted load and
- * lands at 324 bytes and 81 instructions, and the ROM has that hoist.
- */
-
 /* Ov022_StepPartStrike -- one frame of a slot part that is winding up a strike.
  *
  * The part's timer takes the frame. On the single frame the timer reads the
@@ -119,7 +86,7 @@ struct ActionParams {
 #define PART_STATE_DONE 4
 #define PHASE_COUNT 3
 
-extern int func_ov022_020a216c(void *pActor, int nField);
+extern int func_ov022_020a216c(void *pActor, int nField, int nActionLevel);
 extern void func_ov022_0208ac10(struct ReactionCtx *pCtx,
                                 struct ActionQuery *pQuery,
                                 struct ActionParams *pParams);
@@ -144,11 +111,12 @@ int func_ov022_0208b080(struct ReactionCtx *pCtx, struct SlotPart *pPart,
         query.vecDir.x = 0;
         query.nGroup = pPart->nGroup;
         query.nRadius = pOwner->nRadius;
+        query.nConeLimit = CONE_FULL;
         query.pHitIds = pCtx->aHitIds;
         query.nField28 = 0;
-        query.nConeLimit = CONE_FULL;
-        params.nField0c = pOwner->nField34;
-        params.nValue = func_ov022_020a216c(pActor, pOwner->nField2c);
+        params.nValue = func_ov022_020a216c(
+            pActor, pOwner->nField2c,
+            (params.nField0c = pOwner->nField34));
         params.nField08 = pOwner->nField30;
         params.vecField14 = pOwner->vecField38;
         params.nField20 = 0;
