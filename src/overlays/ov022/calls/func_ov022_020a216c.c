@@ -42,7 +42,7 @@ static inline int FxMul(int nValue, int nScale)
     return (int)(((s64)nValue * nScale + 0x800) >> 12);
 }
 
-int func_ov022_020a216c(struct Actor *pActor, int nScale)
+int func_ov022_020a216c(struct Actor *pActor, int nScale, int nActionLevel)
 {
     struct Record *pRec;
     int nValue;
