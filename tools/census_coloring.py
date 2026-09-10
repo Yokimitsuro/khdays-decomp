@@ -64,7 +64,10 @@ def analyse(case):
             {k: list(v)[0] for k, v in sorted(mapping.items()) if list(v)[0] != k})
 
 
-rank = json.load(open(os.path.join(ROOT, "build", "try", "rank.json")))
+RANK = os.path.join(ROOT, "build", "try", "rank.json")
+if not os.path.exists(RANK):
+    raise SystemExit("missing build/try/rank.json -- run tools/rank_parks.py first, it writes that file.")
+rank = json.load(open(RANK))
 cases = [(x[0], x[1], x[2]) for x in rank if os.path.exists(x[1])]
 print("parks a examinar:", len(cases))
 hits = []
