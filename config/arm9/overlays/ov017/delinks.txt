@@ -179,7 +179,7 @@ src/overlays/ov017/calls/func_ov017_02080dd0.c:
     complete
     .text       start:0x02080dd0 end:0x02080dfc
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080dfc.c:
+src/overlays/ov017/calls/func_ov017_02080dfc.c:
     complete
     .text       start:0x02080dfc end:0x02080e38
 
