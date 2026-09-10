@@ -261,17 +261,24 @@ def verify_section_range(cpath, module, section, start, index):
         return REFUSED, "unsupported initialized-DATA section " + section_name, {}
     with open(compiled(cpath), "rb") as stream:
         elf = ELFFile(stream)
-        emitted_section = elf.get_section_by_name(section_name)
-        if emitted_section is None or not emitted_section["sh_size"]:
+        emitted_sections = [
+            item for item in elf.iter_sections()
+            if item.name == section_name and item["sh_size"]
+        ]
+        if not emitted_sections:
             return DIFFERS, "%s emits no %s section" % (
                 os.path.basename(cpath), section_name), {}
-        for rel_name in (".rel" + section_name, ".rela" + section_name):
-            rel_section = elf.get_section_by_name(rel_name)
-            if rel_section is not None and rel_section.num_relocations():
+        for rel_section in elf.iter_sections():
+            if (rel_section.name in (".rel" + section_name, ".rela" + section_name)
+                    and rel_section.num_relocations()):
                 return REFUSED, (
                     "%s contains relocations; use named-symbol verification"
                     % section_name), {}
-        emitted = emitted_section.data()
+        emitted = b""
+        for item in emitted_sections:
+            if (start + len(emitted)) % max(1, item["sh_addralign"]):
+                return REFUSED, section_name + " requires inter-section alignment padding", {}
+            emitted += item.data()
     end = start + len(emitted)
     expected = [None] * len(emitted)
     covered_symbols = []
@@ -279,6 +286,10 @@ def verify_section_range(cpath, module, section, start, index):
         if entry.get("module") != module or entry.get("section") != section_name[1:]:
             continue
         addr = entry.get("addr")
+        if addr is None:
+            # Delinks may retain only a suffixed alias; its configured address
+            # still identifies the original bytes without inventing an index entry.
+            addr = SYM_ADDR.get(name)
         raw = bytes.fromhex(entry.get("hex", ""))
         item_end = addr + len(raw) if addr is not None else None
         if addr is None or item_end <= start or addr >= end:

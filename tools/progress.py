@@ -61,7 +61,7 @@ def compute_byte_progress():
         # bodies until 2026-07-24.)
         if audit_progress.source_category(Path(path)) != "c_decompiled_matched":
             continue
-        c_names.add(os.path.basename(path)[:-2])  # strip .c
+        c_names.add(Path(path).stem)
 
     total_bytes = 0
     c_bytes = 0
