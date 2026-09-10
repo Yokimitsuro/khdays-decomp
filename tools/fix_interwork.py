@@ -178,7 +178,10 @@ def main():
     modules, fn2sym, any2addr, any2mod = load_config()
 
     objs_txt = os.path.join(ROOT, "build/objects.txt")
-    objects = [ln.strip() for ln in open(objs_txt) if ln.strip()]
+    # dsd writes build/objects.txt with each path wrapped in double quotes.
+    # open() fails on a quoted path and the bare except below swallows it, so
+    # without this strip every object is skipped and the pass reports all zeros.
+    objects = [ln.strip().strip('"') for ln in open(objs_txt) if ln.strip()]
 
     # Load module images lazily
     images = {}
