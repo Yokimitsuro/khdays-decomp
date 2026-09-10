@@ -1,51 +1,3 @@
-/* NOT MATCHING -- 665 of 704 bytes, 172 of 176 instructions aligned.
- *
- * Exact size, exact instruction count and exact relocations. Four instructions
- * differ, and only in which of two registers holds which value: the ROM makes
- * the hit-list address in r1 and the cone constant in r2 and stores them in
- * that order, this source has them the other way round, and the two
- * instructions after them inherit the swap.
- *
- * The cause is measured from several directions.
- *
- * Of two independent short-lived values filling a stack structure, the one
- * written later in the source takes the lower register; that never broke in any
- * measurement. Their emission and store order follow the source when anything
- * precedes the pair in its basic block, and reverse when the pair leads it.
- * Position beats kind: leading the block gives the forward direction whatever
- * the values are, while mid-block the forward direction needs the higher-offset
- * value to be a load from memory -- an address or a constant there always comes
- * out backward. This window is mid-block, six instructions in, with nothing
- * branching into it, and its higher-offset value is an address computed from
- * the context, which the layout forces: the context holds no pointer to its own
- * hit array, only the array itself at 0x5c.
- *
- * The two halves are also mutually exclusive by position. Writing the pair
- * early gives the ROM's order and the low register, but the stores then follow
- * at once and the second value reuses the first's register. Writing it late
- * defers the stores and forces two live registers, which is exactly where the
- * direction runs backward.
- *
- * Enumerated, not argued: all 408 arrangements of the five fills crossed with
- * every position of the fifth, inside the block or anywhere in the parameter
- * block. Exactly one reproduces the ROM's pair, and it scores 625 because it
- * moves the group's load behind the pair. Filtering on the whole register
- * triple the ROM uses gives zero arrangements. Hill climbs, free and
- * constrained, with and without the block copies in the pool, all terminate
- * here.
- *
- * Also closed: pointer and union views, nested sub-structs, splitting the
- * structure into two locals, aggregate initialisers, compound literals, the
- * comma operator, duplicate and dead stores, every type and signedness and
- * const combination, fourteen compiler pragmas including register_coloring,
- * volatile on either field, the C++ lane, inline helpers, hoisting either value
- * into a local, a second use of the value, and nested scopes.
- *
- * Across the whole ROM the shape appears in nine ARM functions, none matched;
- * the cheapest place to learn the spelling is the 65-instruction routine
- * duplicated across ov046, ov065, ov084 and ov101.
- */
-
 /* Ov022_MovePartTo -- move a slot part to a point along a direction.
  *
  * When the owner wants it, the part first casts the move: the probe carries
@@ -161,7 +113,8 @@ extern int func_ov022_0208aa28(struct ReactionCtx *pCtx,
 extern int func_ov022_0208acc4(int nState, int nKind);
 extern void func_ov022_0208a50c(struct ReactionCtx *pCtx,
                                 struct SlotPart *pPart, int nReaction);
-extern int func_ov022_020a216c(void *pActor, int nField);
+extern int func_ov022_020a216c(void *pActor, int nField,
+                               int nActionLevel);
 extern int func_ov022_0208ac10(struct ReactionCtx *pCtx,
                                struct ActionQuery *pQuery,
                                struct ActionParams *pParams);
@@ -203,11 +156,12 @@ void func_ov022_0208b400(struct ReactionCtx *pCtx, struct SlotPart *pPart,
     query.vecDir = *pDir;
     query.nGroup = pPart->nGroup;
     query.nRadius = pOwner->nSpawn;
-    query.pHitIds = pCtx->aHitIds;
     query.nConeLimit = CONE_FULL;
+    query.pHitIds = pCtx->aHitIds;
     query.nField28 = 0;
-    params.nField0c = pOwner->nField34;
-    params.nValue = func_ov022_020a216c(pActor, pOwner->nField2c);
+    params.nValue = func_ov022_020a216c(
+        pActor, pOwner->nField2c,
+        (params.nField0c = pOwner->nField34));
     params.nField08 = pOwner->nField30;
     params.vecField14 = pOwner->vecField38;
     params.nField20 = 0;
@@ -271,3 +225,4 @@ void func_ov022_0208b400(struct ReactionCtx *pCtx, struct SlotPart *pPart,
         func_ov022_0208a50c(pCtx, pPart, nReaction);
     }
 }
+
