@@ -10,7 +10,9 @@
 # Usage:  python dedupprop.py [--write]     (default is a dry run)
 import json, glob, os, re, subprocess, sys, collections
 
-ROOT = r"E:\KH 3582\decomp"
+import os as _os
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+ROOT = _ROOT
 WRITE = "--write" in sys.argv
 
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))

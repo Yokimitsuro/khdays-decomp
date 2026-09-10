@@ -6,10 +6,13 @@
    no tiene (mwcc reusa los flags en vez de volver a comparar). Confirmado en
    func_ov008_02077f1c y func_ov024_02084fac el 2026-07-18.
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import json, os, re, sys, glob
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
 
-ROOT = r"E:\KH 3582\decomp"
+ROOT = _ROOT
 IDX = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
 OPP = {"eq": "ne", "ne": "eq", "mi": "pl", "pl": "mi", "lt": "ge", "ge": "lt",

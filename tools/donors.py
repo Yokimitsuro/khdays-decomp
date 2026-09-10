@@ -6,9 +6,12 @@ calls: two copies of one routine in different overlays call the same shared
 helpers. Rank matched functions by how much of the pending function's external
 call set they reproduce. Usage: python build/try/donors.py ovNNN
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import json, os, re, sys
 
-ROOT = "E:/KH 3582/decomp"
+ROOT = _ROOT
 ov = sys.argv[1]
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
