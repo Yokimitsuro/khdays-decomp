@@ -8,6 +8,8 @@ Usage:  python tools/refresh_mismatches.py
 
 Writes: build/known_mismatches.txt (one path per line, relative to ROOT).
 """
+import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -16,6 +18,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import audit_progress  # noqa: E402
 import diff_objs  # noqa: E402
+
+
+def ninja_exe():
+    """ninja lives in the project venv's Scripts/ here, which is not on PATH."""
+    exe = shutil.which("ninja") or shutil.which("ninja", path=os.path.dirname(sys.executable))
+    if not exe:
+        raise SystemExit("ninja not found on PATH or beside " + sys.executable)
+    return exe
 
 
 def matched_c_files():
@@ -43,11 +53,12 @@ def main():
     )
     if r.returncode != 0:
         raise SystemExit("pass-1 configure failed")
-    r = subprocess.run(["ninja", "compile"], cwd=str(ROOT), env=env)
+    r = subprocess.run([ninja_exe(), "compile"], cwd=str(ROOT), env=env)
     if r.returncode != 0:
         raise SystemExit("pass-1 compile failed")
 
     mismatches = []
+    compared = skipped = 0
     for c_path in matched_c_files():
         rel_c = c_path.relative_to(ROOT).as_posix()
         # Compiled output layout matches base_path in objdiff.json:
@@ -55,11 +66,18 @@ def main():
         compiled = ROOT / "build" / c_path.relative_to(ROOT).with_suffix(".o")
         delinked = ROOT / "build" / "delinks" / c_path.relative_to(ROOT).with_suffix(".o")
         if not compiled.exists() or not delinked.exists():
+            skipped += 1
             continue
+        compared += 1
         ok, msg = diff_objs.compare(compiled, delinked)
         if not ok:
             mismatches.append((rel_c, msg))
 
+    # A file with no compiled or delinked object was not checked, and an unchecked file goes
+    # into the link as if it matched. Say so, and refuse to write a list built from nothing.
+    print(f"compared {compared} matched files, skipped {skipped} with no compiled/delinked object")
+    if compared == 0:
+        raise SystemExit("nothing was compared; not writing known_mismatches.txt")
     body = "\n".join(path for path, _msg in sorted(mismatches)) + "\n"
     out = ROOT / "build" / "known_mismatches.txt"
     out.parent.mkdir(exist_ok=True)

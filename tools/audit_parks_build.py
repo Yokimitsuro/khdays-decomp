@@ -22,12 +22,13 @@ import re
 import subprocess
 import sys
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODE = re.compile(r'kind:function\((arm|thumb)')
 
 
 def mode_of(name):
     """Look the function's instruction set up in the symbol tables, if it is there."""
-    for root, _dirs, files in os.walk('config'):
+    for root, _dirs, files in os.walk(os.path.join(ROOT, 'config')):
         for f in files:
             if f != 'symbols.txt':
                 continue
@@ -47,7 +48,7 @@ def mode_of(name):
 def main():
     verbose = '--verbose' in sys.argv
     parked = []
-    for root, _dirs, files in os.walk('src'):
+    for root, _dirs, files in os.walk(os.path.join(ROOT, 'src')):
         if 'nonmatching' not in root:
             continue
         for f in files:
@@ -59,7 +60,7 @@ def main():
         name = os.path.basename(path)[:-2]
         # try both modes: an ARM-only attempt on a THUMB function reports a size gap,
         # not a compile error, so either result proves the file builds
-        args = ['python', 'tools/verify_idx.py', path, name]
+        args = [sys.executable, os.path.join(ROOT, 'tools', 'verify_idx.py'), path, name]
         result = subprocess.run(args, capture_output=True, text=True)
         out = result.stdout + result.stderr
         if 'compilacion fallo' in out or 'Errors caused tool to abort' in out:
@@ -77,6 +78,8 @@ def main():
         if verbose:
             print('ok     %s' % path.replace(os.sep, '/'))
 
+    if not parked:
+        raise SystemExit('no nonmatching/ files found under ' + os.path.join(ROOT, 'src'))
     print('%d parked files, %d that do not compile' % (len(parked), len(broken)))
     return 1 if broken else 0
 
