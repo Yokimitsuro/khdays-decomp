@@ -1,55 +1,63 @@
 #!/usr/bin/env python3
-"""Imprime los datos de una funcion para un agente decompilador.
-   Prioridad: calls.json / candidates.json (curadas, disasm con simbolos) ->
-   func_index.json (cualquier funcion del juego)."""
-import json, sys, os
+"""Print what a decompiler needs for one function: mode, disassembly, relocations,
+   where the .c goes and the exact verify command.
+
+       python tools/getcand.py <func_name>
+
+   Source of truth is build/func_index.json: hex + relocs + mode + module for every
+   function, finished or not. The curated build/calls.json / build/candidates.json
+   lists this tool used to prefer are no longer produced (they were derived from
+   asm/, which the dsd delinks replaced) and carried nothing the index does not.
+
+   Output format is parsed by dispgen.py, dispdec.py and reloc_canon.py: keep the
+   `disasm:` line and the `+0x<off> -> <sym>` reloc lines stable.
+"""
+import json, os, sys
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-name = sys.argv[1]
+INDEX = os.path.join(ROOT, "build", "func_index.json")
 
-def load(p):
-    fp = os.path.join(ROOT, "build", p)
-    return json.load(open(fp)) if os.path.exists(fp) else {}
-calls = {c["name"]: c for c in load("calls.json")} if isinstance(load("calls.json"), list) else {}
-cands = {c["name"]: c for c in load("candidates.json")} if isinstance(load("candidates.json"), list) else {}
-index = load("func_index.json")
 
-def disasm(hexs, mode):
-    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB if mode == "thumb" else CS_MODE_ARM)
-    return " ; ".join(i.mnemonic + " " + i.op_str for i in md.disasm(bytes.fromhex(hexs), 0))
+def src_dir(module, kind):
+    """main/itcm functions live flat under src/<kind>/, overlays under src/overlays/ovNNN/<kind>/."""
+    if module.startswith("ov"):
+        return "src/overlays/%s/%s" % (module, kind)
+    return "src/%s" % kind
 
-if name in calls:
-    c = calls[name]; thumb = " --thumb" if c["mode"] == "thumb" else ""
-    print("name:", name); print("mode:", c["mode"]); print("kind: HAS CALLS (reloc-aware)")
-    print("disasm:", c["asm"]); print("callees:", c["callees"])
-    print("write_to: E:/KH 3582/decomp/src/calls/%s.c" % name)
-    print('verify_cmd: python "E:/KH 3582/decomp/tools/match.py" "E:/KH 3582/decomp/src/calls/%s.c" --obj "%s" --func %s%s'
-          % (name, c["delink"].replace("\\", "/"), name, thumb))
-elif name in cands:
-    c = cands[name]; thumb = " --thumb" if c["mode"] == "thumb" else ""
-    print("name:", name); print("mode:", c["mode"]); print("kind: reloc-free")
-    print("disasm:", disasm(c["hex"], c["mode"]))
-    print("write_to: E:/KH 3582/decomp/src/auto/%s.c" % name)
-    print('verify_cmd: python "E:/KH 3582/decomp/tools/match.py" "E:/KH 3582/decomp/src/auto/%s.c" %s%s'
-          % (name, c["hex"], thumb))
-elif name in index:
-    d = index[name]; thumb = " --thumb" if d["mode"] == "thumb" else ""
-    has_calls = bool(d["relocs"])
-    kind = "calls" if has_calls else "auto"
-    print("name:", name); print("mode:", d["mode"])
-    print("kind:", "HAS CALLS (reloc-aware)" if has_calls else "reloc-free")
-    print("disasm:", disasm(d["hex"], d["mode"]))
-    if has_calls:
+
+def main():
+    if len(sys.argv) != 2:
+        raise SystemExit(__doc__)
+    name = sys.argv[1]
+    if not os.path.exists(INDEX):
+        raise SystemExit("missing build/func_index.json -- produce it with tools/rebuild_index.py --write")
+    d = json.load(open(INDEX)).get(name)
+    if d is None:
+        raise SystemExit("not in build/func_index.json: " + name)
+    thumb = d["mode"] == "thumb"
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB if thumb else CS_MODE_ARM)
+    disasm = " ; ".join(i.mnemonic + " " + i.op_str for i in md.disasm(bytes.fromhex(d["hex"]), 0))
+    if not disasm:
+        disasm = "(capstone decoded nothing as %s -- the mode recorded in the index is suspect)" % d["mode"]
+    kind = "calls" if d["relocs"] else "auto"
+    cpath = "%s/%s.c" % (src_dir(d["module"], kind), name)
+    py = os.path.relpath(sys.executable, ROOT).replace(os.sep, "/")
+    print("name:", name)
+    print("mode:", d["mode"])
+    print("module:", d["module"])
+    print("size:", d["size"])
+    print("kind:", "HAS CALLS (reloc-aware)" if d["relocs"] else "reloc-free")
+    print("disasm:", disasm)
+    if d["relocs"]:
         print("relocations (offset -> symbol, i.e. your callees/data refs):")
         for off, sym in d["relocs"]:
             print("    +0x%x -> %s" % (off, sym))
         print("callees:", sorted(set(s for _, s in d["relocs"])))
-        print("write_to: E:/KH 3582/decomp/src/calls/%s.c" % name)
-        print('verify_cmd: python "E:/KH 3582/decomp/tools/match.py" "E:/KH 3582/decomp/src/calls/%s.c" --obj "%s" --func %s%s'
-              % (name, os.path.join(ROOT, "build", "delinks", d["module"] + ".o").replace("\\", "/"), name, thumb))
-    else:
-        print("write_to: E:/KH 3582/decomp/src/auto/%s.c" % name)
-        print('verify_cmd: python "E:/KH 3582/decomp/tools/match.py" "E:/KH 3582/decomp/src/auto/%s.c" %s%s'
-              % (name, d["hex"], thumb))
-else:
-    print("desconocida:", name)
+    print("write_to:", cpath)
+    print('verify_cmd: %s tools/verify_idx.py "%s" %s%s'
+          % (py, cpath, name, " --thumb" if thumb else ""))
+
+
+if __name__ == "__main__":
+    main()

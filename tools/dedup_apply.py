@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Para cada funcion ya decompilada, genera el .c de sus DUPLICADAS idenitcas
    (mismo codigo+relocs, otro nombre) y lo verifica byte-exacto. Aceleracion gratis."""
-import json, os, glob, re, subprocess
+import json, os, glob, re, subprocess, sys
 from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+raise SystemExit("dedup_apply.py is superseded by tools/dedupprop.py: this one only scans the flat src/auto "
+                 "and src/calls directories, so on the per-overlay tree it reports 0 new functions while "
+                 "doing nothing, and it writes into src/ unconditionally. Run dedupprop.py (dry run by "
+                 "default, --write to apply).")
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
 # grupos de identicas
@@ -24,9 +28,9 @@ def verify(name, cf, kind):
     d = idx[name]
     if d["relocs"]:
         delink = os.path.join(ROOT, "build", "delinks", d["module"] + ".o")
-        a = ["python", os.path.join(ROOT, "tools", "match.py"), cf, "--obj", delink, "--func", name]
+        a = [sys.executable, os.path.join(ROOT, "tools", "match.py"), cf, "--obj", delink, "--func", name]
     else:
-        a = ["python", os.path.join(ROOT, "tools", "match.py"), cf, d["hex"]]
+        a = [sys.executable, os.path.join(ROOT, "tools", "match.py"), cf, d["hex"]]
     return ">>> MATCH <<<" in subprocess.run(a, capture_output=True, text=True).stdout
 
 done = done_set()

@@ -19,6 +19,9 @@ if not AS or not os.path.exists(AS):
     AS = c[0] if c else "arm-none-eabi-as"
 MWCC = os.path.join(ROOT, "tools", "mwccarm", "3.0_patch4", "mwccarm.exe")
 LIC  = os.path.join(ROOT, "tools", "mwccarm", "license.dat")
+if not os.path.isdir(ASM):
+    raise SystemExit("asm/ does not exist: this harness assembled the pre-dsd .s files and is superseded "
+                     "by the ninja build (tools/configure.py, then ninja build/arm9.elf).")
 os.makedirs(OBJ, exist_ok=True)
 verbose = "--verbose" in sys.argv
 

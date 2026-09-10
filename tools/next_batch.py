@@ -12,7 +12,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 N = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 18
 verbose = "-v" in sys.argv
 
-calls = json.load(open(os.path.join(ROOT, "build", "calls.json")))
+CALLS = os.path.join(ROOT, "build", "calls.json")
+if not os.path.exists(CALLS):
+    raise SystemExit("missing build/calls.json: tools/find_calls.py produced it from asm/, which no longer "
+                     "exists, and this tool only knows the flat src/calls/ layout. Nothing feeds it any more; "
+                     "build/func_index.json is the function list now (tools/getcand.py shows one).")
+calls = json.load(open(CALLS))
 done = set(os.path.splitext(f)[0] for f in os.listdir(os.path.join(ROOT, "src", "calls"))
            if f.endswith(".c"))
 done.add("func_020036a0")  # hand-asm wrapper, saltada
