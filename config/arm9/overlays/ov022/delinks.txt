@@ -1639,6 +1639,7 @@ src/overlays/ov022/calls/func_ov022_020942f0.c:
 src/overlays/ov022/calls/func_ov022_0209441c.c:
     complete
     .text       start:0x0209441c end:0x020944ec
+    .rodata     start:0x020b2520 end:0x020b2538
 
 src/overlays/ov022/calls/func_ov022_020944ec.c:
     complete

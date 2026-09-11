@@ -22,12 +22,12 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **17,797** / ~23,238 (~76.6% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **2,449,618** / 4,728,802 (~51.80% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
-| Inline ASM / ASM stub matched functions | **1,644** / ~23,238 (~7.1%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
-| SDK/library byte-match identifications | **158** / ~23,238 (~0.7%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **3,639** / ~23,238 (~15.7%) | Functions known to the project but not implemented as C |
-| Initialized DATA | **115,386** / 188,336 (**61.27%**) | Byte/relocation-verified `.rodata`/`.data`; includes the separately reported MobiClip executable payload at 26,012/26,012 bytes. |
+| Real C-decompiled matched functions | **17,797** / ~23,237 (~76.6% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **2,449,618** / 4,728,790 (~51.80% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
+| Inline ASM / ASM stub matched functions | **1,644** / ~23,237 (~7.1%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
+| SDK/library byte-match identifications | **158** / ~23,237 (~0.7%) | NitroSDK or library functions identified separately by byte matching |
+| Named but not decompiled | **3,638** / ~23,237 (~15.7%) | Functions known to the project but not implemented as C |
+| Initialized DATA | **115,410** / 188,336 (**61.28%**) | Byte/relocation-verified `.rodata`/`.data`; includes the separately reported MobiClip executable payload at 26,012/26,012 bytes. |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
 | Compiler | CodeWarrior `mwccarm` 3.0 build 139 | Fully-decompiled modules now include `ov031`, `ov188` and `ov189`; see `PROGRESS.md` for the complete generated list. A few precompiled-middleware translation units (e.g. the `ov028` anti-tamper crypto core) build with an older `mwccarm` via a per-file compiler override (`config/arm9/file_compilers.json`). |

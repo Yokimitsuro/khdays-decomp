@@ -768,8 +768,8 @@ data_ov022_020b2424 kind:data(any) addr:0x020b2424
 data_ov022_020b24e4 kind:data(any) addr:0x020b24e4
 data_ov022_020b24fc kind:data(any) addr:0x020b24fc
 data_ov022_020b2510 kind:data(any) addr:0x020b2510
-data_ov022_020b2520 kind:data(any) addr:0x020b2520
-data_ov022_020b252c kind:data(any) addr:0x020b252c
+data_ov022_020b2520 kind:data(word[3]) addr:0x020b2520
+data_ov022_020b252c kind:data(word[3]) addr:0x020b252c
 data_ov022_020b25a8 kind:data(any) addr:0x020b25a8
 data_ov022_020b25b4 kind:data(any) addr:0x020b25b4
 data_ov022_020b25c4 kind:data(any) addr:0x020b25c4
