@@ -82,6 +82,14 @@ for attempt in range(8):
     if r.returncode == 0:
         sys.stdout.write(r.stdout)
         sys.stderr.write(r.stderr)
+        # mwcc emits one section per global and orders them by its own rule,
+        # while the delinks claim one contiguous range per source in address
+        # order. Put the data sections back in ROM order so the link lays the
+        # file down where the claim says (issue #6). A no-op for objects with
+        # at most one named data global.
+        sys.path.insert(0, str(ROOT / "tools"))
+        from reorder_data_sections import reorder
+        reorder(out_path)
         sys.exit(0)
     time.sleep(0.25 * (attempt + 1))
 
