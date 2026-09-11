@@ -3,6 +3,10 @@
     .data       start:0x020bfa00 end:0x020bfa20 kind:data align:32
     .bss        start:0x020bfa20 end:0x020c0680 kind:bss align:32
 
+src/overlays/ov105/calls/func_ov105_020bcc20.c:
+    complete
+    .text       start:0x020bcc20 end:0x020bcc4c
+
 src/overlays/ov105/calls/func_ov105_020bce30.c:
     complete
     .text       start:0x020bce30 end:0x020bcea0
@@ -95,6 +99,10 @@ src/overlays/ov105/calls/func_ov105_020be850.c:
     complete
     .text       start:0x020be850 end:0x020be880
 
+src/overlays/ov105/calls/func_ov105_020be880.c:
+    complete
+    .text       start:0x020be880 end:0x020be8b0
+
 src/overlays/ov105/calls/func_ov105_020be8b0.c:
     complete
     .text       start:0x020be8b0 end:0x020be8d8
@@ -122,6 +130,10 @@ src/overlays/ov105/calls/func_ov105_020becc4.c:
 src/overlays/ov105/calls/func_ov105_020bef44.c:
     complete
     .text       start:0x020bef44 end:0x020bef74
+
+src/overlays/ov105/calls/func_ov105_020bef74.c:
+    complete
+    .text       start:0x020bef74 end:0x020befa8
 
 src/overlays/ov105/calls/func_ov105_020befe0.c:
     complete
