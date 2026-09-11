@@ -42,14 +42,19 @@ out_path = Path(sys.argv[1])
 src_path = Path(sys.argv[2])
 rel = src_path.resolve().relative_to(ROOT).as_posix()
 
-# Look up thumb/arm mode per-source-file from the sidecar map that
-# gen_delinks.py produces.
-modes_path = ROOT / "build" / "file_modes.json"
-extra = []
-if modes_path.exists():
-    modes = load_json_retry(modes_path)
-    if modes.get(rel) == "thumb":
-        extra.append("-thumb")
+# Thumb/ARM mode. configure.py puts -thumb straight on the ninja command line
+# for the files that need it, so the common path reads nothing from disk. It
+# used to load build/file_modes.json here -- a 20,000-entry map parsed once per
+# translation unit, to look up a single key. The map is still the fallback for
+# anyone invoking this script by hand.
+mode = sys.argv[3] if len(sys.argv) > 3 else None
+if mode in ("arm", "thumb"):
+    extra = ["-thumb"] if mode == "thumb" else []
+else:
+    # No token: someone ran this by hand. Fall back to the map.
+    modes_path = ROOT / "build" / "file_modes.json"
+    extra = ["-thumb"] if (modes_path.exists()
+                           and load_json_retry(modes_path).get(rel) == "thumb") else []
 
 # Per-file compiler override: a few translation units are precompiled middleware
 # built with an older CodeWarrior (e.g. the ov028 anti-tamper crypto core, which

@@ -315,15 +315,17 @@ def main():
     out.extend(merge_file_blocks(blocks + data_blocks))
     write_text_retry(delinks_txt, "\n".join(out).rstrip() + "\n")
 
-    # Merge into the shared file_modes.json (configure.py reads it to know
-    # which files need -thumb).
-    modes_path = ROOT / "build" / "file_modes.json"
-    all_modes = {}
-    if modes_path.exists():
-        all_modes = json.loads(modes_path.read_text(encoding="utf-8"))
-    all_modes.update(file_modes)
-    modes_path.parent.mkdir(exist_ok=True)
-    write_text_retry(modes_path, json.dumps(all_modes, indent=2, sort_keys=True))
+    # Write THIS module's modes to its own fragment; configure.py merges all
+    # 306 once, in module order, into build/file_modes.json.
+    #
+    # This used to read the shared file_modes.json, merge into it, and write it
+    # back. That is what forced the 306 module runs to be serial -- two at once
+    # lose each other's entries -- and it also made every run reparse and
+    # reserialize a map that grows to 20,000 entries, so the last module paid
+    # 306x the cost of the first.
+    frag = ROOT / "build" / "file_modes.d" / (unit_of(module_dir) + ".json")
+    frag.parent.mkdir(parents=True, exist_ok=True)
+    write_text_retry(frag, json.dumps(file_modes, indent=2, sort_keys=True))
 
     print(
         f"{delinks_txt.relative_to(ROOT)}: "

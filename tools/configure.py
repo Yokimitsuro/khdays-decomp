@@ -9,6 +9,9 @@ Prototype scope: build ov000 (only module with a populated delinks.txt) using
 Regenerate delinks.txt for ov000, run `dsd delink` + `dsd lcf`, and finally
 emit build.ninja.
 """
+import concurrent.futures as cf
+import json
+import os
 import re
 import shutil
 import subprocess
@@ -67,6 +70,16 @@ def discover_modules():
 MODULES = discover_modules()
 
 
+def unit_of(module_dir):
+    """config/arm9 -> main, config/arm9/itcm -> itcm, .../overlays/ov006 -> ov006.
+
+    Must agree with the same function in gen_delinks.py: it names the modes
+    fragment each module writes.
+    """
+    rel = module_dir.relative_to(ROOT / "config" / "arm9")
+    return "main" if rel == Path(".") else rel.parts[-1]
+
+
 def files_from_delinks(delinks_txt: Path):
     """Return the list of source-file paths declared in delinks.txt FILES."""
     out = []
@@ -104,7 +117,7 @@ def source_rule(source):
     raise ValueError(f"unsupported reconstructed source type: {source}")
 
 
-def emit_ninja(ninja_path: Path, src_files):
+def emit_ninja(ninja_path: Path, src_files, modes=None):
     """Write build.ninja with compile + link rules for the prototype scope.
 
     All paths are relative to ROOT so ninja (invoked from ROOT) doesn't have
@@ -117,10 +130,12 @@ def emit_ninja(ninja_path: Path, src_files):
         f"python = {py}",
         "",
         "rule mwcc",
-        # file_modes.json flips a file between ARM and THUMB — recompile when it
-        # changes so an old .o built without -thumb doesn't shadow the correct
-        # THUMB output.
-        "  command = $python tools/_run_mwcc.py $out $in",
+        # $mode carries -thumb for the files that need it. It used to come from
+        # build/file_modes.json, declared as an implicit dep on every compile
+        # edge -- so adding one function rewrote that file and invalidated all
+        # 20,000 objects. On the command line instead, ninja's own hash
+        # rebuilds exactly the file whose mode changed.
+        "  command = $python tools/_run_mwcc.py $out $in $mode",
         "  description = MWCC $in",
         "  restat = 1",
         "",
@@ -138,7 +153,7 @@ def emit_ninja(ninja_path: Path, src_files):
     ]
 
     compiled_objs = []
-    modes_dep = rel(BUILD / "file_modes.json")
+    modes = modes or {}
     compilers_dep = rel(BUILD / "file_compilers.json")
     for src in src_files:
         # Match objdiff.json's expected base_path layout.
@@ -146,12 +161,17 @@ def emit_ninja(ninja_path: Path, src_files):
         obj_path.parent.mkdir(parents=True, exist_ok=True)
         obj = rel(obj_path)
         compiled_objs.append(obj)
-        # Implicit deps on file_modes.json (arm <-> thumb flips) and
-        # file_compilers.json (per-file compiler-version overrides) so either
-        # change invalidates any cached .o for this file.
+        # file_compilers.json stays an implicit dep: it is a handful of
+        # entries and only changes when a translation unit moves to another
+        # compiler version, so invalidating everything is the right answer.
         rule = source_rule(src)
         if rule == "mwcc":
-            lines.append(f"build {obj}: mwcc {src} | {modes_dep} {compilers_dep}")
+            lines.append(f"build {obj}: mwcc {src} | {compilers_dep}")
+            # ALWAYS emit a token. An empty $mode expands to a trailing space,
+            # which CreateProcess and Python's argv parser both drop, so the
+            # script would see argv of length 3 and fall back to the JSON --
+            # silently undoing this for every ARM edge.
+            lines.append("  mode = %s" % modes.get(src.replace("\\", "/"), "arm"))
         else:
             lines.append(f"build {obj}: armasm {src}")
 
@@ -223,6 +243,15 @@ def add_absolute_symbols(lcf_path):
     print("[configure] added %d absolute symbol(s) to the LCF" % len(missing))
 
 
+def write_if_changed(path: Path, text: str) -> bool:
+    """Write only when the content differs; return whether it did."""
+    if path.is_file() and path.read_text(encoding="utf-8") == text:
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline=chr(10))
+    return True
+
+
 def run(*cmd, cwd=None):
     # Fallo fantasma (2026-07-18/19): gen_delinks.py sale con rc=1 y stdout Y stderr VACIOS, en
     # un overlay distinto cada vez y sin patron. Lanzado a mano justo despues, el mismo comando
@@ -263,10 +292,31 @@ def main():
     if skip_delinks:
         print("[configure] preserving existing delinks.txt files (--skip-delinks)")
     else:
-        for module_dir in MODULES:
-            rel = module_dir.relative_to(ROOT)
-            print(f"[configure] regen delinks.txt for {rel}")
-            run(sys.executable, str(ROOT / "tools" / "gen_delinks.py"), str(module_dir))
+        # 306 independent processes, each writing only its own module's
+        # delinks.txt and its own modes fragment. This loop was serial and was
+        # most of configure's wall time; nothing about the work required it.
+        gen = str(ROOT / "tools" / "gen_delinks.py")
+        workers = min(len(MODULES), (os.cpu_count() or 4))
+        print(f"[configure] regen delinks.txt for {len(MODULES)} modules "
+              f"({workers} at a time)")
+        with cf.ThreadPoolExecutor(max_workers=workers) as pool:
+            # list() so the first failure propagates instead of being dropped.
+            list(pool.map(lambda d: run(sys.executable, gen, str(d)), MODULES))
+
+    # Merge the per-module modes fragments. Order matters: the old serial code
+    # let a later module overwrite an earlier one's entry, so merge in MODULES
+    # order to keep the same winner.
+    frag_dir = BUILD / "file_modes.d"
+    frags = [frag_dir / (unit_of(m) + ".json") for m in MODULES]
+    if any(f.exists() for f in frags):
+        all_modes = {}
+        for f in frags:
+            if f.exists():
+                all_modes.update(json.loads(f.read_text(encoding="utf-8")))
+        write_if_changed(BUILD / "file_modes.json",
+                         json.dumps(all_modes, indent=2, sort_keys=True))
+        print(f"[configure] file_modes.json: {len(all_modes)} entries "
+              f"from {len(frags)} modules")
 
     print("[configure] dsd delink")
     run(str(DSD), "delink", "--config-path",
@@ -287,7 +337,11 @@ def main():
     src_files = sorted(set(src_files))
     print(f"[configure] {len(src_files)} matched source files to compile")
 
-    emit_ninja(ROOT / "build.ninja", src_files)
+    modes_now = {}
+    mp = BUILD / "file_modes.json"
+    if mp.is_file():
+        modes_now = json.loads(mp.read_text(encoding="utf-8"))
+    emit_ninja(ROOT / "build.ninja", src_files, modes_now)
     print("[configure] wrote build.ninja")
 
 
