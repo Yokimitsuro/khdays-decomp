@@ -6,6 +6,10 @@
        python tools/verify_idx.py <c> <func_name> [--thumb]
 """
 import sys, os, json
+try:
+    sys.stdout.reconfigure(errors="replace")  # Windows console (cp1252) can't encode ROM-derived text; never let output encoding crash a verification run
+except Exception:
+    pass
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from match import compile_c, text_relocs, func_section
 
