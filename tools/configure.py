@@ -198,6 +198,13 @@ def emit_ninja(ninja_path: Path, src_files):
 ABSOLUTE_SYMBOLS = {
     # The inter-processor lock word at the top of main RAM.
     "data_027ffff0": 0x027FFFF0,
+    # Second names for two ov002 tables. The ROM's literal pools hold each address
+    # twice, and mwcc emits two pool entries only for two distinct symbols, so the
+    # matching sources reference the table under two names; the data source
+    # defines the primary one and nothing else can define the alias. Both are
+    # declared in config/arm9/overlays/ov002/symbols.txt at the same address.
+    "data_ov002_0207e9f4_default": 0x0207E9F4,
+    "data_ov002_0207ef80_offsets": 0x0207EF80,
 }
 
 
