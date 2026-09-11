@@ -146,36 +146,74 @@ def unit_of(module_dir):
     return rel.parts[-1]
 
 
-def gen_data_block(unit, root=ROOT):
+DATA_LINE_RE = re.compile(r"^\s+\.(rodata|data|ctor)\s+start:0x([0-9a-f]+)\s+end:0x([0-9a-f]+)")
+
+
+def committed_data_claims(delinks_txt, root=ROOT):
+    """Data section lines already present in the committed delinks.txt, per source.
+
+    Receipts live under build/, which is git-ignored, so a fresh clone or a CI
+    runner has none; without this the generator silently rewrote every module's
+    delinks.txt with its data claims stripped (issue #6). A claim is kept only
+    while its source file still exists.
+    """
+    claims = {}
+    if not Path(delinks_txt).is_file():
+        return claims
+    current = None
+    for line in Path(delinks_txt).read_text(encoding="utf-8").splitlines():
+        head = re.match(r"^(\S+\.(?:c|cpp|s)):\s*$", line)
+        if head:
+            current = head.group(1)
+            continue
+        m = DATA_LINE_RE.match(line)
+        if m and current and (Path(root) / current).is_file():
+            claims.setdefault(current, []).append(
+                (m.group(1), int(m.group(2), 16), int(m.group(3), 16))
+            )
+    return claims
+
+
+def gen_data_block(unit, root=ROOT, committed_delinks=None):
     """FILE entries for reconstructed initialized DATA that the verifier has proved.
 
-    A range only enters the build on the strength of a receipt written by
+    A range enters the build on the strength of a receipt written by
     tools/verify_data.py or tools/verify_executable_data.py, and the receipt is
-    re-checked against the source digest
-    here so an edited file drops back out instead of poisoning the link. Ranges are
-    merged per section: dsd places one section image at the declared start, so a
-    source must own a contiguous run and define its symbols in address order.
+    re-checked against the source digest here so an edited file drops back out
+    instead of poisoning the link. A source that has NO receipt at all, stale or
+    otherwise, keeps whatever data lines the committed delinks.txt already gave
+    it: that is the state of a fresh clone, and the linked-module gate catches a
+    wrong claim downstream. Ranges are merged per section: dsd places one section
+    image at the declared start, so a source must own a contiguous run and define
+    its symbols in address order.
     """
     root = Path(root)
     receipts_dir = root / "build" / "data_receipts"
-    if not receipts_dir.is_dir():
-        return [], {}, 0
 
     by_source = {}
-    for path in sorted(receipts_dir.glob("*.json")):
-        receipt = json.loads(path.read_text(encoding="utf-8"))
-        if receipt.get("module") != unit or receipt.get("start") is None:
-            continue
-        source = root / receipt.get("source", "")
-        if not source.is_file():
-            continue
-        digest = hashlib.sha256(source.read_bytes()).hexdigest()
-        if digest != receipt.get("source_sha256"):
-            continue
-        key = receipt["source"]
-        by_source.setdefault(key, []).append(
-            (receipt["section"], receipt["start"], receipt["end"])
-        )
+    receipted = set()
+    if receipts_dir.is_dir():
+        for path in sorted(receipts_dir.glob("*.json")):
+            receipt = json.loads(path.read_text(encoding="utf-8"))
+            if receipt.get("module") != unit or receipt.get("start") is None:
+                continue
+            source = root / receipt.get("source", "")
+            if not source.is_file():
+                continue
+            receipted.add(receipt["source"])
+            digest = hashlib.sha256(source.read_bytes()).hexdigest()
+            if digest != receipt.get("source_sha256"):
+                continue
+            key = receipt["source"]
+            by_source.setdefault(key, []).append(
+                (receipt["section"], receipt["start"], receipt["end"])
+            )
+    if committed_delinks is not None:
+        for source, spans in committed_data_claims(committed_delinks, root).items():
+            if source not in receipted and source not in by_source:
+                by_source[source] = list(spans)
+    if not by_source:
+        return [], {}, 0
 
     blocks = []
     modes = {}
@@ -261,7 +299,7 @@ def main():
     symbols = load_symbols(symbols_txt)
     src_by_name = index_sources()
     blocks, matched, gap, file_modes = gen_files_block(symbols, src_by_name)
-    data_blocks, data_modes, data_ranges = gen_data_block(unit_of(module_dir))
+    data_blocks, data_modes, data_ranges = gen_data_block(unit_of(module_dir), committed_delinks=delinks_txt)
     file_modes.update(data_modes)
 
     out = ["\n".join(header), ""]
