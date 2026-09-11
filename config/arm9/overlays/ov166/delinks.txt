@@ -172,7 +172,7 @@ src/overlays/ov166/calls/func_ov166_020ce174.c:
     complete
     .text       start:0x020ce174 end:0x020ce1a8
 
-src/overlays/ov166/asm_stubs/calls/func_ov166_020ce1a8.c:
+src/overlays/ov166/calls/func_ov166_020ce1a8.c:
     complete
     .text       start:0x020ce1a8 end:0x020ce308
 
