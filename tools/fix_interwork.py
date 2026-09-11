@@ -109,12 +109,15 @@ def module_base(module):
 
 
 def module_bins(module):
+    # The extract keeps the main binary and the autoloads under dsd_extract/arm9/,
+    # not at the top of dsd_extract/. With the old top-level paths every main,
+    # itcm and dtcm call site was skipped in silence (get_module stored None).
     if module == "main":
         return (os.path.join(ROOT, "build/build/arm9.bin"),
-                os.path.join(ROOT, "dsd_extract/arm9.bin"))
+                os.path.join(ROOT, "dsd_extract/arm9/arm9.bin"))
     if module in ("itcm", "dtcm"):
         return (os.path.join(ROOT, f"build/build/{module}.bin"),
-                os.path.join(ROOT, f"dsd_extract/{module}.bin"))
+                os.path.join(ROOT, f"dsd_extract/arm9/{module}.bin"))
     return (os.path.join(ROOT, f"build/build/arm9_{module}.bin"),
             os.path.join(ROOT, f"dsd_extract/arm9_overlays/{module}.bin"))
 
@@ -178,7 +181,11 @@ def main():
     modules, fn2sym, any2addr, any2mod = load_config()
 
     objs_txt = os.path.join(ROOT, "build/objects.txt")
-    objects = [ln.strip() for ln in open(objs_txt) if ln.strip()]
+    # Some dsd versions write each path wrapped in double quotes; strip them so
+    # the object list survives either spelling.
+    objects = [ln.strip().strip('"') for ln in open(objs_txt, encoding="utf-8")
+               if ln.strip()]
+    unreadable = []
 
     # Load module images lazily
     images = {}
@@ -204,7 +211,11 @@ def main():
     for op in objects:
         try:
             e = ELFFile(open(op, "rb"))
-        except Exception:
+        except Exception as ex:
+            # An object that cannot be read is a failure to report, not one to
+            # skip in silence: the summary lists them and the exit code follows,
+            # so an all-zero run can no longer pass for success.
+            unreadable.append((op, str(ex).splitlines()[0] if str(ex) else type(ex).__name__))
             continue
         pathmod = module_of_object(op)
         opn = op.replace("\\", "/")
@@ -363,9 +374,17 @@ def main():
 
     print(f"\nTOTAL: ok={grand['ok']} patched={grand['patched']} "
           f"mismatches={grand['mismatch']} not-call={grand['skipped']} "
-          f"no-sym={grand['nosym']}")
+          f"no-sym={grand['nosym']} unreadable={len(unreadable)}")
+    if unreadable:
+        print(f"!! {len(unreadable)} object(s) listed in build/objects.txt could not be read:")
+        for op, why in unreadable[:20]:
+            print(f"   {op}: {why}")
+        if len(unreadable) > 20:
+            print(f"   ... and {len(unreadable) - 20} more")
     if not write and grand["patched"]:
         print("(dry-run: nothing written; re-run with --write)")
+    if unreadable:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
