@@ -24,6 +24,10 @@ src/overlays/ov256/calls/func_ov256_020ccce8.c:
     complete
     .text       start:0x020ccce8 end:0x020ccd54
 
+src/overlays/ov256/calls/func_ov256_020cd054.c:
+    complete
+    .text       start:0x020cd054 end:0x020cd0e8
+
 src/overlays/ov256/calls/func_ov256_020cd430.c:
     complete
     .text       start:0x020cd430 end:0x020cd740
@@ -156,6 +160,10 @@ src/overlays/ov256/calls/func_ov256_020d1068.c:
     complete
     .text       start:0x020d1068 end:0x020d108c
 
+src/overlays/ov256/calls/func_ov256_020d108c.c:
+    complete
+    .text       start:0x020d108c end:0x020d10b0
+
 src/overlays/ov256/calls/func_ov256_020d10b0.c:
     complete
     .text       start:0x020d10b0 end:0x020d10ec
@@ -183,6 +191,10 @@ src/overlays/ov256/calls/func_ov256_020d1564.c:
 src/overlays/ov256/calls/func_ov256_020d15c0.c:
     complete
     .text       start:0x020d15c0 end:0x020d166c
+
+src/overlays/ov256/calls/func_ov256_020d1900.c:
+    complete
+    .text       start:0x020d1900 end:0x020d1994
 
 src/overlays/ov256/calls/func_ov256_020d1ae8.c:
     complete
