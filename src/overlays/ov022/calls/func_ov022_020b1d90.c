@@ -13,6 +13,12 @@ typedef struct {
     int z;
 } VecFx32;
 
+/* Ov022ScreenPos: an fx32 screen position */
+struct ScreenPos {
+    int x;
+    int y;
+};
+
 #define SCREEN_Y_LIFT 8
 #define PROJECT_FAILED (-1)
 
@@ -24,7 +30,7 @@ extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern void func_01ff8d18(VecFx32 *pSrc, VecFx32 *pDst);   /* VEC_Normalize */
 extern int VEC_DotProduct(VecFx32 *pA, VecFx32 *pB);
 
-int func_ov022_020b1d90(VecFx32 *pWorld, VecFx32 *pScreen)
+int func_ov022_020b1d90(VecFx32 *pWorld, struct ScreenPos *pScreen)
 {
     VecFx32 vecToPoint;
     VecFx32 vecView;
