@@ -8,6 +8,14 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_ov062_0x020b5a20.c:
     complete
     .text       start:0x020b5a20 end:0x020b5a34
 
+src/overlays/ov062/calls/func_ov062_020b5a34.c:
+    complete
+    .text       start:0x020b5a34 end:0x020b5a64
+
+src/overlays/ov062/calls/func_ov062_020b5a64.c:
+    complete
+    .text       start:0x020b5a64 end:0x020b5a90
+
 src/overlays/ov062/calls/func_ov062_020b5d1c.c:
     complete
     .text       start:0x020b5d1c end:0x020b5d44
@@ -35,6 +43,10 @@ src/overlays/ov062/calls/func_ov062_020b7320.c:
 src/overlays/ov062/calls/func_ov062_020b7344.c:
     complete
     .text       start:0x020b7344 end:0x020b7360
+
+src/overlays/ov062/calls/func_ov062_020b78f8.c:
+    complete
+    .text       start:0x020b78f8 end:0x020b7920
 
 src/overlays/ov062/calls/func_ov062_020b7a74.c:
     complete
