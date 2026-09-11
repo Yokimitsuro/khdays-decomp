@@ -2585,7 +2585,7 @@ src/overlays/ov022/calls/func_ov022_020b1554.c:
     complete
     .text       start:0x020b1554 end:0x020b15a4
 
-src/calls/WM_EndKeySharing_0x020b15a4.c:
+src/overlays/ov022/calls/WM_EndKeySharing_0x020b15a4.c:
     complete
     .text       start:0x020b15a4 end:0x020b15b0
 

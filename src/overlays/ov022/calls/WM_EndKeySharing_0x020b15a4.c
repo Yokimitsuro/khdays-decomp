@@ -2,7 +2,8 @@
  * the single pooled target. Proven shape (families.md's veneer vein); 83 siblings already match.
  *
  * The name is misattributed: the SDK identifier matched a SHAPE, not a function. This is called
- * WM_EndKeySharing_0x020b15a4 but tail-calls func_ov022_020b1290. Trust the bytes, not the name. */
+ * WM_EndKeySharing_0x020b15a4 but tail-calls func_ov022_020b1290 (Ov022_VeneerTo_func_ov022_020b1290 in Ghidra). It belongs to ov022,
+ * not NitroSDK; retain the historical linkage symbol until a coordinated symbol rename. */
 extern void *func_ov022_020b1290();
 
 void *WM_EndKeySharing_0x020b15a4() {
