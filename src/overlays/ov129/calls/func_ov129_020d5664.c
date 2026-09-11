@@ -65,7 +65,7 @@ extern const char data_ov129_020d6e0c[];
 extern const VecFx32 data_02041dc8;
 extern const VecFx32 data_02042264;
 
-void func_ov129_020cbfc4(int *self)
+void func_ov129_020d5664(int *self)
 {
     struct SpawnVolume req;
     int aOwnerTag[1] = { 0 };

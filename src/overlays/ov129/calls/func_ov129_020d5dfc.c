@@ -36,7 +36,7 @@ extern void func_ov107_020c5af8(char *actor, int nId, u8 nMode, void *pAt);
 /* Four bytes: the loud pair at 0, the quiet pair at 2. */
 extern const u8 data_ov129_020d6de4[];
 
-int func_ov129_020cc75c(char *actor, int nSource, struct HitMsg *msg)
+int func_ov129_020d5dfc(char *actor, int nSource, struct HitMsg *msg)
 {
     struct HitState *hs;
     int nLeft;

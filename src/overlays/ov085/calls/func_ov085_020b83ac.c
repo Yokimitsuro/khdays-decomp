@@ -29,7 +29,7 @@ extern int func_ov022_02095600(char *obj);
 extern void func_ov022_020a3c78(char *self, int a, int b, int c);
 extern void func_ov022_020a384c(char *self, int nState);
 
-void func_ov085_020b34cc(char *self, int nState)
+void func_ov085_020b83ac(char *self, int nState)
 {
     char *blk = self + 0xc50 + 0x2000;
     int nFlag = -1;

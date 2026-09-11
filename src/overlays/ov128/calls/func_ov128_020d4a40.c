@@ -10,7 +10,7 @@ extern void func_ov107_020c9264(int a, int b, int c);
 extern void func_0203c634(int *self, int idx, void *cb);
 extern void func_ov128_020d4acc(void);
 
-void func_ov128_020cd1c0(int *self)
+void func_ov128_020d4a40(int *self)
 {
     int *node = (int *)self[1];
     int sum;

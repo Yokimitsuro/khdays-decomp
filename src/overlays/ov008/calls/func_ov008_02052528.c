@@ -62,7 +62,7 @@ extern int  func_ov008_02051b5c(Ov008TallyEntry *groups);
 extern void func_ov008_02051df8(Ov008PanelView *self, int id, unsigned int qtyA,
                                 unsigned int qtyB, int flag);
 
-int func_ov000_020573e4(Ov008PanelView *self, Ov008TallyEntry *groups, int panelIndex,
+int func_ov008_02052528(Ov008PanelView *self, Ov008TallyEntry *groups, int panelIndex,
                         int *flagsOut) {
     int off;
     int j;

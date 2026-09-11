@@ -53,7 +53,7 @@ extern void func_ov022_02091298(void *pSub, char *self, void *pDesc,
 extern void func_ov066_020b6398(void);
 extern int data_ov066_020b6b54;
 
-void func_ov066_020b3a3c(char *self)
+void func_ov066_020b623c(char *self)
 {
     struct PanelSubCfg cfg[2];
 

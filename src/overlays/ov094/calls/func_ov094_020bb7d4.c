@@ -9,7 +9,7 @@ extern void func_02014dc4(void *p, int handle);
 extern void func_0202accc(void *p, u16 idx, int a, short b);
 extern void func_01fff774(void *p, u16 idx, int a);
 
-void func_ov094_020b4234(int self, int *block, int mode)
+void func_ov094_020bb7d4(int self, int *block, int mode)
 {
     int i;
 

@@ -61,7 +61,7 @@ extern int data_ov066_020b6a2c;
 extern int data_ov066_020b6a1c;
 extern int data_ov066_020b6a0c;
 
-void func_ov066_020b327c(struct PanelInitConfig *config)
+void func_ov066_020b5a7c(struct PanelInitConfig *config)
 {
     struct Ov044OpenParams params;
     char *object = (char *)NNSi_FndGetCurrentRootHeap();

@@ -49,7 +49,7 @@ extern void func_ov022_020b1cec(void *block, int size);
 extern struct Ov047Descriptor data_ov085_020b91fc;
 extern struct Ov047Descriptor data_ov085_020b920c;
 
-u8 func_ov085_020b37dc(struct Ov047Runtime *self)
+u8 func_ov085_020b86bc(struct Ov047Runtime *self)
 {
     struct Ov047BuildBlock *block = &self->buildBlock22f8;
 

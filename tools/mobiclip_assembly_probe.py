@@ -88,7 +88,6 @@ def render_one_data_region(payload: bytes, start: int, end: int) -> list[str]:
                 lines.append(
                     f"    .word MobiClip_Code_{target:08X} - .{suffix}"
                 )
-        lines.append(f"    .size {symbol}, . - {symbol}")
         return lines
     if semantic is not None:
         name, data = semantic
@@ -100,7 +99,6 @@ def render_one_data_region(payload: bytes, start: int, end: int) -> list[str]:
             f"    .type {name}, %object",
             f"{name}:",
             *byte_directives(data),
-            f"    .size {name}, . - {name}",
         ]
     raise ValueError(f"unclassified embedded DATA region {start:#x}..{end:#x}")
 

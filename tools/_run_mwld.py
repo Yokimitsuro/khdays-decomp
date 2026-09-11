@@ -23,7 +23,10 @@ rsp = sys.argv[3]
 # instead of a glob avoids double-defining symbols.
 canonical = ROOT / "build" / "objects.txt"
 if canonical.exists():
-    raw = [ln.strip() for ln in canonical.read_text().splitlines() if ln.strip()]
+    # Some dsd versions wrap each path in double quotes; strip them here as
+    # fix_interwork.py does, since both read the same file.
+    raw = [ln.strip().strip('"') for ln in canonical.read_text(encoding="utf-8").splitlines()
+           if ln.strip()]
 else:
     raw = Path(rsp).read_text().split()
 

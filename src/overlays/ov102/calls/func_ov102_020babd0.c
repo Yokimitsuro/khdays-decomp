@@ -15,7 +15,7 @@ extern void func_ov022_02091474(int a);
 extern int func_ov022_020912d8(int a);
 extern void func_ov022_020ad588(char *self);
 
-void func_ov102_020b3630(char *self)
+void func_ov102_020babd0(char *self)
 {
     func_ov022_0209145c(*(int *)(self + 0x2644), func_ov022_02083f90());
     func_ov022_02091474(*(int *)(self + 0x2644));

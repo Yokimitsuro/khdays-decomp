@@ -17,7 +17,7 @@ extern int *func_01fffd70(void *list);
 extern int *func_01fffd8c(void *list);
 extern void func_ov002_02073094(char *actor, int nId, int a, int b);
 
-void func_ov129_020cc3ec(struct Node *node)
+void func_ov129_020d5a8c(struct Node *node)
 {
     struct State *st;
     int *pEntry;

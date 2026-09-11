@@ -20,7 +20,7 @@ typedef struct { int a, b, c; } Blk3;
 struct NodeFacing { unsigned char facing : 1; };
 struct HitFlags { unsigned int lo : 16, hi : 16; };
 
-int func_ov142_020cc71c(int this, int a1, int a2)
+int func_ov142_020d035c(int this, int a1, int a2)
 {
     int s = (int)*(short *)(this + 0x21a);
     int *p4 = *(int **)(this + 0x214);

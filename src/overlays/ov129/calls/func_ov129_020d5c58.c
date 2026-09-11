@@ -29,7 +29,7 @@ extern long long func_01ff8a14(int nNum, int nDen);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *pOut);
 extern int func_020050b4(int nX, int nZ);
 
-void func_ov129_020cc5b8(struct SpinState *pState)
+void func_ov129_020d5c58(struct SpinState *pState)
 {
     struct ChaseNode *nd;
     VecFx32 vToTarget;
