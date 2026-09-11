@@ -20,6 +20,11 @@ import os
 import re
 import sys
 
+try:
+    sys.stdout.reconfigure(errors="replace")  # Windows console (cp1252) can't encode e.g. U+26A0; never let output encoding crash a run
+except Exception:
+    pass
+
 from capstone import CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB, Cs
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -55,6 +60,11 @@ def main():
     mode, addr = sym_info(name)
     thumb = mode == "thumb"
     md = Cs(CS_ARCH_ARM, CS_MODE_THUMB if thumb else CS_MODE_ARM)
+    md.skipdata = True  # a literal pool word embedded mid-function is not a valid
+    # instruction; without this capstone's disasm() silently STOPS at the first one
+    # instead of skipping it, truncating the listing for any function with an
+    # interleaved (not just trailing) pool -- found 2026-09-11 on a 4724-byte function
+    # where the listing quietly cut off after 480 bytes with no error or warning.
     rel = {o: s for o, s in e["relocs"]}
     code = bytes.fromhex(e["hex"])
     if addr is None:
