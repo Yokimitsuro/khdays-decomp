@@ -39,6 +39,11 @@ SYM_RE = re.compile(
     r"\s+addr:0x([0-9a-fA-F]+)"
 )
 ANY_SYM_RE = re.compile(r"(\S+)\s+kind:\S+\s+addr:0x([0-9a-fA-F]+)")
+# A label carries a mode but no size: the compiler's own runtime calls land on
+# `_ll_udiv kind:label(arm)`, an alias of the divide entry, and delinked gap
+# objects call `.L_*` labels inside routines. Both are call targets whose mode
+# is known, so they are checked like functions instead of being skipped.
+LABEL_RE = re.compile(r"(\S+)\s+kind:label\((arm|thumb)\)\s+addr:0x([0-9a-fA-F]+)")
 
 R_ARM_PC24 = 1
 R_ARM_ABS32 = 2
@@ -62,6 +67,10 @@ def load_config():
                 size, addr = int(m.group(3), 16), int(m.group(4), 16)
                 syms.append((addr, size, name, mode))
                 fn2sym[name] = (addr, mode)
+            else:
+                ml = LABEL_RE.match(ln)
+                if ml:
+                    fn2sym[ml.group(1)] = (int(ml.group(3), 16), ml.group(2))
             m2 = ANY_SYM_RE.match(ln)
             if m2:
                 any2addr[m2.group(1)] = int(m2.group(2), 16)
