@@ -1,5 +1,5 @@
-/* Ov022_StepDownedState -- one step of state 0x1b, the actor lying on the
- * ground after a heavy hit.
+/* Ov022_StepAnchorReadyState -- one step of state 9: the actor held at
+ * its ground point, ready to anchor.
  *
  * The local player raises flags2 bit 10; flag bit 26 is raised. When the
  * contact the actor rests on has a piece element its velocity moves the ground
@@ -9,7 +9,7 @@
  * and the node turned to the facing (once, animation flag 0x20). The post
  * hook decides whether the state is over (pre hook 6 when it is). Past
  * anim frame 6.0 with the animation not held and button 0x40 down the actor
- * gets up into state 10. Otherwise it is locked by button 2, by a pending
+ * anchors (state 10). Otherwise it is locked by button 2, by a pending
  * action, by a contact within 2.75 units of the body centre, or by another
  * actor above it within one unit and in front (dot <= 0.5): a locked actor
  * is nudged backwards by 1/16 and put into state 2. A state change clears
@@ -42,7 +42,7 @@ struct Vec3 {
 #define NUDGE_SCALE 0x100
 #define ANGLE_HALF 0x8000
 #define STATE_STAGGER 2
-#define STATE_GET_UP 10
+#define STATE_ANCHORED 10
 #define PRE_DRAW_OVER 6
 
 struct Actor;
@@ -150,7 +150,7 @@ int func_ov022_020a8354(struct Actor *pActor)
     struct Vec3 vecFrom;
     int nRet;
     int bLocked;
-    int bGetUp;
+    int bAnchor;
     int i;
     struct Ground *pGround;
     struct Node *pNode;
@@ -163,7 +163,7 @@ int func_ov022_020a8354(struct Actor *pActor)
 
     nRet = 0;
     bLocked = 0;
-    bGetUp = 0;
+    bAnchor = 0;
     pGround = &pActor->ground;
     if (func_02030788() == 0) {
         pActor->nFlags2 |= FLAG2_BIT10;
@@ -197,8 +197,8 @@ int func_ov022_020a8354(struct Actor *pActor)
     }
     if (pActor->nAnimFrame > GET_UP_FRAME && (pActor->pNode->nAnimFlags & ANIM_FLAG_HELD) == 0
         && (pActor->nButtons2 & BUTTON_GET_UP) != 0) {
-        nRet = func_ov022_020a35f4(pActor, STATE_GET_UP);
-        bGetUp = 1;
+        nRet = func_ov022_020a35f4(pActor, STATE_ANCHORED);
+        bAnchor = 1;
     } else {
         if ((pActor->nButtons & BUTTON_2) == BUTTON_2) {
             bLocked = 1;
@@ -254,7 +254,7 @@ int func_ov022_020a8354(struct Actor *pActor)
         }
     }
     if (nRet != 0) {
-        if (!bGetUp) {
+        if (!bAnchor) {
             pActor->nFlags2 &= ~FLAG2_BIT23;
         }
         pActor->ground.nStepScratch = 0;
