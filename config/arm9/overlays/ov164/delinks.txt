@@ -120,7 +120,7 @@ src/overlays/ov164/calls/func_ov164_020d1194.c:
     complete
     .text       start:0x020d1194 end:0x020d1218
 
-src/overlays/ov164/asm_stubs/calls/func_ov164_020d1218.c:
+src/overlays/ov164/calls/func_ov164_020d1218.c:
     complete
     .text       start:0x020d1218 end:0x020d1404
 
