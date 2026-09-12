@@ -144,6 +144,10 @@ src/overlays/ov273/calls/func_ov273_020d5464.c:
     complete
     .text       start:0x020d5464 end:0x020d54a4
 
+src/overlays/ov273/calls/func_ov273_020d54a4.c:
+    complete
+    .text       start:0x020d54a4 end:0x020d54e4
+
 src/overlays/ov273/auto/func_ov273_020d54e4.c:
     complete
     .text       start:0x020d54e4 end:0x020d5548
