@@ -77,17 +77,36 @@ def files_from_delinks(delinks_txt: Path):
     return out
 
 
-def stage_delinked_objects(link_dir: Path):
-    """Copy every `.o` from build/delinks/ into build/link/ with a flat name.
+def stage_delinked_objects(link_dir: Path, compiled_names=()):
+    """Copy the `.o` files from build/delinks/ into build/link/ with flat names.
 
     dsd lcf references bare object names (no path), so mwldarm needs to find
     them via -L. Flattening avoids per-file -L flags.
+
+    A delink whose source we compile is NOT staged. Both copies carry the same
+    bare name, both were handed to mwld, and the LCF asks for that bare name --
+    so which one supplied a function came down to input order, and nothing in
+    the build recorded a choice. Every function claimed as decompiled had a
+    same-named object holding the original bytes sitting next to it in the link.
+    Staging only the delinks nothing compiles removes the ambiguity instead of
+    relying on the ordering.
     """
+    compiled_names = set(compiled_names)
+    for stale in compiled_names:
+        f = link_dir / stale
+        if f.exists():
+            f.unlink()
+    skipped = 0
     for src in (BUILD / "delinks").rglob("*.o"):
+        if src.name in compiled_names:
+            skipped += 1
+            continue
         dst = link_dir / src.name
         if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
             continue
         shutil.copyfile(src, dst)
+    if skipped:
+        print(f"[configure] staged delinks, skipped {skipped} superseded by compiled C")
 
 
 def rel(p):
@@ -282,9 +301,6 @@ def main():
         str(ROOT / "config" / "arm9" / "config.yaml"))
     add_absolute_symbols(BUILD / "arm9.lcf")
 
-    print("[configure] stage delinked .o files into build/link/")
-    stage_delinked_objects(LINK)
-
     src_files = []
     for module_dir in MODULES:
         src_files.extend(files_from_delinks(module_dir / "delinks.txt"))
@@ -292,6 +308,9 @@ def main():
     # scans (shouldn't with our layout, but be safe).
     src_files = sorted(set(src_files))
     print(f"[configure] {len(src_files)} matched source files to compile")
+
+    print("[configure] stage delinked .o files into build/link/")
+    stage_delinked_objects(LINK, {Path(s).with_suffix(".o").name for s in src_files})
 
     emit_ninja(ROOT / "build.ninja", src_files)
     print("[configure] wrote build.ninja")
