@@ -130,7 +130,7 @@ def _verified_local_data_relocs(o_path, original_relocs, mine_relocs, addends, m
                 if (symbol["st_info"]["bind"] == "STB_LOCAL"
                         and isinstance(section_index, int)):
                     section = elf.get_section(section_index)
-                    if section is not None and section.name in (".rodata", ".data", ".ctor"):
+                    if section is not None and section.name in (".rodata", ".data", ".ctor", ".bss"):
                         local = (symbol, section)
                         break
             if local is None:
@@ -154,6 +154,20 @@ def _verified_local_data_relocs(o_path, original_relocs, mine_relocs, addends, m
                 relocation_section = elf.get_section_by_name(".rel" + section_name)
             if relocation_section is not None and relocation_section.num_relocations():
                 return set(), ""
+            if section_name == ".bss":
+                # A source that defines its module's zero-initialised globals: mwcc
+                # addresses them off the section symbol (ov011, 2026-09-12). There
+                # are no bytes to compare; the placement is pinned by the GLOBAL
+                # symbol the object puts at .bss+0, whose symbols.txt address must be
+                # the inferred base (tools/verify_bss.py receipts the range).
+                bss_index = next(i for i, sec in enumerate(elf.iter_sections()) if sec.name == ".bss")
+                anchors = [sym.name for sym in symtab.iter_symbols()
+                           if sym["st_shndx"] == bss_index and sym["st_info"]["bind"] == "STB_GLOBAL"
+                           and int(sym["st_value"]) == 0 and sym.name]
+                if not any(SYM_ADDR.get(name) == base for name in anchors):
+                    return set(), ""
+                notes.append(".bss @0x%08x (%s)" % (base, "/".join(anchors)))
+                continue
 
             expected = [None] * len(emitted)
             for entry in data_index.values():

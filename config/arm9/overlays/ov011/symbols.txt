@@ -57,4 +57,5 @@ data_ov011_0205e904 kind:data(any) addr:0x0205e904
 data_ov011_0205e91c kind:data(any) addr:0x0205e91c
 data_ov011_0205e930 kind:data(any) addr:0x0205e930
 data_ov011_0205e938 kind:data(any) addr:0x0205e938
-data_ov011_0205e960 kind:bss addr:0x0205e960
+data_ov011_0205e960 kind:bss(size=0x4) addr:0x0205e960
+data_ov011_0205e964 kind:bss(size=0x4) addr:0x0205e964

@@ -104,6 +104,12 @@ for attempt in range(8):
         sys.path.insert(0, str(ROOT / "tools"))
         from reorder_data_sections import reorder
         reorder(out_path)
+        # A function file that DEFINES its module's zero-initialised globals to
+        # reproduce the ROM's .bss-relative code (ov011) hands the definitions
+        # back to the module's delinked bss object; see tools/share_bss.py.
+        from share_bss import share, wants_sharing
+        if wants_sharing(src_path):
+            share(out_path)
         sys.exit(0)
     time.sleep(0.25 * (attempt + 1))
 

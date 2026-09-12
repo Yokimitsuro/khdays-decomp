@@ -146,7 +146,7 @@ def unit_of(module_dir):
     return rel.parts[-1]
 
 
-DATA_LINE_RE = re.compile(r"^\s+\.(rodata|data|ctor)\s+start:0x([0-9a-f]+)\s+end:0x([0-9a-f]+)")
+DATA_LINE_RE = re.compile(r"^\s+\.(rodata|data|ctor|bss)\s+start:0x([0-9a-f]+)\s+end:0x([0-9a-f]+)")
 
 
 def committed_data_claims(delinks_txt, root=ROOT):
@@ -178,7 +178,10 @@ def gen_data_block(unit, root=ROOT, committed_delinks=None):
     """FILE entries for reconstructed initialized DATA that the verifier has proved.
 
     A range enters the build on the strength of a receipt written by
-    tools/verify_data.py or tools/verify_executable_data.py, and the receipt is
+    tools/verify_data.py, tools/verify_executable_data.py or tools/verify_bss.py
+    (a source that DEFINES its module's zero-initialised globals, which mwcc then
+    addresses section-relative -- the only spelling that reproduces some ROM
+    schedules, see ov011), and the receipt is
     re-checked against the source digest here so an edited file drops back out
     instead of poisoning the link. A source that has NO receipt at all, stale or
     otherwise, keeps whatever data lines the committed delinks.txt already gave
