@@ -1997,6 +1997,10 @@ src/overlays/ov008/calls/func_ov008_0206369c.c:
     complete
     .text       start:0x0206369c end:0x02063790
 
+src/overlays/ov008/calls/func_ov008_020641cc.c:
+    complete
+    .text       start:0x020641cc end:0x020642a8
+
 src/overlays/ov008/calls/func_ov008_02065540.c:
     complete
     .text       start:0x02065540 end:0x02065584
@@ -3765,6 +3769,10 @@ src/overlays/ov008/calls/func_ov008_02082d98.c:
     complete
     .text       start:0x02082d98 end:0x02082df0
 
+src/overlays/ov008/calls/func_ov008_02082df0.c:
+    complete
+    .text       start:0x02082df0 end:0x02082ecc
+
 src/overlays/ov008/calls/func_ov008_02082ecc.c:
     complete
     .text       start:0x02082ecc end:0x02082f2c
@@ -3940,6 +3948,10 @@ src/overlays/ov008/calls/func_ov008_02089d44.c:
 src/overlays/ov008/auto/func_ov008_02089da8.c:
     complete
     .text       start:0x02089da8 end:0x02089dc4
+
+src/overlays/ov008/calls/func_ov008_02089dc4.c:
+    complete
+    .text       start:0x02089dc4 end:0x02089e94
 
 src/overlays/ov008/auto/func_ov008_0208a058.c:
     complete

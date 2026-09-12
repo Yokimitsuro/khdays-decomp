@@ -18,14 +18,14 @@ typedef struct Ov008ItemStack {
     int           nCount;
 } Ov008ItemStack;
 
-typedef struct Ov008ParamRecord {                  /* synthesis recipe */
+typedef struct Ov008RecipeRecord {                  /* synthesis recipe */
     int               pad_0000;
     u32               nUnlockBit;     /* 0x04 */
     int               nPrice;         /* 0x08 */
     Ov008ItemDef     *pItemDef;       /* 0x0c: product */
     int               nCount;         /* 0x10 */
     Ov008ItemStack    aIngredient[INGREDIENT_COUNT]; /* 0x14 */
-} Ov008ParamRecord;
+} Ov008RecipeRecord;
 
 typedef struct GameState {
     u8 pad_0000[0x810];
@@ -37,7 +37,7 @@ extern GameState *data_0204be18;
 extern void func_020235a8(int nFlag);              /* GameState_SetFlag */
 extern void func_02025640(u8 *pBits, u32 nBit);     /* BitArray_SetBit */
 
-void func_ov008_0208b2c8(Ov008ParamRecord *pRecipe)
+void func_ov008_0208b2c8(Ov008RecipeRecord *pRecipe)
 {
     int i;
 

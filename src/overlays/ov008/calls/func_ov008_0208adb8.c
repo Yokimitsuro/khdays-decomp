@@ -21,16 +21,16 @@ typedef struct Ov008ItemStack {
     int           nCount;
 } Ov008ItemStack;
 
-typedef struct Ov008ParamRecord {
+typedef struct Ov008RecipeRecord {
     u8              pad_00[0xc];
     Ov008ItemDef   *pItemDef;         /* 0x0c: product */
     int             nCount;           /* 0x10 */
     Ov008ItemStack  aIngredient[4];   /* 0x14 */
-} Ov008ParamRecord;
+} Ov008RecipeRecord;
 
 typedef struct Ov008ParamTable {
     u8                pad_00[0x1c];
-    Ov008ParamRecord *pRecipes;       /* 0x1c */
+    Ov008RecipeRecord *pRecipes;       /* 0x1c */
 } Ov008ParamTable;
 
 extern Ov008ParamTable *data_ov008_02090fb0;
@@ -39,7 +39,7 @@ extern int func_ov008_0208acac(int nItemId);                             /* item
 
 int func_ov008_0208adb8(int nCategory, int nIndex)
 {
-    Ov008ParamRecord *pRecipe;
+    Ov008RecipeRecord *pRecipe;
     int bListed;
     int bIngredients;
     int bCategory;
