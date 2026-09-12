@@ -4,6 +4,14 @@
     .data       start:0x020b8aa0 end:0x020b8b60 kind:data align:32
     .bss        start:0x020b8b60 end:0x020b8b80 kind:bss align:32
 
+src/overlays/ov106/calls/func_ov106_020b75c0.c:
+    complete
+    .text       start:0x020b75c0 end:0x020b75e4
+
+src/overlays/ov106/calls/func_ov106_020b7728.c:
+    complete
+    .text       start:0x020b7728 end:0x020b7758
+
 src/overlays/ov106/calls/func_ov106_020b7758.c:
     complete
     .text       start:0x020b7758 end:0x020b7792
@@ -11,6 +19,10 @@ src/overlays/ov106/calls/func_ov106_020b7758.c:
 src/overlays/ov106/calls/func_ov106_020b7794.c:
     complete
     .text       start:0x020b7794 end:0x020b77b4
+
+src/overlays/ov106/calls/func_ov106_020b8108.c:
+    complete
+    .text       start:0x020b8108 end:0x020b8130
 
 src/overlays/ov106/calls/func_ov106_020b8130.c:
     complete
