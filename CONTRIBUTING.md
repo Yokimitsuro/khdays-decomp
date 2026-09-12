@@ -41,9 +41,26 @@ Functions are grouped by **module/overlay** (`ov000`, `ov030`, ...). To avoid
 duplicated effort, **claim a module before you start**:
 
 1. Check [PROGRESS.md](PROGRESS.md) for a module that is not finished.
-2. Open or comment on a GitHub issue titled e.g. `Claim: ov030` and assign
-   yourself. Un-claim if you stop working on it.
-3. Work through that module's `func_*` functions and PR them.
+2. Claim it with a comment on the coordination issue
+   ([#1](https://github.com/Yokimitsuro/khdays-decomp/issues/1)), e.g.
+   `Claiming ov030`. Do not open a separate issue per claim. Say so if you
+   stop working on it.
+3. Work through **all** of that module's `func_*` functions and send them as
+   one PR.
+
+### Claim rules
+
+- **One claim per person at a time.** You hold one module.
+- **One PR per claim, and it is accepted only if it completes the claimed
+  module**: every function of the module as matching C (byte-exact under
+  `tools/verify_idx.py`), `delinks.txt` regenerated with
+  `tools/gen_delinks.py`. Partial batches are not merged; keep them on your
+  fork until the module is done.
+- **No new claim until the PR of your current claim is merged.** You can take
+  several modules over time, but one after the other: finish (or release) the
+  one you hold, then claim the next.
+- Tooling fixes go in separate PRs, one problem each, linked to the issue
+  they fix.
 
 Collisions are harmless: byte-exact verification means only matching code is
 merged, so nothing breaks if two people overlap. Claiming just saves wasted
@@ -160,7 +177,7 @@ broken in the extraction or build configuration.
 
 ## Decompiling a function
 
-1. **Claim it** first so nobody duplicates the work.
+1. **Claim its module** first (see [Claiming work](#claiming-work)) so nobody duplicates the work.
 2. Get its data and the verify command:
    ```sh
    python tools/getcand.py func_XXXXXXXX
