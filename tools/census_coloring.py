@@ -3,11 +3,14 @@
    y solo cambian los numeros de registro. Luego extrae la biyeccion ROM->mwcc de
    cada uno para buscar una regla.
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import json, os, re, sys, glob
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
-ROOT = r"E:\KH 3582\decomp"
+ROOT = _ROOT
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import _argprobe as P
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB

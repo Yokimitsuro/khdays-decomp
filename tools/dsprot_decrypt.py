@@ -4,11 +4,14 @@ Fuente del algoritmo: https://github.com/taxicat1/dsprot (rama 1.10), src/rc4.c 
 src/encryptor.c. Reimplementado aqui en Python para VERIFICAR que ov028 es DS Protect;
 no se copia codigo al repo.
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import sys
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM
 
 BASE = 0x0208a7e0                      # inicio de ov028 en memoria
-BIN  = r'E:\KH 3582\decomp\build\build\arm9_ov028.bin'
+BIN  = _os.path.join(_ROOT, 'build/build/arm9_ov028.bin')
 data = bytearray(open(BIN, 'rb').read())
 
 def w(off):

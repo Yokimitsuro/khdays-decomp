@@ -14,9 +14,12 @@ refuses any command line that mentions a function other than the locked one.
 Writes build/try/g_<dst_func>.c and prints the map plus a byte-difference
 summary of the two ROM bodies, so a tuning change shows up before compiling.
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import io, json, os, sys
 
-ROOT = "E:/KH 3582/decomp"
+ROOT = _ROOT
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 
 dst, sov_arg, disp = sys.argv[1], sys.argv[2], int(sys.argv[3], 16)

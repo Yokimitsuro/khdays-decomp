@@ -5,10 +5,13 @@ hole), so read the bytes from build/func_index.json instead and annotate each
 relocated word with the symbol it resolves to.
 Usage: python build/try/dis.py <name> [start] [count]
 """
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import json, os, sys
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
 
-ROOT = "E:/KH 3582/decomp"
+ROOT = _ROOT
 idx = json.load(open(os.path.join(ROOT, "build", "func_index.json")))
 name = sys.argv[1]
 start = int(sys.argv[2]) if len(sys.argv) > 2 else 0

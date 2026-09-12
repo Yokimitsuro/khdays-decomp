@@ -1,11 +1,14 @@
 """Parks a +-4 = una instruccion. En vez de adivinar el argumento que falta, ALINEA
    los dos streams y LEE la constante de la instruccion que solo tiene la ROM.
    (Adivinar 0/1/-1 falla en cuanto la constante es 0x14 -- pillado por autotest.)"""
+import os as _os
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_ROOT = _os.path.dirname(_HERE)
 import json, os, re, sys, glob, subprocess, difflib
 from concurrent.futures import ThreadPoolExecutor
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
 
-ROOT = r"E:\KH 3582\decomp"
+ROOT = _ROOT
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from match import text_relocs, FLAGS
 
