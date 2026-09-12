@@ -45,15 +45,35 @@ def compile_c(cpath, thumb=False):
         print(r.stdout, r.stderr); raise SystemExit("compilacion fallo")
     return o
 
-def text_relocs(o_path):
+def func_section(elf, name=None):
+    """Index of the .text section that holds function `name`, or None if there is none.
+
+    mwccarm emits EVERY function into its own section, and every one of them is
+    named `.text` with its own `.rela.text`. Reading "the" .text by name therefore
+    returns whichever came last, and merging the relocation sections by offset mixes
+    the functions' callees together -- silently, since the offsets overlap. Select
+    by symbol: the function's st_shndx is its section, and the relocation section
+    whose sh_info points at that index is the only one that applies to it. Without
+    a name the object must hold at most one .text, or we refuse to guess."""
+    if name is None:
+        idx = [i for i, s in enumerate(elf.iter_sections()) if s.name == ".text"]
+        if len(idx) > 1:
+            raise SystemExit("%d secciones .text en el objeto: hace falta el nombre de la funcion" % len(idx))
+        return idx[0] if idx else None
+    symtab = elf.get_section_by_name(".symtab")
+    for sym in symtab.get_symbol_by_name(name) or []:
+        if sym["st_info"]["type"] == "STT_FUNC" and isinstance(sym["st_shndx"], int):
+            return sym["st_shndx"]
+    raise SystemExit("simbolo no encontrado en el objeto: " + name)
+
+def text_relocs(o_path, name=None):
     elf = ELFFile(open(o_path, "rb"))
-    text = b""
-    for s in elf.iter_sections():
-        if s.name == ".text": text = s.data()
+    idx = func_section(elf, name)
+    text = elf.get_section(idx).data() if idx is not None else b""
     symtab = elf.get_section_by_name(".symtab")
     rel = {}
     for s in elf.iter_sections():
-        if s.name in (".rel.text", ".rela.text"):
+        if s.name in (".rel.text", ".rela.text") and s["sh_info"] == idx:
             for r in s.iter_relocations():
                 nm = symtab.get_symbol(r["r_info_sym"]).name
                 rel[r["r_offset"]] = (nm, r["r_info_type"])
