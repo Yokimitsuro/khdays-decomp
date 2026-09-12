@@ -2630,6 +2630,10 @@ src/overlays/ov022/auto/func_ov022_020b1078.c:
     complete
     .text       start:0x020b1078 end:0x020b10c8
 
+src/overlays/ov022/calls/func_ov022_020b10c8.c:
+    complete
+    .text       start:0x020b10c8 end:0x020b11e8
+
 src/overlays/ov022/calls/func_ov022_020b11e8.c:
     complete
     .text       start:0x020b11e8 end:0x020b1224
