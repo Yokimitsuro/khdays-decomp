@@ -2,7 +2,7 @@
  * (param table entries 3 and 4, 0x34-byte records) count the records that are
  * either already flagged (game flag 0x8db + 0x28 * list + index) or affordable
  * (price at +8 no more than the matching reward total from the game state) and
- * enabled (+0x20).  Writes one u16 count per list into aCount.
+ * still locked (+0x20 set by Ov008_BuildRewardList).  Writes one u16 count per list into aCount.
  *
  * `nFlagBase + (int)j`: with the unsigned j mwcc strength-reduces the flag id into
  * its own induction variable and spills the base; the signed add keeps the ROM's
@@ -21,7 +21,7 @@ typedef struct Ov008RewardRecord {
     u8  pad_00[8];
     u32 nPrice;               /* 0x08 */
     u8  pad_0c[0x20 - 0xc];
-    int bEnabled;             /* 0x20 */
+    int bLocked;              /* 0x20: 1 while the rank is too low or the item is unavailable */
     u8  pad_24[0x34 - 0x24];
 } Ov008RewardRecord;
 
@@ -60,7 +60,7 @@ void func_ov008_0208b6a8(u16 *aCount)
         for (j = 0; j < data_ov008_02090fb0->aCount[nList]; j++) {
             if (func_02023588(nFlagBase + (int)j) != 0
                 || (data_ov008_02090fb0->apRecords[nList][j].nPrice <= aTotal[i]
-                    && data_ov008_02090fb0->apRecords[nList][j].bEnabled != 0)) {
+                    && data_ov008_02090fb0->apRecords[nList][j].bLocked != 0)) {
                 aCount[i]++;
             }
         }

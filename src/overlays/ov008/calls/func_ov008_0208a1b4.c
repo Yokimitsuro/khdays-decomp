@@ -30,7 +30,7 @@ typedef struct Ov008RewardRecord {          /* 0x34, kind 3 (db 0x18 / 0x17 list
     int   nShopIndex;         /* 0x14 */
     void *pName;              /* 0x18 */
     void *pDescription;       /* 0x1c */
-    int   bEnabled;           /* 0x20 */
+    int   bLocked;            /* 0x20: 1 while the rank is too low or the item is unavailable */
     u8    pad_24[0x34 - 0x24];
 } Ov008RewardRecord;
 
