@@ -2410,9 +2410,17 @@ src/overlays/ov022/calls/func_ov022_020aa824.c:
     complete
     .text       start:0x020aa824 end:0x020aa8e8
 
+src/overlays/ov022/calls/func_ov022_020aac98.c:
+    complete
+    .text       start:0x020aac98 end:0x020aaea0
+
 src/overlays/ov022/auto/func_ov022_020ab350.c:
     complete
     .text       start:0x020ab350 end:0x020ab378
+
+src/overlays/ov022/calls/func_ov022_020ab378.c:
+    complete
+    .text       start:0x020ab378 end:0x020ab57c
 
 src/overlays/ov022/calls/func_ov022_020ab57c.c:
     complete
