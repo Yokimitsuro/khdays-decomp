@@ -52,6 +52,10 @@ src/overlays/ov279/calls/func_ov279_020d0d84.c:
     complete
     .text       start:0x020d0d84 end:0x020d0dec
 
+src/overlays/ov279/calls/func_ov279_020d0dec.c:
+    complete
+    .text       start:0x020d0dec end:0x020d0e64
+
 src/overlays/ov279/calls/func_ov279_020d0e64.c:
     complete
     .text       start:0x020d0e64 end:0x020d0f54
