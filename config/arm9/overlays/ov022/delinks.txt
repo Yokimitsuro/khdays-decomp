@@ -2430,6 +2430,10 @@ src/overlays/ov022/calls/func_ov022_020a8020.c:
     complete
     .text       start:0x020a8020 end:0x020a8354
 
+src/overlays/ov022/calls/func_ov022_020a8354.c:
+    complete
+    .text       start:0x020a8354 end:0x020a8764
+
 src/overlays/ov022/calls/func_ov022_020a8764.c:
     complete
     .text       start:0x020a8764 end:0x020a8940
