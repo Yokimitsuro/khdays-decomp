@@ -153,7 +153,7 @@ struct Actor {
     u8 bHold;                    /* 0x2bb1 */
     u8 nAimMode;                 /* 0x2bb2 */
     u8 pad2bb3;
-    int nAimField2bb4;           /* 0x2bb4 */
+    int nAirTimer;               /* 0x2bb4 */
     u8 pad2bb8[0x38];
     struct HpDrain hpDrainA;     /* 0x2bf0 */
     struct HpDrain hpDrainB;     /* 0x2bf8 */
@@ -267,7 +267,7 @@ void func_ov022_0209f6e0(struct Actor *pActor)
     pActor->nAimSlot = 0;
     pActor->bHold = 0;
     pActor->nAimMode = 0;
-    pActor->nAimField2bb4 = 0;
+    pActor->nAirTimer = 0;
     nId = pActor->nId;
     pMgr = OS_IsThreadAvailable_0x020c9848();
     pActor->pSub = pMgr != 0 ? pMgr->apPlayers[nId] : 0;
