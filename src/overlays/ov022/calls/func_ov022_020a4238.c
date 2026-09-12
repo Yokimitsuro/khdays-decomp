@@ -68,7 +68,10 @@ struct Actor {
     int nReplayIndex;            /* 0x0508 */
     u8 pad050c[0x1b0];
     int nHitReaction;            /* 0x06bc */
-    struct CueTable *apCueTables[0x39];   /* 0x06c0 by reaction */
+    struct CueTable *apCueTables[54];     /* 0x06c0 by reaction */
+    struct CueEntry *pCueEntries;         /* 0x0798 */
+    void *pCueVoices;                     /* 0x079c */
+    int nCueEntryCount;                   /* 0x07a0 */
     short nVoiceId;              /* 0x07a4 */
     short nHandlerId;            /* 0x07a6 */
     short nKindId;               /* 0x07a8 */
