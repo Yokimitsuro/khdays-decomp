@@ -19,6 +19,7 @@ import sys
 import urllib.parse
 from collections import Counter
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8089
 
 # `FUN_` is not the only way to have no name. `ov000_helper_4d354` passes a startswith('FUN_')
@@ -67,7 +68,7 @@ def ghidra_names():
 def matched_c():
     """func name -> path, for real byte-exact C only."""
     out = {}
-    for root, _dirs, files in os.walk('src'):
+    for root, _dirs, files in os.walk(os.path.join(ROOT, 'src')):
         if 'nonmatching' in root or 'asm_stubs' in root:
             continue
         for f in files:

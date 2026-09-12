@@ -22,6 +22,7 @@ import glob
 import json
 import os
 import re
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DELINK = os.path.join(ROOT, "build", "delinks")
@@ -116,7 +117,8 @@ def collect(o_path, variants):
 
     try:
         elf = ELFFile(open(o_path, "rb"))
-    except Exception:
+    except Exception as exc:
+        print("index_data: cannot read %s: %s" % (o_path, exc), file=sys.stderr)
         return
     module = module_of(os.path.splitext(os.path.basename(o_path))[0])
 

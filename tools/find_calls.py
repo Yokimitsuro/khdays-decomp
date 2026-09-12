@@ -7,6 +7,11 @@ from elftools.elf.elffile import ELFFile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASM = os.path.join(ROOT, "asm"); DELINK = os.path.join(ROOT, "build", "delinks")
 
+if not os.path.isdir(ASM):
+    raise SystemExit("asm/ does not exist: the .s files this tool parsed were replaced by dsd delinks, "
+                     "so build/calls.json can no longer be produced. build/func_index.json holds "
+                     "the same data for every function -- use tools/getcand.py <name>.")
+
 def func_syms(o_path):
     out = {}
     try: elf = ELFFile(open(o_path, "rb"))

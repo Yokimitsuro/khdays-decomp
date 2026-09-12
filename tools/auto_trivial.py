@@ -6,8 +6,14 @@ import json, re, subprocess, os
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_ARM, CS_MODE_THUMB
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CANDS = os.path.join(ROOT, "build", "candidates.json")
+if not os.path.exists(CANDS):
+    raise SystemExit("missing build/candidates.json: tools/find_candidates.py produced it from asm/, which no "
+                     "longer exists, and this tool writes every result to a flat src/auto/ that predates "
+                     "the per-overlay tree. Nothing feeds it any more; list reloc-free functions from "
+                     "build/func_index.json instead (tools/getcand.py shows one).")
 AUTO = os.path.join(ROOT, "src", "auto"); os.makedirs(AUTO, exist_ok=True)
-cands = json.load(open(os.path.join(ROOT, "build", "candidates.json")))
+cands = json.load(open(CANDS))
 DH = {c["name"]: c for c in cands}
 md_a = Cs(CS_ARCH_ARM, CS_MODE_ARM); md_t = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
 

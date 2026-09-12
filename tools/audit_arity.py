@@ -22,6 +22,7 @@ import os
 import re
 import sys
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CALL_RE = re.compile(r'\b(func_[0-9a-fA-F]{8}|func_ov\d+_[0-9a-fA-F]{8})\s*\(([^;{]*?)\)\s*;')
 EXTERN_RE = re.compile(
     r'extern\s+[\w \*]+?\b(func_[0-9a-fA-F]{8}|func_ov\d+_[0-9a-fA-F]{8})\s*\(([^)]*)\)\s*;')
@@ -54,7 +55,7 @@ def main():
     # arity actually used at call sites in MATCHED code only
     used = collections.defaultdict(collections.Counter)
     parked = []
-    for root, _dirs, files in os.walk('src'):
+    for root, _dirs, files in os.walk(os.path.join(ROOT, 'src')):
         is_parked = 'nonmatching' in root
         is_stub = 'asm_stubs' in root
         for f in files:

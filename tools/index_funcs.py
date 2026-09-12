@@ -8,6 +8,12 @@ from elftools.elf.elffile import ELFFile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DELINK = os.path.join(ROOT, "build", "delinks")
 
+raise SystemExit("index_funcs.py is superseded by tools/rebuild_index.py. Delinks now live nested under "
+                 "build/delinks/src/... and the only flat objects are _dsd_gap@<unit>_<n>.o, whose "
+                 "basename this script would record as the function's module; and it can never index "
+                 "a function that already has a .c. rebuild_index.py indexes all of them from the ROM "
+                 "and the dsd config (dry run by default, --write to merge).")
+
 # ARM/THUMB per function, from the dsd config -- the authority.
 #
 # The obvious source is the ELF convention (low bit of st_value set = THUMB), and that is what

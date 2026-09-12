@@ -161,7 +161,12 @@ def work(case):
 
 
 if __name__ == "__main__":
-    triage = json.load(open(os.path.join(ROOT, "build", "sweep", "triage", "triage.json")))
+    tri = os.path.join(ROOT, "build", "sweep", "triage", "triage.json")
+    if not os.path.exists(tri):
+        raise SystemExit("missing build/sweep/triage/triage.json, and no tool in tools/ writes it any more; "
+                         "the +-4 probe cannot run standalone. rank_parks.py and census_coloring.py "
+                         "still import this module and do not need that file.")
+    triage = json.load(open(tri))
     cases = [(r[0], r[1], r[4], r[3]) for r in triage
              if r[2] == "size" and abs(r[3]) == 4 and os.path.exists(r[1])]
     print("parks a +-4:", len(cases))
