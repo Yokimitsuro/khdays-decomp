@@ -10,7 +10,7 @@ typedef unsigned short u16;
 
 typedef struct Ov008ParamRecord {
     u8  pad_00[0xc];
-    int nItemId;              /* 0x0c */
+    void *pItemDef;           /* 0x0c: item definition (Ov008ItemDef) */
     u8  pad_10[0x34 - 0x10];
 } Ov008ParamRecord;
 
@@ -37,7 +37,7 @@ typedef struct Ov008SlotPacket {
     int nKind;                /* 0x00 */
     int nA;                   /* 0x04 */
     int nB;                   /* 0x08 */
-    int nItemId;              /* 0x0c */
+    void *pItemDef;           /* 0x0c: item definition (Ov008ItemDef) */
     int nB2;                  /* 0x10 */
     int nC;                   /* 0x14 */
     int nD;                   /* 0x18 */
@@ -55,11 +55,11 @@ extern Ov008ParamTable *data_ov008_02090fb0;
 
 void func_ov008_0208a078(Ov008SlotPacket *pOut, Ov008SlotEntry *pIn)
 {
-    int nItemId = data_ov008_02090fb0->pRecords[pIn->nIndex - 1].nItemId;
+    void *pItemDef = data_ov008_02090fb0->pRecords[pIn->nIndex - 1].pItemDef;
     int nLink = pIn->nLink == NO_LINK ? NO_LINK : pIn->nLink - 2;
 
     pOut->nKind = 0;
-    pOut->nItemId = nItemId;
+    pOut->pItemDef = pItemDef;
     pOut->nA = pIn->nA;
     pOut->nB = pIn->nB;
     pOut->nF = pIn->nF;

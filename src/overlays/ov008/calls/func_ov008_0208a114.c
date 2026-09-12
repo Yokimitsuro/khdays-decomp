@@ -8,7 +8,7 @@ typedef unsigned char u8;
 
 typedef struct Ov008ParamRecord {
     u8  pad_00[0xc];
-    int nItemId;              /* 0x0c */
+    void *pItemDef;           /* 0x0c: item definition (Ov008ItemDef) */
     u8  pad_10[0x34 - 0x10];
 } Ov008ParamRecord;
 
@@ -35,7 +35,7 @@ typedef struct Ov008SlotPacketB {
     int nKind;                /* 0x00 */
     int nA;                   /* 0x04 */
     int nC;                   /* 0x08 */
-    int nItemId;              /* 0x0c */
+    void *pItemDef;           /* 0x0c: item definition (Ov008ItemDef) */
     int nB;                   /* 0x10 */
     Ov008LinkPair aPair[4];   /* 0x14: nLinkIndex = item id, nLink = link */
 } Ov008SlotPacketB;
@@ -50,7 +50,7 @@ void func_ov008_0208a114(Ov008SlotPacketB *pOut, Ov008SlotEntryB *pIn)
     int i;
     int nLink;
 
-    pOut->nItemId = data_ov008_02090fb0->pRecords[pIn->nIndex - 1].nItemId;
+    pOut->pItemDef = data_ov008_02090fb0->pRecords[pIn->nIndex - 1].pItemDef;
     pOut->nKind = PACKET_KIND_B;
     pOut->nA = pIn->nA;
     pOut->nC = pIn->nC;
@@ -58,6 +58,6 @@ void func_ov008_0208a114(Ov008SlotPacketB *pOut, Ov008SlotEntryB *pIn)
     for (i = 0; i < PAIR_COUNT; i++) {
         nLink = pIn->aPair[i].nLink;
         pOut->aPair[i].nLink = nLink;
-        pOut->aPair[i].nLinkIndex = nLink != 0 ? data_ov008_02090fb0->pRecords[pIn->aPair[i].nLinkIndex - 1].nItemId : 0;
+        pOut->aPair[i].nLinkIndex = nLink != 0 ? (int)data_ov008_02090fb0->pRecords[pIn->aPair[i].nLinkIndex - 1].pItemDef : 0;
     }
 }
