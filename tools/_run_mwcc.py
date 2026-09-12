@@ -42,11 +42,22 @@ out_path = Path(sys.argv[1])
 src_path = Path(sys.argv[2])
 rel = src_path.resolve().relative_to(ROOT).as_posix()
 
-# Look up thumb/arm mode per-source-file from the sidecar map that
-# gen_delinks.py produces.
+# The mode and compiler override arrive on the command line from build.ninja
+# (--mode=arm|thumb, --cc=default|<mwccarm dir>); without them (a direct call)
+# fall back to the sidecar maps gen_delinks.py / configure.py produce.
+opt_mode = None
+opt_cc = None
+for a in sys.argv[3:]:
+    if a.startswith("--mode="):
+        opt_mode = a[len("--mode="):]
+    elif a.startswith("--cc="):
+        opt_cc = a[len("--cc="):]
 modes_path = ROOT / "build" / "file_modes.json"
 extra = []
-if modes_path.exists():
+if opt_mode is not None:
+    if opt_mode == "thumb":
+        extra.append("-thumb")
+elif modes_path.exists():
     modes = load_json_retry(modes_path)
     if modes.get(rel) == "thumb":
         extra.append("-thumb")
@@ -57,7 +68,10 @@ if modes_path.exists():
 # mapping such source files to a tools/mwccarm/<ver> directory.
 mwcc_bin = MWCCARM
 comp_path = ROOT / "build" / "file_compilers.json"
-if comp_path.exists():
+if opt_cc is not None:
+    if opt_cc != "default":
+        mwcc_bin = ROOT / "tools" / "mwccarm" / opt_cc / "mwccarm.exe"
+elif comp_path.exists():
     cmap = load_json_retry(comp_path)
     ver = cmap.get(rel)
     if ver:

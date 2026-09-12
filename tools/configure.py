@@ -12,6 +12,7 @@ emit build.ninja.
 import re
 import shutil
 import subprocess
+import json
 import sys
 from pathlib import Path
 
@@ -117,10 +118,12 @@ def emit_ninja(ninja_path: Path, src_files):
         f"python = {py}",
         "",
         "rule mwcc",
-        # file_modes.json flips a file between ARM and THUMB — recompile when it
-        # changes so an old .o built without -thumb doesn't shadow the correct
-        # THUMB output.
-        "  command = $python tools/_run_mwcc.py $out $in",
+        # The per-file ARM/THUMB mode and compiler override travel on the command
+        # line as $mode / $cc (ninja recompiles a file when its command changes),
+        # instead of an implicit dep on file_modes.json: that file changes every
+        # time a function is matched (a new entry), which rebuilt all ~20k objects
+        # per gate (2026-09-12).
+        "  command = $python tools/_run_mwcc.py $out $in --mode=$mode --cc=$cc",
         "  description = MWCC $in",
         "  restat = 1",
         "",
@@ -138,20 +141,23 @@ def emit_ninja(ninja_path: Path, src_files):
     ]
 
     compiled_objs = []
-    modes_dep = rel(BUILD / "file_modes.json")
-    compilers_dep = rel(BUILD / "file_compilers.json")
+    modes_path = BUILD / "file_modes.json"
+    modes = json.loads(modes_path.read_text(encoding="utf-8")) if modes_path.exists() else {}
+    comp_path = BUILD / "file_compilers.json"
+    cmap = json.loads(comp_path.read_text(encoding="utf-8")) if comp_path.exists() else {}
     for src in src_files:
         # Match objdiff.json's expected base_path layout.
         obj_path = COMPILE_OUT / Path(src).with_suffix(".o")
         obj_path.parent.mkdir(parents=True, exist_ok=True)
         obj = rel(obj_path)
         compiled_objs.append(obj)
-        # Implicit deps on file_modes.json (arm <-> thumb flips) and
-        # file_compilers.json (per-file compiler-version overrides) so either
-        # change invalidates any cached .o for this file.
+        # The ARM/THUMB mode and the compiler override are baked into the
+        # command line, so a flip of either recompiles exactly that file.
         rule = source_rule(src)
         if rule == "mwcc":
-            lines.append(f"build {obj}: mwcc {src} | {modes_dep} {compilers_dep}")
+            lines.append(f"build {obj}: mwcc {src}")
+            lines.append(f"  mode = {modes.get(src, 'arm')}")
+            lines.append(f"  cc = {cmap.get(src) or 'default'}")
         else:
             lines.append(f"build {obj}: armasm {src}")
 
