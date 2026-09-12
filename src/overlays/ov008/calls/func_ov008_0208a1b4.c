@@ -21,7 +21,7 @@ typedef struct Ov008ItemDef {
 typedef struct Ov008RewardRecord {          /* 0x34, kind 3 (db 0x18 / 0x17 lists) */
     int   nKind;              /* 0x00 */
     u16   nIndex;             /* 0x04 */
-    u16   bNotItem;           /* 0x06 */
+    u16   nRewardList;        /* 0x06: 0 = db 0x18 list, 1 = db 0x17 list */
     int   nPrice;             /* 0x08 */
     Ov008ItemDef *pItemDef;   /* 0x0c */
     u16   nLevel;             /* 0x10 */
@@ -68,7 +68,7 @@ void func_ov008_0208a1b4(Ov008RewardRecord *pOut, Ov008RawRewardRecord *pRaw, u1
 {
     pOut->nKind = RECORD_KIND_REWARD;
     pOut->nIndex = nIndex;
-    pOut->bNotItem = pRaw->nRawKind != RAW_KIND_ITEM;
+    pOut->nRewardList = pRaw->nRawKind != RAW_KIND_ITEM;
     pOut->nLevel = pRaw->nLevel;
     pOut->bFlag = pRaw->bFlag;
     pOut->nOwnText = pRaw->nOwnText;
