@@ -275,6 +275,15 @@ def write_text_retry(path, text, tries=8):
     ~7 veces entre el 18 y el 19 de julio de 2026; se diagnostico mal dos veces ("lo mata algo de
     fuera sin imprimir nada") porque el traceback iba a stderr y se leia el flujo mezclado.
     """
+    # No reescribir si el contenido no cambia: file_modes.json es dependencia implicita de
+    # TODOS los objetos en build.ninja, y cada gen_delinks (uno por overlay en configure.py)
+    # lo reescribia igual -> mtime nuevo -> ninja recompilaba los ~20.000 objetos en cada gate
+    # (2026-09-12: ~45 min por gate solo por esto).
+    try:
+        if path.exists() and path.read_text(encoding="utf-8") == text:
+            return
+    except OSError:
+        pass
     for i in range(tries):
         try:
             path.write_text(text, encoding="utf-8", newline="\n")

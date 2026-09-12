@@ -45,13 +45,18 @@ def patch_o(path):
 def main():
     n = 0
     build = ROOT / "build"
-    # Walk every .o under build/ except build/build/ (final linker output).
-    for p in build.rglob("*.o"):
-        if p.parts[len(build.parts):len(build.parts) + 1] == ("build",):
-            continue
-        if patch_o(p):
+    if len(sys.argv) > 1:
+        # Only the objects the link consumes (the .rsp _run_mwld.py hands mwld).
+        # Walking all of build/ visited the ~420k scratch objects under build/try and
+        # took the link step from minutes to hours (2026-09-12).
+        paths = [ROOT / line.strip() for line in Path(sys.argv[1]).read_text(encoding="utf-8").split()
+                 if line.strip().endswith(".o")]
+    else:
+        paths = [p for sub in ("src", "libs", "delinks") for p in (build / sub).rglob("*.o")]
+    for p in paths:
+        if p.exists() and patch_o(p):
             n += 1
-    print(f"patched sh_addralign 4 -> 2 in {n} .o files")
+    print(f"patched sh_addralign 4 -> 2 in {n} of {len(paths)} .o files")
 
 
 if __name__ == "__main__":

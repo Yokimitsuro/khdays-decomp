@@ -254,7 +254,10 @@ def main():
     # so the ninja implicit dep resolves.
     src_compilers = ROOT / "config" / "arm9" / "file_compilers.json"
     compilers_text = src_compilers.read_text(encoding="utf-8") if src_compilers.exists() else "{}\n"
-    (BUILD / "file_compilers.json").write_text(compilers_text, encoding="utf-8", newline="\n")
+    compilers_path = BUILD / "file_compilers.json"
+    # Solo escribir si cambia: es dependencia implicita de todos los objetos (ver gen_delinks).
+    if not compilers_path.exists() or compilers_path.read_text(encoding="utf-8") != compilers_text:
+        compilers_path.write_text(compilers_text, encoding="utf-8", newline="\n")
 
     skip_delinks = "--skip-delinks" in sys.argv
     if skip_delinks:

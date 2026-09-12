@@ -61,7 +61,7 @@ if "ALIGNALL(4);" in lcf_text:
 # Belt-and-suspenders: also lower per-.o sh_addralign so a future mwld
 # refactor that consults the input alignment doesn't reintroduce the drift.
 patch_script = ROOT / "tools" / "patch_align.py"
-subprocess.run([sys.executable, str(patch_script)], check=True)
+subprocess.run([sys.executable, str(patch_script), str(rsp)], check=True)
 
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
 # Flags mirrored from Yotona/twewy/tools/configure.py — the only DS decomp
