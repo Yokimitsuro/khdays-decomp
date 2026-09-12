@@ -31,7 +31,7 @@ struct Actor {
     u8 pad046c[0x44];
     int nMoveRate;                   /* 0x04b0 */
     u8 pad04b4[4];
-    int nTurnRate;                   /* 0x04b8 */
+    int nWalkSpeed;                   /* 0x04b8 */
     u8 pad04bc[0xc];
     int nHoldTimer;                  /* 0x04c8 */
     u8 pad04cc[0xba4];
@@ -103,7 +103,7 @@ int func_ov022_020981f4(struct Actor *pActor)
     if (nResult == 0 && (pActor->nInputMask & INPUT_BIT2) != 0) {
         bFast = data_ov022_020b2eb0;
         pActor->nMoveRate = bFast ? RATE_FAST : RATE_SLOW;
-        pActor->nTurnRate = bFast ? TURN_FAST : TURN_SLOW;
+        pActor->nWalkSpeed = bFast ? TURN_FAST : TURN_SLOW;
     }
     return nResult;
 }

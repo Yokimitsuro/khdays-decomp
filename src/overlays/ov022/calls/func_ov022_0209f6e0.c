@@ -107,7 +107,7 @@ struct Actor {
     VecFx32 vecPush;             /* 0x04a4 */
     int nMoveRate;               /* 0x04b0 */
     int nInterruptCharge;        /* 0x04b4 */
-    int nTurnRate;               /* 0x04b8 */
+    int nWalkSpeed;               /* 0x04b8 */
     u8 pad04bc[1];
     u8 bAimedJump;               /* 0x04bd */
     u8 pad04be[2];
@@ -246,7 +246,7 @@ void func_ov022_0209f6e0(struct Actor *pActor)
     pActor->vecPush.x = pActor->vecPush.y = pActor->vecPush.z = 0;
     bFast = data_ov022_020b2eb0;
     pActor->nMoveRate = bFast ? RATE_FAST : RATE_SLOW;
-    pActor->nTurnRate = bFast ? TURN_FAST : TURN_SLOW;
+    pActor->nWalkSpeed = bFast ? TURN_FAST : TURN_SLOW;
     pActor->nInterruptCharge = 0;
     pActor->bStateOver = 0;
     pActor->nStepRate = 0;

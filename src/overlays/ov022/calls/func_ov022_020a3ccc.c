@@ -69,7 +69,7 @@ struct Actor {
     u8 pad047a[0x1e];
     VecFx32 vecStep;             /* 0x0498 */
     u8 pad04a4[0x14];
-    int nTurnRate;               /* 0x04b8 */
+    int nWalkSpeed;               /* 0x04b8 */
     u8 pad04bc[0xc];
     int nHoldTimer;              /* 0x04c8 */
     u8 pad04cc[0x198];
@@ -173,7 +173,7 @@ int func_ov022_020a3ccc(struct Actor *pActor, int nAimAngle)
         }
         if (bMove) {
             nRule = func_020358f4(pActor->nId, RULE_TURN);
-            nRate = pActor->nTurnRate;
+            nRate = pActor->nWalkSpeed;
             nScale = 0;
             if (nRule > 0) {
                 switch (nRule) {
