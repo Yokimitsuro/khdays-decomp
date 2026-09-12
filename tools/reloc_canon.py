@@ -1,10 +1,14 @@
 import subprocess, sys, re, os, glob
+ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 f=sys.argv[1]
-out=subprocess.run(['python','tools/getcand.py',f],capture_output=True,text=True).stdout
+r=subprocess.run([sys.executable,os.path.join(ROOT,'tools','getcand.py'),f],capture_output=True,text=True)
+if r.returncode!=0:
+    raise SystemExit((r.stdout+r.stderr).strip())
+out=r.stdout
 # build addr->canonical name map from ALL symbols.txt
 def canon(addr):
     addr=addr.lower().lstrip('0'); pat=re.compile(r'^(\S+)\s+kind:\S+\s+addr:0x0*'+addr+r'\b')
-    for p in glob.glob('config/arm9/**/symbols.txt', recursive=True):
+    for p in glob.glob(os.path.join(ROOT,'config','arm9','**','symbols.txt'), recursive=True):
         for line in open(p):
             m=pat.match(line)
             if m: return m.group(1)

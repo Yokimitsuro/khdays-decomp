@@ -1,9 +1,15 @@
-import subprocess, sys, re
+import subprocess, sys, re, os
 f = sys.argv[1]
-out = subprocess.run(['python','tools/getcand.py',f], capture_output=True, text=True).stdout
+r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'getcand.py'), f],
+                   capture_output=True, text=True)
+if r.returncode != 0:
+    raise SystemExit((r.stdout + r.stderr).strip())
+out = r.stdout
 dis = [l for l in out.split('\n') if l.strip().startswith('disasm:')][0][len('disasm:'):]
 ins = [x.strip() for x in dis.split(';')]
-sw = next(i for i,x in enumerate(ins) if x.startswith('addls pc'))
+sw = next((i for i,x in enumerate(ins) if x.startswith('addls pc')), None)
+if sw is None:
+    raise SystemExit('// BAIL: no `addls pc` jump table in %s -- not a switch dispatcher' % f)
 ncases = int(re.search(r'#(0x[0-9a-f]+|\d+)', ins[sw-1]).group(1),0)+1
 table = ins[sw+2:sw+2+ncases]
 casetgt = [(i,int(re.search(r'#(0x[0-9a-f]+)',t).group(1),16)) for i,t in enumerate(table)]
