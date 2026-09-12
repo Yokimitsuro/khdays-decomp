@@ -496,6 +496,10 @@ src/overlays/ov026/calls/func_ov026_020862b0.c:
     complete
     .text       start:0x020862b0 end:0x02086314
 
+src/overlays/ov026/calls/func_ov026_02086438.c:
+    complete
+    .text       start:0x02086438 end:0x02086504
+
 src/overlays/ov026/calls/func_ov026_020866a8.c:
     complete
     .text       start:0x020866a8 end:0x02086778
@@ -535,6 +539,10 @@ src/overlays/ov026/calls/func_ov026_0208744c.c:
 src/overlays/ov026/calls/func_ov026_020874b4.c:
     complete
     .text       start:0x020874b4 end:0x02087570
+
+src/overlays/ov026/calls/func_ov026_02087ebc.c:
+    complete
+    .text       start:0x02087ebc end:0x02087f70
 
 src/overlays/ov026/calls/func_ov026_0208894c.c:
     complete
@@ -648,17 +656,53 @@ src/overlays/ov026/auto/func_ov026_0208cf08.c:
     complete
     .text       start:0x0208cf08 end:0x0208cf28
 
+src/overlays/ov026/calls/func_ov026_0208cf28.c:
+    complete
+    .text       start:0x0208cf28 end:0x0208cfc4
+
+src/overlays/ov026/calls/func_ov026_0208cfc4.c:
+    complete
+    .text       start:0x0208cfc4 end:0x0208d064
+
+src/overlays/ov026/calls/func_ov026_0208d170.c:
+    complete
+    .text       start:0x0208d170 end:0x0208d22c
+
+src/overlays/ov026/calls/func_ov026_0208d360.c:
+    complete
+    .text       start:0x0208d360 end:0x0208d40c
+
+src/overlays/ov026/calls/func_ov026_0208d40c.c:
+    complete
+    .text       start:0x0208d40c end:0x0208d498
+
 src/overlays/ov026/auto/func_ov026_0208d498.c:
     complete
     .text       start:0x0208d498 end:0x0208d4f0
+
+src/overlays/ov026/calls/func_ov026_0208dc68.c:
+    complete
+    .text       start:0x0208dc68 end:0x0208dd34
 
 src/overlays/ov026/auto/func_ov026_0208df6c.c:
     complete
     .text       start:0x0208df6c end:0x0208df80
 
+src/overlays/ov026/calls/func_ov026_0208df80.c:
+    complete
+    .text       start:0x0208df80 end:0x0208dff8
+
 src/overlays/ov026/calls/func_ov026_0208dff8.c:
     complete
     .text       start:0x0208dff8 end:0x0208e06c
+
+src/overlays/ov026/calls/func_ov026_0208e178.c:
+    complete
+    .text       start:0x0208e178 end:0x0208e218
+
+src/overlays/ov026/calls/func_ov026_0208e35c.c:
+    complete
+    .text       start:0x0208e35c end:0x0208e40c
 
 src/overlays/ov026/auto/func_ov026_0208e658.c:
     complete
