@@ -76,9 +76,9 @@ struct Actor {
     u8 pad0498[0x46];
     u16 nLatchedArg;             /* 0x04de */
     u8 pad04e0[3];
-    volatile signed char nField4e3;   /* 0x04e3, the synced record: read in order */
-    volatile u16 nField4e4;      /* 0x04e4 */
-    volatile u16 nField4e6;      /* 0x04e6 */
+    volatile signed char nHeldKind;   /* 0x04e3, the held record: read in order */
+    volatile u16 nHeldArg;       /* 0x04e4 */
+    volatile u16 nHeldArg2;      /* 0x04e6 */
     u8 pad04e8[0x1d4];
     int nAnimId;                 /* 0x06bc, the current animation (was nHitReaction) */
     u8 pad06c0[0x250];
@@ -231,7 +231,7 @@ void func_ov022_020a384c(struct Actor *pActor, int nAnim)
         } else if (func_ov022_020b19ec(&pActor->animReq, nAnim) == 0) {
             bSkip = 1;
         } else {
-            func_ov022_02093c48(pActor->reactionBlk, pActor->nField4e4, pActor->nField4e3, pActor->nField4e6);
+            func_ov022_02093c48(pActor->reactionBlk, pActor->nHeldArg, pActor->nHeldKind, pActor->nHeldArg2);
             pAnim = &pActor->animReq.pTrack->anim;
             nSub = 0;
         }
