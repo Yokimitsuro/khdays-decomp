@@ -1,5 +1,21 @@
 {
   "functions": {
+    "CP_SaveContext": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 64,
+      "source": "libs/nitro/gx/asm_stubs/calls/CP_SaveContext.c",
+      "source_sha256": "64dcead51ee367f132b1f205ca874e5eea428c4c55142f3b9e70262c4d21a7ed",
+      "target_sha256": "4034224020f4081f046cdf7cf9d0c004aad1275f050493662b665c1e016c3c7e"
+    },
+    "CPi_RestoreContext": {
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 60,
+      "source": "libs/nitro/gx/asm_stubs/calls/CPi_RestoreContext.c",
+      "source_sha256": "cafbb8a631f5c10f6657cb358abee63ad84a72911f67c5e5b50479eb86ee2052",
+      "target_sha256": "116153100f79a8346639bb3b83dcb56112764eaf5a3067e0dfeab0d24f543244"
+    },
     "GX_SendFifo48B": {
       "kind": "canonical_sdk_asm",
       "mode": "arm",
