@@ -172,7 +172,7 @@ src/overlays/ov152/calls/func_ov152_020d5908.c:
     complete
     .text       start:0x020d5908 end:0x020d5994
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d5994.c:
+src/overlays/ov152/calls/func_ov152_020d5994.c:
     complete
     .text       start:0x020d5994 end:0x020d5b30
 
