@@ -87,18 +87,24 @@ class SectionRangeVerificationTests(unittest.TestCase):
     START = 0x0208E8FC
 
     class Section:
+        name = ".rodata"
+
         def __init__(self, payload):
             self.payload = payload
 
         def __getitem__(self, key):
             if key == "sh_size":
                 return len(self.payload)
+            if key == "sh_addralign":
+                return 1
             raise KeyError(key)
 
         def data(self):
             return self.payload
 
     class Relocations:
+        name = ".rel.rodata"
+
         def __init__(self, count):
             self.count = count
 
@@ -107,15 +113,14 @@ class SectionRangeVerificationTests(unittest.TestCase):
 
     class Elf:
         def __init__(self, payload, relocations=0):
-            self.section = SectionRangeVerificationTests.Section(payload)
+            parts = payload if isinstance(payload, list) else [payload]
+            self.sections = [SectionRangeVerificationTests.Section(part) for part in parts]
             self.relocations = relocations
 
-        def get_section_by_name(self, name):
-            if name == ".rodata":
-                return self.section
-            if name in (".rel.rodata", ".rela.rodata") and self.relocations:
-                return SectionRangeVerificationTests.Relocations(self.relocations)
-            return None
+        def iter_sections(self):
+            yield from self.sections
+            if self.relocations:
+                yield SectionRangeVerificationTests.Relocations(self.relocations)
 
     def verify(self, payload, index, relocations=0):
         fake = self.Elf(payload, relocations)
@@ -155,6 +160,24 @@ class SectionRangeVerificationTests(unittest.TestCase):
         self.assertEqual(status, verify_data.DIFFERS)
         self.assertIn("byte diff @0x2", message)
 
+    def test_configured_alias_address_preserves_exact_range_checks(self):
+        entry = {
+            "module": "ov008", "section": "rodata", "addr": None,
+            "hex": "01020304", "relocs": [],
+        }
+        index = {"table_alias": entry}
+        with patch.dict(verify_data.SYM_ADDR, {"table_alias": self.START}, clear=True):
+            status, _message, info = self.verify(b"\x01\x02\x03\x04", index)
+            self.assertEqual(status, verify_data.MATCH)
+            self.assertEqual((info["start"], info["end"]), (self.START, self.START + 4))
+            self.assertEqual(self.verify(b"\x01\x02\xff\x04", index)[0], verify_data.DIFFERS)
+            conflicting = dict(index, other=dict(entry, addr=self.START, hex="05020304"))
+            self.assertIn("conflicting", self.verify(b"\x01\x02\x03\x04", conflicting)[1])
+            relocated = {"table_alias": dict(entry, relocs=[[0, "pointer"]])}
+            self.assertIn("relocated symbol", self.verify(b"\x01\x02\x03\x04", relocated)[1])
+        with patch.dict(verify_data.SYM_ADDR, {}, clear=True):
+            self.assertEqual(self.verify(b"\x01\x02\x03\x04", index)[0], verify_data.REFUSED)
+
     def test_a_coverage_gap_is_refused(self):
         index = {
             "edges": {
@@ -165,6 +188,17 @@ class SectionRangeVerificationTests(unittest.TestCase):
         status, message, _info = self.verify(b"\x01\x02\x03\x04", index)
         self.assertEqual(status, verify_data.REFUSED)
         self.assertIn("does not cover", message)
+
+    def test_repeated_sections_are_verified_in_full_in_emission_order(self):
+        index = {"all": {
+            "module": "ov008", "section": "rodata", "addr": self.START,
+            "hex": "01020304", "relocs": [],
+        }}
+        status, _message, info = self.verify([b"\x01\x02", b"\x03\x04"], index)
+        self.assertEqual(status, verify_data.MATCH)
+        self.assertEqual(info["size"], 4)
+        self.assertEqual(self.verify([b"\xff\x02", b"\x03\x04"], index)[0], verify_data.DIFFERS)
+        self.assertEqual(self.verify([b"\x03\x04", b"\x01\x02"], index)[0], verify_data.DIFFERS)
 
     def test_a_relocated_section_is_refused(self):
         status, message, _info = self.verify(b"\x01\x02", {}, relocations=1)
