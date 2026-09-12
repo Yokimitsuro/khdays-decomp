@@ -56,9 +56,10 @@ duplicated effort, **claim a module before you start**:
   `tools/verify_idx.py`), `delinks.txt` regenerated with
   `tools/gen_delinks.py`. Partial batches are not merged; keep them on your
   fork until the module is done.
-- **No new claim until the PR of your current claim is merged.** You can take
-  several modules over time, but one after the other: finish (or release) the
-  one you hold, then claim the next.
+- **No new claim until the PR of your current claim is open, and that PR
+  covers the whole module.** It does not have to be merged yet: once the
+  complete-module PR is up, you can claim the next module. Several modules
+  over time are fine, one after the other.
 - Tooling fixes go in separate PRs, one problem each, linked to the issue
   they fix.
 
