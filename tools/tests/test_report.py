@@ -81,10 +81,15 @@ class ReportTests(unittest.TestCase):
         self.assertTrue(changed.endswith("Tail\n"))
 
     def test_checked_in_manifest_is_source_bound(self):
+        # The counts are a policy lock: a new non-C match has to be admitted here on
+        # purpose. 2026-09-12: CP_SaveContext and CPi_RestoreContext (PR #29), the
+        # NitroSDK's hand-written cp_context.c block transfers, byte-exact and attested.
         entries = report_asm.load_verified_matches()
-        self.assertEqual(len(entries), 27)
+        self.assertEqual(len(entries), 29)
         self.assertEqual(sum(e["kind"] == "authorized_clz" for e in entries.values()), 2)
-        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 25)
+        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 27)
+        self.assertIn("CP_SaveContext", entries)
+        self.assertIn("CPi_RestoreContext", entries)
 
     def test_closed_modules_keep_honest_real_c_counts(self):
         entries = report_asm.load_verified_matches()
