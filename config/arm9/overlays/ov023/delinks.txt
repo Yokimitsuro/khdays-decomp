@@ -408,6 +408,10 @@ src/overlays/ov023/calls/func_ov023_02087114.c:
     complete
     .text       start:0x02087114 end:0x02087160
 
+src/overlays/ov023/auto/func_ov023_02087210.c:
+    complete
+    .text       start:0x02087210 end:0x02087234
+
 src/overlays/ov023/calls/func_ov023_02087510.c:
     complete
     .text       start:0x02087510 end:0x02087564
