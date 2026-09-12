@@ -4688,9 +4688,17 @@ src/calls/func_02026adc.c:
     complete
     .text       start:0x02026adc end:0x02026b70
 
+src/auto/func_02026cd0.c:
+    complete
+    .text       start:0x02026cd0 end:0x02026e28
+
 src/calls/func_02026e28.c:
     complete
     .text       start:0x02026e28 end:0x02026f84
+
+src/auto/func_02026f84.c:
+    complete
+    .text       start:0x02026f84 end:0x0202716c
 
 src/calls/func_0202716c.c:
     complete
