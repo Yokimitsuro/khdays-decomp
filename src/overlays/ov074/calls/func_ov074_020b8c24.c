@@ -1,0 +1,51 @@
+typedef unsigned short u16;
+typedef unsigned char u8;
+typedef unsigned int u32;
+typedef long long s64;
+typedef struct { int x, y, z; } Vec3;
+typedef struct { Vec3 p; short a,b,c; short scale; int f14,f18,f1c,f20,f24,f28; } Placement;
+typedef struct { int m[9]; } MtxFx33;
+extern void MTX_RotY33_(MtxFx33 *, int, int);
+extern void MTX_MultVec33(Vec3 *, MtxFx33 *, Vec3 *);
+extern void VEC_Add(Vec3 *, Vec3 *, Vec3 *);
+extern int VEC_Mag(Vec3 *);
+extern int func_01ff8d18(Vec3 *, Vec3 *);
+extern int func_0203084c(void);
+extern int func_ov022_020ad114(char *);
+extern void func_ov022_02091324(char *, Placement *);
+extern short data_0203d210[];
+extern Vec3 data_ov074_020b9a4c;
+extern char *data_ov074_020b9b80;
+void func_ov074_020b8c24(char *self) {
+    Placement req;
+    Vec3 v0;
+    Vec3 v1;
+    MtxFx33 m;
+    int idx, scale, n, t;
+    char *base = data_ov074_020b9b80;
+    char *offset = base + 0x1c8;
+    v0 = data_ov074_020b9a4c;
+    offset += 0x2c00;
+    v1 = *(Vec3 *)offset;
+    idx = (u16)(*(u16 *)(*(char **)(self + 0x20) + 0x80) - 0x8000) >> 4;
+    MTX_RotY33_(&m, -data_0203d210[idx * 2], -data_0203d210[idx * 2 + 1]);
+    MTX_MultVec33(&v1, &m, &req.p);
+    VEC_Add(&req.p, (Vec3 *)(self + 0x8c + 0x400), &req.p);
+    scale = 0x266;
+    if (func_ov022_020ad114(self)) scale = 0x1800;
+    n = func_0203084c() - 0x800;
+    t = (int)(((s64)scale * n + 0x800) >> 12);
+    v0.x += t;
+    n = func_0203084c() - 0x800;
+    t = (int)(((s64)scale * n + 0x800) >> 12);
+    v0.y += t;
+    if (VEC_Mag(&v0) != 0) func_01ff8d18(&v0, &v0);
+    MTX_MultVec33(&v0, &m, &v0);
+    req.a = (short)v0.x; req.b = (short)v0.y; req.c = (short)v0.z;
+    req.f14 = 0; req.f1c = 0; req.f20 = 0;
+    req.f18 = 7; req.f24 = 0; req.f28 = 0; req.scale = 0x1800;
+    func_ov022_02091324(self, &req);
+    if (((int)(*(s64 *)self & 0x10000)) == 0) {
+        *(u8 *)(self + 0x47a) = 3; *(u8 *)(self + 0x47b) = 0;
+    }
+}
