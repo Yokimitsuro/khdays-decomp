@@ -16,6 +16,10 @@ src/overlays/ov257/calls/func_ov257_020cc5d0.c:
     complete
     .text       start:0x020cc5d0 end:0x020cc678
 
+src/overlays/ov257/calls/func_ov257_020cc678.c:
+    complete
+    .text       start:0x020cc678 end:0x020cc6b0
+
 libs/nitro/wm/calls/WM_EndKeySharing_0x020cca20.c:
     complete
     .text       start:0x020cca20 end:0x020cca2c
