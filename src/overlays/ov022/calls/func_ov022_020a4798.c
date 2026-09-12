@@ -47,7 +47,7 @@ extern unsigned int func_020358f4(int nSlot, int nParam);
 #define MODE_TABLE_DRIVEN 4
 #define VOICE_PARAM 0x58
 
-void func_ov022_020a4798(struct Actor *pActor, short nId, u16 nArg2, int nArg3)
+void func_ov022_020a4798(struct Actor *pActor, short nId, u16 nArg2)
 {
     struct KindIdTable tbl;
 
