@@ -6,7 +6,8 @@
  * (tier + 1) against GameState field 0x40a, the item category must match, and
  * when the record names a prerequisite level slot (+0x1c != -1) that level
  * (GameState 0x1168 + 2 * slot) must reach the required value (+0x20) of the
- * record at that slot.  Returns 1 when listed.
+ * record at that slot.  Returns 1 when listed.  nIndex (the record's index,
+ * passed by Ov008_IsShopRecordShown) is unused.
  */
 typedef unsigned char  u8;
 typedef unsigned short u16;
@@ -51,7 +52,7 @@ extern Ov008ParamTable *data_ov008_02090fb0;
 extern GameState *data_0204be18;
 extern int func_020235d0(int nField, int nBits);                       /* GameState_GetField */
 
-int func_ov008_0208a640(Ov008ParamRecord *pRecord, int nSlot, int nCategory)
+int func_ov008_0208a640(Ov008ParamRecord *pRecord, int nSlot, int nCategory, u32 nIndex)
 {
     u32 nDay;
     u32 nCap;
