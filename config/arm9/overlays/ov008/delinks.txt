@@ -3345,6 +3345,10 @@ src/overlays/ov008/calls/func_ov008_020785cc.c:
     complete
     .text       start:0x020785cc end:0x02078704
 
+src/overlays/ov008/calls/func_ov008_02078704.c:
+    complete
+    .text       start:0x02078704 end:0x020788f4
+
 src/overlays/ov008/calls/func_ov008_020788f4.c:
     complete
     .text       start:0x020788f4 end:0x0207890c
