@@ -33,7 +33,7 @@ typedef struct Ov008ParamRecord {
     Ov008ItemDef *pItemDef;   /* 0x0c */
 } Ov008ParamRecord;
 
-typedef struct Ov008DetailPanel {
+typedef struct Ov008ShopDetailPanel {
     Ov008ParamRecord *pRecord; /* 0x00 */
     int   aRowCell[ROW_CELLS]; /* 0x04 */
     u32   nQuantity;          /* 0x24 */
@@ -47,7 +47,7 @@ typedef struct Ov008DetailPanel {
     int   nChoice;            /* 0x48 */
     u8    pad_4c[8];
     int   nTitleWidth;        /* 0x54 */
-} Ov008DetailPanel;
+} Ov008ShopDetailPanel;
 
 typedef struct Ov008PanelContext {
     u8  pad_0000[0x2ab0];
@@ -56,7 +56,7 @@ typedef struct Ov008PanelContext {
     u8  pad_bfb4[0xc160 - 0xbfb4];
     u8  detailSurface[0x3c];  /* 0xc160 */
     u8  pad_c19c[0xc4f4 - 0xc19c];
-    Ov008DetailPanel detail;  /* 0xc4f4 */
+    Ov008ShopDetailPanel detail;  /* 0xc4f4 */
     u8  pad_c54c[0xc5e0 - 0xc54c];
     int aChoiceCell[4];       /* 0xc5e0 */
 } Ov008PanelContext;
@@ -73,7 +73,7 @@ extern void  func_ov008_02054858(void *pWidgets, void *pEntry, UiLayoutPos *pPos
 void func_ov008_02087160(void)
 {
     Ov008PanelContext *ctx;
-    Ov008DetailPanel *pPanel;
+    Ov008ShopDetailPanel *pPanel;
     u8 *pSurface;
     int hSlots;
     u8 *pWidgets;

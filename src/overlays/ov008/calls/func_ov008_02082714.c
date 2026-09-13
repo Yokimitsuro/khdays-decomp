@@ -31,8 +31,8 @@ typedef struct Ov008SlotManagerCfg {
 
 typedef struct Ov008PanelContext {
     u8  pad_0000[4];
-    int cellSrc1;             /* 0x0004 */
-    int cellSrc2;             /* 0x0008 */
+    int pContainerA;             /* 0x0004: ui/shop/res.p2 container */
+    int pContainerB;             /* 0x0008: ui/shop/res_i18n.p2 container */
     s16 nPage;                /* 0x000c */
     u16 nCell;                /* 0x000e */
     u8  pad_0010[0x2ab0 - 0x10];
@@ -59,7 +59,7 @@ void func_ov008_02082714(void)
     int nSlot;
 
     ctx = data_ov008_02090fac;
-    cfg.handle = CELL_HANDLE(ctx->cellSrc1, 3);
+    cfg.handle = CELL_HANDLE(ctx->pContainerA, 3);
     cfg.nSlots = 1;
     cfg.f8 = 0;
     cfg.fc = 0;
@@ -69,16 +69,16 @@ void func_ov008_02082714(void)
     ctx->hSlotsB = ctx->managerB;
     nSlot = data_ov008_0208fef3[ctx->nPage * 4];
     if (nSlot >= 0) {
-        func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->cellSrc2, nSlot & SLOT_MASK));
+        func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     }
     func_ov008_02054678(ctx->managerB, data_ov008_02090e1c, 0xf);
     nSlot = data_ov008_0208fef0[ctx->nPage * 4];
     if (nSlot >= 0) {
-        ctx->nCell = func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->cellSrc2, nSlot & SLOT_MASK));
+        ctx->nCell = func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     } else {
-        ctx->nCell = func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->cellSrc1, 2));
+        ctx->nCell = func_0203243c(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerA, 2));
     }
-    cfg.handle = CELL_HANDLE(ctx->cellSrc1, 1);
+    cfg.handle = CELL_HANDLE(ctx->pContainerA, 1);
     cfg.nSlots = 2;
     cfg.f8 = 0;
     cfg.fc = 0;
@@ -88,13 +88,13 @@ void func_ov008_02082714(void)
     ctx->hSlots = ctx->managerA;
     nSlot = data_ov008_0208fef1[ctx->nPage * 4];
     if (nSlot >= 0) {
-        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->cellSrc2, nSlot & SLOT_MASK));
+        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     }
     func_ov008_02054678(ctx->managerA, data_ov008_02090e30, 0x1b);
     nSlot = data_ov008_0208fef0[ctx->nPage * 4];
     if (nSlot >= 0) {
-        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->cellSrc2, nSlot & SLOT_MASK));
+        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     } else {
-        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->cellSrc1, 2));
+        func_0203243c(ctx->hSlots, CELL_HANDLE(ctx->pContainerA, 2));
     }
 }
