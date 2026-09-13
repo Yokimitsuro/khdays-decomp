@@ -96,6 +96,10 @@ src/overlays/ov265/calls/func_ov265_020d18e4.c:
     complete
     .text       start:0x020d18e4 end:0x020d1990
 
+src/overlays/ov265/calls/func_ov265_020d1990.c:
+    complete
+    .text       start:0x020d1990 end:0x020d1c50
+
 src/overlays/ov265/calls/func_ov265_020d1c50.c:
     complete
     .text       start:0x020d1c50 end:0x020d1d60
