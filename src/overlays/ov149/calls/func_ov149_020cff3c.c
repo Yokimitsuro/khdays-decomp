@@ -8,8 +8,10 @@
  * idiom of ov131 020cd9a4 and ov281 020cc440: copy a seven halfword template,
  * then write each coordinate as three bytes, the top one keeping bit 7 of the
  * high byte and the low seven bits of the middle byte. Each block needs its own
- * buffer and its own raw vector, and the struct W1 copy is what forces the real
- * store; sharing them collapses the frame.
+ * buffer and its own raw vector; sharing them collapses the frame. Coordinates
+ * are held in a one-value wrapper type (Fx32), a tentative reconstruction of the
+ * original's coordinate type: copying a wrapped value is a struct copy, which
+ * mwcc keeps, and that is the ROM's unread stack copy.
  *
  * The heading pick is the ov137 020cc9e0 idiom: 0x28be60db9391 is 65536/(2*PI)
  * in .32 and the pair at data_0203d210 is sin and cos. The random spread is
@@ -34,9 +36,8 @@ struct Msg {
     u16 h[7];
 };
 
-struct W1 {
-    int v;
-};
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 
 struct Flags17a {
     u8 bBit0 : 1;
@@ -45,7 +46,7 @@ struct Flags17a {
 
 struct State {
     void *pActor;
-    VecFx32 *pPoint04;
+    FxVec *pPoint04;
     VecFx32 vStep08;
     VecFx32 vDir14;
     int nSpeed20;
@@ -71,7 +72,7 @@ extern void *func_ov107_020cab14(void *actor, int mode);
 extern int func_ov107_020c8eb8(void *a, VecFx32 *at, void **out);
 extern int func_ov107_020ca918(void *victim, void *actor, void *owner, int mode,
                                VecFx32 *push, int flags);
-extern void func_ov107_020c5af8(void *actor, int id, u16 mode, VecFx32 *at);
+extern void func_ov107_020c5af8(void *actor, int id, u16 mode, FxVec *at);
 extern void func_0203c634(struct Node *node, int slot, void *next);
 
 extern const struct Msg data_ov149_020d0760;
@@ -96,11 +97,11 @@ void func_ov149_020cff3c(struct Node *node)
     VecFx32 vSum;
     struct Msg msg2;
     struct Msg msg3;
-    VecFx32 raw1;
-    VecFx32 raw2;
-    VecFx32 raw3;
+    FxVec raw1;
+    FxVec raw2;
+    FxVec raw3;
     void (*pfnHook)(void *, struct Msg *, int);
-    VecFx32 *pPoint;
+    FxVec *pPoint;
     void *pTarget;
     int i;
     int nHits;
@@ -127,21 +128,21 @@ void func_ov149_020cff3c(struct Node *node)
                                     &vPush, 0) != 0) {
                 msg1 = data_ov149_020d076e;
                 pPoint = st->pPoint04;
-                *(struct W1 *)&raw1.x = *(struct W1 *)&pPoint->x;
-                ((u8 *)&msg1)[5] = (u8)(((u32)raw1.x >> 16 & 0x7f) |
-                                       ((u32)raw1.x >> 24 & 0x80));
-                ((u8 *)&msg1)[6] = (u8)((u32)raw1.x >> 8);
-                ((u8 *)&msg1)[7] = (u8)raw1.x;
-                *(struct W1 *)&raw1.y = *(struct W1 *)&pPoint->y;
-                ((u8 *)&msg1)[8] = (u8)(((u32)raw1.y >> 16 & 0x7f) |
-                                       ((u32)raw1.y >> 24 & 0x80));
-                ((u8 *)&msg1)[9] = (u8)((u32)raw1.y >> 8);
-                ((u8 *)&msg1)[10] = (u8)raw1.y;
-                *(struct W1 *)&raw1.z = *(struct W1 *)&pPoint->z;
-                ((u8 *)&msg1)[11] = (u8)(((u32)raw1.z >> 16 & 0x7f) |
-                                        ((u32)raw1.z >> 24 & 0x80));
-                ((u8 *)&msg1)[12] = (u8)((u32)raw1.z >> 8);
-                ((u8 *)&msg1)[13] = (u8)raw1.z;
+                raw1.x = pPoint->x;
+                ((u8 *)&msg1)[5] = (u8)(((u32)raw1.x.value >> 16 & 0x7f) |
+                                       ((u32)raw1.x.value >> 24 & 0x80));
+                ((u8 *)&msg1)[6] = (u8)((u32)raw1.x.value >> 8);
+                ((u8 *)&msg1)[7] = (u8)raw1.x.value;
+                raw1.y = pPoint->y;
+                ((u8 *)&msg1)[8] = (u8)(((u32)raw1.y.value >> 16 & 0x7f) |
+                                       ((u32)raw1.y.value >> 24 & 0x80));
+                ((u8 *)&msg1)[9] = (u8)((u32)raw1.y.value >> 8);
+                ((u8 *)&msg1)[10] = (u8)raw1.y.value;
+                raw1.z = pPoint->z;
+                ((u8 *)&msg1)[11] = (u8)(((u32)raw1.z.value >> 16 & 0x7f) |
+                                        ((u32)raw1.z.value >> 24 & 0x80));
+                ((u8 *)&msg1)[12] = (u8)((u32)raw1.z.value >> 8);
+                ((u8 *)&msg1)[13] = (u8)raw1.z.value;
                 pfnHook = *(void (**)(void *, struct Msg *, int))
                     ((char *)st->pActor + 0x24);
                 if (pfnHook != 0) {
@@ -194,21 +195,21 @@ void func_ov149_020cff3c(struct Node *node)
     if (((struct Flags17a *)((char *)st->pActor + 0x17a))->bBit1 != 0) {
         msg2 = data_ov149_020d0760;
         pPoint = st->pPoint04;
-        *(struct W1 *)&raw2.x = *(struct W1 *)&pPoint->x;
-        ((u8 *)&msg2)[5] = (u8)(((u32)raw2.x >> 16 & 0x7f) |
-                               ((u32)raw2.x >> 24 & 0x80));
-        ((u8 *)&msg2)[6] = (u8)((u32)raw2.x >> 8);
-        ((u8 *)&msg2)[7] = (u8)raw2.x;
-        *(struct W1 *)&raw2.y = *(struct W1 *)&pPoint->y;
-        ((u8 *)&msg2)[8] = (u8)(((u32)raw2.y >> 16 & 0x7f) |
-                               ((u32)raw2.y >> 24 & 0x80));
-        ((u8 *)&msg2)[9] = (u8)((u32)raw2.y >> 8);
-        ((u8 *)&msg2)[10] = (u8)raw2.y;
-        *(struct W1 *)&raw2.z = *(struct W1 *)&pPoint->z;
-        ((u8 *)&msg2)[11] = (u8)(((u32)raw2.z >> 16 & 0x7f) |
-                                ((u32)raw2.z >> 24 & 0x80));
-        ((u8 *)&msg2)[12] = (u8)((u32)raw2.z >> 8);
-        ((u8 *)&msg2)[13] = (u8)raw2.z;
+        raw2.x = pPoint->x;
+        ((u8 *)&msg2)[5] = (u8)(((u32)raw2.x.value >> 16 & 0x7f) |
+                               ((u32)raw2.x.value >> 24 & 0x80));
+        ((u8 *)&msg2)[6] = (u8)((u32)raw2.x.value >> 8);
+        ((u8 *)&msg2)[7] = (u8)raw2.x.value;
+        raw2.y = pPoint->y;
+        ((u8 *)&msg2)[8] = (u8)(((u32)raw2.y.value >> 16 & 0x7f) |
+                               ((u32)raw2.y.value >> 24 & 0x80));
+        ((u8 *)&msg2)[9] = (u8)((u32)raw2.y.value >> 8);
+        ((u8 *)&msg2)[10] = (u8)raw2.y.value;
+        raw2.z = pPoint->z;
+        ((u8 *)&msg2)[11] = (u8)(((u32)raw2.z.value >> 16 & 0x7f) |
+                                ((u32)raw2.z.value >> 24 & 0x80));
+        ((u8 *)&msg2)[12] = (u8)((u32)raw2.z.value >> 8);
+        ((u8 *)&msg2)[13] = (u8)raw2.z.value;
         pfnHook = *(void (**)(void *, struct Msg *, int))
             ((char *)st->pActor + 0x24);
         if (pfnHook != 0) {
@@ -227,21 +228,21 @@ void func_ov149_020cff3c(struct Node *node)
 
     msg3 = data_ov149_020d078a;
     pPoint = st->pPoint04;
-    *(struct W1 *)&raw3.x = *(struct W1 *)&pPoint->x;
-    ((u8 *)&msg3)[5] = (u8)(((u32)raw3.x >> 16 & 0x7f) |
-                           ((u32)raw3.x >> 24 & 0x80));
-    ((u8 *)&msg3)[6] = (u8)((u32)raw3.x >> 8);
-    ((u8 *)&msg3)[7] = (u8)raw3.x;
-    *(struct W1 *)&raw3.y = *(struct W1 *)&pPoint->y;
-    ((u8 *)&msg3)[8] = (u8)(((u32)raw3.y >> 16 & 0x7f) |
-                           ((u32)raw3.y >> 24 & 0x80));
-    ((u8 *)&msg3)[9] = (u8)((u32)raw3.y >> 8);
-    ((u8 *)&msg3)[10] = (u8)raw3.y;
-    *(struct W1 *)&raw3.z = *(struct W1 *)&pPoint->z;
-    ((u8 *)&msg3)[11] = (u8)(((u32)raw3.z >> 16 & 0x7f) |
-                            ((u32)raw3.z >> 24 & 0x80));
-    ((u8 *)&msg3)[12] = (u8)((u32)raw3.z >> 8);
-    ((u8 *)&msg3)[13] = (u8)raw3.z;
+    raw3.x = pPoint->x;
+    ((u8 *)&msg3)[5] = (u8)(((u32)raw3.x.value >> 16 & 0x7f) |
+                           ((u32)raw3.x.value >> 24 & 0x80));
+    ((u8 *)&msg3)[6] = (u8)((u32)raw3.x.value >> 8);
+    ((u8 *)&msg3)[7] = (u8)raw3.x.value;
+    raw3.y = pPoint->y;
+    ((u8 *)&msg3)[8] = (u8)(((u32)raw3.y.value >> 16 & 0x7f) |
+                           ((u32)raw3.y.value >> 24 & 0x80));
+    ((u8 *)&msg3)[9] = (u8)((u32)raw3.y.value >> 8);
+    ((u8 *)&msg3)[10] = (u8)raw3.y.value;
+    raw3.z = pPoint->z;
+    ((u8 *)&msg3)[11] = (u8)(((u32)raw3.z.value >> 16 & 0x7f) |
+                            ((u32)raw3.z.value >> 24 & 0x80));
+    ((u8 *)&msg3)[12] = (u8)((u32)raw3.z.value >> 8);
+    ((u8 *)&msg3)[13] = (u8)raw3.z.value;
     pfnHook = *(void (**)(void *, struct Msg *, int))
         ((char *)st->pActor + 0x24);
     if (pfnHook != 0) {

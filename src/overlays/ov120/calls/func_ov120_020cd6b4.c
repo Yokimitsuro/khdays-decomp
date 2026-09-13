@@ -2,9 +2,10 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 
 struct Vec3 { int x, y, z; };
-struct Word { int w; };
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 struct Ov120AreaMsg { u16 h[7]; };
-struct Ov107SweepQuery { struct Vec3 vCentre; int nRadius; };
+struct Ov107SweepQuery { FxVec vCentre; int nRadius; };
 
 struct Ov120AttachBody {
     char pad000[0x14];
@@ -89,22 +90,27 @@ extern void func_0203c634(void *node, int idx, void *value);
  * and int are both 32 bits here, so the code shape is unchanged, but the
  * allocation order is what places the loop counter and the two cursors in the
  * registers the ROM uses.
+ *
+ * Coordinates are held in a one-value wrapper type (Fx32), a tentative
+ * reconstruction of the original's coordinate type.  Copying a wrapped value is
+ * a struct copy, which mwcc keeps, and that is the ROM's unread stack copy of
+ * the contact point.
  */
 void func_ov120_020cd6b4(struct Ov120ActionNode *node)
 {
     struct Ov107SweepEntity *aResults[4];
-    struct Vec3 aPoints[2];
+    FxVec aPoints[2];
     struct Vec3 vLocalOffset;
     struct Ov107SweepQuery query;
     struct Ov120AreaMsg msg;
     struct Ov120AreaMsg tmpl;
     struct Vec3 vZero;
-    struct Vec3 vContact;
+    FxVec vContact;
     struct Ov120ActionState *state;
     long nFound;
     long i;
-    struct Vec3 *pSweepPoint;
-    struct Vec3 *pEventPoint;
+    FxVec *pSweepPoint;
+    FxVec *pEventPoint;
     int nPointIndex;
     int scale;
 
@@ -138,23 +144,23 @@ void func_ov120_020cd6b4(struct Ov120ActionNode *node)
                                                 1, &state->vVelocity, 0) != 0) {
                             msg = tmpl;
 
-                            *(struct Word *)&vContact.x = *(struct Word *)&pSweepPoint->x;
-                            ((u8 *)&msg)[7] = (u8)vContact.x;
-                            ((u8 *)&msg)[5] = (u8)(((unsigned int)vContact.x >> 0x10 & 0x7f)
-                                                   | ((unsigned int)vContact.x >> 0x18 & 0x80));
-                            ((u8 *)&msg)[6] = (u8)((unsigned int)vContact.x >> 8);
+                            vContact.x = pSweepPoint->x;
+                            ((u8 *)&msg)[7] = (u8)vContact.x.value;
+                            ((u8 *)&msg)[5] = (u8)(((unsigned int)vContact.x.value >> 0x10 & 0x7f)
+                                                   | ((unsigned int)vContact.x.value >> 0x18 & 0x80));
+                            ((u8 *)&msg)[6] = (u8)((unsigned int)vContact.x.value >> 8);
 
-                            *(struct Word *)&vContact.y = *(struct Word *)&pSweepPoint->y;
-                            ((u8 *)&msg)[10] = (u8)vContact.y;
-                            ((u8 *)&msg)[8] = (u8)(((unsigned int)vContact.y >> 0x10 & 0x7f)
-                                                   | ((unsigned int)vContact.y >> 0x18 & 0x80));
-                            ((u8 *)&msg)[9] = (u8)((unsigned int)vContact.y >> 8);
+                            vContact.y = pSweepPoint->y;
+                            ((u8 *)&msg)[10] = (u8)vContact.y.value;
+                            ((u8 *)&msg)[8] = (u8)(((unsigned int)vContact.y.value >> 0x10 & 0x7f)
+                                                   | ((unsigned int)vContact.y.value >> 0x18 & 0x80));
+                            ((u8 *)&msg)[9] = (u8)((unsigned int)vContact.y.value >> 8);
 
-                            *(struct Word *)&vContact.z = *(struct Word *)&pSweepPoint->z;
-                            ((u8 *)&msg)[13] = (u8)vContact.z;
-                            ((u8 *)&msg)[11] = (u8)(((unsigned int)vContact.z >> 0x10 & 0x7f)
-                                                    | ((unsigned int)vContact.z >> 0x18 & 0x80));
-                            ((u8 *)&msg)[12] = (u8)((unsigned int)vContact.z >> 8);
+                            vContact.z = pSweepPoint->z;
+                            ((u8 *)&msg)[13] = (u8)vContact.z.value;
+                            ((u8 *)&msg)[11] = (u8)(((unsigned int)vContact.z.value >> 0x10 & 0x7f)
+                                                    | ((unsigned int)vContact.z.value >> 0x18 & 0x80));
+                            ((u8 *)&msg)[12] = (u8)((unsigned int)vContact.z.value >> 8);
 
                             if (state->pOwner->pMsgHook24 != 0) {
                                 state->pOwner->pMsgHook24(state->pOwner, &msg, 0xe);

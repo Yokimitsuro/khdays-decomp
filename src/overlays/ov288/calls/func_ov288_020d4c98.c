@@ -61,15 +61,11 @@ struct Msg {
     u16 h[7];
 };
 
-struct Vec3s {
-    int x;
-    int y;
-    int z;
-};
-
-struct W1 {
-    int v;
-};
+/* Coordinates are held in a one-value wrapper type (Fx32), a tentative
+ * reconstruction of the original's coordinate type: copying a wrapped value is a
+ * struct copy, which mwcc keeps, and that is the ROM's unread stack copy. */
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *ab);
 extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *ab);
@@ -168,9 +164,10 @@ void func_ov288_020d4c98(struct Node *node)
     }
     if (st->sent054 == 0 && st->pTarget != 0) {
         struct Msg msg = {0};
-        struct Vec3s v;
+        FxVec v;
         struct Msg *m;
         void *src;
+        FxVec *pos;
         count = 0;
         m = &msg;
         other = *(void **)((char *)st->pTarget + 0x18c);
@@ -188,18 +185,19 @@ void func_ov288_020d4c98(struct Node *node)
         ((u8 *)m)[2] = 5;
         ((u8 *)m)[3] = 3;
         src = st->pActor;
-        *(struct W1 *)&v.x = *(struct W1 *)((char *)src + 0x74);
-        ((u8 *)&msg)[5] = (u8)(((u32)v.x >> 16 & 0x7f) | ((u32)v.x >> 24 & 0x80));
-        ((u8 *)&msg)[6] = (u8)((u32)v.x >> 8);
-        ((u8 *)&msg)[7] = (u8)v.x;
-        *(struct W1 *)&v.y = *(struct W1 *)((char *)src + 0x78);
-        ((u8 *)&msg)[8] = (u8)(((u32)v.y >> 16 & 0x7f) | ((u32)v.y >> 24 & 0x80));
-        ((u8 *)&msg)[9] = (u8)((u32)v.y >> 8);
-        ((u8 *)&msg)[10] = (u8)v.y;
-        *(struct W1 *)&v.z = *(struct W1 *)((char *)src + 0x7c);
-        ((u8 *)&msg)[11] = (u8)(((u32)v.z >> 16 & 0x7f) | ((u32)v.z >> 24 & 0x80));
-        ((u8 *)&msg)[12] = (u8)((u32)v.z >> 8);
-        ((u8 *)&msg)[13] = (u8)v.z;
+        pos = (FxVec *)((char *)src + 0x74);
+        v.x = pos->x;
+        ((u8 *)&msg)[5] = (u8)(((u32)v.x.value >> 16 & 0x7f) | ((u32)v.x.value >> 24 & 0x80));
+        ((u8 *)&msg)[6] = (u8)((u32)v.x.value >> 8);
+        ((u8 *)&msg)[7] = (u8)v.x.value;
+        v.y = pos->y;
+        ((u8 *)&msg)[8] = (u8)(((u32)v.y.value >> 16 & 0x7f) | ((u32)v.y.value >> 24 & 0x80));
+        ((u8 *)&msg)[9] = (u8)((u32)v.y.value >> 8);
+        ((u8 *)&msg)[10] = (u8)v.y.value;
+        v.z = pos->z;
+        ((u8 *)&msg)[11] = (u8)(((u32)v.z.value >> 16 & 0x7f) | ((u32)v.z.value >> 24 & 0x80));
+        ((u8 *)&msg)[12] = (u8)((u32)v.z.value >> 8);
+        ((u8 *)&msg)[13] = (u8)v.z.value;
         clamp = *(u8 *)((char *)other + 0x2ab3);
         if (clamp > 8) {
             clamp = 8;

@@ -17,16 +17,15 @@
  * Three codegen notes, because the frame layout is what this function is really
  * about.
  *
- * Each anchor component is written to a scratch word nothing ever reads before
- * it is packed, one word at a time through a one-word struct. That is what
- * keeps the store alive through dead-store elimination so it fuses with the
- * packing.
+ * Coordinates are held in a one-value wrapper type (Fx32). This is a tentative
+ * reconstruction of the original's coordinate type, not a proven one: copying a
+ * wrapped value is a struct copy, which mwcc keeps, and that is the ROM's unread
+ * scratch word for each anchor component.
  *
- * Those nine scratch words are nine separate scalars, not three vectors. The
- * compiler sinks an address-taken SCALAR to the bottom of the frame but leaves
- * an address-taken aggregate where its declaration puts it, so spelling them as
- * three twelve-byte vectors parks them above the two requests instead of below
- * them, and every slot in the function shifts by the 0x24 bytes they occupy.
+ * Those nine scratch words are nine separate one-word values, not three vectors.
+ * Spelled as three twelve-byte vectors they were parked above the two requests
+ * instead of below them, and every slot in the function shifted by the 0x24
+ * bytes they occupy.
  *
  * Within one group the slots are handed out in reverse declaration order, which
  * is why the three components of each site are declared z, y, x, and why the
@@ -36,13 +35,15 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
 
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
+
 struct Vec3 { int x, y, z; };
-struct Word { int w; };
 struct Ov143Cmd { u16 h[7]; };
 struct Ov143Quat { int q[4]; };
 
 struct Ov143Query {
-    struct Vec3 vAnchor;
+    FxVec vAnchor;
     struct Vec3 vFacing;
     int nSpeed;
     int nRange;
@@ -84,7 +85,7 @@ struct Ov143SubObj {
 
 struct Ov143StepState {
     struct Ov143SubObj *pSelf;   /* 0x00 */
-    struct Vec3 *pAnchor;        /* 0x04 */
+    FxVec *pAnchor;              /* 0x04 */
     struct Vec3 vVelocity08;     /* 0x08 */
     struct Vec3 vFacing14;       /* 0x14 */
     int nMode20;                 /* 0x20 */
@@ -120,12 +121,12 @@ extern int func_ov107_020c5cfc(void *lock, int param, struct HitCommand *req);
 extern void func_ov107_020c5af8(struct Ov143Owner *owner, int a, int id, void *at);
 extern void func_0203c634(struct Ov143StepNode *node, int slot, void *value);
 
-#define PACK(cmd, dead, s, i, at)                                             \
-    *(struct Word *)&(dead) = (s)[i];                                         \
-    ((u8 *)&(cmd))[at] = (u8)(((unsigned int)(dead) >> 0x10 & 0x7f)           \
-                              | ((unsigned int)(dead) >> 0x18 & 0x80));       \
-    ((u8 *)&(cmd))[(at) + 1] = (u8)((unsigned int)(dead) >> 8);               \
-    ((u8 *)&(cmd))[(at) + 2] = (u8)(dead)
+#define PACK(cmd, dead, src, at)                                              \
+    (dead) = (src);                                                           \
+    ((u8 *)&(cmd))[at] = (u8)(((unsigned int)(dead).value >> 0x10 & 0x7f)     \
+                              | ((unsigned int)(dead).value >> 0x18 & 0x80)); \
+    ((u8 *)&(cmd))[(at) + 1] = (u8)((unsigned int)(dead).value >> 8);         \
+    ((u8 *)&(cmd))[(at) + 2] = (u8)(dead).value
 
 void func_ov143_020d5ab0(struct Ov143StepNode *node)
 {
@@ -135,16 +136,16 @@ void func_ov143_020d5ab0(struct Ov143StepNode *node)
     int results[4];
     struct Ov143Cmd cmdHit;
     void *handle;
-    int hitScratchZ;
-    int hitScratchY;
-    int hitScratchX;
-    int lockScratchZ;
-    int lockScratchY;
-    int lockScratchX;
-    int endScratchZ;
-    int endScratchY;
-    int endScratchX;
-    struct Word *s;
+    Fx32 hitScratchZ;
+    Fx32 hitScratchY;
+    Fx32 hitScratchX;
+    Fx32 lockScratchZ;
+    Fx32 lockScratchY;
+    Fx32 lockScratchX;
+    Fx32 endScratchZ;
+    Fx32 endScratchY;
+    Fx32 endScratchX;
+    FxVec *anchor;
     void *lock;
     int i;
     int n;
@@ -167,10 +168,10 @@ void func_ov143_020d5ab0(struct Ov143StepNode *node)
                                         state->pSelf->pOwner398, 0,
                                         &state->vVelocity08, 0) != 0) {
                     cmdHit = data_ov143_020d6270;
-                    s = (struct Word *)state->pAnchor;
-                    PACK(cmdHit, hitScratchX, s, 0, 5);
-                    PACK(cmdHit, hitScratchY, s, 1, 8);
-                    PACK(cmdHit, hitScratchZ, s, 2, 11);
+                    anchor = state->pAnchor;
+                    PACK(cmdHit, hitScratchX, anchor->x, 5);
+                    PACK(cmdHit, hitScratchY, anchor->y, 8);
+                    PACK(cmdHit, hitScratchZ, anchor->z, 11);
                     if (state->pSelf->pMsgHook24 != 0) {
                         state->pSelf->pMsgHook24(state->pSelf, &cmdHit, 0xe);
                     }
@@ -199,10 +200,10 @@ void func_ov143_020d5ab0(struct Ov143StepNode *node)
                 struct Ov143Cmd cmdLock;
 
                 cmdLock = data_ov143_020d628c;
-                s = (struct Word *)state->pAnchor;
-                PACK(cmdLock, lockScratchX, s, 0, 5);
-                PACK(cmdLock, lockScratchY, s, 1, 8);
-                PACK(cmdLock, lockScratchZ, s, 2, 11);
+                anchor = state->pAnchor;
+                PACK(cmdLock, lockScratchX, anchor->x, 5);
+                PACK(cmdLock, lockScratchY, anchor->y, 8);
+                PACK(cmdLock, lockScratchZ, anchor->z, 11);
                 if (state->pSelf->pMsgHook24 != 0) {
                     state->pSelf->pMsgHook24(state->pSelf, &cmdLock, 0xe);
                 }
@@ -226,10 +227,10 @@ void func_ov143_020d5ab0(struct Ov143StepNode *node)
     struct Ov143Cmd cmdEnd;
 
     cmdEnd = data_ov143_020d629a;
-    s = (struct Word *)state->pAnchor;
-    PACK(cmdEnd, endScratchX, s, 0, 5);
-    PACK(cmdEnd, endScratchY, s, 1, 8);
-    PACK(cmdEnd, endScratchZ, s, 2, 11);
+    anchor = state->pAnchor;
+    PACK(cmdEnd, endScratchX, anchor->x, 5);
+    PACK(cmdEnd, endScratchY, anchor->y, 8);
+    PACK(cmdEnd, endScratchZ, anchor->z, 11);
     if (state->pSelf->pMsgHook24 != 0) {
         state->pSelf->pMsgHook24(state->pSelf, &cmdEnd, 0xe);
     }
