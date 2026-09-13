@@ -6,7 +6,8 @@
  * (020723d4); unless the global short is 1, sub-file 7 (when present) is also
  * flushed and uploaded at character offset 0x2000 of BG0 and BG2.  Finally the
  * tag-tracker callbacks of tags 2 and 4 in block 954c fire and resource slots
- * 0x19, 0x1a and 0x1b are marked used.
+ * 0x19, 0x1a and 0x1b are marked used.  pList (the mission list, passed by
+ * Ov008_MissionListInitStep) is unused.
  */
 typedef unsigned char  u8;
 typedef unsigned int   u32;
@@ -44,7 +45,7 @@ extern void *func_ov008_02055808(void *pOwner, int nTag);                /* ov00
 extern void  func_ov008_0205589c(void *pOwner, void *pEntry);            /* Ov008_TagTracker_InvokeCallback */
 extern void  func_ov008_02050b3c(int nSlot);                             /* Ov008_MarkSlotUsed */
 
-void func_ov008_02072418(void)
+void func_ov008_02072418(void *pList)
 {
     void *pOwner;
     void *pFile;
