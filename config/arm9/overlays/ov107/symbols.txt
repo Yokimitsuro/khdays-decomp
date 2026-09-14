@@ -194,6 +194,7 @@ func_ov107_020cb5f0 kind:function(arm,size=0x8) addr:0x020cb5f0
 data_ov107_020cb5f8 kind:data(any) addr:0x020cb5f8
 data_ov107_020cb610 kind:data(any) addr:0x020cb610
 data_ov107_020cb628 kind:data(any) addr:0x020cb628
+data_ov107_020cb630 kind:data(any) addr:0x020cb630
 data_ov107_020cb638 kind:data(any) addr:0x020cb638
 data_ov107_020cb642 kind:data(any) addr:0x020cb642
 data_ov107_020cb64c kind:data(any) addr:0x020cb64c
