@@ -2,18 +2,17 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
 
-typedef struct {
-    int x;
-    int y;
-    int z;
-} VecFx32;
+/*
+ * Coordinates are held in a one-value wrapper type (Fx32), a tentative
+ * reconstruction of the original's coordinate type. Copying a wrapped value is
+ * a struct copy, which mwcc keeps, and that is the ROM's unread stack copy of
+ * the position.
+ */
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 
 struct Msg {
     u16 h[7];
-};
-
-struct W1 {
-    int v;
 };
 
 struct Comp388 {
@@ -26,7 +25,7 @@ struct State {
     char pad04[0x2c];
     int nField30;
     char pad34[0xc];
-    VecFx32 *pPos40;
+    FxVec *pPos40;
     int nParam44;
     char pad48[4];
     int nField4c;
@@ -50,8 +49,8 @@ void func_ov131_020ce0e8(struct Node *node)
 {
     struct State *st;
     struct Msg msg;
-    VecFx32 raw;
-    VecFx32 *pPos;
+    FxVec raw;
+    FxVec *pPos;
     u16 *hw;
     unsigned int h;
     void (*pfnHook)(char *, struct Msg *, int);
@@ -67,18 +66,18 @@ void func_ov131_020ce0e8(struct Node *node)
     msg = data_ov131_020cef9e;
 
     pPos = st->pPos40;
-    *(struct W1 *)&raw.x = *(struct W1 *)&pPos->x;
-    ((u8 *)&msg)[5] = (u8)(((u32)raw.x >> 16 & 0x7f) | ((u32)raw.x >> 24 & 0x80));
-    ((u8 *)&msg)[6] = (u8)((u32)raw.x >> 8);
-    ((u8 *)&msg)[7] = (u8)raw.x;
-    *(struct W1 *)&raw.y = *(struct W1 *)&pPos->y;
-    ((u8 *)&msg)[8] = (u8)(((u32)raw.y >> 16 & 0x7f) | ((u32)raw.y >> 24 & 0x80));
-    ((u8 *)&msg)[9] = (u8)((u32)raw.y >> 8);
-    ((u8 *)&msg)[10] = (u8)raw.y;
-    *(struct W1 *)&raw.z = *(struct W1 *)&pPos->z;
-    ((u8 *)&msg)[11] = (u8)(((u32)raw.z >> 16 & 0x7f) | ((u32)raw.z >> 24 & 0x80));
-    ((u8 *)&msg)[12] = (u8)((u32)raw.z >> 8);
-    ((u8 *)&msg)[13] = (u8)raw.z;
+    raw.x = pPos->x;
+    ((u8 *)&msg)[5] = (u8)(((u32)raw.x.value >> 16 & 0x7f) | ((u32)raw.x.value >> 24 & 0x80));
+    ((u8 *)&msg)[6] = (u8)((u32)raw.x.value >> 8);
+    ((u8 *)&msg)[7] = (u8)raw.x.value;
+    raw.y = pPos->y;
+    ((u8 *)&msg)[8] = (u8)(((u32)raw.y.value >> 16 & 0x7f) | ((u32)raw.y.value >> 24 & 0x80));
+    ((u8 *)&msg)[9] = (u8)((u32)raw.y.value >> 8);
+    ((u8 *)&msg)[10] = (u8)raw.y.value;
+    raw.z = pPos->z;
+    ((u8 *)&msg)[11] = (u8)(((u32)raw.z.value >> 16 & 0x7f) | ((u32)raw.z.value >> 24 & 0x80));
+    ((u8 *)&msg)[12] = (u8)((u32)raw.z.value >> 8);
+    ((u8 *)&msg)[13] = (u8)raw.z.value;
 
     if (*(int *)(st->pActor + 0x13c) - *(int *)(st->pActor + 0x80) > 0x100) {
         ((u8 *)&msg)[4] = 1;
