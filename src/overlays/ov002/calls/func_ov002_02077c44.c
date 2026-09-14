@@ -9,8 +9,8 @@ typedef struct Ov002Vec3 {
 
 /* Three tier values, one byte each, laid out just before the spot descriptors
    and read from the top down.  They are 100 here, 10 at 0207e679 and 1 at
-   0207e678: a plain decimal breakdown.  Only this one carries a symbol, since
-   the lower two fall inside the object before it. */
+   0207e678: a plain decimal breakdown. The lower two share a separate
+   two-byte table immediately before the hundreds value. */
 extern u8 data_ov002_0207e67a;
 
 extern void *func_ov002_020779dc(int nKind, u16 nTier, int nCtxIndex,

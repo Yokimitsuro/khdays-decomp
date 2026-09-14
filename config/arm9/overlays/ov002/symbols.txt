@@ -1555,6 +1555,7 @@ data_ov002_0207e5c0 kind:data(any) addr:0x0207e5c0
 data_ov002_0207e5e8 kind:data(any) addr:0x0207e5e8
 data_ov002_0207e610 kind:data(any) addr:0x0207e610
 data_ov002_0207e640 kind:data(any) addr:0x0207e640
+data_ov002_0207e678 kind:data(any) addr:0x0207e678
 data_ov002_0207e67a kind:data(any) addr:0x0207e67a
 data_ov002_0207e67c kind:data(any) addr:0x0207e67c
 data_ov002_0207e6fc kind:data(any) addr:0x0207e6fc
