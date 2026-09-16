@@ -274,7 +274,11 @@ for entry in spec:
     except (Exception, java.lang.Exception) as e:
         out("  %s: FAILED %s" % (stem, str(e)[:120]))
     finally:
-        currentProgram.endTransaction(tid, ok)
+        # Always COMMIT the nested transaction: a nested rollback aborts the enclosing
+        # transaction (the bridge's script wrapper) and silently discards every entry
+        # of the run (2026-09-16: one VoidDataType failure lost 42 prototypes; the
+        # log still said protos=42). Partial structs of a failed entry are harmless.
+        currentProgram.endTransaction(tid, True)
     structs_total += len(ctx.made)
 out("done=%d protos=%d plates=%d struct-refs=%d skipped=%s" % (done, protos, plates, structs_total, skipped[:20]))
 log.close()
