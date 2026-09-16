@@ -17,15 +17,14 @@ typedef struct Ov023Entity {
 } Ov023Entity;
 
 typedef struct Ov023Track {
-    u8   pad_00[0x24];
-    VecFx32 vPos;             /* 0x24 */
-    u8   pad_30[0x58 - 0x30];
+    u8   pad_00[0x4c];
+    VecFx32 vPos;             /* 0x4c */
 } Ov023Track;                 /* 0x58 */
 
 typedef struct Ov023Actor {
-    u8   pad_0000[0xac4];
-    Ov023Track aTrack[1];     /* 0x0ac4 */
-    u8   pad_0b1c[0x15b0 - 0xb1c];
+    u8   pad_0000[0xa9c];
+    Ov023Track aTrack[32];    /* 0x0a9c: the track table (to 0x159c) */
+    u8   pad_159c[0x15b0 - 0x159c];
     int  nTrack;              /* 0x15b0 */
     u8   pad_15b4[0x15e0 - 0x15b4];
     Ov023Entity *pEntity;     /* 0x15e0 */

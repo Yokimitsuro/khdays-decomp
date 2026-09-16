@@ -34,18 +34,17 @@ typedef struct Ov023TrackHead {
 } Ov023TrackHead;             /* 0x24 */
 
 typedef struct Ov023Track {
-    Ov023TrackHead head;      /* 0x00 */
-    VecFx32 vPos;             /* 0x24 */
-    u8   pad_30[0x58 - 0x30];
+    u8   pad_00[0x28];
+    Ov023TrackHead head;      /* 0x28 */
+    VecFx32 vPos;             /* 0x4c */
 } Ov023Track;                 /* 0x58 */
 
 typedef struct Ov023Actor {
-    u8   pad_0000[0xac4];
-    Ov023Track aTrack[1];     /* 0x0ac4 */
-    u8   pad_0b1c[0x159c - 0xb1c];
+    u8   pad_0000[0xa9c];
+    Ov023Track aTrack[32];    /* 0x0a9c: the track table (to 0x159c) */
     VecFx32 vTrackPos;        /* 0x159c */
     int  nAngleOffset;        /* 0x15a8 */
-    int  nField15ac;          /* 0x15ac */
+    int  nHeightOffset;       /* 0x15ac */
     int  nTrack;              /* 0x15b0 */
     int  nTurnState;          /* 0x15b4 */
     u8   pad_15b8[0x15e0 - 0x15b8];

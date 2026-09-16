@@ -21,20 +21,20 @@ typedef struct Ov023Motion {
     char szName[0x20];        /* 0x0c */
 } Ov023Motion;                /* 0x2c */
 
-typedef struct Ov023Pending {
+typedef struct Ov023RotTween {
     u8   pad_00[0x18];
-    int  nId;                 /* 0x18 */
+    int  nJoint;              /* 0x18 */
     u8   pad_1c[0x28 - 0x1c];
-} Ov023Pending;               /* 0x28 */
+} Ov023RotTween;               /* 0x28 */
 
 typedef struct Ov023Actor {
     struct Ov023Actor *pParent; /* 0x0000 */
     u8   pad_0004[0x538 - 0x4];
     Ov023Motion aMotion[5][5]; /* 0x0538: [depth][track] */
-    Ov023Pending aPending[7]; /* 0x0984 */
+    Ov023RotTween aRotTween[7]; /* 0x0984 */
     u8   pad_0a9c[0x15b8 - 0xa9c];
-    int  nScale;              /* 0x15b8 */
-    int  nField15bc;          /* 0x15bc */
+    int  nTurnSpeed;          /* 0x15b8: fx32 */
+    int  nTurnDirection;      /* 0x15bc: -1 shorter way, 0 up, else down */
     VecFx32 vTarget;          /* 0x15c0 */
     VecFx32 vTargetPrev;      /* 0x15cc */
     int  nWalkSpeed;          /* 0x15d8 */
@@ -60,12 +60,12 @@ void func_ov023_02088714(Ov023Actor *pActor, int nWord, int nEntity)
     pActor->nField1a2c = nWord;
     pActor->nEntity = nEntity;
     pActor->pParent = 0;
-    pActor->nField15bc = -1;
-    pActor->nScale = 0x1000;
+    pActor->nTurnDirection = -1;
+    pActor->nTurnSpeed = 0x1000;
     pActor->nChildren = 0;
-    MI_CpuFill8(pActor->aPending, 0, 0x78);
+    MI_CpuFill8(pActor->aRotTween, 0, 0x78);
     for (i = 0; i < 7; i++) {
-        pActor->aPending[i].nId = -1;
+        pActor->aRotTween[i].nJoint = -1;
     }
     MI_CpuFill8(pActor->aMotion, 0, sizeof(pActor->aMotion));
     for (i = 0; i < 5; i++) {

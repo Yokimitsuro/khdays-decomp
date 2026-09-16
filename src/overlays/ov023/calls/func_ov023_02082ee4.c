@@ -1,5 +1,5 @@
 /* func_ov023_02082ee4 -- Ov023_LoadScripts: state that loads the event scripts.  Points the
- * script cursor (+0x1daf0) at the scene's script block (+0x1dc54), takes a copy of the
+ * event's actor pointer (+0x1daf0) at the scene's actor array (+0x1dc54, 64 actors), takes a copy of the
  * world-code table (data_ov023_02089d14: "TT", "AW", "HE", ...), builds the current text line
  * (ov002 0206d834 into a stack buffer) and keeps the sub-object (ov002 0206d86c, +0x1db3c) and
  * the ov002 handle (02076890, +0x1db40); opens the shared event text "ev/EV_S.p2" (+0x1db4c,
@@ -18,7 +18,7 @@ typedef struct Ov023Scene {
     u8   pad_0511c[0x1d6b0 - 0x511c];
     u8  *pStagingTail;        /* 0x1d6b0 */
     u8   pad_1d6b4[0x1daf0 - 0x1d6b4];
-    u8  *pScriptCursor;       /* 0x1daf0 */
+    u8  *pActors;             /* 0x1daf0: the event block's pActors (+0x440) */
     u8   pad_1daf4[0x1db3c - 0x1daf4];
     int  nSubObject;          /* 0x1db3c */
     int  nHandle;             /* 0x1db40 */
@@ -26,7 +26,7 @@ typedef struct Ov023Scene {
     void *pSharedText;        /* 0x1db4c: ev/EV_S.p2 */
     void *pWorldText;         /* 0x1db50: ev/EV_<world>.p2 */
     u8   pad_1db54[0x1dc54 - 0x1db54];
-    u8   script[0x87598 - 0x1dc54]; /* 0x1dc54 */
+    u8   aActors[0x87598 - 0x1dc54]; /* 0x1dc54: 64 x 0x1a64 Ov023Actor (to 0x87554) */
     char szName[0x875e0 - 0x87598]; /* 0x87598 */
     int  nWorld;              /* 0x875e0 */
 } Ov023Scene;
@@ -62,7 +62,7 @@ void *func_ov023_02082ee4(void)
     int nSubObject;
     u32 nEncoded;
 
-    data_ov023_0208a784.pScene->pScriptCursor = data_ov023_0208a784.pScene->script;
+    data_ov023_0208a784.pScene->pActors = data_ov023_0208a784.pScene->aActors;
     world = data_ov023_02089d14;
     func_ov002_0206d834(0, szLine);
     data_ov023_0208a784.pScene->nSubObject = func_ov002_0206d86c();

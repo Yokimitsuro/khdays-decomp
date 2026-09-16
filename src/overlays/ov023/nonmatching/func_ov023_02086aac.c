@@ -34,7 +34,12 @@
  * "what later use of the pre-decrement counter am I missing?".  In this
  * function nothing appears to read it again, which is why the park stands -- but
  * that is a claim about my reading of the tail, and it is the thing to re-check
- * first.
+ * first. *
+ * 17/09: 31 more forms (old count in a named local with the store from it and the test on the
+ * reload / on `nOld - 1` / on `nOld == 1` / `<= 1`, decl positions x3, four static inline
+ * count-down helpers returning old / new / old - 1 / old == 1, a pointer local to the count
+ * with `--*p`): every one keeps the tight `subs r0, r0, #1`; `nOld == 1` moves the old value
+ * to r1 and adds a cmp (138 B).  The r2 choice (r1 skipped) still has no source explanation.
  */
 /* Script VM command: interpolate a value on an actor over a countdown.
  * Operands live at fixed offsets in the command: +0 actor id, +0x08 and +0x10
