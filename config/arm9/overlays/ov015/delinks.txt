@@ -56,9 +56,17 @@ src/overlays/ov015/calls/func_ov015_0207fdc4.c:
     complete
     .text       start:0x0207fdc4 end:0x0207fe0c
 
+src/overlays/ov015/calls/func_ov015_0207fe0c.c:
+    complete
+    .text       start:0x0207fe0c end:0x0207ffd0
+
 src/overlays/ov015/calls/func_ov015_020800d4.c:
     complete
     .text       start:0x020800d4 end:0x020801c8
+
+src/overlays/ov015/calls/func_ov015_020801c8.c:
+    complete
+    .text       start:0x020801c8 end:0x02080408
 
 src/overlays/ov015/auto/func_ov015_02080408.c:
     complete
