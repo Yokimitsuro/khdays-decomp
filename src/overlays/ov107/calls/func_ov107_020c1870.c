@@ -1,4 +1,4 @@
-﻿/* Spawner command dispatch for an Ov107Object.
+/* Spawner command dispatch for an Ov107Object.
  *
  * op 0: for every enabled slot without an actor, ask func_ov107_020c1744 for a
  *       matching free actor; bind it to the slot, reset it (+0x21a from +0x218,

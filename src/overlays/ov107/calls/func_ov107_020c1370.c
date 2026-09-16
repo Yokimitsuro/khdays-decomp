@@ -1,4 +1,4 @@
-﻿/* func_ov107_020c1370 -- broadcast a positioning update to every entry of a
+/* func_ov107_020c1370 -- broadcast a positioning update to every entry of a
  * target list, per self->mode:
  *   0: no repositioning, just refresh + notify each entry.
  *   1: scatter each entry to a random point in the square
