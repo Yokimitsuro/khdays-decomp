@@ -5920,6 +5920,14 @@ src/overlays/ov002/data/ov002_camera_shots.c:
     complete
     .data       start:0x0207e764 end:0x0207e830
 
+src/overlays/ov002/data/ov002_empty_text_0207eb08.c:
+    complete
+    .data       start:0x0207eb08 end:0x0207eb0c
+
+src/overlays/ov002/data/ov002_empty_text_0207f118.c:
+    complete
+    .data       start:0x0207f118 end:0x0207f11c
+
 src/overlays/ov002/data/ov002_gauge_tables.c:
     complete
     .rodata     start:0x0207dd7c end:0x0207deb8
@@ -6156,6 +6164,10 @@ src/overlays/ov002/data/ov002_strings_0207f468.c:
     complete
     .data       start:0x0207f468 end:0x0207f484
 
+src/overlays/ov002/data/ov002_surface_tags.c:
+    complete
+    .rodata     start:0x0207e640 end:0x0207e678
+
 src/overlays/ov002/data/ov002_tables_0207db54.c:
     complete
     .rodata     start:0x0207db54 end:0x0207dc60
@@ -6239,6 +6251,10 @@ src/overlays/ov002/data/ov002_tables_0207f408.c:
 src/overlays/ov002/data/ov002_tables_0207f58c.c:
     complete
     .data       start:0x0207f58c end:0x0207f590
+
+src/overlays/ov002/data/ov002_tier_values.c:
+    complete
+    .rodata     start:0x0207e678 end:0x0207e67a
 
 src/overlays/ov002/data/ov002_tile_rows.c:
     complete
