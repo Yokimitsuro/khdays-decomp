@@ -2,6 +2,14 @@
  *
  * 56 rows of 8 bytes, split at the original symbol boundaries.  The table
  * maps day/progress thresholds to the three mission-summary tier values.
+ *
+ * Readers:
+ *   data_ov008_0208ee84: func_ov008_0205b7fc, func_ov008_0205ba30
+ *   data_ov008_0208ee86: func_ov008_0205ba1c
+ *   data_ov008_0208ee88: func_ov008_0205b7fc
+ *   data_ov008_0208ee89: func_ov008_0205b7fc
+ *   data_ov008_0208ee8a: func_ov008_0205b7fc
+ *   data_ov008_0208f021: (no C reader yet)
  */
 
 typedef unsigned char u8;

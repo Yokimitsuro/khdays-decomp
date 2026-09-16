@@ -4885,6 +4885,122 @@ src/overlays/ov008/calls/func_ov008_0208e66c.c:
     complete
     .text       start:0x0208e66c end:0x0208e848
 
+src/overlays/ov008/data/ov008_bss_02090f00.c:
+    complete
+    .bss        start:0x02090f00 end:0x02090f04
+
+src/overlays/ov008/data/ov008_bss_02090f04.c:
+    complete
+    .bss        start:0x02090f04 end:0x02090f14
+
+src/overlays/ov008/data/ov008_bss_02090f14.c:
+    complete
+    .bss        start:0x02090f14 end:0x02090fa0
+
+src/overlays/ov008/data/ov008_bss_02090fa0.c:
+    complete
+    .bss        start:0x02090fa0 end:0x02090fc0
+
+src/overlays/ov008/data/ov008_class_0208ffa0.c:
+    complete
+    .data       start:0x0208ffa0 end:0x0208ffb4
+
+src/overlays/ov008/data/ov008_class_020900d8.c:
+    complete
+    .data       start:0x020900d8 end:0x020900ec
+
+src/overlays/ov008/data/ov008_class_02090bb0.c:
+    complete
+    .data       start:0x02090bb0 end:0x02090bc4
+
+src/overlays/ov008/data/ov008_class_02090bd4.c:
+    complete
+    .data       start:0x02090bd4 end:0x02090be8
+
+src/overlays/ov008/data/ov008_class_02090d1c.c:
+    complete
+    .data       start:0x02090d1c end:0x02090d30
+
+src/overlays/ov008/data/ov008_class_02090db0.c:
+    complete
+    .data       start:0x02090db0 end:0x02090dc4
+
+src/overlays/ov008/data/ov008_class_02090dc4.c:
+    complete
+    .data       start:0x02090dc4 end:0x02090dd8
+
+src/overlays/ov008/data/ov008_empty_text_02090344.c:
+    complete
+    .data       start:0x02090344 end:0x02090348
+
+src/overlays/ov008/data/ov008_empty_text_02090888.c:
+    complete
+    .data       start:0x02090888 end:0x0209088c
+
+src/overlays/ov008/data/ov008_empty_text_02090990.c:
+    complete
+    .data       start:0x02090990 end:0x02090994
+
+src/overlays/ov008/data/ov008_header_limits.c:
+    complete
+    .rodata     start:0x0208e848 end:0x0208e84c
+
+src/overlays/ov008/data/ov008_hookslots_02090064.c:
+    complete
+    .data       start:0x02090064 end:0x0209009c
+
+src/overlays/ov008/data/ov008_hookslots_0209009c.c:
+    complete
+    .data       start:0x0209009c end:0x020900d8
+
+src/overlays/ov008/data/ov008_menu_entries_02090598.c:
+    complete
+    .data       start:0x02090598 end:0x0209078c
+
+src/overlays/ov008/data/ov008_missionres_0208ede0.c:
+    complete
+    .rodata     start:0x0208ede0 end:0x0208edec
+
+src/overlays/ov008/data/ov008_missionres_0208f8d0.c:
+    complete
+    .rodata     start:0x0208f8d0 end:0x0208f8dc
+
+src/overlays/ov008/data/ov008_missionres_0208f8dc.c:
+    complete
+    .rodata     start:0x0208f8dc end:0x0208f8e8
+
+src/overlays/ov008/data/ov008_missionres_0208fa10.c:
+    complete
+    .rodata     start:0x0208fa10 end:0x0208fa1c
+
+src/overlays/ov008/data/ov008_missionres_0208fa1c.c:
+    complete
+    .rodata     start:0x0208fa1c end:0x0208fa28
+
+src/overlays/ov008/data/ov008_missionres_0208ff6c.c:
+    complete
+    .rodata     start:0x0208ff6c end:0x0208ff78
+
+src/overlays/ov008/data/ov008_page_020907a0.c:
+    complete
+    .data       start:0x020907a0 end:0x020907e0
+
+src/overlays/ov008/data/ov008_page_0209082c.c:
+    complete
+    .data       start:0x0209082c end:0x0209086c
+
+src/overlays/ov008/data/ov008_page_020908e0.c:
+    complete
+    .data       start:0x020908e0 end:0x02090920
+
+src/overlays/ov008/data/ov008_page_020909d4.c:
+    complete
+    .data       start:0x020909d4 end:0x02090a14
+
+src/overlays/ov008/data/ov008_page_02090a14.c:
+    complete
+    .data       start:0x02090a14 end:0x02090a54
+
 src/overlays/ov008/data/ov008_pointers_0208e87c.c:
     complete
     .rodata     start:0x0208e87c end:0x0208e8a4
@@ -4900,6 +5016,34 @@ src/overlays/ov008/data/ov008_pointers_0208f14c.c:
 src/overlays/ov008/data/ov008_pointers_0208fd8c.c:
     complete
     .rodata     start:0x0208fd8c end:0x0208fdc8
+
+src/overlays/ov008/data/ov008_scene_params.c:
+    complete
+    .rodata     start:0x0208e9c4 end:0x0208edd4
+
+src/overlays/ov008/data/ov008_screen_02090148.c:
+    complete
+    .data       start:0x02090148 end:0x0209018c
+
+src/overlays/ov008/data/ov008_screen_020902e8.c:
+    complete
+    .data       start:0x020902e8 end:0x0209032c
+
+src/overlays/ov008/data/ov008_screen_02090380.c:
+    complete
+    .data       start:0x02090380 end:0x020903c4
+
+src/overlays/ov008/data/ov008_screen_0209041c.c:
+    complete
+    .data       start:0x0209041c end:0x02090460
+
+src/overlays/ov008/data/ov008_screen_02090460.c:
+    complete
+    .data       start:0x02090460 end:0x020904a4
+
+src/overlays/ov008/data/ov008_screen_02090554.c:
+    complete
+    .data       start:0x02090554 end:0x02090598
 
 src/overlays/ov008/data/ov008_strings_0208f080.c:
     complete
@@ -4981,6 +5125,138 @@ src/overlays/ov008/data/ov008_strings_02090ed4.c:
     complete
     .data       start:0x02090ed4 end:0x02090f00
 
+src/overlays/ov008/data/ov008_surface_0208e84c.c:
+    complete
+    .rodata     start:0x0208e84c end:0x0208e860
+
+src/overlays/ov008/data/ov008_surface_0208fd58.c:
+    complete
+    .rodata     start:0x0208fd58 end:0x0208fd6c
+
+src/overlays/ov008/data/ov008_surface_0208fec8.c:
+    complete
+    .rodata     start:0x0208fec8 end:0x0208fedc
+
+src/overlays/ov008/data/ov008_tables_0208e860.c:
+    complete
+    .rodata     start:0x0208e860 end:0x0208e87c
+
+src/overlays/ov008/data/ov008_tables_0208e8a4.c:
+    complete
+    .rodata     start:0x0208e8a4 end:0x0208e8fc
+
+src/overlays/ov008/data/ov008_tables_0208e958.c:
+    complete
+    .rodata     start:0x0208e958 end:0x0208e9c4
+
+src/overlays/ov008/data/ov008_tables_0208edec.c:
+    complete
+    .rodata     start:0x0208edec end:0x0208ee84
+
 src/overlays/ov008/data/ov008_tables_0208ee84.c:
     complete
     .rodata     start:0x0208ee84 end:0x0208f044
+
+src/overlays/ov008/data/ov008_tables_0208f044.c:
+    complete
+    .rodata     start:0x0208f044 end:0x0208f080
+
+src/overlays/ov008/data/ov008_tables_0208f110.c:
+    complete
+    .rodata     start:0x0208f110 end:0x0208f14c
+
+src/overlays/ov008/data/ov008_tables_0208f15c.c:
+    complete
+    .rodata     start:0x0208f15c end:0x0208f8d0
+
+src/overlays/ov008/data/ov008_tables_0208f8e8.c:
+    complete
+    .rodata     start:0x0208f8e8 end:0x0208fa10
+
+src/overlays/ov008/data/ov008_tables_0208fa28.c:
+    complete
+    .rodata     start:0x0208fa28 end:0x0208fd58
+
+src/overlays/ov008/data/ov008_tables_0208fd6c.c:
+    complete
+    .rodata     start:0x0208fd6c end:0x0208fd8c
+
+src/overlays/ov008/data/ov008_tables_0208fdc8.c:
+    complete
+    .rodata     start:0x0208fdc8 end:0x0208fec8
+
+src/overlays/ov008/data/ov008_tables_0208fedc.c:
+    complete
+    .rodata     start:0x0208fedc end:0x0208ff6c
+
+src/overlays/ov008/data/ov008_tables_0208ff78.c:
+    complete
+    .rodata     start:0x0208ff78 end:0x0208ff88
+
+src/overlays/ov008/data/ov008_tables_02090050.c:
+    complete
+    .data       start:0x02090050 end:0x02090064
+
+src/overlays/ov008/data/ov008_tables_02090108.c:
+    complete
+    .data       start:0x02090108 end:0x02090148
+
+src/overlays/ov008/data/ov008_tables_0209018c.c:
+    complete
+    .data       start:0x0209018c end:0x020901fc
+
+src/overlays/ov008/data/ov008_tables_02090360.c:
+    complete
+    .data       start:0x02090360 end:0x02090380
+
+src/overlays/ov008/data/ov008_tables_020903c4.c:
+    complete
+    .data       start:0x020903c4 end:0x020903f0
+
+src/overlays/ov008/data/ov008_tables_020904f8.c:
+    complete
+    .data       start:0x020904f8 end:0x02090554
+
+src/overlays/ov008/data/ov008_tables_020907e0.c:
+    complete
+    .data       start:0x020907e0 end:0x020907f0
+
+src/overlays/ov008/data/ov008_tables_02090808.c:
+    complete
+    .data       start:0x02090808 end:0x02090818
+
+src/overlays/ov008/data/ov008_tables_02090878.c:
+    complete
+    .data       start:0x02090878 end:0x02090888
+
+src/overlays/ov008/data/ov008_tables_0209088c.c:
+    complete
+    .data       start:0x0209088c end:0x0209089c
+
+src/overlays/ov008/data/ov008_tables_0209092c.c:
+    complete
+    .data       start:0x0209092c end:0x02090990
+
+src/overlays/ov008/data/ov008_tables_02090994.c:
+    complete
+    .data       start:0x02090994 end:0x020909a4
+
+src/overlays/ov008/data/ov008_tables_02090a54.c:
+    complete
+    .data       start:0x02090a54 end:0x02090b40
+
+src/overlays/ov008/data/ov008_tables_02090bc4.c:
+    complete
+    .data       start:0x02090bc4 end:0x02090bd4
+
+src/overlays/ov008/data/ov008_tables_02090be8.c:
+    complete
+    .data       start:0x02090be8 end:0x02090cf8
+
+src/overlays/ov008/data/ov008_tables_02090d0c.c:
+    complete
+    .data       start:0x02090d0c end:0x02090d1c
+
+src/overlays/ov008/data/ov008_tables_02090ea0.c:
+    complete
+    .data       start:0x02090ea0 end:0x02090ed4
