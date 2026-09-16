@@ -648,6 +648,10 @@ src/overlays/ov026/calls/func_ov026_02089780.c:
     complete
     .text       start:0x02089780 end:0x02089854
 
+src/overlays/ov026/calls/func_ov026_02089854.c:
+    complete
+    .text       start:0x02089854 end:0x02089c54
+
 src/overlays/ov026/calls/func_ov026_02089c54.c:
     complete
     .text       start:0x02089c54 end:0x02089d2c
