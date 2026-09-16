@@ -7,6 +7,8 @@
  * flushed and uploaded at character offset 0x2000 of BG0 and BG2.  Finally the
  * tag-tracker callbacks of tags 3 and 6 in block 954c fire and resource slots
  * 0x19, 0x1a and 0x1b are marked used.
+ * The menu pointer is the parameter its only caller (Ov008_MissionMenuInitStep)
+ * passes; it is not read.
  */
 typedef unsigned char  u8;
 typedef unsigned int   u32;
@@ -26,6 +28,8 @@ typedef struct SpriteResSet {
 
 typedef void (*BgCharLoader)(const void *pSrc, u32 nOffset, u32 nSize);
 
+typedef struct Ov008MissionMenu Ov008MissionMenu;  /* the caller's menu, not read here */
+
 extern void *func_ov008_02050c3c(void);                                  /* Ov008_GetCtxBlock954c */
 extern int   func_02024e5c(void);                                        /* LoadGlobalShort_0204c1ec */
 extern u32   func_ov008_02050f08(int nMember);                           /* Ov008_PackSlotTag */
@@ -44,7 +48,7 @@ extern void *func_ov008_02055808(void *pOwner, int nTag);                /* ov00
 extern void  func_ov008_0205589c(void *pOwner, void *pEntry);            /* Ov008_TagTracker_InvokeCallback */
 extern void  func_ov008_02050b3c(int nSlot);                             /* Ov008_MarkSlotUsed */
 
-void func_ov008_02077190(void)
+void func_ov008_02077190(Ov008MissionMenu *pMenu)
 {
     void *pOwner;
     void *pFile;
