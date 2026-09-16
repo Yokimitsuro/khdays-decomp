@@ -7,7 +7,7 @@ src/overlays/ov017/calls/func_ov017_0207fa40.c:
     complete
     .text       start:0x0207fa40 end:0x0207fa7c
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_0207fa7c.c:
+src/overlays/ov017/calls/func_ov017_0207fa7c.c:
     complete
     .text       start:0x0207fa7c end:0x0207faf8
 
@@ -15,7 +15,7 @@ src/overlays/ov017/calls/func_ov017_0207faf8.c:
     complete
     .text       start:0x0207faf8 end:0x0207fb34
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_0207fb34.c:
+src/overlays/ov017/calls/func_ov017_0207fb34.c:
     complete
     .text       start:0x0207fb34 end:0x0207fb94
 
@@ -23,7 +23,7 @@ src/overlays/ov017/calls/func_ov017_0207fb94.c:
     complete
     .text       start:0x0207fb94 end:0x0207fba8
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_0207fba8.c:
+src/overlays/ov017/calls/func_ov017_0207fba8.c:
     complete
     .text       start:0x0207fba8 end:0x0207fc08
 
@@ -39,7 +39,7 @@ src/overlays/ov017/calls/func_ov017_0207fd88.c:
     complete
     .text       start:0x0207fd88 end:0x0207fdb4
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_0207fdb4.c:
+src/overlays/ov017/calls/func_ov017_0207fdb4.c:
     complete
     .text       start:0x0207fdb4 end:0x0207fe10
 
@@ -119,7 +119,7 @@ src/overlays/ov017/auto/func_ov017_0208071c.c:
     complete
     .text       start:0x0208071c end:0x02080720
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080720.c:
+src/overlays/ov017/calls/func_ov017_02080720.c:
     complete
     .text       start:0x02080720 end:0x0208079c
 
@@ -135,7 +135,7 @@ src/overlays/ov017/asm_stubs/calls/func_ov017_02080938.c:
     complete
     .text       start:0x02080938 end:0x020809d8
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_020809d8.c:
+src/overlays/ov017/calls/func_ov017_020809d8.c:
     complete
     .text       start:0x020809d8 end:0x02080a60
 
@@ -159,7 +159,7 @@ src/overlays/ov017/calls/func_ov017_02080bcc.c:
     complete
     .text       start:0x02080bcc end:0x02080c3e
 
-src/overlays/ov017/asm_stubs/calls/func_ov017_02080c40.c:
+src/overlays/ov017/calls/func_ov017_02080c40.c:
     complete
     .text       start:0x02080c40 end:0x02080c88
 
