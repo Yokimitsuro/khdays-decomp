@@ -1588,6 +1588,10 @@ src/overlays/ov025/calls/func_ov025_020905cc.c:
     complete
     .text       start:0x020905cc end:0x02090668
 
+src/overlays/ov025/calls/func_ov025_02090668.c:
+    complete
+    .text       start:0x02090668 end:0x02090854
+
 src/overlays/ov025/calls/func_ov025_02090854.c:
     complete
     .text       start:0x02090854 end:0x02090b54
@@ -1736,9 +1740,21 @@ src/overlays/ov025/calls/func_ov025_02093038.c:
     complete
     .text       start:0x02093038 end:0x020930a8
 
+src/overlays/ov025/calls/func_ov025_020930a8.c:
+    complete
+    .text       start:0x020930a8 end:0x02093288
+
+src/overlays/ov025/calls/func_ov025_02093288.c:
+    complete
+    .text       start:0x02093288 end:0x0209338c
+
 src/overlays/ov025/calls/func_ov025_02093b08.c:
     complete
     .text       start:0x02093b08 end:0x02093d0c
+
+src/overlays/ov025/calls/func_ov025_02093d0c.c:
+    complete
+    .text       start:0x02093d0c end:0x02094044
 
 src/overlays/ov025/calls/func_ov025_02094044.c:
     complete
@@ -1831,6 +1847,10 @@ src/overlays/ov025/calls/func_ov025_02095cbc.c:
 src/overlays/ov025/calls/func_ov025_020961d8.c:
     complete
     .text       start:0x020961d8 end:0x02096384
+
+src/overlays/ov025/calls/func_ov025_02096384.c:
+    complete
+    .text       start:0x02096384 end:0x020966f8
 
 src/overlays/ov025/calls/func_ov025_020966f8.c:
     complete
@@ -3136,6 +3156,10 @@ src/overlays/ov025/calls/func_ov025_020ad164.c:
     complete
     .text       start:0x020ad164 end:0x020ad180
 
+src/overlays/ov025/calls/func_ov025_020ad180.c:
+    complete
+    .text       start:0x020ad180 end:0x020ad3bc
+
 src/overlays/ov025/calls/func_ov025_020ad3bc.c:
     complete
     .text       start:0x020ad3bc end:0x020ad50c
@@ -3287,6 +3311,10 @@ src/overlays/ov025/auto/func_ov025_020aedbc.c:
 src/overlays/ov025/calls/func_ov025_020aede8.c:
     complete
     .text       start:0x020aede8 end:0x020aee14
+
+src/overlays/ov025/calls/func_ov025_020aee14.c:
+    complete
+    .text       start:0x020aee14 end:0x020af024
 
 src/overlays/ov025/calls/func_ov025_020af024.c:
     complete
