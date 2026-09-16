@@ -34,8 +34,24 @@ typedef struct Ov008SelCtx {
 #define ITEM_STRIDE 0x14
 #define RAISE_FX32  0x8000
 
-extern u8 data_ov008_0209059e[];                                   /* item available (stride 0x14) */
-extern u8 data_ov008_0209059f[];                                   /* item enabled (stride 0x14) */
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov008_02090598[];
 
 extern Ov008SelCtx *func_ov008_02050cd4(void);                     /* Ov008_GetMenuContext */
 extern int  func_ov008_02050c54(void);                             /* Ov008_GetContext */
@@ -61,14 +77,14 @@ void func_ov008_0206ac8c(void)
     func_ov008_02069c2c(&pick, ctx->sel, (p + 1)[ctx->sel]);
     pos = pick.pos;
     func_ov008_02054cc4(nCtx, pick.pEntry);
-    if (data_ov008_0209059e[ctx->sel * ITEM_STRIDE] != 0) {
+    if (data_ov008_02090598[ctx->sel].bEnabled != 0) {
         func_ov008_02054c44(nCtx, pick.pEntry);
     } else {
         func_ov008_02054b18(nCtx, pick.pEntry, 0);
     }
     nBackup = *pBackup;
     if (*p != nBackup) {
-        if (data_ov008_0209059e[nBackup * ITEM_STRIDE] != 0 && data_ov008_0209059f[nBackup * ITEM_STRIDE] != 0) {
+        if (data_ov008_02090598[nBackup].bEnabled != 0 && data_ov008_02090598[nBackup].nSubCount != 0) {
             func_ov008_02069c2c(&pick, *pBackup, (pBackup + 1)[nBackup]);
             func_ov008_02069c68(&pick);
         }

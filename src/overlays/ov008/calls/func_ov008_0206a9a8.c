@@ -1,7 +1,7 @@
 /* func_ov008_0206a9a8 -- Ov008_ConfirmMenuSelection (196 B, 10 relocs).
  * Confirms the currently highlighted item (ctx->sel at 0x4c). Resolves the item via
  * func_ov008_02069bc8(sel) and gates on two stride-0x14 tables indexed by sel: bail silently if
- * data_ov008_0209059d[sel*0x14] is set (locked); if data_ov008_0209059e[sel*0x14] is clear
+ * the entry's lock state (data_ov008_02090598[sel].nState) is set (locked); if its enabled flag (.bEnabled) is clear
  * (unavailable) play cue (func_02033b78(0,4)) + refresh and return. Otherwise back up the whole
  * 0x34-byte selection block (0x4c->0x80), decrement the selected item's count and recompute it
  * through func_ov008_0206a76c, then func_02033b78(0,0) + func_ov008_0206b1f4() refresh.
@@ -25,20 +25,36 @@ extern void func_02033b78(int a, int b);
 extern int  func_ov008_0206a76c(int a, int b, int c);
 extern void func_ov008_0206b1f4(void);
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
-extern u8   data_ov008_0209059d[];
-extern u8   data_ov008_0209059e[];
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov008_02090598[];
 
 void func_ov008_0206a9a8(void)
 {
     Ov008SelCtx *ctx = func_ov008_02050cd4();
     s16 *p = &ctx->sel;
     int r = func_ov008_02069bc8((u16)ctx->sel);
-    int idx = ctx->sel * 0x14;
+    int idx = ctx->sel;
 
-    if (data_ov008_0209059d[idx] != 0) {
+    if (data_ov008_02090598[idx].nState != 0) {
         return;
     }
-    if (data_ov008_0209059e[idx] == 0) {
+    if (data_ov008_02090598[idx].bEnabled == 0) {
         func_02033b78(0, 4);
         func_ov008_0206b1f4();
         return;

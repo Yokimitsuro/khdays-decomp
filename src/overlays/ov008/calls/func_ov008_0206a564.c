@@ -34,7 +34,25 @@ typedef struct Ov008SlotTable {
 } Ov008SlotTable;
 
 extern Ov008LayoutTemplate data_ov008_0208f5e8;
-extern u8 data_ov008_02090598[];                                        /* item table, byte 6 = unseen marker */
+typedef short s16;
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov008_02090598[];
 extern Ov008MenuContext *func_ov008_02050cd4(void);                     /* Ov008_GetMenuContext */
 extern Ov008SlotTable *func_ov008_02069b60(u16 nListId);
 extern int   func_ov008_02050c28(void);                                 /* Ov008_GetCtxBlock9500 */
@@ -88,10 +106,10 @@ void func_ov008_0206a564(void)
         nDay = func_020235d0(0, 9);
         nFlag = func_ov008_02079264(0x34);
         if (nDay >= DAY_TIER_UNLOCK && func_02023588(nFlag + FLAG_TIER_BASE) != 0) {
-            data_ov008_02090598[6] = 1;
+            data_ov008_02090598[0].bEnabled = 1;
         }
     } else {
-        data_ov008_02090598[6] = 1;
+        data_ov008_02090598[0].bEnabled = 1;
     }
     func_ov008_0206a138();
 }

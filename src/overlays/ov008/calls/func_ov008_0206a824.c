@@ -1,6 +1,6 @@
 /* func_ov008_0206a824 -- Ov008_MenuSelectionLeft: the "left" action on the
  * highlighted item (ctx->sel at 0x4c).  The selection block is backed up first
- * (0x4c -> 0x80, 0x34 bytes).  A locked item (data_ov008_0209059d[sel*0x14] == 0)
+ * (0x4c -> 0x80, 0x34 bytes).  A locked item (the entry's lock state (data_ov008_02090598[sel].nState) == 0)
  * moves the highlight to the previous selectable item via func_ov008_0206a788
  * (sel - 1, wrapping, step -1) when one exists; kind 1 decrements the item's count
  * and re-clamps it against func_ov008_02069bc8(sel) through func_ov008_0206a76c.
@@ -28,7 +28,24 @@ extern int  func_ov008_0206a76c(int nValue, int nMin, int nMax);     /* ClampWra
 extern int  func_ov008_0206a788(s16 nFrom, int nStep);               /* next selectable item, -1 if none */
 extern void func_02033b78(int nKind, int nSound);                    /* PlaySound */
 extern void func_ov008_0206b1f4(void);                               /* menu refresh */
-extern u8   data_ov008_0209059d[];
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov008_02090598[];
 
 void func_ov008_0206a824(void)
 {
@@ -39,7 +56,7 @@ void func_ov008_0206a824(void)
 
     MI_CpuCopy8(p, &ctx->field80, 0x34);
     sel = ctx->sel;
-    switch (data_ov008_0209059d[sel * ITEM_STRIDE]) {
+    switch (data_ov008_02090598[sel].nState) {
     case KIND_COUNT:
         (p + 1)[sel] -= 1;
         *(p + p[0] + 1) = func_ov008_0206a76c(*(p + p[0] + 1), 0, func_ov008_02069bc8((u16)*p));

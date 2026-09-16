@@ -24,7 +24,24 @@ typedef struct Ov008ItemRing {
 
 #define ITEM_STRIDE 0x14
 
-extern u8 data_ov008_02090598[];                                  /* item table, byte +7 = selectable */
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov008_02090598[];
 
 extern Ov008MenuContext *func_ov008_02050cd4(void);               /* Ov008_GetMenuContext */
 extern Ov008ItemRing *func_ov008_02069b94(int nListId, int nSelection);
@@ -48,7 +65,7 @@ int func_ov008_0206a788(s16 nFrom, int nStep)
         nFirst = pRing->nFirst;
         do {
             nIndex = nFirst + (int)(func_02020400(nCount + (nFrom - nFirst), nCount) >> 32);
-            nSel = data_ov008_02090598[(short)nIndex * ITEM_STRIDE + 7];
+            nSel = data_ov008_02090598[(short)nIndex].nSubCount;
             nFrom = nIndex;
             if (nSel != 0) {
                 break;
