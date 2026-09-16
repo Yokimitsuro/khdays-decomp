@@ -3,10 +3,11 @@
  * 139 keeps the cursor in r7 and spills the counter for every form tried (declaration
  * orders, explicit row / spec pointers, entries indexed by the running total or from the
  * row base, per-row entry pointers, address-taken or volatile counters, C99 / block /
- * register / narrow counters, earlier counter initialisation, while forms, no guard,
- * prototypes).  Reusing the case-2 key temporary as the counter reproduces the ROM's spill
- * choice but then the key temporary loses its own slot.  The never-read entry counter at
- * [sp, #0x10] is reproduced with `volatile int nTotal`.  Notes: build/held. */
+ * register / narrow counters, earlier counter initialisation, while / do / goto forms, no
+ * guard, prototypes, pragmas).  Everything else now matches: the never-read entry counter
+ * and the case-2 key live in a small struct declared after the entry array (sp+0x10 /
+ * sp+0x14 like the ROM), and the entries are indexed by a plain running index so the entry
+ * cursor is the loop optimiser's induction (initialised in the preheader).  Notes: build/held. */
 typedef signed char    s8;
 typedef unsigned char  u8;
 typedef unsigned short u16;
@@ -52,67 +53,69 @@ int func_ov015_02082574(int vm, u16 *pc)
 {
     Ov015SpotSpec spec;
     Ov015SpotEntry aEntry[128];
-    Ov015SpotEntry *pEntry;
+    struct {
+        volatile int nTotal;
+        int nKey;
+    } g;
+    int nBase;
     int nTarget;
     int nSlot;
-    volatile int nTotal;
     int i;
     int j;
-    int nKey;
     int nArg;
     u16 *pOperand;
 
-    nTotal = 0;
+    g.nTotal = 0;
     nTarget = func_02021980(vm, pc);
     nSlot = func_02021980(vm, pc + 4);
     pOperand = pc + 8;
     pc += 0xc;
     spec.nRows = func_02021980(vm, pOperand);
-    pEntry = aEntry;
+    nBase = 0;
     for (i = 0; i < spec.nRows; i++) {
         spec.aRow[i].nTable = func_02021980(vm, pc);
         pOperand = pc + 4;
         pc += 8;
         spec.aRow[i].nCount = func_02021980(vm, pOperand);
-        spec.aRow[i].aEntry = pEntry;
+        spec.aRow[i].aEntry = &aEntry[nBase];
         if (spec.aRow[i].nCount > 0) {
             for (j = 0; j < spec.aRow[i].nCount; j++) {
-                pEntry->nId = func_02021980(vm, pc);
-                pEntry->nKey = func_02021980(vm, pc + 4);
-                pEntry->nKind = func_02021980(vm, pc + 8);
-                pEntry->aLink[0] = func_02021980(vm, pc + 0xc);
-                pEntry->aLink[1] = func_02021980(vm, pc + 0x10);
-                pEntry->aLink[2] = func_02021980(vm, pc + 0x14);
+                aEntry[nBase].nId = func_02021980(vm, pc);
+                aEntry[nBase].nKey = func_02021980(vm, pc + 4);
+                aEntry[nBase].nKind = func_02021980(vm, pc + 8);
+                aEntry[nBase].aLink[0] = func_02021980(vm, pc + 0xc);
+                aEntry[nBase].aLink[1] = func_02021980(vm, pc + 0x10);
+                aEntry[nBase].aLink[2] = func_02021980(vm, pc + 0x14);
                 pOperand = pc + 0x18;
                 pc += 0x1c;
-                pEntry->aLink[3] = func_02021980(vm, pOperand);
-                switch (pEntry->nKind) {
+                aEntry[nBase].aLink[3] = func_02021980(vm, pOperand);
+                switch (aEntry[nBase].nKind) {
                 case 0:
-                    pEntry->u.position.x = func_02021994(vm, pc);
-                    pEntry->u.position.y = func_02021994(vm, pc + 4);
+                    aEntry[nBase].u.position.x = func_02021994(vm, pc);
+                    aEntry[nBase].u.position.y = func_02021994(vm, pc + 4);
                     pOperand = pc + 8;
                     pc += 0xc;
-                    pEntry->u.position.z = func_02021994(vm, pOperand);
+                    aEntry[nBase].u.position.z = func_02021994(vm, pOperand);
                     break;
                 case 1:
-                    pEntry->u.position.x = func_02021994(vm, pc);
-                    pEntry->u.position.y = func_02021994(vm, pc + 4);
-                    pEntry->u.position.z = func_02021994(vm, pc + 8);
-                    pEntry->nLinkTable = func_02021980(vm, pc + 0xc);
+                    aEntry[nBase].u.position.x = func_02021994(vm, pc);
+                    aEntry[nBase].u.position.y = func_02021994(vm, pc + 4);
+                    aEntry[nBase].u.position.z = func_02021994(vm, pc + 8);
+                    aEntry[nBase].nLinkTable = func_02021980(vm, pc + 0xc);
                     pOperand = pc + 0x10;
                     pc += 0x14;
-                    pEntry->nLinkId = func_02021980(vm, pOperand);
+                    aEntry[nBase].nLinkId = func_02021980(vm, pOperand);
                     break;
                 case 2:
-                    nKey = func_02021980(vm, pc);
+                    g.nKey = func_02021980(vm, pc);
                     pOperand = pc + 4;
                     pc += 8;
                     nArg = func_02021980(vm, pOperand);
-                    pEntry->u.pPickup = func_ov002_0207679c(nKey, nArg);
+                    aEntry[nBase].u.pPickup = func_ov002_0207679c(g.nKey, nArg);
                     break;
                 }
-                nTotal++;
-                pEntry++;
+                g.nTotal++;
+                nBase++;
             }
         }
     }
