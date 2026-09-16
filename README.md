@@ -22,11 +22,11 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **18,815** / ~23,237 (~81.0% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **2,884,802** / 4,728,790 (~61.01% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
+| Real C-decompiled matched functions | **18,816** / ~23,237 (~81.0% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **2,885,062** / 4,728,790 (~61.01% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
 | Inline ASM / ASM stub matched functions | **1,547** / ~23,237 (~6.7%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
 | SDK/library byte-match identifications | **137** / ~23,237 (~0.6%) | NitroSDK or library functions identified separately by byte matching |
-| Named but not decompiled | **2,738** / ~23,237 (~11.8%) | Functions known to the project but not implemented as C |
+| Named but not decompiled | **2,737** / ~23,237 (~11.8%) | Functions known to the project but not implemented as C |
 | Initialized DATA | **123,464** / 188,336 (**65.56%**) | Byte/relocation-verified `.rodata`/`.data`; includes the separately reported MobiClip executable payload at 26,012/26,012 bytes. |
 | Total known functions | **23,240** | Function index for the EU `YKGP` target |
 | Region | EU (`YKGP`) | |
