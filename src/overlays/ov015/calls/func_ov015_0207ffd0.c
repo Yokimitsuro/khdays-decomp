@@ -1,16 +1,13 @@
-/* NOT MATCHING -- 260 bytes, exact size, instruction count and relocations; the only
- * residue is the r4 / r5 pair: the ROM keeps the pickup parameter in r5 and the done flag
- * in r4, mwccarm 3.0 build 139 the other way round (20 renamed lines, nothing else).
- *
- * Swept without effect: switch vs if-chain (the switch is needed for the dispatch), branch
- * orders, the flag initialised before / after the delta call, all declaration orders, the
- * flag and delta types (u32 / u8 / char / short / u16), the flag reused as the field value,
- * a block-scoped flag (also C99 `int bDone = 0`), an explicit parameter copy (two
- * positions), a void parameter with a typed local, a second pointer variable for the
- * retire / collect calls, const / register on both, 2 / 3 / 4 parameters, int and state-
- * function-pointer returns, an early-return tail, no field local, a volatile dummy, the
- * delta variable taking the case-3 result, every callee prototype x return type and x
- * parameter type (retsweep / protosweep), the C++ lane.  Notes: build/held. */
+/* func_ov015_0207ffd0 -- Ov015_PickupTakenStep: the taken flow of a model-less pickup.
+ * State 2 collects it (0207fcec); an invisible pickup (bit 2 of +0x12 clear) is finished at
+ * once, a visible one rewinds its sequence (ov002 0207c618 track 0 frame 0), disables the
+ * node (0202af2c), marks the taken sequence playing (bit 0 of +0x14d) and moves to state 3.
+ * State 3 waits for the taken sequence (0207fdc4, again finished at once when invisible).
+ * Finishing clears the playing bit, enters state 4, marks the GameState field collected
+ * (bit 1, keeping bit 0), retires the piece (ov002 02076bd8 mode 0) and hands back the
+ * vanish step (ov002 0207cea4); otherwise 0 is returned.
+ * Codegen: the done flag is zeroed after the delta call and the case-3 result is folded
+ * through an if (not `!= 0`); both are needed for the parameter to stay in r5. */
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -23,7 +20,8 @@ extern int  func_ov015_0207fdc4(void *pPickup, int nDelta);         /* Ov015_Pic
 extern int  func_020235d0(u16 nField, u8 nBit);                     /* GameState_GetField */
 extern void func_020235e8(u16 nField, u8 nBit, u16 nValue);         /* GameState_SetField */
 extern void func_ov002_02076bd8(void *pPiece, int nMode);           /* retire the piece */
-extern void func_ov002_0207cea4(void);                              /* the vanish step */
+typedef void *Ov015StateFn(void *pPiece);
+extern Ov015StateFn func_ov002_0207cea4;                            /* the vanish step */
 
 typedef struct Ov015Pickup {
     u8   pad_000[0x12];
@@ -37,7 +35,7 @@ typedef struct Ov015Pickup {
     u8   nStateBits;          /* 0x14d */
 } Ov015Pickup;
 
-void *func_ov015_0207ffd0(Ov015Pickup *pPickup)
+Ov015StateFn *func_ov015_0207ffd0(Ov015Pickup *pPickup)
 {
     int nDelta;
     int bDone;
@@ -51,7 +49,7 @@ void *func_ov015_0207ffd0(Ov015Pickup *pPickup)
         if ((pPickup->nFlags & 4) == 0) {
             bDone = 1;
         } else {
-            func_ov002_0207c618(&pPickup->sequence, bDone, bDone);
+            func_ov002_0207c618(&pPickup->sequence, 0, 0);
             func_0202af2c(&pPickup->sequence);
             pPickup->nStateBits |= 1;
             pPickup->nState = 3;
@@ -59,7 +57,9 @@ void *func_ov015_0207ffd0(Ov015Pickup *pPickup)
         break;
     case 3:
         if (pPickup->nFlags & 4) {
-            bDone = func_ov015_0207fdc4(pPickup, nDelta) != 0;
+            if (func_ov015_0207fdc4(pPickup, nDelta)) {
+                bDone = 1;
+            }
         } else {
             bDone = 1;
         }
@@ -71,7 +71,7 @@ void *func_ov015_0207ffd0(Ov015Pickup *pPickup)
         nField = func_020235d0(pPickup->nStateField, pPickup->nStateBit);
         func_020235e8(pPickup->nStateField, pPickup->nStateBit, (nField & 0xffff0001) | 2);
         func_ov002_02076bd8(pPickup, 0);
-        return (void *)func_ov002_0207cea4;
+        return func_ov002_0207cea4;
     }
     return 0;
 }
