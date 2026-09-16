@@ -700,6 +700,10 @@ src/overlays/ov023/calls/func_ov023_02088954.c:
     complete
     .text       start:0x02088954 end:0x0208895c
 
+src/overlays/ov023/calls/func_ov023_0208895c.c:
+    complete
+    .text       start:0x0208895c end:0x02088d18
+
 src/overlays/ov023/calls/func_ov023_02088d18.c:
     complete
     .text       start:0x02088d18 end:0x02088da0
