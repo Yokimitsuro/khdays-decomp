@@ -11,15 +11,18 @@
  * clears the sub-state and ends the action. That command is type 5 action 1 --
  * exactly the shape the spawn handlers read back.
  *
- * The anchor position is also written to a twelve-byte stack copy nothing ever
- * reads, one word at a time through a one-word struct: that is what keeps the
- * store alive through dead-store elimination so it fuses with the packing.
+ * Coordinates are held in a one-value wrapper type (Fx32). This is a tentative
+ * reconstruction of the original's coordinate type, not a proven one: copying a
+ * wrapped value is a struct copy, which mwcc keeps, and that is the ROM's unread
+ * twelve-byte stack copy of the anchor position.
  */
 typedef unsigned char u8;
 typedef unsigned short u16;
 
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
+
 struct Vec3 { int x, y, z; };
-struct Word { int w; };
 struct Ov142Cmd { u16 h[7]; };
 struct Ov142Mtx33 { int m[9]; };
 struct Ov142Quat { int q[4]; };
@@ -45,7 +48,7 @@ struct Ov142SubObj {
 
 struct Ov142StepState {
     struct Ov142SubObj *pSelf;   /* 0x00 */
-    struct Vec3 *pAnchor;        /* 0x04 */
+    FxVec *pAnchor;              /* 0x04 */
     struct Vec3 vVelocity08;     /* 0x08 */
     struct Vec3 vFacing14;       /* 0x14 */
     int nUnused20;               /* 0x20 */
@@ -88,12 +91,12 @@ void func_ov142_020d1bbc(struct Ov142StepNode *node)
     struct Ov142Mtx33 mtx;
     struct Vec3 probe;
     struct Ov142Cmd cmd;
-    struct Vec3 vDead;
+    FxVec vDead;
     void *scene;
     int angle;
     int index;
     void *hit;
-    struct Word *s;
+    FxVec *anchor;
     unsigned int flags;
 
     func_0202ed60(&rot, &data_02042258, &state->vFacing14);
@@ -125,25 +128,25 @@ void func_ov142_020d1bbc(struct Ov142StepNode *node)
                         &probe, 0x280);
     if (hit != 0) {
         cmd = data_ov142_020d263e;
-        s = (struct Word *)state->pAnchor;
+        anchor = state->pAnchor;
 
-        *(struct Word *)&vDead.x = s[0];
-        ((u8 *)&cmd)[5] = (u8)(((unsigned int)vDead.x >> 0x10 & 0x7f)
-                           | ((unsigned int)vDead.x >> 0x18 & 0x80));
-        ((u8 *)&cmd)[6] = (u8)((unsigned int)vDead.x >> 8);
-        ((u8 *)&cmd)[7] = (u8)vDead.x;
+        vDead.x = anchor->x;
+        ((u8 *)&cmd)[5] = (u8)(((unsigned int)vDead.x.value >> 0x10 & 0x7f)
+                           | ((unsigned int)vDead.x.value >> 0x18 & 0x80));
+        ((u8 *)&cmd)[6] = (u8)((unsigned int)vDead.x.value >> 8);
+        ((u8 *)&cmd)[7] = (u8)vDead.x.value;
 
-        *(struct Word *)&vDead.y = s[1];
-        ((u8 *)&cmd)[8] = (u8)(((unsigned int)vDead.y >> 0x10 & 0x7f)
-                           | ((unsigned int)vDead.y >> 0x18 & 0x80));
-        ((u8 *)&cmd)[9] = (u8)((unsigned int)vDead.y >> 8);
-        ((u8 *)&cmd)[10] = (u8)vDead.y;
+        vDead.y = anchor->y;
+        ((u8 *)&cmd)[8] = (u8)(((unsigned int)vDead.y.value >> 0x10 & 0x7f)
+                           | ((unsigned int)vDead.y.value >> 0x18 & 0x80));
+        ((u8 *)&cmd)[9] = (u8)((unsigned int)vDead.y.value >> 8);
+        ((u8 *)&cmd)[10] = (u8)vDead.y.value;
 
-        *(struct Word *)&vDead.z = s[2];
-        ((u8 *)&cmd)[11] = (u8)(((unsigned int)vDead.z >> 0x10 & 0x7f)
-                            | ((unsigned int)vDead.z >> 0x18 & 0x80));
-        ((u8 *)&cmd)[12] = (u8)((unsigned int)vDead.z >> 8);
-        ((u8 *)&cmd)[13] = (u8)vDead.z;
+        vDead.z = anchor->z;
+        ((u8 *)&cmd)[11] = (u8)(((unsigned int)vDead.z.value >> 0x10 & 0x7f)
+                            | ((unsigned int)vDead.z.value >> 0x18 & 0x80));
+        ((u8 *)&cmd)[12] = (u8)((unsigned int)vDead.z.value >> 8);
+        ((u8 *)&cmd)[13] = (u8)vDead.z.value;
 
         if (state->pSelf->pMsgHook24 != 0) {
             state->pSelf->pMsgHook24(state->pSelf, &cmd, 0xe);

@@ -34,15 +34,16 @@
  *  - Each of the three uses of the swept entity re-reads `aResults[i]`; the intervening calls
  *    stop mwcc reusing one load, and caching it in a local costs an instruction.
  *  - The mask update takes no byte cast: `(u8)(1 << id)` adds an `and #0xff`.
- *  - The body position is also written to a twelve-byte stack copy nothing ever reads, one word
- *    at a time through a one-word struct -- the ov149 crack, so the store survives dead-store
- *    elimination and fuses with the packing.
+ *  - Coordinates are held in a one-value wrapper type (Fx32), a tentative reconstruction of the
+ *    original's coordinate type. Copying a wrapped value is a struct copy, which mwcc keeps, and
+ *    that is the ROM's unread stack copy of the body position.
  */
 typedef unsigned char u8;
 typedef unsigned short u16;
 
 struct Vec3 { int x, y, z; };
-struct Word { int w; };
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 struct Ov120AreaMsg { u16 h[7]; };
 struct Ov120AreaOpener { u16 h[2]; };
 struct Ov120AreaMsgPair { struct Ov120AreaOpener aOpener; struct Ov120AreaMsg aTemplate; };
@@ -105,9 +106,9 @@ void func_ov122_020d0f3c(struct Ov120ActionNode *node)
     struct Ov120AreaMsg msg;
     struct Vec3 fwd;
     struct Ov120AreaMsgPair pair;
-    struct Vec3 vDead;
+    FxVec vDead;
     struct Ov120ActionState *state;
-    struct Word *s;
+    FxVec *pos;
     int count;
     int i;
 
@@ -138,25 +139,25 @@ void func_ov122_020d0f3c(struct Ov120ActionNode *node)
                     func_01ffa724(0x800, &dir, &dir);
                     if (func_ov107_020ca918(results[i], state->pOwner, state->pOwner, 0, &dir, 0) != 0) {
                         msg = pair.aTemplate;
-                        s = (struct Word *)(state->pOwner->pBody390 + 5);
+                        pos = (FxVec *)(state->pOwner->pBody390 + 5);
 
-                        *(struct Word *)&vDead.x = s[0];
-                        ((u8 *)&msg)[5] = (u8)(((unsigned int)vDead.x >> 0x10 & 0x7f)
-                                               | ((unsigned int)vDead.x >> 0x18 & 0x80));
-                        ((u8 *)&msg)[6] = (u8)((unsigned int)vDead.x >> 8);
-                        ((u8 *)&msg)[7] = (u8)vDead.x;
+                        vDead.x = pos->x;
+                        ((u8 *)&msg)[5] = (u8)(((unsigned int)vDead.x.value >> 0x10 & 0x7f)
+                                               | ((unsigned int)vDead.x.value >> 0x18 & 0x80));
+                        ((u8 *)&msg)[6] = (u8)((unsigned int)vDead.x.value >> 8);
+                        ((u8 *)&msg)[7] = (u8)vDead.x.value;
 
-                        *(struct Word *)&vDead.y = s[1];
-                        ((u8 *)&msg)[8] = (u8)(((unsigned int)vDead.y >> 0x10 & 0x7f)
-                                               | ((unsigned int)vDead.y >> 0x18 & 0x80));
-                        ((u8 *)&msg)[9] = (u8)((unsigned int)vDead.y >> 8);
-                        ((u8 *)&msg)[10] = (u8)vDead.y;
+                        vDead.y = pos->y;
+                        ((u8 *)&msg)[8] = (u8)(((unsigned int)vDead.y.value >> 0x10 & 0x7f)
+                                               | ((unsigned int)vDead.y.value >> 0x18 & 0x80));
+                        ((u8 *)&msg)[9] = (u8)((unsigned int)vDead.y.value >> 8);
+                        ((u8 *)&msg)[10] = (u8)vDead.y.value;
 
-                        *(struct Word *)&vDead.z = s[2];
-                        ((u8 *)&msg)[11] = (u8)(((unsigned int)vDead.z >> 0x10 & 0x7f)
-                                                | ((unsigned int)vDead.z >> 0x18 & 0x80));
-                        ((u8 *)&msg)[12] = (u8)((unsigned int)vDead.z >> 8);
-                        ((u8 *)&msg)[13] = (u8)vDead.z;
+                        vDead.z = pos->z;
+                        ((u8 *)&msg)[11] = (u8)(((unsigned int)vDead.z.value >> 0x10 & 0x7f)
+                                                | ((unsigned int)vDead.z.value >> 0x18 & 0x80));
+                        ((u8 *)&msg)[12] = (u8)((unsigned int)vDead.z.value >> 8);
+                        ((u8 *)&msg)[13] = (u8)vDead.z.value;
 
                         if (state->pOwner->pMsgHook24 != 0) {
                             state->pOwner->pMsgHook24(state->pOwner, &msg, 0xe);

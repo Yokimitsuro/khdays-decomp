@@ -6,17 +6,13 @@
  *
  * Two codegen cracks were needed; both are counter-intuitive enough to be worth recording.
  *
- * 1. THE DEAD STRUCT COPY MUST BE COPIED ONE WORD AT A TIME.
- *    The ROM also stores the vector into a stack copy that nothing ever reads. mwcc does NOT
- *    dead-store-eliminate a struct assignment, but it DOES eliminate scalar ones -- so writing
- *    `v.x = w[0]` (or going through a temporary) drops all three stores and the function comes
- *    out 12 bytes short. Writing it as one 3-word struct copy keeps them, but mwcc then emits a
- *    block `ldm`/`stm` and reloads all three components together to pack them, holding them live
- *    at once: eight callee-saved registers and 4 bytes long.
- *    Copying through a ONE-WORD struct (`*(struct w1 *)&v.x = s[0]`) gets both halves: the copy
- *    survives elimination, and it is emitted as a plain `ldr`/`str` that mwcc fuses with the
- *    packing -- one load per component, packed out of that register, then stored to the dead
- *    copy, exactly as the ROM does. Everything stays in scratch.
+ * 1. THE UNREAD STACK COPY.
+ *    The ROM also stores the vector into a stack copy that nothing ever reads. Coordinates are
+ *    held in a one-value wrapper type (Fx32), a tentative reconstruction of the original's
+ *    coordinate type: copying a wrapped value is a struct copy, which mwcc keeps, and that is the
+ *    ROM's unread stack copy. A plain int copy is dead-store-eliminated (12 bytes short); copying
+ *    the whole vector at once emits a block `ldm`/`stm` and costs registers. Copying one
+ *    component at a time gives one load per component, packed from that register, then stored.
  *
  * 2. DO NOT CACHE A POINTER TO THE MESSAGE BUFFER.
  *    With `p = (unsigned char *)&m;` mwcc keeps `p` in a register and addresses the bytes as
@@ -24,35 +20,35 @@
  *    pointer, `[sp, #0x11]`, which is what the ROM does and what frees the last register.
  */
 struct Msg { unsigned short h[7]; };
-struct vec { int x, y, z; };
-struct w1 { int v; };
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 extern struct Msg data_ov149_020d077c;
 
 int func_ov149_020cfad8(int self, int a, unsigned int *flags, int d) {
     int *node = *(int **)(self + 0x214);
     struct Msg m;
-    struct vec v;
-    struct w1 *s;
+    FxVec v;
+    FxVec *s;
     void (*cb)(int, struct Msg *, int);
 
     if (((unsigned short)*flags & 1) != 0 && ((unsigned short)*flags & 0x10) != 0) {
         m = data_ov149_020d077c;
-        s = (struct w1 *)node[1];
+        s = (FxVec *)node[1];
 
-        *(struct w1 *)&v.x = s[0];
-        ((unsigned char *)&m)[5]  = (unsigned char)(((unsigned int)v.x >> 0x10 & 0x7f) | ((unsigned int)v.x >> 0x18 & 0x80));
-        ((unsigned char *)&m)[6]  = (unsigned char)((unsigned int)v.x >> 8);
-        ((unsigned char *)&m)[7]  = (unsigned char)v.x;
+        v.x = s->x;
+        ((unsigned char *)&m)[5]  = (unsigned char)(((unsigned int)v.x.value >> 0x10 & 0x7f) | ((unsigned int)v.x.value >> 0x18 & 0x80));
+        ((unsigned char *)&m)[6]  = (unsigned char)((unsigned int)v.x.value >> 8);
+        ((unsigned char *)&m)[7]  = (unsigned char)v.x.value;
 
-        *(struct w1 *)&v.y = s[1];
-        ((unsigned char *)&m)[8]  = (unsigned char)(((unsigned int)v.y >> 0x10 & 0x7f) | ((unsigned int)v.y >> 0x18 & 0x80));
-        ((unsigned char *)&m)[9]  = (unsigned char)((unsigned int)v.y >> 8);
-        ((unsigned char *)&m)[10] = (unsigned char)v.y;
+        v.y = s->y;
+        ((unsigned char *)&m)[8]  = (unsigned char)(((unsigned int)v.y.value >> 0x10 & 0x7f) | ((unsigned int)v.y.value >> 0x18 & 0x80));
+        ((unsigned char *)&m)[9]  = (unsigned char)((unsigned int)v.y.value >> 8);
+        ((unsigned char *)&m)[10] = (unsigned char)v.y.value;
 
-        *(struct w1 *)&v.z = s[2];
-        ((unsigned char *)&m)[11] = (unsigned char)(((unsigned int)v.z >> 0x10 & 0x7f) | ((unsigned int)v.z >> 0x18 & 0x80));
-        ((unsigned char *)&m)[12] = (unsigned char)((unsigned int)v.z >> 8);
-        ((unsigned char *)&m)[13] = (unsigned char)v.z;
+        v.z = s->z;
+        ((unsigned char *)&m)[11] = (unsigned char)(((unsigned int)v.z.value >> 0x10 & 0x7f) | ((unsigned int)v.z.value >> 0x18 & 0x80));
+        ((unsigned char *)&m)[12] = (unsigned char)((unsigned int)v.z.value >> 8);
+        ((unsigned char *)&m)[13] = (unsigned char)v.z.value;
 
         cb = *(void (**)(int, struct Msg *, int))(*node + 0x24);
         if (cb != 0) {

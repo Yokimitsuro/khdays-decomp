@@ -2,23 +2,22 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
 
-typedef struct {
-    int x;
-    int y;
-    int z;
-} VecFx32;
+/*
+ * Coordinates are held in a one-value wrapper type (Fx32), a tentative
+ * reconstruction of the original's coordinate type. Copying a wrapped value is
+ * a struct copy, which mwcc keeps, and that is the ROM's unread stack copy of
+ * the position.
+ */
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 
 struct Sphere {
-    VecFx32 centre;
+    FxVec centre;
     int radius;
 };
 
 struct Msg {
     u16 h[7];
-};
-
-struct W1 {
-    int v;
 };
 
 struct Flags60 {
@@ -40,7 +39,7 @@ struct ListNode {
 
 struct HitPacket {
     u32 flags00;
-    VecFx32 normal;
+    FxVec normal;
     u32 field10;
     u32 field14;
     void *pPart;
@@ -50,7 +49,7 @@ struct HitPacket {
 };
 
 struct PushPacket {
-    VecFx32 push;
+    FxVec push;
     u8 bKind0c;
     u8 bKind0d;
     u16 pad0e;
@@ -64,7 +63,7 @@ struct State {
     char pad04[0x2c];
     int nTimer30;
     char pad34[0xc];
-    VecFx32 *pPos40;
+    FxVec *pPos40;
     char pad44[8];
     unsigned long long uMask4c;
 };
@@ -76,15 +75,15 @@ struct Node {
     signed char bSlot;
 };
 
-extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *ab);
-extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *ab);
-extern int func_01ff8d18(VecFx32 *out, VecFx32 *in);
-extern void func_01ffa724(int scale, VecFx32 *in, VecFx32 *out);
+extern void VEC_Subtract(FxVec *a, FxVec *b, FxVec *ab);
+extern void VEC_Add(FxVec *a, FxVec *b, FxVec *ab);
+extern int func_01ff8d18(FxVec *out, FxVec *in);
+extern void func_01ffa724(int scale, FxVec *in, FxVec *out);
 extern struct ListNode *func_01fffd70(void *list);
 extern struct ListNode *func_01fffd8c(void *list);
 extern int func_ov107_020c8eb8(char *actor, struct Sphere *shape, void **out);
 extern int func_ov107_020ca918(void *victim, char *a, char *b, int mode,
-                               VecFx32 *push, int flags);
+                               FxVec *push, int flags);
 extern int func_ov107_020c3504(void *part, struct Sphere *shape, int mode);
 extern int func_ov107_020c5cfc(void *obj, void *target, struct HitPacket *packet);
 extern int func_ov132_020ce3cc(void *world, struct Sphere *shape, void **out);
@@ -96,32 +95,32 @@ extern const struct Msg data_ov132_020d0d94;
 extern const struct Msg data_ov132_020d0db0;
 
 
-static inline void ov132_packImpact(struct Msg *msg, VecFx32 *v)
+static inline void ov132_packImpact(struct Msg *msg, FxVec *v)
 {
-    VecFx32 raw;
+    FxVec raw;
 
-    *(struct W1 *)&raw.x = *(struct W1 *)&v->x;
-    *(struct W1 *)&raw.y = *(struct W1 *)&v->y;
-    *(struct W1 *)&raw.z = *(struct W1 *)&v->z;
-    ((u8 *)msg)[5] = (u8)(((u32)raw.x >> 16 & 0x7f) | ((u32)raw.x >> 24 & 0x80));
-    ((u8 *)msg)[6] = (u8)((u32)raw.x >> 8);
-    ((u8 *)msg)[7] = (u8)raw.x;
-    ((u8 *)msg)[8] = (u8)(((u32)raw.y >> 16 & 0x7f) | ((u32)raw.y >> 24 & 0x80));
-    ((u8 *)msg)[9] = (u8)((u32)raw.y >> 8);
-    ((u8 *)msg)[10] = (u8)raw.y;
-    ((u8 *)msg)[11] = (u8)(((u32)raw.z >> 16 & 0x7f) | ((u32)raw.z >> 24 & 0x80));
-    ((u8 *)msg)[12] = (u8)((u32)raw.z >> 8);
-    ((u8 *)msg)[13] = (u8)raw.z;
+    raw.x = v->x;
+    raw.y = v->y;
+    raw.z = v->z;
+    ((u8 *)msg)[5] = (u8)(((u32)raw.x.value >> 16 & 0x7f) | ((u32)raw.x.value >> 24 & 0x80));
+    ((u8 *)msg)[6] = (u8)((u32)raw.x.value >> 8);
+    ((u8 *)msg)[7] = (u8)raw.x.value;
+    ((u8 *)msg)[8] = (u8)(((u32)raw.y.value >> 16 & 0x7f) | ((u32)raw.y.value >> 24 & 0x80));
+    ((u8 *)msg)[9] = (u8)((u32)raw.y.value >> 8);
+    ((u8 *)msg)[10] = (u8)raw.y.value;
+    ((u8 *)msg)[11] = (u8)(((u32)raw.z.value >> 16 & 0x7f) | ((u32)raw.z.value >> 24 & 0x80));
+    ((u8 *)msg)[12] = (u8)((u32)raw.z.value >> 8);
+    ((u8 *)msg)[13] = (u8)raw.z.value;
 }
 
-static inline void ov132_emitChildEvent(struct Msg *msg, VecFx32 *v)
+static inline void ov132_emitChildEvent(struct Msg *msg, FxVec *v)
 {
     ov132_packImpact(msg, v);
 }
 
 static inline void ov132_scanVictims(struct State *st, struct Sphere *shape,
-                                     void **aVictims, VecFx32 *vDir,
-                                     VecFx32 *vPush, VecFx32 *vImpact, struct Msg *msgA)
+                                     void **aVictims, FxVec *vDir,
+                                     FxVec *vPush, FxVec *vImpact, struct Msg *msgA)
 {
     struct Msg tmplA;
     long nHits;
@@ -136,7 +135,7 @@ static inline void ov132_scanVictims(struct State *st, struct Sphere *shape,
         do {
             id = *(u16 *)((char *)aVictims[i] + 2);
             if ((st->uMask4c >> id & 1) == 0) {
-                VEC_Subtract((VecFx32 *)((char *)aVictims[i] + 0x74), &shape->centre, vDir);
+                VEC_Subtract((FxVec *)((char *)aVictims[i] + 0x74), &shape->centre, vDir);
                 func_01ff8d18(vDir, vDir);
                 func_01ffa724(0x800, vDir, vPush);
                 if (func_ov107_020ca918(aVictims[i], st->pActor, st->pActor, 1,
@@ -164,9 +163,9 @@ void func_ov132_020d00d4(struct Node *node)
     void *world;
     void *aVictims[4];
     struct Sphere shape;
-    VecFx32 vDir;
-    VecFx32 vPush;
-    VecFx32 vImpact;
+    FxVec vDir;
+    FxVec vPush;
+    FxVec vImpact;
     struct Msg msgA;
     struct ListNode *ln;
     struct ListNode *part;
@@ -196,7 +195,7 @@ void func_ov132_020d00d4(struct Node *node)
                 if ((part->lo08 & 1) != 0 &&
                     func_ov107_020c3504(part->item, &shape, 0) != 0) {
                     struct HitPacket packet = {0};
-                    VEC_Subtract((VecFx32 *)(obj + 0x74), &shape.centre, &vDir);
+                    VEC_Subtract((FxVec *)(obj + 0x74), &shape.centre, &vDir);
                     func_01ff8d18(&vDir, &vDir);
                     func_01ffa724(0x800, &vDir, &vPush);
                     packet.flags00 = (u16)(packet.flags00 & 0xffff0000 | 4 |
@@ -229,12 +228,12 @@ void func_ov132_020d00d4(struct Node *node)
     if (nHits > 0) {
         do {
             struct PushPacket push = {0};
-            VecFx32 vDir2;
-            VecFx32 vImpact2;
+            FxVec vDir2;
+            FxVec vImpact2;
             struct Msg msgB;
             struct Msg tmplB;
             tmplB = data_ov132_020d0d94;
-            VEC_Subtract((VecFx32 *)((char *)aChildren[i] + 0x2c), &shape.centre, &vDir2);
+            VEC_Subtract((FxVec *)((char *)aChildren[i] + 0x2c), &shape.centre, &vDir2);
             func_01ff8d18(&vDir2, &vDir2);
             func_01ffa724(0x800, &vDir2, &push.push);
             push.bKind0c = 0xff;

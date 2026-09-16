@@ -26,12 +26,9 @@
  *    call arguments costs three live values across the packing, which pushes the parameters down
  *    from r5-r7 to r4-r6 and makes the whole tail of the case schedule differently. Ghidra's
  *    decompiler makes the same wrong guess, because the call is unresolved on its side.
- *  - THE DEAD COPY MUST BE COPIED ONE WORD AT A TIME. mwcc does not dead-store-eliminate a
- *    struct assignment but it does eliminate scalar ones, so `v.x = ...` drops all three stores
- *    and the function comes out twelve bytes short. Copying through a one-word struct keeps the
- *    stores and lets mwcc fuse each one with the packing: one load per component, packed out of
- *    that register, then stored to the dead copy -- exactly what the original does. Same crack
- *    as the ov149 position broadcaster.
+ *  - Coordinates are held in a one-value wrapper type (Fx32), a tentative reconstruction of the
+ *    original's coordinate type. Copying a wrapped value is a struct copy, which mwcc keeps, and
+ *    that is the ROM's unread stack copy of the translation.
  *  - The payload buffer is declared first and the dead vector last; that is what puts the
  *    outgoing arguments at sp+0, the vector at sp+8, the transform at sp+0x14 and the payload at
  *    sp+0x40 in a 0x4c-byte frame.
@@ -46,15 +43,12 @@ struct Ov120NodeSlot {
     void *pResult;
 };
 
-struct Vec3 {
-    int x;
-    int y;
-    int z;
-};
+typedef struct { int value; } Fx32;
+typedef struct { Fx32 x, y, z; } FxVec;
 
 struct Ov120BoneXform {
     int aRotation[4];
-    struct Vec3 vTranslation;
+    FxVec vTranslation;
     int aScale[3];
     u8 bFlags;
     u8 aPad29[3];
@@ -65,11 +59,6 @@ struct PackedFx24 {
     u8 hi;
     u8 mid;
     u8 lo;
-};
-
-/* a single word; copying through it is what keeps the dead vector store alive */
-struct Word {
-    int w;
 };
 
 struct Ov120Actor {
@@ -104,7 +93,7 @@ void func_ov120_020cc2a4(struct Ov120Actor *actor, struct ActorEventMsg *msg, u3
 {
     struct PackedFx24 aPayload[3];
     struct Ov120BoneXform xfmCopy;
-    struct Vec3 vTranslationCopy;
+    FxVec vTranslationCopy;
 
     if (msg->packet.bKind == 5) {
         switch (msg->packet.bSub) {
@@ -121,23 +110,23 @@ void func_ov120_020cc2a4(struct Ov120Actor *actor, struct ActorEventMsg *msg, u3
                                     5, 0, &xfmCopy);
             break;
         case 2:
-            *(struct Word *)&vTranslationCopy.x = *(struct Word *)&actor->xfm.vTranslation.x;
-            aPayload[0].hi = (u8)((((u32)vTranslationCopy.x >> 0x10) & 0x7f) |
-                                  (((u32)vTranslationCopy.x >> 0x18) & 0x80));
-            aPayload[0].mid = (u8)((u32)vTranslationCopy.x >> 8);
-            aPayload[0].lo = (u8)vTranslationCopy.x;
+            vTranslationCopy.x = actor->xfm.vTranslation.x;
+            aPayload[0].hi = (u8)((((u32)vTranslationCopy.x.value >> 0x10) & 0x7f) |
+                                  (((u32)vTranslationCopy.x.value >> 0x18) & 0x80));
+            aPayload[0].mid = (u8)((u32)vTranslationCopy.x.value >> 8);
+            aPayload[0].lo = (u8)vTranslationCopy.x.value;
 
-            *(struct Word *)&vTranslationCopy.y = *(struct Word *)&actor->xfm.vTranslation.y;
-            aPayload[1].hi = (u8)((((u32)vTranslationCopy.y >> 0x10) & 0x7f) |
-                                  (((u32)vTranslationCopy.y >> 0x18) & 0x80));
-            aPayload[1].mid = (u8)((u32)vTranslationCopy.y >> 8);
-            aPayload[1].lo = (u8)vTranslationCopy.y;
+            vTranslationCopy.y = actor->xfm.vTranslation.y;
+            aPayload[1].hi = (u8)((((u32)vTranslationCopy.y.value >> 0x10) & 0x7f) |
+                                  (((u32)vTranslationCopy.y.value >> 0x18) & 0x80));
+            aPayload[1].mid = (u8)((u32)vTranslationCopy.y.value >> 8);
+            aPayload[1].lo = (u8)vTranslationCopy.y.value;
 
-            *(struct Word *)&vTranslationCopy.z = *(struct Word *)&actor->xfm.vTranslation.z;
-            aPayload[2].hi = (u8)((((u32)vTranslationCopy.z >> 0x10) & 0x7f) |
-                                  (((u32)vTranslationCopy.z >> 0x18) & 0x80));
-            aPayload[2].mid = (u8)((u32)vTranslationCopy.z >> 8);
-            aPayload[2].lo = (u8)vTranslationCopy.z;
+            vTranslationCopy.z = actor->xfm.vTranslation.z;
+            aPayload[2].hi = (u8)((((u32)vTranslationCopy.z.value >> 0x10) & 0x7f) |
+                                  (((u32)vTranslationCopy.z.value >> 0x18) & 0x80));
+            aPayload[2].mid = (u8)((u32)vTranslationCopy.z.value >> 8);
+            aPayload[2].lo = (u8)vTranslationCopy.z.value;
 
             actor->pNodeSlots[2].pResult =
                 func_ov107_020c08cc(actor->taskList, actor->pNodeSlots[2].pSubitem,
