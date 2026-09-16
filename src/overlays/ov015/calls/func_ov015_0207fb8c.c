@@ -5,12 +5,18 @@
  * linked object (bit 7 clear), unless the first link key (+0x14e) resolves to a record
  * (ov002 02074460) -- then the linked object's node is hidden (ov002 02073ed0, show 0,
  * priority -1) and the pickup stays collidable.
- * Finally the model's sequence is started at the kind's spin speed (table 020828d8 by the
+ * Finally the model's sequence is started at the kind's spin speed (kind row 020828d4 by the
  * class's kind byte +0x84, << 12) with the pickup's rise speed (+0x138). */
 typedef signed char    s8;
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
+
+typedef struct Ov015PickupKindRow {
+    void *pHandlers;          /* 0x00: state function of the kind */
+    u8   nRise;               /* 0x04: rise speed scale (random range) */
+    u8   pad_05[3];
+} Ov015PickupKindRow;
 
 extern int  func_ov002_0207285c(int nKind);                          /* kind -> table byte */
 extern void func_0202ba9c(void *pNode, u16 nId, int nArg, void *pParams); /* Render_SubmitNode */
@@ -18,7 +24,7 @@ extern void func_02029438(void *pBinding, int nIndex, u8 nValue);   /* Actor_Set
 extern int  func_ov002_02074460(int nKey);                           /* record index of a keyed object */
 extern void func_ov002_02073ed0(int nKey, int bShow, int nPriority); /* show / hide a keyed object's node */
 extern void func_ov015_0207fa40(void *pPickup, void *pSequence, int nArg, int nSpin, int nRise); /* Ov015_StoreArgsRunTwoSubActionsIfFlag4 */
-extern u8   data_ov015_020828d8[];                                   /* per-kind pickup parameters, 8 bytes each */
+extern const Ov015PickupKindRow data_ov015_020828d4[];             /* per-kind pickup rows */
 
 typedef struct Ov015PickupDef {
     u8   pad_00[0x84];
@@ -67,6 +73,6 @@ void func_ov015_0207fb8c(Ov015Pickup *pPickup)
         pPickup->nFlags &= ~8;
     }
     if (pPickup->pModel != 0) {
-        func_ov015_0207fa40(pPickup, pPickup->pModel + 0x10, 0, data_ov015_020828d8[pDef->nKind * 8] << 12, pPickup->nRiseSpeed);
+        func_ov015_0207fa40(pPickup, pPickup->pModel + 0x10, 0, data_ov015_020828d4[pDef->nKind].nRise << 12, pPickup->nRiseSpeed);
     }
 }

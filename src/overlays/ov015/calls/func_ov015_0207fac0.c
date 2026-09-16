@@ -3,7 +3,7 @@
  * bound to that resource (ov002 0206da70, 0202b930), synced to the home position (+0x140,
  * 0202b450), given the facing (+0x18) at its +0x8c unless already facing-locked (bit 5 of
  * its +0xc, which is then set), its sequence started (0207fa40) at the kind's spin speed
- * (020828d8 by the class kind +0x84) with the rise speed (+0x138), and resource pair 0x39
+ * (kind row 020828d4 by the class kind +0x84) with the rise speed (+0x138), and resource pair 0x39
  * requested (0203355c).  The pickup's own sequence node (+0x30) is then registered with
  * the class's sequence name (+0x68, 0202a634), placed at the home position (+0xd4) with the
  * facing (+0xac), facing-locked, and the taken-sequence bit (bit 0 of +0x14d) cleared. */
@@ -13,13 +13,19 @@ typedef unsigned short u16;
 
 typedef struct VecFx32 { int x, y, z; } VecFx32;
 
+typedef struct Ov015PickupKindRow {
+    void *pHandlers;          /* 0x00: state function of the kind */
+    u8   nRise;               /* 0x04: rise speed scale (random range) */
+    u8   pad_05[3];
+} Ov015PickupKindRow;
+
 extern void *func_ov002_0206da70(const char *pName);                 /* name -> resource entry */
 extern void  func_0202b930(void *pNode, void *pEntry, int nA, int nB); /* bind a model node */
 extern void  func_0202b450(void *pTransform, VecFx32 *pVec);         /* Actor_SetVecAndSyncChild */
 extern void  func_ov015_0207fa40(void *pPickup, void *pSequence, int nArg, int nSpin, int nRise); /* Ov015_StoreArgsRunTwoSubActionsIfFlag4 */
 extern void  func_0203355c(int nId);                                 /* Res_RequestIdPair */
 extern void  func_0202a634(void *pNode, void *pEntry, int nA, int nB); /* RegisterSeqAndInit */
-extern u8    data_ov015_020828d8[];                                  /* per-kind pickup parameters, 8 bytes each */
+extern const Ov015PickupKindRow data_ov015_020828d4[];              /* per-kind pickup rows */
 
 typedef struct Ov015PickupDef {
     u8   pad_00[0x58];
@@ -80,7 +86,7 @@ void func_ov015_0207fac0(Ov015Pickup *pPickup)
             pTransform->nFacing = nFacing;
             pTransform->sequence |= 0x20;
         }
-        func_ov015_0207fa40(pPickup, &pPickup->pModel->transform.sequence, 0, data_ov015_020828d8[pDef->nKind * 8] << 12, pPickup->nRiseSpeed);
+        func_ov015_0207fa40(pPickup, &pPickup->pModel->transform.sequence, 0, data_ov015_020828d4[pDef->nKind].nRise << 12, pPickup->nRiseSpeed);
         func_0203355c(0x39);
     }
     func_0202a634(&pPickup->sequence, func_ov002_0206da70(pDef->szSequence), 1, 4);

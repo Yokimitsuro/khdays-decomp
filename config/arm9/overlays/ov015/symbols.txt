@@ -68,7 +68,7 @@ func_ov015_02082574 kind:function(thumb,size=0x1cc) addr:0x02082574
 func_ov015_02082740 kind:function(thumb,size=0x60) addr:0x02082740
 func_ov015_020827a0 kind:function(thumb,size=0x96) addr:0x020827a0
 func_ov015_02082838 kind:function(thumb,size=0x9a) addr:0x02082838
-data_ov015_020828d4 kind:data(any) addr:0x020828d4
+data_ov015_020828d4 kind:data(word[4]) addr:0x020828d4
 data_ov015_020828d8 kind:data(any) addr:0x020828d8
 data_ov015_02082900 kind:data(any) addr:0x02082900
 data_ov015_02082904 kind:data(any) addr:0x02082904
