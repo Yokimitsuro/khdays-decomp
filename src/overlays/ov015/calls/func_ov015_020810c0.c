@@ -1,11 +1,15 @@
-/* NOT MATCHING -- 452 bytes, exact size, instruction count and relocations; the residue
- * is a pure r4 <-> r5 rename: the ROM keeps the class-table / +0x58 base / entry-offset
- * chain in r5 and the heap record cursor in r4, build 139 gives the chain r4 and the
- * cursor r5 for every source form tried (~330 cells: declaration orders of the register
- * and spilled locals, cursor init forms, an explicit or reused offset variable, indexed
- * records, loop forms, statement permutations, block-scoped / per-iteration cursors, a
- * parameter reused as counter, const / second-variable forms, callee prototype and return
- * types).  Notes: build/held/func_ov015_020810c0.md. */
+/* func_ov015_020810c0 -- Ov015_SpotInstallTable: hand table nTable of the spot's class
+ * (+0x58, 0x1c bytes each) to the spot's actor (+0x3c) as a heap block: header {spot, four
+ * callback slots, entry count}, then one 0x24-byte record per entry {kind (low half), 64-bit
+ * id bit (ids below 0x40 in the first mask, the rest in the second; runtime shift
+ * 020203d0), position (the pickup's for kind 2, ov002 02076cc8, else the entry's +0x8) and
+ * four link bytes relative to the table's first id (-1 kept)}; a link entry (kind 1) ORs
+ * the masks of the tables reachable from its link table (+0x14) into its id bit
+ * (02081030).  The actor's install handler (+0x38) fills the callback slots, which are
+ * copied into the spot (+0x44..+0x50) before the block is freed; the actor then gets
+ * status nStatus (ov107 020c5c14) and, when the class's current link table (+0x178) is
+ * this spot's kind, the first callback (+0x44) runs on the actor, the spot is armed
+ * (bit 0 of +0x40) and, without a player (+0x180 == -1), also live (bit 1). */
 typedef signed char        s8;
 typedef unsigned char      u8;
 typedef unsigned short     u16;
@@ -105,6 +109,7 @@ void func_ov015_020810c0(Ov015Spot *pSpot, int nArg1, int nTable, u32 nStatus)
     s8  nFirstId;
     int j;
     s8  nLink;
+
     pDef = pSpot->pDef;
     pTable = &pDef->aTable[nTable];
     nSize = pDef->aTable[nTable].nCount * sizeof(Ov015SpotRecord) + 0x18;
@@ -112,34 +117,34 @@ void func_ov015_020810c0(Ov015Spot *pSpot, int nArg1, int nTable, u32 nStatus)
     pBlock = NNSi_FndAllocFromDefaultExpHeap(nSize);
     pBlock->pSpot = pSpot;
     pBlock->nCount = pDef->aTable[nTable].nCount;
-    pRecord = pBlock->aRecord;
+    pRecord = pBlock->aRecord;   /* indexed below: the record cursor must be the induction temp created after the entry offset */
     if (pDef->aTable[nTable].nCount > 0) {
         nFirstId = pTable->aEntry->nId;
     }
-    for (i = 0; i < pTable->nCount; i++, pRecord++) {
-        pRecord->nKind = pTable->aEntry[i].nKind;
+    for (i = 0; i < pTable->nCount; i++) {
+        pRecord[i].nKind = pTable->aEntry[i].nKind;
         if (pTable->aEntry[i].nKind == 2) {
-            pRecord->position = *func_ov002_02076cc8(pTable->aEntry[i].u.pPickup);
+            pRecord[i].position = *func_ov002_02076cc8(pTable->aEntry[i].u.pPickup);
         } else {
-            pRecord->position = pTable->aEntry[i].u.position;
+            pRecord[i].position = pTable->aEntry[i].u.position;
         }
         if (pTable->aEntry[i].nId < 0x40) {
-            pRecord->nMaskA = func_020203d0(1, pTable->aEntry[i].nId);
-            pRecord->nMaskB = 0;
+            pRecord[i].nMaskA = func_020203d0(1, pTable->aEntry[i].nId);
+            pRecord[i].nMaskB = 0;
         } else {
-            pRecord->nMaskA = 0;
-            pRecord->nMaskB = func_020203d0(1, pTable->aEntry[i].nId - 0x40);
+            pRecord[i].nMaskA = 0;
+            pRecord[i].nMaskB = func_020203d0(1, pTable->aEntry[i].nId - 0x40);
         }
         if (pTable->aEntry[i].nKind == 1) {
             nVisited = 1 << nTable;
-            func_ov015_02081030(pSpot, nTable, pTable->aEntry[i].nLinkTable, 0, &nVisited, &pRecord->nMaskA);
+            func_ov015_02081030(pSpot, nTable, pTable->aEntry[i].nLinkTable, 0, &nVisited, &pRecord[i].nMaskA);
         }
         for (j = 0; j < 4; j++) {
             nLink = pTable->aEntry[i].aLink[j];
             if (nLink >= 0) {
-                pRecord->aLink[j] = nLink - nFirstId;
+                pRecord[i].aLink[j] = nLink - nFirstId;
             } else {
-                pRecord->aLink[j] = -1;
+                pRecord[i].aLink[j] = -1;
             }
         }
     }
