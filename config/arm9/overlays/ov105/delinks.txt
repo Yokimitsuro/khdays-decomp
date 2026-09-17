@@ -43,6 +43,10 @@ libs/nitro/wm/calls/func_ov105_020bd0a0.c:
     complete
     .text       start:0x020bd0a0 end:0x020bd134
 
+libs/nitro/wm/calls/func_ov105_020bd134.c:
+    complete
+    .text       start:0x020bd134 end:0x020bd4dc
+
 src/overlays/ov105/calls/func_ov105_020bd4dc.c:
     complete
     .text       start:0x020bd4dc end:0x020bd4f8
