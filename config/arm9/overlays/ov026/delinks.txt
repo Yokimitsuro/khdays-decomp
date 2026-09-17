@@ -52,6 +52,10 @@ src/overlays/ov026/auto/func_ov026_02082b44.c:
     complete
     .text       start:0x02082b44 end:0x02082b4c
 
+src/overlays/ov026/calls/func_ov026_02082b4c.c:
+    complete
+    .text       start:0x02082b4c end:0x02082bbc
+
 src/overlays/ov026/calls/func_ov026_02082bbc.c:
     complete
     .text       start:0x02082bbc end:0x02082bfa
