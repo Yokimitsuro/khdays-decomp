@@ -1408,6 +1408,10 @@ libs/nitro/fs/calls/FSi_ReleaseCommand.c:
     complete
     .text       start:0x02009588 end:0x020095e4
 
+libs/nitro/fs/calls/FSi_TranslateCommand.c:
+    complete
+    .text       start:0x020095e4 end:0x02009774
+
 libs/nitro/fs/auto/FSi_StrNICmp.c:
     complete
     .text       start:0x02009774 end:0x020097c4
@@ -1427,6 +1431,26 @@ libs/nitro/fs/auto/FSi_ReadFileCommand.c:
 libs/nitro/fs/auto/FSi_WriteFileCommand.c:
     complete
     .text       start:0x020098e4 end:0x02009910
+
+libs/nitro/fs/calls/FSi_SeekDirCommand.c:
+    complete
+    .text       start:0x02009910 end:0x020099a8
+
+libs/nitro/fs/calls/FSi_ReadDirCommand.c:
+    complete
+    .text       start:0x020099a8 end:0x02009ad4
+
+libs/nitro/fs/calls/FSi_FindPathCommand.c:
+    complete
+    .text       start:0x02009ad4 end:0x02009cb8
+
+libs/nitro/fs/calls/FSi_GetPathCommand.c:
+    complete
+    .text       start:0x02009cb8 end:0x0200a064
+
+libs/nitro/fs/calls/FSi_OpenFileFastCommand.c:
+    complete
+    .text       start:0x0200a064 end:0x0200a0e4
 
 libs/nitro/fs/auto/FSi_OpenFileDirectCommand.c:
     complete
@@ -1452,9 +1476,21 @@ libs/nitro/fs/calls/FSi_ReadMemoryCore.c:
     complete
     .text       start:0x0200a1a8 end:0x0200a1c0
 
+libs/nitro/fs/calls/FSi_NextCommand.c:
+    complete
+    .text       start:0x0200a1c0 end:0x0200a3d4
+
 libs/nitro/fs/calls/FSi_ExecuteAsyncCommand.c:
     complete
     .text       start:0x0200a3d4 end:0x0200a468
+
+libs/nitro/fs/calls/FSi_ExecuteSyncCommand.c:
+    complete
+    .text       start:0x0200a468 end:0x0200a4ac
+
+libs/nitro/fs/calls/func_0200a4ac.c:
+    complete
+    .text       start:0x0200a4ac end:0x0200a650
 
 libs/nitro/fs/calls/FS_InitArchive.c:
     complete
@@ -1472,6 +1508,10 @@ src/calls/FS_LoadArchive.c:
     complete
     .text       start:0x0200a770 end:0x0200a7e0
 
+libs/nitro/fs/calls/FS_LoadArchiveTables.c:
+    complete
+    .text       start:0x0200a7e0 end:0x0200a904
+
 libs/nitro/fs/auto/FS_SetArchiveProc.c:
     complete
     .text       start:0x0200a904 end:0x0200a924
@@ -1488,6 +1528,14 @@ libs/nitro/fs/auto/FS_InitFile.c:
     complete
     .text       start:0x0200a9d0 end:0x0200a9f8
 
+libs/nitro/fs/calls/FSi_FindPath.c:
+    complete
+    .text       start:0x0200a9f8 end:0x0200ab3c
+
+libs/nitro/fs/calls/FSi_ReadFileCore.c:
+    complete
+    .text       start:0x0200ab3c end:0x0200abb8
+
 libs/nitro/fs/calls/FS_ConvertPathToFileID.c:
     complete
     .text       start:0x0200abb8 end:0x0200abf8
@@ -1495,6 +1543,10 @@ libs/nitro/fs/calls/FS_ConvertPathToFileID.c:
 libs/nitro/fs/calls/FS_OpenFileDirect.c:
     complete
     .text       start:0x0200abf8 end:0x0200ac40
+
+libs/nitro/fs/calls/FS_OpenFileFast.c:
+    complete
+    .text       start:0x0200ac40 end:0x0200acb0
 
 libs/nitro/fs/calls/FS_OpenFile.c:
     complete
@@ -1564,6 +1616,26 @@ libs/nitro/fs/calls/FS_GetOverlayFileID.c:
     complete
     .text       start:0x0200b178 end:0x0200b1a0
 
+libs/nitro/fs/calls/FSi_LoadOverlayInfoCore.c:
+    complete
+    .text       start:0x0200b1a0 end:0x0200b298
+
+libs/nitro/fs/calls/FS_LoadOverlayInfo.c:
+    complete
+    .text       start:0x0200b298 end:0x0200b394
+
+libs/nitro/fs/calls/FS_LoadOverlayImage.c:
+    complete
+    .text       start:0x0200b394 end:0x0200b424
+
+libs/nitro/fs/calls/FSi_CompareDigest.c:
+    complete
+    .text       start:0x0200b424 end:0x0200b4b8
+
+libs/nitro/fs/calls/FS_StartOverlay.c:
+    complete
+    .text       start:0x0200b4b8 end:0x0200b5ac
+
 libs/nitro/fs/calls/FS_EndOverlay.c:
     complete
     .text       start:0x0200b5ac end:0x0200b69c
@@ -1571,6 +1643,14 @@ libs/nitro/fs/calls/FS_EndOverlay.c:
 libs/nitro/fs/calls/FS_UnloadOverlayImage.c:
     complete
     .text       start:0x0200b69c end:0x0200b6ac
+
+libs/nitro/fs/calls/FS_LoadOverlay.c:
+    complete
+    .text       start:0x0200b6ac end:0x0200b700
+
+libs/nitro/fs/calls/FS_UnloadOverlay.c:
+    complete
+    .text       start:0x0200b700 end:0x0200b74c
 
 src/auto/func_0200b74c.c:
     complete
