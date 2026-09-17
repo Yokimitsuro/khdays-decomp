@@ -15,6 +15,18 @@ src/overlays/ov105/calls/func_ov105_020bcea0.c:
     complete
     .text       start:0x020bcea0 end:0x020bceb8
 
+libs/nitro/wm/calls/func_ov105_020bceb8.c:
+    complete
+    .text       start:0x020bceb8 end:0x020bcf10
+
+libs/nitro/wm/calls/func_ov105_020bcf10.c:
+    complete
+    .text       start:0x020bcf10 end:0x020bcfbc
+
+libs/nitro/wm/calls/func_ov105_020bcfbc.c:
+    complete
+    .text       start:0x020bcfbc end:0x020bd02c
+
 src/overlays/ov105/calls/func_ov105_020bd02c.c:
     complete
     .text       start:0x020bd02c end:0x020bd03c
@@ -26,6 +38,10 @@ src/overlays/ov105/calls/func_ov105_020bd03c.c:
 src/overlays/ov105/calls/func_ov105_020bd058.c:
     complete
     .text       start:0x020bd058 end:0x020bd0a0
+
+libs/nitro/wm/calls/func_ov105_020bd0a0.c:
+    complete
+    .text       start:0x020bd0a0 end:0x020bd134
 
 src/overlays/ov105/calls/func_ov105_020bd4dc.c:
     complete
@@ -47,13 +63,41 @@ src/overlays/ov105/calls/func_ov105_020bd59c.c:
     complete
     .text       start:0x020bd59c end:0x020bd674
 
+libs/nitro/wm/calls/func_ov105_020bd674.c:
+    complete
+    .text       start:0x020bd674 end:0x020bd6e0
+
+libs/nitro/wm/calls/func_ov105_020bd6e0.c:
+    complete
+    .text       start:0x020bd6e0 end:0x020bd7a4
+
 src/overlays/ov105/calls/func_ov105_020bd7a4.c:
     complete
     .text       start:0x020bd7a4 end:0x020bd7c4
 
+libs/nitro/wm/calls/func_ov105_020bd7c4.c:
+    complete
+    .text       start:0x020bd7c4 end:0x020bd854
+
+libs/nitro/wm/calls/func_ov105_020bd854.c:
+    complete
+    .text       start:0x020bd854 end:0x020bd8e4
+
+libs/nitro/wm/calls/func_ov105_020bd8e4.c:
+    complete
+    .text       start:0x020bd8e4 end:0x020bd978
+
+libs/nitro/wm/calls/func_ov105_020bd978.c:
+    complete
+    .text       start:0x020bd978 end:0x020bd9ec
+
 src/overlays/ov105/calls/OS_UnlockByWord_0x020bd9ec.c:
     complete
     .text       start:0x020bd9ec end:0x020bd9fc
+
+libs/nitro/wm/calls/func_ov105_020bd9fc.c:
+    complete
+    .text       start:0x020bd9fc end:0x020bda5c
 
 src/overlays/ov105/calls/func_ov105_020bda5c.c:
     complete
@@ -63,6 +107,18 @@ src/overlays/ov105/calls/func_ov105_020bda94.c:
     complete
     .text       start:0x020bda94 end:0x020bdad4
 
+libs/nitro/wm/calls/func_ov105_020bdad4.c:
+    complete
+    .text       start:0x020bdad4 end:0x020bdbb0
+
+libs/nitro/wm/auto/func_ov105_020bdbb0.c:
+    complete
+    .text       start:0x020bdbb0 end:0x020bdc00
+
+libs/nitro/wm/calls/func_ov105_020bdc00.c:
+    complete
+    .text       start:0x020bdc00 end:0x020bdc5c
+
 src/overlays/ov105/calls/func_ov105_020bdc5c.c:
     complete
     .text       start:0x020bdc5c end:0x020bdc6c
@@ -71,9 +127,53 @@ src/overlays/ov105/calls/func_ov105_020bdc6c.c:
     complete
     .text       start:0x020bdc6c end:0x020bdcac
 
+libs/nitro/wm/calls/func_ov105_020bdcac.c:
+    complete
+    .text       start:0x020bdcac end:0x020bdd98
+
 src/overlays/ov105/calls/func_ov105_020bdd98.c:
     complete
     .text       start:0x020bdd98 end:0x020bddd8
+
+libs/nitro/wm/calls/func_ov105_020bddd8.c:
+    complete
+    .text       start:0x020bddd8 end:0x020bdea4
+
+libs/nitro/wm/calls/func_ov105_020bdea4.c:
+    complete
+    .text       start:0x020bdea4 end:0x020bdf8c
+
+libs/nitro/wm/calls/func_ov105_020bdf8c.c:
+    complete
+    .text       start:0x020bdf8c end:0x020be0fc
+
+libs/nitro/wm/calls/func_ov105_020be0fc.c:
+    complete
+    .text       start:0x020be0fc end:0x020be164
+
+libs/nitro/wm/calls/func_ov105_020be164.c:
+    complete
+    .text       start:0x020be164 end:0x020be294
+
+libs/nitro/wm/calls/func_ov105_020be294.c:
+    complete
+    .text       start:0x020be294 end:0x020be304
+
+libs/nitro/wm/calls/func_ov105_020be304.c:
+    complete
+    .text       start:0x020be304 end:0x020be378
+
+libs/nitro/wm/calls/func_ov105_020be378.c:
+    complete
+    .text       start:0x020be378 end:0x020be3f0
+
+libs/nitro/wm/calls/func_ov105_020be3f0.c:
+    complete
+    .text       start:0x020be3f0 end:0x020be43c
+
+src/overlays/ov105/calls/func_ov105_020be43c.c:
+    complete
+    .text       start:0x020be43c end:0x020be49c
 
 src/overlays/ov105/calls/func_ov105_020be49c.c:
     complete
@@ -87,6 +187,10 @@ src/overlays/ov105/calls/func_ov105_020be4c8.c:
     complete
     .text       start:0x020be4c8 end:0x020be508
 
+src/overlays/ov105/calls/func_ov105_020be508.c:
+    complete
+    .text       start:0x020be508 end:0x020be56c
+
 src/overlays/ov105/calls/func_ov105_020be56c.c:
     complete
     .text       start:0x020be56c end:0x020be5cc
@@ -94,6 +198,22 @@ src/overlays/ov105/calls/func_ov105_020be56c.c:
 src/overlays/ov105/calls/func_ov105_020be5cc.c:
     complete
     .text       start:0x020be5cc end:0x020be604
+
+src/overlays/ov105/calls/func_ov105_020be604.c:
+    complete
+    .text       start:0x020be604 end:0x020be668
+
+src/overlays/ov105/calls/func_ov105_020be668.c:
+    complete
+    .text       start:0x020be668 end:0x020be770
+
+src/overlays/ov105/calls/func_ov105_020be770.c:
+    complete
+    .text       start:0x020be770 end:0x020be7fc
+
+src/overlays/ov105/calls/func_ov105_020be7fc.c:
+    complete
+    .text       start:0x020be7fc end:0x020be850
 
 src/overlays/ov105/calls/func_ov105_020be850.c:
     complete
@@ -111,6 +231,10 @@ src/overlays/ov105/calls/func_ov105_020be8d8.c:
     complete
     .text       start:0x020be8d8 end:0x020be900
 
+src/overlays/ov105/calls/func_ov105_020be900.c:
+    complete
+    .text       start:0x020be900 end:0x020be96c
+
 src/overlays/ov105/calls/func_ov105_020beb98.c:
     complete
     .text       start:0x020beb98 end:0x020bebcc
@@ -118,6 +242,10 @@ src/overlays/ov105/calls/func_ov105_020beb98.c:
 src/overlays/ov105/calls/func_ov105_020bebcc.c:
     complete
     .text       start:0x020bebcc end:0x020bebf4
+
+src/overlays/ov105/calls/func_ov105_020bebf4.c:
+    complete
+    .text       start:0x020bebf4 end:0x020bec64
 
 src/overlays/ov105/calls/func_ov105_020bec64.c:
     complete
@@ -127,6 +255,22 @@ src/overlays/ov105/calls/func_ov105_020becc4.c:
     complete
     .text       start:0x020becc4 end:0x020becfc
 
+src/overlays/ov105/calls/func_ov105_020becfc.c:
+    complete
+    .text       start:0x020becfc end:0x020bed80
+
+src/overlays/ov105/calls/func_ov105_020bed80.c:
+    complete
+    .text       start:0x020bed80 end:0x020bee7c
+
+src/overlays/ov105/calls/func_ov105_020bee7c.c:
+    complete
+    .text       start:0x020bee7c end:0x020beee0
+
+src/overlays/ov105/calls/func_ov105_020beee0.c:
+    complete
+    .text       start:0x020beee0 end:0x020bef44
+
 src/overlays/ov105/calls/func_ov105_020bef44.c:
     complete
     .text       start:0x020bef44 end:0x020bef74
@@ -134,6 +278,10 @@ src/overlays/ov105/calls/func_ov105_020bef44.c:
 src/overlays/ov105/calls/func_ov105_020bef74.c:
     complete
     .text       start:0x020bef74 end:0x020befa8
+
+src/overlays/ov105/calls/func_ov105_020befa8.c:
+    complete
+    .text       start:0x020befa8 end:0x020befe0
 
 src/overlays/ov105/calls/func_ov105_020befe0.c:
     complete
@@ -147,13 +295,29 @@ src/overlays/ov105/calls/func_ov105_020bf038.c:
     complete
     .text       start:0x020bf038 end:0x020bf070
 
+src/overlays/ov105/calls/func_ov105_020bf070.c:
+    complete
+    .text       start:0x020bf070 end:0x020bf0e0
+
 src/overlays/ov105/calls/func_ov105_020bf0e0.c:
     complete
     .text       start:0x020bf0e0 end:0x020bf120
 
+src/overlays/ov105/calls/func_ov105_020bf120.c:
+    complete
+    .text       start:0x020bf120 end:0x020bf18c
+
+src/overlays/ov105/calls/func_ov105_020bf18c.c:
+    complete
+    .text       start:0x020bf18c end:0x020bf1e4
+
 src/overlays/ov105/calls/func_ov105_020bf1e4.c:
     complete
     .text       start:0x020bf1e4 end:0x020bf1f4
+
+src/overlays/ov105/calls/func_ov105_020bf1f4.c:
+    complete
+    .text       start:0x020bf1f4 end:0x020bf22c
 
 src/overlays/ov105/calls/func_ov105_020bf22c.c:
     complete
@@ -175,6 +339,14 @@ src/overlays/ov105/calls/func_ov105_020bf26c.c:
     complete
     .text       start:0x020bf26c end:0x020bf27c
 
+src/overlays/ov105/calls/func_ov105_020bf33c.c:
+    complete
+    .text       start:0x020bf33c end:0x020bf3d8
+
+src/overlays/ov105/calls/func_ov105_020bf3d8.c:
+    complete
+    .text       start:0x020bf3d8 end:0x020bf480
+
 src/overlays/ov105/calls/func_ov105_020bf480.c:
     complete
     .text       start:0x020bf480 end:0x020bf4a0
@@ -182,6 +354,10 @@ src/overlays/ov105/calls/func_ov105_020bf480.c:
 src/overlays/ov105/calls/func_ov105_020bf4a0.c:
     complete
     .text       start:0x020bf4a0 end:0x020bf4cc
+
+src/overlays/ov105/calls/func_ov105_020bf4cc.c:
+    complete
+    .text       start:0x020bf4cc end:0x020bf5a8
 
 src/overlays/ov105/calls/func_ov105_020bf64c.c:
     complete
@@ -199,6 +375,10 @@ src/overlays/ov105/calls/func_ov105_020bf8b8.c:
     complete
     .text       start:0x020bf8b8 end:0x020bf8c8
 
+src/overlays/ov105/calls/func_ov105_020bf8c8.c:
+    complete
+    .text       start:0x020bf8c8 end:0x020bf900
+
 src/calls/WM_EndKeySharing_0x020bf900.c:
     complete
     .text       start:0x020bf900 end:0x020bf90c
@@ -206,6 +386,10 @@ src/calls/WM_EndKeySharing_0x020bf900.c:
 src/overlays/ov105/calls/func_ov105_020bf90c.c:
     complete
     .text       start:0x020bf90c end:0x020bf928
+
+src/overlays/ov105/calls/func_ov105_020bf928.c:
+    complete
+    .text       start:0x020bf928 end:0x020bf9c0
 
 src/overlays/ov105/calls/func_ov105_020bf9c0.c:
     complete
