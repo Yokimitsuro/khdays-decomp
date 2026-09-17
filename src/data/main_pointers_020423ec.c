@@ -8,11 +8,10 @@ extern void func_02010e18(void);
 extern void func_02010e20(void);
 extern void func_02010e28(void);
 extern void func_02010e30(void);
-extern int data_02042418;
-extern int data_02042430;
-extern int data_02042448;
-extern int data_02042460;
-extern int data_02042478;
+
+/* The five party roster entries (src/data/main_party_roster_02042418.c). */
+typedef struct PartyRosterEntry { unsigned int w[6]; } PartyRosterEntry;
+extern PartyRosterEntry data_02042418[5];
 
 void *data_020423ec[1] = {
 
@@ -40,22 +39,22 @@ void *data_020423f8[1] = {
 
 void *data_020423fc[2] = {
 
-    &data_02042418,
+    &data_02042418[0],
 
-    &data_02042460,
+    &data_02042418[3],
 
 };
 
 void *data_02042404[5] = {
 
-    &data_02042478,
+    &data_02042418[4],
 
-    &data_02042460,
+    &data_02042418[3],
 
-    &data_02042418,
+    &data_02042418[0],
 
-    &data_02042448,
+    &data_02042418[2],
 
-    &data_02042430,
+    &data_02042418[1],
 
 };

@@ -65,6 +65,10 @@ def extract(o_path, name):
     if symtab is None:
         return None
 
+    # Keyed by the index of the section the relocations apply to (sh_info), not by its
+    # name: mwcc emits one `.data` section per global, each with its own `.rela.data`,
+    # and keying by name would hand the descriptor's pointer relocations to the string
+    # that shares the name (main_pause_menu_02042730.c, 2026-09-17).
     relocs = {}
     for section in elf.iter_sections():
         if not section.name.startswith((".rel.", ".rela.")):
@@ -72,7 +76,7 @@ def extract(o_path, name):
         target = "." + section.name.split(".", 2)[-1]
         if target not in DATA_SECTIONS:
             continue
-        relocs[target] = {
+        relocs[section["sh_info"]] = {
             rel["r_offset"]: (
                 symtab.get_symbol(rel["r_info_sym"]).name,
                 rel.entry.get("r_addend", 0),
@@ -95,7 +99,7 @@ def extract(o_path, name):
         end = start + sym["st_size"]
         own = {
             off - start: triple
-            for off, triple in relocs.get(sec_name, {}).items()
+            for off, triple in relocs.get(shndx, {}).items()
             if start <= off < end
         }
         return blob[start:end], sec_name.lstrip("."), own

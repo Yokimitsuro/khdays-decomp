@@ -7064,6 +7064,23 @@ libs/msl/c/auto/msl_ctype_tables.c:
     complete
     .rodata     start:0x02041bc8 end:0x02041dc8
 
+libs/nitro/card/auto/card_rom_header_addr.c:
+    complete
+    .data       start:0x020423e8 end:0x020423ec
+
+libs/nitro/dgt/auto/dgt_sha1_test_vectors.c:
+    complete
+    .data       start:0x020422cc end:0x020423e8
+
+libs/nitro/fs/auto/fs_archive_names.c:
+    complete
+    .data       start:0x020422bc end:0x020422c4
+
+libs/nitro/fs/auto/fs_overlay_digest_key.c:
+    complete
+    .data       start:0x020422c4 end:0x020422cc
+    .rodata     start:0x02041880 end:0x020418c0
+
 libs/nitro/fx/auto/fx_atan_tables.c:
     complete
     .rodata     start:0x02041210 end:0x02041418
@@ -7072,6 +7089,22 @@ libs/nitro/fx/auto/fx_sincos_table.c:
     complete
     .rodata     start:0x0203d210 end:0x02041210
 
+libs/nitro/gx/auto/gx_disp_on_flag.c:
+    complete
+    .data       start:0x020422b4 end:0x020422b6
+
+libs/nitro/gx/auto/gx_dma_id.c:
+    complete
+    .data       start:0x020422b8 end:0x020422bc
+
+libs/nitro/gx/auto/gx_load3d_tables.c:
+    complete
+    .rodata     start:0x02041418 end:0x02041488
+
+libs/nitro/os/auto/os_console_type_cache.c:
+    complete
+    .data       start:0x020422b0 end:0x020422b4
+
 libs/nitro/os/auto/os_irq_callback_bits.c:
     complete
     .data       start:0x020422a0 end:0x020422b0
@@ -7079,6 +7112,30 @@ libs/nitro/os/auto/os_irq_callback_bits.c:
 libs/nitro/snd/auto/snd_decibel_table.c:
     complete
     .rodata     start:0x02041488 end:0x02041588
+
+libs/nitro/snd/auto/snd_volume_table.c:
+    complete
+    .rodata     start:0x02041588 end:0x0204185c
+
+libs/nns/g3d/auto/g3d_anmobj_init_func_num.c:
+    complete
+    .data       start:0x02042490 end:0x02042494
+
+libs/nns/g3d/auto/g3d_anmobj_init_funcs.c:
+    complete
+    .data       start:0x020424b4 end:0x02042504
+
+src/data/main_overlay_digests_02042ac0.c:
+    complete
+    .data       start:0x02042ac0 end:0x020442a0
+
+src/data/main_party_roster_02042418.c:
+    complete
+    .data       start:0x02042418 end:0x02042490
+
+src/data/main_pause_menu_02042730.c:
+    complete
+    .data       start:0x02042730 end:0x020427d4
 
 src/data/main_pointers_0204185c.c:
     complete
@@ -7127,3 +7184,15 @@ src/data/main_pointers_02042910.c:
 src/data/main_pointers_02042a70.c:
     complete
     .data       start:0x02042a70 end:0x02042ac0
+
+src/data/main_scene_table_0204252c.c:
+    complete
+    .data       start:0x0204252c end:0x020425ec
+
+src/data/main_transform_defaults_020427f0.c:
+    complete
+    .data       start:0x020427f0 end:0x02042910
+
+src/data/main_worlds_02042958.c:
+    complete
+    .data       start:0x02042958 end:0x02042a70
