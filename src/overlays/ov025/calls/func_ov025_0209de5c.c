@@ -1,5 +1,5 @@
 /* func_ov025_0209de5c -- Ov025_Tutorial_CursorUp: move the tutorial cursor (+2 of the page) up one
- * topic while nothing is busy (020afd18) and no page scroll is in flight (bits 2-3 of +0xc).
+ * topic while nothing is busy (020afd18) and the stylus is up (bits 2-3 of +0xc).
  * With more than one topic the cursor wraps to the last one, pulling the window (+0) down so
  * the cursor is its ninth row, and otherwise the window follows the cursor upward; either
  * scroll resets the row base (+0x64).  The phase bits (0-1 of +0xc) become 1, the cursor
@@ -18,7 +18,7 @@ typedef struct Ov025TutorialList {
     int  nScroll;             /* 0x4c: the row requested by Ov025_Tutorial_ScrollTo */
     int  nRows;               /* 0x50: 4..18 */
     int  nRowBase;            /* 0x54: the row offset the entries are placed from */
-    int  nField58;            /* 0x58 */
+    int  bDragging;           /* 0x58: the scroll knob follows the stylus */
 } Ov025TutorialList;          /* 0x5c */
 
 typedef struct Ov025TutorialTopic {
@@ -31,9 +31,11 @@ typedef struct Ov025TutorialPage {
     s16  nCursor;             /* 0x002 */
     s16  nCount;              /* 0x004 */
     s16  nField06;            /* 0x006 */
-    int  nField08;            /* 0x008 */
-    u32  nPhase : 2;          /* 0x00c bits 0-1: 1 = cursor moved, redraw */
-    int  nScrollDir : 2;      /* 0x00c bits 2-3: a page scroll in flight */
+    s16  nShown;              /* 0x008: the topic open in the text viewer */
+    s16  nField0a;            /* 0x00a */
+    int  nPhase : 2;          /* 0x00c bits 0-1: 1 = cursor moved, redraw */
+    int  nTouch : 2;          /* 0x00c bits 2-3: the stylus state */
+    int  nActive : 4;         /* 0x00c bits 4-7 */
     Ov025TutorialList list;   /* 0x010 */
     u8   textTitle[0xc];      /* 0x06c: "UI/cm/str/ttl_&.s.z" */
     u8   textTopics[0xc];     /* 0x078: "UI/tutorial/root_&.s.z" */
@@ -62,7 +64,7 @@ void func_ov025_0209de5c(void)
     if (func_ov025_020afd18() != 0) {
         return;
     }
-    if (pPage->nScrollDir != 0) {
+    if (pPage->nTouch != 0) {
         return;
     }
     if (pPage->nCount > 1) {

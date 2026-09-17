@@ -17,7 +17,7 @@ typedef struct Ov025TutorialList {
     int  nScroll;             /* 0x4c: the row requested by Ov025_Tutorial_ScrollTo */
     int  nRows;               /* 0x50: 4..18 */
     int  nRowBase;            /* 0x54: the row offset the entries are placed from */
-    int  nField58;            /* 0x58 */
+    int  bDragging;           /* 0x58: the scroll knob follows the stylus */
 } Ov025TutorialList;          /* 0x5c */
 
 typedef struct Ov025TutorialTopic {
@@ -30,9 +30,11 @@ typedef struct Ov025TutorialPage {
     s16  nCursor;             /* 0x002 */
     s16  nCount;              /* 0x004 */
     s16  nField06;            /* 0x006 */
-    int  nField08;            /* 0x008 */
-    u32  nPhase : 2;          /* 0x00c bits 0-1: 1 = cursor moved, redraw */
-    int  nScrollDir : 2;      /* 0x00c bits 2-3: a page scroll in flight */
+    s16  nShown;              /* 0x008: the topic open in the text viewer */
+    s16  nField0a;            /* 0x00a */
+    int  nPhase : 2;          /* 0x00c bits 0-1: 1 = cursor moved, redraw */
+    int  nTouch : 2;          /* 0x00c bits 2-3: the stylus state */
+    int  nActive : 4;         /* 0x00c bits 4-7 */
     Ov025TutorialList list;   /* 0x010 */
     u8   textTitle[0xc];      /* 0x06c: "UI/cm/str/ttl_&.s.z" */
     u8   textTopics[0xc];     /* 0x078: "UI/tutorial/root_&.s.z" */
