@@ -328,6 +328,10 @@ libs/nitro/os/calls/OSi_RescheduleThread.c:
     complete
     .text       start:0x02001adc end:0x02001ba4
 
+libs/nitro/os/calls/func_02001ba4.c:
+    complete
+    .text       start:0x02001ba4 end:0x02001cf0
+
 libs/nitro/os/calls/OS_CreateThread.c:
     complete
     .text       start:0x02001cf0 end:0x02001dec
@@ -480,6 +484,10 @@ libs/nitro/os/auto/OS_GetArenaLo.c:
     complete
     .text       start:0x020029bc end:0x020029d0
 
+libs/nitro/os/calls/func_020029d0.c:
+    complete
+    .text       start:0x020029d0 end:0x02002ab4
+
 libs/nitro/os/calls/func_02002ab4.c:
     complete
     .text       start:0x02002ab4 end:0x02002b5c
@@ -627,6 +635,10 @@ libs/nitro/os/calls/OSi_SendToPxi.c:
 libs/nitro/os/asm_stubs/calls/func_02003948.c:
     complete
     .text       start:0x02003948 end:0x02003a04
+
+libs/nitro/os/calls/OS_GetMacAddress.c:
+    complete
+    .text       start:0x02003a04 end:0x02003a20
 
 src/calls/func_02003a20.c:
     complete
@@ -1716,6 +1728,10 @@ libs/nitro/fs/auto/FSi_EmptyArchiveProc.c:
     complete
     .text       start:0x0200afb0 end:0x0200afb8
 
+libs/nitro/fs/calls/func_0200afb8.c:
+    complete
+    .text       start:0x0200afb8 end:0x0200b100
+
 libs/nitro/fs/calls/FS_TryLoadTable.c:
     complete
     .text       start:0x0200b100 end:0x0200b120
@@ -1784,9 +1800,21 @@ libs/nitro/gx/asm_stubs/calls/CPi_RestoreContext.c:
     complete
     .text       start:0x0200c00c end:0x0200c048
 
+libs/nitro/spi/calls/func_0200c048.c:
+    complete
+    .text       start:0x0200c048 end:0x0200c2c8
+
 src/calls/func_0200c2c8.c:
     complete
     .text       start:0x0200c2c8 end:0x0200c340
+
+libs/nitro/spi/calls/func_0200c340.c:
+    complete
+    .text       start:0x0200c340 end:0x0200c3d4
+
+libs/nitro/spi/calls/func_0200c3d4.c:
+    complete
+    .text       start:0x0200c3d4 end:0x0200c4fc
 
 libs/nitro/card/calls/func_0200c4fc.c:
     complete
@@ -1803,6 +1831,10 @@ src/calls/func_0200c694.c:
 libs/nitro/gx/calls/GX_GetBankForOBJExtPltt.c:
     complete
     .text       start:0x0200c730 end:0x0200c740
+
+libs/nitro/spi/calls/func_0200c740.c:
+    complete
+    .text       start:0x0200c740 end:0x0200c92c
 
 src/calls/func_0200c92c.c:
     complete

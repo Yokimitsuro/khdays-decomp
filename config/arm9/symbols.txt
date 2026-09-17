@@ -2177,6 +2177,7 @@ data_02044330 kind:bss addr:0x02044330
 data_02044334 kind:bss addr:0x02044334
 data_02044340 kind:bss addr:0x02044340
 data_02044400 kind:bss addr:0x02044400
+data_020444c0 kind:bss addr:0x020444c0
 data_02044588 kind:bss addr:0x02044588
 data_02044590 kind:bss addr:0x02044590
 data_020445b4 kind:bss addr:0x020445b4
