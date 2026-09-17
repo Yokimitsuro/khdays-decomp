@@ -2320,7 +2320,7 @@ libs/nitro/nns/auto/NNS_FndGetPrevListObject.c:
     complete
     .text       start:0x02010140 end:0x02010154
 
-src/calls/func_02010154.c:
+libs/nns/fnd/calls/func_02010154.c:
     complete
     .text       start:0x02010154 end:0x0201019c
 
@@ -2480,11 +2480,11 @@ libs/nitro/nns/calls/AllocatorFreeForExpHeap_0x02010d90.c:
     complete
     .text       start:0x02010d90 end:0x02010da0
 
-src/calls/func_02010da0.c:
+libs/nns/fnd/calls/func_02010da0.c:
     complete
     .text       start:0x02010da0 end:0x02010dbc
 
-src/calls/func_02010dbc.c:
+libs/nns/fnd/calls/func_02010dbc.c:
     complete
     .text       start:0x02010dbc end:0x02010dd8
 
@@ -2520,11 +2520,11 @@ src/calls/func_02010e38.c:
     complete
     .text       start:0x02010e38 end:0x02010e80
 
-libs/nitro/nns/calls/func_02010e80.c:
+libs/nns/gfd/calls/func_02010e80.c:
     complete
     .text       start:0x02010e80 end:0x02010f08
 
-libs/nitro/nns/calls/func_02010f08.c:
+libs/nns/gfd/calls/func_02010f08.c:
     complete
     .text       start:0x02010f08 end:0x02010f7c
 
@@ -2532,15 +2532,15 @@ libs/nitro/nns/calls/func_02010f7c.c:
     complete
     .text       start:0x02010f7c end:0x020110ec
 
-src/auto/func_020110ec.c:
+libs/nns/gfd/auto/func_020110ec.c:
     complete
     .text       start:0x020110ec end:0x020110f4
 
-src/calls/func_020110f4.c:
+libs/nns/gfd/calls/func_020110f4.c:
     complete
     .text       start:0x020110f4 end:0x02011134
 
-src/calls/func_02011134.c:
+libs/nns/gfd/calls/func_02011134.c:
     complete
     .text       start:0x02011134 end:0x02011174
 
@@ -2568,15 +2568,15 @@ src/calls/func_0201133c.c:
     complete
     .text       start:0x0201133c end:0x02011358
 
-src/calls/func_02011358.c:
+libs/nns/gfd/calls/func_02011358.c:
     complete
     .text       start:0x02011358 end:0x02011378
 
-src/auto/func_02011378.c:
+libs/nns/gfd/auto/func_02011378.c:
     complete
     .text       start:0x02011378 end:0x02011390
 
-src/auto/func_02011390.c:
+libs/nns/gfd/auto/func_02011390.c:
     complete
     .text       start:0x02011390 end:0x020113a4
 
@@ -2588,7 +2588,7 @@ src/calls/func_020113d0.c:
     complete
     .text       start:0x020113d0 end:0x020113fc
 
-src/calls/func_020113fc.c:
+libs/nns/gfd/calls/func_020113fc.c:
     complete
     .text       start:0x020113fc end:0x02011428
 
@@ -2608,23 +2608,23 @@ src/calls/func_020114ac.c:
     complete
     .text       start:0x020114ac end:0x020114e4
 
-src/auto/func_020114e4.c:
+libs/nns/gfd/auto/func_020114e4.c:
     complete
     .text       start:0x020114e4 end:0x020114fc
 
-src/calls/func_020114fc.c:
+libs/nns/gfd/calls/func_020114fc.c:
     complete
     .text       start:0x020114fc end:0x02011538
 
-src/auto/func_02011538.c:
+libs/nns/gfd/auto/func_02011538.c:
     complete
     .text       start:0x02011538 end:0x02011548
 
-src/auto/func_02011548.c:
+libs/nns/gfd/auto/func_02011548.c:
     complete
     .text       start:0x02011548 end:0x02011558
 
-src/calls/func_02011558.c:
+libs/nns/gfd/calls/func_02011558.c:
     complete
     .text       start:0x02011558 end:0x02011594
 
@@ -2704,15 +2704,15 @@ src/auto/func_02011ae8.c:
     complete
     .text       start:0x02011ae8 end:0x02011b30
 
-libs/nitro/nns/calls/func_02011b30.c:
+libs/nns/g2d/calls/func_02011b30.c:
     complete
     .text       start:0x02011b30 end:0x02011c44
 
-src/calls/func_02011c44.c:
+libs/nns/g2d/auto/func_02011c44.c:
     complete
     .text       start:0x02011c44 end:0x02011c7c
 
-src/auto/func_02011c7c.c:
+libs/nns/g2d/auto/func_02011c7c.c:
     complete
     .text       start:0x02011c7c end:0x02011c88
 
@@ -2720,31 +2720,31 @@ libs/nitro/nns/calls/func_02011c88.c:
     complete
     .text       start:0x02011c88 end:0x02011e3c
 
-src/calls/func_02011e3c.c:
+libs/nns/g2d/calls/func_02011e3c.c:
     complete
     .text       start:0x02011e3c end:0x02011e58
 
-src/auto/func_02011e58.c:
+libs/nns/g2d/auto/func_02011e58.c:
     complete
     .text       start:0x02011e58 end:0x02011e74
 
-src/calls/func_02011e74.c:
+libs/nns/g2d/calls/func_02011e74.c:
     complete
     .text       start:0x02011e74 end:0x02011eb4
 
-src/auto/func_02011eb4.c:
+libs/nns/g2d/auto/func_02011eb4.c:
     complete
     .text       start:0x02011eb4 end:0x02011ecc
 
-libs/nitro/nns/calls/func_02011ecc.c:
+libs/nns/g2d/calls/func_02011ecc.c:
     complete
     .text       start:0x02011ecc end:0x02011f2c
 
-src/calls/func_02011f2c.c:
+libs/nns/g2d/calls/func_02011f2c.c:
     complete
     .text       start:0x02011f2c end:0x02011f3c
 
-src/auto/func_02011f3c.c:
+libs/nns/g2d/auto/func_02011f3c.c:
     complete
     .text       start:0x02011f3c end:0x02011f58
 
@@ -2756,7 +2756,7 @@ src/auto/func_02011f60.c:
     complete
     .text       start:0x02011f60 end:0x02011f68
 
-src/auto/func_02011f68.c:
+libs/nns/g2d/auto/func_02011f68.c:
     complete
     .text       start:0x02011f68 end:0x02011f88
 
@@ -2764,7 +2764,7 @@ src/auto/func_02011f88.c:
     complete
     .text       start:0x02011f88 end:0x02011f94
 
-libs/nitro/nns/calls/func_02011f94.c:
+libs/nns/g2d/calls/func_02011f94.c:
     complete
     .text       start:0x02011f94 end:0x020121c0
 
@@ -2772,15 +2772,15 @@ src/calls/func_020121c0.c:
     complete
     .text       start:0x020121c0 end:0x020122b8
 
-src/auto/func_020122b8.c:
+libs/nns/g2d/auto/func_020122b8.c:
     complete
     .text       start:0x020122b8 end:0x020122dc
 
-src/auto/func_020122dc.c:
+libs/nns/g2d/auto/func_020122dc.c:
     complete
     .text       start:0x020122dc end:0x020122fc
 
-src/auto/func_020122fc.c:
+libs/nns/g2d/auto/func_020122fc.c:
     complete
     .text       start:0x020122fc end:0x0201231c
 
@@ -2824,7 +2824,7 @@ src/calls/func_02012844.c:
     complete
     .text       start:0x02012844 end:0x0201285c
 
-src/calls/func_0201285c.c:
+libs/nns/g2d/calls/func_0201285c.c:
     complete
     .text       start:0x0201285c end:0x02012880
 
@@ -2920,7 +2920,7 @@ libs/nitro/nns/calls/func_02013484.c:
     complete
     .text       start:0x02013484 end:0x020135e8
 
-libs/nitro/nns/auto/func_020135e8.c:
+libs/nns/g2d/auto/func_020135e8.c:
     complete
     .text       start:0x020135e8 end:0x020136b0
 
@@ -2928,23 +2928,23 @@ src/calls/func_020136b0.c:
     complete
     .text       start:0x020136b0 end:0x020136d4
 
-src/calls/func_020136d4.c:
+libs/nns/g2d/calls/func_020136d4.c:
     complete
     .text       start:0x020136d4 end:0x0201371c
 
-src/auto/func_0201371c.c:
+libs/nns/g2d/auto/func_0201371c.c:
     complete
     .text       start:0x0201371c end:0x02013768
 
-src/calls/func_02013768.c:
+libs/nns/g2d/calls/func_02013768.c:
     complete
     .text       start:0x02013768 end:0x02013814
 
-src/calls/func_02013814.c:
+libs/nns/g2d/calls/func_02013814.c:
     complete
     .text       start:0x02013814 end:0x0201386c
 
-src/calls/func_0201386c.c:
+libs/nns/g2d/calls/func_0201386c.c:
     complete
     .text       start:0x0201386c end:0x02013900
 
@@ -3028,7 +3028,7 @@ libs/nitro/nitro/calls/NTRi_GetRegionTableSize.c:
     complete
     .text       start:0x02014a5c end:0x02014abc
 
-libs/nitro/nns/calls/func_02014abc.c:
+libs/nns/g3d/calls/func_02014abc.c:
     complete
     .text       start:0x02014abc end:0x02014b5c
 
@@ -3036,55 +3036,55 @@ src/calls/func_02014b5c.c:
     complete
     .text       start:0x02014b5c end:0x02014bb0
 
-src/auto/func_02014bb0.c:
+libs/nns/g3d/auto/func_02014bb0.c:
     complete
     .text       start:0x02014bb0 end:0x02014c68
 
-src/auto/func_02014c68.c:
+libs/nns/g3d/auto/func_02014c68.c:
     complete
     .text       start:0x02014c68 end:0x02014cd0
 
-libs/nitro/nns/calls/func_02014cd0.c:
+libs/nns/g3d/calls/func_02014cd0.c:
     complete
     .text       start:0x02014cd0 end:0x02014d50
 
-src/auto/func_02014d50.c:
+libs/nns/g3d/auto/func_02014d50.c:
     complete
     .text       start:0x02014d50 end:0x02014dc4
 
-src/calls/func_02014dc4.c:
+libs/nns/g3d/calls/func_02014dc4.c:
     complete
     .text       start:0x02014dc4 end:0x02014e18
 
-src/auto/func_02014e18.c:
+libs/nns/g3d/auto/func_02014e18.c:
     complete
     .text       start:0x02014e18 end:0x02014e2c
 
-src/auto/func_02014e2c.c:
+libs/nns/g3d/auto/func_02014e2c.c:
     complete
     .text       start:0x02014e2c end:0x02014e40
 
-src/auto/func_02014e40.c:
+libs/nns/g3d/auto/func_02014e40.c:
     complete
     .text       start:0x02014e40 end:0x02014e48
 
-src/auto/func_02014e48.c:
+libs/nns/g3d/auto/func_02014e48.c:
     complete
     .text       start:0x02014e48 end:0x02014e5c
 
-src/auto/func_02014e5c.c:
+libs/nns/g3d/auto/func_02014e5c.c:
     complete
     .text       start:0x02014e5c end:0x02014e70
 
-src/auto/func_02014e70.c:
+libs/nns/g3d/auto/func_02014e70.c:
     complete
     .text       start:0x02014e70 end:0x02014e84
 
-src/auto/func_02014e84.c:
+libs/nns/g3d/auto/func_02014e84.c:
     complete
     .text       start:0x02014e84 end:0x02014ed0
 
-src/auto/func_02014ed0.c:
+libs/nns/g3d/auto/func_02014ed0.c:
     complete
     .text       start:0x02014ed0 end:0x02014ee4
 
@@ -3092,43 +3092,43 @@ src/auto/func_02014ee4.c:
     complete
     .text       start:0x02014ee4 end:0x02014eec
 
-src/auto/func_02014eec.c:
+libs/nns/g3d/auto/func_02014eec.c:
     complete
     .text       start:0x02014eec end:0x02014f0c
 
-libs/nitro/nns/calls/func_02014f0c.c:
+libs/nns/g3d/calls/func_02014f0c.c:
     complete
     .text       start:0x02014f0c end:0x0201503c
 
-libs/nitro/nns/auto/func_0201503c.c:
+libs/nns/g3d/auto/func_0201503c.c:
     complete
     .text       start:0x0201503c end:0x020150f4
 
-libs/nitro/nns/calls/func_020150f4.c:
+libs/nns/g3d/calls/func_020150f4.c:
     complete
     .text       start:0x020150f4 end:0x020151f4
 
-libs/nitro/nns/calls/func_020151f4.c:
+libs/nns/g3d/calls/func_020151f4.c:
     complete
     .text       start:0x020151f4 end:0x02015280
 
-libs/nitro/nns/auto/func_02015280.c:
+libs/nns/g3d/auto/func_02015280.c:
     complete
     .text       start:0x02015280 end:0x02015360
 
-libs/nitro/nns/calls/func_02015360.c:
+libs/nns/g3d/calls/func_02015360.c:
     complete
     .text       start:0x02015360 end:0x02015468
 
-libs/nitro/nns/auto/func_02015468.c:
+libs/nns/g3d/auto/func_02015468.c:
     complete
     .text       start:0x02015468 end:0x020154ec
 
-libs/nitro/nns/calls/func_020154ec.c:
+libs/nns/g3d/calls/func_020154ec.c:
     complete
     .text       start:0x020154ec end:0x0201559c
 
-libs/nitro/nns/calls/func_0201559c.c:
+libs/nns/g3d/calls/func_0201559c.c:
     complete
     .text       start:0x0201559c end:0x02015630
 
@@ -3188,11 +3188,11 @@ libs/nitro/nns/calls/func_02015ca0.c:
     complete
     .text       start:0x02015ca0 end:0x02015d14
 
-src/auto/func_02015d14.c:
+libs/nns/g3d/auto/func_02015d14.c:
     complete
     .text       start:0x02015d14 end:0x02015d80
 
-src/auto/func_02015d80.c:
+libs/nns/g3d/auto/func_02015d80.c:
     complete
     .text       start:0x02015d80 end:0x02015df0
 
@@ -3200,7 +3200,7 @@ libs/nitro/nns/calls/func_02015df0.c:
     complete
     .text       start:0x02015df0 end:0x020161dc
 
-libs/nitro/nns/auto/func_020161dc.c:
+libs/nns/g3d/auto/func_020161dc.c:
     complete
     .text       start:0x020161dc end:0x02016264
 
@@ -3224,7 +3224,7 @@ src/calls/func_020163cc.c:
     complete
     .text       start:0x020163cc end:0x020163f4
 
-libs/nitro/nns/calls/func_020163f4.c:
+libs/nns/g3d/calls/func_020163f4.c:
     complete
     .text       start:0x020163f4 end:0x0201653c
 
@@ -3236,7 +3236,7 @@ libs/nitro/nns/calls/func_020166c4.c:
     complete
     .text       start:0x020166c4 end:0x02016948
 
-src/calls/func_02016948.c:
+libs/nns/g3d/calls/func_02016948.c:
     complete
     .text       start:0x02016948 end:0x0201696c
 
@@ -3268,27 +3268,27 @@ src/auto/func_02016bd8.c:
     complete
     .text       start:0x02016bd8 end:0x02016c50
 
-src/calls/func_02016c50.c:
+libs/nns/g3d/calls/func_02016c50.c:
     complete
     .text       start:0x02016c50 end:0x02016c90
 
-src/calls/func_02016c90.c:
+libs/nns/g3d/calls/func_02016c90.c:
     complete
     .text       start:0x02016c90 end:0x02016cd0
 
-src/calls/func_02016cd0.c:
+libs/nns/g3d/calls/func_02016cd0.c:
     complete
     .text       start:0x02016cd0 end:0x02016d10
 
-src/calls/func_02016d10.c:
+libs/nns/g3d/calls/func_02016d10.c:
     complete
     .text       start:0x02016d10 end:0x02016d50
 
-libs/nitro/nns/auto/func_02016d50.c:
+libs/nns/g3d/auto/func_02016d50.c:
     complete
     .text       start:0x02016d50 end:0x02016f10
 
-libs/nitro/nns/auto/func_02016f10.c:
+libs/nns/g3d/auto/func_02016f10.c:
     complete
     .text       start:0x02016f10 end:0x02017078
 
@@ -3296,43 +3296,43 @@ src/auto/func_02017078.c:
     complete
     .text       start:0x02017078 end:0x02017088
 
-src/auto/func_02017088.c:
+libs/nns/g3d/auto/func_02017088.c:
     complete
     .text       start:0x02017088 end:0x020170c8
 
-src/calls/func_020170c8.c:
+libs/nns/g3d/auto/func_020170c8.c:
     complete
     .text       start:0x020170c8 end:0x02017124
 
-src/auto/func_02017124.c:
+libs/nns/g3d/auto/func_02017124.c:
     complete
     .text       start:0x02017124 end:0x02017150
 
-src/auto/func_02017150.c:
+libs/nns/g3d/auto/func_02017150.c:
     complete
     .text       start:0x02017150 end:0x0201717c
 
-src/calls/func_0201717c.c:
+libs/nns/g3d/calls/func_0201717c.c:
     complete
     .text       start:0x0201717c end:0x020171f0
 
-src/auto/func_020171f0.c:
+libs/nns/g3d/auto/func_020171f0.c:
     complete
     .text       start:0x020171f0 end:0x02017224
 
-src/calls/func_02017224.c:
+libs/nns/g3d/calls/func_02017224.c:
     complete
     .text       start:0x02017224 end:0x020172a0
 
-src/calls/func_020172a0.c:
+libs/nns/g3d/calls/func_020172a0.c:
     complete
     .text       start:0x020172a0 end:0x020172dc
 
-libs/nitro/nns/calls/func_020172dc.c:
+libs/nns/g3d/calls/func_020172dc.c:
     complete
     .text       start:0x020172dc end:0x02017374
 
-libs/nitro/nns/calls/func_02017374.c:
+libs/nns/g3d/calls/func_02017374.c:
     complete
     .text       start:0x02017374 end:0x02017404
 
@@ -3340,15 +3340,15 @@ libs/nitro/nns/calls/func_02017404.c:
     complete
     .text       start:0x02017404 end:0x02017584
 
-libs/nitro/nns/calls/func_02017584.c:
+libs/nns/g3d/calls/func_02017584.c:
     complete
     .text       start:0x02017584 end:0x02017938
 
-libs/nitro/nns/auto/func_02017938.c:
+libs/nns/g3d/auto/func_02017938.c:
     complete
     .text       start:0x02017938 end:0x02017a90
 
-libs/nitro/nns/auto/func_02017a90.c:
+libs/nns/g3d/auto/func_02017a90.c:
     complete
     .text       start:0x02017a90 end:0x02017bec
 
@@ -3364,7 +3364,11 @@ libs/nitro/nns/calls/func_02017f68.c:
     complete
     .text       start:0x02017f68 end:0x02018380
 
-src/calls/func_02018830.c:
+libs/nns/g3d/calls/func_020186c4.c:
+    complete
+    .text       start:0x020186c4 end:0x02018830
+
+libs/nns/g3d/auto/func_02018830.c:
     complete
     .text       start:0x02018830 end:0x0201891c
 
@@ -3372,47 +3376,99 @@ src/calls/func_0201891c.c:
     complete
     .text       start:0x0201891c end:0x020189f0
 
-src/calls/func_02018ae0.c:
+libs/nns/g3d/calls/func_020189f0.c:
+    complete
+    .text       start:0x020189f0 end:0x02018ae0
+
+libs/nns/g3d/auto/func_02018ae0.c:
     complete
     .text       start:0x02018ae0 end:0x02018be0
+
+libs/nns/g3d/calls/func_02018cec.c:
+    complete
+    .text       start:0x02018cec end:0x02018dec
 
 src/calls/func_02018dec.c:
     complete
     .text       start:0x02018dec end:0x02018ec0
 
-src/calls/func_02018ec0.c:
+libs/nns/g3d/calls/func_02018ec0.c:
     complete
     .text       start:0x02018ec0 end:0x02018f04
 
-src/calls/func_02019120.c:
+libs/nns/g3d/calls/func_02018f04.c:
+    complete
+    .text       start:0x02018f04 end:0x02018fe0
+
+libs/nns/g3d/calls/func_02018fe0.c:
+    complete
+    .text       start:0x02018fe0 end:0x020190b8
+
+libs/nns/g3d/calls/func_020190b8.c:
+    complete
+    .text       start:0x020190b8 end:0x02019120
+
+libs/nns/g3d/calls/func_02019120.c:
     complete
     .text       start:0x02019120 end:0x02019194
 
-src/auto/func_02019194.c:
+libs/nns/g3d/calls/func_02019194.c:
     complete
     .text       start:0x02019194 end:0x020191e0
 
-src/auto/func_020191e0.c:
+libs/nns/g3d/auto/func_020191e0.c:
     complete
     .text       start:0x020191e0 end:0x02019218
 
-src/auto/func_0201946c.c:
+libs/nns/g3d/calls/func_02019218.c:
+    complete
+    .text       start:0x02019218 end:0x02019320
+
+libs/nns/g3d/auto/func_020193f0.c:
+    complete
+    .text       start:0x020193f0 end:0x0201946c
+
+libs/nns/g3d/auto/func_0201946c.c:
     complete
     .text       start:0x0201946c end:0x020194b4
+
+libs/nns/g3d/calls/func_020194b4.c:
+    complete
+    .text       start:0x020194b4 end:0x02019594
 
 src/calls/func_02019594.c:
     complete
     .text       start:0x02019594 end:0x0201964c
 
-src/auto/func_0201964c.c:
+libs/nns/g3d/auto/func_0201964c.c:
     complete
     .text       start:0x0201964c end:0x02019690
 
-src/auto/func_02019900.c:
+libs/nns/g3d/calls/func_02019690.c:
+    complete
+    .text       start:0x02019690 end:0x02019798
+
+libs/nns/g3d/calls/func_02019798.c:
+    complete
+    .text       start:0x02019798 end:0x02019880
+
+libs/nns/g3d/auto/func_02019880.c:
+    complete
+    .text       start:0x02019880 end:0x02019900
+
+libs/nns/g3d/auto/func_02019900.c:
     complete
     .text       start:0x02019900 end:0x02019948
 
-src/auto/func_02019b18.c:
+libs/nns/g3d/calls/func_02019948.c:
+    complete
+    .text       start:0x02019948 end:0x02019a40
+
+libs/nns/g3d/calls/func_02019a40.c:
+    complete
+    .text       start:0x02019a40 end:0x02019b18
+
+libs/nns/g3d/auto/func_02019b18.c:
     complete
     .text       start:0x02019b18 end:0x02019b68
 
@@ -3420,15 +3476,15 @@ src/calls/func_02019b68.c:
     complete
     .text       start:0x02019b68 end:0x02019bf0
 
-src/calls/func_02019bf0.c:
+libs/nns/snd/calls/func_02019bf0.c:
     complete
     .text       start:0x02019bf0 end:0x02019c20
 
-src/calls/func_02019c20.c:
+libs/nns/snd/calls/func_02019c20.c:
     complete
     .text       start:0x02019c20 end:0x02019c74
 
-src/calls/func_02019c74.c:
+libs/nns/snd/calls/func_02019c74.c:
     complete
     .text       start:0x02019c74 end:0x02019cac
 
@@ -3460,39 +3516,43 @@ src/calls/func_02019db4.c:
     complete
     .text       start:0x02019db4 end:0x02019dd0
 
-src/calls/func_02019dd0.c:
+libs/nns/snd/calls/func_02019dd0.c:
     complete
     .text       start:0x02019dd0 end:0x02019df0
 
-src/calls/func_02019df0.c:
+libs/nns/snd/calls/func_02019df0.c:
     complete
     .text       start:0x02019df0 end:0x02019e08
 
-src/calls/func_02019e08.c:
+libs/nns/snd/calls/func_02019e08.c:
     complete
     .text       start:0x02019e08 end:0x02019e9c
 
-src/calls/func_02019e9c.c:
+libs/nns/snd/calls/func_02019e9c.c:
     complete
     .text       start:0x02019e9c end:0x02019eac
 
-src/calls/func_02019eac.c:
+libs/nns/snd/calls/func_02019eac.c:
     complete
     .text       start:0x02019eac end:0x02019f08
 
-src/calls/func_02019f6c.c:
+libs/nns/snd/calls/func_02019f08.c:
+    complete
+    .text       start:0x02019f08 end:0x02019f6c
+
+libs/nns/snd/calls/func_02019f6c.c:
     complete
     .text       start:0x02019f6c end:0x02019fac
 
-src/calls/func_02019fac.c:
+libs/nns/snd/calls/func_02019fac.c:
     complete
     .text       start:0x02019fac end:0x02019fbc
 
-src/calls/func_02019fbc.c:
+libs/nns/snd/calls/func_02019fbc.c:
     complete
     .text       start:0x02019fbc end:0x0201a014
 
-src/calls/func_0201a014.c:
+libs/nns/snd/calls/func_0201a014.c:
     complete
     .text       start:0x0201a014 end:0x0201a064
 
@@ -3500,35 +3560,35 @@ src/auto/func_0201a064.c:
     complete
     .text       start:0x0201a064 end:0x0201a070
 
-src/auto/func_0201a070.c:
+libs/nns/snd/auto/func_0201a070.c:
     complete
     .text       start:0x0201a070 end:0x0201a090
 
-src/calls/func_0201a090.c:
+libs/nns/snd/calls/func_0201a090.c:
     complete
     .text       start:0x0201a090 end:0x0201a0a8
 
-src/calls/func_0201a0a8.c:
+libs/nns/snd/calls/func_0201a0a8.c:
     complete
     .text       start:0x0201a0a8 end:0x0201a0fc
 
-src/auto/func_0201a0fc.c:
+libs/nns/snd/auto/func_0201a0fc.c:
     complete
     .text       start:0x0201a0fc end:0x0201a110
 
-src/auto/func_0201a110.c:
+libs/nns/snd/auto/func_0201a110.c:
     complete
     .text       start:0x0201a110 end:0x0201a124
 
-src/calls/func_0201a124.c:
+libs/nns/snd/calls/func_0201a124.c:
     complete
     .text       start:0x0201a124 end:0x0201a150
 
-src/calls/func_0201a150.c:
+libs/nns/snd/calls/func_0201a150.c:
     complete
     .text       start:0x0201a150 end:0x0201a170
 
-src/calls/func_0201a170.c:
+libs/nns/snd/calls/func_0201a170.c:
     complete
     .text       start:0x0201a170 end:0x0201a1a0
 
@@ -3536,23 +3596,23 @@ src/calls/func_0201a1a0.c:
     complete
     .text       start:0x0201a1a0 end:0x0201a1c0
 
-src/auto/func_0201a1c0.c:
+libs/nns/snd/auto/func_0201a1c0.c:
     complete
     .text       start:0x0201a1c0 end:0x0201a1e4
 
-src/auto/func_0201a1e4.c:
+libs/nns/snd/auto/func_0201a1e4.c:
     complete
     .text       start:0x0201a1e4 end:0x0201a210
 
-src/auto/func_0201a210.c:
+libs/nns/snd/auto/func_0201a210.c:
     complete
     .text       start:0x0201a210 end:0x0201a238
 
-src/calls/func_0201a238.c:
+libs/nns/snd/calls/func_0201a238.c:
     complete
     .text       start:0x0201a238 end:0x0201a284
 
-src/calls/func_0201a284.c:
+libs/nns/snd/calls/func_0201a284.c:
     complete
     .text       start:0x0201a284 end:0x0201a2ac
 
@@ -3560,7 +3620,11 @@ src/calls/func_0201a2ac.c:
     complete
     .text       start:0x0201a2ac end:0x0201a360
 
-src/calls/func_0201a4c4.c:
+libs/nns/snd/calls/func_0201a360.c:
+    complete
+    .text       start:0x0201a360 end:0x0201a4c4
+
+libs/nns/snd/calls/func_0201a4c4.c:
     complete
     .text       start:0x0201a4c4 end:0x0201a55c
 
@@ -3568,35 +3632,35 @@ src/calls/WM_EndKeySharing_0x0201a55c.c:
     complete
     .text       start:0x0201a55c end:0x0201a568
 
-src/calls/func_0201a568.c:
+libs/nns/snd/calls/func_0201a568.c:
     complete
     .text       start:0x0201a568 end:0x0201a5b8
 
-src/calls/func_0201a5b8.c:
+libs/nns/snd/calls/func_0201a5b8.c:
     complete
     .text       start:0x0201a5b8 end:0x0201a604
 
-src/calls/func_0201a604.c:
+libs/nns/snd/calls/func_0201a604.c:
     complete
     .text       start:0x0201a604 end:0x0201a62c
 
-src/calls/func_0201a62c.c:
+libs/nns/snd/calls/func_0201a62c.c:
     complete
     .text       start:0x0201a62c end:0x0201a680
 
-src/calls/func_0201a680.c:
+libs/nns/snd/calls/func_0201a680.c:
     complete
     .text       start:0x0201a680 end:0x0201a6c8
 
-src/calls/func_0201a6c8.c:
+libs/nns/snd/calls/func_0201a6c8.c:
     complete
     .text       start:0x0201a6c8 end:0x0201a718
 
-src/calls/func_0201a718.c:
+libs/nns/snd/calls/func_0201a718.c:
     complete
     .text       start:0x0201a718 end:0x0201a76c
 
-src/calls/func_0201a76c.c:
+libs/nns/snd/calls/func_0201a76c.c:
     complete
     .text       start:0x0201a76c end:0x0201a7a4
 
@@ -3604,11 +3668,11 @@ src/calls/func_0201a7a4.c:
     complete
     .text       start:0x0201a7a4 end:0x0201a80c
 
-src/calls/func_0201a80c.c:
+libs/nns/snd/calls/func_0201a80c.c:
     complete
     .text       start:0x0201a80c end:0x0201a890
 
-src/calls/func_0201a890.c:
+libs/nns/snd/calls/func_0201a890.c:
     complete
     .text       start:0x0201a890 end:0x0201a8e0
 
@@ -3620,47 +3684,51 @@ src/calls/func_0201a940.c:
     complete
     .text       start:0x0201a940 end:0x0201a9b8
 
-src/calls/func_0201a9b8.c:
+libs/nns/snd/calls/func_0201a9b8.c:
     complete
     .text       start:0x0201a9b8 end:0x0201aa18
 
-src/calls/func_0201aa18.c:
+libs/nns/snd/calls/func_0201aa18.c:
     complete
     .text       start:0x0201aa18 end:0x0201aa40
 
-src/calls/func_0201abe0.c:
+libs/nns/snd/calls/func_0201abe0.c:
     complete
     .text       start:0x0201abe0 end:0x0201ac34
 
-src/calls/func_0201ac34.c:
+libs/nns/snd/calls/func_0201ac34.c:
     complete
     .text       start:0x0201ac34 end:0x0201ac50
 
-src/calls/func_0201ac50.c:
+libs/nns/snd/calls/func_0201ac50.c:
     complete
     .text       start:0x0201ac50 end:0x0201acbc
 
-src/calls/func_0201acbc.c:
+libs/nns/snd/calls/func_0201acbc.c:
     complete
     .text       start:0x0201acbc end:0x0201acec
 
-src/calls/func_0201acec.c:
+libs/nns/snd/calls/func_0201acec.c:
     complete
     .text       start:0x0201acec end:0x0201ad60
 
-src/calls/func_0201ad60.c:
+libs/nns/snd/calls/func_0201ad60.c:
     complete
     .text       start:0x0201ad60 end:0x0201ad90
 
-src/calls/func_0201ad90.c:
+libs/nns/snd/calls/func_0201ad90.c:
     complete
     .text       start:0x0201ad90 end:0x0201ada0
 
-src/calls/func_0201ae50.c:
+libs/nns/snd/calls/func_0201ada0.c:
+    complete
+    .text       start:0x0201ada0 end:0x0201ae50
+
+libs/nns/snd/calls/func_0201ae50.c:
     complete
     .text       start:0x0201ae50 end:0x0201ae9c
 
-src/calls/func_0201ae9c.c:
+libs/nns/snd/calls/func_0201ae9c.c:
     complete
     .text       start:0x0201ae9c end:0x0201af0c
 
@@ -3668,11 +3736,15 @@ src/calls/func_0201af0c.c:
     complete
     .text       start:0x0201af0c end:0x0201af2c
 
-src/calls/func_0201af2c.c:
+libs/nns/snd/calls/func_0201af2c.c:
     complete
     .text       start:0x0201af2c end:0x0201afac
 
-src/calls/func_0201b094.c:
+libs/nns/snd/calls/func_0201afac.c:
+    complete
+    .text       start:0x0201afac end:0x0201b094
+
+libs/nns/snd/calls/func_0201b094.c:
     complete
     .text       start:0x0201b094 end:0x0201b0ec
 
@@ -3683,6 +3755,10 @@ src/calls/func_0201b0ec.c:
 src/calls/func_0201b168.c:
     complete
     .text       start:0x0201b168 end:0x0201b1e8
+
+libs/nns/snd/calls/func_0201b1e8.c:
+    complete
+    .text       start:0x0201b1e8 end:0x0201b3c0
 
 libs/nitro/snd/calls/SND_SetActiveSlotSwap.c:
     complete
@@ -3748,15 +3824,15 @@ src/calls/func_0201b824.c:
     complete
     .text       start:0x0201b824 end:0x0201b838
 
-src/auto/func_0201b838.c:
+libs/nns/snd/auto/func_0201b838.c:
     complete
     .text       start:0x0201b838 end:0x0201b844
 
-src/auto/func_0201b844.c:
+libs/nns/snd/auto/func_0201b844.c:
     complete
     .text       start:0x0201b844 end:0x0201b850
 
-src/auto/func_0201b850.c:
+libs/nns/snd/auto/func_0201b850.c:
     complete
     .text       start:0x0201b850 end:0x0201b85c
 
@@ -3792,25 +3868,37 @@ src/calls/func_0201bb6c.c:
     complete
     .text       start:0x0201bb6c end:0x0201bba8
 
-src/calls/func_0201bba8.c:
+libs/nns/snd/calls/func_0201bba8.c:
     complete
     .text       start:0x0201bba8 end:0x0201bbc8
 
-src/calls/func_0201bbc8.c:
+libs/nns/snd/calls/func_0201bbc8.c:
     complete
     .text       start:0x0201bbc8 end:0x0201bbf4
 
-src/calls/func_0201bbf4.c:
+libs/nns/snd/calls/func_0201bbf4.c:
     complete
     .text       start:0x0201bbf4 end:0x0201bc20
 
-src/calls/func_0201bc20.c:
+libs/nns/snd/calls/func_0201bc20.c:
     complete
     .text       start:0x0201bc20 end:0x0201bc4c
 
-src/calls/func_0201bcd0.c:
+libs/nns/snd/calls/func_0201bc4c.c:
+    complete
+    .text       start:0x0201bc4c end:0x0201bcd0
+
+libs/nns/snd/calls/func_0201bcd0.c:
     complete
     .text       start:0x0201bcd0 end:0x0201bd30
+
+libs/nns/snd/calls/func_0201bd30.c:
+    complete
+    .text       start:0x0201bd30 end:0x0201be70
+
+libs/nns/snd/calls/func_0201be70.c:
+    complete
+    .text       start:0x0201be70 end:0x0201befc
 
 src/calls/func_0201befc.c:
     complete
@@ -3832,27 +3920,27 @@ src/calls/func_0201c0e0.c:
     complete
     .text       start:0x0201c0e0 end:0x0201c14c
 
-src/calls/func_0201c254.c:
+libs/nns/snd/calls/func_0201c254.c:
     complete
     .text       start:0x0201c254 end:0x0201c2ac
 
-src/calls/func_0201c2ac.c:
+libs/nns/snd/calls/func_0201c2ac.c:
     complete
     .text       start:0x0201c2ac end:0x0201c2d4
 
-src/calls/func_0201c2d4.c:
+libs/nns/snd/calls/func_0201c2d4.c:
     complete
     .text       start:0x0201c2d4 end:0x0201c304
 
-src/calls/func_0201c304.c:
+libs/nns/snd/calls/func_0201c304.c:
     complete
     .text       start:0x0201c304 end:0x0201c334
 
-src/calls/func_0201c334.c:
+libs/nns/snd/calls/func_0201c334.c:
     complete
     .text       start:0x0201c334 end:0x0201c354
 
-src/calls/func_0201c354.c:
+libs/nns/snd/calls/func_0201c354.c:
     complete
     .text       start:0x0201c354 end:0x0201c39c
 
@@ -3860,17 +3948,25 @@ libs/nitro/snd/calls/func_0201c39c.c:
     complete
     .text       start:0x0201c39c end:0x0201c464
 
-src/calls/func_0201c464.c:
+libs/nns/snd/calls/func_0201c464.c:
     complete
     .text       start:0x0201c464 end:0x0201c524
 
-src/calls/func_0201c524.c:
+libs/nns/snd/calls/func_0201c524.c:
     complete
     .text       start:0x0201c524 end:0x0201c5c0
 
-src/calls/func_0201c5c0.c:
+libs/nns/snd/calls/func_0201c5c0.c:
     complete
     .text       start:0x0201c5c0 end:0x0201c608
+
+libs/nns/snd/calls/func_0201c608.c:
+    complete
+    .text       start:0x0201c608 end:0x0201c688
+
+libs/nns/snd/calls/func_0201c688.c:
+    complete
+    .text       start:0x0201c688 end:0x0201c734
 
 src/calls/func_0201c734.c:
     complete
@@ -3880,19 +3976,19 @@ src/calls/func_0201c830.c:
     complete
     .text       start:0x0201c830 end:0x0201c8f4
 
-src/calls/func_0201c9f8.c:
+libs/nns/snd/calls/func_0201c9f8.c:
     complete
     .text       start:0x0201c9f8 end:0x0201cac0
 
-src/calls/func_0201cac0.c:
+libs/nns/snd/calls/func_0201cac0.c:
     complete
     .text       start:0x0201cac0 end:0x0201cb1c
 
-src/auto/func_0201cb1c.c:
+libs/nns/snd/auto/func_0201cb1c.c:
     complete
     .text       start:0x0201cb1c end:0x0201cb3c
 
-src/calls/func_0201cb3c.c:
+libs/nns/snd/calls/func_0201cb3c.c:
     complete
     .text       start:0x0201cb3c end:0x0201cb64
 
@@ -3900,7 +3996,7 @@ src/calls/func_0201cb64.c:
     complete
     .text       start:0x0201cb64 end:0x0201cb80
 
-src/calls/func_0201cb80.c:
+libs/nns/snd/calls/func_0201cb80.c:
     complete
     .text       start:0x0201cb80 end:0x0201cbc4
 
@@ -3908,31 +4004,39 @@ src/auto/func_0201cbc4.c:
     complete
     .text       start:0x0201cbc4 end:0x0201cbd0
 
-src/auto/func_0201cbd0.c:
+libs/nns/snd/auto/func_0201cbd0.c:
     complete
     .text       start:0x0201cbd0 end:0x0201cbe8
 
-src/calls/func_0201cbe8.c:
+libs/nns/snd/calls/func_0201cbe8.c:
     complete
     .text       start:0x0201cbe8 end:0x0201cc1c
 
-src/calls/func_0201cc1c.c:
+libs/nns/snd/calls/func_0201cc1c.c:
     complete
     .text       start:0x0201cc1c end:0x0201cc50
 
-src/calls/func_0201cd60.c:
+libs/nns/snd/calls/func_0201cc50.c:
+    complete
+    .text       start:0x0201cc50 end:0x0201cd60
+
+libs/nns/snd/calls/func_0201cd60.c:
     complete
     .text       start:0x0201cd60 end:0x0201cdec
 
-src/auto/func_0201cdec.c:
+libs/nns/snd/auto/func_0201cdec.c:
     complete
     .text       start:0x0201cdec end:0x0201ce18
+
+libs/nns/snd/calls/func_0201ce18.c:
+    complete
+    .text       start:0x0201ce18 end:0x0201d088
 
 libs/nitro/snd/calls/SNDi_FreeVoiceChannel.c:
     complete
     .text       start:0x0201d088 end:0x0201d0e0
 
-src/calls/func_0201d0e0.c:
+libs/nns/snd/calls/func_0201d0e0.c:
     complete
     .text       start:0x0201d0e0 end:0x0201d178
 
@@ -3952,27 +4056,35 @@ src/calls/func_0201d238.c:
     complete
     .text       start:0x0201d238 end:0x0201d298
 
-src/calls/func_0201d298.c:
+libs/nns/snd/calls/func_0201d298.c:
     complete
     .text       start:0x0201d298 end:0x0201d308
 
-src/calls/func_0201d308.c:
+libs/nns/snd/calls/func_0201d308.c:
     complete
     .text       start:0x0201d308 end:0x0201d358
 
-src/calls/func_0201d358.c:
+libs/nns/snd/calls/func_0201d358.c:
     complete
     .text       start:0x0201d358 end:0x0201d398
 
-src/calls/func_0201d398.c:
+libs/nns/snd/calls/func_0201d398.c:
     complete
     .text       start:0x0201d398 end:0x0201d3c4
 
-src/calls/func_0201d3c4.c:
+libs/nns/snd/calls/func_0201d3c4.c:
     complete
     .text       start:0x0201d3c4 end:0x0201d460
 
-src/calls/func_0201df04.c:
+libs/nns/snd/calls/func_0201d460.c:
+    complete
+    .text       start:0x0201d460 end:0x0201d598
+
+libs/nns/snd/calls/func_0201d598.c:
+    complete
+    .text       start:0x0201d598 end:0x0201d6dc
+
+libs/nns/snd/calls/func_0201df04.c:
     complete
     .text       start:0x0201df04 end:0x0201df84
 
@@ -3980,47 +4092,47 @@ src/calls/func_0201df84.c:
     complete
     .text       start:0x0201df84 end:0x0201dff8
 
-src/calls/func_0201dff8.c:
+libs/nns/snd/calls/func_0201dff8.c:
     complete
     .text       start:0x0201dff8 end:0x0201e008
 
-src/calls/func_0201e008.c:
+libs/nns/snd/calls/func_0201e008.c:
     complete
     .text       start:0x0201e008 end:0x0201e040
 
-src/calls/func_0201e040.c:
+libs/nns/snd/calls/func_0201e040.c:
     complete
     .text       start:0x0201e040 end:0x0201e050
 
-src/calls/func_0201e050.c:
+libs/nns/snd/calls/func_0201e050.c:
     complete
     .text       start:0x0201e050 end:0x0201e078
 
-src/auto/func_0201e078.c:
+libs/nns/snd/auto/func_0201e078.c:
     complete
     .text       start:0x0201e078 end:0x0201e07c
 
-src/calls/func_0201e07c.c:
+libs/nns/snd/calls/func_0201e07c.c:
     complete
     .text       start:0x0201e07c end:0x0201e098
 
-src/auto/func_0201e098.c:
+libs/nns/snd/auto/func_0201e098.c:
     complete
     .text       start:0x0201e098 end:0x0201e09c
 
-src/calls/func_0201e09c.c:
+libs/nns/snd/calls/func_0201e09c.c:
     complete
     .text       start:0x0201e09c end:0x0201e0ec
 
-src/auto/func_0201e0ec.c:
+libs/nns/snd/auto/func_0201e0ec.c:
     complete
     .text       start:0x0201e0ec end:0x0201e12c
 
-src/auto/func_0201e12c.c:
+libs/nns/snd/auto/func_0201e12c.c:
     complete
     .text       start:0x0201e12c end:0x0201e144
 
-src/calls/func_0201e144.c:
+libs/nns/snd/calls/func_0201e144.c:
     complete
     .text       start:0x0201e144 end:0x0201e16c
 
@@ -4028,11 +4140,11 @@ src/calls/func_0201e16c.c:
     complete
     .text       start:0x0201e16c end:0x0201e1a0
 
-src/auto/func_0201e1a0.c:
+libs/nns/snd/auto/func_0201e1a0.c:
     complete
     .text       start:0x0201e1a0 end:0x0201e1b8
 
-src/auto/func_0201e1b8.c:
+libs/nns/snd/auto/func_0201e1b8.c:
     complete
     .text       start:0x0201e1b8 end:0x0201e1d0
 
@@ -5120,7 +5232,7 @@ src/auto/func_02027908.c:
     complete
     .text       start:0x02027908 end:0x02027978
 
-src/auto/func_02027978.c:
+libs/nns/g3d/auto/func_02027978.c:
     complete
     .text       start:0x02027978 end:0x020279e0
 
@@ -5128,11 +5240,11 @@ src/calls/func_020279e0.c:
     complete
     .text       start:0x020279e0 end:0x02027ac8
 
-src/calls/func_02027ac8.c:
+libs/nns/g3d/auto/func_02027ac8.c:
     complete
     .text       start:0x02027ac8 end:0x02027af0
 
-src/calls/func_02027af0.c:
+libs/nns/g3d/auto/func_02027af0.c:
     complete
     .text       start:0x02027af0 end:0x02027b18
 

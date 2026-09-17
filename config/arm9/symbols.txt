@@ -1147,7 +1147,9 @@ func_02020374 kind:function(arm,size=0x3c) addr:0x02020374
 _ll_mul kind:function(arm,size=0x20) addr:0x020203b0
 func_020203d0 kind:function(arm,size=0x30) addr:0x020203d0
 func_02020400 kind:function(arm,size=0x20c) addr:0x02020400
+_s32_div_f kind:label(arm) addr:0x02020400
 func_0202060c kind:function(arm,size=0x1e4) addr:0x0202060c
+_u32_div_f kind:label(arm) addr:0x0202060c
 .L_02020614 kind:label(arm) addr:0x02020614
 func_020207f0 kind:function(arm,size=0x4) addr:0x020207f0
 func_020207f4 kind:function(arm,size=0x14) addr:0x020207f4
