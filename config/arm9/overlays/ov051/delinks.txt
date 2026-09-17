@@ -76,11 +76,11 @@ src/overlays/ov051/asm_stubs/calls/func_ov051_020b6a20.c:
     complete
     .text       start:0x020b6a20 end:0x020b6bdc
 
-src/overlays/ov051/asm_stubs/calls/func_ov051_020b6bdc.c:
+src/overlays/ov051/calls/func_ov051_020b6bdc.c:
     complete
     .text       start:0x020b6bdc end:0x020b6d28
 
-src/overlays/ov051/asm_stubs/calls/func_ov051_020b6d28.c:
+src/overlays/ov051/calls/func_ov051_020b6d28.c:
     complete
     .text       start:0x020b6d28 end:0x020b6e88
 
