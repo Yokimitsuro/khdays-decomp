@@ -120,7 +120,7 @@ extern void func_0200cab8 (void);
 extern void func_0200caf8 (u32 result, void * arg);
 extern u32 PXIi_RequestCmd0x65 (u16 registerAddr, u16 * buffer, PMCallback callback, void * arg);
 
-/* func_0200ce0c -- NitroSystem pm.c: PMi_ReadRegister. */
+/* func_0200ce0c -- NitroSDK pm.c: PMi_ReadRegister. */
 u32 func_0200ce0c (u16 registerAddr, u16 * buffer)
 {
     u32 commandResult;

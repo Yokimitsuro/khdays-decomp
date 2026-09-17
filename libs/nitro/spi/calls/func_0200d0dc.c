@@ -123,7 +123,7 @@ typedef void * (*MIAllocatorAllocFunction)(void * userdata, u32 length, u32 alig
 typedef void (*MIAllocatorFreeFunction)(void * userdata, void * buffer);
 extern u32 func_0200ce0c (u16 registerAddr, u16 * buffer);
 
-/* func_0200d0dc -- NitroSystem pm.c: PM_GetBackLight. */
+/* func_0200d0dc -- NitroSDK pm.c: PM_GetBackLight. */
 u32 func_0200d0dc (PMBackLightSwitch * top, PMBackLightSwitch * bottom)
 {
     u16 reg;

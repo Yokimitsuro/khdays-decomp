@@ -125,7 +125,7 @@ extern void func_0200cab8 (void);
 extern void func_0200caf8 (u32 result, void * arg);
 extern u32 func_0200cf38 (PMLCDTarget target, PMBackLightSwitch sw, PMCallback callback, void * arg);
 
-/* func_0200cfb4 -- NitroSystem pm.c: PM_SetBackLight. */
+/* func_0200cfb4 -- NitroSDK pm.c: PM_SetBackLight. */
 u32 func_0200cfb4 (PMLCDTarget target, PMBackLightSwitch sw)
 {
     u32 commandResult;

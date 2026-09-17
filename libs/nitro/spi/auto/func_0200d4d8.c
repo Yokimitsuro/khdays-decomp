@@ -117,7 +117,7 @@ typedef enum WVRResult {
 typedef void (*WVRCallbackFunc) (void * arg, WVRResult result);
 typedef BOOL (*MBFakeCompareGGIDCallbackFunc) (WMStartScanCallback * arg, u32 defaultGGID);
 
-/* func_0200d4d8 -- NitroSystem pm.c: PMi_PrependList. */
+/* func_0200d4d8 -- NitroSDK pm.c: PMi_PrependList. */
 void func_0200d4d8 (PMSleepCallbackInfo ** listp, PMSleepCallbackInfo * info)
 {
     if (!listp) {

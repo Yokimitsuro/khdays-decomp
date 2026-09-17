@@ -26,7 +26,7 @@ typedef volatile unsigned char vu8;
 
 
 
-/* func_02005760 -- NitroSystem gx.c: GXx_GetMasterBrightness_. */
+/* func_02005760 -- NitroSDK gx.c: GXx_GetMasterBrightness_. */
 int func_02005760 (vu16 *reg)
 {
 	u16 mode = (u16)(*reg & REG_GX_MASTER_BRIGHT_E_MOD_MASK);

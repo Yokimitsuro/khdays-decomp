@@ -27,7 +27,7 @@ typedef s16 fx16;
 fx32 FX_Inv(fx32 numer, fx32 denom);
 extern const fx16 data_02041210[128 + 1];
 
-/* func_020050b4 -- NitroSystem fx_atan.c: FX_Atan2. */
+/* func_020050b4 -- NitroSDK fx_atan.c: FX_Atan2. */
 fx16 func_020050b4 (fx32 y, fx32 x)
 {
 	fx32 a, b, c;

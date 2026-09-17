@@ -591,7 +591,7 @@ typedef struct WFSClientContext {
     u8 padding[12];
 } WFSClientContext;
 
-/* func_0200d538 -- NitroSystem pm.c: PMi_DeleteList. */
+/* func_0200d538 -- NitroSDK pm.c: PMi_DeleteList. */
 void func_0200d538 (PMSleepCallbackInfo ** listp, PMSleepCallbackInfo * info)
 {
     PMSleepCallbackInfo * p = *listp;

@@ -59,7 +59,7 @@ u32 OSi_TryShutdown(void);
 extern void CARDi_SendtoPxi(u32 data, u32 wait);
 extern void CARDi_SendtoPxi (u32 data, u32 wait);
 
-/* func_0200f284 -- NitroSystem card_pullOut.c: CARD_TerminateForPulledOut. */
+/* func_0200f284 -- NitroSDK card_pullOut.c: CARD_TerminateForPulledOut. */
 void func_0200f284 (void)
 {
 #ifndef SDK_TEG

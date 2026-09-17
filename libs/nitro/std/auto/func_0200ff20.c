@@ -24,7 +24,7 @@ typedef volatile unsigned char vu8;
 
 
 
-/* func_0200ff20 -- NitroSystem std_string.c: STD_CopyString. */
+/* func_0200ff20 -- NitroSDK std_string.c: STD_CopyString. */
 char * func_0200ff20 (char * destp, const char * srcp)
 {
     char * retval = destp;

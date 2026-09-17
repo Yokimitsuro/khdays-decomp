@@ -305,7 +305,7 @@ static inline BOOL FS_IsBusy (volatile const FSFile * p_file)
 }
 extern FSResult (*const (data_0204185c[]))(FSFile *);
 
-/* func_0200adf4 -- NitroSystem fs_file.c: FS_CancelFile. */
+/* func_0200adf4 -- NitroSDK fs_file.c: FS_CancelFile. */
 void func_0200adf4 (FSFile *p_file)
 {
 

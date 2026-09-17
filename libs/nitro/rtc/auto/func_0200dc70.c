@@ -24,7 +24,7 @@ typedef volatile unsigned char vu8;
 
 
 
-/* func_0200dc70 -- NitroSystem external.c: RtcBCD2HEX. */
+/* func_0200dc70 -- NitroSDK external.c: RtcBCD2HEX. */
 u32 func_0200dc70 (u32 bcd)
 {
     u32 hex = 0;

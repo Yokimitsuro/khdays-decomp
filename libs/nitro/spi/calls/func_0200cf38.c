@@ -139,7 +139,7 @@ typedef void (*WVRCallbackFunc) (void * arg, WVRResult result);
 typedef BOOL (*MBFakeCompareGGIDCallbackFunc) (WMStartScanCallback * arg, u32 defaultGGID);
 extern u32 func_0200cd40 (u32 number, PMCallback callback, void * arg);
 
-/* func_0200cf38 -- NitroSystem pm.c: PM_SetBackLightAsync. */
+/* func_0200cf38 -- NitroSDK pm.c: PM_SetBackLightAsync. */
 u32 func_0200cf38 (PMLCDTarget target, PMBackLightSwitch sw, PMCallback callback, void * arg)
 {
     u32 command = 0;

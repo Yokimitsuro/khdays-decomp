@@ -120,7 +120,7 @@ void func_0200d4ec(PMSleepCallbackInfo ** listp, PMSleepCallbackInfo * info);
 extern PMSleepCallbackInfo * data_020463e4;
 extern void func_0200d4ec (PMSleepCallbackInfo ** listp, PMSleepCallbackInfo * info);
 
-/* func_0200d5c0 -- NitroSystem pm.c: PM_AppendPostSleepCallback. */
+/* func_0200d5c0 -- NitroSDK pm.c: PM_AppendPostSleepCallback. */
 void func_0200d5c0 (PMSleepCallbackInfo * info)
 {
     func_0200d4ec(&data_020463e4, info);

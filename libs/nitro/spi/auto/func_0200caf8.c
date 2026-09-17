@@ -110,7 +110,7 @@ typedef enum WVRResult {
 typedef void (*WVRCallbackFunc) (void * arg, WVRResult result);
 typedef BOOL (*MBFakeCompareGGIDCallbackFunc) (WMStartScanCallback * arg, u32 defaultGGID);
 
-/* func_0200caf8 -- NitroSystem pm.c: PMi_DummyCallback. */
+/* func_0200caf8 -- NitroSDK pm.c: PMi_DummyCallback. */
 void func_0200caf8 (u32 result, void * arg)
 {
     *(u32 *)arg = result;

@@ -228,7 +228,7 @@ typedef void (*MIAllocatorFreeFunction)(void * userdata, void * buffer);
 extern u32 func_0200ce94 (u16 registerAddr, u16 data);
 extern PMLCDPower func_0200d4bc (void);
 
-/* func_0200d0b0 -- NitroSystem pm.c: PMi_SetAmp. */
+/* func_0200d0b0 -- NitroSDK pm.c: PMi_SetAmp. */
 u32 func_0200d0b0 (PMAmpSwitch status)
 {
     if (func_0200d4bc()) {

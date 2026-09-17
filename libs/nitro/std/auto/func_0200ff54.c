@@ -24,7 +24,7 @@ typedef volatile unsigned char vu8;
 
 
 
-/* func_0200ff54 -- NitroSystem std_string.c: STD_GetStringLength. */
+/* func_0200ff54 -- NitroSDK std_string.c: STD_GetStringLength. */
 int func_0200ff54 (const char * str)
 {
     int n = 0;

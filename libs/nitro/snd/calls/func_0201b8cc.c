@@ -55,7 +55,7 @@ typedef struct NNSSndHeap {
 } NNSSndHeap;
 extern void func_0201b8e4 (NNSSndHeapHandle heap);
 
-/* func_0201b8cc -- NitroSystem heap.c: NNS_SndHeapDestroy. */
+/* func_0201b8cc -- NitroSDK heap.c: NNS_SndHeapDestroy. */
 void func_0201b8cc (NNSSndHeapHandle heap)
 {
 

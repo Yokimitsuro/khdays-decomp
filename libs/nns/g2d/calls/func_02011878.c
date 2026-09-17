@@ -36,10 +36,9 @@ typedef struct NNSG2dUserExCellAttrBank {
 } NNSG2dUserExCellAttrBank;
 void func_02011ae8(NNSG2dUserExCellAttrBank * pCellAttrBank);
 
-/* func_02011878 -- NitroSystem g2d_NMC_load.c: UnpackExtendedData_. */
+/* func_02011878 -- NitroSystem g2d_NOB_load.c: UnPackExtendedData_. */
 void func_02011878 (void * pExData)
 {
-
     {
         NNSG2dUserExDataBlock * pBlk = (NNSG2dUserExDataBlock *)pExData;
         NNSG2dUserExCellAttrBank * pCellAttrBank = (NNSG2dUserExCellAttrBank *)(pBlk + 1);

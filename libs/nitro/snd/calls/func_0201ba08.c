@@ -56,7 +56,7 @@ typedef struct NNSSndHeap {
 extern BOOL func_0201bb6c(NNSSndHeap * heap);
 extern BOOL func_0201bb6c (NNSSndHeap * heap);
 
-/* func_0201ba08 -- NitroSystem heap.c: NNS_SndHeapSaveState. */
+/* func_0201ba08 -- NitroSDK heap.c: NNS_SndHeapSaveState. */
 int func_0201ba08 (NNSSndHeapHandle heap)
 {
     BOOL result;

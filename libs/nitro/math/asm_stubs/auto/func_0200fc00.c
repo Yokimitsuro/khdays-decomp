@@ -34,7 +34,7 @@ typedef volatile unsigned char vu8;
 
 typedef s32 (*MATHCompareFunc) (void * elem1, void * elem2);
 
-/* func_0200fc00 -- NitroSystem qsort.c: MATH_QSort. */
+/* func_0200fc00 -- NitroSDK qsort.c: MATH_QSort. */
 asm void func_0200fc00 (register void *head, register u32 num, register u32 width, register MATHCompareFunc comp, void *stackBuf)
 {
 #define stack       r4

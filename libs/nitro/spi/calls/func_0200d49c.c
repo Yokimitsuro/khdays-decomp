@@ -35,7 +35,7 @@ typedef enum {
 BOOL func_0200d3a4(PMLCDPower sw, PMLEDStatus led, BOOL skip, BOOL isSync);
 extern BOOL func_0200d3a4 (PMLCDPower sw, PMLEDStatus led, BOOL skip, BOOL isSync);
 
-/* func_0200d49c -- NitroSystem pm.c: PM_SetLCDPower. */
+/* func_0200d49c -- NitroSDK pm.c: PM_SetLCDPower. */
 BOOL func_0200d49c (PMLCDPower sw)
 {
     if (sw != PM_LCD_POWER_ON) {

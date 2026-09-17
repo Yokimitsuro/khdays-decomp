@@ -58,7 +58,7 @@ typedef struct NNSSndHeapSection {
 extern BOOL func_0201bb6c(NNSSndHeap * heap);
 extern BOOL func_0201bb6c (NNSSndHeap * heap);
 
-/* func_0201bb38 -- NitroSystem heap.c: InitHeap. */
+/* func_0201bb38 -- NitroSDK heap.c: InitHeap. */
 BOOL func_0201bb38 (NNSSndHeap * heap, NNSFndHeapHandle handle)
 {
     NNS_FND_INIT_LIST(&heap->sectionList, NNSSndHeapSection, link);

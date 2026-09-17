@@ -138,7 +138,7 @@ extern void func_0200cab8 (void);
 extern void func_0200caf8 (u32 result, void * arg);
 extern u32 PXIi_SendCmd0x64 (u16 registerAddr, u16 data, PMCallback callback, void * arg);
 
-/* func_0200ce94 -- NitroSystem pm.c: PMi_WriteRegister. */
+/* func_0200ce94 -- NitroSDK pm.c: PMi_WriteRegister. */
 u32 func_0200ce94 (u16 registerAddr, u16 data)
 {
     u32 commandResult;

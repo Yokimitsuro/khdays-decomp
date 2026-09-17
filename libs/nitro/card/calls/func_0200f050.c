@@ -707,7 +707,7 @@ typedef struct CARDiCommon {
 } CARDiCommon;
 extern CARDiCommon data_020464e0;
 
-/* func_0200f050 -- NitroSystem card_request.c: CARDi_TaskThread. */
+/* func_0200f050 -- NitroSDK card_request.c: CARDi_TaskThread. */
 void func_0200f050 (void *arg)
 {
 	CARDiCommon *const p = &data_020464e0;

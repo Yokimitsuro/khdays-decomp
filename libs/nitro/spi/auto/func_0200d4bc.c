@@ -33,7 +33,7 @@ typedef enum {
     PM_LCD_POWER_ON = 1
 } PMLCDPower;
 
-/* func_0200d4bc -- NitroSystem pm.c: PM_GetLCDPower. */
+/* func_0200d4bc -- NitroSDK pm.c: PM_GetLCDPower. */
 PMLCDPower func_0200d4bc (void)
 {
     return (reg_GX_POWCNT & REG_GX_POWCNT_LCD_MASK) ? PM_LCD_POWER_ON : PM_LCD_POWER_OFF;

@@ -40,7 +40,7 @@ typedef struct {
     u8 _padding[1];
 } MIUncompContextLZ;
 
-/* func_0200443c -- NitroSystem mi_uncomp_stream.c: MI_InitUncompContextLZ. */
+/* func_0200443c -- NitroSDK mi_uncomp_stream.c: MI_InitUncompContextLZ. */
 void func_0200443c (MIUncompContextLZ * context, u8 * dest, const MICompressionHeader * header)
 {
     context->destp = dest;

@@ -585,7 +585,7 @@ NNSSndStrmThread * sPrepareThread = 0;   /* sPrepareThread */
 BOOL data_0204ad8c = 0;   /* initialized$3434 */
 u8 * sDecodeBuffer = 0;   /* sDecodeBuffer */
 
-/* func_0201d238 -- NitroSystem sndarc_stream.c: CreateThread. */
+/* func_0201d238 -- NitroSDK sndarc_stream.c: CreateThread. */
 void func_0201d238 (NNSSndStrmThread * thread, u32 threadPrio)
 {
     OS_CreateThread(

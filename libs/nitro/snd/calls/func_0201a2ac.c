@@ -187,7 +187,7 @@ extern NNSSndPlayer data_0204a760[ 32 ];
 extern NNSFndList data_0204a314;
 extern NNSFndList data_0204a308;
 
-/* func_0201a2ac -- NitroSystem player.c: NNSi_SndPlayerInit. */
+/* func_0201a2ac -- NitroSDK player.c: NNSi_SndPlayerInit. */
 void func_0201a2ac (void)
 {
     NNSSndPlayer * player;

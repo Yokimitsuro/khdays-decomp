@@ -76,7 +76,7 @@ extern void func_0201b8e4 (NNSSndHeapHandle heap);
 extern BOOL func_0201bb6c (NNSSndHeap * heap);
 extern void func_0201bba8 (void);
 
-/* func_0201ba54 -- NitroSystem heap.c: NNS_SndHeapLoadState. */
+/* func_0201ba54 -- NitroSDK heap.c: NNS_SndHeapLoadState. */
 void func_0201ba54 (NNSSndHeapHandle heap, int level)
 {
     NNSSndHeapSection * section;

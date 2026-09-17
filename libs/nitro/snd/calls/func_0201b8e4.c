@@ -75,7 +75,7 @@ extern void func_0201bba8(void);
 extern BOOL func_0201bb6c (NNSSndHeap * heap);
 extern void func_0201bba8 (void);
 
-/* func_0201b8e4 -- NitroSystem heap.c: NNS_SndHeapClear. */
+/* func_0201b8e4 -- NitroSDK heap.c: NNS_SndHeapClear. */
 void func_0201b8e4 (NNSSndHeapHandle heap)
 {
     NNSSndHeapSection * section = NULL;

@@ -49,7 +49,7 @@ typedef void (*PXIFifoCallback) (PXIFifoTag tag, u32 data, BOOL err);
 void CTRDGi_SendtoPxi(u32 data);
 extern void CTRDGi_SendtoPxi(u32 data);
 
-/* func_0200fa08 -- NitroSystem ctrdg_proc.c: CTRDG_TerminateForPulledOut. */
+/* func_0200fa08 -- NitroSDK ctrdg_proc.c: CTRDG_TerminateForPulledOut. */
 void func_0200fa08 (void)
 {
 	CTRDGi_SendtoPxi(CTRDG_PXI_COMMAND_TERMINATE);
