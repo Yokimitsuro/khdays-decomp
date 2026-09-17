@@ -76,13 +76,41 @@ src/overlays/ov027/calls/func_ov027_02083068.c:
     complete
     .text       start:0x02083068 end:0x02083114
 
+src/overlays/ov027/calls/func_ov027_02083114.c:
+    complete
+    .text       start:0x02083114 end:0x02083164
+
 src/overlays/ov027/auto/func_ov027_02083164.c:
     complete
     .text       start:0x02083164 end:0x02083168
 
+src/overlays/ov027/calls/func_ov027_02083168.c:
+    complete
+    .text       start:0x02083168 end:0x02083308
+
+src/overlays/ov027/calls/func_ov027_02083308.c:
+    complete
+    .text       start:0x02083308 end:0x0208334c
+
+src/overlays/ov027/calls/func_ov027_0208334c.c:
+    complete
+    .text       start:0x0208334c end:0x020833b4
+
+src/overlays/ov027/calls/func_ov027_020833b4.c:
+    complete
+    .text       start:0x020833b4 end:0x0208344c
+
 src/overlays/ov027/calls/func_ov027_0208344c.c:
     complete
     .text       start:0x0208344c end:0x0208346c
+
+src/overlays/ov027/calls/func_ov027_0208346c.c:
+    complete
+    .text       start:0x0208346c end:0x020835b8
+
+src/overlays/ov027/auto/func_ov027_020835b8.c:
+    complete
+    .text       start:0x020835b8 end:0x0208360c
 
 src/overlays/ov027/calls/func_ov027_020838f0.c:
     complete
