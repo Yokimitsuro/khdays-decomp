@@ -1868,6 +1868,10 @@ src/calls/func_0200cb40.c:
     complete
     .text       start:0x0200cb40 end:0x0200cbe4
 
+libs/nitro/spi/calls/func_0200cbe4.c:
+    complete
+    .text       start:0x0200cbe4 end:0x0200ccac
+
 src/calls/func_0200ccac.c:
     complete
     .text       start:0x0200ccac end:0x0200cd40
@@ -1908,6 +1912,10 @@ src/calls/func_0200cfb4.c:
     complete
     .text       start:0x0200cfb4 end:0x0200cfdc
 
+libs/nitro/spi/calls/func_0200cfdc.c:
+    complete
+    .text       start:0x0200cfdc end:0x0200d088
+
 libs/nitro/os/calls/OSi_TryShutdown.c:
     complete
     .text       start:0x0200d088 end:0x0200d0b0
@@ -1923,6 +1931,10 @@ src/calls/func_0200d0dc.c:
 libs/nitro/pxi/calls/PXIi_SendCommand.c:
     complete
     .text       start:0x0200d138 end:0x0200d164
+
+libs/nitro/spi/calls/func_0200d164.c:
+    complete
+    .text       start:0x0200d164 end:0x0200d3a4
 
 src/calls/func_0200d3a4.c:
     complete
@@ -1979,6 +1991,10 @@ src/calls/func_0200d674.c:
 src/calls/func_0200d6e8.c:
     complete
     .text       start:0x0200d6e8 end:0x0200d720
+
+libs/nitro/rtc/calls/func_0200d720.c:
+    complete
+    .text       start:0x0200d720 end:0x0200dc70
 
 src/auto/func_0200dc70.c:
     complete
