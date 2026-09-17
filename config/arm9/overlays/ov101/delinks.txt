@@ -60,7 +60,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020bb010.c:
     complete
     .text       start:0x020bb010 end:0x020bb01c
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bb01c.c:
+src/overlays/ov101/calls/func_ov101_020bb01c.c:
     complete
     .text       start:0x020bb01c end:0x020bb11c
 
@@ -76,7 +76,7 @@ src/overlays/ov101/asm_stubs/calls/func_ov101_020bb1d8.c:
     complete
     .text       start:0x020bb1d8 end:0x020bb334
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bb334.c:
+src/overlays/ov101/calls/func_ov101_020bb334.c:
     complete
     .text       start:0x020bb334 end:0x020bb428
 
@@ -124,7 +124,7 @@ src/overlays/ov101/calls/func_ov101_020bba88.c:
     complete
     .text       start:0x020bba88 end:0x020bbaa4
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bbaa4.c:
+src/overlays/ov101/calls/func_ov101_020bbaa4.c:
     complete
     .text       start:0x020bbaa4 end:0x020bbba8
 
@@ -136,7 +136,7 @@ src/overlays/ov101/calls/func_ov101_020bbbcc.c:
     complete
     .text       start:0x020bbbcc end:0x020bbc34
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bbc34.c:
+src/overlays/ov101/calls/func_ov101_020bbc34.c:
     complete
     .text       start:0x020bbc34 end:0x020bbdc4
 

@@ -48,7 +48,7 @@ src/overlays/ov078/calls/func_ov078_020b8b88.c:
     complete
     .text       start:0x020b8b88 end:0x020b8c10
 
-src/overlays/ov078/asm_stubs/calls/func_ov078_020b8c10.c:
+src/overlays/ov078/calls/func_ov078_020b8c10.c:
     complete
     .text       start:0x020b8c10 end:0x020b8d1c
 
@@ -88,7 +88,7 @@ src/overlays/ov078/asm_stubs/calls/func_ov078_020b9048.c:
     complete
     .text       start:0x020b9048 end:0x020b91b4
 
-src/overlays/ov078/asm_stubs/calls/func_ov078_020b91b4.c:
+src/overlays/ov078/calls/func_ov078_020b91b4.c:
     complete
     .text       start:0x020b91b4 end:0x020b92e4
 
@@ -116,9 +116,10 @@ src/overlays/ov078/calls/func_ov078_020b94a0.c:
     complete
     .text       start:0x020b94a0 end:0x020b9508
 
-src/overlays/ov078/asm_stubs/calls/func_ov078_020b9508.c:
+src/overlays/ov078/calls/func_ov078_020b9508.c:
     complete
     .text       start:0x020b9508 end:0x020b9590
+    .rodata     start:0x020ba314 end:0x020ba38c
 
 src/overlays/ov078/asm_stubs/calls/func_ov078_020b9590.c:
     complete
