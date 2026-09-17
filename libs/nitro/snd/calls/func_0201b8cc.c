@@ -1,0 +1,64 @@
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef unsigned int u32;
+typedef signed char s8;
+typedef short s16;
+typedef int s32;
+typedef unsigned long long u64;
+typedef long long s64;
+typedef int BOOL;
+typedef int OSIntrMode;
+typedef void *OSMessage;
+typedef volatile unsigned short vu16;
+typedef volatile unsigned int vu32;
+typedef volatile unsigned char vu8;
+
+#define NULL ((void *)0)
+#define TRUE 1
+#define FALSE 0
+#define HW_MAIN_MEM 0x02000000
+
+#define offsetof(type, member) ((u32)&(((type *)0)->member))
+
+
+
+typedef struct {
+    void * prevObject;
+    void * nextObject;
+} NNSFndLink;
+typedef struct {
+    void * headObject;
+    void * tailObject;
+    u16 numObjects;
+    u16 offset;
+} NNSFndList;
+typedef struct NNSiFndHeapHead NNSiFndHeapHead;
+struct NNSiFndHeapHead {
+    u32 signature;
+    NNSFndLink link;
+    NNSFndList childList;
+    void * heapStart;
+    void * heapEnd;
+    u32 attribute;
+};
+typedef NNSiFndHeapHead * NNSFndHeapHandle;
+typedef void (*NNSFndHeapVisitor)(void * memBlock, NNSFndHeapHandle heap, u32 userParam);
+void WM_EndKeySharing_0x02010bc0(NNSFndHeapHandle heap);
+typedef int (*MIDeviceReadFunction)(void * userdata, void * buffer, u32 offset, u32 length);
+typedef int (*MIDeviceWriteFunction)(void * userdata, const void * buffer, u32 offset, u32 length);
+struct NNSSndHeap;
+typedef struct NNSSndHeap * NNSSndHeapHandle;
+void func_0201b8e4(NNSSndHeapHandle heap);
+typedef struct NNSSndHeap {
+    NNSFndHeapHandle handle;
+    NNSFndList sectionList;
+} NNSSndHeap;
+extern void func_0201b8e4 (NNSSndHeapHandle heap);
+
+/* func_0201b8cc -- NitroSystem heap.c: NNS_SndHeapDestroy. */
+void func_0201b8cc (NNSSndHeapHandle heap)
+{
+
+    func_0201b8e4(heap);
+    WM_EndKeySharing_0x02010bc0(heap->handle);
+}
