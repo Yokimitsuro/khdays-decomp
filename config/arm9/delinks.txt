@@ -3832,7 +3832,7 @@ libs/nns/snd/calls/func_0201b6cc.c:
     complete
     .text       start:0x0201b6cc end:0x0201b6f4
 
-src/calls/func_0201b6f4.c:
+libs/nns/snd/calls/func_0201b6f4.c:
     complete
     .text       start:0x0201b6f4 end:0x0201b7c0
 
