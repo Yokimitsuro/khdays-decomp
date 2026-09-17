@@ -44,7 +44,7 @@ src/overlays/ov100/calls/func_ov100_020bb0dc.c:
     complete
     .text       start:0x020bb0dc end:0x020bb144
 
-src/overlays/ov100/asm_stubs/calls/func_ov100_020bb144.c:
+src/overlays/ov100/calls/func_ov100_020bb144.c:
     complete
     .text       start:0x020bb144 end:0x020bb1cc
 

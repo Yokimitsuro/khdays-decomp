@@ -28,7 +28,7 @@ src/overlays/ov033/auto/func_ov033_020b34e4.c:
     complete
     .text       start:0x020b34e4 end:0x020b350c
 
-src/overlays/ov033/asm_stubs/calls/func_ov033_020b350c.c:
+src/overlays/ov033/calls/func_ov033_020b350c.c:
     complete
     .text       start:0x020b350c end:0x020b356c
 

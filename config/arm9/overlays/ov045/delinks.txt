@@ -44,7 +44,7 @@ src/overlays/ov045/calls/func_ov045_020b3b3c.c:
     complete
     .text       start:0x020b3b3c end:0x020b3ba4
 
-src/overlays/ov045/asm_stubs/calls/func_ov045_020b3ba4.c:
+src/overlays/ov045/calls/func_ov045_020b3ba4.c:
     complete
     .text       start:0x020b3ba4 end:0x020b3c2c
 

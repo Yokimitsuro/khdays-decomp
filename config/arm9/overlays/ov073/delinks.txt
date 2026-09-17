@@ -52,7 +52,7 @@ src/overlays/ov073/asm_stubs/calls/func_ov073_020b8b88.c:
     complete
     .text       start:0x020b8b88 end:0x020b8d74
 
-src/overlays/ov073/asm_stubs/calls/func_ov073_020b8d74.c:
+src/overlays/ov073/calls/func_ov073_020b8d74.c:
     complete
     .text       start:0x020b8d74 end:0x020b8e10
 

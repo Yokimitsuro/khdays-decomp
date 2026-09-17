@@ -28,7 +28,7 @@ src/overlays/ov089/auto/func_ov089_020baa84.c:
     complete
     .text       start:0x020baa84 end:0x020baaac
 
-src/overlays/ov089/asm_stubs/calls/func_ov089_020baaac.c:
+src/overlays/ov089/calls/func_ov089_020baaac.c:
     complete
     .text       start:0x020baaac end:0x020bab0c
 
