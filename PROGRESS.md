@@ -34,7 +34,7 @@ SDK/library identifications are tracked separately; see
 | PART ov022 | 755 | 0 | 0 | 3 | 758 | 99.6% |
 | PART ov023 | 222 | 0 | 0 | 2 | 224 | 99.1% |
 | PART ov024 | 114 | 1 | 0 | 4 | 119 | 95.8% |
-| PART ov025 | 984 | 0 | 0 | 19 | 1003 | 98.1% |
+| PART ov025 | 988 | 0 | 0 | 15 | 1003 | 98.5% |
 | PART ov026 | 253 | 0 | 0 | 3 | 256 | 98.8% |
 | DONE ov027 | 43 | 0 | 0 | 0 | 43 | 100.0% |
 | DONE ov028 | 9 | 0 | 0 | 0 | 9 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **19094** | **1517** | **137** | **2488** | **23236** | **82.2%** |
+| **TOTAL** | **19098** | **1517** | **137** | **2484** | **23236** | **82.2%** |
 
 ## Byte progress
 
@@ -318,4 +318,4 @@ SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **2,952,390** | **4,728,790** | **62.43%** |
+| **2,954,506** | **4,728,790** | **62.48%** |
