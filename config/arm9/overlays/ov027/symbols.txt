@@ -82,4 +82,5 @@ data_ov027_02084304 kind:data(any) addr:0x02084304
 data_ov027_02084318 kind:data(any) addr:0x02084318
 data_ov027_02084328 kind:data(any) addr:0x02084328
 data_ov027_02084344 kind:data(any) addr:0x02084344
-data_ov027_02084360 kind:bss addr:0x02084360
+data_ov027_02084360 kind:bss(size=0x4) addr:0x02084360
+data_ov027_02084364 kind:bss(size=0x4) addr:0x02084364

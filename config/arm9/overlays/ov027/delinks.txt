@@ -4,6 +4,10 @@
     .data       start:0x02083ee0 end:0x02084360 kind:data align:32
     .bss        start:0x02084360 end:0x02084380 kind:bss align:32
 
+src/overlays/ov027/calls/func_ov027_02082960.c:
+    complete
+    .text       start:0x02082960 end:0x02082ac0
+
 src/overlays/ov027/calls/func_ov027_02082ac0.c:
     complete
     .text       start:0x02082ac0 end:0x02082ad8
@@ -40,13 +44,37 @@ src/overlays/ov027/calls/func_ov027_02082ba4.c:
     complete
     .text       start:0x02082ba4 end:0x02082bec
 
+src/overlays/ov027/calls/func_ov027_02082bec.c:
+    complete
+    .text       start:0x02082bec end:0x02082cd8
+
+src/overlays/ov027/calls/func_ov027_02082cd8.c:
+    complete
+    .text       start:0x02082cd8 end:0x02082d8c
+
 src/overlays/ov027/calls/func_ov027_02082d8c.c:
     complete
     .text       start:0x02082d8c end:0x02082dac
 
+src/overlays/ov027/calls/func_ov027_02082dac.c:
+    complete
+    .text       start:0x02082dac end:0x02082e74
+
+src/overlays/ov027/calls/func_ov027_02082e74.c:
+    complete
+    .text       start:0x02082e74 end:0x02082f44
+
 src/overlays/ov027/calls/func_ov027_02082f44.c:
     complete
     .text       start:0x02082f44 end:0x02082fb4
+
+src/overlays/ov027/calls/func_ov027_02082fb4.c:
+    complete
+    .text       start:0x02082fb4 end:0x02083068
+
+src/overlays/ov027/calls/func_ov027_02083068.c:
+    complete
+    .text       start:0x02083068 end:0x02083114
 
 src/overlays/ov027/auto/func_ov027_02083164.c:
     complete
