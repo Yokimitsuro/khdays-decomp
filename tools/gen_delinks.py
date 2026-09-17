@@ -212,9 +212,15 @@ def gen_data_block(unit, root=ROOT, committed_delinks=None):
                 (receipt["section"], receipt["start"], receipt["end"])
             )
     if committed_delinks is not None:
+        # a fresh receipt wins over a committed claim of another source: a table that moved from a
+        # function's local .rodata into its unit's data file must not be claimed twice
+        fresh = [(sec, s, e) for spans in by_source.values() for sec, s, e in spans]
         for source, spans in committed_data_claims(committed_delinks, root).items():
             if source not in receipted and source not in by_source:
-                by_source[source] = list(spans)
+                kept = [(sec, s, e) for sec, s, e in spans
+                        if not any(sec == fsec and s < fe and fs < e for fsec, fs, fe in fresh)]
+                if kept:
+                    by_source[source] = kept
     if not by_source:
         return [], {}, 0
 

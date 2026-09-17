@@ -2875,7 +2875,6 @@ libs/nitro/nns/calls/func_02012a5c.c:
 libs/nns/g2d/calls/func_02012b6c.c:
     complete
     .text       start:0x02012b6c end:0x02012b98
-    .rodata     start:0x02041a04 end:0x02041a14
 
 libs/nns/g2d/calls/func_02012b98.c:
     complete
@@ -7262,6 +7261,22 @@ libs/nitro/snd/auto/snd_volume_table.c:
     complete
     .rodata     start:0x02041588 end:0x0204185c
 
+libs/nns/g2d/auto/g2d_bg_cnt_table.c:
+    complete
+    .rodata     start:0x02041ac0 end:0x02041ae0
+
+libs/nns/g2d/auto/g2d_charcanvas_tables.c:
+    complete
+    .rodata     start:0x02041a8c end:0x02041ac0
+
+libs/nns/g2d/auto/g2d_oam_size_tables.c:
+    complete
+    .rodata     start:0x020419c4 end:0x020419f4
+
+libs/nns/g2d/auto/g2d_screen_tables.c:
+    complete
+    .rodata     start:0x020419f4 end:0x02041a8c
+
 libs/nns/g3d/auto/g3d_anmobj_init_func_num.c:
     complete
     .data       start:0x02042490 end:0x02042494
@@ -7269,6 +7284,14 @@ libs/nns/g3d/auto/g3d_anmobj_init_func_num.c:
 libs/nns/g3d/auto/g3d_anmobj_init_funcs.c:
     complete
     .data       start:0x020424b4 end:0x02042504
+
+libs/nns/g3d/auto/g3d_nsbca_pivot_table.c:
+    complete
+    .rodata     start:0x02041ae0 end:0x02041b04
+
+libs/nns/snd/auto/sndarc_stream_adpcm_tables.c:
+    complete
+    .rodata     start:0x02041b04 end:0x02041bc6
 
 src/data/main_overlay_digests_02042ac0.c:
     complete

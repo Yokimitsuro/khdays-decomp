@@ -65,10 +65,12 @@ typedef struct NNSG3dRS {
 } NNSG3dRS;
 
 extern NNSG3dRS *data_020475d0;
+/* pivotUtil_[9][4] (g3d_nsbca_pivot_table.c): the four off-pivot cells of a pivot-compressed
+ * rotation, read one column at a time */
 extern const u8 data_02041ae0[];
-extern const u8 data_02041ae1[];
-extern const u8 data_02041ae2[];
-extern const u8 data_02041ae3[];
+#define data_02041ae1 (data_02041ae0 + 1)
+#define data_02041ae2 (data_02041ae0 + 2)
+#define data_02041ae3 (data_02041ae0 + 3)
 extern void MI_Zero36B(void *dest);
 
 static inline void *NNS_G3dGetResDataByIdx(const NNSG3dResDict *dict, u32 idx)

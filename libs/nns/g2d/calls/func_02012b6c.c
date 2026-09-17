@@ -50,23 +50,16 @@ typedef enum NNSG2dBGExtPlttSlot {
     NNS_G2D_BGEXTPLTTSLOT_SUB3
 } NNSG2dBGExtPlttSlot;
 
+/* the function's addrTable[]: the BGnCNT register offsets, owned by g2d_screen_tables.c */
+extern const u16 data_02041a04[8];
+
 /* func_02012b6c -- NitroSystem g2d_Screen.c: GetBGExtPlttSlot. */
 NNSG2dBGExtPlttSlot func_02012b6c (NNSG2dBGSelect bg)
 {
-    static const u16 addrTable[] = {
-        REG_BG0CNT_OFFSET,
-        REG_BG1CNT_OFFSET,
-        0,
-        0,
-        REG_DB_BG0CNT_OFFSET,
-        REG_DB_BG1CNT_OFFSET,
-        0,
-        0
-    };
     u32 addr;
     NNSG2dBGExtPlttSlot slot = (NNSG2dBGExtPlttSlot)bg;
 
-    addr = addrTable[bg];
+    addr = data_02041a04[bg];
 
     if (addr != 0) {
         addr += HW_REG_BASE;
