@@ -760,6 +760,30 @@ src/calls/GX_InitGXState.c:
     complete
     .text       start:0x020057a4 end:0x02005804
 
+libs/nitro/gx/auto/GX_VRAMCNT_SetLCDC_.c:
+    complete
+    .text       start:0x02005804 end:0x020058bc
+
+libs/nitro/gx/calls/GX_SetBankForBG.c:
+    complete
+    .text       start:0x020058bc end:0x02005b4c
+
+libs/nitro/gx/calls/GX_SetBankForOBJ.c:
+    complete
+    .text       start:0x02005b4c end:0x02005c9c
+
+libs/nitro/gx/calls/GX_SetBankForBGExtPltt.c:
+    complete
+    .text       start:0x02005c9c end:0x02005d9c
+
+libs/nitro/gx/calls/GX_SetBankForOBJExtPltt.c:
+    complete
+    .text       start:0x02005d9c end:0x02005e48
+
+libs/nitro/gx/calls/GX_SetBankForTex.c:
+    complete
+    .text       start:0x02005e48 end:0x02006020
+
 libs/nitro/gx/calls/GX_BeginLoadOBJExtPltt.c:
     complete
     .text       start:0x02006020 end:0x02006108
@@ -767,6 +791,26 @@ libs/nitro/gx/calls/GX_BeginLoadOBJExtPltt.c:
 libs/nitro/gx/calls/GX_SetBankForLCDC.c:
     complete
     .text       start:0x02006108 end:0x02006128
+
+libs/nitro/gx/calls/GX_SetBankForSubBG.c:
+    complete
+    .text       start:0x02006128 end:0x020061d0
+
+libs/nitro/gx/calls/GX_SetBankForSubOBJ.c:
+    complete
+    .text       start:0x020061d0 end:0x02006240
+
+libs/nitro/gx/calls/GX_SetBankForSubBGExtPltt.c:
+    complete
+    .text       start:0x02006240 end:0x020062c0
+
+libs/nitro/gx/calls/GX_SetBankForSubOBJExtPltt.c:
+    complete
+    .text       start:0x020062c0 end:0x02006340
+
+libs/nitro/gx/calls/resetBankForX_.c:
+    complete
+    .text       start:0x02006340 end:0x02006374
 
 libs/nitro/gx/calls/GX_DisableBankForBGExtPltt.c:
     complete
@@ -799,6 +843,10 @@ libs/nitro/gx/calls/GX_DisableBankForSubBGExtPltt.c:
 libs/nitro/gx/calls/GX_DisableBankForSubOBJExtPltt.c:
     complete
     .text       start:0x02006434 end:0x0200645c
+
+libs/nitro/gx/calls/disableBankForX_.c:
+    complete
+    .text       start:0x0200645c end:0x0200653c
 
 libs/nitro/snd/calls/SNDi_UnlockMutex_0x0200653c.c:
     complete
@@ -1108,6 +1156,10 @@ libs/nitro/gx/calls/GX_EndLoadTexPltt.c:
     complete
     .text       start:0x0200805c end:0x020080a0
 
+libs/nitro/snd/calls/SND_StopSeq.c:
+    complete
+    .text       start:0x020080a0 end:0x020080c0
+
 libs/nitro/snd/calls/SND_PrepareSeq.c:
     complete
     .text       start:0x020080c0 end:0x020080e8
@@ -1115,6 +1167,10 @@ libs/nitro/snd/calls/SND_PrepareSeq.c:
 src/calls/SND_StartPreparedSeq.c:
     complete
     .text       start:0x020080e8 end:0x02008108
+
+libs/nitro/snd/calls/SND_PauseSeq.c:
+    complete
+    .text       start:0x02008108 end:0x02008128
 
 src/calls/SND_SetPlayerVolume.c:
     complete
@@ -1152,9 +1208,21 @@ libs/nitro/snd/calls/SND_SetupAlarm.c:
     complete
     .text       start:0x0200826c end:0x020082ac
 
+libs/nitro/snd/calls/SND_LockChannel.c:
+    complete
+    .text       start:0x020082ac end:0x020082cc
+
+libs/nitro/snd/calls/SND_UnlockChannel.c:
+    complete
+    .text       start:0x020082cc end:0x020082ec
+
 libs/nitro/snd/calls/SND_SetChannelVolume.c:
     complete
     .text       start:0x020082ec end:0x02008314
+
+libs/nitro/snd/calls/SND_SetChannelPan.c:
+    complete
+    .text       start:0x02008314 end:0x02008334
 
 src/calls/SND_SetupChannelPcm.c:
     complete
@@ -1192,6 +1260,10 @@ libs/nitro/snd/calls/PushCommand_impl.c:
     complete
     .text       start:0x02008478 end:0x020084bc
 
+libs/nitro/snd/calls/SND_Init.c:
+    complete
+    .text       start:0x020084bc end:0x020084f4
+
 libs/nitro/snd/calls/SNDi_UnlockMutex_0x020084f4.c:
     complete
     .text       start:0x020084f4 end:0x02008508
@@ -1200,6 +1272,10 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_0x02008508.c:
     complete
     .text       start:0x02008508 end:0x0200851c
 
+libs/nitro/snd/calls/SND_AllocCommand.c:
+    complete
+    .text       start:0x02008700 end:0x02008788
+
 src/calls/func_02008788.c:
     complete
     .text       start:0x02008788 end:0x020087c0
@@ -1207,6 +1283,10 @@ src/calls/func_02008788.c:
 src/calls/func_020087c0.c:
     complete
     .text       start:0x020087c0 end:0x0200897c
+
+libs/nitro/snd/calls/SND_WaitForCommandProc.c:
+    complete
+    .text       start:0x0200897c end:0x020089e8
 
 src/calls/func_020089e8.c:
     complete
@@ -1252,6 +1332,14 @@ libs/nitro/snd/calls/SNDi_IncAlarmId.c:
     complete
     .text       start:0x02008c5c end:0x02008c7c
 
+libs/nitro/snd/calls/SNDi_SetAlarmHandler.c:
+    complete
+    .text       start:0x02008c7c end:0x02008cac
+
+libs/nitro/snd/calls/SNDi_CallAlarmHandler.c:
+    complete
+    .text       start:0x02008cac end:0x02008cf0
+
 libs/nitro/snd/calls/SND_GetPlayerStatus.c:
     complete
     .text       start:0x02008cf0 end:0x02008d1c
@@ -1267,6 +1355,14 @@ libs/nitro/snd/calls/SNDi_GetFinishedCommandTag.c:
 src/calls/SNDi_InitSharedWork.c:
     complete
     .text       start:0x02008d8c end:0x02008e08
+
+libs/nitro/snd/calls/SND_CalcChannelVolume.c:
+    complete
+    .text       start:0x02008e08 end:0x02008e78
+
+libs/nitro/snd/calls/SND_AssignWaveArc.c:
+    complete
+    .text       start:0x02008e78 end:0x02008f44
 
 src/calls/func_02008f44.c:
     complete
@@ -1287,6 +1383,10 @@ libs/nitro/snd/auto/SND_GetWaveDataCount.c:
 libs/nitro/snd/calls/SND_SetWaveDataAddress.c:
     complete
     .text       start:0x020091fc end:0x02009230
+
+libs/nitro/snd/calls/SND_GetWaveDataAddress.c:
+    complete
+    .text       start:0x02009230 end:0x0200926c
 
 src/calls/WM_EndKeySharing_0x0200926c.c:
     complete
