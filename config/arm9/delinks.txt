@@ -1028,6 +1028,22 @@ libs/nitro/gx/auto/G2x_SetBlendBrightness_.c:
     complete
     .text       start:0x02006bac end:0x02006bd4
 
+libs/nitro/gx/auto/G2x_SetBlendBrightnessExt_.c:
+    complete
+    .text       start:0x02006bd4 end:0x02006c1c
+
+libs/nitro/gx/auto/G2x_ChangeBlendBrightness_.c:
+    complete
+    .text       start:0x02006c1c end:0x02006c60
+
+libs/nitro/gx/calls/G3X_Init.c:
+    complete
+    .text       start:0x02006c60 end:0x02006d6c
+
+libs/nitro/gx/calls/G3X_ResetMtxStack.c:
+    complete
+    .text       start:0x02006d6c end:0x02006dd8
+
 libs/nitro/gx/calls/G3X_ClearFifo.c:
     complete
     .text       start:0x02006dd8 end:0x02006e00
@@ -1051,6 +1067,10 @@ libs/nitro/gx/calls/G3X_GetVectorMtx.c:
 libs/nitro/gx/auto/G3X_SetClearColor.c:
     complete
     .text       start:0x02006f88 end:0x02006fb0
+
+libs/nitro/gx/calls/G3X_InitTable.c:
+    complete
+    .text       start:0x02006fb0 end:0x02007050
 
 libs/nitro/gx/auto/G3X_GetMtxStackLevelPV.c:
     complete
@@ -1087,6 +1107,14 @@ libs/nitro/gx/calls/GX_LoadOAM.c:
 libs/nitro/gx/calls/GXS_LoadOAM.c:
     complete
     .text       start:0x02007304 end:0x0200735c
+
+libs/nitro/gx/calls/GX_LoadOBJ.c:
+    complete
+    .text       start:0x0200735c end:0x020073b4
+
+libs/nitro/gx/calls/GXS_LoadOBJ.c:
+    complete
+    .text       start:0x020073b4 end:0x0200740c
 
 libs/nitro/gx/calls/GX_LoadBG0Scr.c:
     complete
@@ -1152,6 +1180,10 @@ libs/nitro/gx/calls/GXS_LoadBG3Char.c:
     complete
     .text       start:0x020079ac end:0x02007a0c
 
+libs/nitro/gx/calls/GX_BeginLoadBGExtPltt.c:
+    complete
+    .text       start:0x02007a0c end:0x02007aac
+
 libs/nitro/gx/calls/GX_LoadBGExtPltt.c:
     complete
     .text       start:0x02007aac end:0x02007b1c
@@ -1159,6 +1191,10 @@ libs/nitro/gx/calls/GX_LoadBGExtPltt.c:
 libs/nitro/gx/calls/GX_EndLoadBGExtPltt.c:
     complete
     .text       start:0x02007b1c end:0x02007b64
+
+libs/nitro/gx/calls/GX_BeginLoadOBJExtPltt_0x02007b64.c:
+    complete
+    .text       start:0x02007b64 end:0x02007bac
 
 libs/nitro/gx/calls/GX_LoadOBJExtPltt.c:
     complete
@@ -1195,6 +1231,10 @@ libs/nitro/gx/calls/GXS_EndLoadOBJExtPltt.c:
 libs/nitro/gx/calls/GX_BeginLoadTex.c:
     complete
     .text       start:0x02007dd4 end:0x02007e30
+
+libs/nitro/gx/calls/GX_LoadTex.c:
+    complete
+    .text       start:0x02007e30 end:0x02007f70
 
 libs/nitro/gx/calls/GX_EndLoadTex.c:
     complete
@@ -1328,6 +1368,14 @@ libs/nitro/snd/calls/SNDi_UnlockMutex_0x02008508.c:
     complete
     .text       start:0x02008508 end:0x0200851c
 
+libs/nitro/snd/calls/func_0200851c.c:
+    complete
+    .text       start:0x0200851c end:0x020085f0
+
+libs/nitro/snd/calls/func_020085f0.c:
+    complete
+    .text       start:0x020085f0 end:0x02008700
+
 libs/nitro/snd/calls/SND_AllocCommand.c:
     complete
     .text       start:0x02008700 end:0x02008788
@@ -1367,6 +1415,10 @@ libs/nitro/snd/calls/SND_CountWaitingCommand.c:
 libs/nitro/pxi/calls/PxiFifoCallback.c:
     complete
     .text       start:0x02008af8 end:0x02008b1c
+
+libs/nitro/snd/calls/InitPXI.c:
+    complete
+    .text       start:0x02008b1c end:0x02008b7c
 
 libs/nitro/snd/calls/RequestCommandProc.c:
     complete

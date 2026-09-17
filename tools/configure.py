@@ -246,6 +246,12 @@ ABSOLUTE_SYMBOLS = {
     # templates in func_ov107_020c5cfc; 73a0 and 7da4 still address the following
     # notification templates as offsets from this base.
     "data_ov107_020cb628": 0x020CB628,
+    # NitroSDK link-time constants (the SDK's lcf template defines them; the ROM's pools hold
+    # their values). os_arena.c / os_thread.c test them at run time, so the sources must keep
+    # referencing them as symbols: OS_GetInitArenaHi, OS_InitThread.
+    "SDK_SYS_STACKSIZE": 0x00000000,
+    "SDK_IRQ_STACKSIZE": 0x00000800,
+    "SDK_SECTION_ARENA_DTCM_START": 0x027E0E60,
 }
 
 

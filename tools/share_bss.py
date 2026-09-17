@@ -83,6 +83,7 @@ def share(path, log=sys.stderr):
         section_sym = None
         anchor = None
         defined = []
+        statics = []
         for i, (st_name, st_value, st_size, st_info, st_other, st_shndx) in enumerate(syms):
             if st_shndx != sec_index:
                 continue
@@ -92,6 +93,23 @@ def share(path, log=sys.stderr):
                 defined.append(i)
                 if st_value == 0:
                     anchor = i
+            elif "$" in cstr(strtab, st_name):
+                statics.append(i)
+        if not defined and len(statics) == 1 and syms[statics[0]][1] == 0:
+            # A function-scope static (`name$N`, mwcc's local symbol) is the unit's whole
+            # section: it is the module's global `name` (CTRDGi_InitModuleInfo's isInitialized,
+            # 2026-09-17), so it becomes that global reference -- name truncated at the `$`
+            # in place, binding promoted -- and anchors the section like a defined global.
+            i = statics[0]
+            st_name, st_value, st_size, st_info, st_other, st_shndx = syms[i]
+            full = cstr(strtab, st_name)
+            short = full.split("$", 1)[0].encode("ascii")
+            buf[strtab[4] + st_name:strtab[4] + st_name + len(short) + 1] = short + bytes(1)
+            st_info = (STB_GLOBAL << 4) | (st_info & 0xF)
+            SYM.pack_into(buf, symtab[4] + i * SYM.size, st_name, st_value, st_size, st_info, st_other, st_shndx)
+            syms[i] = (st_name, st_value, st_size, st_info, st_other, st_shndx)
+            defined.append(i)
+            anchor = i
         if not defined:
             continue
         if anchor is None:

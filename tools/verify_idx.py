@@ -161,9 +161,12 @@ def _verified_local_data_relocs(o_path, original_relocs, mine_relocs, addends, m
                 # symbol the object puts at .bss+0, whose symbols.txt address must be
                 # the inferred base (tools/verify_bss.py receipts the range).
                 bss_index = next(i for i, sec in enumerate(elf.iter_sections()) if sec.name == ".bss")
-                anchors = [sym.name for sym in symtab.iter_symbols()
-                           if sym["st_shndx"] == bss_index and sym["st_info"]["bind"] == "STB_GLOBAL"
-                           and int(sym["st_value"]) == 0 and sym.name]
+                # A function-scope static (`name$N`) alone at .bss+0 is the same
+                # shape: tools/share_bss.py promotes it to the global `name`.
+                anchors = [sym.name.split("$", 1)[0] for sym in symtab.iter_symbols()
+                           if sym["st_shndx"] == bss_index and int(sym["st_value"]) == 0 and sym.name
+                           and (sym["st_info"]["bind"] == "STB_GLOBAL"
+                                or (sym["st_info"]["bind"] == "STB_LOCAL" and "$" in sym.name))]
                 if not any(SYM_ADDR.get(name) == base for name in anchors):
                     return set(), ""
                 notes.append(".bss @0x%08x (%s)" % (base, "/".join(anchors)))
