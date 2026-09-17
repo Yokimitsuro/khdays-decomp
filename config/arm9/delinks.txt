@@ -544,6 +544,10 @@ libs/nitro/os/calls/OS_IsTickAvailable_0x0200315c.c:
     complete
     .text       start:0x0200315c end:0x0200316c
 
+libs/nitro/os/calls/func_0200316c.c:
+    complete
+    .text       start:0x0200316c end:0x020031d4
+
 src/calls/func_020031d4.c:
     complete
     .text       start:0x020031d4 end:0x02003274
@@ -639,6 +643,10 @@ libs/nitro/os/auto/OSi_InitVramExclusive.c:
 libs/nitro/os/calls/OSi_UnlockVram.c:
     complete
     .text       start:0x02003ae0 end:0x02003b68
+
+libs/nitro/os/calls/OS_GetLowEntropyData.c:
+    complete
+    .text       start:0x02003b68 end:0x02003c38
 
 libs/nitro/os/calls/OS_Terminate.c:
     complete
@@ -1920,6 +1928,18 @@ src/calls/CARDi_SetTask.c:
     complete
     .text       start:0x0200de0c end:0x0200de48
 
+libs/nitro/card/calls/CARDi_LockResource.c:
+    complete
+    .text       start:0x0200de48 end:0x0200decc
+
+libs/nitro/card/calls/CARDi_UnlockResource.c:
+    complete
+    .text       start:0x0200decc end:0x0200df58
+
+libs/nitro/card/calls/func_0200df58.c:
+    complete
+    .text       start:0x0200df58 end:0x0200e068
+
 src/calls/OS_IsThreadAvailable_0x0200e068.c:
     complete
     .text       start:0x0200e068 end:0x0200e078
@@ -1964,6 +1984,14 @@ src/calls/func_0200e18c.c:
     complete
     .text       start:0x0200e18c end:0x0200e1a0
 
+libs/nitro/card/calls/func_0200e1a0.c:
+    complete
+    .text       start:0x0200e1a0 end:0x0200e4e8
+
+libs/nitro/card/calls/func_0200e4e8.c:
+    complete
+    .text       start:0x0200e4e8 end:0x0200e6d8
+
 src/calls/func_0200e6d8.c:
     complete
     .text       start:0x0200e6d8 end:0x0200e7c0
@@ -1971,6 +1999,10 @@ src/calls/func_0200e6d8.c:
 libs/nitro/card/calls/CARD_GetBackupSectorSize.c:
     complete
     .text       start:0x0200e7c0 end:0x0200e7d4
+
+libs/nitro/card/calls/func_0200e7d4.c:
+    complete
+    .text       start:0x0200e7d4 end:0x0200e90c
 
 src/calls/WM_EndKeySharing_0x0200e90c.c:
     complete
@@ -1980,9 +2012,17 @@ src/calls/WM_EndKeySharing_0x0200e918.c:
     complete
     .text       start:0x0200e918 end:0x0200e924
 
+libs/nitro/card/calls/CARDi_ReadFromCache.c:
+    complete
+    .text       start:0x0200e924 end:0x0200e9b0
+
 libs/nitro/card/auto/CARDi_SetRomOp.c:
     complete
     .text       start:0x0200e9b0 end:0x0200ea10
+
+libs/nitro/card/calls/CARDi_SetCardDma.c:
+    complete
+    .text       start:0x0200ea10 end:0x0200ea64
 
 libs/nitro/card/calls/func_0200ea64.c:
     complete
@@ -1995,6 +2035,10 @@ libs/nitro/card/calls/func_0200eb34.c:
 libs/nitro/card/calls/func_0200ecc0.c:
     complete
     .text       start:0x0200ecc0 end:0x0200edb0
+
+libs/nitro/card/calls/CARDi_ReadRomIDCore.c:
+    complete
+    .text       start:0x0200edb0 end:0x0200ee0c
 
 src/calls/func_0200ee0c.c:
     complete
@@ -2048,6 +2092,10 @@ libs/nitro/card/calls/CARDi_CheckPulledOutCore.c:
     complete
     .text       start:0x0200f310 end:0x0200f370
 
+libs/nitro/card/calls/CARDi_SendtoPxi.c:
+    complete
+    .text       start:0x0200f370 end:0x0200f3c0
+
 src/calls/func_0200f3c0.c:
     complete
     .text       start:0x0200f3c0 end:0x0200f3f8
@@ -2056,9 +2104,21 @@ libs/nitro/nitro/calls/CTRDG_IsOptionCartridge.c:
     complete
     .text       start:0x0200f3f8 end:0x0200f420
 
+libs/nitro/ctrdg/auto/CTRDGi_IsAgbCartridgeAtInit.c:
+    complete
+    .text       start:0x0200f420 end:0x0200f438
+
+libs/nitro/ctrdg/calls/func_0200f438.c:
+    complete
+    .text       start:0x0200f438 end:0x0200f544
+
 libs/nitro/nitro/auto/CTRDGi_ChangeLatestAccessCycle.c:
     complete
     .text       start:0x0200f544 end:0x0200f58c
+
+libs/nitro/ctrdg/auto/CTRDGi_RestoreAccessCycle.c:
+    complete
+    .text       start:0x0200f58c end:0x0200f5c0
 
 libs/nitro/nitro/calls/CTRDGi_LockByProcessor.c:
     complete
@@ -2068,6 +2128,10 @@ libs/nitro/nitro/calls/CTRDGi_UnlockByProcessor.c:
     complete
     .text       start:0x0200f61c end:0x0200f640
 
+libs/nitro/ctrdg/calls/CTRDGi_SendtoPxi.c:
+    complete
+    .text       start:0x0200f640 end:0x0200f690
+
 libs/nitro/nitro/calls/CTRDG_Enable.c:
     complete
     .text       start:0x0200f690 end:0x0200f6d8
@@ -2075,6 +2139,10 @@ libs/nitro/nitro/calls/CTRDG_Enable.c:
 src/calls/func_0200f6d8.c:
     complete
     .text       start:0x0200f6d8 end:0x0200f78c
+
+libs/nitro/ctrdg/calls/func_0200f78c.c:
+    complete
+    .text       start:0x0200f78c end:0x0200f980
 
 src/calls/func_0200f980.c:
     complete
