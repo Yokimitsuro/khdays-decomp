@@ -405,7 +405,7 @@ extern void MI_CpuCopy8(const void *src, void *dst, u32 size);
 extern void MI_CpuFill8(void *dst, u8 data, u32 size);
 #define MI_CpuClear8(dst, size) MI_CpuFill8((dst), 0, (size))
 
-extern const char data_020422bc[];   /* the archive name separator, "/" */
+extern const char data_020422bc[];   /* the archive name separator, ":/" (shared with the FS unit .data) */
 /* FSi_GetPathCommand -- NitroSDK fs_command_default.c. */
 FSResult FSi_GetPathCommand (FSFile *p_file)
 {
@@ -518,7 +518,7 @@ FSResult FSi_GetPathCommand (FSFile *p_file)
 		MI_CpuCopy8(p_arc->name.ptr, dst + pos, len);
 		pos += len;
 
-		MI_CpuCopy8(":/", dst + pos, 2);
+		MI_CpuCopy8(data_020422bc, dst + pos, 2);
 		pos += 2;
 
 		id = dir_id;

@@ -504,6 +504,14 @@ libs/nitro/nns/auto/DLExtract.c:
     complete
     .text       start:0x02002c0c end:0x02002c34
 
+libs/nitro/os/auto/DLInsert.c:
+    complete
+    .text       start:0x02002c34 end:0x02002cdc
+
+libs/nitro/os/calls/OS_AllocFromHeap.c:
+    complete
+    .text       start:0x02002cdc end:0x02002de4
+
 libs/nitro/os/calls/OS_FreeToHeap.c:
     complete
     .text       start:0x02002de4 end:0x02002e4c
@@ -548,6 +556,10 @@ src/calls/func_02003284.c:
     complete
     .text       start:0x02003284 end:0x020032f4
 
+libs/nitro/os/calls/OSi_SetTimer.c:
+    complete
+    .text       start:0x020032f4 end:0x02003380
+
 src/calls/func_02003380.c:
     complete
     .text       start:0x02003380 end:0x020033c0
@@ -559,6 +571,10 @@ src/calls/func_020033c0.c:
 libs/nitro/os/auto/OS_CreateAlarm.c:
     complete
     .text       start:0x02003400 end:0x02003410
+
+libs/nitro/os/calls/func_02003410.c:
+    complete
+    .text       start:0x02003410 end:0x0200353c
 
 libs/nitro/os/calls/OS_SetAlarm.c:
     complete
@@ -575,6 +591,10 @@ src/calls/func_02003618.c:
 libs/nitro/os/asm_stubs/calls/OSi_AlarmHandler.c:
     complete
     .text       start:0x020036a0 end:0x020036b0
+
+libs/nitro/os/calls/func_020036b0.c:
+    complete
+    .text       start:0x020036b0 end:0x020037a0
 
 src/calls/func_020037a0.c:
     complete
@@ -632,9 +652,21 @@ libs/nitro/mi/calls/MI_DmaFill32.c:
     complete
     .text       start:0x02003c64 end:0x02003ce4
 
+libs/nitro/mi/calls/MI_DmaCopy32.c:
+    complete
+    .text       start:0x02003ce4 end:0x02003d54
+
+libs/nitro/mi/calls/MI_DmaCopy16.c:
+    complete
+    .text       start:0x02003d54 end:0x02003dc0
+
 libs/nitro/mi/calls/MI_DmaFill32Async.c:
     complete
     .text       start:0x02003dc0 end:0x02003e84
+
+libs/nitro/mi/calls/MI_DmaCopy32Async.c:
+    complete
+    .text       start:0x02003e84 end:0x02003f1c
 
 libs/nitro/mi/calls/MI_WaitDma.c:
     complete
@@ -648,13 +680,25 @@ src/calls/MIi_CheckAnotherAutoDMA.c:
     complete
     .text       start:0x02004000 end:0x02004084
 
+libs/nitro/mi/calls/MIi_CheckDma0SourceAddress.c:
+    complete
+    .text       start:0x02004084 end:0x020040d8
+
 libs/nitro/mi/calls/MI_SendGXCommandAsync.c:
     complete
     .text       start:0x020040d8 end:0x020041d0
 
+libs/nitro/mi/calls/MIi_FIFOCallback.c:
+    complete
+    .text       start:0x020041d0 end:0x0200427c
+
 src/calls/MIi_DMACallback.c:
     complete
     .text       start:0x0200427c end:0x020042dc
+
+libs/nitro/mi/calls/MI_SendGXCommandAsyncFast.c:
+    complete
+    .text       start:0x020042dc end:0x02004394
 
 libs/nitro/mi/calls/MIi_DMAFastCallback.c:
     complete
@@ -663,6 +707,10 @@ libs/nitro/mi/calls/MIi_DMAFastCallback.c:
 libs/nitro/mi/asm_stubs/auto/MI_SwapWord.c:
     complete
     .text       start:0x020043c0 end:0x020043c8
+
+libs/nitro/mi/calls/MIi_CardDmaCopy32.c:
+    complete
+    .text       start:0x020043c8 end:0x0200443c
 
 src/auto/func_0200443c.c:
     complete
@@ -1400,9 +1448,17 @@ libs/nitro/pxi/calls/PXI_SetFifoRecvCallback.c:
     complete
     .text       start:0x02009378 end:0x020093c4
 
+libs/nitro/pxi/auto/PXI_IsCallbackReady.c:
+    complete
+    .text       start:0x020093c4 end:0x020093e8
+
 src/calls/func_020093e8.c:
     complete
     .text       start:0x020093e8 end:0x02009470
+
+libs/nitro/pxi/calls/PXIi_HandlerRecvFifoNotEmpty.c:
+    complete
+    .text       start:0x02009470 end:0x02009588
 
 libs/nitro/fs/calls/FSi_ReleaseCommand.c:
     complete
@@ -1855,6 +1911,10 @@ libs/nitro/rtc/calls/RTCi_WriteRawStatus2Async.c:
 libs/nitro/rtc/calls/RtcSendPxiCommand.c:
     complete
     .text       start:0x0200dd28 end:0x0200dd50
+
+libs/nitro/rtc/auto/RTC_GetDayOfWeek.c:
+    complete
+    .text       start:0x0200dd50 end:0x0200de0c
 
 src/calls/CARDi_SetTask.c:
     complete
