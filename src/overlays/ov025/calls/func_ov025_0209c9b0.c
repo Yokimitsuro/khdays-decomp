@@ -31,7 +31,24 @@ extern int  func_ov025_0209c83c(int nValue, int nMin, int nMax);     /* ClampWra
 extern int  func_ov025_0209c858(s16 nFrom, int nStep);               /* next selectable item, -1 if none */
 extern void func_02033b78(int nKind, int nSound);                    /* PlaySound */
 extern void func_ov025_0209d2c4(void);                               /* menu refresh */
-extern u8   data_ov025_020b4f69[];
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov025_020b4f64[];                    /* the menu entry table */
 
 void func_ov025_0209c9b0(void)
 {
@@ -43,7 +60,7 @@ void func_ov025_0209c9b0(void)
     func_ov025_0209bf74(ctx->nListId, (u16)ctx->nSelection);
     MI_CpuCopy8(p, &ctx->field80, 0x34);
     sel = ctx->sel;
-    switch (data_ov025_020b4f69[sel * ITEM_STRIDE]) {
+    switch (data_ov025_020b4f64[sel].nState) {
     case KIND_COUNT:
         (p + 1)[sel] += 1;
         *(p + p[0] + 1) = func_ov025_0209c83c(*(p + p[0] + 1), 0, func_ov025_0209bfa8((u16)*p));

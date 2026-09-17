@@ -25,8 +25,24 @@ extern void func_02033b78(int a, int b);
 extern int  func_ov025_0209c83c(int a, int b, int c);
 extern void func_ov025_0209d2c4(void);
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
-extern u8   data_ov025_020b4f69[];
-extern u8   data_ov025_020b4f6a[];
+typedef struct Ov008MenuSubEntry {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+} Ov008MenuSubEntry;
+
+typedef struct Ov008MenuEntryDef {
+    s16 nId;                  /* 0x00 */
+    u8  nText;                /* 0x02 */
+    u8  nHelpText;            /* 0x03 */
+    u8  nAnchor;              /* 0x04 */
+    u8  nState;               /* 0x05: lock state */
+    u8  bEnabled;             /* 0x06 */
+    u8  nSubCount;            /* 0x07 */
+    Ov008MenuSubEntry aSub[3]; /* 0x08 */
+} Ov008MenuEntryDef;
+
+extern Ov008MenuEntryDef data_ov025_020b4f64[];                    /* the menu entry table */
 
 void func_ov025_0209ca78(void)
 {
@@ -35,10 +51,10 @@ void func_ov025_0209ca78(void)
     int r = func_ov025_0209bfa8((u16)ctx->sel);
     int idx = ctx->sel * 0x14;
 
-    if (data_ov025_020b4f69[idx] != 0) {
+    if ((&data_ov025_020b4f64->nState)[idx] != 0) {
         return;
     }
-    if (data_ov025_020b4f6a[idx] == 0) {
+    if ((&data_ov025_020b4f64->bEnabled)[idx] == 0) {
         func_02033b78(0, 4);
         func_ov025_0209d2c4();
         return;

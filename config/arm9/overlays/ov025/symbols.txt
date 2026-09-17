@@ -1082,7 +1082,7 @@ data_ov025_020b4228 kind:data(any) addr:0x020b4228
 data_ov025_020b4229 kind:data(any) addr:0x020b4229
 data_ov025_020b422a kind:data(any) addr:0x020b422a
 data_ov025_020b422b kind:data(any) addr:0x020b422b
-data_ov025_020b422c kind:data(any) addr:0x020b422c
+data_ov025_020b422c kind:data(byte[6]) addr:0x020b422c
 data_ov025_020b4234 kind:data(any) addr:0x020b4234
 data_ov025_020b4240 kind:data(any) addr:0x020b4240
 data_ov025_020b4250 kind:data(any) addr:0x020b4250
