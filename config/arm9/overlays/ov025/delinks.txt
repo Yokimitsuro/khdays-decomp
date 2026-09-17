@@ -3608,6 +3608,14 @@ src/overlays/ov025/calls/func_ov025_020afdb0.c:
     complete
     .text       start:0x020afdb0 end:0x020afdd4
 
+src/overlays/ov025/calls/func_ov025_020afdd4.c:
+    complete
+    .text       start:0x020afdd4 end:0x020afef4
+
+src/overlays/ov025/calls/func_ov025_020afef4.c:
+    complete
+    .text       start:0x020afef4 end:0x020b0090
+
 src/overlays/ov025/calls/func_ov025_020b0090.c:
     complete
     .text       start:0x020b0090 end:0x020b00ec
@@ -3616,9 +3624,25 @@ src/overlays/ov025/calls/func_ov025_020b00ec.c:
     complete
     .text       start:0x020b00ec end:0x020b0154
 
+src/overlays/ov025/calls/func_ov025_020b0154.c:
+    complete
+    .text       start:0x020b0154 end:0x020b0250
+
 src/overlays/ov025/calls/func_ov025_020b0250.c:
     complete
     .text       start:0x020b0250 end:0x020b02b8
+
+src/overlays/ov025/calls/func_ov025_020b02b8.c:
+    complete
+    .text       start:0x020b02b8 end:0x020b03dc
+
+src/overlays/ov025/calls/func_ov025_020b03dc.c:
+    complete
+    .text       start:0x020b03dc end:0x020b0484
+
+src/overlays/ov025/calls/func_ov025_020b0484.c:
+    complete
+    .text       start:0x020b0484 end:0x020b07dc
 
 src/overlays/ov025/calls/OSi_IrqDma0_0x020b07dc.c:
     complete
