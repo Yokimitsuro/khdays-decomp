@@ -179,7 +179,7 @@ typedef struct NNSSndPlayerHeap {
     int playerNo;
 } NNSSndPlayerHeap;
 
-/* func_0201a1a0 -- NitroSDK player.c: NNS_SndPlayerSetTrackPan. */
+/* func_0201a1a0 -- NitroSystem player.c: NNS_SndPlayerSetTrackPan. */
 void func_0201a1a0 (NNSSndHandle * handle, u16 trackBitMask, int pan)
 {
 

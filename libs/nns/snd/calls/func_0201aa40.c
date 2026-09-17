@@ -20,8 +20,23 @@ typedef volatile unsigned char vu8;
 
 #define offsetof(type, member) ((u32)&(((type *)0)->member))
 
-#define NNS_FND_INIT_LIST(list, structName, linkName) NNS_FndInitList(list, offsetof(structName, linkName))
 
+
+extern OSIntrMode OS_DisableInterrupts(void);
+extern OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
+typedef void (*SNDAlarmHandler) (void *);
+typedef enum {
+    SND_WAVE_FORMAT_PCM8,
+    SND_WAVE_FORMAT_PCM16,
+    SND_WAVE_FORMAT_ADPCM,
+    SND_WAVE_FORMAT_PSG,
+    SND_WAVE_FORMAT_NOISE = SND_WAVE_FORMAT_PSG
+} SNDWaveFormat;
+typedef enum {
+    SND_CHANNEL_LOOP_MANUAL,
+    SND_CHANNEL_LOOP_REPEAT,
+    SND_CHANNEL_LOOP_1SHOT
+} SNDChannelLoop;
 typedef enum {
     SND_DUTY_1_8,
     SND_DUTY_2_8,
@@ -31,6 +46,12 @@ typedef enum {
     SND_DUTY_6_8,
     SND_DUTY_7_8
 } SNDDuty;
+typedef enum {
+    SND_CHANNEL_DATASHIFT_NONE,
+    SND_CHANNEL_DATASHIFT_1BIT,
+    SND_CHANNEL_DATASHIFT_2BIT,
+    SND_CHANNEL_DATASHIFT_4BIT
+} SNDChannelDataShift;
 struct SNDExChannel;
 typedef enum SNDExChannelCallbackStatus {
     SND_EX_CHANNEL_CALLBACK_DROP,
@@ -97,6 +118,25 @@ typedef struct SNDExChannel {
     void * callback_data;
     struct SNDExChannel * nextLink;
 } SNDExChannel;
+void SND_SetupChannelPcm(
+    int chNo,
+    SNDWaveFormat format,
+    const void *dataAddr,
+    SNDChannelLoop loop,
+    int loopStart,
+    int dataLen,
+    int volume,
+    SNDChannelDataShift shift,
+    int timer,
+    int pan
+);
+void SND_SetupAlarm(
+    int alarmNo,
+    u32 tick,
+    u32 period,
+    SNDAlarmHandler handler,
+    void *arg
+);
 struct SNDExChannel;
 typedef int (*MIDeviceReadFunction)(void * userdata, void * buffer, u32 offset, u32 length);
 typedef int (*MIDeviceWriteFunction)(void * userdata, const void * buffer, u32 offset, u32 length);
@@ -129,11 +169,6 @@ struct PMiSleepCallbackInfo {
     void * arg;
     PMSleepCallbackInfo * next;
 };
-static inline void PM_SetSleepCallbackInfo (PMSleepCallbackInfo * info, PMSleepCallback callback, void * arg)
-{
-    info->callback = callback;
-    info->arg = arg;
-}
 typedef struct {
     void * prevObject;
     void * nextObject;
@@ -144,7 +179,7 @@ typedef struct {
     u16 numObjects;
     u16 offset;
 } NNSFndList;
-void NNS_FndInitList(NNSFndList * list, u16 offset);
+void NNS_FndAppendListObject(NNSFndList * list, void * object);
 typedef enum NNSSndStrmFormat {
     NNS_SND_STRM_FORMAT_PCM8,
     NNS_SND_STRM_FORMAT_PCM16
@@ -172,32 +207,100 @@ typedef struct NNSSndStrm {
     int numChannels;
     u8 channelNo[16 ];
 } NNSSndStrm;
+void func_0201ac34(NNSSndStrm * stream);
+int func_02019d4c(void);
+typedef struct NNSSndStrmChannel {
+    void * buffer;
+    int volume;
+} NNSSndStrmChannel;
+extern NNSSndStrmChannel data_0204ac30[ 16 ];
 extern NNSFndList data_0204abe4;
-extern void func_0201ae50(void * arg);
-extern void func_0201ae9c(void * arg);
-extern void func_0201ae50 (void * arg);
-extern void func_0201ae9c (void * arg);
+extern void func_0201ad90(void * arg);
+extern void func_0201ada0(NNSSndStrm * stream, NNSSndStrmCallbackStatus status);
+extern void func_0201ac34 (NNSSndStrm * stream);
+extern void func_0201ad90 (void * arg);
+extern void func_0201ada0 (NNSSndStrm * stream, NNSSndStrmCallbackStatus status);
 
 /* khdays: shared-bss */
 BOOL data_0204abe0 = 0;   /* bInitialized$2853 */
 
-/* func_0201a940 -- NitroSDK stream.c: NNS_SndStrmInit. */
-void func_0201a940 (NNSSndStrm * stream)
+/* func_0201aa40 -- NitroSystem stream.c: NNS_SndStrmSetup. */
+BOOL func_0201aa40 (NNSSndStrm * stream, NNSSndStrmFormat format, void * buffer, u32 bufSize, int timer, int interval, NNSSndStrmCallback callback, void * arg)
 {
+    NNSSndStrmChannel * chp;
+    unsigned int samples;
+    unsigned int alarmTimer;
+    int chNo;
+    int index;
 
-    {
 
-        if (!data_0204abe0) {
-            NNS_FND_INIT_LIST(&data_0204abe4, NNSSndStrm, link);
-            data_0204abe0 = TRUE;
-        }
+    if (stream->activeFlag) {
+        func_0201ac34(stream);
     }
 
-    PM_SetSleepCallbackInfo(&stream->preSleepInfo, func_0201ae50, stream);
-    PM_SetSleepCallbackInfo(&stream->postSleepInfo, func_0201ae9c, stream);
+    bufSize /= 32 * interval * stream->numChannels;
+    stream->chBufLen = bufSize * interval * 32;
 
-    stream->chBitMask = 0;
-    stream->numChannels = 0;
-    stream->activeFlag = FALSE;
-    stream->startFlag = FALSE;
+    samples = stream->chBufLen;
+    if (format == NNS_SND_STRM_FORMAT_PCM16) samples >>= 1;
+
+    alarmTimer = timer * samples / interval;
+
+    stream->alarmNo = func_02019d4c();
+    if (stream->alarmNo < 0) return FALSE;
+
+    for (index = 0; index < stream->numChannels; index++) {
+        chNo = stream->channelNo[ index ];
+
+        chp = &data_0204ac30[ chNo ];
+
+        chp->buffer = (u8 *)buffer + stream->chBufLen * index;
+
+        chp->volume = 0;
+
+        SND_SetupChannelPcm(
+            chNo,
+            (SNDWaveFormat)format,
+            chp->buffer,
+            SND_CHANNEL_LOOP_REPEAT,
+            0,
+            (int)(stream->chBufLen >> 2),
+            127,
+            SND_CHANNEL_DATASHIFT_NONE,
+            timer << 5,
+                64
+            );
+    }
+
+    SND_SetupAlarm(
+        stream->alarmNo,
+        alarmTimer,
+        alarmTimer,
+        func_0201ad90,
+        stream
+        );
+
+    NNS_FndAppendListObject(&data_0204abe4, stream);
+
+    stream->format = format;
+    stream->interval = interval;
+    stream->callback = callback;
+    stream->callbackArg = arg;
+    stream->curBuffer = 0;
+
+    stream->volume = 0;
+
+    stream->activeFlag = TRUE;
+
+    {
+        OSIntrMode old = OS_DisableInterrupts();
+
+        stream->interval = 1;
+        func_0201ada0(stream, NNS_SND_STRM_CALLBACK_SETUP);
+        stream->interval = interval;
+
+        (void)OS_RestoreInterrupts(old);
+    }
+
+    return TRUE;
 }

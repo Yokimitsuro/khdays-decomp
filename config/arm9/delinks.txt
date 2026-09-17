@@ -300,7 +300,7 @@ src/calls/WM_EndKeySharing.c:
     complete
     .text       start:0x020018e0 end:0x020018ec
 
-src/calls/func_020018ec.c:
+libs/nitro/os/calls/func_020018ec.c:
     complete
     .text       start:0x020018ec end:0x02001904
 
@@ -324,7 +324,7 @@ libs/nitro/os/calls/OSi_InsertThreadByPriority.c:
     complete
     .text       start:0x02001a34 end:0x02001a94
 
-src/calls/func_02001a94.c:
+libs/nitro/os/calls/func_02001a94.c:
     complete
     .text       start:0x02001a94 end:0x02001adc
 
@@ -340,19 +340,19 @@ libs/nitro/os/calls/OS_CreateThread.c:
     complete
     .text       start:0x02001cf0 end:0x02001dec
 
-src/calls/func_02001dec.c:
+libs/nitro/os/calls/func_02001dec.c:
     complete
     .text       start:0x02001dec end:0x02001e0c
 
-src/calls/func_02001e0c.c:
+libs/nitro/os/calls/func_02001e0c.c:
     complete
     .text       start:0x02001e0c end:0x02001e68
 
-src/calls/func_02001e68.c:
+libs/nitro/os/calls/func_02001e68.c:
     complete
     .text       start:0x02001e68 end:0x02001ea0
 
-src/calls/func_02001ea0.c:
+libs/nitro/os/calls/func_02001ea0.c:
     complete
     .text       start:0x02001ea0 end:0x02001efc
 
@@ -360,7 +360,7 @@ libs/nitro/os/auto/OS_IsThreadTerminated.c:
     complete
     .text       start:0x02001efc end:0x02001f10
 
-src/calls/func_02001f10.c:
+libs/nitro/os/calls/func_02001f10.c:
     complete
     .text       start:0x02001f10 end:0x02001f60
 
@@ -400,11 +400,11 @@ libs/nitro/os/calls/OSi_IdleThreadProc.c:
     complete
     .text       start:0x020021c0 end:0x020021d0
 
-src/calls/func_020021d0.c:
+libs/nitro/os/calls/func_020021d0.c:
     complete
     .text       start:0x020021d0 end:0x02002204
 
-src/calls/func_02002204.c:
+libs/nitro/os/calls/func_02002204.c:
     complete
     .text       start:0x02002204 end:0x02002238
 
@@ -560,7 +560,7 @@ libs/nitro/os/calls/func_0200316c.c:
     complete
     .text       start:0x0200316c end:0x020031d4
 
-src/calls/func_020031d4.c:
+libs/nitro/os/calls/func_020031d4.c:
     complete
     .text       start:0x020031d4 end:0x02003274
 
@@ -3617,7 +3617,7 @@ libs/nns/snd/calls/func_0201a170.c:
     complete
     .text       start:0x0201a170 end:0x0201a1a0
 
-libs/nitro/snd/calls/func_0201a1a0.c:
+libs/nns/snd/calls/func_0201a1a0.c:
     complete
     .text       start:0x0201a1a0 end:0x0201a1c0
 
@@ -3641,7 +3641,7 @@ libs/nns/snd/calls/func_0201a284.c:
     complete
     .text       start:0x0201a284 end:0x0201a2ac
 
-libs/nitro/snd/calls/func_0201a2ac.c:
+libs/nns/snd/calls/func_0201a2ac.c:
     complete
     .text       start:0x0201a2ac end:0x0201a360
 
@@ -3705,7 +3705,7 @@ libs/nns/snd/calls/func_0201a8e0.c:
     complete
     .text       start:0x0201a8e0 end:0x0201a940
 
-libs/nitro/snd/calls/func_0201a940.c:
+libs/nns/snd/calls/func_0201a940.c:
     complete
     .text       start:0x0201a940 end:0x0201a9b8
 
@@ -3717,7 +3717,7 @@ libs/nns/snd/calls/func_0201aa18.c:
     complete
     .text       start:0x0201aa18 end:0x0201aa40
 
-libs/nitro/snd/calls/func_0201aa40.c:
+libs/nns/snd/calls/func_0201aa40.c:
     complete
     .text       start:0x0201aa40 end:0x0201abe0
 
@@ -3761,7 +3761,7 @@ libs/nns/snd/calls/func_0201ae9c.c:
     complete
     .text       start:0x0201ae9c end:0x0201af0c
 
-libs/nitro/snd/calls/func_0201af0c.c:
+libs/nns/snd/calls/func_0201af0c.c:
     complete
     .text       start:0x0201af0c end:0x0201af2c
 
@@ -3865,27 +3865,27 @@ libs/nns/snd/auto/func_0201b850.c:
     complete
     .text       start:0x0201b850 end:0x0201b85c
 
-libs/nitro/snd/calls/func_0201b85c.c:
+libs/nns/snd/calls/func_0201b85c.c:
     complete
     .text       start:0x0201b85c end:0x0201b8cc
 
-libs/nitro/snd/calls/func_0201b8cc.c:
+libs/nns/snd/calls/func_0201b8cc.c:
     complete
     .text       start:0x0201b8cc end:0x0201b8e4
 
-libs/nitro/snd/calls/func_0201b8e4.c:
+libs/nns/snd/calls/func_0201b8e4.c:
     complete
     .text       start:0x0201b8e4 end:0x0201b9a0
 
-libs/nitro/snd/calls/func_0201b9a0.c:
+libs/nns/snd/calls/func_0201b9a0.c:
     complete
     .text       start:0x0201b9a0 end:0x0201ba08
 
-libs/nitro/snd/calls/func_0201ba08.c:
+libs/nns/snd/calls/func_0201ba08.c:
     complete
     .text       start:0x0201ba08 end:0x0201ba54
 
-libs/nitro/snd/calls/func_0201ba54.c:
+libs/nns/snd/calls/func_0201ba54.c:
     complete
     .text       start:0x0201ba54 end:0x0201bb28
 
@@ -3893,11 +3893,11 @@ libs/nitro/nns/calls/NNS_FndInitListWithOffset0.c:
     complete
     .text       start:0x0201bb28 end:0x0201bb38
 
-libs/nitro/snd/calls/func_0201bb38.c:
+libs/nns/snd/calls/func_0201bb38.c:
     complete
     .text       start:0x0201bb38 end:0x0201bb6c
 
-libs/nitro/snd/calls/func_0201bb6c.c:
+libs/nns/snd/calls/func_0201bb6c.c:
     complete
     .text       start:0x0201bb6c end:0x0201bba8
 
@@ -4025,7 +4025,7 @@ libs/nns/snd/calls/func_0201cb3c.c:
     complete
     .text       start:0x0201cb3c end:0x0201cb64
 
-libs/nitro/snd/calls/func_0201cb64.c:
+libs/nns/snd/calls/func_0201cb64.c:
     complete
     .text       start:0x0201cb64 end:0x0201cb80
 
@@ -4085,7 +4085,7 @@ libs/nns/snd/calls/func_0201d214.c:
     complete
     .text       start:0x0201d214 end:0x0201d238
 
-libs/nitro/snd/calls/func_0201d238.c:
+libs/nns/snd/calls/func_0201d238.c:
     complete
     .text       start:0x0201d238 end:0x0201d298
 

@@ -20,7 +20,7 @@ typedef volatile unsigned char vu8;
 
 #define offsetof(type, member) ((u32)&(((type *)0)->member))
 
-
+#define NNS_FND_INIT_LIST(list, structName, linkName) NNS_FndInitList(list, offsetof(structName, linkName))
 
 typedef struct {
     void * prevObject;
@@ -32,6 +32,7 @@ typedef struct {
     u16 numObjects;
     u16 offset;
 } NNSFndList;
+void NNS_FndInitList(NNSFndList * list, u16 offset);
 typedef struct NNSiFndHeapHead NNSiFndHeapHead;
 struct NNSiFndHeapHead {
     u32 signature;
@@ -43,33 +44,29 @@ struct NNSiFndHeapHead {
 };
 typedef NNSiFndHeapHead * NNSFndHeapHandle;
 typedef void (*NNSFndHeapVisitor)(void * memBlock, NNSFndHeapHandle heap, u32 userParam);
-BOOL func_02010c2c(NNSFndHeapHandle heap, u32 tagName);
-BOOL func_02010c7c(NNSFndHeapHandle heap, u32 tagName);
 typedef int (*MIDeviceReadFunction)(void * userdata, void * buffer, u32 offset, u32 length);
 typedef int (*MIDeviceWriteFunction)(void * userdata, const void * buffer, u32 offset, u32 length);
 struct NNSSndHeap;
-typedef struct NNSSndHeap * NNSSndHeapHandle;
 typedef struct NNSSndHeap {
     NNSFndHeapHandle handle;
     NNSFndList sectionList;
 } NNSSndHeap;
+typedef struct NNSSndHeapSection {
+    NNSFndList blockList;
+    NNSFndLink link;
+} NNSSndHeapSection;
 extern BOOL func_0201bb6c(NNSSndHeap * heap);
 extern BOOL func_0201bb6c (NNSSndHeap * heap);
 
-/* func_0201ba08 -- NitroSDK heap.c: NNS_SndHeapSaveState. */
-int func_0201ba08 (NNSSndHeapHandle heap)
+/* func_0201bb38 -- NitroSystem heap.c: InitHeap. */
+BOOL func_0201bb38 (NNSSndHeap * heap, NNSFndHeapHandle handle)
 {
-    BOOL result;
-
-
-    if (!func_02010c2c(heap->handle, heap->sectionList.numObjects)) {
-        return -1;
-    }
+    NNS_FND_INIT_LIST(&heap->sectionList, NNSSndHeapSection, link);
+    heap->handle = handle;
 
     if (!func_0201bb6c(heap)) {
-        result = func_02010c7c(heap->handle, 0);
-        return -1;
+        return FALSE;
     }
 
-    return heap->sectionList.numObjects - 1;
+    return TRUE;
 }

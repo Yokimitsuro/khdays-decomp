@@ -20,7 +20,8 @@ typedef volatile unsigned char vu8;
 
 #define offsetof(type, member) ((u32)&(((type *)0)->member))
 
-
+#define NNS_FndAllocFromFrmHeap(heap, size) NNS_FndAllocFromExpHeapEx_0x02010bcc(heap, size, NNS_FND_HEAP_DEFAULT_ALIGNMENT)
+#define NNS_FND_HEAP_DEFAULT_ALIGNMENT 4
 
 typedef struct {
     void * prevObject;
@@ -32,6 +33,7 @@ typedef struct {
     u16 numObjects;
     u16 offset;
 } NNSFndList;
+void NNS_FndAppendListObject(NNSFndList * list, void * object);
 typedef struct NNSiFndHeapHead NNSiFndHeapHead;
 struct NNSiFndHeapHead {
     u32 signature;
@@ -43,22 +45,34 @@ struct NNSiFndHeapHead {
 };
 typedef NNSiFndHeapHead * NNSFndHeapHandle;
 typedef void (*NNSFndHeapVisitor)(void * memBlock, NNSFndHeapHandle heap, u32 userParam);
-void WM_EndKeySharing_0x02010bc0(NNSFndHeapHandle heap);
+void * NNS_FndAllocFromExpHeapEx_0x02010bcc(NNSFndHeapHandle heap, u32 size, int alignment);
 typedef int (*MIDeviceReadFunction)(void * userdata, void * buffer, u32 offset, u32 length);
 typedef int (*MIDeviceWriteFunction)(void * userdata, const void * buffer, u32 offset, u32 length);
 struct NNSSndHeap;
-typedef struct NNSSndHeap * NNSSndHeapHandle;
-void func_0201b8e4(NNSSndHeapHandle heap);
+typedef void (*NNSSndHeapDisposeCallback)(void * mem, u32 size, u32 data1, u32 data2);
 typedef struct NNSSndHeap {
     NNSFndHeapHandle handle;
     NNSFndList sectionList;
 } NNSSndHeap;
-extern void func_0201b8e4 (NNSSndHeapHandle heap);
+typedef struct NNSSndHeapSection {
+    NNSFndList blockList;
+    NNSFndLink link;
+} NNSSndHeapSection;
+extern void NNS_FndInitListWithOffset0(NNSSndHeapSection * section);
+extern void NNS_FndInitListWithOffset0 (NNSSndHeapSection * section);
 
-/* func_0201b8cc -- NitroSDK heap.c: NNS_SndHeapDestroy. */
-void func_0201b8cc (NNSSndHeapHandle heap)
+/* func_0201bb6c -- NitroSystem heap.c: NewSection. */
+BOOL func_0201bb6c (NNSSndHeap * heap)
 {
+    NNSSndHeapSection * section;
 
-    func_0201b8e4(heap);
-    WM_EndKeySharing_0x02010bc0(heap->handle);
+    section = (NNSSndHeapSection *)NNS_FndAllocFromFrmHeap(heap->handle, sizeof(NNSSndHeapSection));
+    if (section == NULL) {
+        return FALSE;
+    }
+    NNS_FndInitListWithOffset0(section);
+
+    NNS_FndAppendListObject(&heap->sectionList, section);
+
+    return TRUE;
 }

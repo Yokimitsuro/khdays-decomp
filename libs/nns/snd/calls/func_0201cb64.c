@@ -20,8 +20,7 @@ typedef volatile unsigned char vu8;
 
 #define offsetof(type, member) ((u32)&(((type *)0)->member))
 
-#define NNS_FND_INIT_LIST(list, structName, linkName) NNS_FndInitList(list, offsetof(structName, linkName))
-#define NNS_SND_STRM_THREAD_STACK_SIZE 1024
+
 
 typedef struct CPContext {
     u64 div_numer;
@@ -89,24 +88,12 @@ struct _OSThread {
     void * userParameter;
     int systemErrno;
 };
-void OS_CreateThread(OSThread * thread, void (*func)(void *), void * arg, void * stack, u32 stackSize, u32 prio);
-void OS_WakeupThreadDirect(OSThread * thread);
-static inline void OS_InitThreadQueue (OSThreadQueue * queue)
-{
-    queue->head = queue->tail = NULL ;
-}
-typedef struct {
-    void (*func) (void *);
-    u32 enable;
-    void * arg;
-} OSIrqCallbackInfo;
 struct OSMutex {
     OSThreadQueue queue;
     OSThread * thread;
     s32 count;
     OSMutexLink link;
 };
-void OS_InitMutex(OSMutex * mutex);
 typedef u64 OSTick;
 typedef void (*OSAlarmHandler) (void *);
 struct OSiAlarm {
@@ -129,7 +116,6 @@ typedef struct {
     u16 numObjects;
     u16 offset;
 } NNSFndList;
-void NNS_FndInitList(NNSFndList * list, u16 offset);
 enum {
     FS_ARCHIVE_NAME_LEN_MAX = 3
 };
@@ -495,6 +481,10 @@ typedef struct NNSSndStrmThread {
     OSMutex mutex;
     NNSFndList commandList;
 } NNSSndStrmThread;
+inline BOOL NNS_SndStrmHandleIsValid (const NNSSndStrmHandle * handle)
+{
+    return handle->player != NULL ;
+}
 typedef struct NNSSndFader {
     int origin;
     int target;
@@ -569,35 +559,19 @@ typedef struct NNSSndStrmPlayer {
     ReadStreamFunc readStreamFunc;
     CancelStreamFunc cancelStreamFunc;
 } NNSSndStrmPlayer;
-typedef struct LoadCommand {
-    NNSFndLink link;
-    NNSSndStrmPlayer * player;
-    NNSSndStrmCallbackStatus status;
-    int numChannels;
-    void * buffer[6 ];
-    u32 bufLen;
-} LoadCommand;
-extern void func_0201e09c(void * arg);
-extern void func_0201e09c (void * arg);
+extern void SNDi_FreeVoiceChannel(NNSSndStrmPlayer * player, int fadeFrame);
+extern void SNDi_FreeVoiceChannel (NNSSndStrmPlayer * player, int fadeFrame);
 
 /* khdays: shared-bss */
 NNSSndStrmThread * sPrepareThread = 0;   /* sPrepareThread */
 BOOL data_0204ad8c = 0;   /* initialized$3434 */
 u8 * sDecodeBuffer = 0;   /* sDecodeBuffer */
 
-/* func_0201d238 -- NitroSDK sndarc_stream.c: CreateThread. */
-void func_0201d238 (NNSSndStrmThread * thread, u32 threadPrio)
+/* func_0201cb64 -- NitroSystem sndarc_stream.c: NNS_SndArcStrmStop. */
+void func_0201cb64 (NNSSndStrmHandle * handle, int fadeFrame)
 {
-    OS_CreateThread(
-        &thread->thread,
-        func_0201e09c,
-        thread,
-        thread->stack + NNS_SND_STRM_THREAD_STACK_SIZE / sizeof(u64),
-        NNS_SND_STRM_THREAD_STACK_SIZE,
-        threadPrio
-        );
-    NNS_FND_INIT_LIST(&thread->commandList, LoadCommand, link);
-    OS_InitMutex(&thread->mutex);
-    OS_InitThreadQueue(&thread->threadQ);
-    OS_WakeupThreadDirect(&thread->thread);
+
+    if (!NNS_SndStrmHandleIsValid(handle)) return;
+
+    SNDi_FreeVoiceChannel(handle->player, fadeFrame);
 }

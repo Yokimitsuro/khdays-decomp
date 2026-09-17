@@ -20,7 +20,9 @@ typedef volatile unsigned char vu8;
 
 #define offsetof(type, member) ((u32)&(((type *)0)->member))
 
-#define HEAP_ALIGN 32
+#define NNS_FndCreateFrmHeap(startAddress, size) func_02010b88(startAddress, size, 0)
+#define NNS_FND_HEAP_INVALID_HANDLE NULL
+#define NNS_SND_HEAP_INVALID_HANDLE NNS_FND_HEAP_INVALID_HANDLE
 #define ROUNDUP(value, align) (((u32)(value) + ((align) - 1)) & ~((align) - 1))
 
 typedef struct {
@@ -33,8 +35,6 @@ typedef struct {
     u16 numObjects;
     u16 offset;
 } NNSFndList;
-void NNS_FndAppendListObject(NNSFndList * list, void * object);
-void * NNS_FndGetPrevListObject(NNSFndList * list, void * object);
 typedef struct NNSiFndHeapHead NNSiFndHeapHead;
 struct NNSiFndHeapHead {
     u32 signature;
@@ -46,7 +46,8 @@ struct NNSiFndHeapHead {
 };
 typedef NNSiFndHeapHead * NNSFndHeapHandle;
 typedef void (*NNSFndHeapVisitor)(void * memBlock, NNSFndHeapHandle heap, u32 userParam);
-void * NNS_FndAllocFromExpHeapEx_0x02010bcc(NNSFndHeapHandle heap, u32 size, int alignment);
+NNSFndHeapHandle func_02010b88(void * startAddress, u32 size, u16 optFlag);
+void WM_EndKeySharing_0x02010bc0(NNSFndHeapHandle heap);
 typedef int (*MIDeviceReadFunction)(void * userdata, void * buffer, u32 offset, u32 length);
 typedef int (*MIDeviceWriteFunction)(void * userdata, const void * buffer, u32 offset, u32 length);
 struct NNSSndHeap;
@@ -56,39 +57,41 @@ typedef struct NNSSndHeap {
     NNSFndHeapHandle handle;
     NNSFndList sectionList;
 } NNSSndHeap;
-typedef struct NNSSndHeapBlock {
-    NNSFndLink link;
-    u32 size;
-    NNSSndHeapDisposeCallback callback;
-    u32 data1;
-    u32 data2;
-    u8 padding[ 0x20 - ((sizeof(NNSFndLink) + sizeof(NNSSndHeapDisposeCallback) + sizeof(u32) * 3) & 0x1f) ];
-    u32 buffer[ 0 ];
-} NNSSndHeapBlock;
-typedef struct NNSSndHeapSection {
-    NNSFndList blockList;
-    NNSFndLink link;
-} NNSSndHeapSection;
+extern BOOL func_0201bb38(NNSSndHeap * heap, NNSFndHeapHandle handle);
+extern BOOL func_0201bb38 (NNSSndHeap * heap, NNSFndHeapHandle handle);
 
-/* func_0201b9a0 -- NitroSDK heap.c: NNS_SndHeapAlloc. */
-void * func_0201b9a0 (NNSSndHeapHandle heap, u32 size, NNSSndHeapDisposeCallback callback, u32 data1, u32 data2)
+/* func_0201b85c -- NitroSystem heap.c: NNS_SndHeapCreate. */
+NNSSndHeapHandle func_0201b85c (void * startAddress, u32 size)
 {
-    NNSSndHeapSection * section;
-    NNSSndHeapBlock * block;
+    NNSSndHeap * heap;
+    void * endAddress;
+    NNSFndHeapHandle handle;
 
 
-    block = (NNSSndHeapBlock *)NNS_FndAllocFromExpHeapEx_0x02010bcc(
-        heap->handle, sizeof(NNSSndHeapBlock) + ROUNDUP(size, HEAP_ALIGN), HEAP_ALIGN);
-    if (block == NULL) return NULL;
+    endAddress = (u8 *)startAddress + size;
+    startAddress = (void *)ROUNDUP(startAddress, 4);
 
-    section = (NNSSndHeapSection *)NNS_FndGetPrevListObject(&heap->sectionList, NULL);
+    if (startAddress > endAddress) return NNS_SND_HEAP_INVALID_HANDLE;
 
-    block->size = size;
-    block->callback = callback;
-    block->data1 = data1;
-    block->data2 = data2;
-    NNS_FndAppendListObject(&section->blockList, block);
+    size = (u32)((u8 *)endAddress - (u8 *)startAddress);
+    if (size < sizeof(NNSSndHeap)) {
+        return NNS_SND_HEAP_INVALID_HANDLE;
+    }
 
+    size -= sizeof(NNSSndHeap);
 
-    return block->buffer;
+    heap = (NNSSndHeap *)startAddress;
+    startAddress = heap + 1;
+
+    handle = NNS_FndCreateFrmHeap(startAddress, size);
+    if (handle == NNS_FND_HEAP_INVALID_HANDLE) {
+        return NULL;
+    }
+
+    if (!func_0201bb38(heap, handle)) {
+        WM_EndKeySharing_0x02010bc0(handle);
+        return NNS_SND_HEAP_INVALID_HANDLE;
+    }
+
+    return heap;
 }

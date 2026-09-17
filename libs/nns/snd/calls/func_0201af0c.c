@@ -63,7 +63,7 @@ extern CaptureParam data_0204acf8;
 /* khdays: shared-bss */
 volatile BOOL data_0204acb0 = 0;   /* sIsThreadCreated */
 
-/* func_0201af0c -- NitroSDK capture.c: NNSi_SndCaptureInit. */
+/* func_0201af0c -- NitroSystem capture.c: NNSi_SndCaptureInit. */
 void func_0201af0c (void)
 {
     data_0204acb0 = FALSE;
