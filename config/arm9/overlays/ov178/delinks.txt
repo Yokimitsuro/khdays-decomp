@@ -104,7 +104,7 @@ src/overlays/ov178/calls/func_ov178_020cd21c.c:
     complete
     .text       start:0x020cd21c end:0x020cd2a8
 
-src/overlays/ov178/asm_stubs/calls/func_ov178_020cd2a8.c:
+src/overlays/ov178/calls/func_ov178_020cd2a8.c:
     complete
     .text       start:0x020cd2a8 end:0x020cd69c
 
