@@ -12,7 +12,7 @@ src/overlays/ov243/calls/func_ov243_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d3844.c:
+src/overlays/ov243/calls/func_ov243_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d393c
 
@@ -48,7 +48,7 @@ src/overlays/ov243/asm_stubs/calls/func_ov243_020d3d78.c:
     complete
     .text       start:0x020d3d78 end:0x020d3f70
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d3f70.c:
+src/overlays/ov243/calls/func_ov243_020d3f70.c:
     complete
     .text       start:0x020d3f70 end:0x020d3fe4
 
@@ -56,7 +56,7 @@ src/overlays/ov243/asm_stubs/calls/func_ov243_020d3fe4.c:
     complete
     .text       start:0x020d3fe4 end:0x020d4198
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d4198.c:
+src/overlays/ov243/calls/func_ov243_020d4198.c:
     complete
     .text       start:0x020d4198 end:0x020d4208
 
@@ -72,7 +72,7 @@ src/overlays/ov243/calls/func_ov243_020d429c.c:
     complete
     .text       start:0x020d429c end:0x020d42c0
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d42c0.c:
+src/overlays/ov243/calls/func_ov243_020d42c0.c:
     complete
     .text       start:0x020d42c0 end:0x020d4370
 
@@ -88,7 +88,7 @@ src/overlays/ov243/calls/func_ov243_020d4418.c:
     complete
     .text       start:0x020d4418 end:0x020d444c
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d444c.c:
+src/overlays/ov243/calls/func_ov243_020d444c.c:
     complete
     .text       start:0x020d444c end:0x020d44b4
 

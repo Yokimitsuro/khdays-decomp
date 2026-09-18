@@ -208,11 +208,11 @@ src/overlays/ov193/calls/func_ov193_020d6070.c:
     complete
     .text       start:0x020d6070 end:0x020d6158
 
-src/overlays/ov193/asm_stubs/calls/func_ov193_020d6158.c:
+src/overlays/ov193/calls/func_ov193_020d6158.c:
     complete
     .text       start:0x020d6158 end:0x020d66a0
 
-src/overlays/ov193/asm_stubs/calls/func_ov193_020d66a0.c:
+src/overlays/ov193/calls/func_ov193_020d66a0.c:
     complete
     .text       start:0x020d66a0 end:0x020d6848
 

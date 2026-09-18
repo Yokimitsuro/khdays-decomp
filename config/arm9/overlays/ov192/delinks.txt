@@ -208,11 +208,11 @@ src/overlays/ov192/calls/func_ov192_020d4250.c:
     complete
     .text       start:0x020d4250 end:0x020d4338
 
-src/overlays/ov192/asm_stubs/calls/func_ov192_020d4338.c:
+src/overlays/ov192/calls/func_ov192_020d4338.c:
     complete
     .text       start:0x020d4338 end:0x020d4880
 
-src/overlays/ov192/asm_stubs/calls/func_ov192_020d4880.c:
+src/overlays/ov192/calls/func_ov192_020d4880.c:
     complete
     .text       start:0x020d4880 end:0x020d4a28
 

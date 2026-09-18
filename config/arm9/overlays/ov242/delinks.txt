@@ -12,11 +12,11 @@ src/overlays/ov242/calls/func_ov242_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d3844.c:
+src/overlays/ov242/calls/func_ov242_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d39d4
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d39d4.c:
+src/overlays/ov242/calls/func_ov242_020d39d4.c:
     complete
     .text       start:0x020d39d4 end:0x020d3c64
 
@@ -44,11 +44,11 @@ src/overlays/ov242/calls/func_ov242_020d3dfc.c:
     complete
     .text       start:0x020d3dfc end:0x020d3ee0
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d3ee0.c:
+src/overlays/ov242/calls/func_ov242_020d3ee0.c:
     complete
     .text       start:0x020d3ee0 end:0x020d40e0
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d40e0.c:
+src/overlays/ov242/calls/func_ov242_020d40e0.c:
     complete
     .text       start:0x020d40e0 end:0x020d4154
 
@@ -56,7 +56,7 @@ src/overlays/ov242/asm_stubs/calls/func_ov242_020d4154.c:
     complete
     .text       start:0x020d4154 end:0x020d432c
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d432c.c:
+src/overlays/ov242/calls/func_ov242_020d432c.c:
     complete
     .text       start:0x020d432c end:0x020d439c
 
@@ -72,7 +72,7 @@ src/overlays/ov242/calls/func_ov242_020d4458.c:
     complete
     .text       start:0x020d4458 end:0x020d447c
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d447c.c:
+src/overlays/ov242/calls/func_ov242_020d447c.c:
     complete
     .text       start:0x020d447c end:0x020d452c
 
@@ -88,7 +88,7 @@ src/overlays/ov242/calls/func_ov242_020d45d4.c:
     complete
     .text       start:0x020d45d4 end:0x020d4608
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d4608.c:
+src/overlays/ov242/calls/func_ov242_020d4608.c:
     complete
     .text       start:0x020d4608 end:0x020d4670
 
@@ -96,7 +96,7 @@ src/overlays/ov242/calls/func_ov242_020d4670.c:
     complete
     .text       start:0x020d4670 end:0x020d46c0
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d46c0.c:
+src/overlays/ov242/calls/func_ov242_020d46c0.c:
     complete
     .text       start:0x020d46c0 end:0x020d4848
 
