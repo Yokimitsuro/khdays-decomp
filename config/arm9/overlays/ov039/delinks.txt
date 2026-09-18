@@ -32,7 +32,7 @@ src/overlays/ov039/asm_stubs/calls/func_ov039_020b3570.c:
     complete
     .text       start:0x020b3570 end:0x020b3888
 
-src/overlays/ov039/asm_stubs/calls/func_ov039_020b3888.c:
+src/overlays/ov039/calls/func_ov039_020b3888.c:
     complete
     .text       start:0x020b3888 end:0x020b3ad4
 
