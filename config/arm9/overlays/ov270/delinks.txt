@@ -104,7 +104,7 @@ src/overlays/ov270/asm_stubs/calls/func_ov270_020d4be4.c:
     complete
     .text       start:0x020d4be4 end:0x020d4df4
 
-src/overlays/ov270/asm_stubs/calls/func_ov270_020d4df4.c:
+src/overlays/ov270/calls/func_ov270_020d4df4.c:
     complete
     .text       start:0x020d4df4 end:0x020d4f8c
 
