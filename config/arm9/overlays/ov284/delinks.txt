@@ -124,7 +124,7 @@ src/overlays/ov284/calls/func_ov284_020cd294.c:
     complete
     .text       start:0x020cd294 end:0x020cd2fc
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cd2fc.c:
+src/overlays/ov284/calls/func_ov284_020cd2fc.c:
     complete
     .text       start:0x020cd2fc end:0x020cd508
 
