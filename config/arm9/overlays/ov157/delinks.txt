@@ -40,7 +40,7 @@ src/overlays/ov157/calls/func_ov157_020ce400.c:
     complete
     .text       start:0x020ce400 end:0x020ce444
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020ce444.c:
+src/overlays/ov157/calls/func_ov157_020ce444.c:
     complete
     .text       start:0x020ce444 end:0x020ce590
 
@@ -48,7 +48,7 @@ src/overlays/ov157/calls/func_ov157_020ce590.c:
     complete
     .text       start:0x020ce590 end:0x020ce5dc
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020ce5dc.c:
+src/overlays/ov157/calls/func_ov157_020ce5dc.c:
     complete
     .text       start:0x020ce5dc end:0x020ce7b4
 
@@ -60,7 +60,7 @@ src/overlays/ov157/calls/func_ov157_020ce7e4.c:
     complete
     .text       start:0x020ce7e4 end:0x020ce8c8
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020ce8c8.c:
+src/overlays/ov157/calls/func_ov157_020ce8c8.c:
     complete
     .text       start:0x020ce8c8 end:0x020ceb74
 
@@ -100,7 +100,7 @@ src/overlays/ov157/calls/func_ov157_020cf1a8.c:
     complete
     .text       start:0x020cf1a8 end:0x020cf1dc
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020cf1dc.c:
+src/overlays/ov157/calls/func_ov157_020cf1dc.c:
     complete
     .text       start:0x020cf1dc end:0x020cf320
 
@@ -108,7 +108,7 @@ src/overlays/ov157/calls/func_ov157_020cf320.c:
     complete
     .text       start:0x020cf320 end:0x020cf3bc
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020cf3bc.c:
+src/overlays/ov157/calls/func_ov157_020cf3bc.c:
     complete
     .text       start:0x020cf3bc end:0x020cf578
 
@@ -132,7 +132,7 @@ src/overlays/ov157/calls/func_ov157_020cf7d4.c:
     complete
     .text       start:0x020cf7d4 end:0x020cf820
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020cf820.c:
+src/overlays/ov157/calls/func_ov157_020cf820.c:
     complete
     .text       start:0x020cf820 end:0x020cf9f4
 
@@ -152,7 +152,7 @@ src/overlays/ov157/calls/func_ov157_020cfd04.c:
     complete
     .text       start:0x020cfd04 end:0x020cfd38
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020cfd38.c:
+src/overlays/ov157/calls/func_ov157_020cfd38.c:
     complete
     .text       start:0x020cfd38 end:0x020cff14
 
@@ -196,7 +196,7 @@ src/overlays/ov157/calls/func_ov157_020d02e0.c:
     complete
     .text       start:0x020d02e0 end:0x020d0318
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020d0318.c:
+src/overlays/ov157/calls/func_ov157_020d0318.c:
     complete
     .text       start:0x020d0318 end:0x020d03f4
 
