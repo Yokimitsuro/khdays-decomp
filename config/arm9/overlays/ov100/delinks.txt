@@ -20,7 +20,7 @@ src/overlays/ov100/calls/func_ov100_020ba838.c:
     complete
     .text       start:0x020ba838 end:0x020baa20
 
-src/overlays/ov100/asm_stubs/calls/func_ov100_020baa20.c:
+src/overlays/ov100/calls/func_ov100_020baa20.c:
     complete
     .text       start:0x020baa20 end:0x020babb8
 

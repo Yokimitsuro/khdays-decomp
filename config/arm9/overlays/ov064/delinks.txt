@@ -20,7 +20,7 @@ src/overlays/ov064/calls/func_ov064_020b5a98.c:
     complete
     .text       start:0x020b5a98 end:0x020b5c80
 
-src/overlays/ov064/asm_stubs/calls/func_ov064_020b5c80.c:
+src/overlays/ov064/calls/func_ov064_020b5c80.c:
     complete
     .text       start:0x020b5c80 end:0x020b5e18
 

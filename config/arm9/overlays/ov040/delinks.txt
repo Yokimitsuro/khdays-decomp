@@ -116,7 +116,7 @@ src/overlays/ov040/calls/func_ov040_020b4258.c:
     complete
     .text       start:0x020b4258 end:0x020b42dc
 
-src/overlays/ov040/asm_stubs/calls/func_ov040_020b42dc.c:
+src/overlays/ov040/calls/func_ov040_020b42dc.c:
     complete
     .text       start:0x020b42dc end:0x020b4578
 

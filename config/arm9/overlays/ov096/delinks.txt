@@ -116,7 +116,7 @@ src/overlays/ov096/calls/func_ov096_020bb7f8.c:
     complete
     .text       start:0x020bb7f8 end:0x020bb87c
 
-src/overlays/ov096/asm_stubs/calls/func_ov096_020bb87c.c:
+src/overlays/ov096/calls/func_ov096_020bb87c.c:
     complete
     .text       start:0x020bb87c end:0x020bbb18
 
