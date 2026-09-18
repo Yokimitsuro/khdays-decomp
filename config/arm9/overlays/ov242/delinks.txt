@@ -104,7 +104,7 @@ src/overlays/ov242/calls/func_ov242_020d4848.c:
     complete
     .text       start:0x020d4848 end:0x020d489c
 
-src/overlays/ov242/asm_stubs/calls/func_ov242_020d489c.c:
+src/overlays/ov242/auto/func_ov242_020d489c.c:
     complete
     .text       start:0x020d489c end:0x020d48c4
 

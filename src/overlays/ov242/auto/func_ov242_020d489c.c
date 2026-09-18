@@ -1,6 +1,6 @@
 /* Target hook caller of the ov241 enemy (x2: ov241/242): hands the +0x30 target's +0x1b4 kind to
  * the actor's +0x3b4 target hook when one is installed. */
-void func_ov241_020d0c5c(int *node)
+void func_ov242_020d489c(int *node)
 {
     int *state = (int *)node[1];
 
