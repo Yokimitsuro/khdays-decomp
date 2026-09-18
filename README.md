@@ -22,9 +22,9 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **20,605** / ~23,236 (~88.7% by function count) | Functions implemented in C and verified byte-exact |
-| Real C-decompiled matched **bytes** | **3,597,000** / 4,728,790 (~76.07% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
-| Inline ASM / ASM stub matched functions | **216** / ~23,236 (~0.9%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
+| Real C-decompiled matched functions | **20,635** / ~23,236 (~88.8% by function count) | Functions implemented in C and verified byte-exact |
+| Real C-decompiled matched **bytes** | **3,622,248** / 4,728,790 (~76.60% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
+| Inline ASM / ASM stub matched functions | **186** / ~23,236 (~0.8%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
 | SDK/library byte-match identifications | **56** / ~23,236 (~0.2%) | NitroSDK or library functions identified separately by byte matching |
 | Named but not decompiled | **2,359** / ~23,236 (~10.2%) | Functions known to the project but not implemented as C |
 | Initialized DATA | **140,234** / 188,336 (**74.46%**) | Byte/relocation-verified `.rodata`/`.data`; includes the separately reported MobiClip executable payload at 26,012/26,012 bytes. |
