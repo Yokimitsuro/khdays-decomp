@@ -24,6 +24,7 @@ func_ov243_020d44b4 kind:function(arm,size=0x50) addr:0x020d44b4
 func_ov243_020d4504 kind:function(arm,size=0x1c8) addr:0x020d4504
 func_ov243_020d46cc kind:function(arm,size=0x54) addr:0x020d46cc
 func_ov243_020d4720 kind:function(arm,size=0x28) addr:0x020d4720
-func_ov243_020d4748 kind:function(thumb,size=0x2) addr:0x020d4748
+data_ov243_020d4748 kind:data(any) addr:0x020d4748
+data_ov243_020d4760 kind:data(any) addr:0x020d4760
 data_ov243_020d476c kind:data(any) addr:0x020d476c
 data_ov243_020d4778 kind:data(any) addr:0x020d4778

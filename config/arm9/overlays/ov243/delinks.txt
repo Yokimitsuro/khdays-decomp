@@ -1,5 +1,5 @@
-    .text       start:0x020d37a0 end:0x020d474c kind:code align:32
-    .rodata     start:0x020d474c end:0x020d4754 kind:rodata align:4
+    .text       start:0x020d37a0 end:0x020d4748 kind:code align:32
+    .rodata     start:0x020d4748 end:0x020d4754 kind:rodata align:4
     .ctor       start:0x020d4754 end:0x020d4754 kind:rodata align:4
     .data       start:0x020d4760 end:0x020d4780 kind:data align:32
     .bss        start:0x020d4780 end:0x020d4780 kind:bss align:32
@@ -44,7 +44,7 @@ src/overlays/ov243/calls/func_ov243_020d3c94.c:
     complete
     .text       start:0x020d3c94 end:0x020d3d78
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d3d78.c:
+src/overlays/ov243/calls/func_ov243_020d3d78.c:
     complete
     .text       start:0x020d3d78 end:0x020d3f70
 
@@ -52,7 +52,7 @@ src/overlays/ov243/calls/func_ov243_020d3f70.c:
     complete
     .text       start:0x020d3f70 end:0x020d3fe4
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d3fe4.c:
+src/overlays/ov243/calls/func_ov243_020d3fe4.c:
     complete
     .text       start:0x020d3fe4 end:0x020d4198
 
@@ -96,7 +96,7 @@ src/overlays/ov243/calls/func_ov243_020d44b4.c:
     complete
     .text       start:0x020d44b4 end:0x020d4504
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d4504.c:
+src/overlays/ov243/calls/func_ov243_020d4504.c:
     complete
     .text       start:0x020d4504 end:0x020d46cc
 
@@ -104,14 +104,14 @@ src/overlays/ov243/calls/func_ov243_020d46cc.c:
     complete
     .text       start:0x020d46cc end:0x020d4720
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d4720.c:
+src/overlays/ov243/auto/func_ov243_020d4720.c:
     complete
     .text       start:0x020d4720 end:0x020d4748
 
-src/overlays/ov243/asm_stubs/calls/func_ov243_020d4748.c:
+src/overlays/ov243/data/ov243_pointers_020d4748.c:
     complete
-    .text       start:0x020d4748 end:0x020d474a
+    .rodata     start:0x020d4748 end:0x020d4754
 
-src/overlays/ov243/data/ov243_strings_020d476c.c:
+src/overlays/ov243/data/ov243_strings_020d4760.c:
     complete
-    .data       start:0x020d476c end:0x020d4780
+    .data       start:0x020d4760 end:0x020d4780
