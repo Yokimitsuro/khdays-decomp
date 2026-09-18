@@ -36,7 +36,7 @@ src/overlays/ov205/calls/func_ov205_020d3d40.c:
     complete
     .text       start:0x020d3d40 end:0x020d3d8c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d3d8c.c:
+src/overlays/ov205/calls/func_ov205_020d3d8c.c:
     complete
     .text       start:0x020d3d8c end:0x020d3ff4
 
@@ -92,11 +92,11 @@ src/overlays/ov205/calls/func_ov205_020d4960.c:
     complete
     .text       start:0x020d4960 end:0x020d49f4
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d49f4.c:
+src/overlays/ov205/calls/func_ov205_020d49f4.c:
     complete
     .text       start:0x020d49f4 end:0x020d4b6c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d4b6c.c:
+src/overlays/ov205/calls/func_ov205_020d4b6c.c:
     complete
     .text       start:0x020d4b6c end:0x020d4c84
 
@@ -192,19 +192,19 @@ src/overlays/ov205/calls/func_ov205_020d6490.c:
     complete
     .text       start:0x020d6490 end:0x020d6544
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6544.c:
+src/overlays/ov205/calls/func_ov205_020d6544.c:
     complete
     .text       start:0x020d6544 end:0x020d6794
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6794.c:
+src/overlays/ov205/calls/func_ov205_020d6794.c:
     complete
     .text       start:0x020d6794 end:0x020d69e4
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d69e4.c:
+src/overlays/ov205/calls/func_ov205_020d69e4.c:
     complete
     .text       start:0x020d69e4 end:0x020d6c34
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6c34.c:
+src/overlays/ov205/calls/func_ov205_020d6c34.c:
     complete
     .text       start:0x020d6c34 end:0x020d6d20
 
@@ -212,11 +212,11 @@ src/overlays/ov205/calls/func_ov205_020d6d20.c:
     complete
     .text       start:0x020d6d20 end:0x020d6d54
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6d54.c:
+src/overlays/ov205/calls/func_ov205_020d6d54.c:
     complete
     .text       start:0x020d6d54 end:0x020d6f4c
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d6f4c.c:
+src/overlays/ov205/calls/func_ov205_020d6f4c.c:
     complete
     .text       start:0x020d6f4c end:0x020d7204
 

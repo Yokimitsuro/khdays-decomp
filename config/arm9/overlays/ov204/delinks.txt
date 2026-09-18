@@ -36,7 +36,7 @@ src/overlays/ov204/calls/func_ov204_020d0100.c:
     complete
     .text       start:0x020d0100 end:0x020d014c
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d014c.c:
+src/overlays/ov204/calls/func_ov204_020d014c.c:
     complete
     .text       start:0x020d014c end:0x020d03b4
 
@@ -92,11 +92,11 @@ src/overlays/ov204/calls/func_ov204_020d0d20.c:
     complete
     .text       start:0x020d0d20 end:0x020d0db4
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d0db4.c:
+src/overlays/ov204/calls/func_ov204_020d0db4.c:
     complete
     .text       start:0x020d0db4 end:0x020d0f2c
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d0f2c.c:
+src/overlays/ov204/calls/func_ov204_020d0f2c.c:
     complete
     .text       start:0x020d0f2c end:0x020d1044
 
@@ -192,19 +192,19 @@ src/overlays/ov204/calls/func_ov204_020d2850.c:
     complete
     .text       start:0x020d2850 end:0x020d2904
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d2904.c:
+src/overlays/ov204/calls/func_ov204_020d2904.c:
     complete
     .text       start:0x020d2904 end:0x020d2b54
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d2b54.c:
+src/overlays/ov204/calls/func_ov204_020d2b54.c:
     complete
     .text       start:0x020d2b54 end:0x020d2da4
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d2da4.c:
+src/overlays/ov204/calls/func_ov204_020d2da4.c:
     complete
     .text       start:0x020d2da4 end:0x020d2ff4
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d2ff4.c:
+src/overlays/ov204/calls/func_ov204_020d2ff4.c:
     complete
     .text       start:0x020d2ff4 end:0x020d30e0
 
@@ -212,11 +212,11 @@ src/overlays/ov204/calls/func_ov204_020d30e0.c:
     complete
     .text       start:0x020d30e0 end:0x020d3114
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d3114.c:
+src/overlays/ov204/calls/func_ov204_020d3114.c:
     complete
     .text       start:0x020d3114 end:0x020d330c
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d330c.c:
+src/overlays/ov204/calls/func_ov204_020d330c.c:
     complete
     .text       start:0x020d330c end:0x020d35c4
 
