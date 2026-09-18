@@ -240,7 +240,7 @@ src/overlays/ov180/calls/func_ov180_020d6460.c:
     complete
     .text       start:0x020d6460 end:0x020d6498
 
-src/overlays/ov180/asm_stubs/calls/func_ov180_020d6498.c:
+src/overlays/ov180/calls/func_ov180_020d6498.c:
     complete
     .text       start:0x020d6498 end:0x020d655c
 
