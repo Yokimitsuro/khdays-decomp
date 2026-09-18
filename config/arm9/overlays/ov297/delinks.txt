@@ -32,7 +32,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020d3ae8.c:
     complete
     .text       start:0x020d3ae8 end:0x020d3af4
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d3af4.c:
+src/overlays/ov297/calls/func_ov297_020d3af4.c:
     complete
     .text       start:0x020d3af4 end:0x020d3cb4
 
@@ -44,7 +44,7 @@ src/overlays/ov297/calls/func_ov297_020d3d90.c:
     complete
     .text       start:0x020d3d90 end:0x020d3dec
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d3dec.c:
+src/overlays/ov297/calls/func_ov297_020d3dec.c:
     complete
     .text       start:0x020d3dec end:0x020d406c
 
@@ -64,7 +64,7 @@ src/overlays/ov297/calls/func_ov297_020d4240.c:
     complete
     .text       start:0x020d4240 end:0x020d4308
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d4308.c:
+src/overlays/ov297/calls/func_ov297_020d4308.c:
     complete
     .text       start:0x020d4308 end:0x020d441c
 
@@ -72,7 +72,7 @@ src/overlays/ov297/calls/func_ov297_020d441c.c:
     complete
     .text       start:0x020d441c end:0x020d45c0
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d45c0.c:
+src/overlays/ov297/calls/func_ov297_020d45c0.c:
     complete
     .text       start:0x020d45c0 end:0x020d46e4
 
@@ -88,7 +88,7 @@ src/overlays/ov297/calls/func_ov297_020d47b8.c:
     complete
     .text       start:0x020d47b8 end:0x020d480c
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d480c.c:
+src/overlays/ov297/calls/func_ov297_020d480c.c:
     complete
     .text       start:0x020d480c end:0x020d48fc
 
@@ -96,7 +96,7 @@ src/overlays/ov297/calls/func_ov297_020d48fc.c:
     complete
     .text       start:0x020d48fc end:0x020d4964
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d4964.c:
+src/overlays/ov297/calls/func_ov297_020d4964.c:
     complete
     .text       start:0x020d4964 end:0x020d4e00
 
@@ -144,11 +144,11 @@ src/overlays/ov297/calls/func_ov297_020d5354.c:
     complete
     .text       start:0x020d5354 end:0x020d5394
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d5394.c:
+src/overlays/ov297/calls/func_ov297_020d5394.c:
     complete
     .text       start:0x020d5394 end:0x020d5540
 
-src/overlays/ov297/asm_stubs/calls/func_ov297_020d5540.c:
+src/overlays/ov297/calls/func_ov297_020d5540.c:
     complete
     .text       start:0x020d5540 end:0x020d5644
 
