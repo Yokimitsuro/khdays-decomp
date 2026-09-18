@@ -220,11 +220,11 @@ src/overlays/ov172/calls/func_ov172_020d24d4.c:
     complete
     .text       start:0x020d24d4 end:0x020d25dc
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d25dc.c:
+src/overlays/ov172/calls/func_ov172_020d25dc.c:
     complete
     .text       start:0x020d25dc end:0x020d2954
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d2954.c:
+src/overlays/ov172/calls/func_ov172_020d2954.c:
     complete
     .text       start:0x020d2954 end:0x020d2aec
 
