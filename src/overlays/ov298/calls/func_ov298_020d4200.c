@@ -1,0 +1,45 @@
+/* Init of the ov298 enemy's state machine: resets the actor's sub-state (+0x1c6 0, +0x1c7
+ * none), clears bit 0 of the +0x38c part's +8 word, points the +8 position at the actor's +0xb0,
+ * sets bits 1-2 of the +0x60 high byte, clears the +0x94 byte and the four +0x64 slots (-1),
+ * marks +0x95 when the scene's +0x78 world is mode 5, and registers the slot 1/0/2 ticks
+ * (d45a8 / d42f8 / d4484). */
+struct hw60 { unsigned short lo : 8, hi : 8; };
+struct LowByte32 { unsigned bits : 8; };
+
+extern int func_ov002_02072754(int world);
+extern void func_0203c634(int *node, int slot, void *cb);
+extern void func_ov298_020d45a8(int *node);
+extern void func_ov298_020d42f8(int *node);
+extern void func_ov298_020d4484(int *node);
+
+void func_ov298_020d4200(int *node)
+{
+    int *state = (int *)node[1];
+    int i;
+    int scene = *(int *)(*state + 4);
+    unsigned short *hw;
+    unsigned int h;
+
+    *(unsigned char *)(*state + 0x1c6) = 0;
+    *(signed char *)(*state + 0x1c7) = -1;
+    ((struct LowByte32 *)(*(int *)(*state + 0x38c) + 8))->bits &= ~1;
+    state[2] = *state + 0xb0;
+    hw = (unsigned short *)(*state + 0x60);
+    h = *hw;
+    *hw = h & ~0xff00 | (((((unsigned int)h << 0x10) >> 0x18 | 6) << 0x18) >> 0x10);
+    *(unsigned char *)(state + 0x25) = 0;
+    for (i = 0; i < 4; i++) {
+        state[0x19 + i] = -1;
+    }
+    switch (func_ov002_02072754(*(int *)(scene + 0x78))) {
+    case 5:
+        *(signed char *)((char *)state + 0x95) = 0;
+        break;
+    default:
+        *(signed char *)((char *)state + 0x95) = -1;
+        break;
+    }
+    func_0203c634(node, 1, func_ov298_020d45a8);
+    func_0203c634(node, 0, func_ov298_020d42f8);
+    func_0203c634(node, 2, func_ov298_020d4484);
+}

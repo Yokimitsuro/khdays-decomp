@@ -32,11 +32,11 @@ libs/nitro/wm/calls/WM_EndKeySharing_ov298_0x020d3ac0.c:
     complete
     .text       start:0x020d3ac0 end:0x020d3acc
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d3acc.c:
+src/overlays/ov298/calls/func_ov298_020d3acc.c:
     complete
     .text       start:0x020d3acc end:0x020d3bcc
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d3bcc.c:
+src/overlays/ov298/calls/func_ov298_020d3bcc.c:
     complete
     .text       start:0x020d3bcc end:0x020d3ca8
 
@@ -64,11 +64,11 @@ src/overlays/ov298/calls/func_ov298_020d40e4.c:
     complete
     .text       start:0x020d40e4 end:0x020d4124
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4124.c:
+src/overlays/ov298/calls/func_ov298_020d4124.c:
     complete
     .text       start:0x020d4124 end:0x020d4200
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4200.c:
+src/overlays/ov298/calls/func_ov298_020d4200.c:
     complete
     .text       start:0x020d4200 end:0x020d42f8
 
@@ -76,7 +76,7 @@ src/overlays/ov298/calls/func_ov298_020d42f8.c:
     complete
     .text       start:0x020d42f8 end:0x020d4484
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4484.c:
+src/overlays/ov298/calls/func_ov298_020d4484.c:
     complete
     .text       start:0x020d4484 end:0x020d45a8
 
@@ -92,7 +92,7 @@ src/overlays/ov298/calls/func_ov298_020d467c.c:
     complete
     .text       start:0x020d467c end:0x020d46d0
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d46d0.c:
+src/overlays/ov298/calls/func_ov298_020d46d0.c:
     complete
     .text       start:0x020d46d0 end:0x020d47c0
 
@@ -120,7 +120,7 @@ src/overlays/ov298/calls/func_ov298_020d4ea0.c:
     complete
     .text       start:0x020d4ea0 end:0x020d4f28
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4f28.c:
+src/overlays/ov298/calls/func_ov298_020d4f28.c:
     complete
     .text       start:0x020d4f28 end:0x020d5034
 
@@ -128,7 +128,7 @@ src/overlays/ov298/calls/func_ov298_020d5034.c:
     complete
     .text       start:0x020d5034 end:0x020d510c
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d510c.c:
+src/overlays/ov298/calls/func_ov298_020d510c.c:
     complete
     .text       start:0x020d510c end:0x020d51fc
 
@@ -136,7 +136,7 @@ src/overlays/ov298/calls/func_ov298_020d51fc.c:
     complete
     .text       start:0x020d51fc end:0x020d5258
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d5258.c:
+src/overlays/ov298/calls/func_ov298_020d5258.c:
     complete
     .text       start:0x020d5258 end:0x020d53c4
 
