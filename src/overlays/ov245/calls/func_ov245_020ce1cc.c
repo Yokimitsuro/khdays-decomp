@@ -7,7 +7,7 @@
 typedef struct { int x, y, z; } Vec3;
 
 extern void func_01ffa724(int scale, const Vec3 *v, Vec3 *out);
-extern void func_ov245_020cce28(void);
+extern void func_ov245_020cce28(int actor);
 extern void func_ov107_020c9264(int actor, int pose, int flag);
 extern void func_ov107_020c9ee8(int item, int motion, int flag);
 extern int FX_Inv(int num, int den);
@@ -24,7 +24,7 @@ void func_ov245_020ce1cc(int *node) {
     state[0xc] = *(int *)(state[2] + 8);
     owner = *(int *)(*state + 0x434);
     if (*(int *)(owner + 0x39c) == 0) {
-        func_ov245_020cce28();
+        func_ov245_020cce28(*state);
         func_ov107_020c9ee8(*(int *)(*state + 0x4c8), 2, 0);
         state[0xc] = FX_Inv(-state[10], 0xe40f);
         func_0203c634(node, *(signed char *)((char *)node + 0x20), func_ov245_020ce2d4);
