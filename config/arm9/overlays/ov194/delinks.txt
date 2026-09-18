@@ -132,7 +132,7 @@ src/overlays/ov194/asm_stubs/calls/func_ov194_020cdd54.c:
     complete
     .text       start:0x020cdd54 end:0x020cde54
 
-src/overlays/ov194/asm_stubs/calls/func_ov194_020cde54.c:
+src/overlays/ov194/calls/func_ov194_020cde54.c:
     complete
     .text       start:0x020cde54 end:0x020ce1c8
 
