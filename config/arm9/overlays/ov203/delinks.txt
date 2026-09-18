@@ -12,7 +12,7 @@ src/overlays/ov203/calls/func_ov203_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3848
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d3848.c:
+src/overlays/ov203/calls/func_ov203_020d3848.c:
     complete
     .text       start:0x020d3848 end:0x020d3a98
 
@@ -24,11 +24,11 @@ src/overlays/ov203/calls/func_ov203_020d3ae0.c:
     complete
     .text       start:0x020d3ae0 end:0x020d3b04
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d3b04.c:
+src/overlays/ov203/calls/func_ov203_020d3b04.c:
     complete
     .text       start:0x020d3b04 end:0x020d3b78
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d3b78.c:
+src/overlays/ov203/calls/func_ov203_020d3b78.c:
     complete
     .text       start:0x020d3b78 end:0x020d3ccc
 
@@ -100,7 +100,7 @@ src/overlays/ov203/calls/func_ov203_020d4a08.c:
     complete
     .text       start:0x020d4a08 end:0x020d4a68
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d4a68.c:
+src/overlays/ov203/calls/func_ov203_020d4a68.c:
     complete
     .text       start:0x020d4a68 end:0x020d4ad8
 
@@ -144,7 +144,7 @@ src/overlays/ov203/calls/func_ov203_020d5118.c:
     complete
     .text       start:0x020d5118 end:0x020d51e4
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d51e4.c:
+src/overlays/ov203/calls/func_ov203_020d51e4.c:
     complete
     .text       start:0x020d51e4 end:0x020d5678
 
@@ -160,15 +160,15 @@ src/overlays/ov203/asm_stubs/calls/func_ov203_020d5760.c:
     complete
     .text       start:0x020d5760 end:0x020d5840
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d5840.c:
+src/overlays/ov203/calls/func_ov203_020d5840.c:
     complete
     .text       start:0x020d5840 end:0x020d5934
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d5934.c:
+src/overlays/ov203/calls/func_ov203_020d5934.c:
     complete
     .text       start:0x020d5934 end:0x020d5b00
 
-src/overlays/ov203/asm_stubs/calls/func_ov203_020d5b00.c:
+src/overlays/ov203/calls/func_ov203_020d5b00.c:
     complete
     .text       start:0x020d5b00 end:0x020d6240
 

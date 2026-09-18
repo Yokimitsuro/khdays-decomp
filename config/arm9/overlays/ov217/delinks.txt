@@ -20,7 +20,7 @@ src/overlays/ov217/calls/func_ov217_020cfcf0.c:
     complete
     .text       start:0x020cfcf0 end:0x020cfe50
 
-src/overlays/ov217/asm_stubs/calls/func_ov217_020cfe50.c:
+src/overlays/ov217/calls/func_ov217_020cfe50.c:
     complete
     .text       start:0x020cfe50 end:0x020d0218
 
@@ -36,7 +36,7 @@ src/overlays/ov217/calls/func_ov217_020d02a0.c:
     complete
     .text       start:0x020d02a0 end:0x020d02fc
 
-src/overlays/ov217/asm_stubs/calls/func_ov217_020d02fc.c:
+src/overlays/ov217/calls/func_ov217_020d02fc.c:
     complete
     .text       start:0x020d02fc end:0x020d0538
 
@@ -68,7 +68,7 @@ src/overlays/ov217/auto/func_ov217_020d0a64.c:
     complete
     .text       start:0x020d0a64 end:0x020d0a94
 
-src/overlays/ov217/asm_stubs/calls/func_ov217_020d0a94.c:
+src/overlays/ov217/calls/func_ov217_020d0a94.c:
     complete
     .text       start:0x020d0a94 end:0x020d0d38
 
@@ -140,7 +140,7 @@ src/overlays/ov217/asm_stubs/calls/func_ov217_020d177c.c:
     complete
     .text       start:0x020d177c end:0x020d1934
 
-src/overlays/ov217/asm_stubs/calls/func_ov217_020d1934.c:
+src/overlays/ov217/calls/func_ov217_020d1934.c:
     complete
     .text       start:0x020d1934 end:0x020d1a28
 

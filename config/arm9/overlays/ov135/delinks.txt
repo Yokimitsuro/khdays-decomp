@@ -56,7 +56,7 @@ src/overlays/ov135/calls/func_ov135_020d052c.c:
     complete
     .text       start:0x020d052c end:0x020d06d4
 
-src/overlays/ov135/asm_stubs/calls/func_ov135_020d06d4.c:
+src/overlays/ov135/calls/func_ov135_020d06d4.c:
     complete
     .text       start:0x020d06d4 end:0x020d076c
 

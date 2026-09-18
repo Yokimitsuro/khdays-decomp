@@ -12,7 +12,7 @@ src/overlays/ov165/calls/func_ov165_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
-src/overlays/ov165/asm_stubs/calls/func_ov165_020d1a24.c:
+src/overlays/ov165/calls/func_ov165_020d1a24.c:
     complete
     .text       start:0x020d1a24 end:0x020d1c74
 
@@ -28,7 +28,7 @@ src/overlays/ov165/asm_stubs/calls/func_ov165_020d1ce0.c:
     complete
     .text       start:0x020d1ce0 end:0x020d1d6c
 
-src/overlays/ov165/asm_stubs/calls/func_ov165_020d1d6c.c:
+src/overlays/ov165/calls/func_ov165_020d1d6c.c:
     complete
     .text       start:0x020d1d6c end:0x020d1ec0
 
@@ -140,7 +140,7 @@ src/overlays/ov165/calls/func_ov165_020d337c.c:
     complete
     .text       start:0x020d337c end:0x020d3448
 
-src/overlays/ov165/asm_stubs/calls/func_ov165_020d3448.c:
+src/overlays/ov165/calls/func_ov165_020d3448.c:
     complete
     .text       start:0x020d3448 end:0x020d38dc
 
@@ -164,7 +164,7 @@ src/overlays/ov165/asm_stubs/calls/func_ov165_020d3b18.c:
     complete
     .text       start:0x020d3b18 end:0x020d3c28
 
-src/overlays/ov165/asm_stubs/calls/func_ov165_020d3c28.c:
+src/overlays/ov165/calls/func_ov165_020d3c28.c:
     complete
     .text       start:0x020d3c28 end:0x020d3df4
 

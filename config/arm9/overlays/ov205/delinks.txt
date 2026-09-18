@@ -52,7 +52,7 @@ src/overlays/ov205/calls/func_ov205_020d4108.c:
     complete
     .text       start:0x020d4108 end:0x020d42dc
 
-src/overlays/ov205/asm_stubs/calls/func_ov205_020d42dc.c:
+src/overlays/ov205/calls/func_ov205_020d42dc.c:
     complete
     .text       start:0x020d42dc end:0x020d4390
 

@@ -68,7 +68,7 @@ src/overlays/ov220/calls/func_ov220_020d2434.c:
     complete
     .text       start:0x020d2434 end:0x020d2448
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d2448.c:
+src/overlays/ov220/calls/func_ov220_020d2448.c:
     complete
     .text       start:0x020d2448 end:0x020d24f0
 
@@ -200,7 +200,7 @@ src/overlays/ov220/calls/func_ov220_020d3a6c.c:
     complete
     .text       start:0x020d3a6c end:0x020d3aa0
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d3aa0.c:
+src/overlays/ov220/calls/func_ov220_020d3aa0.c:
     complete
     .text       start:0x020d3aa0 end:0x020d3b94
 

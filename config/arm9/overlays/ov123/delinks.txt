@@ -24,7 +24,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc294.c:
     complete
     .text       start:0x020cc294 end:0x020cc2a0
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc2a0.c:
+src/overlays/ov123/calls/func_ov123_020cc2a0.c:
     complete
     .text       start:0x020cc2a0 end:0x020cc33c
 
@@ -44,7 +44,7 @@ src/overlays/ov123/calls/func_ov123_020cc3dc.c:
     complete
     .text       start:0x020cc3dc end:0x020cc420
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc420.c:
+src/overlays/ov123/calls/func_ov123_020cc420.c:
     complete
     .text       start:0x020cc420 end:0x020cc518
 
@@ -64,7 +64,7 @@ src/overlays/ov123/auto/func_ov123_020cc6e8.c:
     complete
     .text       start:0x020cc6e8 end:0x020cc718
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc718.c:
+src/overlays/ov123/calls/func_ov123_020cc718.c:
     complete
     .text       start:0x020cc718 end:0x020cc7e8
 

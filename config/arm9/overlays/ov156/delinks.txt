@@ -24,7 +24,7 @@ src/overlays/ov156/calls/func_ov156_020cc37c.c:
     complete
     .text       start:0x020cc37c end:0x020cc3cc
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020cc3cc.c:
+src/overlays/ov156/calls/func_ov156_020cc3cc.c:
     complete
     .text       start:0x020cc3cc end:0x020cc568
 
@@ -56,7 +56,7 @@ src/overlays/ov156/auto/func_ov156_020cc994.c:
     complete
     .text       start:0x020cc994 end:0x020cc9c4
 
-src/overlays/ov156/asm_stubs/calls/func_ov156_020cc9c4.c:
+src/overlays/ov156/calls/func_ov156_020cc9c4.c:
     complete
     .text       start:0x020cc9c4 end:0x020ccaa8
 
