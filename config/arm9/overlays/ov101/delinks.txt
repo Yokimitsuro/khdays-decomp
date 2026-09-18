@@ -80,7 +80,7 @@ src/overlays/ov101/calls/func_ov101_020bb334.c:
     complete
     .text       start:0x020bb334 end:0x020bb428
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bb428.c:
+src/overlays/ov101/calls/func_ov101_020bb428.c:
     complete
     .text       start:0x020bb428 end:0x020bb628
 
@@ -140,7 +140,7 @@ src/overlays/ov101/calls/func_ov101_020bbc34.c:
     complete
     .text       start:0x020bbc34 end:0x020bbdc4
 
-src/overlays/ov101/asm_stubs/calls/func_ov101_020bbdc4.c:
+src/overlays/ov101/calls/func_ov101_020bbdc4.c:
     complete
     .text       start:0x020bbdc4 end:0x020bbfe0
 

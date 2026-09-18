@@ -60,7 +60,7 @@ src/overlays/ov090/calls/func_ov090_020bb4d0.c:
     complete
     .text       start:0x020bb4d0 end:0x020bb57c
 
-src/overlays/ov090/asm_stubs/calls/func_ov090_020bb57c.c:
+src/overlays/ov090/calls/func_ov090_020bb57c.c:
     complete
     .text       start:0x020bb57c end:0x020bb7ec
 
@@ -72,7 +72,7 @@ src/overlays/ov090/calls/func_ov090_020bb9a0.c:
     complete
     .text       start:0x020bb9a0 end:0x020bbab0
 
-src/overlays/ov090/asm_stubs/calls/func_ov090_020bbab0.c:
+src/overlays/ov090/calls/func_ov090_020bbab0.c:
     complete
     .text       start:0x020bbab0 end:0x020bbcc0
 

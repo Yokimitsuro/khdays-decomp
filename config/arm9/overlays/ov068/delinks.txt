@@ -60,7 +60,7 @@ src/overlays/ov068/calls/func_ov068_020b632c.c:
     complete
     .text       start:0x020b632c end:0x020b63ac
 
-src/overlays/ov068/asm_stubs/calls/func_ov068_020b63ac.c:
+src/overlays/ov068/calls/func_ov068_020b63ac.c:
     complete
     .text       start:0x020b63ac end:0x020b6600
 
