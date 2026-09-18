@@ -12,7 +12,7 @@ src/overlays/ov216/calls/func_ov216_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc8
 
-src/overlays/ov216/asm_stubs/calls/func_ov216_020cbfc8.c:
+src/overlays/ov216/calls/func_ov216_020cbfc8.c:
     complete
     .text       start:0x020cbfc8 end:0x020cc0b0
 
