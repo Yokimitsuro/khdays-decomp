@@ -36,7 +36,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cffc8.c:
     complete
     .text       start:0x020cffc8 end:0x020cffd4
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020cffd4.c:
+src/overlays/ov174/calls/func_ov174_020cffd4.c:
     complete
     .text       start:0x020cffd4 end:0x020d021c
 
@@ -104,7 +104,7 @@ src/overlays/ov174/calls/func_ov174_020d0e40.c:
     complete
     .text       start:0x020d0e40 end:0x020d0ecc
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d0ecc.c:
+src/overlays/ov174/calls/func_ov174_020d0ecc.c:
     complete
     .text       start:0x020d0ecc end:0x020d1230
 
@@ -112,7 +112,7 @@ src/overlays/ov174/calls/func_ov174_020d1230.c:
     complete
     .text       start:0x020d1230 end:0x020d1274
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d1274.c:
+src/overlays/ov174/calls/func_ov174_020d1274.c:
     complete
     .text       start:0x020d1274 end:0x020d1434
 
@@ -128,7 +128,7 @@ src/overlays/ov174/calls/func_ov174_020d1654.c:
     complete
     .text       start:0x020d1654 end:0x020d16c4
 
-src/overlays/ov174/asm_stubs/calls/func_ov174_020d16c4.c:
+src/overlays/ov174/calls/func_ov174_020d16c4.c:
     complete
     .text       start:0x020d16c4 end:0x020d182c
 

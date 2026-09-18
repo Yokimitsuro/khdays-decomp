@@ -36,7 +36,7 @@ src/overlays/ov169/calls/func_ov169_020cc3b0.c:
     complete
     .text       start:0x020cc3b0 end:0x020cc3d8
 
-src/overlays/ov169/asm_stubs/calls/func_ov169_020cc3d8.c:
+src/overlays/ov169/calls/func_ov169_020cc3d8.c:
     complete
     .text       start:0x020cc3d8 end:0x020cc620
 
@@ -104,7 +104,7 @@ src/overlays/ov169/calls/func_ov169_020cd148.c:
     complete
     .text       start:0x020cd148 end:0x020cd1d4
 
-src/overlays/ov169/asm_stubs/calls/func_ov169_020cd1d4.c:
+src/overlays/ov169/calls/func_ov169_020cd1d4.c:
     complete
     .text       start:0x020cd1d4 end:0x020cd554
 

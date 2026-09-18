@@ -104,7 +104,7 @@ src/overlays/ov175/calls/func_ov175_020cd1b0.c:
     complete
     .text       start:0x020cd1b0 end:0x020cd23c
 
-src/overlays/ov175/asm_stubs/calls/func_ov175_020cd23c.c:
+src/overlays/ov175/calls/func_ov175_020cd23c.c:
     complete
     .text       start:0x020cd23c end:0x020cd5bc
 

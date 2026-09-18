@@ -104,7 +104,7 @@ src/overlays/ov172/calls/func_ov172_020d0d60.c:
     complete
     .text       start:0x020d0d60 end:0x020d0dec
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d0dec.c:
+src/overlays/ov172/calls/func_ov172_020d0dec.c:
     complete
     .text       start:0x020d0dec end:0x020d10bc
 
@@ -112,7 +112,7 @@ src/overlays/ov172/calls/func_ov172_020d10bc.c:
     complete
     .text       start:0x020d10bc end:0x020d1100
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d1100.c:
+src/overlays/ov172/calls/func_ov172_020d1100.c:
     complete
     .text       start:0x020d1100 end:0x020d1308
 
@@ -120,7 +120,7 @@ src/overlays/ov172/calls/func_ov172_020d1308.c:
     complete
     .text       start:0x020d1308 end:0x020d1344
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d1344.c:
+src/overlays/ov172/calls/func_ov172_020d1344.c:
     complete
     .text       start:0x020d1344 end:0x020d1528
 
@@ -172,7 +172,7 @@ src/overlays/ov172/calls/func_ov172_020d1d48.c:
     complete
     .text       start:0x020d1d48 end:0x020d1d7c
 
-src/overlays/ov172/asm_stubs/calls/func_ov172_020d1d7c.c:
+src/overlays/ov172/calls/func_ov172_020d1d7c.c:
     complete
     .text       start:0x020d1d7c end:0x020d1ed4
 
