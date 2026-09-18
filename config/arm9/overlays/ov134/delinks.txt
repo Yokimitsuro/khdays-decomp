@@ -116,7 +116,7 @@ src/overlays/ov134/calls/func_ov134_020cd4e8.c:
     complete
     .text       start:0x020cd4e8 end:0x020cd52c
 
-src/overlays/ov134/asm_stubs/calls/func_ov134_020cd52c.c:
+src/overlays/ov134/calls/func_ov134_020cd52c.c:
     complete
     .text       start:0x020cd52c end:0x020cd960
 

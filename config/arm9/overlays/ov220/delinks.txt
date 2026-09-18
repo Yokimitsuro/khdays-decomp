@@ -20,7 +20,7 @@ src/overlays/ov220/calls/func_ov220_020d1c1c.c:
     complete
     .text       start:0x020d1c1c end:0x020d1c5c
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d1c5c.c:
+src/overlays/ov220/calls/func_ov220_020d1c5c.c:
     complete
     .text       start:0x020d1c5c end:0x020d1d04
 
@@ -60,7 +60,7 @@ src/overlays/ov220/asm_stubs/calls/func_ov220_020d21c4.c:
     complete
     .text       start:0x020d21c4 end:0x020d2384
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d2384.c:
+src/overlays/ov220/calls/func_ov220_020d2384.c:
     complete
     .text       start:0x020d2384 end:0x020d2434
 
@@ -104,11 +104,11 @@ src/overlays/ov220/calls/func_ov220_020d2a28.c:
     complete
     .text       start:0x020d2a28 end:0x020d2a64
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d2a64.c:
+src/overlays/ov220/calls/func_ov220_020d2a64.c:
     complete
     .text       start:0x020d2a64 end:0x020d2b08
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d2b08.c:
+src/overlays/ov220/calls/func_ov220_020d2b08.c:
     complete
     .text       start:0x020d2b08 end:0x020d2c0c
 
@@ -120,7 +120,7 @@ src/overlays/ov220/calls/func_ov220_020d2ee8.c:
     complete
     .text       start:0x020d2ee8 end:0x020d2f5c
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d2f5c.c:
+src/overlays/ov220/calls/func_ov220_020d2f5c.c:
     complete
     .text       start:0x020d2f5c end:0x020d2ffc
 
@@ -168,7 +168,7 @@ src/overlays/ov220/asm_stubs/calls/func_ov220_020d3614.c:
     complete
     .text       start:0x020d3614 end:0x020d3704
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d3704.c:
+src/overlays/ov220/calls/func_ov220_020d3704.c:
     complete
     .text       start:0x020d3704 end:0x020d37b4
 
@@ -180,7 +180,7 @@ src/overlays/ov220/calls/func_ov220_020d380c.c:
     complete
     .text       start:0x020d380c end:0x020d38e0
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d38e0.c:
+src/overlays/ov220/calls/func_ov220_020d38e0.c:
     complete
     .text       start:0x020d38e0 end:0x020d3960
 
@@ -192,7 +192,7 @@ src/overlays/ov220/calls/func_ov220_020d3994.c:
     complete
     .text       start:0x020d3994 end:0x020d39c0
 
-src/overlays/ov220/asm_stubs/calls/func_ov220_020d39c0.c:
+src/overlays/ov220/calls/func_ov220_020d39c0.c:
     complete
     .text       start:0x020d39c0 end:0x020d3a6c
 
