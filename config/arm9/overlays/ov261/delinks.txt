@@ -31,7 +31,7 @@ src/overlays/ov261/calls/func_ov261_020cffc0.c:
     complete
     .text       start:0x020cffc0 end:0x020d0020
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0020.c:
+src/overlays/ov261/calls/func_ov261_020d0020.c:
     complete
     .text       start:0x020d0020 end:0x020d00c0
 
@@ -63,11 +63,11 @@ src/overlays/ov261/calls/func_ov261_020d02fc.c:
     complete
     .text       start:0x020d02fc end:0x020d0348
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0348.c:
+src/overlays/ov261/calls/func_ov261_020d0348.c:
     complete
     .text       start:0x020d0348 end:0x020d03ec
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d03ec.c:
+src/overlays/ov261/calls/func_ov261_020d03ec.c:
     complete
     .text       start:0x020d03ec end:0x020d04f0
 
@@ -75,7 +75,7 @@ src/overlays/ov261/asm_stubs/calls/func_ov261_020d04f0.c:
     complete
     .text       start:0x020d04f0 end:0x020d0700
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0700.c:
+src/overlays/ov261/calls/func_ov261_020d0700.c:
     complete
     .text       start:0x020d0700 end:0x020d0818
 
@@ -83,7 +83,7 @@ src/overlays/ov261/calls/func_ov261_020d0818.c:
     complete
     .text       start:0x020d0818 end:0x020d0920
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0920.c:
+src/overlays/ov261/calls/func_ov261_020d0920.c:
     complete
     .text       start:0x020d0920 end:0x020d0a08
 
@@ -119,19 +119,19 @@ src/overlays/ov261/calls/func_ov261_020d0d80.c:
     complete
     .text       start:0x020d0d80 end:0x020d0e4c
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0e4c.c:
+src/overlays/ov261/calls/func_ov261_020d0e4c.c:
     complete
     .text       start:0x020d0e4c end:0x020d0f90
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d0f90.c:
+src/overlays/ov261/calls/func_ov261_020d0f90.c:
     complete
     .text       start:0x020d0f90 end:0x020d110c
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d110c.c:
+src/overlays/ov261/calls/func_ov261_020d110c.c:
     complete
     .text       start:0x020d110c end:0x020d122c
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d122c.c:
+src/overlays/ov261/calls/func_ov261_020d122c.c:
     complete
     .text       start:0x020d122c end:0x020d146c
 
