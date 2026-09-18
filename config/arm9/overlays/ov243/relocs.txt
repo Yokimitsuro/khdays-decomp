@@ -37,6 +37,7 @@ from:0x020d3af8 kind:load to:0x020d3b64 module:overlay(243)
 from:0x020d3afc kind:load to:0x020d3c48 module:overlay(243)
 from:0x020d3b00 kind:load to:0x020d3bdc module:overlay(243)
 from:0x020d3b04 kind:load to:0x020d3bac module:overlay(243)
+from:0x020d3b08 kind:load to:0x020d4748 module:overlay(243)
 from:0x020d3b0c kind:load to:0x020d3844 module:overlay(243)
 from:0x020d3b10 kind:load to:0x020d4778 module:overlay(243)
 from:0x020d3b24 kind:arm_call to:0x0203c7e8 module:main
