@@ -100,11 +100,11 @@ src/overlays/ov298/calls/func_ov298_020d47c0.c:
     complete
     .text       start:0x020d47c0 end:0x020d4834
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4834.c:
+src/overlays/ov298/calls/func_ov298_020d4834.c:
     complete
     .text       start:0x020d4834 end:0x020d4cb0
 
-src/overlays/ov298/asm_stubs/calls/func_ov298_020d4cb0.c:
+src/overlays/ov298/calls/func_ov298_020d4cb0.c:
     complete
     .text       start:0x020d4cb0 end:0x020d4da4
 

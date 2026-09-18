@@ -160,7 +160,7 @@ src/overlays/ov276/calls/func_ov276_020d2194.c:
     complete
     .text       start:0x020d2194 end:0x020d2230
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d2230.c:
+src/overlays/ov276/calls/func_ov276_020d2230.c:
     complete
     .text       start:0x020d2230 end:0x020d2540
 

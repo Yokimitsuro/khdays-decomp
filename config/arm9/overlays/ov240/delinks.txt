@@ -136,7 +136,7 @@ src/overlays/ov240/calls/func_ov240_020cf424.c:
     complete
     .text       start:0x020cf424 end:0x020cf474
 
-src/overlays/ov240/asm_stubs/calls/func_ov240_020cf474.c:
+src/overlays/ov240/calls/func_ov240_020cf474.c:
     complete
     .text       start:0x020cf474 end:0x020cf6e0
 
