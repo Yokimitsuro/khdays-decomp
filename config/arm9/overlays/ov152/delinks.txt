@@ -12,7 +12,7 @@ src/overlays/ov152/calls/func_ov152_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d3844.c:
+src/overlays/ov152/calls/func_ov152_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d3acc
 
@@ -72,7 +72,7 @@ src/overlays/ov152/calls/func_ov152_020d4214.c:
     complete
     .text       start:0x020d4214 end:0x020d4248
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d4248.c:
+src/overlays/ov152/calls/func_ov152_020d4248.c:
     complete
     .text       start:0x020d4248 end:0x020d4444
 
@@ -104,7 +104,7 @@ src/overlays/ov152/calls/func_ov152_020d47a8.c:
     complete
     .text       start:0x020d47a8 end:0x020d4820
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d4820.c:
+src/overlays/ov152/calls/func_ov152_020d4820.c:
     complete
     .text       start:0x020d4820 end:0x020d4904
 
@@ -116,11 +116,11 @@ src/overlays/ov152/calls/func_ov152_020d4998.c:
     complete
     .text       start:0x020d4998 end:0x020d49ec
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d49ec.c:
+src/overlays/ov152/calls/func_ov152_020d49ec.c:
     complete
     .text       start:0x020d49ec end:0x020d4c2c
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d4c2c.c:
+src/overlays/ov152/calls/func_ov152_020d4c2c.c:
     complete
     .text       start:0x020d4c2c end:0x020d5144
 
@@ -184,7 +184,7 @@ src/overlays/ov152/calls/func_ov152_020d5b78.c:
     complete
     .text       start:0x020d5b78 end:0x020d5c4c
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d5c4c.c:
+src/overlays/ov152/calls/func_ov152_020d5c4c.c:
     complete
     .text       start:0x020d5c4c end:0x020d5d70
 
@@ -216,11 +216,11 @@ src/overlays/ov152/calls/func_ov152_020d61b0.c:
     complete
     .text       start:0x020d61b0 end:0x020d6274
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d6274.c:
+src/overlays/ov152/calls/func_ov152_020d6274.c:
     complete
     .text       start:0x020d6274 end:0x020d6310
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d6310.c:
+src/overlays/ov152/calls/func_ov152_020d6310.c:
     complete
     .text       start:0x020d6310 end:0x020d63ac
 
