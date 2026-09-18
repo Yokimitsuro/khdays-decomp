@@ -16,7 +16,7 @@ src/overlays/ov168/calls/func_ov168_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d38a0
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d38a0.c:
+src/overlays/ov168/calls/func_ov168_020d38a0.c:
     complete
     .text       start:0x020d38a0 end:0x020d3bbc
 
@@ -36,7 +36,7 @@ src/overlays/ov168/calls/func_ov168_020d3c30.c:
     complete
     .text       start:0x020d3c30 end:0x020d3c58
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d3c58.c:
+src/overlays/ov168/calls/func_ov168_020d3c58.c:
     complete
     .text       start:0x020d3c58 end:0x020d3e74
 
@@ -52,7 +52,7 @@ src/overlays/ov168/calls/func_ov168_020d3fdc.c:
     complete
     .text       start:0x020d3fdc end:0x020d4038
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d4038.c:
+src/overlays/ov168/calls/func_ov168_020d4038.c:
     complete
     .text       start:0x020d4038 end:0x020d425c
 
@@ -112,7 +112,7 @@ src/overlays/ov168/calls/func_ov168_020d4da4.c:
     complete
     .text       start:0x020d4da4 end:0x020d4de8
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d4de8.c:
+src/overlays/ov168/calls/func_ov168_020d4de8.c:
     complete
     .text       start:0x020d4de8 end:0x020d4fdc
 
@@ -120,7 +120,7 @@ src/overlays/ov168/calls/func_ov168_020d4fdc.c:
     complete
     .text       start:0x020d4fdc end:0x020d5018
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d5018.c:
+src/overlays/ov168/calls/func_ov168_020d5018.c:
     complete
     .text       start:0x020d5018 end:0x020d51e4
 
@@ -128,7 +128,7 @@ src/overlays/ov168/calls/func_ov168_020d51e4.c:
     complete
     .text       start:0x020d51e4 end:0x020d5254
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d5254.c:
+src/overlays/ov168/calls/func_ov168_020d5254.c:
     complete
     .text       start:0x020d5254 end:0x020d53d0
 
@@ -136,7 +136,7 @@ src/overlays/ov168/calls/func_ov168_020d53d0.c:
     complete
     .text       start:0x020d53d0 end:0x020d546c
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d546c.c:
+src/overlays/ov168/calls/func_ov168_020d546c.c:
     complete
     .text       start:0x020d546c end:0x020d5638
 
@@ -216,7 +216,7 @@ src/overlays/ov168/calls/func_ov168_020d5ea4.c:
     complete
     .text       start:0x020d5ea4 end:0x020d5edc
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d5edc.c:
+src/overlays/ov168/calls/func_ov168_020d5edc.c:
     complete
     .text       start:0x020d5edc end:0x020d5fc4
 

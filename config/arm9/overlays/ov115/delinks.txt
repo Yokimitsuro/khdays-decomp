@@ -68,7 +68,7 @@ src/overlays/ov115/calls/func_ov115_020ccddc.c:
     complete
     .text       start:0x020ccddc end:0x020cce38
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020cce38.c:
+src/overlays/ov115/calls/func_ov115_020cce38.c:
     complete
     .text       start:0x020cce38 end:0x020cd058
 
@@ -128,7 +128,7 @@ src/overlays/ov115/calls/func_ov115_020cdbac.c:
     complete
     .text       start:0x020cdbac end:0x020cdbf0
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020cdbf0.c:
+src/overlays/ov115/calls/func_ov115_020cdbf0.c:
     complete
     .text       start:0x020cdbf0 end:0x020cdde4
 
@@ -136,7 +136,7 @@ src/overlays/ov115/calls/func_ov115_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020cde20
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020cde20.c:
+src/overlays/ov115/calls/func_ov115_020cde20.c:
     complete
     .text       start:0x020cde20 end:0x020cdfec
 
