@@ -132,7 +132,7 @@ src/overlays/ov135/calls/func_ov135_020d1618.c:
     complete
     .text       start:0x020d1618 end:0x020d1694
 
-src/overlays/ov135/asm_stubs/calls/func_ov135_020d1694.c:
+src/overlays/ov135/calls/func_ov135_020d1694.c:
     complete
     .text       start:0x020d1694 end:0x020d1974
 

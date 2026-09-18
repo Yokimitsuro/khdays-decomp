@@ -132,7 +132,7 @@ src/overlays/ov270/asm_stubs/calls/func_ov270_020d564c.c:
     complete
     .text       start:0x020d564c end:0x020d5750
 
-src/overlays/ov270/asm_stubs/calls/func_ov270_020d5750.c:
+src/overlays/ov270/calls/func_ov270_020d5750.c:
     complete
     .text       start:0x020d5750 end:0x020d5ac4
 
