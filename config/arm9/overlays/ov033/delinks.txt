@@ -16,7 +16,7 @@ src/overlays/ov033/calls/func_ov033_020b325c.c:
     complete
     .text       start:0x020b325c end:0x020b3270
 
-src/overlays/ov033/asm_stubs/calls/func_ov033_020b3270.c:
+src/overlays/ov033/calls/func_ov033_020b3270.c:
     complete
     .text       start:0x020b3270 end:0x020b34ac
 
@@ -68,7 +68,7 @@ src/overlays/ov033/asm_stubs/calls/func_ov033_020b3e10.c:
     complete
     .text       start:0x020b3e10 end:0x020b4038
 
-src/overlays/ov033/asm_stubs/calls/func_ov033_020b4038.c:
+src/overlays/ov033/calls/func_ov033_020b4038.c:
     complete
     .text       start:0x020b4038 end:0x020b4220
 

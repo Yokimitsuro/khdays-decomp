@@ -16,7 +16,7 @@ src/overlays/ov078/calls/func_ov078_020b813c.c:
     complete
     .text       start:0x020b813c end:0x020b817c
 
-src/overlays/ov078/asm_stubs/calls/func_ov078_020b817c.c:
+src/overlays/ov078/calls/func_ov078_020b817c.c:
     complete
     .text       start:0x020b817c end:0x020b8360
 

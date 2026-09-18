@@ -16,7 +16,7 @@ src/overlays/ov058/calls/func_ov058_020b5a5c.c:
     complete
     .text       start:0x020b5a5c end:0x020b5a9c
 
-src/overlays/ov058/asm_stubs/calls/func_ov058_020b5a9c.c:
+src/overlays/ov058/calls/func_ov058_020b5a9c.c:
     complete
     .text       start:0x020b5a9c end:0x020b5c80
 
