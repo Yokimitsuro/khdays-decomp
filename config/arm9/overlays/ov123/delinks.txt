@@ -12,7 +12,7 @@ src/overlays/ov123/calls/func_ov123_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc4
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cbfc4.c:
+src/overlays/ov123/calls/func_ov123_020cbfc4.c:
     complete
     .text       start:0x020cbfc4 end:0x020cc254
 
@@ -56,7 +56,7 @@ src/overlays/ov123/calls/func_ov123_020cc524.c:
     complete
     .text       start:0x020cc524 end:0x020cc570
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc570.c:
+src/overlays/ov123/calls/func_ov123_020cc570.c:
     complete
     .text       start:0x020cc570 end:0x020cc6e8
 
@@ -72,7 +72,7 @@ src/overlays/ov123/calls/func_ov123_020cc7e8.c:
     complete
     .text       start:0x020cc7e8 end:0x020cc948
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cc948.c:
+src/overlays/ov123/calls/func_ov123_020cc948.c:
     complete
     .text       start:0x020cc948 end:0x020cc9f0
 
@@ -100,7 +100,7 @@ src/overlays/ov123/calls/func_ov123_020ccc2c.c:
     complete
     .text       start:0x020ccc2c end:0x020ccc84
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020ccc84.c:
+src/overlays/ov123/calls/func_ov123_020ccc84.c:
     complete
     .text       start:0x020ccc84 end:0x020cce74
 
@@ -108,7 +108,7 @@ src/overlays/ov123/calls/func_ov123_020cce74.c:
     complete
     .text       start:0x020cce74 end:0x020cceec
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cceec.c:
+src/overlays/ov123/calls/func_ov123_020cceec.c:
     complete
     .text       start:0x020cceec end:0x020cd018
 
@@ -128,7 +128,7 @@ src/overlays/ov123/calls/func_ov123_020cd170.c:
     complete
     .text       start:0x020cd170 end:0x020cd224
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd224.c:
+src/overlays/ov123/calls/func_ov123_020cd224.c:
     complete
     .text       start:0x020cd224 end:0x020cd484
 
@@ -140,7 +140,7 @@ src/overlays/ov123/calls/func_ov123_020cd4cc.c:
     complete
     .text       start:0x020cd4cc end:0x020cd500
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cd500.c:
+src/overlays/ov123/calls/func_ov123_020cd500.c:
     complete
     .text       start:0x020cd500 end:0x020cd6e8
 
@@ -188,7 +188,7 @@ src/overlays/ov123/calls/func_ov123_020cdb38.c:
     complete
     .text       start:0x020cdb38 end:0x020cdbf8
 
-src/overlays/ov123/asm_stubs/calls/func_ov123_020cdbf8.c:
+src/overlays/ov123/calls/func_ov123_020cdbf8.c:
     complete
     .text       start:0x020cdbf8 end:0x020ce298
 
