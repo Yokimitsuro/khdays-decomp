@@ -146,7 +146,7 @@ src/overlays/ov039/asm_stubs/calls/func_ov039_020b4f0c.c:
     complete
     .text       start:0x020b4f0c end:0x020b51b4
 
-src/overlays/ov039/asm_stubs/calls/func_ov039_020b51b4.c:
+src/overlays/ov039/calls/func_ov039_020b51b4.c:
     complete
     .text       start:0x020b51b4 end:0x020b5378
 
