@@ -28,7 +28,7 @@ src/overlays/ov058/auto/func_ov058_020b5d48.c:
     complete
     .text       start:0x020b5d48 end:0x020b5d70
 
-src/overlays/ov058/asm_stubs/calls/func_ov058_020b5d70.c:
+src/overlays/ov058/calls/func_ov058_020b5d70.c:
     complete
     .text       start:0x020b5d70 end:0x020b6088
 
@@ -138,7 +138,7 @@ src/overlays/ov058/calls/func_ov058_020b72e8.c:
     complete
     .text       start:0x020b72e8 end:0x020b7320
 
-src/overlays/ov058/asm_stubs/calls/func_ov058_020b7320.c:
+src/overlays/ov058/calls/func_ov058_020b7320.c:
     complete
     .text       start:0x020b7320 end:0x020b770c
 

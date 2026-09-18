@@ -32,7 +32,7 @@ src/overlays/ov100/calls/func_ov100_020bac24.c:
     complete
     .text       start:0x020bac24 end:0x020bad00
 
-src/overlays/ov100/asm_stubs/calls/func_ov100_020bad00.c:
+src/overlays/ov100/calls/func_ov100_020bad00.c:
     complete
     .text       start:0x020bad00 end:0x020bb08c
 
