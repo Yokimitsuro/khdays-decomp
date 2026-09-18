@@ -12,7 +12,7 @@ src/overlays/ov251/calls/func_ov251_020d37b8.c:
     complete
     .text       start:0x020d37b8 end:0x020d3844
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d3844.c:
+src/overlays/ov251/calls/func_ov251_020d3844.c:
     complete
     .text       start:0x020d3844 end:0x020d3aa4
 
@@ -44,7 +44,7 @@ src/overlays/ov251/calls/func_ov251_020d3d30.c:
     complete
     .text       start:0x020d3d30 end:0x020d3d7c
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d3d7c.c:
+src/overlays/ov251/calls/func_ov251_020d3d7c.c:
     complete
     .text       start:0x020d3d7c end:0x020d3fd4
 
@@ -52,7 +52,7 @@ src/overlays/ov251/auto/func_ov251_020d3fd4.c:
     complete
     .text       start:0x020d3fd4 end:0x020d403c
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d403c.c:
+src/overlays/ov251/calls/func_ov251_020d403c.c:
     complete
     .text       start:0x020d403c end:0x020d4118
 
@@ -84,7 +84,7 @@ src/overlays/ov251/calls/func_ov251_020d45c8.c:
     complete
     .text       start:0x020d45c8 end:0x020d4614
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d4614.c:
+src/overlays/ov251/calls/func_ov251_020d4614.c:
     complete
     .text       start:0x020d4614 end:0x020d4840
 
@@ -152,7 +152,7 @@ src/overlays/ov251/calls/func_ov251_020d5434.c:
     complete
     .text       start:0x020d5434 end:0x020d5488
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d5488.c:
+src/overlays/ov251/calls/func_ov251_020d5488.c:
     complete
     .text       start:0x020d5488 end:0x020d5748
 
@@ -164,7 +164,7 @@ src/overlays/ov251/calls/func_ov251_020d586c.c:
     complete
     .text       start:0x020d586c end:0x020d58b0
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d58b0.c:
+src/overlays/ov251/calls/func_ov251_020d58b0.c:
     complete
     .text       start:0x020d58b0 end:0x020d5c0c
 
@@ -176,7 +176,7 @@ src/overlays/ov251/calls/func_ov251_020d5c78.c:
     complete
     .text       start:0x020d5c78 end:0x020d5d08
 
-src/overlays/ov251/asm_stubs/calls/func_ov251_020d5d08.c:
+src/overlays/ov251/calls/func_ov251_020d5d08.c:
     complete
     .text       start:0x020d5d08 end:0x020d6080
 

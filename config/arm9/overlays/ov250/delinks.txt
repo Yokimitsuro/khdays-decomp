@@ -12,7 +12,7 @@ src/overlays/ov250/calls/func_ov250_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc04
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020cfc04.c:
+src/overlays/ov250/calls/func_ov250_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfe64
 
@@ -44,7 +44,7 @@ src/overlays/ov250/calls/func_ov250_020d00f0.c:
     complete
     .text       start:0x020d00f0 end:0x020d013c
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d013c.c:
+src/overlays/ov250/calls/func_ov250_020d013c.c:
     complete
     .text       start:0x020d013c end:0x020d0394
 
@@ -52,7 +52,7 @@ src/overlays/ov250/auto/func_ov250_020d0394.c:
     complete
     .text       start:0x020d0394 end:0x020d03fc
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d03fc.c:
+src/overlays/ov250/calls/func_ov250_020d03fc.c:
     complete
     .text       start:0x020d03fc end:0x020d04d8
 
@@ -84,7 +84,7 @@ src/overlays/ov250/calls/func_ov250_020d0988.c:
     complete
     .text       start:0x020d0988 end:0x020d09d4
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d09d4.c:
+src/overlays/ov250/calls/func_ov250_020d09d4.c:
     complete
     .text       start:0x020d09d4 end:0x020d0c00
 
@@ -152,7 +152,7 @@ src/overlays/ov250/calls/func_ov250_020d17f4.c:
     complete
     .text       start:0x020d17f4 end:0x020d1848
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d1848.c:
+src/overlays/ov250/calls/func_ov250_020d1848.c:
     complete
     .text       start:0x020d1848 end:0x020d1b08
 
@@ -164,7 +164,7 @@ src/overlays/ov250/calls/func_ov250_020d1c2c.c:
     complete
     .text       start:0x020d1c2c end:0x020d1c70
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d1c70.c:
+src/overlays/ov250/calls/func_ov250_020d1c70.c:
     complete
     .text       start:0x020d1c70 end:0x020d1fcc
 
@@ -176,7 +176,7 @@ src/overlays/ov250/calls/func_ov250_020d2038.c:
     complete
     .text       start:0x020d2038 end:0x020d20c8
 
-src/overlays/ov250/asm_stubs/calls/func_ov250_020d20c8.c:
+src/overlays/ov250/calls/func_ov250_020d20c8.c:
     complete
     .text       start:0x020d20c8 end:0x020d2440
 
