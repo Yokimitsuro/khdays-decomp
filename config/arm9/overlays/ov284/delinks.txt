@@ -32,7 +32,7 @@ src/overlays/ov284/calls/func_ov284_020cc3c4.c:
     complete
     .text       start:0x020cc3c4 end:0x020cc400
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cc400.c:
+src/overlays/ov284/calls/func_ov284_020cc400.c:
     complete
     .text       start:0x020cc400 end:0x020cc53c
 
@@ -64,7 +64,7 @@ src/overlays/ov284/calls/func_ov284_020cc86c.c:
     complete
     .text       start:0x020cc86c end:0x020cc9d8
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cc9d8.c:
+src/overlays/ov284/calls/func_ov284_020cc9d8.c:
     complete
     .text       start:0x020cc9d8 end:0x020cca5c
 
@@ -88,7 +88,7 @@ src/overlays/ov284/calls/func_ov284_020ccba0.c:
     complete
     .text       start:0x020ccba0 end:0x020ccbfc
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020ccbfc.c:
+src/overlays/ov284/calls/func_ov284_020ccbfc.c:
     complete
     .text       start:0x020ccbfc end:0x020ccc9c
 
@@ -96,7 +96,7 @@ src/overlays/ov284/calls/func_ov284_020ccc9c.c:
     complete
     .text       start:0x020ccc9c end:0x020ccd08
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020ccd08.c:
+src/overlays/ov284/calls/func_ov284_020ccd08.c:
     complete
     .text       start:0x020ccd08 end:0x020cd020
 
@@ -104,7 +104,7 @@ src/overlays/ov284/calls/func_ov284_020cd020.c:
     complete
     .text       start:0x020cd020 end:0x020cd080
 
-src/overlays/ov284/asm_stubs/calls/func_ov284_020cd080.c:
+src/overlays/ov284/calls/func_ov284_020cd080.c:
     complete
     .text       start:0x020cd080 end:0x020cd178
 
