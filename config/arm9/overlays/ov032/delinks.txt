@@ -124,11 +124,11 @@ src/overlays/ov032/calls/func_ov032_020b4ebc.c:
     complete
     .text       start:0x020b4ebc end:0x020b4f24
 
-src/overlays/ov032/asm_stubs/calls/func_ov032_020b4f24.c:
+src/overlays/ov032/calls/func_ov032_020b4f24.c:
     complete
     .text       start:0x020b4f24 end:0x020b51a8
 
-src/overlays/ov032/asm_stubs/calls/func_ov032_020b51a8.c:
+src/overlays/ov032/calls/func_ov032_020b51a8.c:
     complete
     .text       start:0x020b51a8 end:0x020b552c
 
