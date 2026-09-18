@@ -84,7 +84,7 @@ src/overlays/ov204/calls/func_ov204_020d0a28.c:
     complete
     .text       start:0x020d0a28 end:0x020d0a84
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d0a84.c:
+src/overlays/ov204/calls/func_ov204_020d0a84.c:
     complete
     .text       start:0x020d0a84 end:0x020d0d20
 
@@ -140,7 +140,7 @@ src/overlays/ov204/calls/func_ov204_020d1518.c:
     complete
     .text       start:0x020d1518 end:0x020d15a4
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d15a4.c:
+src/overlays/ov204/calls/func_ov204_020d15a4.c:
     complete
     .text       start:0x020d15a4 end:0x020d188c
 
@@ -148,7 +148,7 @@ src/overlays/ov204/calls/func_ov204_020d188c.c:
     complete
     .text       start:0x020d188c end:0x020d1930
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d1930.c:
+src/overlays/ov204/calls/func_ov204_020d1930.c:
     complete
     .text       start:0x020d1930 end:0x020d1d54
 
@@ -172,7 +172,7 @@ src/overlays/ov204/asm_stubs/calls/func_ov204_020d1e54.c:
     complete
     .text       start:0x020d1e54 end:0x020d1f14
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d1f14.c:
+src/overlays/ov204/calls/func_ov204_020d1f14.c:
     complete
     .text       start:0x020d1f14 end:0x020d2728
 

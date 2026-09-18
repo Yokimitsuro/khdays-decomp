@@ -1,0 +1,98 @@
+/* Approach decision of the ov204 enemy (and its byte-identical twin). Acquires the +4 target
+ * (none ends the tick), aims the +0x38 yaw at it and measures the flat gap between the +0x24
+ * position and the target beyond both +0x80 radii; within 0x4000 the +8 velocity backs off by
+ * 0x100 along the facing of the +0x34 yaw. While the +0x30 timer runs, a gap inside the +0x2d8
+ * range but at or beyond 0x8000 requests sub-state 4. Otherwise a gap at or beyond 0x6000
+ * requests sub-state 6; else the timer is re-armed at random between the actor's +0x224 and
+ * +0x228, the overlay's probe offset is rotated by the target yaw and a 0..100 roll picks
+ * sub-state 6 (below 40, when the probe finds nothing), 0xb (70 and up) or 7. */
+typedef struct Vec3 { int x, y, z; } Vec3;
+typedef struct { int m[9]; } Mtx33;
+
+extern int func_ov107_020cab14(int actor, int mode);
+extern void VEC_Subtract(void *a, void *b, Vec3 *d);
+extern int func_01ff8d18(Vec3 *v, Vec3 *d);
+extern int func_020050b4(int x, int z);
+extern void func_01ffa724(int scale, Vec3 *v, Vec3 *d);
+extern int func_02023eb4(int range);
+extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
+extern void MTX_MultVec33(Vec3 *v, Mtx33 *m, Vec3 *d);
+extern int func_ov205_020d4390(int *node, Vec3 *at);
+extern void func_0203c634(int *node, int slot, void *cb);
+extern short data_0203d210[];
+extern const Vec3 data_ov205_020d7240;
+
+#define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
+
+static inline int RandRange(int low, int high)
+{
+    int span = high - low;
+    if (span < 0) span = -span;
+    return low + func_02023eb4(span + 1);
+}
+
+void func_ov205_020d46c4(int *node)
+{
+    int *state = (int *)node[1];
+    Vec3 dir;
+    Vec3 facing;
+    Mtx33 mtx;
+    Vec3 probe;
+    int gap;
+    int actor;
+    int target;
+    int roll;
+    unsigned int idx;
+
+    state[1] = func_ov107_020cab14(*state, 0);
+    if (state[1] == 0) {
+        return;
+    }
+    VEC_Subtract((void *)(state[1] + 0x74), (void *)state[9], &dir);
+    dir.y = 0;
+    actor = *state;
+    target = state[1];
+    gap = func_01ff8d18(&dir, &dir) - (*(int *)(target + 0x80) + *(int *)(actor + 0x80));
+    state[0xe] = func_020050b4(dir.x, dir.z);
+    if (gap < 0x4000) {
+        idx = ANG2IDX(state[0xd]);
+        facing.x = data_0203d210[idx * 2];
+        facing.y = 0;
+        facing.z = data_0203d210[idx * 2 + 1];
+        func_01ffa724(-0x100, &facing, (Vec3 *)(state + 2));
+    }
+    if (state[0xc] <= 0) {
+        if (gap < 0x6000) {
+            probe = data_ov205_020d7240;
+            state[0xc] = RandRange(*(int *)(*state + 0x224), *(int *)(*state + 0x228));
+            idx = ANG2IDX(state[0xe]);
+            MTX_RotY33_(&mtx, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);
+            MTX_MultVec33(&probe, &mtx, &probe);
+            roll = RandRange(0, 0x64);
+            if (roll < 0x28 && func_ov205_020d4390(node, &probe) == 0) {
+                *(unsigned char *)(*state + 0x1c7) = 6;
+                func_0203c634(node, *(signed char *)((char *)node + 0x20), 0);
+                return;
+            }
+            if (roll < 0x46) {
+                *(unsigned char *)(*state + 0x1c7) = 7;
+                func_0203c634(node, *(signed char *)((char *)node + 0x20), 0);
+                return;
+            }
+            *(unsigned char *)(*state + 0x1c7) = 0xb;
+            func_0203c634(node, *(signed char *)((char *)node + 0x20), 0);
+            return;
+        }
+        *(unsigned char *)(*state + 0x1c7) = 6;
+        func_0203c634(node, *(signed char *)((char *)node + 0x20), 0);
+        return;
+    }
+    if (gap >= *(int *)(*state + 0x2d8)) {
+        return;
+    }
+    if (gap < 0x8000) {
+        return;
+    }
+    *(unsigned char *)(*state + 0x1c7) = 4;
+    func_0203c634(node, *(signed char *)((char *)node + 0x20), 0);
+}
