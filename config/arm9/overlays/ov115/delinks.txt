@@ -156,7 +156,7 @@ src/overlays/ov115/calls/func_ov115_020ce2e4.c:
     complete
     .text       start:0x020ce2e4 end:0x020ce408
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020ce408.c:
+src/overlays/ov115/calls/func_ov115_020ce408.c:
     complete
     .text       start:0x020ce408 end:0x020ce5dc
 

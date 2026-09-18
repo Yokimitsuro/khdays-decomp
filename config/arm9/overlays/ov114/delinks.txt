@@ -64,7 +64,7 @@ src/overlays/ov114/calls/func_ov114_020cca68.c:
     complete
     .text       start:0x020cca68 end:0x020ccc64
 
-src/overlays/ov114/asm_stubs/calls/func_ov114_020ccc64.c:
+src/overlays/ov114/calls/func_ov114_020ccc64.c:
     complete
     .text       start:0x020ccc64 end:0x020ccd24
 

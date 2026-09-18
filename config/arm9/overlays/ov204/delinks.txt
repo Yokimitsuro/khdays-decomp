@@ -108,7 +108,7 @@ src/overlays/ov204/calls/func_ov204_020d1130.c:
     complete
     .text       start:0x020d1130 end:0x020d1164
 
-src/overlays/ov204/asm_stubs/calls/func_ov204_020d1164.c:
+src/overlays/ov204/calls/func_ov204_020d1164.c:
     complete
     .text       start:0x020d1164 end:0x020d11fc
 

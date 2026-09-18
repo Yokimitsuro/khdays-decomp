@@ -88,7 +88,7 @@ src/overlays/ov276/calls/func_ov276_020d0e28.c:
     complete
     .text       start:0x020d0e28 end:0x020d0fc8
 
-src/overlays/ov276/asm_stubs/calls/func_ov276_020d0fc8.c:
+src/overlays/ov276/calls/func_ov276_020d0fc8.c:
     complete
     .text       start:0x020d0fc8 end:0x020d1160
 

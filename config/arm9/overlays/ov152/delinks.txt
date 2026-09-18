@@ -88,7 +88,7 @@ src/overlays/ov152/calls/func_ov152_020d44e0.c:
     complete
     .text       start:0x020d44e0 end:0x020d4594
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d4594.c:
+src/overlays/ov152/calls/func_ov152_020d4594.c:
     complete
     .text       start:0x020d4594 end:0x020d46b4
 
@@ -208,7 +208,7 @@ src/overlays/ov152/calls/func_ov152_020d601c.c:
     complete
     .text       start:0x020d601c end:0x020d60e4
 
-src/overlays/ov152/asm_stubs/calls/func_ov152_020d60e4.c:
+src/overlays/ov152/calls/func_ov152_020d60e4.c:
     complete
     .text       start:0x020d60e4 end:0x020d61b0
 

@@ -91,7 +91,7 @@ src/overlays/ov262/calls/func_ov262_020d4648.c:
     complete
     .text       start:0x020d4648 end:0x020d4688
 
-src/overlays/ov262/asm_stubs/calls/func_ov262_020d4688.c:
+src/overlays/ov262/calls/func_ov262_020d4688.c:
     complete
     .text       start:0x020d4688 end:0x020d4728
 
