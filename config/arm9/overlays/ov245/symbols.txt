@@ -263,6 +263,7 @@ func_ov245_020d6fb4 kind:function(arm,size=0x34) addr:0x020d6fb4
 func_ov245_020d6fe8 kind:function(arm,size=0xc8) addr:0x020d6fe8
 func_ov245_020d70b0 kind:function(arm,size=0xe4) addr:0x020d70b0
 data_ov245_020d7194 kind:data(any) addr:0x020d7194
+data_ov245_020d7198 kind:data(any) addr:0x020d7198
 data_ov245_020d71a4 kind:data(any) addr:0x020d71a4
 data_ov245_020d71ac kind:data(any) addr:0x020d71ac
 data_ov245_020d71b0 kind:data(any) addr:0x020d71b0
