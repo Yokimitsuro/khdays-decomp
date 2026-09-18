@@ -1,4 +1,4 @@
-/* Next-waypoint step of the ov243 enemy (x3: ov243/242/243): with a +0x398 waypoint table and a
+/* Next-waypoint step of the ov243 enemy (and its byte-identical twins): with a +0x398 waypoint table and a
  * +0x39c count on the actor, the +0x24 index advances modulo the count and +0x1c points at the
  * 20-byte entry; then sub-state 3 is requested and the slot released. The remainder is the
  * high half of func_02020400's 64-bit return; the index is stored and re-read (a local for the

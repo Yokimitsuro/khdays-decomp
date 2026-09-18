@@ -220,7 +220,7 @@ src/overlays/ov167/calls/func_ov167_020d229c.c:
     complete
     .text       start:0x020d229c end:0x020d2384
 
-src/overlays/ov167/asm_stubs/calls/func_ov167_020d2384.c:
+src/overlays/ov167/calls/func_ov167_020d2384.c:
     complete
     .text       start:0x020d2384 end:0x020d2710
 

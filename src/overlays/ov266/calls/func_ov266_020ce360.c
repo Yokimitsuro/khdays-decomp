@@ -8,7 +8,7 @@ extern int VEC_Mag(void *v);
 extern int func_0203b9fc(void *a, int b, short c, int d);
 extern VecFx32 data_02041dc8;
 
-/* Re-probe the world and refresh the cached aim point (x3: ov212/266/267). Sibling
+/* Re-probe the world and refresh the cached aim point (and its byte-identical twins). Sibling
  * of func_ov212_020cc4e0, which probes the same way; this one also keeps the delta
  * from the previous hit and stores its length at owner+0x578. Once the actor is no
  * longer held (obj+0xad), stop: cancel the pending animation, and clear the cached

@@ -1,4 +1,4 @@
-/* Apply a transform message (x3: ov212/266/267). Only message type 5 carries one.
+/* Apply a transform message (and its byte-identical twins). Only message type 5 carries one.
  * The position arrives as three 24-bit BIG-ENDIAN signed values: each is rebuilt by
  * dropping its bytes into the top 3 of a 4-byte scratch word and arithmetic-shifting
  * right by 8, which sign-extends and discards the untouched low byte. Sub-op 0xb sets

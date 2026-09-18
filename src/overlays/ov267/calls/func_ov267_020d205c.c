@@ -5,7 +5,7 @@ extern void func_ov267_020d241c(void);
 
 struct b8 { unsigned f : 8; };
 
-/* Enter/reset this actor's state (x3: ov212/266/267). Clear the give-up byte
+/* Enter/reset this actor's state (and its byte-identical twins). Clear the give-up byte
  * (+0x1c6) and arm the target slot (+0x1c7 = -1 = none), then drop the "active"
  * bit 0 on each of the 3 tracked sub-objects (owner[0x4cc..0x4d4]), point the
  * work pointer at owner+0xb0, raise flags 6 in the hi byte of the hw60 word, and

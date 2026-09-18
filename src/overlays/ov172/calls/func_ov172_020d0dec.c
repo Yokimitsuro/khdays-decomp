@@ -1,4 +1,4 @@
-/* Orbit tick of the ov171 enemy (x3: ov171/167/168), variant of the matched ov178 sibling:
+/* Orbit tick of the ov171 enemy (and its byte-identical twins), variant of the matched ov178 sibling:
  * acquires the target (+0xc) -- none returns at once; beyond the +0x2d8 range the +0x20 velocity
  * is zeroed, otherwise it circles the target sideways (cross product of up and the direction,
  * scaled by the +0x4c/+0x60 speed product), bobs in height on a sine of the +0x50 phase over the

@@ -1,5 +1,5 @@
 /*
- * Hit handler of the ov134 enemy (x3: ov134/195/196), the func_ov181_020cc44c shape. A hit is
+ * Hit handler of the ov134 enemy (and its byte-identical twins), the func_ov181_020cc44c shape. A hit is
  * refused once the stagger timer (+0x21a) has run out. Sub-states 6/7/0xf publish 0/1/2 into
  * the event's mode field; the ov107 charge decides the damage; flag 0x4000 copies the hit point
  * into +0x24, sets the result's low half and goes to sub-state 5. The damage drains the stagger

@@ -1,5 +1,5 @@
 /* func_ov173_020cc394: spawn-message handler of the ov173 enemy (x2), variant of the matched ov166 sibling: subs 2/4 start entry 2 from the transform (two separate bodies, laid out 3-4-2-5), sub 3 fixes entries 6 and 4 to the +0x38c/+0x390 placements, sub 5 starts entry 0, and sub 8 registers effect 0x141 (modes 4/5; kind 2 is an empty case). */
-/* Message handler of the ov173 enemy (x3: ov173/167/168). A "spawned" message (kind 5) carries
+/* Message handler of the ov173 enemy (and its byte-identical twins). A "spawned" message (kind 5) carries
  * a packed 24-bit position in bytes 5..13 which becomes the translation of a fresh transform;
  * the sub-kind then attaches the effect models of the +0x39c set: sub 0 fixes entry 0 to the
  * +0x390 item's +4 placement (mode 7), subs 1 and 2 start entries 4 and 2 from the transform;

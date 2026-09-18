@@ -1,4 +1,4 @@
-/* "Is the target outside the facing cone?" (x3: ov212/266/267). With no target,
+/* "Is the target outside the facing cone?" (and its byte-identical twins). With no target,
  * answer no. Otherwise take the heading from the anchor (ctx[2]) to the target
  * (target+0x190) FLATTENED to the XZ plane, turn it into a Q12-radian angle, and
  * compare it against the stored heading (ctx+0x34): convert both to sin/cos table

@@ -1,4 +1,4 @@
-/* Enter the wind-up/telegraph state (x3: ov212/266/267). Raise flags 0x46 on the
+/* Enter the wind-up/telegraph state (and its byte-identical twins). Raise flags 0x46 on the
  * hw60 hi byte and flag 1 on the owner's +0x1ae word, release the 3 tracked
  * sub-objects, spawn the telegraph effect at the owner's cached point (+0x508),
  * kick the 0x49 animation, reset the phase timer and advance state.

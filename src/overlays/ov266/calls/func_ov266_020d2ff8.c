@@ -1,4 +1,4 @@
-/* Enter the aim/track state (x3: ov212/266/267). Clear the phase counter (ctx+0x20),
+/* Enter the aim/track state (and its byte-identical twins). Clear the phase counter (ctx+0x20),
  * raise bit 0 of the hw60 hi byte, then seed the current point (ctx+0x34) and all 3
  * history slots (ctx+0x40..) from the live anchor at ctx[1], kick the tracker and
  * advance state.

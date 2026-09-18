@@ -1,4 +1,4 @@
-/* Lock on and start a lunge (x3: ov212/266/267). Pick the current target; with none,
+/* Lock on and start a lunge (and its byte-identical twins). Pick the current target; with none,
  * do nothing. Otherwise take the direction from the owner (owner+0xb0) to the target
  * (target+0x190), normalise it -- func_01ff8d18 writes the unit vector back and
  * returns the distance -- and cache that distance at +0x28, capped at 0x9000. Mark the

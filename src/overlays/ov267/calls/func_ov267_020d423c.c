@@ -1,4 +1,4 @@
-/* Enter the recovery/stagger state (x3: ov212/266/267). Drop bit 0 of the hw60 hi byte,
+/* Enter the recovery/stagger state (and its byte-identical twins). Drop bit 0 of the hw60 hi byte,
  * raise flags 3 on the owner's +0x1ae word, then raise flags 0x86 on that same hw60 hi
  * byte, release the 3 tracked sub-objects, kick the 0x4d animation and advance state.
  *

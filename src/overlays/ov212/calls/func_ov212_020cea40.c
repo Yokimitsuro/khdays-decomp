@@ -1,4 +1,4 @@
-/* Roll the next attack and commit to it (x3: ov212/266/267) -- the callback armed by
+/* Roll the next attack and commit to it (and its byte-identical twins) -- the callback armed by
  * Ov212_ReleaseSubObjectsAndAdvance. Bail unless bit 0 of the hw60 lo byte is set.
  * Otherwise latch the owner's cached angle (+0x584) into both the current and target
  * slots, clear the two counters, and pick the wind-up delay uniformly from the

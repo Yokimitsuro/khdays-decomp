@@ -220,7 +220,7 @@ src/overlays/ov168/calls/func_ov168_020d5edc.c:
     complete
     .text       start:0x020d5edc end:0x020d5fc4
 
-src/overlays/ov168/asm_stubs/calls/func_ov168_020d5fc4.c:
+src/overlays/ov168/calls/func_ov168_020d5fc4.c:
     complete
     .text       start:0x020d5fc4 end:0x020d6350
 

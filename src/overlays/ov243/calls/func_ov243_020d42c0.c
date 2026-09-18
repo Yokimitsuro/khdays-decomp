@@ -1,4 +1,4 @@
-/* Waypoint arrival of the ov243 enemy (x3: ov243/242/243): reads the current 20-byte waypoint
+/* Waypoint arrival of the ov243 enemy (and its byte-identical twins): reads the current 20-byte waypoint
  * (+0x398 table, +0x24 index) -- its +0xc dwell time goes to +0x2c; with luck under the
  * waypoint's +0x10 chance (a 0..99 roll) the actor plays pose 3 and the wait handler 020d08ec
  * takes over; otherwise a dwell of at most 0x100 advances straight to the next waypoint

@@ -1,4 +1,4 @@
-/* Enter the recovery-and-retreat state (x3: ov212/266/267). Raise flags 0x82 on the
+/* Enter the recovery-and-retreat state (and its byte-identical twins). Raise flags 0x82 on the
  * hw60 hi byte, then drop flags 0xc on that SAME byte, raise flag 1 on the owner's
  * +0x1ae word, release the 3 tracked sub-objects, spawn effect 7 at the anchor point
  * (ctx[2]), reset the phase timer and chain to the wind-up wait (020cec2c).

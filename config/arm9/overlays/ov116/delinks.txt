@@ -36,7 +36,7 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cffcc.c:
     complete
     .text       start:0x020cffcc end:0x020cffd8
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020cffd8.c:
+src/overlays/ov116/calls/func_ov116_020cffd8.c:
     complete
     .text       start:0x020cffd8 end:0x020d02ac
 
@@ -44,7 +44,7 @@ src/overlays/ov116/calls/func_ov116_020d02ac.c:
     complete
     .text       start:0x020d02ac end:0x020d02dc
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020d02dc.c:
+src/overlays/ov116/calls/func_ov116_020d02dc.c:
     complete
     .text       start:0x020d02dc end:0x020d0478
 
@@ -144,7 +144,7 @@ src/overlays/ov116/calls/func_ov116_020d1c2c.c:
     complete
     .text       start:0x020d1c2c end:0x020d1c9c
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020d1c9c.c:
+src/overlays/ov116/calls/func_ov116_020d1c9c.c:
     complete
     .text       start:0x020d1c9c end:0x020d1e4c
 

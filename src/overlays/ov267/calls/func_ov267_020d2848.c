@@ -7,7 +7,7 @@ extern void func_ov107_020c5af8(int a, int b, int c, void *d);
 extern void func_0203c634(void *self, int idx, void *cb);
 extern void func_ov267_020d2920(void);
 
-/* Wind-up wait, then fire the effect (x3: ov212/266/267). Accumulate dt into the
+/* Wind-up wait, then fire the effect (and its byte-identical twins). Accumulate dt into the
  * phase timer (ctx1+0x40) and bail until it reaches 3400. Then take the fixed
  * local offset {0, 10650, 6327}, rotate it by the owner's orientation matrix
  * (owner+0xa0) and add the anchor point (ctx1[2]) to get a world position; spawn

@@ -1,4 +1,4 @@
-/* Reset the actor's per-frame pose cache (x3: ov212/266/267). For each of the 16
+/* Reset the actor's per-frame pose cache (and its byte-identical twins). For each of the 16
  * tracked bones: clear bit 1 of its flags word and reset its matrix slot to the
  * owner's identity/base matrix at +0xa0. Then seed the aim point from the current
  * target (+0x5a8 -> +0x190), zero the timers at +0x57c / +0x5b0 / +0x5d8, latch

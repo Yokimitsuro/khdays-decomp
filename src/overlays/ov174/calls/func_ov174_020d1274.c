@@ -1,5 +1,5 @@
 /* func_ov174_020d1274: hover-bob tick of the ov173 enemy (x2), variant of the matched ov166 sibling (0x480 pull, period rand(0x15)+0x14, height 0x1800, bob by the sign of the sine). */
-/* Hover-bob tick of the ov173 enemy (x3: ov173/167/168), the func_ov178_020cd6e0 shape:
+/* Hover-bob tick of the ov173 enemy (and its byte-identical twins), the func_ov178_020cd6e0 shape:
  * acquires a target (+0xc; none requests sub-state 2), steps 0x300 along the direction from
  * 020cca08 into +0x20 and zeroes the +0x24 climb; the +0x50 bob phase advances by 30 x dt and
  * wraps against the +0x54 period (re-rolled as 0x78 + 0..1). The wanted height is the target's

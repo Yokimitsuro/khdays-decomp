@@ -1,4 +1,4 @@
-/* Release the sub-objects and hand off (x3: ov212/266/267). Raise flags 0x86 on the
+/* Release the sub-objects and hand off (and its byte-identical twins). Raise flags 0x86 on the
  * hw60 hi byte, then for each of the 3 tracked sub-objects clear the active bit 0 and
  * raise bit 1, and advance state.
  *

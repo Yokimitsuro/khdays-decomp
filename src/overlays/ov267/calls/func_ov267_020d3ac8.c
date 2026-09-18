@@ -1,4 +1,4 @@
-/* Fire the twin projectiles once the wind-up completes (x3: ov212/266/267).
+/* Fire the twin projectiles once the wind-up completes (and its byte-identical twins).
  * Accumulate dt into the phase timer (ctx+0x40); once it reaches 0x1c28 and the
  * one-shot byte at ctx+0x5a is still clear, convert the cached heading (ctx+0x34,
  * Q12 radians) to a table index and build the unit direction {sin, 0, cos}. Launch
