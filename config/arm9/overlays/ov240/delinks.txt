@@ -104,7 +104,7 @@ src/overlays/ov240/calls/func_ov240_020cee7c.c:
     complete
     .text       start:0x020cee7c end:0x020ceee0
 
-src/overlays/ov240/asm_stubs/calls/func_ov240_020ceee0.c:
+src/overlays/ov240/calls/func_ov240_020ceee0.c:
     complete
     .text       start:0x020ceee0 end:0x020cf004
 
