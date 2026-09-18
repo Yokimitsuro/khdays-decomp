@@ -12,7 +12,7 @@ src/overlays/ov157/calls/func_ov157_020cdd58.c:
     complete
     .text       start:0x020cdd58 end:0x020cdde4
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020cdde4.c:
+src/overlays/ov157/calls/func_ov157_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020ce154
 
@@ -200,7 +200,7 @@ src/overlays/ov157/calls/func_ov157_020d0318.c:
     complete
     .text       start:0x020d0318 end:0x020d03f4
 
-src/overlays/ov157/asm_stubs/calls/func_ov157_020d03f4.c:
+src/overlays/ov157/calls/func_ov157_020d03f4.c:
     complete
     .text       start:0x020d03f4 end:0x020d0b94
 
