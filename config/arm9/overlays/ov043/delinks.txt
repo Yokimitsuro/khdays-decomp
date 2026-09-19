@@ -24,6 +24,10 @@ src/overlays/ov043/calls/func_ov043_020b351c.c:
     complete
     .text       start:0x020b351c end:0x020b3544
 
+src/overlays/ov043/calls/func_ov043_020b3628.c:
+    complete
+    .text       start:0x020b3628 end:0x020b36cc
+
 src/overlays/ov043/calls/func_ov043_020b37a4.c:
     complete
     .text       start:0x020b37a4 end:0x020b37dc
@@ -35,6 +39,10 @@ src/overlays/ov043/calls/func_ov043_020b37dc.c:
 src/overlays/ov043/calls/func_ov043_020b3810.c:
     complete
     .text       start:0x020b3810 end:0x020b3828
+
+src/overlays/ov043/calls/func_ov043_020b3a18.c:
+    complete
+    .text       start:0x020b3a18 end:0x020b3ad0
 
 src/overlays/ov043/calls/func_ov043_020b3ad0.c:
     complete
@@ -48,6 +56,18 @@ src/overlays/ov043/calls/func_ov043_020b3b24.c:
     complete
     .text       start:0x020b3b24 end:0x020b3b4c
 
+src/overlays/ov043/calls/func_ov043_020b3c98.c:
+    complete
+    .text       start:0x020b3c98 end:0x020b3d50
+
+src/overlays/ov043/calls/func_ov043_020b3d50.c:
+    complete
+    .text       start:0x020b3d50 end:0x020b3e24
+
+src/overlays/ov043/calls/func_ov043_020b4734.c:
+    complete
+    .text       start:0x020b4734 end:0x020b47fc
+
 src/overlays/ov043/calls/func_ov043_020b47fc.c:
     complete
     .text       start:0x020b47fc end:0x020b4860
@@ -55,6 +75,10 @@ src/overlays/ov043/calls/func_ov043_020b47fc.c:
 src/overlays/ov043/calls/func_ov043_020b4860.c:
     complete
     .text       start:0x020b4860 end:0x020b4898
+
+src/overlays/ov043/calls/func_ov043_020b4a68.c:
+    complete
+    .text       start:0x020b4a68 end:0x020b4b20
 
 src/overlays/ov043/calls/func_ov043_020b4b20.c:
     complete
@@ -68,6 +92,10 @@ src/overlays/ov043/calls/func_ov043_020b4b60.c:
     complete
     .text       start:0x020b4b60 end:0x020b4bd8
 
+src/overlays/ov043/calls/func_ov043_020b4ef0.c:
+    complete
+    .text       start:0x020b4ef0 end:0x020b4fb8
+
 src/overlays/ov043/calls/func_ov043_020b50ac.c:
     complete
     .text       start:0x020b50ac end:0x020b50f8
@@ -75,6 +103,10 @@ src/overlays/ov043/calls/func_ov043_020b50ac.c:
 src/overlays/ov043/calls/func_ov043_020b50f8.c:
     complete
     .text       start:0x020b50f8 end:0x020b5120
+
+src/overlays/ov043/calls/func_ov043_020b51ec.c:
+    complete
+    .text       start:0x020b51ec end:0x020b5274
 
 src/overlays/ov043/calls/func_ov043_020b5274.c:
     complete
