@@ -302,11 +302,11 @@ SDK/library identifications are tracked separately; see
 | DONE ov296 | 14 | 0 | 0 | 0 | 14 | 100.0% |
 | DONE ov297 | 39 | 0 | 0 | 0 | 39 | 100.0% |
 | DONE ov298 | 37 | 0 | 0 | 0 | 37 | 100.0% |
-| PART ov299 | 30 | 1 | 0 | 0 | 31 | 96.8% |
+| DONE ov299 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **21553** | **139** | **41** | **1502** | **23235** | **92.8%** |
+| **TOTAL** | **21554** | **138** | **41** | **1502** | **23235** | **92.8%** |
 
 ## Byte progress
 
@@ -318,4 +318,4 @@ SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **3,952,060** | **4,728,788** | **83.57%** |
+| **3,952,344** | **4,728,788** | **83.58%** |
