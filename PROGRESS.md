@@ -239,7 +239,7 @@ SDK/library identifications are tracked separately; see
 | PART ov233 | 68 | 0 | 0 | 13 | 81 | 84.0% |
 | DONE ov234 | 21 | 0 | 0 | 0 | 21 | 100.0% |
 | PART ov235 | 36 | 0 | 1 | 60 | 97 | 37.1% |
-| PART ov236 | 122 | 0 | 0 | 31 | 153 | 79.7% |
+| PART ov236 | 133 | 0 | 0 | 20 | 153 | 86.9% |
 | PART ov237 | 46 | 0 | 1 | 39 | 86 | 53.5% |
 | PART ov238 | 37 | 0 | 1 | 34 | 72 | 51.4% |
 | PART ov239 | 41 | 1 | 0 | 0 | 42 | 97.6% |
@@ -247,7 +247,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov241 | 26 | 0 | 0 | 0 | 26 | 100.0% |
 | DONE ov242 | 26 | 0 | 0 | 0 | 26 | 100.0% |
 | DONE ov243 | 26 | 0 | 0 | 0 | 26 | 100.0% |
-| PART ov244 | 92 | 0 | 0 | 51 | 143 | 64.3% |
+| PART ov244 | 123 | 0 | 0 | 20 | 143 | 86.0% |
 | PART ov245 | 248 | 0 | 0 | 16 | 264 | 93.9% |
 | PART ov246 | 49 | 0 | 0 | 15 | 64 | 76.6% |
 | PART ov247 | 49 | 0 | 0 | 15 | 64 | 76.6% |
@@ -280,8 +280,8 @@ SDK/library identifications are tracked separately; see
 | PART ov274 | 48 | 0 | 0 | 15 | 63 | 76.2% |
 | PART ov275 | 48 | 0 | 0 | 15 | 63 | 76.2% |
 | PART ov276 | 49 | 1 | 0 | 0 | 50 | 98.0% |
-| PART ov277 | 92 | 0 | 0 | 51 | 143 | 64.3% |
-| PART ov278 | 121 | 0 | 0 | 32 | 153 | 79.1% |
+| PART ov277 | 122 | 0 | 0 | 21 | 143 | 85.3% |
+| PART ov278 | 132 | 0 | 0 | 21 | 153 | 86.3% |
 | PART ov279 | 34 | 0 | 0 | 22 | 56 | 60.7% |
 | PART ov280 | 54 | 0 | 0 | 11 | 65 | 83.1% |
 | DONE ov281 | 48 | 0 | 0 | 0 | 48 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **21016** | **152** | **50** | **2017** | **23235** | **90.4%** |
+| **TOTAL** | **21099** | **152** | **50** | **1934** | **23235** | **90.8%** |
 
 ## Byte progress
 
@@ -318,4 +318,4 @@ SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **3,726,052** | **4,728,788** | **78.80%** |
+| **3,747,100** | **4,728,788** | **79.24%** |
