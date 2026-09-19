@@ -172,6 +172,10 @@ src/overlays/ov206/calls/func_ov206_020ce854.c:
     complete
     .text       start:0x020ce854 end:0x020ce898
 
+src/overlays/ov206/calls/func_ov206_020ce898.c:
+    complete
+    .text       start:0x020ce898 end:0x020cedbc
+
 src/overlays/ov206/calls/func_ov206_020cedbc.c:
     complete
     .text       start:0x020cedbc end:0x020cee10
