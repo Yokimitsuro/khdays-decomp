@@ -119,6 +119,7 @@ func_ov266_020d3d58 kind:function(arm,size=0x38) addr:0x020d3d58
 func_ov266_020d3d90 kind:function(arm,size=0x18c) addr:0x020d3d90
 data_ov266_020d3f20 kind:data(any) addr:0x020d3f20
 data_ov266_020d3f48 kind:data(any) addr:0x020d3f48
+data_ov266_020d3f4c kind:data(any) addr:0x020d3f4c
 data_ov266_020d3f60 kind:data(any) addr:0x020d3f60
 data_ov266_020d3f6c kind:data(any) addr:0x020d3f6c
 data_ov266_020d3f7c kind:data(any) addr:0x020d3f7c
