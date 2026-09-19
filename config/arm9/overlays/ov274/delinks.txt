@@ -160,6 +160,10 @@ src/overlays/ov274/calls/func_ov274_020d2000.c:
     complete
     .text       start:0x020d2000 end:0x020d20b4
 
+src/overlays/ov274/calls/func_ov274_020d20b4.c:
+    complete
+    .text       start:0x020d20b4 end:0x020d2464
+
 src/overlays/ov274/calls/func_ov274_020d2464.c:
     complete
     .text       start:0x020d2464 end:0x020d2498
