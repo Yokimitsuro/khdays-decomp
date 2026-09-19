@@ -48,6 +48,10 @@ src/overlays/ov244/calls/func_ov244_020cd258.c:
     complete
     .text       start:0x020cd258 end:0x020cd300
 
+src/overlays/ov244/calls/func_ov244_020cd300.c:
+    complete
+    .text       start:0x020cd300 end:0x020cd3f0
+
 src/overlays/ov244/calls/func_ov244_020cd3f0.c:
     complete
     .text       start:0x020cd3f0 end:0x020cd438
@@ -63,6 +67,10 @@ src/overlays/ov244/calls/func_ov244_020cd64c.c:
 src/overlays/ov244/calls/func_ov244_020cd68c.c:
     complete
     .text       start:0x020cd68c end:0x020cd6c4
+
+src/overlays/ov244/calls/func_ov244_020cd6c4.c:
+    complete
+    .text       start:0x020cd6c4 end:0x020cd7ac
 
 src/overlays/ov244/auto/func_ov244_020cd7ac.c:
     complete
@@ -176,6 +184,10 @@ src/overlays/ov244/calls/func_ov244_020cf490.c:
     complete
     .text       start:0x020cf490 end:0x020cf538
 
+src/overlays/ov244/calls/func_ov244_020cf538.c:
+    complete
+    .text       start:0x020cf538 end:0x020cf620
+
 src/overlays/ov244/auto/func_ov244_020cf620.c:
     complete
     .text       start:0x020cf620 end:0x020cf638
@@ -279,6 +291,10 @@ src/overlays/ov244/calls/func_ov244_020d0e3c.c:
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d0e7c.c:
     complete
     .text       start:0x020d0e7c end:0x020d0e88
+
+src/overlays/ov244/calls/func_ov244_020d0e88.c:
+    complete
+    .text       start:0x020d0e88 end:0x020d0f70
 
 src/overlays/ov244/calls/func_ov244_020d0f70.c:
     complete
