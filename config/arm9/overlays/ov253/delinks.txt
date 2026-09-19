@@ -12,6 +12,10 @@ src/overlays/ov253/calls/func_ov253_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc8
 
+src/overlays/ov253/calls/func_ov253_020cbfc8.c:
+    complete
+    .text       start:0x020cbfc8 end:0x020cc090
+
 src/overlays/ov253/calls/func_ov253_020cc9fc.c:
     complete
     .text       start:0x020cc9fc end:0x020cca7c
@@ -32,6 +36,10 @@ src/overlays/ov253/auto/func_ov253_020ccba8.c:
     complete
     .text       start:0x020ccba8 end:0x020ccc1c
 
+src/overlays/ov253/calls/func_ov253_020ccc1c.c:
+    complete
+    .text       start:0x020ccc1c end:0x020cccf4
+
 src/calls/WM_EndKeySharing_0x020cccf4.c:
     complete
     .text       start:0x020cccf4 end:0x020ccd00
@@ -51,6 +59,10 @@ src/overlays/ov253/calls/func_ov253_020ccef4.c:
 src/overlays/ov253/calls/func_ov253_020cd5a8.c:
     complete
     .text       start:0x020cd5a8 end:0x020cd638
+
+src/overlays/ov253/calls/func_ov253_020cd638.c:
+    complete
+    .text       start:0x020cd638 end:0x020cd704
 
 src/overlays/ov253/calls/func_ov253_020cd704.c:
     complete
@@ -176,6 +188,10 @@ src/overlays/ov253/calls/func_ov253_020cfc60.c:
     complete
     .text       start:0x020cfc60 end:0x020cfd20
 
+src/overlays/ov253/calls/func_ov253_020d0344.c:
+    complete
+    .text       start:0x020d0344 end:0x020d0410
+
 src/overlays/ov253/calls/func_ov253_020d0410.c:
     complete
     .text       start:0x020d0410 end:0x020d0470
@@ -219,6 +235,10 @@ src/overlays/ov253/calls/func_ov253_020d09a8.c:
 src/overlays/ov253/calls/func_ov253_020d0a04.c:
     complete
     .text       start:0x020d0a04 end:0x020d0ab8
+
+src/overlays/ov253/calls/func_ov253_020d0ab8.c:
+    complete
+    .text       start:0x020d0ab8 end:0x020d0b88
 
 src/overlays/ov253/calls/func_ov253_020d0b88.c:
     complete
@@ -303,6 +323,10 @@ src/overlays/ov253/calls/func_ov253_020d23d8.c:
 src/overlays/ov253/auto/func_ov253_020d2474.c:
     complete
     .text       start:0x020d2474 end:0x020d24f8
+
+src/overlays/ov253/calls/func_ov253_020d25e4.c:
+    complete
+    .text       start:0x020d25e4 end:0x020d26a8
 
 src/overlays/ov253/calls/func_ov253_020d26a8.c:
     complete
