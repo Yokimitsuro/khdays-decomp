@@ -128,6 +128,10 @@ src/overlays/ov266/calls/func_ov266_020d0308.c:
     complete
     .text       start:0x020d0308 end:0x020d05fc
 
+src/overlays/ov266/calls/func_ov266_020d05fc.c:
+    complete
+    .text       start:0x020d05fc end:0x020d0794
+
 src/overlays/ov266/calls/func_ov266_020d0794.c:
     complete
     .text       start:0x020d0794 end:0x020d083c
@@ -324,6 +328,10 @@ src/overlays/ov266/calls/func_ov266_020d2d1c.c:
     complete
     .text       start:0x020d2d1c end:0x020d2db0
 
+src/overlays/ov266/calls/func_ov266_020d2db0.c:
+    complete
+    .text       start:0x020d2db0 end:0x020d2f60
+
 src/overlays/ov266/calls/func_ov266_020d2f60.c:
     complete
     .text       start:0x020d2f60 end:0x020d2ff4
@@ -427,6 +435,10 @@ src/overlays/ov266/calls/func_ov266_020d3ce8.c:
 src/overlays/ov266/calls/func_ov266_020d3d58.c:
     complete
     .text       start:0x020d3d58 end:0x020d3d90
+
+src/overlays/ov266/calls/func_ov266_020d3d90.c:
+    complete
+    .text       start:0x020d3d90 end:0x020d3f1c
 
 src/overlays/ov266/data/ov266_strings_020d3f60.c:
     complete
