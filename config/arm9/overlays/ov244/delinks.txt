@@ -20,6 +20,18 @@ src/overlays/ov244/calls/func_ov244_020cc794.c:
     complete
     .text       start:0x020cc794 end:0x020cc7b0
 
+src/overlays/ov244/calls/func_ov244_020ccc70.c:
+    complete
+    .text       start:0x020ccc70 end:0x020cccec
+
+src/overlays/ov244/calls/func_ov244_020cd130.c:
+    complete
+    .text       start:0x020cd130 end:0x020cd178
+
+src/overlays/ov244/calls/func_ov244_020cd178.c:
+    complete
+    .text       start:0x020cd178 end:0x020cd20c
+
 src/calls/WM_EndKeySharing_0x020cd20c.c:
     complete
     .text       start:0x020cd20c end:0x020cd218
@@ -27,6 +39,10 @@ src/calls/WM_EndKeySharing_0x020cd20c.c:
 src/overlays/ov244/calls/func_ov244_020cd218.c:
     complete
     .text       start:0x020cd218 end:0x020cd258
+
+src/overlays/ov244/calls/func_ov244_020cd3f0.c:
+    complete
+    .text       start:0x020cd3f0 end:0x020cd438
 
 src/overlays/ov244/calls/func_ov244_020cd438.c:
     complete
@@ -64,6 +80,10 @@ src/overlays/ov244/calls/func_ov244_020cdabc.c:
     complete
     .text       start:0x020cdabc end:0x020cdb54
 
+src/overlays/ov244/calls/func_ov244_020ce414.c:
+    complete
+    .text       start:0x020ce414 end:0x020ce4ac
+
 src/overlays/ov244/auto/func_ov244_020ce590.c:
     complete
     .text       start:0x020ce590 end:0x020ce5a8
@@ -96,6 +116,10 @@ src/overlays/ov244/calls/func_ov244_020ceff0.c:
     complete
     .text       start:0x020ceff0 end:0x020cf010
 
+src/overlays/ov244/calls/func_ov244_020cf010.c:
+    complete
+    .text       start:0x020cf010 end:0x020cf098
+
 src/overlays/ov244/auto/func_ov244_020cf134.c:
     complete
     .text       start:0x020cf134 end:0x020cf14c
@@ -119,6 +143,10 @@ src/overlays/ov244/calls/func_ov244_020cf8e4.c:
 src/overlays/ov244/calls/func_ov244_020cfa04.c:
     complete
     .text       start:0x020cfa04 end:0x020cfbc8
+
+src/overlays/ov244/calls/func_ov244_020cfbc8.c:
+    complete
+    .text       start:0x020cfbc8 end:0x020cfc24
 
 src/overlays/ov244/calls/func_ov244_020cfcf0.c:
     complete
@@ -144,9 +172,17 @@ src/overlays/ov244/calls/func_ov244_020d02f8.c:
     complete
     .text       start:0x020d02f8 end:0x020d032c
 
+src/overlays/ov244/calls/func_ov244_020d032c.c:
+    complete
+    .text       start:0x020d032c end:0x020d03a0
+
 src/overlays/ov244/calls/func_ov244_020d03a0.c:
     complete
     .text       start:0x020d03a0 end:0x020d0430
+
+src/overlays/ov244/calls/func_ov244_020d0430.c:
+    complete
+    .text       start:0x020d0430 end:0x020d04b4
 
 src/overlays/ov244/calls/func_ov244_020d09ac.c:
     complete
