@@ -168,7 +168,7 @@ src/overlays/ov140/calls/func_ov140_020d1df8.c:
     complete
     .text       start:0x020d1df8 end:0x020d1e58
 
-src/overlays/ov140/asm_stubs/calls/func_ov140_020d1e58.c:
+src/overlays/ov140/calls/func_ov140_020d1e58.c:
     complete
     .text       start:0x020d1e58 end:0x020d1f18
 
