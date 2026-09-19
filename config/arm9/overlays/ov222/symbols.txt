@@ -93,4 +93,4 @@ data_ov222_020d6c48 kind:data(any) addr:0x020d6c48
 data_ov222_020d6c54 kind:data(any) addr:0x020d6c54
 data_ov222_020d6c60 kind:data(any) addr:0x020d6c60
 data_ov222_020d6c6c kind:data(any) addr:0x020d6c6c
-data_ov222_020d6c74 kind:data(byte[1]) addr:0x020d6c74
+data_ov222_020d6c74 kind:data(byte[4]) addr:0x020d6c74
