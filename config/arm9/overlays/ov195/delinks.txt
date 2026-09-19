@@ -128,7 +128,7 @@ src/overlays/ov195/calls/func_ov195_020d191c.c:
     complete
     .text       start:0x020d191c end:0x020d1994
 
-src/overlays/ov195/asm_stubs/calls/func_ov195_020d1994.c:
+src/overlays/ov195/calls/func_ov195_020d1994.c:
     complete
     .text       start:0x020d1994 end:0x020d1a94
 
