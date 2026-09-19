@@ -104,6 +104,10 @@ src/overlays/ov247/calls/func_ov247_020d2c2c.c:
     complete
     .text       start:0x020d2c2c end:0x020d2cfc
 
+src/overlays/ov247/calls/func_ov247_020d2cfc.c:
+    complete
+    .text       start:0x020d2cfc end:0x020d2e38
+
 src/overlays/ov247/calls/func_ov247_020d2e38.c:
     complete
     .text       start:0x020d2e38 end:0x020d2e7c
