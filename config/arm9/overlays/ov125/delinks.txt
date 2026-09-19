@@ -24,6 +24,10 @@ src/overlays/ov125/calls/func_ov125_020cc354.c:
     complete
     .text       start:0x020cc354 end:0x020cc384
 
+src/overlays/ov125/calls/func_ov125_020cc384.c:
+    complete
+    .text       start:0x020cc384 end:0x020cc65c
+
 src/overlays/ov125/calls/func_ov125_020cc65c.c:
     complete
     .text       start:0x020cc65c end:0x020cc748
