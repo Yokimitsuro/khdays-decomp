@@ -60,6 +60,10 @@ src/overlays/ov223/auto/func_ov223_020d099c.c:
     complete
     .text       start:0x020d099c end:0x020d09cc
 
+src/overlays/ov223/calls/func_ov223_020d09cc.c:
+    complete
+    .text       start:0x020d09cc end:0x020d0cc8
+
 src/overlays/ov223/calls/func_ov223_020d0ecc.c:
     complete
     .text       start:0x020d0ecc end:0x020d0ee0
@@ -119,6 +123,10 @@ src/overlays/ov223/calls/func_ov223_020d2210.c:
 src/overlays/ov223/auto/func_ov223_020d2258.c:
     complete
     .text       start:0x020d2258 end:0x020d2298
+
+src/overlays/ov223/calls/func_ov223_020d2298.c:
+    complete
+    .text       start:0x020d2298 end:0x020d2454
 
 src/overlays/ov223/calls/func_ov223_020d2454.c:
     complete
