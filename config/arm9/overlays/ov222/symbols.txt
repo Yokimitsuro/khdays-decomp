@@ -84,6 +84,7 @@ func_ov222_020d69c0 kind:function(arm,size=0x134) addr:0x020d69c0
 func_ov222_020d6af4 kind:function(arm,size=0xd4) addr:0x020d6af4
 data_ov222_020d6bc8 kind:data(any) addr:0x020d6bc8
 data_ov222_020d6be8 kind:data(any) addr:0x020d6be8
+data_ov222_020d6bec kind:data(any) addr:0x020d6bec
 data_ov222_020d6bfc kind:data(any) addr:0x020d6bfc
 data_ov222_020d6c20 kind:data(any) addr:0x020d6c20
 data_ov222_020d6c2c kind:data(any) addr:0x020d6c2c
@@ -92,4 +93,4 @@ data_ov222_020d6c48 kind:data(any) addr:0x020d6c48
 data_ov222_020d6c54 kind:data(any) addr:0x020d6c54
 data_ov222_020d6c60 kind:data(any) addr:0x020d6c60
 data_ov222_020d6c6c kind:data(any) addr:0x020d6c6c
-data_ov222_020d6c74 kind:data(any) addr:0x020d6c74
+data_ov222_020d6c74 kind:data(byte[1]) addr:0x020d6c74

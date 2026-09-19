@@ -48,6 +48,10 @@ src/overlays/ov225/calls/func_ov225_020d06b4.c:
     complete
     .text       start:0x020d06b4 end:0x020d0710
 
+src/overlays/ov225/calls/func_ov225_020d0710.c:
+    complete
+    .text       start:0x020d0710 end:0x020d09ac
+
 src/overlays/ov225/auto/func_ov225_020d09ac.c:
     complete
     .text       start:0x020d09ac end:0x020d09d8
@@ -204,6 +208,10 @@ src/overlays/ov225/calls/func_ov225_020d42d8.c:
     complete
     .text       start:0x020d42d8 end:0x020d430c
 
+src/overlays/ov225/calls/func_ov225_020d430c.c:
+    complete
+    .text       start:0x020d430c end:0x020d4504
+
 src/overlays/ov225/calls/func_ov225_020d4504.c:
     complete
     .text       start:0x020d4504 end:0x020d4538
@@ -262,4 +270,8 @@ src/overlays/ov225/calls/func_ov225_020d4fc0.c:
 
 src/overlays/ov225/data/ov225_strings_020d50e0.c:
     complete
-    .data       start:0x020d50e0 end:0x020d5134
+    .data       start:0x020d50e0 end:0x020d5135
+
+src/overlays/ov225/data/ov225_tables_020d5094.c:
+    complete
+    .rodata     start:0x020d5094 end:0x020d50cc

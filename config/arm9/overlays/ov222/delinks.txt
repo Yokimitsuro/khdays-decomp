@@ -52,6 +52,10 @@ src/overlays/ov222/calls/func_ov222_020d24c4.c:
     complete
     .text       start:0x020d24c4 end:0x020d2520
 
+src/overlays/ov222/calls/func_ov222_020d2520.c:
+    complete
+    .text       start:0x020d2520 end:0x020d27f0
+
 src/overlays/ov222/auto/func_ov222_020d27f0.c:
     complete
     .text       start:0x020d27f0 end:0x020d281c
@@ -59,6 +63,10 @@ src/overlays/ov222/auto/func_ov222_020d27f0.c:
 src/overlays/ov222/auto/func_ov222_020d281c.c:
     complete
     .text       start:0x020d281c end:0x020d284c
+
+src/overlays/ov222/calls/func_ov222_020d284c.c:
+    complete
+    .text       start:0x020d284c end:0x020d2b40
 
 src/overlays/ov222/calls/func_ov222_020d2b40.c:
     complete
@@ -120,6 +128,10 @@ src/overlays/ov222/calls/func_ov222_020d3dd8.c:
     complete
     .text       start:0x020d3dd8 end:0x020d3e40
 
+src/overlays/ov222/calls/func_ov222_020d3e40.c:
+    complete
+    .text       start:0x020d3e40 end:0x020d411c
+
 src/overlays/ov222/calls/func_ov222_020d411c.c:
     complete
     .text       start:0x020d411c end:0x020d4164
@@ -151,6 +163,10 @@ src/overlays/ov222/calls/func_ov222_020d46a8.c:
 src/overlays/ov222/calls/func_ov222_020d4ac8.c:
     complete
     .text       start:0x020d4ac8 end:0x020d4b38
+
+src/overlays/ov222/calls/func_ov222_020d4b38.c:
+    complete
+    .text       start:0x020d4b38 end:0x020d4db4
 
 src/overlays/ov222/calls/func_ov222_020d4db4.c:
     complete
@@ -187,6 +203,10 @@ src/overlays/ov222/calls/func_ov222_020d52ec.c:
 src/overlays/ov222/calls/func_ov222_020d5430.c:
     complete
     .text       start:0x020d5430 end:0x020d5498
+
+src/overlays/ov222/calls/func_ov222_020d5498.c:
+    complete
+    .text       start:0x020d5498 end:0x020d5768
 
 src/overlays/ov222/calls/func_ov222_020d5768.c:
     complete
@@ -235,6 +255,10 @@ src/overlays/ov222/calls/func_ov222_020d5d58.c:
 src/overlays/ov222/calls/func_ov222_020d5e0c.c:
     complete
     .text       start:0x020d5e0c end:0x020d5e40
+
+src/overlays/ov222/calls/func_ov222_020d5e40.c:
+    complete
+    .text       start:0x020d5e40 end:0x020d6038
 
 src/overlays/ov222/calls/func_ov222_020d6038.c:
     complete
@@ -298,4 +322,8 @@ src/overlays/ov222/calls/func_ov222_020d6af4.c:
 
 src/overlays/ov222/data/ov222_strings_020d6c20.c:
     complete
-    .data       start:0x020d6c20 end:0x020d6c74
+    .data       start:0x020d6c20 end:0x020d6c75
+
+src/overlays/ov222/data/ov222_tables_020d6bc8.c:
+    complete
+    .rodata     start:0x020d6bc8 end:0x020d6c00
