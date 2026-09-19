@@ -88,6 +88,10 @@ src/overlays/ov236/calls/func_ov236_020cd918.c:
     complete
     .text       start:0x020cd918 end:0x020cda7c
 
+src/overlays/ov236/calls/func_ov236_020cda7c.c:
+    complete
+    .text       start:0x020cda7c end:0x020cdc84
+
 src/overlays/ov236/calls/func_ov236_020cdc84.c:
     complete
     .text       start:0x020cdc84 end:0x020cdcb8
@@ -107,6 +111,10 @@ src/overlays/ov236/calls/func_ov236_020ce2d0.c:
 src/overlays/ov236/calls/func_ov236_020ce430.c:
     complete
     .text       start:0x020ce430 end:0x020ce4c8
+
+src/overlays/ov236/calls/func_ov236_020ce4c8.c:
+    complete
+    .text       start:0x020ce4c8 end:0x020ce6fc
 
 src/overlays/ov236/calls/WM_EndKeySharing_ov236_0x020ce6fc.c:
     complete
@@ -451,6 +459,10 @@ src/overlays/ov236/calls/func_ov236_020d4544.c:
 src/overlays/ov236/calls/func_ov236_020d4d34.c:
     complete
     .text       start:0x020d4d34 end:0x020d4d84
+
+src/overlays/ov236/calls/func_ov236_020d5084.c:
+    complete
+    .text       start:0x020d5084 end:0x020d528c
 
 src/overlays/ov236/calls/func_ov236_020d57a4.c:
     complete

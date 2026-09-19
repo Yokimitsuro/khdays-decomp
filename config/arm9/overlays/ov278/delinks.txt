@@ -88,6 +88,10 @@ src/overlays/ov278/calls/func_ov278_020cd918.c:
     complete
     .text       start:0x020cd918 end:0x020cda7c
 
+src/overlays/ov278/calls/func_ov278_020cda7c.c:
+    complete
+    .text       start:0x020cda7c end:0x020cdc84
+
 src/overlays/ov278/calls/func_ov278_020cdc84.c:
     complete
     .text       start:0x020cdc84 end:0x020cdcb8
@@ -107,6 +111,10 @@ src/overlays/ov278/calls/func_ov278_020ce2d0.c:
 src/overlays/ov278/calls/func_ov278_020ce430.c:
     complete
     .text       start:0x020ce430 end:0x020ce4c8
+
+src/overlays/ov278/calls/func_ov278_020ce4c8.c:
+    complete
+    .text       start:0x020ce4c8 end:0x020ce6fc
 
 src/overlays/ov278/calls/WM_EndKeySharing_ov278_0x020ce6fc.c:
     complete
@@ -451,6 +459,10 @@ src/overlays/ov278/calls/func_ov278_020d44f8.c:
 src/overlays/ov278/calls/func_ov278_020d4ce8.c:
     complete
     .text       start:0x020d4ce8 end:0x020d4d38
+
+src/overlays/ov278/calls/func_ov278_020d5038.c:
+    complete
+    .text       start:0x020d5038 end:0x020d5240
 
 src/overlays/ov278/calls/func_ov278_020d5758.c:
     complete
