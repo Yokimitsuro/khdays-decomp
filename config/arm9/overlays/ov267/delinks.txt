@@ -48,6 +48,10 @@ src/overlays/ov267/calls/func_ov267_020d0e30.c:
     complete
     .text       start:0x020d0e30 end:0x020d0ec4
 
+src/overlays/ov267/calls/func_ov267_020d0ec4.c:
+    complete
+    .text       start:0x020d0ec4 end:0x020d10a4
+
 src/overlays/ov267/calls/func_ov267_020d10a4.c:
     complete
     .text       start:0x020d10a4 end:0x020d1134
@@ -79,6 +83,11 @@ src/overlays/ov267/calls/func_ov267_020d127c.c:
 src/overlays/ov267/calls/func_ov267_020d1418.c:
     complete
     .text       start:0x020d1418 end:0x020d1474
+
+src/overlays/ov267/calls/func_ov267_020d1474.c:
+    complete
+    .text       start:0x020d1474 end:0x020d16a4
+    .rodata     start:0x020d5d68 end:0x020d5d6c
 
 src/overlays/ov267/auto/func_ov267_020d16a4.c:
     complete
