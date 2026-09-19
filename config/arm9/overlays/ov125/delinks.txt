@@ -192,9 +192,17 @@ src/overlays/ov125/calls/func_ov125_020ce998.c:
     complete
     .text       start:0x020ce998 end:0x020ceb74
 
+src/overlays/ov125/calls/func_ov125_020ceb74.c:
+    complete
+    .text       start:0x020ceb74 end:0x020cf1a8
+
 src/overlays/ov125/calls/func_ov125_020cf1a8.c:
     complete
     .text       start:0x020cf1a8 end:0x020cf1cc
+
+src/overlays/ov125/calls/func_ov125_020cf1cc.c:
+    complete
+    .text       start:0x020cf1cc end:0x020cf7f0
 
 src/overlays/ov125/calls/func_ov125_020cf7f0.c:
     complete
