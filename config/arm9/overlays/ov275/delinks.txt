@@ -12,6 +12,10 @@ src/overlays/ov275/calls/func_ov275_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
+src/overlays/ov275/calls/func_ov275_020d1a24.c:
+    complete
+    .text       start:0x020d1a24 end:0x020d1ea0
+
 src/overlays/ov275/calls/func_ov275_020d1ea0.c:
     complete
     .text       start:0x020d1ea0 end:0x020d1ef8
