@@ -360,6 +360,10 @@ src/overlays/ov278/calls/func_ov278_020d2cdc.c:
     complete
     .text       start:0x020d2cdc end:0x020d2e88
 
+src/overlays/ov278/calls/func_ov278_020d2e88.c:
+    complete
+    .text       start:0x020d2e88 end:0x020d30a8
+
 src/overlays/ov278/calls/func_ov278_020d30a8.c:
     complete
     .text       start:0x020d30a8 end:0x020d3194
