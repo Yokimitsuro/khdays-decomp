@@ -12,6 +12,10 @@ src/overlays/ov247/calls/func_ov247_020d1998.c:
     complete
     .text       start:0x020d1998 end:0x020d1a24
 
+src/overlays/ov247/calls/func_ov247_020d1a24.c:
+    complete
+    .text       start:0x020d1a24 end:0x020d1ca4
+
 src/overlays/ov247/calls/func_ov247_020d1ca4.c:
     complete
     .text       start:0x020d1ca4 end:0x020d1cec
@@ -24,6 +28,10 @@ src/overlays/ov247/calls/func_ov247_020d1d38.c:
     complete
     .text       start:0x020d1d38 end:0x020d1df4
 
+src/overlays/ov247/calls/func_ov247_020d1df4.c:
+    complete
+    .text       start:0x020d1df4 end:0x020d1f94
+
 src/overlays/ov247/calls/func_ov247_020d1f94.c:
     complete
     .text       start:0x020d1f94 end:0x020d1fbc
@@ -32,9 +40,17 @@ src/overlays/ov247/calls/func_ov247_020d1fbc.c:
     complete
     .text       start:0x020d1fbc end:0x020d1fe4
 
+src/overlays/ov247/calls/func_ov247_020d1fe4.c:
+    complete
+    .text       start:0x020d1fe4 end:0x020d2180
+
 src/overlays/ov247/calls/func_ov247_020d2180.c:
     complete
     .text       start:0x020d2180 end:0x020d21dc
+
+src/overlays/ov247/calls/func_ov247_020d21dc.c:
+    complete
+    .text       start:0x020d21dc end:0x020d23f0
 
 src/overlays/ov247/auto/func_ov247_020d23f0.c:
     complete
@@ -63,6 +79,10 @@ src/overlays/ov247/calls/func_ov247_020d28d0.c:
 src/overlays/ov247/calls/func_ov247_020d2938.c:
     complete
     .text       start:0x020d2938 end:0x020d29a0
+
+src/overlays/ov247/calls/func_ov247_020d29a0.c:
+    complete
+    .text       start:0x020d29a0 end:0x020d2a68
 
 src/overlays/ov247/calls/func_ov247_020d2a68.c:
     complete
@@ -116,6 +136,10 @@ src/overlays/ov247/calls/func_ov247_020d31f8.c:
     complete
     .text       start:0x020d31f8 end:0x020d32c4
 
+src/overlays/ov247/calls/func_ov247_020d32c4.c:
+    complete
+    .text       start:0x020d32c4 end:0x020d340c
+
 src/overlays/ov247/calls/func_ov247_020d340c.c:
     complete
     .text       start:0x020d340c end:0x020d34d0
@@ -123,6 +147,10 @@ src/overlays/ov247/calls/func_ov247_020d340c.c:
 src/overlays/ov247/calls/func_ov247_020d34d0.c:
     complete
     .text       start:0x020d34d0 end:0x020d35ac
+
+src/overlays/ov247/calls/func_ov247_020d35ac.c:
+    complete
+    .text       start:0x020d35ac end:0x020d3780
 
 src/overlays/ov247/calls/func_ov247_020d3780.c:
     complete
@@ -140,6 +168,10 @@ src/overlays/ov247/calls/func_ov247_020d393c.c:
     complete
     .text       start:0x020d393c end:0x020d3970
 
+src/overlays/ov247/calls/func_ov247_020d3970.c:
+    complete
+    .text       start:0x020d3970 end:0x020d3b10
+
 src/overlays/ov247/calls/func_ov247_020d3b10.c:
     complete
     .text       start:0x020d3b10 end:0x020d3b40
@@ -147,6 +179,10 @@ src/overlays/ov247/calls/func_ov247_020d3b10.c:
 src/overlays/ov247/calls/func_ov247_020d3b40.c:
     complete
     .text       start:0x020d3b40 end:0x020d3b78
+
+src/overlays/ov247/calls/func_ov247_020d3b78.c:
+    complete
+    .text       start:0x020d3b78 end:0x020d3bf0
 
 src/overlays/ov247/calls/func_ov247_020d3bf0.c:
     complete
@@ -180,9 +216,21 @@ src/overlays/ov247/auto/func_ov247_020d3eb8.c:
     complete
     .text       start:0x020d3eb8 end:0x020d3f8c
 
+src/overlays/ov247/calls/func_ov247_020d3f8c.c:
+    complete
+    .text       start:0x020d3f8c end:0x020d43a4
+
+src/overlays/ov247/calls/func_ov247_020d43a4.c:
+    complete
+    .text       start:0x020d43a4 end:0x020d44ac
+
 src/overlays/ov247/calls/func_ov247_020d44ac.c:
     complete
     .text       start:0x020d44ac end:0x020d4584
+
+src/overlays/ov247/calls/func_ov247_020d4584.c:
+    complete
+    .text       start:0x020d4584 end:0x020d4778
 
 src/overlays/ov247/calls/func_ov247_020d4778.c:
     complete
@@ -199,6 +247,14 @@ src/overlays/ov247/calls/func_ov247_020d4854.c:
 src/overlays/ov247/calls/func_ov247_020d49ac.c:
     complete
     .text       start:0x020d49ac end:0x020d4c70
+
+src/overlays/ov247/calls/func_ov247_020d4c70.c:
+    complete
+    .text       start:0x020d4c70 end:0x020d4d6c
+
+src/overlays/ov247/calls/func_ov247_020d4d6c.c:
+    complete
+    .text       start:0x020d4d6c end:0x020d4ee0
 
 src/overlays/ov247/data/ov247_strings_020d4f40.c:
     complete
