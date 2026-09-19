@@ -128,6 +128,10 @@ src/overlays/ov222/auto/func_ov222_020d4164.c:
     complete
     .text       start:0x020d4164 end:0x020d41a4
 
+src/overlays/ov222/calls/func_ov222_020d41a4.c:
+    complete
+    .text       start:0x020d41a4 end:0x020d4358
+
 src/overlays/ov222/calls/func_ov222_020d4358.c:
     complete
     .text       start:0x020d4358 end:0x020d4394
@@ -140,6 +144,10 @@ src/overlays/ov222/calls/func_ov222_020d45dc.c:
     complete
     .text       start:0x020d45dc end:0x020d46a8
 
+src/overlays/ov222/calls/func_ov222_020d46a8.c:
+    complete
+    .text       start:0x020d46a8 end:0x020d4750
+
 src/overlays/ov222/calls/func_ov222_020d4ac8.c:
     complete
     .text       start:0x020d4ac8 end:0x020d4b38
@@ -147,6 +155,10 @@ src/overlays/ov222/calls/func_ov222_020d4ac8.c:
 src/overlays/ov222/calls/func_ov222_020d4db4.c:
     complete
     .text       start:0x020d4db4 end:0x020d4e84
+
+src/overlays/ov222/calls/func_ov222_020d4e84.c:
+    complete
+    .text       start:0x020d4e84 end:0x020d506c
 
 src/overlays/ov222/calls/func_ov222_020d506c.c:
     complete
@@ -164,6 +176,10 @@ src/overlays/ov222/calls/func_ov222_020d5138.c:
     complete
     .text       start:0x020d5138 end:0x020d5188
 
+src/overlays/ov222/calls/func_ov222_020d5188.c:
+    complete
+    .text       start:0x020d5188 end:0x020d52ec
+
 src/overlays/ov222/calls/func_ov222_020d52ec.c:
     complete
     .text       start:0x020d52ec end:0x020d5430
@@ -175,6 +191,10 @@ src/overlays/ov222/calls/func_ov222_020d5430.c:
 src/overlays/ov222/calls/func_ov222_020d5768.c:
     complete
     .text       start:0x020d5768 end:0x020d57b8
+
+src/overlays/ov222/calls/func_ov222_020d57b8.c:
+    complete
+    .text       start:0x020d57b8 end:0x020d58b8
 
 src/overlays/ov222/calls/func_ov222_020d58b8.c:
     complete
@@ -239,6 +259,10 @@ src/overlays/ov222/calls/func_ov222_020d625c.c:
 src/overlays/ov222/calls/func_ov222_020d62b8.c:
     complete
     .text       start:0x020d62b8 end:0x020d6300
+
+src/overlays/ov222/calls/func_ov222_020d6300.c:
+    complete
+    .text       start:0x020d6300 end:0x020d6408
 
 src/overlays/ov222/calls/func_ov222_020d6408.c:
     complete
