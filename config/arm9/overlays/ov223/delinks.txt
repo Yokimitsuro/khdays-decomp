@@ -164,6 +164,10 @@ src/overlays/ov223/calls/func_ov223_020d27a4.c:
     complete
     .text       start:0x020d27a4 end:0x020d284c
 
+src/overlays/ov223/calls/func_ov223_020d284c.c:
+    complete
+    .text       start:0x020d284c end:0x020d2aec
+
 src/overlays/ov223/calls/func_ov223_020d2aec.c:
     complete
     .text       start:0x020d2aec end:0x020d2b5c
@@ -267,6 +271,10 @@ src/overlays/ov223/calls/func_ov223_020d4030.c:
 libs/nitro/wm/calls/WM_EndKeySharing_0x020d405c.c:
     complete
     .text       start:0x020d405c end:0x020d4068
+
+src/overlays/ov223/calls/func_ov223_020d4068.c:
+    complete
+    .text       start:0x020d4068 end:0x020d4278
 
 src/overlays/ov223/auto/func_ov223_020d4278.c:
     complete
