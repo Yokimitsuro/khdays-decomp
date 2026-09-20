@@ -192,6 +192,10 @@ src/overlays/ov160/calls/func_ov160_020ce738.c:
     complete
     .text       start:0x020ce738 end:0x020ce834
 
+src/overlays/ov160/calls/func_ov160_020ce834.c:
+    complete
+    .text       start:0x020ce834 end:0x020ceb4c
+
 src/overlays/ov160/calls/func_ov160_020ceb4c.c:
     complete
     .text       start:0x020ceb4c end:0x020ceb8c
