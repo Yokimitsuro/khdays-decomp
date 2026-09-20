@@ -16,7 +16,7 @@ src/overlays/ov170/calls/func_ov170_020cdde4.c:
     complete
     .text       start:0x020cdde4 end:0x020cde40
 
-src/overlays/ov170/asm_stubs/calls/func_ov170_020cde40.c:
+src/overlays/ov170/calls/func_ov170_020cde40.c:
     complete
     .text       start:0x020cde40 end:0x020ce15c
 
