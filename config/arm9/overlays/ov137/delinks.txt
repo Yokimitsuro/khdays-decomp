@@ -204,6 +204,10 @@ src/overlays/ov137/calls/func_ov137_020ce930.c:
     complete
     .text       start:0x020ce930 end:0x020ce964
 
+src/overlays/ov137/calls/func_ov137_020ce964.c:
+    complete
+    .text       start:0x020ce964 end:0x020ceaf0
+
 src/overlays/ov137/calls/func_ov137_020ceaf0.c:
     complete
     .text       start:0x020ceaf0 end:0x020ceb20
