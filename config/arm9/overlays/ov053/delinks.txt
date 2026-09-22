@@ -36,7 +36,7 @@ src/overlays/ov053/calls/func_ov053_020b5f84.c:
     complete
     .text       start:0x020b5f84 end:0x020b6044
 
-src/overlays/ov053/asm_stubs/calls/func_ov053_020b6044.c:
+src/overlays/ov053/calls/func_ov053_020b6044.c:
     complete
     .text       start:0x020b6044 end:0x020b6404
 
