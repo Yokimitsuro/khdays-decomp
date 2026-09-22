@@ -36,7 +36,7 @@ src/overlays/ov073/calls/func_ov073_020b8664.c:
     complete
     .text       start:0x020b8664 end:0x020b8724
 
-src/overlays/ov073/asm_stubs/calls/func_ov073_020b8724.c:
+src/overlays/ov073/calls/func_ov073_020b8724.c:
     complete
     .text       start:0x020b8724 end:0x020b8ae4
 
