@@ -140,6 +140,10 @@ src/overlays/ov238/calls/func_ov238_020d2a34.c:
     complete
     .text       start:0x020d2a34 end:0x020d2adc
 
+src/overlays/ov238/calls/func_ov238_020d2adc.c:
+    complete
+    .text       start:0x020d2adc end:0x020d2b84
+
 src/overlays/ov238/calls/func_ov238_020d2c44.c:
     complete
     .text       start:0x020d2c44 end:0x020d2cf4
