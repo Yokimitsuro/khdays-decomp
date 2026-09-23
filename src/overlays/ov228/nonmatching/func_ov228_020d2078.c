@@ -12,6 +12,9 @@
  * use site (self->r5 but no spill, 340 bytes), and dropping the `child` temp -- none reproduce the
  * spill. This is definition-order vs usage-priority allocation, i.e. a compiler-BUILD difference
  * (retail >=140 hypothesis), not a reachable C form. See deferred-ties.md "constructor size2 spill".
+ * UPDATE 23/09: `volatile int size2;` assigned after the +0x70 store reproduces the ROM's [sp]
+ * spill and the exact size (348 B); what remains is the order of the callback pool loads and the
+ * +0x1ae / +0x70 stores (scheduling). Dead-store budget sweep over every store: no match.
  *
  * func_ov228_020d2078 -- x3 (ov228/...). Construct/initialise this scene object.
  * Install its five behaviour callbacks (self+8/+0xc/+0x1c/+0x30/+0x1dc), raise the pending-state
