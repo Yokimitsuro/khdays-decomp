@@ -52,6 +52,10 @@ src/overlays/ov237/auto/func_ov237_020cd550.c:
     complete
     .text       start:0x020cd550 end:0x020cd554
 
+src/overlays/ov237/calls/func_ov237_020cd830.c:
+    complete
+    .text       start:0x020cd830 end:0x020cd8c8
+
 src/overlays/ov237/calls/func_ov237_020cdb50.c:
     complete
     .text       start:0x020cdb50 end:0x020cdbe4
