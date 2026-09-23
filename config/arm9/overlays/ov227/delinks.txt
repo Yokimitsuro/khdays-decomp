@@ -232,6 +232,10 @@ src/overlays/ov227/auto/func_ov227_020d44e4.c:
     complete
     .text       start:0x020d44e4 end:0x020d44fc
 
+src/overlays/ov227/calls/func_ov227_020d44fc.c:
+    complete
+    .text       start:0x020d44fc end:0x020d4590
+
 src/overlays/ov227/auto/func_ov227_020d4590.c:
     complete
     .text       start:0x020d4590 end:0x020d4594
