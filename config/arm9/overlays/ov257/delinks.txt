@@ -360,9 +360,9 @@ src/overlays/ov257/calls/func_ov257_020d3044.c:
     complete
     .text       start:0x020d3044 end:0x020d3064
 
-src/overlays/ov257/data/ov257_pointers_020d3074.c:
+src/overlays/ov257/data/ov257_rodata_020d3064.c:
     complete
-    .rodata     start:0x020d3074 end:0x020d3094
+    .rodata     start:0x020d3064 end:0x020d334c
 
 src/overlays/ov257/data/ov257_strings_020d3360.c:
     complete

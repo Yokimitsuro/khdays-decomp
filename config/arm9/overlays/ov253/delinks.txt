@@ -624,13 +624,9 @@ src/overlays/ov253/calls/func_ov253_020d46e0.c:
     complete
     .text       start:0x020d46e0 end:0x020d482c
 
-src/overlays/ov253/data/ov253_pointers_020d4844.c:
+src/overlays/ov253/data/ov253_rodata_020d482c.c:
     complete
-    .rodata     start:0x020d4844 end:0x020d4894
-
-src/overlays/ov253/data/ov253_pointers_020d4940.c:
-    complete
-    .rodata     start:0x020d4940 end:0x020d4950
+    .rodata     start:0x020d482c end:0x020d4a24
 
 src/overlays/ov253/data/ov253_strings_020d4a40.c:
     complete

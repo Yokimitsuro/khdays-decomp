@@ -44,6 +44,10 @@ src/overlays/ov237/calls/func_ov237_020ccfb4.c:
     complete
     .text       start:0x020ccfb4 end:0x020ccfe8
 
+src/overlays/ov237/calls/func_ov237_020ccfe8.c:
+    complete
+    .text       start:0x020ccfe8 end:0x020cd0b0
+
 src/overlays/ov237/calls/func_ov237_020cd0b0.c:
     complete
     .text       start:0x020cd0b0 end:0x020cd12c
@@ -203,3 +207,7 @@ src/overlays/ov237/data/ov237_pointers_020d19f8.c:
 src/overlays/ov237/data/ov237_strings_020d1c20.c:
     complete
     .data       start:0x020d1c20 end:0x020d1ce0
+
+src/overlays/ov237/data/ov237_tables_020d1a20.c:
+    complete
+    .rodata     start:0x020d1a20 end:0x020d1c00
