@@ -6,7 +6,7 @@
  * of data_ov230_020d63b8 into the +0x4a8 pair table (the first from the shared scene resource, the
  * others with texture frames 3..30 cycling); registers action 2/3 lowered 2.0 (rate 0.6), 1/2 (0.8)
  * and 4/2 (1.0); reserves the +0x22c/+0x144 handles of a placement of scale 2.0 (+0x3ac, +0x3b0),
- * creates the eight +0x3c0 projectiles (020d5ca8) and loads sound 0x146. */
+ * creates the eight +0x3c0 projectiles (020d5ca8) and loads sound 0x147. */
 typedef unsigned short u16;
 typedef void (*Callback)(void);
 typedef struct { int x, y, z; } Vec3;
