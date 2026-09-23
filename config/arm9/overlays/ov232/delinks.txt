@@ -77,6 +77,10 @@ src/overlays/ov232/calls/func_ov232_020d0ef4.c:
     complete
     .text       start:0x020d0ef4 end:0x020d1150
 
+src/overlays/ov232/calls/func_ov232_020d1150.c:
+    complete
+    .text       start:0x020d1150 end:0x020d13a8
+
 src/overlays/ov232/calls/func_ov232_020d13a8.c:
     complete
     .text       start:0x020d13a8 end:0x020d144c
