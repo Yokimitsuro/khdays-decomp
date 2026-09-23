@@ -24,6 +24,10 @@ src/overlays/ov265/calls/func_ov265_020d0118.c:
     complete
     .text       start:0x020d0118 end:0x020d019c
 
+src/overlays/ov265/calls/func_ov265_020d019c.c:
+    complete
+    .text       start:0x020d019c end:0x020d02d0
+
 src/overlays/ov265/calls/func_ov265_020d02d0.c:
     complete
     .text       start:0x020d02d0 end:0x020d030c
@@ -31,6 +35,10 @@ src/overlays/ov265/calls/func_ov265_020d02d0.c:
 src/overlays/ov265/calls/func_ov265_020d030c.c:
     complete
     .text       start:0x020d030c end:0x020d0348
+
+src/overlays/ov265/calls/func_ov265_020d0348.c:
+    complete
+    .text       start:0x020d0348 end:0x020d05c4
 
 src/overlays/ov265/calls/func_ov265_020d05c4.c:
     complete
@@ -128,6 +136,10 @@ src/overlays/ov265/calls/func_ov265_020d20c0.c:
     complete
     .text       start:0x020d20c0 end:0x020d2104
 
+src/overlays/ov265/calls/func_ov265_020d2104.c:
+    complete
+    .text       start:0x020d2104 end:0x020d2370
+
 src/overlays/ov265/calls/func_ov265_020d2370.c:
     complete
     .text       start:0x020d2370 end:0x020d23a8
@@ -187,6 +199,10 @@ src/overlays/ov265/calls/func_ov265_020d2d34.c:
 src/overlays/ov265/calls/func_ov265_020d2d7c.c:
     complete
     .text       start:0x020d2d7c end:0x020d2db0
+
+src/overlays/ov265/calls/func_ov265_020d2db0.c:
+    complete
+    .text       start:0x020d2db0 end:0x020d2ee4
 
 src/overlays/ov265/calls/func_ov265_020d2ee4.c:
     complete
