@@ -48,6 +48,11 @@ src/overlays/ov232/calls/func_ov232_020d0888.c:
     complete
     .text       start:0x020d0888 end:0x020d0998
 
+src/overlays/ov232/calls/func_ov232_020d0998.c:
+    complete
+    .text       start:0x020d0998 end:0x020d0bf8
+    .rodata     start:0x020d3670 end:0x020d3674
+
 src/overlays/ov232/calls/func_ov232_020d0cd4.c:
     complete
     .text       start:0x020d0cd4 end:0x020d0d1c
