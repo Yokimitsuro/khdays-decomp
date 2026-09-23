@@ -308,6 +308,10 @@ src/overlays/ov249/calls/func_ov249_020d4308.c:
     complete
     .text       start:0x020d4308 end:0x020d4490
 
+src/overlays/ov249/calls/func_ov249_020d4490.c:
+    complete
+    .text       start:0x020d4490 end:0x020d48a4
+
 src/overlays/ov249/calls/func_ov249_020d48a4.c:
     complete
     .text       start:0x020d48a4 end:0x020d48dc
