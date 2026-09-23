@@ -40,6 +40,10 @@ src/overlays/ov267/calls/func_ov267_020d08d0.c:
     complete
     .text       start:0x020d08d0 end:0x020d0918
 
+src/overlays/ov267/calls/func_ov267_020d0918.c:
+    complete
+    .text       start:0x020d0918 end:0x020d0d90
+
 src/overlays/ov267/calls/func_ov267_020d0d90.c:
     complete
     .text       start:0x020d0d90 end:0x020d0e30
