@@ -84,6 +84,10 @@ src/overlays/ov235/calls/func_ov235_020cdd30.c:
     complete
     .text       start:0x020cdd30 end:0x020cdd78
 
+src/overlays/ov235/calls/func_ov235_020cdd78.c:
+    complete
+    .text       start:0x020cdd78 end:0x020cde6c
+
 src/overlays/ov235/calls/func_ov235_020ce2c4.c:
     complete
     .text       start:0x020ce2c4 end:0x020ce354
@@ -91,6 +95,10 @@ src/overlays/ov235/calls/func_ov235_020ce2c4.c:
 src/overlays/ov235/calls/func_ov235_020ce354.c:
     complete
     .text       start:0x020ce354 end:0x020ce400
+
+src/overlays/ov235/calls/func_ov235_020ce400.c:
+    complete
+    .text       start:0x020ce400 end:0x020ce4f8
 
 src/overlays/ov235/calls/func_ov235_020ce4f8.c:
     complete
