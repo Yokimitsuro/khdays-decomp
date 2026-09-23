@@ -36,6 +36,14 @@ src/overlays/ov119/calls/func_ov119_020cca00.c:
     complete
     .text       start:0x020cca00 end:0x020ccb10
 
+src/overlays/ov119/calls/func_ov119_020ccb10.c:
+    complete
+    .text       start:0x020ccb10 end:0x020ccc48
+
+src/overlays/ov119/calls/func_ov119_020ccc48.c:
+    complete
+    .text       start:0x020ccc48 end:0x020cce30
+
 src/overlays/ov119/calls/func_ov119_020cce30.c:
     complete
     .text       start:0x020cce30 end:0x020ccef4
