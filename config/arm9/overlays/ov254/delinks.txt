@@ -264,6 +264,10 @@ src/overlays/ov254/auto/func_ov254_020d4448.c:
     complete
     .text       start:0x020d4448 end:0x020d4458
 
+src/overlays/ov254/calls/func_ov254_020d4458.c:
+    complete
+    .text       start:0x020d4458 end:0x020d45e0
+
 src/overlays/ov254/calls/func_ov254_020d45e0.c:
     complete
     .text       start:0x020d45e0 end:0x020d463c
