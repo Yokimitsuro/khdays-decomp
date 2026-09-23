@@ -144,9 +144,17 @@ src/overlays/ov233/calls/func_ov233_020ce608.c:
     complete
     .text       start:0x020ce608 end:0x020ce6f4
 
+src/overlays/ov233/calls/func_ov233_020ce6f4.c:
+    complete
+    .text       start:0x020ce6f4 end:0x020cea64
+
 src/overlays/ov233/calls/func_ov233_020cea64.c:
     complete
     .text       start:0x020cea64 end:0x020ceb00
+
+src/overlays/ov233/calls/func_ov233_020ceb00.c:
+    complete
+    .text       start:0x020ceb00 end:0x020cee10
 
 src/overlays/ov233/calls/func_ov233_020cee10.c:
     complete
