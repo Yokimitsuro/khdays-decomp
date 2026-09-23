@@ -420,6 +420,10 @@ src/overlays/ov253/calls/func_ov253_020d210c.c:
     complete
     .text       start:0x020d210c end:0x020d2140
 
+src/overlays/ov253/calls/func_ov253_020d2140.c:
+    complete
+    .text       start:0x020d2140 end:0x020d2388
+
 src/overlays/ov253/calls/func_ov253_020d2388.c:
     complete
     .text       start:0x020d2388 end:0x020d23d8
