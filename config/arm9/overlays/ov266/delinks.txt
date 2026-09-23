@@ -101,6 +101,10 @@ src/overlays/ov266/auto/func_ov266_020cf8e0.c:
     complete
     .text       start:0x020cf8e0 end:0x020cf914
 
+src/overlays/ov266/calls/func_ov266_020cf914.c:
+    complete
+    .text       start:0x020cf914 end:0x020cfb00
+
 src/overlays/ov266/calls/func_ov266_020cfb00.c:
     complete
     .text       start:0x020cfb00 end:0x020cfecc
