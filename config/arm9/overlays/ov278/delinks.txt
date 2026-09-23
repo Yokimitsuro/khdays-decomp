@@ -208,6 +208,10 @@ src/overlays/ov278/calls/func_ov278_020cffa4.c:
     complete
     .text       start:0x020cffa4 end:0x020d000c
 
+src/overlays/ov278/calls/func_ov278_020d000c.c:
+    complete
+    .text       start:0x020d000c end:0x020d039c
+
 src/overlays/ov278/calls/func_ov278_020d039c.c:
     complete
     .text       start:0x020d039c end:0x020d041c
