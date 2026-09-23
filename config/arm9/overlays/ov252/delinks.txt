@@ -40,9 +40,17 @@ src/overlays/ov252/calls/func_ov252_020cf218.c:
     complete
     .text       start:0x020cf218 end:0x020cf254
 
+src/overlays/ov252/calls/func_ov252_020cf324.c:
+    complete
+    .text       start:0x020cf324 end:0x020cf3b8
+
 src/overlays/ov252/calls/func_ov252_020d02f8.c:
     complete
     .text       start:0x020d02f8 end:0x020d0334
+
+src/overlays/ov252/calls/func_ov252_020d0854.c:
+    complete
+    .text       start:0x020d0854 end:0x020d08e8
 
 src/overlays/ov252/calls/func_ov252_020d08e8.c:
     complete
