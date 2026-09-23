@@ -82,6 +82,7 @@ func_ov268_020d4780 kind:function(arm,size=0x30) addr:0x020d4780
 data_ov268_020d47b0 kind:data(any) addr:0x020d47b0
 data_ov268_020d47c4 kind:data(any) addr:0x020d47c4
 data_ov268_020d4800 kind:data(any) addr:0x020d4800
+data_ov268_020d4804 kind:data(any) addr:0x020d4804
 data_ov268_020d4808 kind:data(any) addr:0x020d4808
 data_ov268_020d4818 kind:data(any) addr:0x020d4818
 data_ov268_020d4838 kind:data(any) addr:0x020d4838
