@@ -12,6 +12,10 @@ src/overlays/ov259/calls/func_ov259_020cbf38.c:
     complete
     .text       start:0x020cbf38 end:0x020cbfc8
 
+src/overlays/ov259/calls/func_ov259_020cbfc8.c:
+    complete
+    .text       start:0x020cbfc8 end:0x020cc134
+
 src/overlays/ov259/calls/func_ov259_020cc134.c:
     complete
     .text       start:0x020cc134 end:0x020cc194
@@ -47,6 +51,10 @@ src/overlays/ov259/calls/func_ov259_020ccde8.c:
 src/overlays/ov259/calls/func_ov259_020cd2c8.c:
     complete
     .text       start:0x020cd2c8 end:0x020cd3c4
+
+src/overlays/ov259/calls/func_ov259_020cd3c4.c:
+    complete
+    .text       start:0x020cd3c4 end:0x020cd524
 
 src/overlays/ov259/calls/func_ov259_020cd524.c:
     complete
@@ -87,6 +95,10 @@ src/overlays/ov259/calls/func_ov259_020cddfc.c:
 src/overlays/ov259/calls/func_ov259_020cdef8.c:
     complete
     .text       start:0x020cdef8 end:0x020ce184
+
+src/overlays/ov259/calls/func_ov259_020ce184.c:
+    complete
+    .text       start:0x020ce184 end:0x020ce2a8
 
 src/overlays/ov259/calls/func_ov259_020ce2a8.c:
     complete
@@ -148,6 +160,14 @@ src/overlays/ov259/calls/func_ov259_020cf0bc.c:
     complete
     .text       start:0x020cf0bc end:0x020cf1d4
 
+src/overlays/ov259/calls/func_ov259_020cf1d4.c:
+    complete
+    .text       start:0x020cf1d4 end:0x020cf324
+
+src/overlays/ov259/calls/func_ov259_020cf324.c:
+    complete
+    .text       start:0x020cf324 end:0x020cf474
+
 src/overlays/ov259/calls/func_ov259_020cf474.c:
     complete
     .text       start:0x020cf474 end:0x020cf508
@@ -208,6 +228,10 @@ src/overlays/ov259/calls/func_ov259_020d06b0.c:
     complete
     .text       start:0x020d06b0 end:0x020d0b6c
 
+src/overlays/ov259/calls/func_ov259_020d0b6c.c:
+    complete
+    .text       start:0x020d0b6c end:0x020d0cb4
+
 src/overlays/ov259/calls/func_ov259_020d0cb4.c:
     complete
     .text       start:0x020d0cb4 end:0x020d0d28
@@ -219,6 +243,10 @@ src/overlays/ov259/calls/func_ov259_020d0d28.c:
 src/overlays/ov259/calls/func_ov259_020d0dbc.c:
     complete
     .text       start:0x020d0dbc end:0x020d0e34
+
+src/overlays/ov259/calls/func_ov259_020d0e34.c:
+    complete
+    .text       start:0x020d0e34 end:0x020d0f88
 
 src/overlays/ov259/calls/func_ov259_020d0f88.c:
     complete
