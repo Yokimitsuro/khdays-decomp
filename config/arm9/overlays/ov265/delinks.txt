@@ -65,6 +65,10 @@ src/overlays/ov265/calls/func_ov265_020d09a0.c:
     .text       start:0x020d09a0 end:0x020d0c00
     .rodata     start:0x020d3688 end:0x020d368c
 
+src/overlays/ov265/calls/func_ov265_020d0c00.c:
+    complete
+    .text       start:0x020d0c00 end:0x020d0ce8
+
 src/overlays/ov265/calls/func_ov265_020d0ce8.c:
     complete
     .text       start:0x020d0ce8 end:0x020d0d30
