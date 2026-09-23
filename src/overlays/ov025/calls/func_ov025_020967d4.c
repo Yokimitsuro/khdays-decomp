@@ -1,4 +1,4 @@
-/* func_ov025_020967d4 -- Ov008_CanFillNodeGap: inspect the tracked node under
+/* func_ov025_020967d4 -- ov025 copy of Ov008_CanFillNodeGap: inspect the tracked node under
  * the cursor and test the first matching empty grid cell for a spare record.
  * The anchor record category selects which spare-record lookup to call.
  * Return 1 if a lookup succeeds, 0 otherwise.
