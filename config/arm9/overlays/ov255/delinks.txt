@@ -384,6 +384,10 @@ src/overlays/ov255/calls/func_ov255_020d24bc.c:
     complete
     .text       start:0x020d24bc end:0x020d2530
 
+src/overlays/ov255/calls/func_ov255_020d2530.c:
+    complete
+    .text       start:0x020d2530 end:0x020d26b8
+
 src/overlays/ov255/calls/func_ov255_020d26b8.c:
     complete
     .text       start:0x020d26b8 end:0x020d270c
@@ -403,6 +407,10 @@ src/overlays/ov255/auto/func_ov255_020d280c.c:
 src/overlays/ov255/calls/func_ov255_020d281c.c:
     complete
     .text       start:0x020d281c end:0x020d2878
+
+src/overlays/ov255/calls/func_ov255_020d2878.c:
+    complete
+    .text       start:0x020d2878 end:0x020d29d8
 
 src/overlays/ov255/data/ov255_strings_020d2be0.c:
     complete
