@@ -31,7 +31,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov019 | 5 | 0 | 0 | 0 | 5 | 100.0% |
 | DONE ov020 | 11 | 0 | 0 | 0 | 11 | 100.0% |
 | DONE ov021 | 31 | 0 | 0 | 0 | 31 | 100.0% |
-| PART ov022 | 755 | 0 | 0 | 3 | 758 | 99.6% |
+| PART ov022 | 756 | 0 | 0 | 2 | 758 | 99.7% |
 | PART ov023 | 222 | 0 | 0 | 2 | 224 | 99.1% |
 | PART ov024 | 114 | 1 | 0 | 4 | 119 | 95.8% |
 | PART ov025 | 988 | 0 | 0 | 15 | 1003 | 98.5% |
@@ -43,7 +43,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov031 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | PART ov032 | 32 | 2 | 0 | 0 | 34 | 94.1% |
 | DONE ov033 | 27 | 0 | 0 | 0 | 27 | 100.0% |
-| PART ov034 | 32 | 1 | 0 | 0 | 33 | 97.0% |
+| DONE ov034 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov035 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov036 | 40 | 0 | 0 | 0 | 40 | 100.0% |
 | DONE ov037 | 31 | 0 | 0 | 0 | 31 | 100.0% |
@@ -62,7 +62,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov050 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov051 | 27 | 0 | 0 | 0 | 27 | 100.0% |
 | PART ov052 | 32 | 2 | 0 | 0 | 34 | 94.1% |
-| PART ov053 | 32 | 1 | 0 | 0 | 33 | 97.0% |
+| DONE ov053 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov054 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov055 | 40 | 0 | 0 | 0 | 40 | 100.0% |
 | DONE ov056 | 31 | 0 | 0 | 0 | 31 | 100.0% |
@@ -82,7 +82,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov070 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov071 | 27 | 0 | 0 | 0 | 27 | 100.0% |
 | PART ov072 | 32 | 2 | 0 | 0 | 34 | 94.1% |
-| PART ov073 | 32 | 1 | 0 | 0 | 33 | 97.0% |
+| DONE ov073 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov074 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov075 | 40 | 0 | 0 | 0 | 40 | 100.0% |
 | DONE ov076 | 31 | 0 | 0 | 0 | 31 | 100.0% |
@@ -99,7 +99,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov087 | 29 | 0 | 0 | 0 | 29 | 100.0% |
 | DONE ov088 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov089 | 27 | 0 | 0 | 0 | 27 | 100.0% |
-| PART ov090 | 32 | 1 | 0 | 0 | 33 | 97.0% |
+| DONE ov090 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov091 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov092 | 40 | 0 | 0 | 0 | 40 | 100.0% |
 | DONE ov093 | 31 | 0 | 0 | 0 | 31 | 100.0% |
@@ -163,7 +163,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov157 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | DONE ov158 | 64 | 0 | 0 | 0 | 64 | 100.0% |
 | DONE ov159 | 64 | 0 | 0 | 0 | 64 | 100.0% |
-| PART ov160 | 62 | 0 | 0 | 1 | 63 | 98.4% |
+| DONE ov160 | 63 | 0 | 0 | 0 | 63 | 100.0% |
 | DONE ov161 | 60 | 0 | 0 | 0 | 60 | 100.0% |
 | DONE ov162 | 60 | 0 | 0 | 0 | 60 | 100.0% |
 | DONE ov163 | 56 | 0 | 0 | 0 | 56 | 100.0% |
@@ -172,8 +172,8 @@ SDK/library identifications are tracked separately; see
 | DONE ov166 | 55 | 0 | 0 | 0 | 55 | 100.0% |
 | DONE ov167 | 55 | 0 | 0 | 0 | 55 | 100.0% |
 | DONE ov168 | 55 | 0 | 0 | 0 | 55 | 100.0% |
-| PART ov169 | 56 | 1 | 0 | 0 | 57 | 98.2% |
-| PART ov170 | 56 | 1 | 0 | 0 | 57 | 98.2% |
+| DONE ov169 | 57 | 0 | 0 | 0 | 57 | 100.0% |
+| DONE ov170 | 57 | 0 | 0 | 0 | 57 | 100.0% |
 | DONE ov171 | 56 | 0 | 0 | 0 | 56 | 100.0% |
 | DONE ov172 | 56 | 0 | 0 | 0 | 56 | 100.0% |
 | DONE ov173 | 51 | 0 | 0 | 0 | 51 | 100.0% |
@@ -181,9 +181,9 @@ SDK/library identifications are tracked separately; see
 | DONE ov175 | 55 | 0 | 0 | 0 | 55 | 100.0% |
 | DONE ov176 | 55 | 0 | 0 | 0 | 55 | 100.0% |
 | DONE ov177 | 55 | 0 | 0 | 0 | 55 | 100.0% |
-| PART ov178 | 61 | 1 | 0 | 0 | 62 | 98.4% |
-| PART ov179 | 61 | 1 | 0 | 0 | 62 | 98.4% |
-| PART ov180 | 61 | 1 | 0 | 0 | 62 | 98.4% |
+| DONE ov178 | 62 | 0 | 0 | 0 | 62 | 100.0% |
+| DONE ov179 | 62 | 0 | 0 | 0 | 62 | 100.0% |
+| DONE ov180 | 62 | 0 | 0 | 0 | 62 | 100.0% |
 | DONE ov181 | 52 | 0 | 0 | 0 | 52 | 100.0% |
 | DONE ov182 | 52 | 0 | 0 | 0 | 52 | 100.0% |
 | DONE ov183 | 52 | 0 | 0 | 0 | 52 | 100.0% |
@@ -194,9 +194,9 @@ SDK/library identifications are tracked separately; see
 | DONE ov188 | 48 | 0 | 0 | 0 | 48 | 100.0% |
 | DONE ov189 | 48 | 0 | 0 | 0 | 48 | 100.0% |
 | DONE ov190 | 48 | 0 | 0 | 0 | 48 | 100.0% |
-| PART ov191 | 53 | 1 | 0 | 0 | 54 | 98.1% |
-| PART ov192 | 53 | 1 | 0 | 0 | 54 | 98.1% |
-| PART ov193 | 53 | 1 | 0 | 0 | 54 | 98.1% |
+| DONE ov191 | 54 | 0 | 0 | 0 | 54 | 100.0% |
+| DONE ov192 | 54 | 0 | 0 | 0 | 54 | 100.0% |
+| DONE ov193 | 54 | 0 | 0 | 0 | 54 | 100.0% |
 | DONE ov194 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | DONE ov195 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | DONE ov196 | 50 | 0 | 0 | 0 | 50 | 100.0% |
@@ -213,8 +213,8 @@ SDK/library identifications are tracked separately; see
 | PART ov207 | 58 | 0 | 0 | 5 | 63 | 92.1% |
 | PART ov208 | 65 | 0 | 0 | 16 | 81 | 80.2% |
 | PART ov209 | 66 | 0 | 0 | 15 | 81 | 81.5% |
-| PART ov210 | 66 | 0 | 1 | 16 | 83 | 79.5% |
-| PART ov211 | 66 | 0 | 0 | 17 | 83 | 79.5% |
+| PART ov210 | 76 | 0 | 0 | 7 | 83 | 91.6% |
+| PART ov211 | 76 | 0 | 0 | 7 | 83 | 91.6% |
 | PART ov212 | 100 | 0 | 0 | 19 | 119 | 84.0% |
 | PART ov213 | 106 | 0 | 0 | 10 | 116 | 91.4% |
 | DONE ov214 | 50 | 0 | 0 | 0 | 50 | 100.0% |
@@ -285,7 +285,7 @@ SDK/library identifications are tracked separately; see
 | PART ov279 | 34 | 0 | 0 | 22 | 56 | 60.7% |
 | PART ov280 | 54 | 0 | 0 | 11 | 65 | 83.1% |
 | DONE ov281 | 48 | 0 | 0 | 0 | 48 | 100.0% |
-| PART ov282 | 69 | 0 | 0 | 14 | 83 | 83.1% |
+| PART ov282 | 76 | 0 | 0 | 7 | 83 | 91.6% |
 | PART ov283 | 57 | 0 | 0 | 24 | 81 | 70.4% |
 | DONE ov284 | 33 | 0 | 0 | 0 | 33 | 100.0% |
 | DONE ov285 | 23 | 0 | 0 | 0 | 23 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **21583** | **122** | **41** | **1489** | **23235** | **92.9%** |
+| **TOTAL** | **21624** | **110** | **40** | **1461** | **23235** | **93.1%** |
 
 ## Byte progress
 
@@ -318,4 +318,4 @@ SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **3,967,440** | **4,728,788** | **83.90%** |
+| **3,991,832** | **4,728,788** | **84.42%** |
