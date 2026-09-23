@@ -28,6 +28,14 @@ src/overlays/ov272/calls/func_ov272_020cff74.c:
     complete
     .text       start:0x020cff74 end:0x020cfff0
 
+src/overlays/ov272/calls/func_ov272_020cfff0.c:
+    complete
+    .text       start:0x020cfff0 end:0x020d0158
+
+src/overlays/ov272/calls/func_ov272_020d0158.c:
+    complete
+    .text       start:0x020d0158 end:0x020d0374
+
 src/overlays/ov272/calls/func_ov272_020d0374.c:
     complete
     .text       start:0x020d0374 end:0x020d03d0
