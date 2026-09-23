@@ -12,6 +12,10 @@ src/overlays/ov280/calls/func_ov280_020cfb78.c:
     complete
     .text       start:0x020cfb78 end:0x020cfc08
 
+src/overlays/ov280/calls/func_ov280_020cfc08.c:
+    complete
+    .text       start:0x020cfc08 end:0x020d009c
+
 src/overlays/ov280/calls/func_ov280_020d009c.c:
     complete
     .text       start:0x020d009c end:0x020d00f4
@@ -59,7 +63,6 @@ src/overlays/ov280/calls/func_ov280_020d0890.c:
 src/overlays/ov280/calls/func_ov280_020d09a0.c:
     complete
     .text       start:0x020d09a0 end:0x020d0c00
-    .rodata     start:0x020d3694 end:0x020d3698
 
 src/overlays/ov280/calls/func_ov280_020d0cf4.c:
     complete
@@ -148,6 +151,10 @@ src/overlays/ov280/calls/func_ov280_020d2110.c:
 src/overlays/ov280/calls/func_ov280_020d237c.c:
     complete
     .text       start:0x020d237c end:0x020d23b4
+
+src/overlays/ov280/calls/func_ov280_020d23b4.c:
+    complete
+    .text       start:0x020d23b4 end:0x020d2600
 
 src/overlays/ov280/calls/func_ov280_020d2600.c:
     complete
