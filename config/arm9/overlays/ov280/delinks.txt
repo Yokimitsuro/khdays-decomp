@@ -63,6 +63,7 @@ src/overlays/ov280/calls/func_ov280_020d0890.c:
 src/overlays/ov280/calls/func_ov280_020d09a0.c:
     complete
     .text       start:0x020d09a0 end:0x020d0c00
+    .rodata     start:0x020d3694 end:0x020d3698
 
 src/overlays/ov280/calls/func_ov280_020d0c00.c:
     complete
