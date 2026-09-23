@@ -28,6 +28,10 @@ src/overlays/ov232/calls/func_ov232_020d0118.c:
     complete
     .text       start:0x020d0118 end:0x020d019c
 
+src/overlays/ov232/calls/func_ov232_020d019c.c:
+    complete
+    .text       start:0x020d019c end:0x020d02cc
+
 src/overlays/ov232/calls/func_ov232_020d02cc.c:
     complete
     .text       start:0x020d02cc end:0x020d0308
@@ -56,6 +60,10 @@ src/overlays/ov232/calls/func_ov232_020d0998.c:
     complete
     .text       start:0x020d0998 end:0x020d0bf8
     .rodata     start:0x020d3670 end:0x020d3674
+
+src/overlays/ov232/calls/func_ov232_020d0bf8.c:
+    complete
+    .text       start:0x020d0bf8 end:0x020d0cd4
 
 src/overlays/ov232/calls/func_ov232_020d0cd4.c:
     complete
@@ -200,6 +208,10 @@ src/overlays/ov232/calls/func_ov232_020d2d1c.c:
 src/overlays/ov232/calls/func_ov232_020d2d64.c:
     complete
     .text       start:0x020d2d64 end:0x020d2d98
+
+src/overlays/ov232/calls/func_ov232_020d2d98.c:
+    complete
+    .text       start:0x020d2d98 end:0x020d2ec8
 
 src/overlays/ov232/calls/func_ov232_020d2ec8.c:
     complete
