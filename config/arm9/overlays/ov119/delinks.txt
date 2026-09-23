@@ -28,6 +28,10 @@ src/overlays/ov119/calls/func_ov119_020cc768.c:
     complete
     .text       start:0x020cc768 end:0x020cc7c4
 
+src/overlays/ov119/calls/func_ov119_020cc7c4.c:
+    complete
+    .text       start:0x020cc7c4 end:0x020cc9d0
+
 src/overlays/ov119/auto/func_ov119_020cc9d0.c:
     complete
     .text       start:0x020cc9d0 end:0x020cca00
