@@ -95,6 +95,7 @@ func_ov252_020d4204 kind:function(arm,size=0x54) addr:0x020d4204
 data_ov252_020d4258 kind:data(any) addr:0x020d4258
 data_ov252_020d4270 kind:data(any) addr:0x020d4270
 data_ov252_020d4334 kind:data(any) addr:0x020d4334
+data_ov252_020d4338 kind:data(any) addr:0x020d4338
 data_ov252_020d4344 kind:data(any) addr:0x020d4344
 data_ov252_020d4350 kind:data(any) addr:0x020d4350
 data_ov252_020d435c kind:data(any) addr:0x020d435c
