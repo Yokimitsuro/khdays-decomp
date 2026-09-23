@@ -116,6 +116,10 @@ src/overlays/ov218/calls/func_ov218_020ccf04.c:
     complete
     .text       start:0x020ccf04 end:0x020ccfa8
 
+src/overlays/ov218/calls/func_ov218_020ccfa8.c:
+    complete
+    .text       start:0x020ccfa8 end:0x020cd098
+
 src/overlays/ov218/calls/func_ov218_020cd098.c:
     complete
     .text       start:0x020cd098 end:0x020cd35c
