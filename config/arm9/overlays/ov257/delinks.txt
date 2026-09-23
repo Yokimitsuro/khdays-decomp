@@ -88,6 +88,10 @@ src/overlays/ov257/calls/func_ov257_020d24dc.c:
     complete
     .text       start:0x020d24dc end:0x020d2530
 
+src/overlays/ov257/calls/func_ov257_020d2530.c:
+    complete
+    .text       start:0x020d2530 end:0x020d25fc
+
 src/overlays/ov257/auto/func_ov257_020d25fc.c:
     complete
     .text       start:0x020d25fc end:0x020d2614
