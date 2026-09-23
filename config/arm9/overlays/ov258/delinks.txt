@@ -48,6 +48,10 @@ src/overlays/ov258/calls/func_ov258_020cd028.c:
     complete
     .text       start:0x020cd028 end:0x020cd104
 
+src/overlays/ov258/calls/func_ov258_020cd104.c:
+    complete
+    .text       start:0x020cd104 end:0x020cd2cc
+
 src/overlays/ov258/calls/func_ov258_020cd4ac.c:
     complete
     .text       start:0x020cd4ac end:0x020cd50c
@@ -64,9 +68,17 @@ src/overlays/ov258/calls/func_ov258_020cd6c8.c:
     complete
     .text       start:0x020cd6c8 end:0x020cd748
 
+src/overlays/ov258/calls/func_ov258_020cd748.c:
+    complete
+    .text       start:0x020cd748 end:0x020cd8c0
+
 src/overlays/ov258/calls/func_ov258_020cd8c0.c:
     complete
     .text       start:0x020cd8c0 end:0x020cd9b0
+
+src/overlays/ov258/calls/func_ov258_020cd9b0.c:
+    complete
+    .text       start:0x020cd9b0 end:0x020cdb18
 
 src/overlays/ov258/calls/func_ov258_020cdb18.c:
     complete
@@ -120,6 +132,14 @@ src/overlays/ov258/calls/func_ov258_020cf7c8.c:
     complete
     .text       start:0x020cf7c8 end:0x020cf894
 
+src/overlays/ov258/calls/func_ov258_020cf894.c:
+    complete
+    .text       start:0x020cf894 end:0x020cf9f8
+
+src/overlays/ov258/calls/func_ov258_020cf9f8.c:
+    complete
+    .text       start:0x020cf9f8 end:0x020cfb10
+
 src/overlays/ov258/calls/func_ov258_020cfb10.c:
     complete
     .text       start:0x020cfb10 end:0x020cfc20
@@ -143,6 +163,10 @@ src/overlays/ov258/calls/func_ov258_020cfd3c.c:
 src/overlays/ov258/calls/func_ov258_020cfd58.c:
     complete
     .text       start:0x020cfd58 end:0x020cfd94
+
+src/overlays/ov258/calls/func_ov258_020cfd94.c:
+    complete
+    .text       start:0x020cfd94 end:0x020cfed8
 
 src/overlays/ov258/calls/func_ov258_020cfed8.c:
     complete
@@ -215,6 +239,10 @@ src/overlays/ov258/calls/func_ov258_020d0af4.c:
 src/overlays/ov258/auto/func_ov258_020d0ba4.c:
     complete
     .text       start:0x020d0ba4 end:0x020d0bbc
+
+src/overlays/ov258/calls/func_ov258_020d0eb4.c:
+    complete
+    .text       start:0x020d0eb4 end:0x020d0fc8
 
 src/overlays/ov258/auto/func_ov258_020d0fc8.c:
     complete
