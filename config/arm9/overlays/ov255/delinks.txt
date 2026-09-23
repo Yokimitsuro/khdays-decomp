@@ -64,6 +64,10 @@ src/overlays/ov255/calls/func_ov255_020cd83c.c:
     complete
     .text       start:0x020cd83c end:0x020cd934
 
+src/overlays/ov255/calls/func_ov255_020cd934.c:
+    complete
+    .text       start:0x020cd934 end:0x020cdac8
+
 src/overlays/ov255/calls/func_ov255_020cdac8.c:
     complete
     .text       start:0x020cdac8 end:0x020cdbb0
@@ -120,9 +124,33 @@ src/overlays/ov255/calls/func_ov255_020ce4d8.c:
     complete
     .text       start:0x020ce4d8 end:0x020ce534
 
+src/overlays/ov255/calls/func_ov255_020cf3c4.c:
+    complete
+    .text       start:0x020cf3c4 end:0x020cf460
+
+src/overlays/ov255/calls/func_ov255_020cf460.c:
+    complete
+    .text       start:0x020cf460 end:0x020cf51c
+
 src/overlays/ov255/calls/func_ov255_020cf914.c:
     complete
     .text       start:0x020cf914 end:0x020cf950
+
+src/overlays/ov255/calls/func_ov255_020cf950.c:
+    complete
+    .text       start:0x020cf950 end:0x020cfa28
+
+src/overlays/ov255/calls/func_ov255_020cfe34.c:
+    complete
+    .text       start:0x020cfe34 end:0x020cfecc
+
+src/overlays/ov255/calls/func_ov255_020cfecc.c:
+    complete
+    .text       start:0x020cfecc end:0x020cff68
+
+src/overlays/ov255/calls/func_ov255_020cff68.c:
+    complete
+    .text       start:0x020cff68 end:0x020d0044
 
 src/overlays/ov255/calls/func_ov255_020d054c.c:
     complete
@@ -135,6 +163,26 @@ src/overlays/ov255/calls/func_ov255_020d0600.c:
 src/overlays/ov255/calls/func_ov255_020d06a4.c:
     complete
     .text       start:0x020d06a4 end:0x020d0710
+
+src/overlays/ov255/calls/func_ov255_020d07d4.c:
+    complete
+    .text       start:0x020d07d4 end:0x020d086c
+
+src/overlays/ov255/calls/func_ov255_020d086c.c:
+    complete
+    .text       start:0x020d086c end:0x020d0908
+
+src/overlays/ov255/calls/func_ov255_020d0908.c:
+    complete
+    .text       start:0x020d0908 end:0x020d09cc
+
+src/overlays/ov255/calls/func_ov255_020d0ae8.c:
+    complete
+    .text       start:0x020d0ae8 end:0x020d0bac
+
+src/overlays/ov255/calls/func_ov255_020d0bac.c:
+    complete
+    .text       start:0x020d0bac end:0x020d0c60
 
 src/overlays/ov255/calls/func_ov255_020d0d04.c:
     complete
