@@ -176,6 +176,10 @@ src/overlays/ov260/calls/func_ov260_020d277c.c:
     complete
     .text       start:0x020d277c end:0x020d27ec
 
+src/overlays/ov260/calls/func_ov260_020d2888.c:
+    complete
+    .text       start:0x020d2888 end:0x020d2a3c
+
 src/overlays/ov260/data/ov260_strings_020d2aa0.c:
     complete
     .data       start:0x020d2aa0 end:0x020d2ae0
