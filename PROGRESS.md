@@ -149,7 +149,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov143 | 57 | 0 | 0 | 0 | 57 | 100.0% |
 | DONE ov144 | 38 | 0 | 0 | 0 | 38 | 100.0% |
 | DONE ov145 | 38 | 0 | 0 | 0 | 38 | 100.0% |
-| PART ov146 | 57 | 0 | 1 | 30 | 88 | 64.8% |
+| PART ov146 | 84 | 0 | 1 | 3 | 88 | 95.5% |
 | DONE ov147 | 62 | 0 | 0 | 0 | 62 | 100.0% |
 | DONE ov148 | 62 | 0 | 0 | 0 | 62 | 100.0% |
 | DONE ov149 | 57 | 0 | 0 | 0 | 57 | 100.0% |
@@ -221,7 +221,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov215 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | DONE ov216 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | DONE ov217 | 50 | 0 | 0 | 0 | 50 | 100.0% |
-| PART ov218 | 46 | 0 | 1 | 26 | 73 | 63.0% |
+| PART ov218 | 67 | 0 | 0 | 6 | 73 | 91.8% |
 | DONE ov219 | 42 | 0 | 0 | 0 | 42 | 100.0% |
 | DONE ov220 | 50 | 0 | 0 | 0 | 50 | 100.0% |
 | PART ov221 | 83 | 0 | 0 | 1 | 84 | 98.8% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **22528** | **110** | **35** | **562** | **23235** | **97.0%** |
+| **TOTAL** | **22576** | **110** | **34** | **515** | **23235** | **97.2%** |
 
 ## Byte progress
 
@@ -318,4 +318,4 @@ SDK assembly and authorized CLZ entries described in the progress policy.
 
 | C matched bytes | Total known bytes | % |
 |---:|---:|---:|
-| **4,393,000** | **4,728,788** | **92.90%** |
+| **4,404,504** | **4,728,788** | **93.14%** |
