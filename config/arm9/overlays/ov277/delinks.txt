@@ -200,6 +200,10 @@ src/overlays/ov277/auto/func_ov277_020cf5b8.c:
     complete
     .text       start:0x020cf5b8 end:0x020cf5d0
 
+src/overlays/ov277/calls/func_ov277_020cf5d0.c:
+    complete
+    .text       start:0x020cf5d0 end:0x020cf698
+
 src/overlays/ov277/calls/func_ov277_020cf698.c:
     complete
     .text       start:0x020cf698 end:0x020cf6e4

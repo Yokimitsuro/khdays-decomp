@@ -32,6 +32,10 @@ src/overlays/ov230/calls/func_ov230_020d200c.c:
     complete
     .text       start:0x020d200c end:0x020d2048
 
+src/overlays/ov230/calls/func_ov230_020d2048.c:
+    complete
+    .text       start:0x020d2048 end:0x020d22b4
+
 src/overlays/ov230/calls/func_ov230_020d22b4.c:
     complete
     .text       start:0x020d22b4 end:0x020d243c
@@ -51,6 +55,10 @@ src/overlays/ov230/auto/func_ov230_020d2a9c.c:
 src/overlays/ov230/auto/func_ov230_020d2ac8.c:
     complete
     .text       start:0x020d2ac8 end:0x020d2af8
+
+src/overlays/ov230/calls/func_ov230_020d2af8.c:
+    complete
+    .text       start:0x020d2af8 end:0x020d2d90
 
 src/overlays/ov230/calls/func_ov230_020d3028.c:
     complete
@@ -120,6 +128,10 @@ src/overlays/ov230/calls/func_ov230_020d3ecc.c:
     complete
     .text       start:0x020d3ecc end:0x020d3fc4
 
+src/overlays/ov230/calls/func_ov230_020d3fc4.c:
+    complete
+    .text       start:0x020d3fc4 end:0x020d40a0
+
 src/overlays/ov230/calls/func_ov230_020d45b0.c:
     complete
     .text       start:0x020d45b0 end:0x020d464c
@@ -127,6 +139,10 @@ src/overlays/ov230/calls/func_ov230_020d45b0.c:
 src/overlays/ov230/calls/func_ov230_020d4960.c:
     complete
     .text       start:0x020d4960 end:0x020d4a64
+
+src/overlays/ov230/calls/func_ov230_020d4a64.c:
+    complete
+    .text       start:0x020d4a64 end:0x020d4b80
 
 src/overlays/ov230/calls/func_ov230_020d4b80.c:
     complete
@@ -148,6 +164,10 @@ src/overlays/ov230/calls/func_ov230_020d4d50.c:
     complete
     .text       start:0x020d4d50 end:0x020d4de8
 
+src/overlays/ov230/calls/func_ov230_020d4de8.c:
+    complete
+    .text       start:0x020d4de8 end:0x020d4efc
+
 src/overlays/ov230/calls/func_ov230_020d4efc.c:
     complete
     .text       start:0x020d4efc end:0x020d50e0
@@ -155,6 +175,10 @@ src/overlays/ov230/calls/func_ov230_020d4efc.c:
 src/overlays/ov230/calls/func_ov230_020d50e0.c:
     complete
     .text       start:0x020d50e0 end:0x020d515c
+
+src/overlays/ov230/calls/func_ov230_020d515c.c:
+    complete
+    .text       start:0x020d515c end:0x020d5258
 
 src/overlays/ov230/calls/func_ov230_020d5258.c:
     complete

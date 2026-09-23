@@ -32,6 +32,10 @@ src/overlays/ov248/calls/func_ov248_020cc5ac.c:
     complete
     .text       start:0x020cc5ac end:0x020cc5e8
 
+src/overlays/ov248/calls/func_ov248_020cc5e8.c:
+    complete
+    .text       start:0x020cc5e8 end:0x020cc854
+
 src/overlays/ov248/calls/func_ov248_020cc854.c:
     complete
     .text       start:0x020cc854 end:0x020cc9dc
@@ -51,6 +55,10 @@ src/overlays/ov248/auto/func_ov248_020cd03c.c:
 src/overlays/ov248/auto/func_ov248_020cd068.c:
     complete
     .text       start:0x020cd068 end:0x020cd098
+
+src/overlays/ov248/calls/func_ov248_020cd098.c:
+    complete
+    .text       start:0x020cd098 end:0x020cd330
 
 src/overlays/ov248/calls/func_ov248_020cd330.c:
     complete
@@ -124,6 +132,10 @@ src/overlays/ov248/calls/func_ov248_020ce3c8.c:
     complete
     .text       start:0x020ce3c8 end:0x020ce4c0
 
+src/overlays/ov248/calls/func_ov248_020ce4c0.c:
+    complete
+    .text       start:0x020ce4c0 end:0x020ce59c
+
 src/overlays/ov248/calls/func_ov248_020ce59c.c:
     complete
     .text       start:0x020ce59c end:0x020ce680
@@ -139,6 +151,10 @@ src/overlays/ov248/calls/func_ov248_020ceae0.c:
 src/overlays/ov248/calls/func_ov248_020cee90.c:
     complete
     .text       start:0x020cee90 end:0x020cef94
+
+src/overlays/ov248/calls/func_ov248_020cef94.c:
+    complete
+    .text       start:0x020cef94 end:0x020cf0b0
 
 src/overlays/ov248/calls/func_ov248_020cf0b0.c:
     complete
@@ -160,6 +176,10 @@ src/overlays/ov248/calls/func_ov248_020cf280.c:
     complete
     .text       start:0x020cf280 end:0x020cf33c
 
+src/overlays/ov248/calls/func_ov248_020cf33c.c:
+    complete
+    .text       start:0x020cf33c end:0x020cf450
+
 src/overlays/ov248/calls/func_ov248_020cf450.c:
     complete
     .text       start:0x020cf450 end:0x020cf634
@@ -168,9 +188,17 @@ src/overlays/ov248/calls/func_ov248_020cf634.c:
     complete
     .text       start:0x020cf634 end:0x020cf6b0
 
+src/overlays/ov248/calls/func_ov248_020cf6b0.c:
+    complete
+    .text       start:0x020cf6b0 end:0x020cf7ac
+
 src/overlays/ov248/calls/func_ov248_020cf7ac.c:
     complete
     .text       start:0x020cf7ac end:0x020cf9c4
+
+src/overlays/ov248/calls/func_ov248_020cf9c4.c:
+    complete
+    .text       start:0x020cf9c4 end:0x020cfb4c
 
 src/overlays/ov248/calls/func_ov248_020cfb4c.c:
     complete
