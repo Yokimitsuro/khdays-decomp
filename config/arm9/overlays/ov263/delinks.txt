@@ -80,6 +80,10 @@ src/overlays/ov263/calls/func_ov263_020d0f14.c:
     complete
     .text       start:0x020d0f14 end:0x020d1170
 
+src/overlays/ov263/calls/func_ov263_020d1170.c:
+    complete
+    .text       start:0x020d1170 end:0x020d13c8
+
 src/overlays/ov263/calls/func_ov263_020d13c8.c:
     complete
     .text       start:0x020d13c8 end:0x020d146c
