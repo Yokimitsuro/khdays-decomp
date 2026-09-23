@@ -1,4 +1,4 @@
-/* Start of an ov235 helper: its +0 part is shown (bit 1 of +0x5c cleared, bit 0 raised),
+/* Start of an ov255 helper (twin of ov235 d1a88): its +0 part is shown (bit 1 of +0x5c cleared, bit 0 raised),
  * animation channels 0, 2, 4 and 1 are restarted once, the part takes the +4 source pose at +0x30,
  * and the helper installs its slot-1 (func_ov255_020d0ed0) and slot-2 (func_ov255_020d0ea4) ticks. */
 typedef struct { int w[11]; } Srt;
