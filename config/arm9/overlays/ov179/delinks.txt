@@ -16,7 +16,7 @@ src/overlays/ov179/calls/func_ov179_020d1a24.c:
     complete
     .text       start:0x020d1a24 end:0x020d1a80
 
-src/overlays/ov179/asm_stubs/calls/func_ov179_020d1a80.c:
+src/overlays/ov179/calls/func_ov179_020d1a80.c:
     complete
     .text       start:0x020d1a80 end:0x020d1da4
 
