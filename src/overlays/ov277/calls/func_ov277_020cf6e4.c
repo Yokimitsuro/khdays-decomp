@@ -1,8 +1,9 @@
-/* Hit filter of the ov277 summoned part controller, active while its +0x21a stock is positive. The
- * damage (020c89e8) is doubled when the hit body is the owner's +0x39c core, the stock drops by it
+/* Hit filter of the ov277 enemy (installed at +0x1d0), active while its +0x21a stock is positive. The
+ * damage (020c89e8) is doubled when the hit body is its +0x39c core, the stock drops by it
  * (clamped to 0..+0x218), and a damaging hit that is not the 8|0x80/0x80 special flips the +8
  * parity and fires reaction 0x165 with mode 2/3 (bits 1/5) or 0/1 at the hit body's +4 point (the
- * owner's +0x74 position without one). Once the owner's own stock is empty it requests move 3. */
+ * +0x74 position of the +0x214 state's actor without one). Once that actor's stock is empty it
+ * requests move 3. */
 typedef unsigned char u8;
 typedef unsigned short u16;
 
