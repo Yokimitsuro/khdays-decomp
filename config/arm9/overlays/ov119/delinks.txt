@@ -128,6 +128,10 @@ src/overlays/ov119/calls/func_ov119_020cdab8.c:
     complete
     .text       start:0x020cdab8 end:0x020cdaec
 
+src/overlays/ov119/calls/func_ov119_020cdc88.c:
+    complete
+    .text       start:0x020cdc88 end:0x020cde44
+
 src/overlays/ov119/calls/func_ov119_020cde44.c:
     complete
     .text       start:0x020cde44 end:0x020cdec4
@@ -167,6 +171,10 @@ src/overlays/ov119/calls/func_ov119_020ce9e4.c:
 src/overlays/ov119/calls/func_ov119_020ceac8.c:
     complete
     .text       start:0x020ceac8 end:0x020cec1c
+
+src/overlays/ov119/calls/func_ov119_020cec1c.c:
+    complete
+    .text       start:0x020cec1c end:0x020cedc4
 
 src/overlays/ov119/calls/func_ov119_020cf158.c:
     complete
