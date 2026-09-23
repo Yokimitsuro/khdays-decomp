@@ -1,18 +1,3 @@
-/* NOT MATCHING -- 1863 of 1952 bytes, 452 of 488 instructions aligned.
- *
- * Exact size, exact instruction count and exact relocations. Everything is
- * byte identical except the five weapon-stat sums for widgets 7 / 9 / 0xb / 0xc
- * / 0xd: the ROM writes the inner `total + row` sum into the row's register
- * (the right operand, `add r2, r3, r2`) and the buffer halfword then takes the
- * freed r3; build 139 writes it into the total's register (`add r3, r3, r2`)
- * and the following four instructions of each block follow that choice.
- *
- * Swept: the six operand orders x (int / u32 / s16) casts x old / new statement
- * order (48), named row / total locals x orders (96), compound accumulations
- * (18), single-expression deltas (30), u32 sums and totals, a delta local,
- * variadic / K&R draw prototypes, callee return types (163), argument casts
- * (319), a type mask over the scalars (256), 49 pragmas. Left for decomp.me.
- */
 /* func_ov008_02060e3c -- Ov008_PreviewDropSummary: preview the grid with the
  * lifted record (+0x19b4) dropped at the cursor (+0x64 / +0x66) and show the
  * stat deltas on page B.  A copy of the three page grids (item ids of the
@@ -40,9 +25,7 @@
  * drop rows a for loop whose `nRow * 8` is strength-reduced; the summary
  * node of the inner loop is not reset per tracked node and both list walks
  * are while loops on the next call (a for inner loop rotates the outer);
- * kind 3 passes the old HP twice.  HELD: the five weapon-stat sums differ
- * in scratch-register choice only (ROM: the first add lands in the row's
- * register and the new weapon stat takes the freed total register).
+ * kind 3 passes the old HP twice.
  */
 typedef unsigned char      u8;
 typedef unsigned short     u16;
@@ -337,19 +320,19 @@ void func_ov008_02060e3c(Ov008MenuContext *pCtx)
     func_ov008_0206ec2c(3, nNew - nOld, nOld, nOld);
     nOld = pOld->aTotal[2] + rowOld.nStrength + bufOld.h2;
     nNew = pNew->aTotal[2] + rowNew.nStrength + bufNew.h2;
-    func_ov008_0206ec2c(7, nNew - nOld);
+    func_ov008_0206ec2c(7, nNew - nOld, nOld);
     nOld = pOld->aTotal[3] + rowOld.nMagic + bufOld.h4;
     nNew = pNew->aTotal[3] + rowNew.nMagic + bufNew.h4;
-    func_ov008_0206ec2c(9, nNew - nOld);
+    func_ov008_0206ec2c(9, nNew - nOld, nOld);
     nOld = pOld->aTotal[4] + rowOld.nDefense + bufOld.h6;
     nNew = pNew->aTotal[4] + rowNew.nDefense + bufNew.h6;
-    func_ov008_0206ec2c(0xb, nNew - nOld);
+    func_ov008_0206ec2c(0xb, nNew - nOld, nOld);
     nOld = pOld->aTotal[5] + rowOld.nStatWord + bufOld.w8;
     nNew = pNew->aTotal[5] + rowNew.nStatWord + bufNew.w8;
-    func_ov008_0206ec2c(0xc, nNew - nOld);
+    func_ov008_0206ec2c(0xc, nNew - nOld, nOld);
     nOld = pOld->aTotal[6] + rowOld.nStatE + bufOld.hc;
     nNew = pNew->aTotal[6] + rowNew.nStatE + bufNew.hc;
-    func_ov008_0206ec2c(0xd, nNew - nOld);
+    func_ov008_0206ec2c(0xd, nNew - nOld, nOld);
     nOld = func_ov008_020539f0(pOld);
     nNew = func_ov008_020539f0(pNew);
     func_ov008_0206ec2c(5, nNew - nOld, nOld);
