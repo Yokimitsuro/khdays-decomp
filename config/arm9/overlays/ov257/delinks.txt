@@ -40,9 +40,17 @@ src/overlays/ov257/calls/func_ov257_020cd370.c:
     complete
     .text       start:0x020cd370 end:0x020cd57c
 
+src/overlays/ov257/calls/func_ov257_020cd57c.c:
+    complete
+    .text       start:0x020cd57c end:0x020cd60c
+
 src/overlays/ov257/calls/func_ov257_020cd60c.c:
     complete
     .text       start:0x020cd60c end:0x020cd674
+
+src/overlays/ov257/calls/func_ov257_020cd674.c:
+    complete
+    .text       start:0x020cd674 end:0x020cd6f0
 
 src/overlays/ov257/calls/func_ov257_020cd6f0.c:
     complete
@@ -52,9 +60,25 @@ src/overlays/ov257/calls/func_ov257_020cda48.c:
     complete
     .text       start:0x020cda48 end:0x020cda90
 
+src/overlays/ov257/calls/func_ov257_020ce04c.c:
+    complete
+    .text       start:0x020ce04c end:0x020ce0dc
+
+src/overlays/ov257/calls/func_ov257_020ce0dc.c:
+    complete
+    .text       start:0x020ce0dc end:0x020ce17c
+
+src/overlays/ov257/calls/func_ov257_020ce238.c:
+    complete
+    .text       start:0x020ce238 end:0x020ce308
+
 src/overlays/ov257/calls/func_ov257_020ce308.c:
     complete
     .text       start:0x020ce308 end:0x020ce380
+
+src/overlays/ov257/calls/func_ov257_020ce428.c:
+    complete
+    .text       start:0x020ce428 end:0x020ce504
 
 src/overlays/ov257/calls/func_ov257_020ce504.c:
     complete
@@ -64,6 +88,14 @@ src/overlays/ov257/calls/func_ov257_020ce594.c:
     complete
     .text       start:0x020ce594 end:0x020ce60c
 
+src/overlays/ov257/calls/func_ov257_020ce60c.c:
+    complete
+    .text       start:0x020ce60c end:0x020ce6ac
+
+src/overlays/ov257/calls/func_ov257_020ce6ac.c:
+    complete
+    .text       start:0x020ce6ac end:0x020ce784
+
 src/overlays/ov257/calls/func_ov257_020ce784.c:
     complete
     .text       start:0x020ce784 end:0x020ce814
@@ -72,9 +104,25 @@ src/overlays/ov257/calls/func_ov257_020ce814.c:
     complete
     .text       start:0x020ce814 end:0x020ce870
 
+src/overlays/ov257/calls/func_ov257_020cf718.c:
+    complete
+    .text       start:0x020cf718 end:0x020cf7d4
+
 src/overlays/ov257/calls/func_ov257_020cfb50.c:
     complete
     .text       start:0x020cfb50 end:0x020cfbac
+
+src/overlays/ov257/calls/func_ov257_020d00b8.c:
+    complete
+    .text       start:0x020d00b8 end:0x020d0150
+
+src/overlays/ov257/calls/func_ov257_020d07a8.c:
+    complete
+    .text       start:0x020d07a8 end:0x020d085c
+
+src/overlays/ov257/calls/func_ov257_020d085c.c:
+    complete
+    .text       start:0x020d085c end:0x020d0900
 
 src/overlays/ov257/calls/func_ov257_020d0900.c:
     complete
