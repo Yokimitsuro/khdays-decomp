@@ -52,6 +52,10 @@ src/overlays/ov248/calls/func_ov248_020cca94.c:
     complete
     .text       start:0x020cca94 end:0x020ccaf0
 
+src/overlays/ov248/calls/func_ov248_020ccaf0.c:
+    complete
+    .text       start:0x020ccaf0 end:0x020cd03c
+
 src/overlays/ov248/auto/func_ov248_020cd03c.c:
     complete
     .text       start:0x020cd03c end:0x020cd068
