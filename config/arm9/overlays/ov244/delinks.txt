@@ -551,3 +551,7 @@ src/overlays/ov244/calls/func_ov244_020d35b0.c:
 src/overlays/ov244/data/ov244_strings_020d37c0.c:
     complete
     .data       start:0x020d37c0 end:0x020d38c0
+
+src/overlays/ov244/data/ov244_tables_020d3628.c:
+    complete
+    .rodata     start:0x020d3628 end:0x020d37b8

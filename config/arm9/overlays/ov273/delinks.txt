@@ -467,3 +467,7 @@ src/overlays/ov273/calls/func_ov273_020d6654.c:
 src/overlays/ov273/data/ov273_strings_020d6be0.c:
     complete
     .data       start:0x020d6be0 end:0x020d6c20
+
+src/overlays/ov273/data/ov273_tables_020d69b4.c:
+    complete
+    .rodata     start:0x020d69b4 end:0x020d6bc4
