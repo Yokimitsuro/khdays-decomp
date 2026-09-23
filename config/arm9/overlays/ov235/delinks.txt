@@ -112,6 +112,10 @@ src/overlays/ov235/calls/func_ov235_020ce898.c:
     complete
     .text       start:0x020ce898 end:0x020ce938
 
+src/overlays/ov235/calls/func_ov235_020ce938.c:
+    complete
+    .text       start:0x020ce938 end:0x020cea10
+
 src/overlays/ov235/calls/func_ov235_020cea10.c:
     complete
     .text       start:0x020cea10 end:0x020ceaa0
