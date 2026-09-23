@@ -32,6 +32,10 @@ src/overlays/ov259/calls/func_ov259_020cd2c8.c:
     complete
     .text       start:0x020cd2c8 end:0x020cd3c4
 
+src/overlays/ov259/calls/func_ov259_020cd524.c:
+    complete
+    .text       start:0x020cd524 end:0x020cd590
+
 src/overlays/ov259/calls/func_ov259_020cd628.c:
     complete
     .text       start:0x020cd628 end:0x020cd648
@@ -211,6 +215,10 @@ src/overlays/ov259/calls/func_ov259_020d2b90.c:
 src/overlays/ov259/calls/func_ov259_020d2d3c.c:
     complete
     .text       start:0x020d2d3c end:0x020d2f2c
+
+src/overlays/ov259/data/ov259_rodata_020d2f2c.c:
+    complete
+    .rodata     start:0x020d2f2c end:0x020d2fac
 
 src/overlays/ov259/data/ov259_strings_020d2fc0.c:
     complete
