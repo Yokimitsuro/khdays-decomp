@@ -264,6 +264,10 @@ src/overlays/ov229/calls/func_ov229_020d5c84.c:
     complete
     .text       start:0x020d5c84 end:0x020d5cb8
 
+src/overlays/ov229/calls/func_ov229_020d5cb8.c:
+    complete
+    .text       start:0x020d5cb8 end:0x020d5e14
+
 src/overlays/ov229/calls/func_ov229_020d5e14.c:
     complete
     .text       start:0x020d5e14 end:0x020d5e38
