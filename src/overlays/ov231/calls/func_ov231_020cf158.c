@@ -1,5 +1,5 @@
 /* Construction of the ov231 enemy's item: installs the handlers (+8
- * 020d2ef0, +0x30 020d2f44, +0x1d0 020d2f0c), raises flags 0x42 in the +0x60 high byte and bit 2
+ * 020cf288, +0x30 020cf2dc, +0x1d0 020cf2a4), raises flags 0x42 in the +0x60 high byte and bit 2
  * of +0x1ae, scales the +0x70 size to 0.58 of the +0x388 owner's and clears +0x54/+0x58. The
  * +0x384 sub-item is built from pose 0x14 of the owner, the +0xa0 pose is scaled by 1.3, the
  * sub-item is subscribed to +0x9c, uniformly scaled by 1.0 (0x1119/0x1119), its channels 0 and 2 are
