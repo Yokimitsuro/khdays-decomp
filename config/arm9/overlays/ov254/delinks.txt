@@ -20,6 +20,14 @@ src/overlays/ov254/calls/func_ov254_020cc6a4.c:
     complete
     .text       start:0x020cc6a4 end:0x020cc6c8
 
+src/overlays/ov254/calls/func_ov254_020cc6c8.c:
+    complete
+    .text       start:0x020cc6c8 end:0x020cc754
+
+src/overlays/ov254/calls/func_ov254_020cc754.c:
+    complete
+    .text       start:0x020cc754 end:0x020cc7e0
+
 src/overlays/ov254/calls/func_ov254_020ccc50.c:
     complete
     .text       start:0x020ccc50 end:0x020cccc8
