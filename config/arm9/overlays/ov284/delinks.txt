@@ -143,3 +143,11 @@ src/overlays/ov284/data/ov284_pointers_020cd5a4.c:
 src/overlays/ov284/data/ov284_strings_020cd5e0.c:
     complete
     .data       start:0x020cd5e0 end:0x020cd620
+
+src/overlays/ov284/data/ov284_tables_020cd594.c:
+    complete
+    .rodata     start:0x020cd594 end:0x020cd5a4
+
+src/overlays/ov284/data/ov284_tables_020cd5b4.c:
+    complete
+    .rodata     start:0x020cd5b4 end:0x020cd5c8

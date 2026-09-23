@@ -151,3 +151,7 @@ src/overlays/ov032/data/ov032_strings_020b57e0.c:
 src/overlays/ov032/data/ov032_strings_020b5808.c:
     complete
     .data       start:0x020b5808 end:0x020b58c0
+
+src/overlays/ov032/data/ov032_tables_020b56e8.c:
+    complete
+    .rodata     start:0x020b56e8 end:0x020b5724

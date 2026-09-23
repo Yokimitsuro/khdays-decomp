@@ -163,3 +163,7 @@ src/overlays/ov297/auto/func_ov297_020d568c.c:
 src/overlays/ov297/data/ov297_strings_020d57c0.c:
     complete
     .data       start:0x020d57c0 end:0x020d57e0
+
+src/overlays/ov297/data/ov297_tables_020d5690.c:
+    complete
+    .rodata     start:0x020d5690 end:0x020d56b4

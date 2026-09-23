@@ -155,3 +155,7 @@ src/overlays/ov298/auto/func_ov298_020d54cc.c:
 src/overlays/ov298/data/ov298_strings_020d55c0.c:
     complete
     .data       start:0x020d55c0 end:0x020d55e0
+
+src/overlays/ov298/data/ov298_tables_020d54e8.c:
+    complete
+    .rodata     start:0x020d54e8 end:0x020d54f0

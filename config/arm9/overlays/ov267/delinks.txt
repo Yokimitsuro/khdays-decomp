@@ -476,3 +476,11 @@ src/overlays/ov267/calls/func_ov267_020d5bb0.c:
 src/overlays/ov267/data/ov267_strings_020d5d80.c:
     complete
     .data       start:0x020d5d80 end:0x020d5e00
+
+src/overlays/ov267/data/ov267_tables_020d5d40.c:
+    complete
+    .rodata     start:0x020d5d40 end:0x020d5d68
+
+src/overlays/ov267/data/ov267_tables_020d5d6c.c:
+    complete
+    .rodata     start:0x020d5d6c end:0x020d5d74

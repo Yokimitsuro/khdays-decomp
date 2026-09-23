@@ -203,3 +203,7 @@ src/overlays/ov062/data/ov062_strings_020b7fd4.c:
 src/overlays/ov062/data/ov062_strings_020b8028.c:
     complete
     .data       start:0x020b8028 end:0x020b80e0
+
+src/overlays/ov062/data/ov062_tables_020b7f6c.c:
+    complete
+    .rodata     start:0x020b7f6c end:0x020b7fd4

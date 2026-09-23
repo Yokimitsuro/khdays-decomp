@@ -175,3 +175,11 @@ src/overlays/ov011/data/ov011_pointers_0205e8b4.c:
 src/overlays/ov011/data/ov011_strings_0205e8e4.c:
     complete
     .data       start:0x0205e8e4 end:0x0205e960
+
+src/overlays/ov011/data/ov011_tables_0205dc7c.c:
+    complete
+    .rodata     start:0x0205dc7c end:0x0205dc90
+
+src/overlays/ov011/data/ov011_tables_0205dca0.c:
+    complete
+    .rodata     start:0x0205dca0 end:0x0205e130

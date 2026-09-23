@@ -139,3 +139,7 @@ src/overlays/ov056/data/ov056_strings_020b7580.c:
 src/overlays/ov056/data/ov056_strings_020b75a8.c:
     complete
     .data       start:0x020b75a8 end:0x020b7620
+
+src/overlays/ov056/data/ov056_tables_020b7504.c:
+    complete
+    .rodata     start:0x020b7504 end:0x020b7510

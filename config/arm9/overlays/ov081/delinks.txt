@@ -127,3 +127,11 @@ src/overlays/ov081/data/ov081_strings_020b9594.c:
 src/overlays/ov081/data/ov081_strings_020b9648.c:
     complete
     .data       start:0x020b9648 end:0x020b96e0
+
+src/overlays/ov081/data/ov081_tables_020b9570.c:
+    complete
+    .rodata     start:0x020b9570 end:0x020b9594
+
+src/overlays/ov081/data/ov081_tables_020b95d4.c:
+    complete
+    .rodata     start:0x020b95d4 end:0x020b961c

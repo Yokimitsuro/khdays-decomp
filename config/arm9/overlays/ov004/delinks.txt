@@ -359,3 +359,15 @@ src/overlays/ov004/data/ov004_strings_02051224.c:
 src/overlays/ov004/data/ov004_strings_02051328.c:
     complete
     .data       start:0x02051328 end:0x0205136c
+
+src/overlays/ov004/data/ov004_tables_0205104c.c:
+    complete
+    .rodata     start:0x0205104c end:0x020510a4
+
+src/overlays/ov004/data/ov004_tables_020510b0.c:
+    complete
+    .rodata     start:0x020510b0 end:0x020510b8
+
+src/overlays/ov004/data/ov004_tables_020510cc.c:
+    complete
+    .rodata     start:0x020510cc end:0x020511dc

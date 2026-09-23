@@ -264,3 +264,11 @@ src/overlays/ov280/calls/func_ov280_020d32d0.c:
 src/overlays/ov280/data/ov280_strings_020d36c0.c:
     complete
     .data       start:0x020d36c0 end:0x020d3720
+
+src/overlays/ov280/data/ov280_tables_020d3674.c:
+    complete
+    .rodata     start:0x020d3674 end:0x020d3694
+
+src/overlays/ov280/data/ov280_tables_020d3698.c:
+    complete
+    .rodata     start:0x020d3698 end:0x020d36bc

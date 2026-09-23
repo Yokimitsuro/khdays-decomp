@@ -143,3 +143,7 @@ src/overlays/ov073/data/ov073_strings_020ba45c.c:
 src/overlays/ov073/data/ov073_strings_020ba4b4.c:
     complete
     .data       start:0x020ba4b4 end:0x020ba540
+
+src/overlays/ov073/data/ov073_tables_020ba450.c:
+    complete
+    .rodata     start:0x020ba450 end:0x020ba45c

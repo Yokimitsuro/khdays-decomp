@@ -1043,3 +1043,15 @@ src/overlays/ov009/data/ov009_strings_02056338.c:
 src/overlays/ov009/data/ov009_strings_02056398.c:
     complete
     .data       start:0x02056398 end:0x020563e0
+
+src/overlays/ov009/data/ov009_tables_02055f6c.c:
+    complete
+    .rodata     start:0x02055f6c end:0x02055f88
+
+src/overlays/ov009/data/ov009_tables_02055fb0.c:
+    complete
+    .rodata     start:0x02055fb0 end:0x02056108
+
+src/overlays/ov009/data/ov009_tables_02056114.c:
+    complete
+    .rodata     start:0x02056114 end:0x02056204

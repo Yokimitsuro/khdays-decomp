@@ -328,3 +328,11 @@ src/overlays/ov208/calls/func_ov208_020d4754.c:
 src/overlays/ov208/data/ov208_strings_020d4820.c:
     complete
     .data       start:0x020d4820 end:0x020d487c
+
+src/overlays/ov208/data/ov208_tables_020d4784.c:
+    complete
+    .rodata     start:0x020d4784 end:0x020d47d4
+
+src/overlays/ov208/data/ov208_tables_020d47dc.c:
+    complete
+    .rodata     start:0x020d47dc end:0x020d481c

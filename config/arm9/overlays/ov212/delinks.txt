@@ -476,3 +476,7 @@ src/overlays/ov212/calls/func_ov212_020d1f9c.c:
 src/overlays/ov212/data/ov212_strings_020d2180.c:
     complete
     .data       start:0x020d2180 end:0x020d2200
+
+src/overlays/ov212/data/ov212_tables_020d212c.c:
+    complete
+    .rodata     start:0x020d212c end:0x020d2154

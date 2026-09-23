@@ -143,3 +143,7 @@ src/overlays/ov091/data/ov091_strings_020bc180.c:
 src/overlays/ov091/data/ov091_strings_020bc1bc.c:
     complete
     .data       start:0x020bc1bc end:0x020bc240
+
+src/overlays/ov091/data/ov091_tables_020bc100.c:
+    complete
+    .rodata     start:0x020bc100 end:0x020bc118

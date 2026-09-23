@@ -792,3 +792,15 @@ src/overlays/ov107/data/ov107_strings_020cb968.c:
 src/overlays/ov107/data/ov107_strings_020cbab8.c:
     complete
     .data       start:0x020cbab8 end:0x020cbb00
+
+src/overlays/ov107/data/ov107_tables_020cb610.c:
+    complete
+    .rodata     start:0x020cb610 end:0x020cb628
+
+src/overlays/ov107/data/ov107_tables_020cb630.c:
+    complete
+    .rodata     start:0x020cb630 end:0x020cb638
+
+src/overlays/ov107/data/ov107_tables_020cb64c.c:
+    complete
+    .rodata     start:0x020cb64c end:0x020cb68c

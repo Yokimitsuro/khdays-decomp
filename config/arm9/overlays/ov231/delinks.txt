@@ -264,3 +264,11 @@ src/overlays/ov231/calls/func_ov231_020cf66c.c:
 src/overlays/ov231/data/ov231_strings_020cfa60.c:
     complete
     .data       start:0x020cfa60 end:0x020cfac0
+
+src/overlays/ov231/data/ov231_tables_020cfa10.c:
+    complete
+    .rodata     start:0x020cfa10 end:0x020cfa30
+
+src/overlays/ov231/data/ov231_tables_020cfa34.c:
+    complete
+    .rodata     start:0x020cfa34 end:0x020cfa58

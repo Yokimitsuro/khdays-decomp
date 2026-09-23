@@ -203,3 +203,7 @@ src/overlays/ov043/data/ov043_strings_020b57d4.c:
 src/overlays/ov043/data/ov043_strings_020b5828.c:
     complete
     .data       start:0x020b5828 end:0x020b58e0
+
+src/overlays/ov043/data/ov043_tables_020b576c.c:
+    complete
+    .rodata     start:0x020b576c end:0x020b57d4

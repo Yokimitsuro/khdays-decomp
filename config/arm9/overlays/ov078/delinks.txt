@@ -169,3 +169,11 @@ src/overlays/ov078/data/ov078_strings_020ba420.c:
 src/overlays/ov078/data/ov078_strings_020ba45c.c:
     complete
     .data       start:0x020ba45c end:0x020ba4e0
+
+src/overlays/ov078/data/ov078_tables_020ba270.c:
+    complete
+    .rodata     start:0x020ba270 end:0x020ba27c
+
+src/overlays/ov078/data/ov078_tables_020ba290.c:
+    complete
+    .rodata     start:0x020ba290 end:0x020ba2e4
