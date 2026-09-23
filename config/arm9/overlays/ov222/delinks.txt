@@ -80,6 +80,10 @@ src/overlays/ov222/calls/func_ov222_020d2dec.c:
     complete
     .text       start:0x020d2dec end:0x020d2e64
 
+src/overlays/ov222/calls/func_ov222_020d2e64.c:
+    complete
+    .text       start:0x020d2e64 end:0x020d314c
+
 src/overlays/ov222/calls/func_ov222_020d314c.c:
     complete
     .text       start:0x020d314c end:0x020d320c

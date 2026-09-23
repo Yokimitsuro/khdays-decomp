@@ -80,6 +80,10 @@ src/overlays/ov225/calls/func_ov225_020d0f1c.c:
     complete
     .text       start:0x020d0f1c end:0x020d0f94
 
+src/overlays/ov225/calls/func_ov225_020d0f94.c:
+    complete
+    .text       start:0x020d0f94 end:0x020d127c
+
 src/overlays/ov225/calls/func_ov225_020d127c.c:
     complete
     .text       start:0x020d127c end:0x020d133c
