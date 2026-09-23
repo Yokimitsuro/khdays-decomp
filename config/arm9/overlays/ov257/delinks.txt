@@ -92,6 +92,18 @@ src/overlays/ov257/calls/func_ov257_020cda90.c:
     complete
     .text       start:0x020cda90 end:0x020cdb88
 
+src/overlays/ov257/calls/func_ov257_020cdb88.c:
+    complete
+    .text       start:0x020cdb88 end:0x020cdda0
+
+src/overlays/ov257/calls/func_ov257_020cdda0.c:
+    complete
+    .text       start:0x020cdda0 end:0x020cdf10
+
+src/overlays/ov257/calls/func_ov257_020cdf10.c:
+    complete
+    .text       start:0x020cdf10 end:0x020ce04c
+
 src/overlays/ov257/calls/func_ov257_020ce04c.c:
     complete
     .text       start:0x020ce04c end:0x020ce0dc
