@@ -98,8 +98,10 @@ data_ov252_020d4334 kind:data(any) addr:0x020d4334
 data_ov252_020d4344 kind:data(any) addr:0x020d4344
 data_ov252_020d4350 kind:data(any) addr:0x020d4350
 data_ov252_020d435c kind:data(any) addr:0x020d435c
+data_ov252_020d4368 kind:data(any) addr:0x020d4368
 data_ov252_020d4380 kind:data(any) addr:0x020d4380
 data_ov252_020d438c kind:data(any) addr:0x020d438c
+data_ov252_020d4398 kind:data(any) addr:0x020d4398
 data_ov252_020d43a4 kind:data(any) addr:0x020d43a4
 data_ov252_020d43b0 kind:data(any) addr:0x020d43b0
 data_ov252_020d43c8 kind:data(any) addr:0x020d43c8
