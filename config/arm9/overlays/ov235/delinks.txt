@@ -32,6 +32,10 @@ src/overlays/ov235/calls/func_ov235_020cc8b8.c:
     complete
     .text       start:0x020cc8b8 end:0x020cc9a0
 
+src/overlays/ov235/calls/func_ov235_020cc9a0.c:
+    complete
+    .text       start:0x020cc9a0 end:0x020ccae4
+
 src/overlays/ov235/calls/func_ov235_020ccae4.c:
     complete
     .text       start:0x020ccae4 end:0x020ccb3c
@@ -39,6 +43,10 @@ src/overlays/ov235/calls/func_ov235_020ccae4.c:
 src/overlays/ov235/calls/func_ov235_020ccb3c.c:
     complete
     .text       start:0x020ccb3c end:0x020ccb88
+
+src/overlays/ov235/calls/func_ov235_020ccb88.c:
+    complete
+    .text       start:0x020ccb88 end:0x020cccc0
 
 src/overlays/ov235/calls/func_ov235_020cd140.c:
     complete
@@ -76,6 +84,10 @@ src/overlays/ov235/calls/func_ov235_020cd79c.c:
     complete
     .text       start:0x020cd79c end:0x020cd810
 
+src/overlays/ov235/calls/func_ov235_020cd810.c:
+    complete
+    .text       start:0x020cd810 end:0x020cd958
+
 src/overlays/ov235/calls/func_ov235_020cd958.c:
     complete
     .text       start:0x020cd958 end:0x020cd994
@@ -91,6 +103,10 @@ src/overlays/ov235/calls/func_ov235_020cdd30.c:
 src/overlays/ov235/calls/func_ov235_020cdd78.c:
     complete
     .text       start:0x020cdd78 end:0x020cde6c
+
+src/overlays/ov235/calls/func_ov235_020ce1a0.c:
+    complete
+    .text       start:0x020ce1a0 end:0x020ce2c4
 
 src/overlays/ov235/calls/func_ov235_020ce2c4.c:
     complete
@@ -200,6 +216,10 @@ src/overlays/ov235/calls/func_ov235_020d0b5c.c:
     complete
     .text       start:0x020d0b5c end:0x020d0c68
 
+src/overlays/ov235/calls/func_ov235_020d0c68.c:
+    complete
+    .text       start:0x020d0c68 end:0x020d0d8c
+
 src/overlays/ov235/calls/func_ov235_020d1738.c:
     complete
     .text       start:0x020d1738 end:0x020d1810
@@ -207,6 +227,10 @@ src/overlays/ov235/calls/func_ov235_020d1738.c:
 src/overlays/ov235/calls/func_ov235_020d1810.c:
     complete
     .text       start:0x020d1810 end:0x020d1884
+
+src/overlays/ov235/calls/func_ov235_020d1884.c:
+    complete
+    .text       start:0x020d1884 end:0x020d19cc
 
 src/overlays/ov235/calls/func_ov235_020d19cc.c:
     complete
