@@ -20,6 +20,10 @@ src/overlays/ov278/calls/func_ov278_020cc110.c:
     complete
     .text       start:0x020cc110 end:0x020cc154
 
+src/overlays/ov278/calls/func_ov278_020cc154.c:
+    complete
+    .text       start:0x020cc154 end:0x020cc5c0
+
 src/overlays/ov278/calls/func_ov278_020cc5c0.c:
     complete
     .text       start:0x020cc5c0 end:0x020cc630
@@ -55,6 +59,10 @@ src/overlays/ov278/calls/func_ov278_020ccd68.c:
 src/overlays/ov278/calls/func_ov278_020cce20.c:
     complete
     .text       start:0x020cce20 end:0x020cce54
+
+src/overlays/ov278/calls/func_ov278_020cce54.c:
+    complete
+    .text       start:0x020cce54 end:0x020cd300
 
 src/overlays/ov278/calls/func_ov278_020cd300.c:
     complete
