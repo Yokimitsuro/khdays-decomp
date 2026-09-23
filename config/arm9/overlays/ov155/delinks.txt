@@ -187,3 +187,7 @@ src/overlays/ov155/calls/func_ov155_020d5744.c:
 src/overlays/ov155/data/ov155_strings_020d5900.c:
     complete
     .data       start:0x020d5900 end:0x020d5920
+
+src/overlays/ov155/data/ov155_tables_020d588c.c:
+    complete
+    .rodata     start:0x020d588c end:0x020d58e4

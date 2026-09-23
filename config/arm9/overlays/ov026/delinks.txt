@@ -1027,3 +1027,15 @@ src/overlays/ov026/data/ov026_strings_02091244.c:
 src/overlays/ov026/data/ov026_strings_02091340.c:
     complete
     .data       start:0x02091340 end:0x02091360
+
+src/overlays/ov026/data/ov026_tables_020910b0.c:
+    complete
+    .rodata     start:0x020910b0 end:0x02091120
+
+src/overlays/ov026/data/ov026_tables_02091134.c:
+    complete
+    .rodata     start:0x02091134 end:0x020911c4
+
+src/overlays/ov026/data/ov026_tables_020911d0.c:
+    complete
+    .rodata     start:0x020911d0 end:0x020911e0

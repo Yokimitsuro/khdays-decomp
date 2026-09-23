@@ -135,3 +135,7 @@ src/overlays/ov104/data/ov104_strings_020bc1c0.c:
 src/overlays/ov104/data/ov104_strings_020bc1fc.c:
     complete
     .data       start:0x020bc1fc end:0x020bc2a0
+
+src/overlays/ov104/data/ov104_tables_020bc0f8.c:
+    complete
+    .rodata     start:0x020bc0f8 end:0x020bc1b8

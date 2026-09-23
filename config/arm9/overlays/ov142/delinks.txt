@@ -239,3 +239,7 @@ src/overlays/ov142/data/ov142_strings_020d2680.c:
 src/overlays/ov142/data/ov142_strings_020d2690.c:
     complete
     .data       start:0x020d2690 end:0x020d26c0
+
+src/overlays/ov142/data/ov142_tables_020d25fc.c:
+    complete
+    .rodata     start:0x020d25fc end:0x020d2668

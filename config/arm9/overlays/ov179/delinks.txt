@@ -255,3 +255,7 @@ src/overlays/ov179/calls/func_ov179_020d48a0.c:
 src/overlays/ov179/data/ov179_strings_020d4900.c:
     complete
     .data       start:0x020d4900 end:0x020d4920
+
+src/overlays/ov179/data/ov179_tables_020d48d0.c:
+    complete
+    .rodata     start:0x020d48d0 end:0x020d48ec

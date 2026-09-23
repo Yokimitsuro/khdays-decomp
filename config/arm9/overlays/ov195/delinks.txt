@@ -211,3 +211,7 @@ src/overlays/ov195/data/ov195_strings_020d2c20.c:
 src/overlays/ov195/data/ov195_strings_020d2c4c.c:
     complete
     .data       start:0x020d2c4c end:0x020d2c60
+
+src/overlays/ov195/data/ov195_tables_020d2b8c.c:
+    complete
+    .rodata     start:0x020d2b8c end:0x020d2c08

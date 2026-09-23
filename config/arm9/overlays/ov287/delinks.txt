@@ -111,3 +111,7 @@ src/overlays/ov287/calls/func_ov287_020d15d8.c:
 src/overlays/ov287/data/ov287_strings_020d16e0.c:
     complete
     .data       start:0x020d16e0 end:0x020d1700
+
+src/overlays/ov287/data/ov287_tables_020d16d4.c:
+    complete
+    .rodata     start:0x020d16d4 end:0x020d16dc

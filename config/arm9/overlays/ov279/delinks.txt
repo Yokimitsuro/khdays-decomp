@@ -219,3 +219,7 @@ src/overlays/ov279/calls/func_ov279_020d3504.c:
 src/overlays/ov279/data/ov279_strings_020d35c0.c:
     complete
     .data       start:0x020d35c0 end:0x020d3620
+
+src/overlays/ov279/data/ov279_tables_020d357c.c:
+    complete
+    .rodata     start:0x020d357c end:0x020d35a0

@@ -175,3 +175,7 @@ src/overlays/ov219/calls/func_ov219_020d17ac.c:
 src/overlays/ov219/data/ov219_strings_020d18c0.c:
     complete
     .data       start:0x020d18c0 end:0x020d18e0
+
+src/overlays/ov219/data/ov219_tables_020d18a0.c:
+    complete
+    .rodata     start:0x020d18a0 end:0x020d18a8

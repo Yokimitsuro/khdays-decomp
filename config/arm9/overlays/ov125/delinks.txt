@@ -263,3 +263,7 @@ src/overlays/ov125/calls/func_ov125_020cfde8.c:
 src/overlays/ov125/data/ov125_strings_020d0440.c:
     complete
     .data       start:0x020d0440 end:0x020d0460
+
+src/overlays/ov125/data/ov125_tables_020d03a8.c:
+    complete
+    .rodata     start:0x020d03a8 end:0x020d0424

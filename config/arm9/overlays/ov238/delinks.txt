@@ -163,3 +163,7 @@ src/overlays/ov238/calls/func_ov238_020d2e30.c:
 src/overlays/ov238/data/ov238_strings_020d3700.c:
     complete
     .data       start:0x020d3700 end:0x020d3740
+
+src/overlays/ov238/data/ov238_tables_020d3668.c:
+    complete
+    .rodata     start:0x020d3668 end:0x020d36f0

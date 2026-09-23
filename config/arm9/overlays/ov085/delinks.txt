@@ -111,3 +111,7 @@ src/overlays/ov085/data/ov085_strings_020b90ec.c:
 src/overlays/ov085/data/ov085_strings_020b91e8.c:
     complete
     .data       start:0x020b91e8 end:0x020b9260
+
+src/overlays/ov085/data/ov085_tables_020b912c.c:
+    complete
+    .rodata     start:0x020b912c end:0x020b91bc

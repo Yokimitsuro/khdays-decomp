@@ -255,3 +255,7 @@ src/overlays/ov148/calls/func_ov148_020d205c.c:
 src/overlays/ov148/data/ov148_strings_020d2500.c:
     complete
     .data       start:0x020d2500 end:0x020d2520
+
+src/overlays/ov148/data/ov148_tables_020d24e0.c:
+    complete
+    .rodata     start:0x020d24e0 end:0x020d24f0

@@ -207,3 +207,7 @@ src/overlays/ov264/auto/func_ov264_020cebc0.c:
 src/overlays/ov264/data/ov264_strings_020cec20.c:
     complete
     .data       start:0x020cec20 end:0x020cec40
+
+src/overlays/ov264/data/ov264_tables_020cebc4.c:
+    complete
+    .rodata     start:0x020cebc4 end:0x020cec08

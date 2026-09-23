@@ -123,3 +123,7 @@ src/overlays/ov100/data/ov100_strings_020bc01c.c:
 src/overlays/ov100/data/ov100_strings_020bc148.c:
     complete
     .data       start:0x020bc148 end:0x020bc1c0
+
+src/overlays/ov100/data/ov100_tables_020bc04c.c:
+    complete
+    .rodata     start:0x020bc04c end:0x020bc10c

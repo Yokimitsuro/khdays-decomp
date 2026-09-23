@@ -223,3 +223,7 @@ src/overlays/ov205/calls/func_ov205_020d6f4c.c:
 src/overlays/ov205/data/ov205_strings_020d72e0.c:
     complete
     .data       start:0x020d72e0 end:0x020d7300
+
+src/overlays/ov205/data/ov205_tables_020d7204.c:
+    complete
+    .rodata     start:0x020d7204 end:0x020d72cc

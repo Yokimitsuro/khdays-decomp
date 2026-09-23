@@ -227,3 +227,7 @@ src/overlays/ov168/calls/func_ov168_020d5fc4.c:
 src/overlays/ov168/data/ov168_strings_020d6380.c:
     complete
     .data       start:0x020d6380 end:0x020d63a0
+
+src/overlays/ov168/data/ov168_tables_020d6350.c:
+    complete
+    .rodata     start:0x020d6350 end:0x020d6360

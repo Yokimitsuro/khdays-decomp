@@ -626,7 +626,39 @@ src/overlays/ov253/calls/func_ov253_020d46e0.c:
 
 src/overlays/ov253/data/ov253_rodata_020d482c.c:
     complete
-    .rodata     start:0x020d482c end:0x020d4a24
+    .rodata     start:0x020d482c end:0x020d4844
+
+src/overlays/ov253/data/ov253_rodata_020d4844.c:
+    complete
+    .rodata     start:0x020d4844 end:0x020d4894
+
+src/overlays/ov253/data/ov253_rodata_020d4894.c:
+    complete
+    .rodata     start:0x020d4894 end:0x020d4940
+
+src/overlays/ov253/data/ov253_rodata_020d4940.c:
+    complete
+    .rodata     start:0x020d4940 end:0x020d4950
+
+src/overlays/ov253/data/ov253_rodata_020d4950.c:
+    complete
+    .rodata     start:0x020d4950 end:0x020d4964
+
+src/overlays/ov253/data/ov253_rodata_020d4964.c:
+    complete
+    .rodata     start:0x020d4964 end:0x020d49a8
+
+src/overlays/ov253/data/ov253_rodata_020d49a8.c:
+    complete
+    .rodata     start:0x020d49a8 end:0x020d4a00
+
+src/overlays/ov253/data/ov253_rodata_020d4a00.c:
+    complete
+    .rodata     start:0x020d4a00 end:0x020d4a08
+
+src/overlays/ov253/data/ov253_rodata_020d4a08.c:
+    complete
+    .rodata     start:0x020d4a08 end:0x020d4a24
 
 src/overlays/ov253/data/ov253_strings_020d4a40.c:
     complete

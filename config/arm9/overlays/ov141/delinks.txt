@@ -239,3 +239,7 @@ src/overlays/ov141/data/ov141_strings_020cea40.c:
 src/overlays/ov141/data/ov141_strings_020cea50.c:
     complete
     .data       start:0x020cea50 end:0x020cea80
+
+src/overlays/ov141/data/ov141_tables_020ce9bc.c:
+    complete
+    .rodata     start:0x020ce9bc end:0x020cea28

@@ -195,3 +195,7 @@ src/overlays/ov116/calls/func_ov116_020d26e4.c:
 src/overlays/ov116/data/ov116_strings_020d27c0.c:
     complete
     .data       start:0x020d27c0 end:0x020d27e0
+
+src/overlays/ov116/data/ov116_tables_020d2778.c:
+    complete
+    .rodata     start:0x020d2778 end:0x020d27bc

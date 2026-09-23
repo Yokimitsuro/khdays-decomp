@@ -111,3 +111,7 @@ src/overlays/ov102/data/ov102_strings_020bb7ac.c:
 src/overlays/ov102/data/ov102_strings_020bb8a8.c:
     complete
     .data       start:0x020bb8a8 end:0x020bb920
+
+src/overlays/ov102/data/ov102_tables_020bb7ec.c:
+    complete
+    .rodata     start:0x020bb7ec end:0x020bb87c

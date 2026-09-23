@@ -215,3 +215,7 @@ src/overlays/ov182/calls/func_ov182_020d07a0.c:
 src/overlays/ov182/data/ov182_strings_020d0860.c:
     complete
     .data       start:0x020d0860 end:0x020d0880
+
+src/overlays/ov182/data/ov182_tables_020d0818.c:
+    complete
+    .rodata     start:0x020d0818 end:0x020d0840

@@ -163,3 +163,7 @@ src/overlays/ov118/calls/func_ov118_020d17f0.c:
 src/overlays/ov118/data/ov118_strings_020d18a4.c:
     complete
     .data       start:0x020d18a4 end:0x020d18c0
+
+src/overlays/ov118/data/ov118_tables_020d1868.c:
+    complete
+    .rodata     start:0x020d1868 end:0x020d1884

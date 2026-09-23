@@ -111,3 +111,7 @@ src/overlays/ov288/calls/func_ov288_020d5218.c:
 src/overlays/ov288/data/ov288_strings_020d5320.c:
     complete
     .data       start:0x020d5320 end:0x020d5340
+
+src/overlays/ov288/data/ov288_tables_020d5314.c:
+    complete
+    .rodata     start:0x020d5314 end:0x020d531c

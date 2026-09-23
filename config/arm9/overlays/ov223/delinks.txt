@@ -359,3 +359,7 @@ src/overlays/ov223/auto/func_ov223_020d5024.c:
 src/overlays/ov223/data/ov223_strings_020d5100.c:
     complete
     .data       start:0x020d5100 end:0x020d5160
+
+src/overlays/ov223/data/ov223_tables_020d50c4.c:
+    complete
+    .rodata     start:0x020d50c4 end:0x020d50f8

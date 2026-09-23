@@ -135,3 +135,7 @@ src/overlays/ov049/data/ov049_strings_020b4c20.c:
 src/overlays/ov049/data/ov049_strings_020b4c5c.c:
     complete
     .data       start:0x020b4c5c end:0x020b4d00
+
+src/overlays/ov049/data/ov049_tables_020b4b58.c:
+    complete
+    .rodata     start:0x020b4b58 end:0x020b4c18

@@ -1000,3 +1000,11 @@ src/overlays/ov245/calls/func_ov245_020d70b0.c:
 src/overlays/ov245/data/ov245_strings_020d71e0.c:
     complete
     .data       start:0x020d71e0 end:0x020d72c0
+
+src/overlays/ov245/data/ov245_tables_020d7194.c:
+    complete
+    .rodata     start:0x020d7194 end:0x020d71a4
+
+src/overlays/ov245/data/ov245_tables_020d7198.c:
+    complete
+    .rodata     start:0x020d7198 end:0x020d71c4

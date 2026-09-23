@@ -219,3 +219,7 @@ src/overlays/ov272/calls/func_ov272_020d34f0.c:
 src/overlays/ov272/data/ov272_strings_020d35a0.c:
     complete
     .data       start:0x020d35a0 end:0x020d3600
+
+src/overlays/ov272/data/ov272_tables_020d3568.c:
+    complete
+    .rodata     start:0x020d3568 end:0x020d358c

@@ -63,3 +63,7 @@ src/overlays/ov007/auto/func_ov007_0204d374.c:
 src/overlays/ov007/data/ov007_strings_0204d3d8.c:
     complete
     .data       start:0x0204d3d8 end:0x0204d420
+
+src/overlays/ov007/data/ov007_tables_0204d3ac.c:
+    complete
+    .rodata     start:0x0204d3ac end:0x0204d3b4

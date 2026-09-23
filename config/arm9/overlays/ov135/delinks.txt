@@ -167,3 +167,7 @@ src/overlays/ov135/data/ov135_strings_020d1c20.c:
 src/overlays/ov135/data/ov135_strings_020d1c44.c:
     complete
     .data       start:0x020d1c44 end:0x020d1c60
+
+src/overlays/ov135/data/ov135_tables_020d1bb8.c:
+    complete
+    .rodata     start:0x020d1bb8 end:0x020d1c00

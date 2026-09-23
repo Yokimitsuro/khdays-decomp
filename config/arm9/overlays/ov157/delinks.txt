@@ -207,3 +207,7 @@ src/overlays/ov157/calls/func_ov157_020d03f4.c:
 src/overlays/ov157/data/ov157_strings_020d0c00.c:
     complete
     .data       start:0x020d0c00 end:0x020d0c20
+
+src/overlays/ov157/data/ov157_tables_020d0b94.c:
+    complete
+    .rodata     start:0x020d0b94 end:0x020d0bf8

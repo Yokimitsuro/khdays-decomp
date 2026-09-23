@@ -123,3 +123,7 @@ src/overlays/ov083/data/ov083_strings_020b995c.c:
 src/overlays/ov083/data/ov083_strings_020b9a88.c:
     complete
     .data       start:0x020b9a88 end:0x020b9b00
+
+src/overlays/ov083/data/ov083_tables_020b998c.c:
+    complete
+    .rodata     start:0x020b998c end:0x020b9a4c

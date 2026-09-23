@@ -187,3 +187,7 @@ src/overlays/ov140/calls/func_ov140_020d2788.c:
 src/overlays/ov140/data/ov140_strings_020d28c0.c:
     complete
     .data       start:0x020d28c0 end:0x020d28e0
+
+src/overlays/ov140/data/ov140_tables_020d283c.c:
+    complete
+    .rodata     start:0x020d283c end:0x020d28a8

@@ -319,3 +319,7 @@ src/overlays/ov226/calls/func_ov226_020d453c.c:
 src/overlays/ov226/data/ov226_strings_020d4b60.c:
     complete
     .data       start:0x020d4b60 end:0x020d4bc0
+
+src/overlays/ov226/data/ov226_tables_020d4b20.c:
+    complete
+    .rodata     start:0x020d4b20 end:0x020d4b54

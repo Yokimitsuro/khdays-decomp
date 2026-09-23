@@ -111,3 +111,7 @@ src/overlays/ov066/data/ov066_strings_020b6a0c.c:
 src/overlays/ov066/data/ov066_strings_020b6b08.c:
     complete
     .data       start:0x020b6b08 end:0x020b6b80
+
+src/overlays/ov066/data/ov066_tables_020b6a4c.c:
+    complete
+    .rodata     start:0x020b6a4c end:0x020b6adc

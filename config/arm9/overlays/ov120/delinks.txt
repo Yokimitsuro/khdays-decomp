@@ -167,3 +167,7 @@ src/overlays/ov120/calls/func_ov120_020cde30.c:
 src/overlays/ov120/data/ov120_strings_020cdf20.c:
     complete
     .data       start:0x020cdf20 end:0x020cdf80
+
+src/overlays/ov120/data/ov120_tables_020cdee4.c:
+    complete
+    .rodata     start:0x020cdee4 end:0x020cdf10

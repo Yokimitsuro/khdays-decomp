@@ -111,3 +111,7 @@ src/overlays/ov047/data/ov047_strings_020b420c.c:
 src/overlays/ov047/data/ov047_strings_020b4308.c:
     complete
     .data       start:0x020b4308 end:0x020b4380
+
+src/overlays/ov047/data/ov047_tables_020b424c.c:
+    complete
+    .rodata     start:0x020b424c end:0x020b42dc

@@ -263,3 +263,7 @@ src/overlays/ov158/calls/func_ov158_020cf418.c:
 src/overlays/ov158/data/ov158_strings_020cf580.c:
     complete
     .data       start:0x020cf580 end:0x020cf5a0
+
+src/overlays/ov158/data/ov158_tables_020cf520.c:
+    complete
+    .rodata     start:0x020cf520 end:0x020cf574

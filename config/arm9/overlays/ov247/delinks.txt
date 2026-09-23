@@ -263,3 +263,7 @@ src/overlays/ov247/calls/func_ov247_020d4d6c.c:
 src/overlays/ov247/data/ov247_strings_020d4f40.c:
     complete
     .data       start:0x020d4f40 end:0x020d4f60
+
+src/overlays/ov247/data/ov247_tables_020d4ee0.c:
+    complete
+    .rodata     start:0x020d4ee0 end:0x020d4f34

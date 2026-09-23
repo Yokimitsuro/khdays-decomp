@@ -235,3 +235,7 @@ src/overlays/ov151/data/ov151_strings_020cec60.c:
 src/overlays/ov151/data/ov151_strings_020cec70.c:
     complete
     .data       start:0x020cec70 end:0x020ceca0
+
+src/overlays/ov151/data/ov151_tables_020cebe0.c:
+    complete
+    .rodata     start:0x020cebe0 end:0x020cec40
