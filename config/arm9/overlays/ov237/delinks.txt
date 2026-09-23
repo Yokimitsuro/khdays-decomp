@@ -188,6 +188,10 @@ src/overlays/ov237/auto/func_ov237_020d0e88.c:
     complete
     .text       start:0x020d0e88 end:0x020d0ea0
 
+src/overlays/ov237/calls/func_ov237_020d0ea0.c:
+    complete
+    .text       start:0x020d0ea0 end:0x020d0f58
+
 src/overlays/ov237/calls/func_ov237_020d1544.c:
     complete
     .text       start:0x020d1544 end:0x020d1598
