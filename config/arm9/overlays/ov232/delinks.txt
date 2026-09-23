@@ -40,6 +40,10 @@ src/overlays/ov232/calls/func_ov232_020d0308.c:
     complete
     .text       start:0x020d0308 end:0x020d0344
 
+src/overlays/ov232/calls/func_ov232_020d0344.c:
+    complete
+    .text       start:0x020d0344 end:0x020d05bc
+
 src/overlays/ov232/calls/func_ov232_020d05bc.c:
     complete
     .text       start:0x020d05bc end:0x020d0620
@@ -144,6 +148,10 @@ src/overlays/ov232/calls/func_ov232_020d1e50.c:
 src/overlays/ov232/calls/func_ov232_020d20ac.c:
     complete
     .text       start:0x020d20ac end:0x020d20f0
+
+src/overlays/ov232/calls/func_ov232_020d20f0.c:
+    complete
+    .text       start:0x020d20f0 end:0x020d2358
 
 src/overlays/ov232/calls/func_ov232_020d2358.c:
     complete
