@@ -20,6 +20,14 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc4f0.c:
     complete
     .text       start:0x020cc4f0 end:0x020cc4fc
 
+src/overlays/ov258/calls/func_ov258_020cc4fc.c:
+    complete
+    .text       start:0x020cc4fc end:0x020cc540
+
+src/overlays/ov258/calls/func_ov258_020cc540.c:
+    complete
+    .text       start:0x020cc540 end:0x020cc584
+
 src/overlays/ov258/calls/func_ov258_020cc584.c:
     complete
     .text       start:0x020cc584 end:0x020cc5e8
