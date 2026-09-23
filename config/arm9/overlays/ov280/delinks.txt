@@ -44,6 +44,10 @@ src/overlays/ov280/calls/func_ov280_020d06bc.c:
     complete
     .text       start:0x020d06bc end:0x020d0750
 
+src/overlays/ov280/calls/func_ov280_020d0890.c:
+    complete
+    .text       start:0x020d0890 end:0x020d09a0
+
 src/overlays/ov280/calls/func_ov280_020d0cf4.c:
     complete
     .text       start:0x020d0cf4 end:0x020d0d3c
