@@ -64,6 +64,10 @@ src/overlays/ov252/auto/func_ov252_020d2f54.c:
     complete
     .text       start:0x020d2f54 end:0x020d2f6c
 
+src/overlays/ov252/calls/func_ov252_020d2f6c.c:
+    complete
+    .text       start:0x020d2f6c end:0x020d31c8
+
 src/overlays/ov252/auto/func_ov252_020d3454.c:
     complete
     .text       start:0x020d3454 end:0x020d346c
