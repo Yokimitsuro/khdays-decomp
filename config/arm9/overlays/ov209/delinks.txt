@@ -217,6 +217,10 @@ src/overlays/ov209/calls/func_ov209_020d4a0c.c:
     complete
     .text       start:0x020d4a0c end:0x020d4a8c
 
+src/overlays/ov209/calls/func_ov209_020d4a8c.c:
+    complete
+    .text       start:0x020d4a8c end:0x020d5064
+
 src/overlays/ov209/calls/func_ov209_020d5064.c:
     complete
     .text       start:0x020d5064 end:0x020d5240
