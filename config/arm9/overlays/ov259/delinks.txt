@@ -156,6 +156,10 @@ src/overlays/ov259/calls/func_ov259_020d1f24.c:
     complete
     .text       start:0x020d1f24 end:0x020d1fd0
 
+src/overlays/ov259/calls/func_ov259_020d21ac.c:
+    complete
+    .text       start:0x020d21ac end:0x020d2254
+
 src/overlays/ov259/auto/func_ov259_020d2254.c:
     complete
     .text       start:0x020d2254 end:0x020d2288
