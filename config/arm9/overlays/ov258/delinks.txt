@@ -44,13 +44,29 @@ src/overlays/ov258/calls/func_ov258_020ccfbc.c:
     complete
     .text       start:0x020ccfbc end:0x020cd028
 
+src/overlays/ov258/calls/func_ov258_020cd028.c:
+    complete
+    .text       start:0x020cd028 end:0x020cd104
+
 src/overlays/ov258/calls/func_ov258_020cd4ac.c:
     complete
     .text       start:0x020cd4ac end:0x020cd50c
 
+src/overlays/ov258/calls/func_ov258_020cd50c.c:
+    complete
+    .text       start:0x020cd50c end:0x020cd5c4
+
+src/overlays/ov258/calls/func_ov258_020cd5c4.c:
+    complete
+    .text       start:0x020cd5c4 end:0x020cd6c8
+
 src/overlays/ov258/calls/func_ov258_020cd6c8.c:
     complete
     .text       start:0x020cd6c8 end:0x020cd748
+
+src/overlays/ov258/calls/func_ov258_020cd8c0.c:
+    complete
+    .text       start:0x020cd8c0 end:0x020cd9b0
 
 src/overlays/ov258/calls/func_ov258_020cdb18.c:
     complete
@@ -72,9 +88,21 @@ src/overlays/ov258/calls/func_ov258_020cdc3c.c:
     complete
     .text       start:0x020cdc3c end:0x020cdca8
 
+src/overlays/ov258/calls/func_ov258_020cdca8.c:
+    complete
+    .text       start:0x020cdca8 end:0x020cdd6c
+
+src/overlays/ov258/calls/func_ov258_020cdfcc.c:
+    complete
+    .text       start:0x020cdfcc end:0x020ce0a0
+
 src/overlays/ov258/calls/func_ov258_020ce5d8.c:
     complete
     .text       start:0x020ce5d8 end:0x020ce63c
+
+src/overlays/ov258/calls/func_ov258_020cede0.c:
+    complete
+    .text       start:0x020cede0 end:0x020ceee4
 
 src/overlays/ov258/calls/func_ov258_020ceee4.c:
     complete
@@ -83,6 +111,22 @@ src/overlays/ov258/calls/func_ov258_020ceee4.c:
 src/overlays/ov258/calls/func_ov258_020cf63c.c:
     complete
     .text       start:0x020cf63c end:0x020cf6dc
+
+src/overlays/ov258/calls/func_ov258_020cf6dc.c:
+    complete
+    .text       start:0x020cf6dc end:0x020cf7c8
+
+src/overlays/ov258/calls/func_ov258_020cf7c8.c:
+    complete
+    .text       start:0x020cf7c8 end:0x020cf894
+
+src/overlays/ov258/calls/func_ov258_020cfb10.c:
+    complete
+    .text       start:0x020cfb10 end:0x020cfc20
+
+src/overlays/ov258/calls/func_ov258_020cfc20.c:
+    complete
+    .text       start:0x020cfc20 end:0x020cfcf4
 
 src/overlays/ov258/calls/func_ov258_020cfcf4.c:
     complete
