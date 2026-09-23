@@ -15,13 +15,14 @@ extern void VEC_Subtract(const Vec3 *a, const Vec3 *b, Vec3 *out);
 extern int func_01ff8d18(Vec3 *v, Vec3 *out);
 extern void func_01ffa724(int scale, Vec3 *v, Vec3 *d);
 extern const Vec3 data_02042264;
+extern const Vec3 data_ov256_020d2594;
 
 void func_ov256_020cd740(int *node)
 {
     int *state = (int *)node[1];
     Quat q;
     Vec3 vel = *(Vec3 *)(state + 4);
-    Vec3 anchor = { -0x1000, 0xd000, -0x6000 };
+    Vec3 anchor = data_ov256_020d2594;
     Vec3 d;
     int dist;
     int limit = 0x13000;

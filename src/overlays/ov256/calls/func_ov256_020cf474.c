@@ -20,6 +20,7 @@ extern void func_0203c634(int *node, int slot, void *cb);
 extern void func_ov256_020cf68c(void);
 extern const short data_0203d210[];
 extern const Vec3 data_02041dc8;
+extern const Vec3 data_ov256_020d25ac;
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
 
@@ -32,7 +33,7 @@ void func_ov256_020cf474(int *node)
 
     func_ov256_020ccd54(node);
     {
-    Vec3 dir = { 0, 0x1000, 0x1000 };
+    Vec3 dir = data_ov256_020d25ac;
 
     if (state[0x15] == 0) {
         func_ov107_020c0b90(*state, 3, data_02041dc8, 0);

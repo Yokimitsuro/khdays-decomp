@@ -21,6 +21,8 @@ extern void func_0203ca30(void *srt, const Vec3 *v);
 extern void func_ov252_020d3bdc(void);
 extern void func_ov252_020d3cf8(void);
 extern const Vec3 data_02041dc8;
+extern const Ring8 data_ov252_020d44ac;
+extern const Vec3 data_ov252_020d44a0;
 
 int func_ov252_020d3988(char *self, int owner, Vec3 *pos, signed char slot, u8 kind)
 {
@@ -44,10 +46,9 @@ int func_ov252_020d3988(char *self, int owner, Vec3 *pos, signed char slot, u8 k
     i = 0;
     {
     Ring8 cur;
-    Ring8 ring = { { { 0x6000, 0, 0 }, { -0x6000, 0, 0 }, { 0x6000, 0, 0x6000 }, { 0x6000, 0, -0x6000 },
-                     { -0x6000, 0, 0x6000 }, { -0x6000, 0, -0x6000 }, { 0, 0, 0x6000 }, { 0, 0, -0x6000 } } };
+    Ring8 ring = data_ov252_020d44ac;
     Vec3 zero = data_02041dc8;
-    Vec3 down = { 0, -0x32000, 0 };
+    Vec3 down = data_ov252_020d44a0;
 
     for (; i < 10; i++) {
         if (i == slot) {

@@ -20,6 +20,7 @@ extern const short data_0203d210[];
 extern const Vec3 data_02042270;
 extern const Vec3 data_02042264;
 extern const Vec3 data_02042258;
+extern const Vec3 data_ov256_020d25b8;
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
 
@@ -43,11 +44,7 @@ void func_ov256_020cee70(int *node)
             *(Vec3 *)(state + 7) = *(Vec3 *)state[3];
         }
         if (state[0x13] < 0x13a8) {
-            {
-                Vec3 push = { 0, -0x1000, 0xc00 };
-
-                dir = push;
-            }
+            dir = data_ov256_020d25b8;
             box.pos = *(Vec3 *)(state + 7);
             box.axis[0] = data_02042270;
             box.axis[1] = data_02042264;

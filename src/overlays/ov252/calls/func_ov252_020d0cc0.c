@@ -22,6 +22,7 @@ extern void func_ov107_020c9264(int actor, int pose, int loop);
 extern void func_ov107_020c9ee8(int part, int motion, int mode);
 extern void func_ov252_020d0f14(void);
 extern const Vec3 data_02041dc8;
+extern const Vec3 data_ov252_020d4350;
 
 void func_ov252_020d0cc0(int *node)
 {
@@ -45,11 +46,7 @@ void func_ov252_020d0cc0(int *node)
         func_ov252_020cdafc(&v, state[0x15], (void *)(*(int *)(*state + 0x574) + 0x2c));
         *(Vec3 *)(state + 3) = v;
     } else {
-        {
-            Vec3 below = { 0, -0x30000, 0 };
-
-            spawn = below;
-        }
+        spawn = data_ov252_020d4350;
         for (i = 3; i >= 0; i--) {
             if (((B8 *)(((struct Shapes4e8 *)*state)->shape[i + 3] + 8))->f & 1) {
                 *((u8 *)state + 0x93) = i;

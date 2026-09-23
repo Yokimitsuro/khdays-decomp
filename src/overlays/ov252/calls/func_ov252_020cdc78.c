@@ -8,6 +8,7 @@ typedef struct { void *a; void *b; void *c; int d; } CollisionHit;
 
 extern void func_ov252_020cdafc(Vec3 *v, int angle, Vec3 *out);
 extern CollisionHit *func_01fff920(void *collision, Vec3 *origin, Vec3 *direction);
+extern const Vec3 data_ov252_020d435c;
 
 int func_ov252_020cdc78(int *node)
 {
@@ -21,7 +22,7 @@ int func_ov252_020cdc78(int *node)
     item = *(int *)(*state + 4);
     pos = *(Vec3 *)state[2];
     {
-    Vec3 ray = { 0, -0x380000, 0x42000 };
+    Vec3 ray = data_ov252_020d435c;
 
     state[0x1c] = 0;
     func_ov252_020cdafc(&ray, state[0x15], &ray);

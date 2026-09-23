@@ -23,6 +23,7 @@ extern void func_ov252_020cfa28(void);
 extern void func_ov252_020cf7d8(void);
 extern void func_ov252_020cf6a0(void);
 extern const short data_0203d210[];
+extern const Vec3 data_ov252_020d43a4;
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
 
@@ -39,7 +40,7 @@ void func_ov252_020cf3b8(int *node)
     int item = *(int *)(*state + 4);
     Vec3 toOrigin;
     Vec3 fwd;
-    Vec3 home = { 0x36000, 0, 0x74000 };
+    Vec3 home = data_ov252_020d43a4;
     CollisionHit *hit;
     unsigned int idx;
     int dist;

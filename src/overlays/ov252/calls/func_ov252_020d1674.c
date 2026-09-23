@@ -18,6 +18,7 @@ extern void func_ov252_020ce0a8(int *state, int kind, Sphere *sphere, int a, int
 extern void func_ov107_020c9264(int actor, int pose, int loop);
 extern void func_0203c634(int *node, int slot, void *cb);
 extern const Vec3 data_02041dc8;
+extern const Vec3 data_ov252_020d438c;
 
 void func_ov252_020d1674(int *node)
 {
@@ -38,7 +39,7 @@ void func_ov252_020d1674(int *node)
             func_ov107_020c0b90(*state, 0x12, data_02041dc8, 0);
         }
         {
-        Vec3 fwd = { 0, 0, 0x2000 };
+        Vec3 fwd = data_ov252_020d438c;
 
         func_ov252_020cdafc(&fwd, state[0x15], &fwd);
         VEC_Add((Vec3 *)(*state + 0xb0), &fwd, &blast.pos);

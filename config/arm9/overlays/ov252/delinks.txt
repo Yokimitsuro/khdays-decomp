@@ -31,7 +31,6 @@ src/overlays/ov252/calls/func_ov252_020cdaa0.c:
 src/overlays/ov252/calls/func_ov252_020cdc78.c:
     complete
     .text       start:0x020cdc78 end:0x020cdd30
-    .rodata     start:0x020d435c end:0x020d4368
 
 src/overlays/ov252/calls/func_ov252_020ce0a8.c:
     complete
@@ -40,7 +39,6 @@ src/overlays/ov252/calls/func_ov252_020ce0a8.c:
 src/overlays/ov252/calls/func_ov252_020ce5c4.c:
     complete
     .text       start:0x020ce5c4 end:0x020ce96c
-    .rodata     start:0x020d4334 end:0x020d4338
 
 src/overlays/ov252/calls/func_ov252_020cea38.c:
     complete
@@ -57,7 +55,6 @@ src/overlays/ov252/calls/func_ov252_020cf324.c:
 src/overlays/ov252/calls/func_ov252_020cf3b8.c:
     complete
     .text       start:0x020cf3b8 end:0x020cf6a0
-    .rodata     start:0x020d43a4 end:0x020d43b0
 
 src/overlays/ov252/calls/func_ov252_020d02f8.c:
     complete
@@ -74,7 +71,6 @@ src/overlays/ov252/calls/func_ov252_020d08e8.c:
 src/overlays/ov252/calls/func_ov252_020d0cc0.c:
     complete
     .text       start:0x020d0cc0 end:0x020d0f14
-    .rodata     start:0x020d4350 end:0x020d435c
 
 src/overlays/ov252/calls/func_ov252_020d15b8.c:
     complete
@@ -83,7 +79,6 @@ src/overlays/ov252/calls/func_ov252_020d15b8.c:
 src/overlays/ov252/calls/func_ov252_020d1674.c:
     complete
     .text       start:0x020d1674 end:0x020d184c
-    .rodata     start:0x020d438c end:0x020d4398
 
 src/overlays/ov252/calls/func_ov252_020d19b8.c:
     complete
@@ -116,7 +111,6 @@ src/overlays/ov252/auto/func_ov252_020d3454.c:
 src/overlays/ov252/calls/func_ov252_020d3988.c:
     complete
     .text       start:0x020d3988 end:0x020d3bdc
-    .rodata     start:0x020d44a0 end:0x020d450c
 
 src/overlays/ov252/auto/func_ov252_020d3cf8.c:
     complete
@@ -125,3 +119,7 @@ src/overlays/ov252/auto/func_ov252_020d3cf8.c:
 src/overlays/ov252/data/ov252_strings_020d4520.c:
     complete
     .data       start:0x020d4520 end:0x020d45e0
+
+src/overlays/ov252/data/ov252_templates_020d4334.c:
+    complete
+    .rodata     start:0x020d4334 end:0x020d450c

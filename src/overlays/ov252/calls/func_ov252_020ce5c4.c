@@ -10,6 +10,7 @@
 typedef unsigned char u8;
 typedef unsigned short u16;
 
+struct ReactionModes { u8 normal[2]; u8 special[2]; };
 struct HitFlags { unsigned int low : 16; unsigned int kind : 16; };
 
 extern int func_ov252_020cde6c(int *work, unsigned int *hit, char *self);
@@ -17,12 +18,13 @@ extern void func_ov252_020cdd30(int *work, int a, int b);
 extern void func_ov252_020ce56c(char *self, int plate);
 extern int func_ov107_020c89e8(char *self, unsigned int *hit);
 extern void func_ov107_020c5af8(char *self, int reactionId, u8 mode, int context);
+extern const struct ReactionModes data_ov252_020d4334;
 typedef struct { unsigned f : 8; } B8;
 
 int func_ov252_020ce5c4(char *self, int source, unsigned int *hit)
 {
-    u8 normalModes[2] = { 0, 1 };
-    u8 specialModes[2] = { 2, 3 };
+    u8 normalModes[2] = { data_ov252_020d4334.normal[0], data_ov252_020d4334.normal[1] };
+    u8 specialModes[2] = { data_ov252_020d4334.special[0], data_ov252_020d4334.special[1] };
     int *work = *(int **)(self + 0x214);
     int handled = 0;
     int countered = 0;
