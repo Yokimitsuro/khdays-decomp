@@ -28,6 +28,10 @@ libs/nitro/wm/calls/WM_EndKeySharing_0x020cc8ac.c:
     complete
     .text       start:0x020cc8ac end:0x020cc8b8
 
+src/overlays/ov235/calls/func_ov235_020cc8b8.c:
+    complete
+    .text       start:0x020cc8b8 end:0x020cc9a0
+
 src/overlays/ov235/calls/func_ov235_020ccae4.c:
     complete
     .text       start:0x020ccae4 end:0x020ccb3c
@@ -191,6 +195,10 @@ src/overlays/ov235/calls/func_ov235_020d0868.c:
 src/overlays/ov235/calls/func_ov235_020d08d4.c:
     complete
     .text       start:0x020d08d4 end:0x020d0970
+
+src/overlays/ov235/calls/func_ov235_020d0b5c.c:
+    complete
+    .text       start:0x020d0b5c end:0x020d0c68
 
 src/overlays/ov235/calls/func_ov235_020d1738.c:
     complete
