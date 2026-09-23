@@ -144,6 +144,10 @@ src/overlays/ov228/calls/func_ov228_020d04a0.c:
     complete
     .text       start:0x020d04a0 end:0x020d058c
 
+src/overlays/ov228/calls/func_ov228_020d058c.c:
+    complete
+    .text       start:0x020d058c end:0x020d0900
+
 src/overlays/ov228/calls/func_ov228_020d0900.c:
     complete
     .text       start:0x020d0900 end:0x020d099c
