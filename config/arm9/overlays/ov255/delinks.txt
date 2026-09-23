@@ -392,6 +392,10 @@ src/overlays/ov255/calls/func_ov255_020d1df8.c:
     complete
     .text       start:0x020d1df8 end:0x020d1ed8
 
+src/overlays/ov255/calls/func_ov255_020d1ed8.c:
+    complete
+    .text       start:0x020d1ed8 end:0x020d24bc
+
 src/overlays/ov255/calls/func_ov255_020d24bc.c:
     complete
     .text       start:0x020d24bc end:0x020d2530
