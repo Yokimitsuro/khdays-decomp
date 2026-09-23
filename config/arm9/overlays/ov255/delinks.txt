@@ -168,6 +168,10 @@ src/overlays/ov255/calls/func_ov255_020cedd0.c:
     complete
     .text       start:0x020cedd0 end:0x020cf1c0
 
+src/overlays/ov255/calls/func_ov255_020cf1c0.c:
+    complete
+    .text       start:0x020cf1c0 end:0x020cf3c4
+
 src/overlays/ov255/calls/func_ov255_020cf3c4.c:
     complete
     .text       start:0x020cf3c4 end:0x020cf460
