@@ -32,6 +32,10 @@ src/overlays/ov213/auto/func_ov213_020cc584.c:
     complete
     .text       start:0x020cc584 end:0x020cc600
 
+src/overlays/ov213/calls/func_ov213_020cc600.c:
+    complete
+    .text       start:0x020cc600 end:0x020ccb98
+
 src/overlays/ov213/calls/func_ov213_020ccb98.c:
     complete
     .text       start:0x020ccb98 end:0x020ccc58

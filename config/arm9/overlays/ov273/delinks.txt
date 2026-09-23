@@ -32,6 +32,10 @@ src/overlays/ov273/auto/func_ov273_020d01c4.c:
     complete
     .text       start:0x020d01c4 end:0x020d0240
 
+src/overlays/ov273/calls/func_ov273_020d0240.c:
+    complete
+    .text       start:0x020d0240 end:0x020d07d8
+
 src/overlays/ov273/calls/func_ov273_020d07d8.c:
     complete
     .text       start:0x020d07d8 end:0x020d0898
