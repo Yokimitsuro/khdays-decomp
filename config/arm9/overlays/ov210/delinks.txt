@@ -28,9 +28,17 @@ src/overlays/ov210/calls/func_ov210_020cff90.c:
     complete
     .text       start:0x020cff90 end:0x020cffbc
 
+src/overlays/ov210/calls/func_ov210_020cffbc.c:
+    complete
+    .text       start:0x020cffbc end:0x020d01cc
+
 src/overlays/ov210/calls/func_ov210_020d01cc.c:
     complete
     .text       start:0x020d01cc end:0x020d024c
+
+src/overlays/ov210/calls/func_ov210_020d024c.c:
+    complete
+    .text       start:0x020d024c end:0x020d0388
 
 src/overlays/ov210/calls/func_ov210_020d0388.c:
     complete
