@@ -1,0 +1,91 @@
+typedef unsigned int u32;
+typedef unsigned short u16;
+typedef struct Ov025LayoutTemplate { u32 words[4]; } Ov025LayoutTemplate;
+extern const Ov025LayoutTemplate data_ov025_020b3894;
+extern int func_ov025_02084a7c(void);
+extern u32 func_ov025_02084d18(int tag);
+extern void *func_ov025_02084d94(int index);
+extern void func_ov025_020883f8(int context, Ov025LayoutTemplate *layout);
+extern void func_ov025_02088410(int context, void *resource);
+extern void func_ov025_0208832c(int context, void *resource, int size);
+extern void func_ov025_02088430(int context, void *callback);
+extern void *func_ov025_0208843c(int context, int id);
+extern void func_ov025_020888b0(int context, void *entry);
+extern void func_ov025_02088928(int context, void *entry, u16 frame);
+extern void func_ov025_0208884c(int context, void *entry, int visible);
+extern void func_ov025_02088420(int context, int id, void *callback);
+extern int func_020235d0(int field, int bits);
+extern void func_ov025_0208b7d0(void *scene);
+extern void func_ov025_0208bf68(void);
+extern void func_ov025_0208c1cc(void);
+extern void func_ov025_0208c118(void);
+extern void func_ov025_0208c1ec(void);
+extern void func_ov025_0208c288(void);
+extern void func_ov025_0208c2b4(void);
+extern void func_ov025_0208c2d4(void);
+extern void func_ov025_0208c2f4(void);
+extern void func_ov025_0208c314(void);
+extern void func_ov025_0208c38c(void);
+extern void func_ov025_0208c3c4(void);
+extern void func_ov025_0208c3e8(void);
+extern void func_ov025_0208c238(void);
+extern void func_ov025_0208c260(void);
+extern void func_ov025_0208c408(void);
+extern void func_ov025_0208c40c(void);
+extern void func_ov025_0208c410(void);
+extern void func_ov025_0208c414(void);
+extern void func_ov025_0208c418(void);
+extern void func_ov025_0208c41c(void);
+extern void func_ov025_0208c420(void);
+
+void func_ov025_0208b928(void *scene)
+{
+    Ov025LayoutTemplate layout = data_ov025_020b3894;
+    int context = func_ov025_02084a7c();
+    void *resource;
+    int day;
+    int tens;
+    int hundreds;
+    layout.words[0] = func_ov025_02084d18(0xb);
+    func_ov025_020883f8(context, &layout);
+    resource = func_ov025_02084d94(1);
+    if (resource != 0) func_ov025_02088410(context, resource);
+    func_ov025_0208832c(context, (void *)func_ov025_02084d18(0xc), 0x34);
+    func_ov025_02088430(context, (void *)func_ov025_0208bf68);
+    func_ov025_0208b7d0(scene);
+    func_ov025_020888b0(context, func_ov025_0208843c(context, 0x2a));
+    func_ov025_020888b0(context, func_ov025_0208843c(context, 0x2b));
+    func_ov025_020888b0(context, func_ov025_0208843c(context, 0x2c));
+    day = func_020235d0(0, 9);
+    func_ov025_02088928(context, func_ov025_0208843c(context, 0x2a), day % 10);
+    tens = day / 10;
+    if (tens > 0)
+        func_ov025_02088928(context, func_ov025_0208843c(context, 0x2b), tens % 10);
+    else
+        func_ov025_0208884c(context, func_ov025_0208843c(context, 0x2b), 0);
+    tens = tens / 10; hundreds = tens;
+    if (hundreds > 0)
+        func_ov025_02088928(context, func_ov025_0208843c(context, 0x2c), hundreds);
+    else
+        func_ov025_0208884c(context, func_ov025_0208843c(context, 0x2c), 0);
+    func_ov025_02088420(context, 1, (void *)func_ov025_0208c1cc);
+    func_ov025_02088420(context, 2, (void *)func_ov025_0208c118);
+    func_ov025_02088420(context, 3, (void *)func_ov025_0208c1ec);
+    func_ov025_02088420(context, 4, (void *)func_ov025_0208c288);
+    func_ov025_02088420(context, 5, (void *)func_ov025_0208c2b4);
+    func_ov025_02088420(context, 6, (void *)func_ov025_0208c2d4);
+    func_ov025_02088420(context, 9, (void *)func_ov025_0208c2f4);
+    func_ov025_02088420(context, 10, (void *)func_ov025_0208c314);
+    func_ov025_02088420(context, 11, (void *)func_ov025_0208c38c);
+    func_ov025_02088420(context, 7, (void *)func_ov025_0208c3c4);
+    func_ov025_02088420(context, 8, (void *)func_ov025_0208c3e8);
+    func_ov025_02088420(context, 12, (void *)func_ov025_0208c238);
+    func_ov025_02088420(context, 13, (void *)func_ov025_0208c260);
+    func_ov025_02088420(context, 0x65, (void *)func_ov025_0208c408);
+    func_ov025_02088420(context, 0x66, (void *)func_ov025_0208c40c);
+    func_ov025_02088420(context, 0x67, (void *)func_ov025_0208c410);
+    func_ov025_02088420(context, 0x68, (void *)func_ov025_0208c414);
+    func_ov025_02088420(context, 0x69, (void *)func_ov025_0208c418);
+    func_ov025_02088420(context, 0x6a, (void *)func_ov025_0208c41c);
+    func_ov025_02088420(context, 0x6b, (void *)func_ov025_0208c420);
+}
