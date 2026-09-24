@@ -1,24 +1,3 @@
-/* NOT MATCHING -- 1394 of 1448 bytes, 352 of 362 instructions aligned.
- *
- * Exact size, exact instruction count and exact relocations. Two residues:
- * the `moveq r1, #0 ; movne r1, #1` pair for the left-column selection is
- * emitted the other way round (build 139 always puts the != arm first for a
- * variable; direct stores in both branches give the ROM's order but recompute
- * the shared column address), and in the tab-0 buy test the owned count is
- * consumed by the delta subtraction right after its load in the ROM (scratch
- * r2, count in sb, the recipe flag in sl) while build 139 schedules the
- * subtraction after the recipe tests and colours count / owned / flag as
- * sl / sb / fp.
- *
- * Swept: ~2900 prologue / declaration / recipe-shape variants in earlier
- * sessions, the 13/09 volatile reads and flag-init orders that fixed the flag
- * registers, condition polarity and boolean spellings for the pair (24),
- * switch / goto / block forms, bShow types and reuse, flag placements (16),
- * block-scoped subsets of the buy-test locals (127), compound and plain
- * subtractions, free narrowing casts on the byte count, joint callee return
- * types (240), a u32 type mask (1024), 49 pragmas, the C++ lane. Left for
- * decomp.me.
- */
 /* func_ov008_02085dd4 -- Ov008_OpenSellDialog: open the shop's quantity
  * dialog (+0xc4c8) for the selected record of the item list (+0xc3c4:
  * index, +0xc3d0: records) and return the id of its caption text.  The
@@ -46,7 +25,7 @@
  * choice (+0x1f); the two counters at +0x28 / +0x2a clear.  Codegen: the
  * tag is a u16 local; the list pointer is spilled; the caption is a spilled
  * local assigned in each branch; the buy test is a chain of flag locals
- * (bRecipe as a && chain, then bOk, bLast, bAfford defaulting to 1).
+ * (pair.c for the first two recipe fields, then bRecipe, bOk, bLast, bAfford).
  */
 typedef unsigned char  u8;
 typedef unsigned short u16;
@@ -54,6 +33,7 @@ typedef unsigned int   u32;
 typedef signed short   s16;
 
 #define MUNNY_MAX      999999
+enum { COL_OFF = 0, COL_ON = 1 };
 #define TAG_TAB0       0x6d
 #define TAG_TAB1       0xd1
 #define WIDGET_QTY     1
@@ -200,13 +180,12 @@ int func_ov008_02085dd4(void)
     int nStock;
     int nItem;
     int nCap;
-    int bAB;
     int bLast;
     int bAfford;
     int bOk;
     int bRecipe;
     Ov008ParamRecord *pRecord;
-    int nDelta;
+    struct { int c; int delta; int cap; } pair;
     int nVal;
     int bShow;
 
@@ -256,11 +235,7 @@ int func_ov008_02085dd4(void)
         func_ov008_02054ba4(pWidgetsB, pEntry, data_0204be18->nPoints != MUNNY_MAX);
         func_ov008_02054858(pWidgetsB, pEntry, &pos);
         func_ov008_02054c80(pWidgetsB, pEntry, 0);
-        if (data_0204be18->nPoints == MUNNY_MAX) {
-            bShow = 0;
-        } else {
-            bShow = 1;
-        }
+        bShow = data_0204be18->nPoints == MUNNY_MAX ? COL_OFF : COL_ON;
         ctx->columns.nLeftSelected = bShow;
         ctx->columns.nLeftBase = pDialog->pRecord->nPrice;
     }
@@ -276,28 +251,24 @@ int func_ov008_02085dd4(void)
     }
     switch (nTab) {
     case 0:
-        nCap = func_ov008_02082234(pDialog->pRecord);
+        pair.cap = func_ov008_02082234(pDialog->pRecord);
         nItem = func_ov008_0208b0bc(pDialog->pRecord);
         pRecord = pDialog->pRecord;
         bRecipe = 0;
         bOk = bLast = bAfford = 1;
-        nDelta = data_0204be18->aItemCount[nItem];
-        bAB = 0;
-        nDelta -= ((volatile Ov008SellDialog *)pDialog)->nOwned;
-        if (pRecord->nRecipeA != 0 && pRecord->nRecipeC != 0) {
-            bAB = 1;
-        }
-        if (bAB != 0 && pRecord->nRecipeB != 0) {
-            bRecipe = 1;
-        }
-        nCap -= nDelta;
+        pair.delta = data_0204be18->aItemCount[nItem];
+        pair.c = 0;
+        pair.delta -= pDialog->nOwned;
+        pair.cap -= pair.delta;
+        if (pRecord->nRecipeA != 0 && pRecord->nRecipeC != 0) pair.c = 1;
+        if (pair.c != 0 && pRecord->nRecipeB != 0) bRecipe = 1;
         if (!bRecipe) {
             if (pRecord->nLevelReq - data_0204be18->aLevel[pRecord->nLevelIndex] != 1) {
                 bOk = 0;
             }
         }
         if (!bOk) {
-            if (((volatile Ov008SellDialog *)pDialog)->nOwned != nCap - 1) {
+            if (((volatile Ov008SellDialog *)pDialog)->nOwned != pair.cap - 1) {
                 bLast = 0;
             }
         }
@@ -331,3 +302,4 @@ int func_ov008_02085dd4(void)
     pDialog->nCounterB = 0;
     return nCaption;
 }
+
