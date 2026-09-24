@@ -1508,6 +1508,10 @@ libs/nitro/snd/auto/SND_GetFirstInstDataPos.c:
     complete
     .text       start:0x02009024 end:0x02009044
 
+libs/nitro/snd/auto/func_02009044.c:
+    complete
+    .text       start:0x02009044 end:0x020091f4
+
 libs/nitro/snd/auto/SND_GetWaveDataCount.c:
     complete
     .text       start:0x020091f4 end:0x020091fc
@@ -3399,6 +3403,10 @@ libs/nitro/nns/auto/func_02017dd4.c:
 libs/nitro/nns/calls/func_02017f68.c:
     complete
     .text       start:0x02017f68 end:0x02018380
+
+libs/nns/g3d/calls/func_02018380.c:
+    complete
+    .text       start:0x02018380 end:0x020186c4
 
 libs/nns/g3d/calls/func_020186c4.c:
     complete
