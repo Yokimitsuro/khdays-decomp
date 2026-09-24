@@ -1,12 +1,12 @@
 #pragma thumb on
-/* func_02022d7c -- tab menu frame handler, MAIN (THUMB). Closes the menu (sound 3, func_02023008)
+/* func_02022d7c -- pause menu frame handler, MAIN (THUMB). Closes the menu (sound 3, func_02023008)
  * when func_020208e0 reports it inactive or B (bit 3 of the pressed keys) is pressed; while the
- * post-confirm timer (+0xc8) runs it counts down. Otherwise, unless game flag 0x2483 is set, it
- * moves the cursor (+0xd4, func_02022cb0) and on A (bit 0): tab 0 closes the menu, a later tab
- * either hands over to the overlay (func_ov023_02083aa8, +0xe0 set, next step func_02022fe4) or,
- * when func_02020a9c bit 1 is set, switches to the two-tab layout (+0xd0 = 2, tab 0 unselected,
- * tab 1 selected, panels redrawn) and re-enters through func_02022eb0. Each frame without a switch
- * refreshes the panels for the current cursor (func_02023364) and ends with func_020230e8. */
+ * post-confirm timer (+0xc8) runs it counts down. Otherwise, unless game field 0x2483 is set, it
+ * moves the entry cursor (+0xd4, func_02022cb0) and on A (bit 0): entry 0 resumes (closes the
+ * menu); a later entry either hands over to the overlay (func_ov023_02083aa8, +0xe0 set, next step
+ * func_02022fe4) or, when func_02020a9c bit 1 is set, switches to the yes/no confirmation layout
+ * (+0xd0 = 2, "no" selected, panels redrawn) handled by func_02022eb0. Each frame without a
+ * switch refreshes the panels for the current entry (func_02023364) and ends with func_020230e8. */
 typedef struct {
     int debounce;                       /* +0x00 */
     int selected;                       /* +0x04 */

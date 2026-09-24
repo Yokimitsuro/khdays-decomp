@@ -18,7 +18,7 @@ typedef struct GameClassDescriptor {
 extern void func_02022708(void);
 extern void func_020227c0(void);
 
-/* Set once the pause menu resources are ready (02022eb0 tests and clears it). */
+/* The yes/no cursor of the pause menu confirmation page (02022eb0 defines and moves it; 1 = "no"). */
 int data_02042730 = 1;
 
 GameClassDescriptor data_02042734 = {
