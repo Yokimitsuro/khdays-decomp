@@ -6028,6 +6028,10 @@ src/calls/func_0202c6c4.c:
     complete
     .text       start:0x0202c6c4 end:0x0202cf64
 
+src/calls/func_0202cf64.c:
+    complete
+    .text       start:0x0202cf64 end:0x0202d660
+
 src/calls/func_0202d660.c:
     complete
     .text       start:0x0202d660 end:0x0202d968
