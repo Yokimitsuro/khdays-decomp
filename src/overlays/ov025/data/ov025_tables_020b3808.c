@@ -1,6 +1,6 @@
-/* ov025 .rodata tables, 0x020b3808-0x020b3870.
+/* ov025 .rodata tables, 0x020b3808-0x020b3860.
  *
- * 4 contiguous tables, each written in the width its contents are in:
+ * 3 contiguous tables, each written in the width its contents are in:
  * words where the values are small integers, bytes where the words are
  * packed bytes.
  *
@@ -8,7 +8,9 @@
  *   data_ov025_020b3808: func_ov025_020858d0
  *   data_ov025_020b3858: func_ov025_02088b7c
  *   data_ov025_020b385c: func_ov025_02088b7c
- *   data_ov025_020b3860: (no C reader yet)
+ *
+ * 0x020b3860-0x020b3870 ([12, 13, 10, 11]) is the local-initialiser template of
+ * func_ov025_0208b274 and is emitted by that unit.
  */
 
 typedef unsigned char u8;
@@ -26,8 +28,4 @@ const u8 data_ov025_020b3858[4] = {
 
 const u8 data_ov025_020b385c[4] = {
     24, 25, 26, 27,
-};
-
-const int data_ov025_020b3860[4] = {
-    12, 13, 10, 11,
 };
