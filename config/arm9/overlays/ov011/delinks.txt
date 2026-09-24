@@ -144,7 +144,7 @@ src/overlays/ov011/calls/func_ov011_0205d6a0.c:
     complete
     .text       start:0x0205d6a0 end:0x0205d7bc
 
-src/overlays/ov011/asm_stubs/calls/func_ov011_0205d7bc.c:
+src/overlays/ov011/calls/func_ov011_0205d7bc.c:
     complete
     .text       start:0x0205d7bc end:0x0205da60
 
