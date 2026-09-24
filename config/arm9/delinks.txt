@@ -1796,15 +1796,23 @@ libs/nitro/fs/calls/FS_UnloadOverlay.c:
     complete
     .text       start:0x0200b700 end:0x0200b74c
 
-src/auto/func_0200b74c.c:
+libs/nitro/math/auto/func_0200b74c.c:
     complete
     .text       start:0x0200b74c end:0x0200b79c
+
+libs/nitro/math/calls/func_0200b79c.c:
+    complete
+    .text       start:0x0200b79c end:0x0200b8f0
+
+libs/nitro/math/calls/func_0200b8f0.c:
+    complete
+    .text       start:0x0200b8f0 end:0x0200baec
 
 libs/nitro/math/calls/func_0200baec.c:
     complete
     .text       start:0x0200baec end:0x0200bb80
 
-src/calls/func_0200bb80.c:
+libs/nitro/math/calls/func_0200bb80.c:
     complete
     .text       start:0x0200bb80 end:0x0200bd38
 
@@ -4019,6 +4027,10 @@ libs/nns/snd/calls/func_0201c734.c:
 libs/nns/snd/calls/func_0201c830.c:
     complete
     .text       start:0x0201c830 end:0x0201c8f4
+
+libs/nns/snd/calls/func_0201c8f4.c:
+    complete
+    .text       start:0x0201c8f4 end:0x0201c9f8
 
 libs/nns/snd/calls/func_0201c9f8.c:
     complete
