@@ -7,6 +7,10 @@ src/overlays/ov105/calls/func_ov105_020bcc20.c:
     complete
     .text       start:0x020bcc20 end:0x020bcc4c
 
+libs/nitro/wm/calls/func_ov105_020bcc4c.c:
+    complete
+    .text       start:0x020bcc4c end:0x020bce30
+
 src/overlays/ov105/calls/func_ov105_020bce30.c:
     complete
     .text       start:0x020bce30 end:0x020bcea0
@@ -342,6 +346,10 @@ src/overlays/ov105/calls/func_ov105_020bf25c.c:
 src/overlays/ov105/calls/func_ov105_020bf26c.c:
     complete
     .text       start:0x020bf26c end:0x020bf27c
+
+src/overlays/ov105/calls/func_ov105_020bf27c.c:
+    complete
+    .text       start:0x020bf27c end:0x020bf33c
 
 src/overlays/ov105/calls/func_ov105_020bf33c.c:
     complete

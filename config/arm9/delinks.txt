@@ -4148,6 +4148,10 @@ libs/nns/snd/calls/func_0201d598.c:
     complete
     .text       start:0x0201d598 end:0x0201d6dc
 
+libs/nns/snd/calls/func_0201d6dc.c:
+    complete
+    .text       start:0x0201d6dc end:0x0201df04
+
 libs/nns/snd/calls/func_0201df04.c:
     complete
     .text       start:0x0201df04 end:0x0201df84
