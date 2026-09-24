@@ -5520,6 +5520,10 @@ src/calls/func_0202a440.c:
     complete
     .text       start:0x0202a440 end:0x0202a4d0
 
+src/calls/func_0202a4d0.c:
+    complete
+    .text       start:0x0202a4d0 end:0x0202a634
+
 src/calls/func_0202a634.c:
     complete
     .text       start:0x0202a634 end:0x0202a66c
@@ -5967,6 +5971,10 @@ src/calls/func_0202df00.c:
 src/auto/func_0202df30.c:
     complete
     .text       start:0x0202df30 end:0x0202df34
+
+src/calls/func_0202df34.c:
+    complete
+    .text       start:0x0202df34 end:0x0202e084
 
 src/calls/func_0202e084.c:
     complete
