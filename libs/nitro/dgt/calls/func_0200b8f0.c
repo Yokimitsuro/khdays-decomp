@@ -1,4 +1,4 @@
-/* MATHi_SHA1GetHash (NitroSDK DGT): pads the pending block (0x80, zeros up to the word, zero
+/* DGT_Hash2GetDigest (NitroSDK DGT, SHA-1): pads the pending block (0x80, zeros up to the word, zero
  * words up to 14 -- hashing an extra block first when fewer than 8 bytes are left), appends the
  * big-endian bit count (Nh then Nl), hashes it through the block hook data_020422d0 and writes
  * the five state words big-endian into `digest`. The final clear wipes only the 4-byte context
@@ -6,22 +6,22 @@
 typedef unsigned char u8;
 typedef unsigned long u32;
 
-typedef struct MATHSHA1Context {
-    u32 h[5];
+typedef struct DGTHash2Context {
+    u32 h0, h1, h2, h3, h4;
     u32 Nl;
     u32 Nh;
     int num;
-    u8 block[64];
-    u32 pad[2];
-} MATHSHA1Context;
+    u8 data[64];
+    int dummy[2];
+} DGTHash2Context;
 
-extern void (*data_020422d0)(MATHSHA1Context *context, const void *data, u32 length);   /* SHA-1 block hook */
+extern void (*data_020422d0)(DGTHash2Context *context, const void *data, u32 length);   /* SHA-1 block hook */
 extern void INITi_CpuClear32_0x01ff86fc(u32 data, void *destp, u32 size);   /* MIi_CpuClear32 */
 
-void func_0200b8f0(MATHSHA1Context *context, void *digest)
+void func_0200b8f0(DGTHash2Context *context, void *digest)
 {
     u8 *md = (u8 *)digest;
-    u32 *p = (u32 *)context->block;
+    u32 *p = (u32 *)context->data;
     u8 *cp;
     int i;
     int n;
@@ -32,7 +32,7 @@ void func_0200b8f0(MATHSHA1Context *context, void *digest)
     if ((n & 3) == 0) {
         p[i] = 0;
     }
-    cp = context->block;
+    cp = context->data;
     cp[n] = 0x80;
     n++;
     while ((n & 3) != 0) {
@@ -61,27 +61,27 @@ void func_0200b8f0(MATHSHA1Context *context, void *digest)
     cp[0x39] = (u8)(l >> 16);
     cp[0x38] = (u8)(l >> 24);
     data_020422d0(context, p, 64);
-    l = context->h[0];
+    l = context->h0;
     md[0] = (u8)(l >> 24);
     md[1] = (u8)(l >> 16);
     md[2] = (u8)(l >> 8);
     md[3] = (u8)l;
-    l = context->h[1];
+    l = context->h1;
     md[4] = (u8)(l >> 24);
     md[5] = (u8)(l >> 16);
     md[6] = (u8)(l >> 8);
     md[7] = (u8)l;
-    l = context->h[2];
+    l = context->h2;
     md[8] = (u8)(l >> 24);
     md[9] = (u8)(l >> 16);
     md[10] = (u8)(l >> 8);
     md[11] = (u8)l;
-    l = context->h[3];
+    l = context->h3;
     md[12] = (u8)(l >> 24);
     md[13] = (u8)(l >> 16);
     md[14] = (u8)(l >> 8);
     md[15] = (u8)l;
-    l = context->h[4];
+    l = context->h4;
     md[16] = (u8)(l >> 24);
     md[17] = (u8)(l >> 16);
     md[18] = (u8)(l >> 8);

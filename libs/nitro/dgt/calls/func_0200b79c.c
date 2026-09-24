@@ -1,4 +1,4 @@
-/* MATHi_SHA1Update (NitroSDK DGT): feeds `length` bytes of `input` into the SHA-1 context. The
+/* DGT_Hash2SetSource (NitroSDK DGT, SHA-1): feeds `length` bytes of `input` into the SHA-1 context. The
  * 64-bit bit count (Nl/Nh) grows first; a partly filled block is topped up and hashed, whole
  * blocks are hashed straight from a word-aligned input (or through the block buffer one by one
  * when it is not aligned), and the remainder waits in the block buffer. Blocks go through the
@@ -6,22 +6,22 @@
 typedef unsigned char u8;
 typedef unsigned long u32;
 
-typedef struct MATHSHA1Context {
-    u32 h[5];
+typedef struct DGTHash2Context {
+    u32 h0, h1, h2, h3, h4;
     u32 Nl;
     u32 Nh;
     u32 num;
-    u8 block[64];
-    u32 pad[2];
-} MATHSHA1Context;
+    u8 data[64];
+    int dummy[2];
+} DGTHash2Context;
 
 extern void MI_CpuCopy8(const void *src, void *dest, u32 size);
-extern void (*data_020422d0)(MATHSHA1Context *context, const void *data, u32 length);   /* SHA-1 block hook */
+extern void (*data_020422d0)(DGTHash2Context *context, const void *data, u32 length);   /* SHA-1 block hook */
 
-void func_0200b79c(MATHSHA1Context *context, const void *input, u32 length)
+void func_0200b79c(DGTHash2Context *context, const void *input, u32 length)
 {
     const u8 *data = (const u8 *)input;
-    u8 *p = context->block;
+    u8 *p = context->data;
     u32 l;
     u32 n;
 
