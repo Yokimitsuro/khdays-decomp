@@ -5280,6 +5280,10 @@ libs/nns/g3d/auto/func_02027af0.c:
     complete
     .text       start:0x02027af0 end:0x02027b18
 
+libs/nns/g3d/calls/func_0202803c.c:
+    complete
+    .text       start:0x0202803c end:0x020280a4
+
 src/calls/func_020285f0.c:
     complete
     .text       start:0x020285f0 end:0x02028670
