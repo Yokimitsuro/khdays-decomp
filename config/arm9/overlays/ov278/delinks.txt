@@ -224,6 +224,10 @@ src/overlays/ov278/calls/func_ov278_020d041c.c:
     complete
     .text       start:0x020d041c end:0x020d0480
 
+src/overlays/ov278/calls/func_ov278_020d0480.c:
+    complete
+    .text       start:0x020d0480 end:0x020d058c
+
 src/overlays/ov278/auto/func_ov278_020d0700.c:
     complete
     .text       start:0x020d0700 end:0x020d0810
