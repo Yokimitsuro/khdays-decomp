@@ -6396,6 +6396,10 @@ src/auto/func_02031e30.c:
     complete
     .text       start:0x02031e30 end:0x02031e50
 
+src/calls/func_02031e50.c:
+    complete
+    .text       start:0x02031e50 end:0x02031ee0
+
 libs/nitro/nns/calls/NNS_FndAppendDoubleListObject.c:
     complete
     .text       start:0x02031ee0 end:0x02031f2c
