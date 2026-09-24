@@ -7384,6 +7384,10 @@ src/auto/func_0203ca9c.c:
     complete
     .text       start:0x0203ca9c end:0x0203cac0
 
+src/calls/func_0203cac0.c:
+    complete
+    .text       start:0x0203cac0 end:0x0203cc64
+
 src/calls/func_0203cc64.c:
     complete
     .text       start:0x0203cc64 end:0x0203cd20
