@@ -4779,7 +4779,6 @@ src/calls/func_02022d7c.c:
 src/calls/func_02022eb0.c:
     complete
     .text       start:0x02022eb0 end:0x02022fe4
-    .data       start:0x02042730 end:0x02042734
 
 src/calls/func_02022fe4.c:
     complete
@@ -5440,6 +5439,14 @@ src/calls/func_02028768.c:
 src/calls/func_020287e8.c:
     complete
     .text       start:0x020287e8 end:0x02028924
+
+src/calls/func_02028924.c:
+    complete
+    .text       start:0x02028924 end:0x02028a64
+
+src/calls/func_02028a64.c:
+    complete
+    .text       start:0x02028a64 end:0x02028bb4
 
 src/calls/func_02028bb4.c:
     complete
