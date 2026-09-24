@@ -4733,6 +4733,10 @@ src/overlays/ov008/calls/func_ov008_0208ae84.c:
     complete
     .text       start:0x0208ae84 end:0x0208af90
 
+src/overlays/ov008/calls/func_ov008_0208af90.c:
+    complete
+    .text       start:0x0208af90 end:0x0208b0bc
+
 src/overlays/ov008/auto/func_ov008_0208b0bc.c:
     complete
     .text       start:0x0208b0bc end:0x0208b0d0
