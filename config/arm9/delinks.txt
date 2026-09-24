@@ -4276,9 +4276,17 @@ src/calls/func_0201ea40.c:
     complete
     .text       start:0x0201ea40 end:0x0201ea6c
 
+src/calls/func_0201ea6c.c:
+    complete
+    .text       start:0x0201ea6c end:0x0201ebdc
+
 src/calls/func_0201ebdc.c:
     complete
     .text       start:0x0201ebdc end:0x0201ed3c
+
+src/calls/func_0201ed3c.c:
+    complete
+    .text       start:0x0201ed3c end:0x0201eea8
 
 src/calls/func_0201eea8.c:
     complete
@@ -4291,6 +4299,10 @@ src/calls/func_0201ef58.c:
 src/calls/func_0201ef9c.c:
     complete
     .text       start:0x0201ef9c end:0x0201f1a8
+
+src/calls/func_0201f1a8.c:
+    complete
+    .text       start:0x0201f1a8 end:0x0201f390
 
 src/calls/func_0201f390.c:
     complete
