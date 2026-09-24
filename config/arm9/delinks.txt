@@ -5604,6 +5604,10 @@ src/auto/func_0202a1b8.c:
     complete
     .text       start:0x0202a1b8 end:0x0202a208
 
+src/calls/func_0202a208.c:
+    complete
+    .text       start:0x0202a208 end:0x0202a388
+
 src/calls/func_0202a388.c:
     complete
     .text       start:0x0202a388 end:0x0202a3cc
@@ -7103,6 +7107,14 @@ src/calls/func_020352c0.c:
 src/calls/func_020352cc.c:
     complete
     .text       start:0x020352cc end:0x02035328
+
+src/calls/func_02035328.c:
+    complete
+    .text       start:0x02035328 end:0x020353e0
+
+src/calls/func_020353e0.c:
+    complete
+    .text       start:0x020353e0 end:0x02035444
 
 src/calls/func_02035444.c:
     complete
