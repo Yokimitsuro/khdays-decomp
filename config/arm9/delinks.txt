@@ -5904,6 +5904,10 @@ src/auto/func_0202e400.c:
     complete
     .text       start:0x0202e400 end:0x0202e474
 
+src/calls/func_0202e474.c:
+    complete
+    .text       start:0x0202e474 end:0x0202e4f4
+
 src/calls/func_0202e4f4.c:
     complete
     .text       start:0x0202e4f4 end:0x0202e53c
