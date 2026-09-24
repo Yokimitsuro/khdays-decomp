@@ -8,7 +8,7 @@
 typedef unsigned char u8;
 typedef unsigned short u16;
 
-/* read by func_ov146_020cbfc4 (not yet decompiled) */
+/* read by func_ov146_020cbfc4 (Ov146_Actor_Construct): hidden part ids */
 const int data_ov146_020cf4f8[5] = {
     0, 3, 0, 22, 23,
 };
