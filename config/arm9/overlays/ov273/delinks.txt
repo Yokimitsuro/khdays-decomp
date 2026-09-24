@@ -408,6 +408,10 @@ src/overlays/ov273/calls/func_ov273_020d5a80.c:
     complete
     .text       start:0x020d5a80 end:0x020d5ba0
 
+src/overlays/ov273/calls/func_ov273_020d5ba0.c:
+    complete
+    .text       start:0x020d5ba0 end:0x020d5fcc
+
 src/overlays/ov273/calls/func_ov273_020d5fcc.c:
     complete
     .text       start:0x020d5fcc end:0x020d6000
