@@ -71,7 +71,7 @@ extern void NNSi_FndFreeFromDefaultHeap(void *ptr);
 extern char data_ov025_020b5250[];
 extern const char *data_ov025_020b4220[];
 extern char data_ov025_020b525c[];
-extern const u8 data_ov025_020b422c[];
+extern const u8 data_ov025_020b4228[]; /* Ov025ReportsSet[2]; +4 = the entries' sprite member tag */
 
 void func_ov025_0209ef60(void)
 {
@@ -115,7 +115,7 @@ void func_ov025_0209ef60(void)
     }
     OS_SNPrintf(path, 0x20, data_ov025_020b525c, data_ov025_020b4220[page->mode]);
     table = func_0201ef9c((u32)path, 0xe);
-    page->spriteFile = func_0201ef9c(func_ov025_02084d18(data_ov025_020b422c[((Ov025Page *)raw)->mode * 5]), 0xe);
+    page->spriteFile = func_0201ef9c(func_ov025_02084d18((data_ov025_020b4228 + 4)[((Ov025Page *)raw)->mode * 5]), 0xe);
     if (modeZero) {
         page->entries = NNSi_FndAllocFromDefaultExpHeap(*table << 6);
         MI_CpuFill8(page->entries, 0, *table << 6);
