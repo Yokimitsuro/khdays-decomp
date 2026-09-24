@@ -1,10 +1,9 @@
-/* func_02027b18 -- SBC billboard command (BB), MAIN. The game's copy of NitroSystem's
- * NNSi_G3dFuncSbc_BB without the render callbacks: optionally restores the source matrix
- * (MTX_RESTORE through func_01ffa764), reads the current clip matrix, folds in the (SRT) camera
- * matrix when the global flags ask for it, keeps its translation and row lengths in the command
- * template (data_02042844: trans at [12], scale at [15]) and sends the template to the geometry FIFO
- * (after the inverse camera matrix when a camera is folded in); optionally stores the result
- * (MTX_STORE), then advances the command pointer. */
+/* func_02027d7c -- SBC Y-axis billboard command (BBY) (NitroSystem G3D). NitroSystem's
+ * NNSi_G3dFuncSbc_BBY as built here, without the render callbacks: like the plain billboard (func_02027b18) it
+ * reads the clip matrix (with the camera folded in when asked), keeps its translation and row
+ * lengths in its own command template (data_0204288c), but also rebuilds the template rotation
+ * from the normalised Y row (or the Z row when Y has no Y/Z part) so the billboard only turns
+ * about the Y axis. */
 typedef unsigned char u8;
 typedef unsigned int u32;
 typedef int fx32;
@@ -41,11 +40,11 @@ typedef struct NNSG3dGlb {
 #define G3OP_MTX_STORE   0x13
 #define G3OP_MTX_RESTORE 0x14
 
-extern u32 data_02042844[];             /* bbcmd1 */
-extern u32 data_02042848[];             /* &bbcmd1[1] */
-extern u32 data_02042850[];             /* &bbcmd1[3] */
-extern VecFx32 data_02042874;           /* bbcmd1[12]: trans */
-extern VecFx32 data_02042880;           /* bbcmd1[15]: scale */
+extern u32 data_0204288c[];             /* bbcmd1 */
+extern u32 data_02042890[];             /* &bbcmd1[1] */
+extern MtxFx43 data_02042898;           /* bbcmd1[3]: rotation / translation */
+extern VecFx32 data_020428bc;           /* bbcmd1[12]: trans */
+extern VecFx32 data_020428c8;           /* bbcmd1[15]: scale */
 extern NNSG3dGlb data_02047394;         /* NNS_G3dGlb */
 
 extern void func_01ffa764(u32 op, u32 param);      /* one-parameter geometry buffer command */
@@ -57,14 +56,16 @@ extern const MtxFx43 *func_020158e0(void);         /* NNS_G3dGlbGetInvCameraMtx 
 extern void MTX_Copy43To44_(const MtxFx43 *pSrc, MtxFx44 *pDst);
 extern void MTX_Concat44(const MtxFx44 *a, const MtxFx44 *b, MtxFx44 *ab);
 extern fx32 VEC_Mag(const VecFx32 *v);
+extern void func_01ff8d18(const VecFx32 *pSrc, VecFx32 *pDst);   /* VEC_Normalize */
 extern void MIi_CpuSend32(const void *src, volatile void *dest, u32 size);
 
-void func_02027b18(NNSG3dRS *rs, u32 opt)
+void func_02027d7c(NNSG3dRS *rs, u32 opt)
 {
     u32 cmdLen = 2;
-    VecFx32 *trans = &data_02042874;
-    VecFx32 *scale = &data_02042880;
     MtxFx44 m;
+    VecFx32 *trans = &data_020428bc;
+    VecFx32 *scale = &data_020428c8;
+    MtxFx43 *mtx = &data_02042898;
 
     if (rs->flag & NNS_G3D_RSFLAG_OPT_SKIP_SBCDRAW) {
         if (opt == NNS_G3D_SBCFLG_010 || opt == NNS_G3D_SBCFLG_011) {
@@ -123,20 +124,32 @@ void func_02027b18(NNSG3dRS *rs, u32 opt)
         scale->y = VEC_Mag((VecFx32 *)&m._10);
         scale->z = VEC_Mag((VecFx32 *)&m._20);
 
+        if (m._11 != 0 || m._12 != 0) {
+            func_01ff8d18((VecFx32 *)&m._10, (VecFx32 *)&mtx->_10);
+
+            mtx->_21 = -mtx->_12;
+            mtx->_22 = mtx->_11;
+        } else {
+            func_01ff8d18((VecFx32 *)&m._20, (VecFx32 *)&mtx->_20);
+
+            mtx->_12 = -mtx->_21;
+            mtx->_11 = mtx->_22;
+        }
+
         if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
             reg_G3X_GXFIFO = 0x00171012;    /* MTX_POP, MTX_MODE, MTX_LOAD_4x3 */
-            MIi_CpuSend32(data_02042848, &reg_G3X_GXFIFO, 2 * sizeof(u32));
+            MIi_CpuSend32(data_02042890, &reg_G3X_GXFIFO, 2 * sizeof(u32));
             MIi_CpuSend32(func_02015c00(), &reg_G3X_GXFIFO, 12 * sizeof(u32));
             reg_G3X_GXFIFO = 0x00001b19;    /* MTX_MULT_4x3, MTX_SCALE */
-            MIi_CpuSend32(data_02042850, &reg_G3X_GXFIFO, sizeof(MtxFx43) + sizeof(VecFx32));
+            MIi_CpuSend32(&data_02042898, &reg_G3X_GXFIFO, sizeof(MtxFx43) + sizeof(VecFx32));
         } else if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
             reg_G3X_GXFIFO = 0x00171012;
-            MIi_CpuSend32(data_02042848, &reg_G3X_GXFIFO, 2 * sizeof(u32));
+            MIi_CpuSend32(data_02042890, &reg_G3X_GXFIFO, 2 * sizeof(u32));
             MIi_CpuSend32(func_020158e0(), &reg_G3X_GXFIFO, 12 * sizeof(u32));
             reg_G3X_GXFIFO = 0x00001b19;
-            MIi_CpuSend32(data_02042850, &reg_G3X_GXFIFO, sizeof(MtxFx43) + sizeof(VecFx32));
+            MIi_CpuSend32(&data_02042898, &reg_G3X_GXFIFO, sizeof(MtxFx43) + sizeof(VecFx32));
         } else {
-            MIi_CpuSend32(data_02042844, &reg_G3X_GXFIFO, 18 * sizeof(u32));
+            MIi_CpuSend32(data_0204288c, &reg_G3X_GXFIFO, 18 * sizeof(u32));
         }
     }
 

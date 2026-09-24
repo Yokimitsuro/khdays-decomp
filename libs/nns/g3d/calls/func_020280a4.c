@@ -1,11 +1,9 @@
-/* func_02028314 -- SBC projection-map command (PRJMAP), MAIN. The game's copy of NitroSystem's
- * NNSi_G3dFuncSbc_PRJMAP without the render callbacks: for a visible node it saves the current
- * position matrix to the system stack slot, forces the material's texture coordinate generation to
- * "vertex" (resending TEXIMAGE_PARAM when it changes), loads the texture matrix from the texture-size
- * template (data_02042804), multiplies in the material's effect matrix, the base translation /
- * rotation (or the inverse view) and the saved position matrix, folds in the clip matrix read back
- * from the projection stack, sets the texture coordinate offset from it and restores the position
- * matrix; the command pointer always advances by 3. */
+/* func_020280a4 -- SBC environment-map command (ENVMAP) (NitroSystem G3D). NitroSystem's
+ * NNSi_G3dFuncSbc_ENVMAP as built here, without the render callbacks: for a visible node it forces the material's
+ * texture coordinate generation to "normal" (resending TEXIMAGE_PARAM when it changes), loads the
+ * texture matrix with the texture-size scale and centre offset, multiplies in the material's effect
+ * matrix when it has one, then multiplies in the camera (and base rotation) and the current
+ * normal matrix; the command pointer always advances by 3. */
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
@@ -72,8 +70,7 @@ typedef struct NNSG3dGlb {
     MtxFx43 cameraMtx;                  /* +0x4c */
     char pad7c[0x94 - 0x7c];
     MtxFx33 prmBaseRot;                 /* +0x94 */
-    VecFx32 prmBaseTrans;               /* +0xb8 */
-    char padc4[0xd4 - 0xc4];
+    char padb8[0xd4 - 0xb8];
     u32 flag;                           /* +0xd4 */
 } NNSG3dGlb;
 
@@ -87,17 +84,10 @@ typedef struct NNSG3dGlb {
 #define NNS_G3D_MATFLAG_EFFECTMTX        0x2000
 #define REG_G3_TEXIMAGE_PARAM_TGEN_MASK  0xc0000000
 #define REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT 30
-#define GX_TEXGEN_VERTEX 3
-#define NNS_G3D_MTXSTACK_SYS 30
-#define GX_MTXMODE_PROJECTION 0
+#define GX_TEXGEN_NORMAL 2
 #define GX_MTXMODE_POSITION_VECTOR 2
 #define GX_MTXMODE_TEXTURE         3
 #define G3OP_MTX_MODE     0x10
-#define G3OP_MTX_STORE    0x13
-#define G3OP_MTX_RESTORE  0x14
-#define G3OP_MTX_LOAD_4x4 0x16
-#define G3OP_MTX_MULT_4x3 0x19
-#define G3OP_MTX_TRANS    0x1c
 #define G3OP_MTX_MULT_4x4 0x18
 #define G3OP_MTX_MULT_3x3 0x1a
 #define G3OP_MTX_SCALE    0x1b
@@ -106,70 +96,26 @@ typedef struct NNSG3dGlb {
 #define GX_ST(s, t) ((u32)((u16)GX_FX16ST(s) | ((u16)GX_FX16ST(t) << 16)))
 #define GX_PACK_TEXCOORD_PARAM(s, t) (GX_ST((s), (t)))
 
-extern u32 data_020427f4[];             /* TEXIMAGE_PARAM command template */
-extern u32 data_020427f8[];             /* its parameter word */
-extern MtxFx44 data_02042804;           /* texture-size projection matrix template */
+extern u32 data_020427f4[];             /* [2..3]: TEXIMAGE_PARAM command template */
+extern u32 data_02042800[];             /* its parameter word */
 extern NNSG3dGlb data_02047394;         /* NNS_G3dGlb */
 
 extern void func_01ff9f00(u32 op, const u32 *args, u32 num);    /* NNS_G3dGeBufferOP_N */
 extern void func_02016294(MtxFx43 *m, MtxFx33 *n);              /* NNS_G3dGetCurrentMtx */
-extern void func_01ff80b8(void);                                /* NNS_G3dGeFlushBuffer */
-extern const MtxFx43 *func_020158e0(void);                      /* NNS_G3dGlbGetInvV */
-extern int G3X_GetClipMtx(MtxFx44 *m);
-
-#define reg_G3_MTX_MODE     (*(volatile u32 *)0x04000440)
-#define reg_G3_MTX_PUSH     (*(volatile u32 *)0x04000444)
-#define reg_G3_MTX_POP      (*(volatile u32 *)0x04000448)
-#define reg_G3_MTX_IDENTITY (*(volatile u32 *)0x04000454)
-
-static inline void G3_MtxMode(u32 mode)
-{
-    reg_G3_MTX_MODE = mode;
-}
-
-static inline void G3_PushMtx(void)
-{
-    reg_G3_MTX_PUSH = 0;
-}
-
-static inline void G3_PopMtx(int num)
-{
-    reg_G3_MTX_POP = (u32)num;
-}
-
-static inline void G3_Identity(void)
-{
-    reg_G3_MTX_IDENTITY = 0;
-}
 
 static inline void NNS_G3dGeMtxMode(u32 mode)
 {
     func_01ff9f00(G3OP_MTX_MODE, (u32 *)&mode, 1);
 }
 
-static inline void NNS_G3dGeStoreMtx(int num)
+static inline void NNS_G3dGeScale(fx32 x, fx32 y, fx32 z)
 {
-    func_01ff9f00(G3OP_MTX_STORE, (u32 *)&num, 1);
-}
+    VecFx32 vec;
 
-static inline void NNS_G3dGeRestoreMtx(int num)
-{
-    func_01ff9f00(G3OP_MTX_RESTORE, (u32 *)&num, 1);
-}
-
-static inline void NNS_G3dGeTranslateVec(const VecFx32 *vec)
-{
-    func_01ff9f00(G3OP_MTX_TRANS, (u32 *)vec, 3);
-}
-
-static inline void NNS_G3dGeLoadMtx44(const MtxFx44 *m)
-{
-    func_01ff9f00(G3OP_MTX_LOAD_4x4, (u32 *)m, 16);
-}
-
-static inline void NNS_G3dGeMultMtx43(const MtxFx43 *m)
-{
-    func_01ff9f00(G3OP_MTX_MULT_4x3, (u32 *)m, 12);
+    vec.x = x;
+    vec.y = y;
+    vec.z = z;
+    func_01ff9f00(G3OP_MTX_SCALE, (u32 *)&vec, 3);
 }
 
 static inline void NNS_G3dGeTexCoord(fx32 s, fx32 t)
@@ -215,22 +161,19 @@ static inline NNSG3dResMatData *NNS_G3dGetMatDataByIdx(const NNSG3dResMat *mat, 
     return 0;
 }
 
-void func_02028314(NNSG3dRS *rs)
+void func_020280a4(NNSG3dRS *rs)
 {
-    if ((rs->flag & (NNS_G3D_RSFLAG_OPT_SKIP_SBCDRAW | NNS_G3D_RSFLAG_NODE_VISIBLE)) == NNS_G3D_RSFLAG_NODE_VISIBLE) {
-        MtxFx43 m;
-
-        func_02016294(&m, 0);
-        NNS_G3dGeStoreMtx(NNS_G3D_MTXSTACK_SYS);
-
+    if (!(rs->flag & NNS_G3D_RSFLAG_OPT_SKIP_SBCDRAW) && (rs->flag & NNS_G3D_RSFLAG_NODE_VISIBLE)) {
         if ((rs->pMatAnmResult->prmTexImage & REG_G3_TEXIMAGE_PARAM_TGEN_MASK) !=
-            (GX_TEXGEN_VERTEX << REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT)) {
+            (GX_TEXGEN_NORMAL << REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT)) {
             rs->pMatAnmResult->prmTexImage &= ~REG_G3_TEXIMAGE_PARAM_TGEN_MASK;
-            rs->pMatAnmResult->prmTexImage |= GX_TEXGEN_VERTEX << REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT;
+            rs->pMatAnmResult->prmTexImage |= GX_TEXGEN_NORMAL << REG_G3_TEXIMAGE_PARAM_TGEN_SHIFT;
 
-            data_020427f4[1] = rs->pMatAnmResult->prmTexImage;
-            func_01ff9f00(data_020427f4[0], data_020427f8, 1);
+            data_020427f4[3] = rs->pMatAnmResult->prmTexImage;
+            func_01ff9f00(data_020427f4[2], data_02042800, 1);
         }
+
+        NNS_G3dGeMtxMode(GX_MTXMODE_TEXTURE);
 
         {
             s32 width, height;
@@ -238,16 +181,8 @@ void func_02028314(NNSG3dRS *rs)
             width = (s32)rs->pMatAnmResult->origWidth;
             height = (s32)rs->pMatAnmResult->origHeight;
 
-            {
-                MtxFx44 *mtx = &data_02042804;
-
-                mtx->_00 = width << (12 + 3);
-                mtx->_11 = -height << (12 + 3);
-                mtx->_30 = width << (12 + 3);
-                mtx->_31 = height << (12 + 3);
-
-                NNS_G3dGeLoadMtx44(mtx);
-            }
+            NNS_G3dGeScale(width << (12 + 3), -height << (12 + 3), 0x1000 << 4);
+            NNS_G3dGeTexCoord(width << (12 - 1), height << (12 - 1));
         }
 
         {
@@ -273,39 +208,25 @@ void func_02028314(NNSG3dRS *rs)
         }
 
         {
-            MtxFx44 tex_mtx;
+            MtxFx33 n;
+
+            NNS_G3dGeMtxMode(GX_MTXMODE_POSITION_VECTOR);
+            func_02016294(0, &n);
+            NNS_G3dGeMtxMode(GX_MTXMODE_TEXTURE);
 
             if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
-                NNS_G3dGeTranslateVec(&data_02047394.prmBaseTrans);
+                NNS_G3dGeMultMtx33((const MtxFx33 *)&data_02047394.cameraMtx);
                 NNS_G3dGeMultMtx33(&data_02047394.prmBaseRot);
-                NNS_G3dGeMultMtx43(&m);
+                NNS_G3dGeMultMtx33(&n);
             } else if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
-                NNS_G3dGeMultMtx43(&m);
+                NNS_G3dGeMultMtx33((const MtxFx33 *)&data_02047394.cameraMtx);
+                NNS_G3dGeMultMtx33(&n);
             } else {
-                NNS_G3dGeMultMtx43(func_020158e0());
-                NNS_G3dGeMultMtx43(&m);
+                NNS_G3dGeMultMtx33(&n);
             }
-
-            {
-                func_01ff80b8();
-
-                G3_MtxMode(GX_MTXMODE_PROJECTION);
-                G3_PushMtx();
-                G3_Identity();
-
-                while (G3X_GetClipMtx(&tex_mtx)) {
-                }
-
-                G3_PopMtx(1);
-                G3_MtxMode(GX_MTXMODE_TEXTURE);
-            }
-
-            NNS_G3dGeLoadMtx44(&tex_mtx);
-            NNS_G3dGeTexCoord(tex_mtx._30 >> 4, tex_mtx._31 >> 4);
         }
 
         NNS_G3dGeMtxMode(GX_MTXMODE_POSITION_VECTOR);
-        NNS_G3dGeRestoreMtx(NNS_G3D_MTXSTACK_SYS);
     }
     rs->c += 3;
 }

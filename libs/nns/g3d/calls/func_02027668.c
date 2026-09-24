@@ -1,5 +1,5 @@
-/* func_02027668 -- evaluate one joint's SRT animation tag, MAIN. The game's copy of NitroSystem's
- * getJntSRTAnmResult_ (nsbca.c) without the decimal-frame variants, split out from its caller: given
+/* func_02027668 -- evaluate one joint's SRT animation tag (NitroSystem G3D). NitroSystem's getJntSRTAnmResult_
+ * (nsbca.c) as built here, without the decimal-frame variants and split out from its caller: given
  * the joint animation, the joint's SRT tag and its tag bits, it fills the result's translation
  * (+0x4c, animated through func_02026e28 or constant), rotation (+0x28, animated through func_02027300
  * or an indexed constant with the third row rebuilt as the cross product of the first two) and the
