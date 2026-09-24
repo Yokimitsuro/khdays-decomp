@@ -4336,6 +4336,10 @@ libs/msl/c/calls/strncmp.c:
     complete
     .text       start:0x0201fbd0 end:0x0201fc04
 
+libs/msl/c/calls/func_0201ffec.c:
+    complete
+    .text       start:0x0201ffec end:0x020200b4
+
 src/calls/func_020200b4.c:
     complete
     .text       start:0x020200b4 end:0x020200c8
