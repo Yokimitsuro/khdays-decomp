@@ -7000,6 +7000,10 @@ src/calls/func_02034f44.c:
     complete
     .text       start:0x02034f44 end:0x02034fc4
 
+src/calls/func_02034fc4.c:
+    complete
+    .text       start:0x02034fc4 end:0x02035028
+
 src/calls/func_02035028.c:
     complete
     .text       start:0x02035028 end:0x02035070
