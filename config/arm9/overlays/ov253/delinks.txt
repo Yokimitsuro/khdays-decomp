@@ -260,6 +260,10 @@ src/overlays/ov253/calls/func_ov253_020cfc60.c:
     complete
     .text       start:0x020cfc60 end:0x020cfd20
 
+src/overlays/ov253/calls/func_ov253_020cfd20.c:
+    complete
+    .text       start:0x020cfd20 end:0x020d01c0
+
 src/overlays/ov253/calls/func_ov253_020d01c0.c:
     complete
     .text       start:0x020d01c0 end:0x020d0344
