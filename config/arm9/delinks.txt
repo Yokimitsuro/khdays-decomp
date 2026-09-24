@@ -5544,6 +5544,10 @@ src/calls/WM_EndKeySharing_0x0202afe8.c:
     complete
     .text       start:0x0202afe8 end:0x0202aff4
 
+src/calls/func_0202aff4.c:
+    complete
+    .text       start:0x0202aff4 end:0x0202b064
+
 src/calls/func_0202b064.c:
     complete
     .text       start:0x0202b064 end:0x0202b0a4
