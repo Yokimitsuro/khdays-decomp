@@ -4296,6 +4296,10 @@ libs/msl/c/auto/abs.c:
     complete
     .text       start:0x0201f7b0 end:0x0201f7bc
 
+src/calls/func_0201f7bc.c:
+    complete
+    .text       start:0x0201f7bc end:0x0201f844
+
 src/auto/func_0201f844.c:
     complete
     .text       start:0x0201f844 end:0x0201f884
