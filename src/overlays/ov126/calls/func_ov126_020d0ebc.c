@@ -1,43 +1,9 @@
-/* UNFINISHED -- NOT a proven tie. 756/756 bytes and 189/189 instructions; two things left, and
- * both look tractable to whoever picks this up next.
- *
- * The ROM opens with `ldm r7, {r0, r6}` -- self[0] and self[1] loaded together -- where this emits
- * two separate `ldr`s. That single instruction is the ROOT CAUSE and the ONLY code difference:
- * the ldm hands the ROM `ctx` for free, which frees the slot it spends on `owner`, and every other
- * line of the diff is the register rename that falls out of it (ROM: own2/t2=r4, owner=r5, ctx=r6,
- * self=r7, target=r8).
- *
- * Ruled out, so do not repeat:
- *   - Declaration order. All 120 permutations of the five locals give a byte-identical result
- *     (first diff at 0xC, the ldm itself). It is NOT the lever here, whatever SKILL.md says about
- *     the general case.
- *   - `Self *` with two adjacent fields, and reading both into locals first so the loads are
- *     source-adjacent -- mwcc schedules the `scene[0xb]` deref between them anyway.
- *   - `v = *(Self *)self` (struct by value): worse, it allocates 8 more bytes of stack and still
- *     emits two ldrs.
- *
- * Useful comparison found later: func_ov208_020d1be0 MATCHES and opens with the same
- * `ctx[N] = *(int *)(*(int *)self + 0x2c) * 30 / M` -- but its ROM emits a plain `ldr r1,[r6]` for
- * self[0] and loads ctx separately much later, so no ldm is involved. ov125's ROM loads self[0] and
- * self[1] TOGETHER because it needs ctx immediately. So the ldm is not about the div at all: it is
- * about both words being wanted at once, and the question is only what makes mwcc schedule the two
- * loads back to back.
- *
- * The regs are already ascending (scene in a lower reg than ctx) and the offsets are 0 and 4, so
- * the shape mwcc would need for the peephole is there -- it just does not fire. Next idea worth
- * trying: something that forces the two loads adjacent in the SCHEDULE, not just in the source.
- * deferred-ties.md lists `ldm` under arg-coalescing as known-hard, so this may be a build artifact.
- *
- * What IS already solved and should be kept: the `+ (d - d)` RNG crack on three of the five rolls
- * (including the d100, whose artifact sits one instruction after the `bl` because the scheduler
- * slips a load in -- do not scan only the next instruction); assigning `owner` AFTER the acquire
- * call so mwcc does not CSE it with the call's own argument (that was worth exactly the last
- * 4 bytes); the `t2 = ctx[1]` reload kept live to the drift block; `< 0x50` with move 7 as the
- * fall-through; and the inverted guards. See func_ov200_020cf228 for the same family, matched.
- */
-
-/* func_ov125_020cd27c -- ov125's move CHOOSER, the steering variant (see func_ov200_020cf228 for
+/* func_ov126_020d0ebc -- ov126's move CHOOSER, the steering variant (see func_ov200_020cf228 for
  * the other one, and func_ov208_020d1be0 for the plain shape).
+ *
+ * The ROM loads self[0] and self[1] with one `ldm`: scene and ctx come from a block where the
+ * owner (ctx[0]) is read BEFORE the ctx[0xf] rate store, which pulls the ctx load up next to the
+ * scene load; `ctx`, `own2`, `target`, `t2` and `owner` are declared in that order.
  *
  * A dispatcher reads the queued move at ctx[0]+0x1c7 and runs it; a chooser decides what to queue.
  * This one steers first: it aims a matrix at the target, turns the distance into a Q12 approach
@@ -56,7 +22,7 @@
  *   ctx[3] = 0x180
  *   ctx[0]+0x13c <= 0x3800       -> return
  *   ctx[0x1e] = a coin flip: 1 or -1 (the strafe direction)
- *   ctx[0x15] > 0                -> a d201: 0 queues move 5, else dispatch func_ov125_020cd570 as
+ *   ctx[0x15] > 0                -> a d201: 0 queues move 5, else dispatch func_ov126_020d11b0 as
  *                                   the handler instead of queueing
  *   otherwise                    -> roll a d100, re-roll the ctx[0x15] timer, then:
  *                                     roll < 20 and slot +0x390 free -> move 6
@@ -95,18 +61,18 @@ extern int FX_Inv(int num, int den);
 extern void func_0202f384(Vec3 *dst, const int *a, const void *b);
 extern void func_01ffa724(int scale, const Vec3 *src, int *dst);
 extern int func_02023eb4();
-extern int func_ov125_020ce594(int slot);
-extern void func_ov125_020cd570(void);
+extern int func_ov126_020d21d4(int slot);
+extern void func_ov126_020d11b0(void);
 extern char data_02042264[];
 extern char data_02042258[];
 
-void func_ov125_020cd27c(int self) {
+void func_ov126_020d0ebc(int self) {
     Self *s;
-    int target;
-    int *owner;
     int *ctx;
     int *own2;
+    int target;
     int t2;
+    int *owner;
     int d;
     int fac;
     int base;
@@ -116,8 +82,13 @@ void func_ov125_020cd27c(int self) {
     Vec3 dir;
 
     s = (Self *)self;
-    ctx = s->ctx;
-    ctx[0xf] = s->scene[0xb] * 30 / 10;
+    {
+        int *scene = s->scene;
+        int *c = s->ctx;
+        owner = (int *)c[0];
+        c[0xf] = scene[0xb] * 30 / 10;
+        ctx = c;
+    }
     ctx[1] = func_ov107_020cab14(ctx[0], &d);
     target = ctx[1];
     if (target == 0) {
@@ -126,7 +97,6 @@ void func_ov125_020cd27c(int self) {
         return;
     }
 
-    owner = (int *)ctx[0];
     own2 = (int *)ctx[0];
     d = (FX_Sqrt(d) - *(int *)(target + 0x80)) - own2[0x20];
 
@@ -173,7 +143,7 @@ void func_ov125_020cd27c(int self) {
             }
             ctx[0x15] = base + func_02023eb4(span + 1);
 
-            if (roll < 0x14 && !func_ov125_020ce594(*(int *)(ctx[0] + 0x390))) {
+            if (roll < 0x14 && !func_ov126_020d21d4(*(int *)(ctx[0] + 0x390))) {
                 *(signed char *)(ctx[0] + 0x1c7) = 6;
                 func_0203c634(self, *(signed char *)(self + 0x20), 0);
                 return;
@@ -193,7 +163,7 @@ void func_ov125_020cd27c(int self) {
             func_0203c634(self, *(signed char *)(self + 0x20), 0);
             return;
         }
-        func_0203c634(self, *(signed char *)(self + 0x20), func_ov125_020cd570);
+        func_0203c634(self, *(signed char *)(self + 0x20), func_ov126_020d11b0);
         return;
     }
 
