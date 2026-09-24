@@ -228,6 +228,10 @@ src/overlays/ov200/calls/func_ov200_020d0c14.c:
     complete
     .text       start:0x020d0c14 end:0x020d0c94
 
+src/overlays/ov200/calls/func_ov200_020d0c94.c:
+    complete
+    .text       start:0x020d0c94 end:0x020d1688
+
 src/overlays/ov200/calls/func_ov200_020d1688.c:
     complete
     .text       start:0x020d1688 end:0x020d1708
