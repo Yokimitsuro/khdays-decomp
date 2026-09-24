@@ -140,6 +140,10 @@ src/overlays/ov254/calls/func_ov254_020ce7a0.c:
     complete
     .text       start:0x020ce7a0 end:0x020ce8a0
 
+src/overlays/ov254/calls/func_ov254_020ce8a0.c:
+    complete
+    .text       start:0x020ce8a0 end:0x020cee30
+
 src/overlays/ov254/calls/func_ov254_020cee30.c:
     complete
     .text       start:0x020cee30 end:0x020cef2c
