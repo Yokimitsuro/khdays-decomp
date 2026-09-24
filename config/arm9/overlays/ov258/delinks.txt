@@ -280,6 +280,10 @@ src/overlays/ov258/calls/func_ov258_020d0bbc.c:
     complete
     .text       start:0x020d0bbc end:0x020d0dbc
 
+src/overlays/ov258/calls/func_ov258_020d0dbc.c:
+    complete
+    .text       start:0x020d0dbc end:0x020d0eb4
+
 src/overlays/ov258/calls/func_ov258_020d0eb4.c:
     complete
     .text       start:0x020d0eb4 end:0x020d0fc8

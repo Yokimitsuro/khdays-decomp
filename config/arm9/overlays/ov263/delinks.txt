@@ -56,6 +56,10 @@ src/overlays/ov263/calls/func_ov263_020d06bc.c:
     complete
     .text       start:0x020d06bc end:0x020d0750
 
+src/overlays/ov263/calls/func_ov263_020d0750.c:
+    complete
+    .text       start:0x020d0750 end:0x020d0890
+
 src/overlays/ov263/calls/func_ov263_020d0890.c:
     complete
     .text       start:0x020d0890 end:0x020d09a0
