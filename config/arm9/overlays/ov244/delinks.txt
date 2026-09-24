@@ -304,6 +304,10 @@ src/overlays/ov244/calls/func_ov244_020d04b4.c:
     complete
     .text       start:0x020d04b4 end:0x020d061c
 
+src/overlays/ov244/calls/func_ov244_020d061c.c:
+    complete
+    .text       start:0x020d061c end:0x020d090c
+
 src/overlays/ov244/calls/func_ov244_020d090c.c:
     complete
     .text       start:0x020d090c end:0x020d09ac
