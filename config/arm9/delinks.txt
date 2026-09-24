@@ -3452,6 +3452,10 @@ libs/nns/g3d/calls/func_02019218.c:
     complete
     .text       start:0x02019218 end:0x02019320
 
+libs/nns/g3d/calls/func_02019320.c:
+    complete
+    .text       start:0x02019320 end:0x020193f0
+
 libs/nns/g3d/auto/func_020193f0.c:
     complete
     .text       start:0x020193f0 end:0x0201946c
