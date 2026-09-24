@@ -6868,6 +6868,10 @@ src/calls/func_02035c44.c:
     complete
     .text       start:0x02035c44 end:0x02035c60
 
+src/calls/func_02035c60.c:
+    complete
+    .text       start:0x02035c60 end:0x02035cac
+
 src/calls/func_02035cac.c:
     complete
     .text       start:0x02035cac end:0x02035d04
