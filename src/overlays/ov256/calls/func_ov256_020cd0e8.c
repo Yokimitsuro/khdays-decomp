@@ -1,19 +1,15 @@
-/* cd104 */
+/* cd0e8 */
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef struct { int x, y, z; } Vec3;
-struct Nibbles { u8 lo : 4; u8 hi : 4; };
 
 extern int func_ov107_020c8eb8(int owner, void *sphere, int *hits);
 extern int func_ov107_020c8df0(int owner, void *box, int *hits);
 extern int func_ov107_020c8f44(int owner, void *seg, int *hits);
-extern int func_ov107_020c8fd0(int owner, void *cyl, int *hits);
 extern int func_ov107_020ca918(int hit, int owner, int item, u8 kind, Vec3 *push, int z);
-extern void func_ov107_020c5af8(int owner, int id, int mode, void *at);
 extern void func_ov107_020c0b90(int owner, int mode, Vec3 at, int flag);
 
-int func_ov258_020cd104(int *node, void *sphere, void *box, void *seg, void *cyl, Vec3 *push, int bMask,
-                        u16 effect, int kind)
+int func_ov256_020cd0e8(int *node, void *sphere, void *box, void *seg, Vec3 *push, int bMask, int unused, int kind)
 {
     int *state = (int *)node[1];
     int hits[4];
@@ -24,35 +20,29 @@ int func_ov258_020cd104(int *node, void *sphere, void *box, void *seg, void *cyl
         n = func_ov107_020c8eb8(*state, sphere, hits);
     } else if (box != 0) {
         n = func_ov107_020c8df0(*state, box, hits);
-    } else if (seg != 0) {
-        n = func_ov107_020c8f44(*state, seg, hits);
     } else {
-        n = func_ov107_020c8fd0(*state, cyl, hits);
+        n = func_ov107_020c8f44(*state, seg, hits);
     }
     if (n != 0) {
         for (i = 0; i < n; i++) {
             u8 bit = 1 << *(u16 *)(hits[i] + 2);
 
-            if (bMask != 0 && (bit & ((struct Nibbles *)((u8 *)state + 0x52))->lo) != 0) {
+            if (bMask != 0 && (*((u8 *)state + 0x6a) & bit) != 0) {
                 continue;
-            }
-            if (kind == 1) {
-                push->y += 0x1000;
-                push->z += 0x6000;
-            }
-            if (push->y > 0x3000) {
-                push->y = 0x3000;
             }
             if (func_ov107_020ca918(hits[i], *state, *state, kind, push, 0) == 0) {
                 continue;
             }
             if (bMask != 0) {
-                ((struct Nibbles *)((u8 *)state + 0x52))->lo |= bit;
+                *((u8 *)state + 0x6a) |= bit;
             }
-            if (kind == 1 || kind == 4) {
-                func_ov107_020c5af8(*state, *(short *)((u8 *)state + 0x58), 0x10, (void *)(hits[i] + 0x190));
+            func_ov107_020c0b90(*state, 0, *(Vec3 *)(hits[i] + 0x190), 0);
+        }
+        if (bMask != 0) {
+            if (*((u8 *)state + 0x6a) != 0) {
+                return 1;
             }
-            func_ov107_020c0b90(*state, effect + 6, *(Vec3 *)(hits[i] + 0x190), 0);
+        } else if (n != 0) {
             return 1;
         }
     }
