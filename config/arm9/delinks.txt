@@ -6188,6 +6188,10 @@ src/auto/func_0202fd90.c:
     complete
     .text       start:0x0202fd90 end:0x0202fdac
 
+src/calls/func_0202fdac.c:
+    complete
+    .text       start:0x0202fdac end:0x0202fec8
+
 src/calls/func_0202fec8.c:
     complete
     .text       start:0x0202fec8 end:0x0202ff56
