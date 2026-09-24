@@ -440,6 +440,10 @@ src/overlays/ov236/calls/func_ov236_020d374c.c:
     complete
     .text       start:0x020d374c end:0x020d3798
 
+src/overlays/ov236/calls/func_ov236_020d3798.c:
+    complete
+    .text       start:0x020d3798 end:0x020d3ba0
+
 src/overlays/ov236/calls/func_ov236_020d3ba0.c:
     complete
     .text       start:0x020d3ba0 end:0x020d3c90
