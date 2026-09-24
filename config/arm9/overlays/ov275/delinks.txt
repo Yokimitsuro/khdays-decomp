@@ -60,6 +60,14 @@ src/overlays/ov275/auto/func_ov275_020d2720.c:
     complete
     .text       start:0x020d2720 end:0x020d2748
 
+src/overlays/ov275/calls/func_ov275_020d2748.c:
+    complete
+    .text       start:0x020d2748 end:0x020d27c8
+
+src/overlays/ov275/calls/func_ov275_020d27c8.c:
+    complete
+    .text       start:0x020d27c8 end:0x020d2854
+
 src/overlays/ov275/calls/func_ov275_020d2854.c:
     complete
     .text       start:0x020d2854 end:0x020d2874

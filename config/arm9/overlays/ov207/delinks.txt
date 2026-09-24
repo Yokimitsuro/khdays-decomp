@@ -60,6 +60,14 @@ src/overlays/ov207/auto/func_ov207_020d0900.c:
     complete
     .text       start:0x020d0900 end:0x020d0928
 
+src/overlays/ov207/calls/func_ov207_020d0928.c:
+    complete
+    .text       start:0x020d0928 end:0x020d09a8
+
+src/overlays/ov207/calls/func_ov207_020d09a8.c:
+    complete
+    .text       start:0x020d09a8 end:0x020d0a34
+
 src/overlays/ov207/calls/func_ov207_020d0a34.c:
     complete
     .text       start:0x020d0a34 end:0x020d0a54

@@ -60,6 +60,14 @@ src/overlays/ov206/auto/func_ov206_020cccc0.c:
     complete
     .text       start:0x020cccc0 end:0x020ccce8
 
+src/overlays/ov206/calls/func_ov206_020ccce8.c:
+    complete
+    .text       start:0x020ccce8 end:0x020ccd68
+
+src/overlays/ov206/calls/func_ov206_020ccd68.c:
+    complete
+    .text       start:0x020ccd68 end:0x020ccdf4
+
 src/overlays/ov206/calls/func_ov206_020ccdf4.c:
     complete
     .text       start:0x020ccdf4 end:0x020cce14
