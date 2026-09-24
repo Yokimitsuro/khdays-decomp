@@ -48,7 +48,7 @@ src/overlays/ov011/calls/func_ov011_0205b9f4.c:
     complete
     .text       start:0x0205b9f4 end:0x0205bb58
 
-src/overlays/ov011/asm_stubs/calls/func_ov011_0205bb58.c:
+src/overlays/ov011/calls/func_ov011_0205bb58.c:
     complete
     .text       start:0x0205bb58 end:0x0205bddc
 
