@@ -5352,9 +5352,17 @@ src/calls/func_02025a50.c:
     complete
     .text       start:0x02025a50 end:0x02025aaa
 
+src/calls/func_02025aac.c:
+    complete
+    .text       start:0x02025aac end:0x0202629e
+
 src/calls/func_020262a0.c:
     complete
     .text       start:0x020262a0 end:0x020262ba
+
+src/calls/func_020262bc.c:
+    complete
+    .text       start:0x020262bc end:0x02026a44
 
 src/calls/func_02026a44.c:
     complete
