@@ -4680,6 +4680,10 @@ src/calls/func_02020af0.c:
     complete
     .text       start:0x02020af0 end:0x02020b64
 
+src/calls/func_02020b64.c:
+    complete
+    .text       start:0x02020b64 end:0x02020c7c
+
 src/calls/func_02020c7c.c:
     complete
     .text       start:0x02020c7c end:0x02020cc6
@@ -4943,6 +4947,10 @@ src/calls/func_020227c0.c:
 src/calls/func_0202281c.c:
     complete
     .text       start:0x0202281c end:0x020229c4
+
+src/calls/func_020229c4.c:
+    complete
+    .text       start:0x020229c4 end:0x02022af4
 
 src/calls/func_02022af4.c:
     complete
