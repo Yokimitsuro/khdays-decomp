@@ -6712,6 +6712,10 @@ src/calls/func_02030e64.c:
     complete
     .text       start:0x02030e64 end:0x02030e7c
 
+src/calls/func_02030e7c.c:
+    complete
+    .text       start:0x02030e7c end:0x02030f58
+
 src/calls/func_02030f58.c:
     complete
     .text       start:0x02030f58 end:0x02030fcc
