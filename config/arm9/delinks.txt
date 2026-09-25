@@ -3428,6 +3428,10 @@ libs/nns/g3d/auto/func_02018ae0.c:
     complete
     .text       start:0x02018ae0 end:0x02018be0
 
+libs/nns/g3d/auto/func_02018be0.c:
+    complete
+    .text       start:0x02018be0 end:0x02018cec
+
 libs/nns/g3d/calls/func_02018cec.c:
     complete
     .text       start:0x02018cec end:0x02018dec
@@ -6176,6 +6180,10 @@ src/auto/func_0202e618.c:
     complete
     .text       start:0x0202e618 end:0x0202e620
 
+src/calls/func_0202e844.c:
+    complete
+    .text       start:0x0202e844 end:0x0202e8ec
+
 src/calls/func_0202e8ec.c:
     complete
     .text       start:0x0202e8ec end:0x0202e944
@@ -6451,6 +6459,10 @@ src/calls/func_0203070c.c:
 src/calls/func_02030788.c:
     complete
     .text       start:0x02030788 end:0x020307b8
+
+src/calls/func_020307b8.c:
+    complete
+    .text       start:0x020307b8 end:0x020307f0
 
 src/auto/func_020307f0.c:
     complete
