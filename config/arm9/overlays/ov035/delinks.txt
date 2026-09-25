@@ -128,6 +128,14 @@ src/overlays/ov035/calls/func_ov035_020b4b48.c:
     complete
     .text       start:0x020b4b48 end:0x020b4b60
 
+src/overlays/ov035/data/ov035_class_020b4bf4.c:
+    complete
+    .data       start:0x020b4bf4 end:0x020b4c08
+
+src/overlays/ov035/data/ov035_ctorargs_020b4b78.c:
+    complete
+    .rodata     start:0x020b4b78 end:0x020b4b8c
+
 src/overlays/ov035/data/ov035_pointers_020b4c08.c:
     complete
     .data       start:0x020b4c08 end:0x020b4c1c

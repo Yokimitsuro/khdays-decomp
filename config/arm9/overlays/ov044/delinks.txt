@@ -164,6 +164,14 @@ src/overlays/ov044/calls/func_ov044_020b5280.c:
     complete
     .text       start:0x020b5280 end:0x020b5494
 
+src/overlays/ov044/data/ov044_class_020b5500.c:
+    complete
+    .data       start:0x020b5500 end:0x020b5514
+
+src/overlays/ov044/data/ov044_ctorargs_020b54d4.c:
+    complete
+    .rodata     start:0x020b54d4 end:0x020b54e8
+
 src/overlays/ov044/data/ov044_strings_020b5494.c:
     complete
     .rodata     start:0x020b5494 end:0x020b54b4

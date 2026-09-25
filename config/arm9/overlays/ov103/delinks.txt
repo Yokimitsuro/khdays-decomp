@@ -136,6 +136,14 @@ src/overlays/ov103/calls/func_ov103_020bbfd4.c:
     complete
     .text       start:0x020bbfd4 end:0x020bbfec
 
+src/overlays/ov103/data/ov103_class_020bc074.c:
+    complete
+    .data       start:0x020bc074 end:0x020bc088
+
+src/overlays/ov103/data/ov103_ctorargs_020bc02c.c:
+    complete
+    .rodata     start:0x020bc02c end:0x020bc040
+
 src/overlays/ov103/data/ov103_strings_020bbfec.c:
     complete
     .rodata     start:0x020bbfec end:0x020bc02c

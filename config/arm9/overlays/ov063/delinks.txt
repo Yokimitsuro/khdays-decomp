@@ -164,6 +164,14 @@ src/overlays/ov063/calls/func_ov063_020b7a80.c:
     complete
     .text       start:0x020b7a80 end:0x020b7c94
 
+src/overlays/ov063/data/ov063_class_020b7d00.c:
+    complete
+    .data       start:0x020b7d00 end:0x020b7d14
+
+src/overlays/ov063/data/ov063_ctorargs_020b7cd4.c:
+    complete
+    .rodata     start:0x020b7cd4 end:0x020b7ce8
+
 src/overlays/ov063/data/ov063_strings_020b7c94.c:
     complete
     .rodata     start:0x020b7c94 end:0x020b7cd4

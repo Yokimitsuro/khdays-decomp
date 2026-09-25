@@ -112,6 +112,10 @@ src/overlays/ov083/calls/func_ov083_020b9944.c:
     complete
     .text       start:0x020b9944 end:0x020b995c
 
+src/overlays/ov083/data/ov083_class_020b9a60.c:
+    complete
+    .data       start:0x020b9a60 end:0x020b9a74
+
 src/overlays/ov083/data/ov083_pointers_020b9a74.c:
     complete
     .data       start:0x020b9a74 end:0x020b9a88

@@ -7725,6 +7725,10 @@ libs/nns/snd/auto/sndarc_stream_adpcm_tables.c:
     complete
     .rodata     start:0x02041b04 end:0x02041bc6
 
+src/data/main_hmac_alloc_020418c0.c:
+    complete
+    .rodata     start:0x020418c0 end:0x02041924
+
 src/data/main_overlay_digests_02042ac0.c:
     complete
     .data       start:0x02042ac0 end:0x020442a0
@@ -7788,6 +7792,26 @@ src/data/main_pointers_02042a70.c:
 src/data/main_scene_table_0204252c.c:
     complete
     .data       start:0x0204252c end:0x020425ec
+
+src/data/main_tables_02041dc8.c:
+    complete
+    .rodata     start:0x02041dc8 end:0x02041e2c
+
+src/data/main_tables_02041e6c.c:
+    complete
+    .rodata     start:0x02041e6c end:0x02041eac
+
+src/data/main_tables_02041ecc.c:
+    complete
+    .rodata     start:0x02041ecc end:0x02041fd4
+
+src/data/main_tables_0204208c.c:
+    complete
+    .rodata     start:0x0204208c end:0x02042124
+
+src/data/main_tables_02042124.c:
+    complete
+    .rodata     start:0x02042124 end:0x02042288
 
 src/data/main_transform_defaults_020427f0.c:
     complete

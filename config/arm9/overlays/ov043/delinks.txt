@@ -188,6 +188,10 @@ src/overlays/ov043/calls/func_ov043_020b5724.c:
     complete
     .text       start:0x020b5724 end:0x020b573c
 
+src/overlays/ov043/data/ov043_class_020b5800.c:
+    complete
+    .data       start:0x020b5800 end:0x020b5814
+
 src/overlays/ov043/data/ov043_pointers_020b5814.c:
     complete
     .data       start:0x020b5814 end:0x020b5828

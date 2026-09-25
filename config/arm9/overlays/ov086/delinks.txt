@@ -136,6 +136,14 @@ src/overlays/ov086/calls/func_ov086_020b9914.c:
     complete
     .text       start:0x020b9914 end:0x020b992c
 
+src/overlays/ov086/data/ov086_class_020b99b4.c:
+    complete
+    .data       start:0x020b99b4 end:0x020b99c8
+
+src/overlays/ov086/data/ov086_ctorargs_020b996c.c:
+    complete
+    .rodata     start:0x020b996c end:0x020b9980
+
 src/overlays/ov086/data/ov086_strings_020b992c.c:
     complete
     .rodata     start:0x020b992c end:0x020b996c

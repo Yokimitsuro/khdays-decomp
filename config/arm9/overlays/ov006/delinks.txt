@@ -780,6 +780,18 @@ src/overlays/ov006/calls/func_ov006_02056154.c:
     complete
     .text       start:0x02056154 end:0x020561c0
 
+src/overlays/ov006/data/ov006_class_020563c0.c:
+    complete
+    .data       start:0x020563c0 end:0x020563d4
+
+src/overlays/ov006/data/ov006_class_020563e4.c:
+    complete
+    .data       start:0x020563e4 end:0x020563f8
+
+src/overlays/ov006/data/ov006_class_0205652c.c:
+    complete
+    .data       start:0x0205652c end:0x02056540
+
 src/overlays/ov006/data/ov006_mission_tables.c:
     complete
     .rodata     start:0x0205628c end:0x020563a4

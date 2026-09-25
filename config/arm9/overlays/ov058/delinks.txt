@@ -154,6 +154,14 @@ src/overlays/ov058/calls/func_ov058_020b7b78.c:
     complete
     .text       start:0x020b7b78 end:0x020b7b90
 
+src/overlays/ov058/data/ov058_class_020b7d54.c:
+    complete
+    .data       start:0x020b7d54 end:0x020b7d68
+
+src/overlays/ov058/data/ov058_ctorargs_020b7b9c.c:
+    complete
+    .rodata     start:0x020b7b9c end:0x020b7bb0
+
 src/overlays/ov058/data/ov058_pointers_020b7d68.c:
     complete
     .data       start:0x020b7d68 end:0x020b7d7c

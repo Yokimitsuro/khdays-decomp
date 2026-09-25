@@ -892,6 +892,18 @@ src/overlays/ov023/calls/func_ov023_02089cec.c:
     complete
     .text       start:0x02089cec end:0x02089cfc
 
+src/overlays/ov023/data/ov023_class_0208a004.c:
+    complete
+    .data       start:0x0208a004 end:0x0208a018
+
+src/overlays/ov023/data/ov023_class_0208a038.c:
+    complete
+    .data       start:0x0208a038 end:0x0208a04c
+
+src/overlays/ov023/data/ov023_class_0208a748.c:
+    complete
+    .data       start:0x0208a748 end:0x0208a75c
+
 src/overlays/ov023/data/ov023_pointers_02089d14.c:
     complete
     .rodata     start:0x02089d14 end:0x02089d74

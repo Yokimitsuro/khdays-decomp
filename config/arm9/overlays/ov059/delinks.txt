@@ -132,6 +132,14 @@ src/overlays/ov059/calls/func_ov059_020b71ec.c:
     complete
     .text       start:0x020b71ec end:0x020b7204
 
+src/overlays/ov059/data/ov059_class_020b7274.c:
+    complete
+    .data       start:0x020b7274 end:0x020b7288
+
+src/overlays/ov059/data/ov059_ctorargs_020b7244.c:
+    complete
+    .rodata     start:0x020b7244 end:0x020b7258
+
 src/overlays/ov059/data/ov059_strings_020b7204.c:
     complete
     .rodata     start:0x020b7204 end:0x020b7244

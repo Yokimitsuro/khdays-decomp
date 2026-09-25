@@ -1028,6 +1028,14 @@ src/overlays/ov026/calls/func_ov026_02090ed4.c:
     complete
     .text       start:0x02090ed4 end:0x020910b0
 
+src/overlays/ov026/data/ov026_class_02091200.c:
+    complete
+    .data       start:0x02091200 end:0x02091214
+
+src/overlays/ov026/data/ov026_class_02091230.c:
+    complete
+    .data       start:0x02091230 end:0x02091244
+
 src/overlays/ov026/data/ov026_strings_02091214.c:
     complete
     .data       start:0x02091214 end:0x02091230

@@ -120,6 +120,14 @@ src/overlays/ov068/calls/func_ov068_020b72dc.c:
     complete
     .text       start:0x020b72dc end:0x020b72f4
 
+src/overlays/ov068/data/ov068_class_020b7434.c:
+    complete
+    .data       start:0x020b7434 end:0x020b7448
+
+src/overlays/ov068/data/ov068_ctorargs_020b7344.c:
+    complete
+    .rodata     start:0x020b7344 end:0x020b7358
+
 src/overlays/ov068/data/ov068_pointers_020b7448.c:
     complete
     .data       start:0x020b7448 end:0x020b745c

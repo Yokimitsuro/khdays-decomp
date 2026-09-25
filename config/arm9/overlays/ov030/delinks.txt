@@ -168,6 +168,18 @@ src/overlays/ov030/calls/func_ov030_020b564c.c:
     complete
     .text       start:0x020b564c end:0x020b5860
 
+src/overlays/ov030/data/ov030_class_020b58f4.c:
+    complete
+    .data       start:0x020b58f4 end:0x020b5908
+
+src/overlays/ov030/data/ov030_ctorargs_020b58b0.c:
+    complete
+    .rodata     start:0x020b58b0 end:0x020b58c4
+
+src/overlays/ov030/data/ov030_ctorargs_020b58c4.c:
+    complete
+    .rodata     start:0x020b58c4 end:0x020b58d8
+
 src/overlays/ov030/data/ov030_strings_020b5860.c:
     complete
     .rodata     start:0x020b5860 end:0x020b58b0
