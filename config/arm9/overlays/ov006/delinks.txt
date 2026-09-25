@@ -807,3 +807,15 @@ src/overlays/ov006/data/ov006_strings_02056540.c:
 src/overlays/ov006/data/ov006_tables_020561c0.c:
     complete
     .rodata     start:0x020561c0 end:0x0205628c
+
+src/overlays/ov006/data/ov006_tables_020563d4.c:
+    complete
+    .data       start:0x020563d4 end:0x020563e4
+
+src/overlays/ov006/data/ov006_tables_020563f8.c:
+    complete
+    .data       start:0x020563f8 end:0x02056508
+
+src/overlays/ov006/data/ov006_tables_0205651c.c:
+    complete
+    .data       start:0x0205651c end:0x0205652c

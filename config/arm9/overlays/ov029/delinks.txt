@@ -15,3 +15,11 @@ src/overlays/ov029/calls/func_ov029_020b2f40.c:
 src/overlays/ov029/data/ov029_pointers_020b2f70.c:
     complete
     .rodata     start:0x020b2f70 end:0x020b30b0
+
+src/overlays/ov029/data/ov029_tables_020b30b0.c:
+    complete
+    .rodata     start:0x020b30b0 end:0x020b31f0
+
+src/overlays/ov029/data/ov029_tables_020b3200.c:
+    complete
+    .data       start:0x020b3200 end:0x020b3220

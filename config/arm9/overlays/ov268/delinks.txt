@@ -336,3 +336,7 @@ src/overlays/ov268/data/ov268_tables_020d47b0.c:
 src/overlays/ov268/data/ov268_tables_020d4808.c:
     complete
     .rodata     start:0x020d4808 end:0x020d4848
+
+src/overlays/ov268/data/ov268_tables_020d48bc.c:
+    complete
+    .data       start:0x020d48bc end:0x020d48e0

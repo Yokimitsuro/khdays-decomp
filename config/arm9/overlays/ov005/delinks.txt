@@ -1176,6 +1176,10 @@ src/overlays/ov005/data/ov005_class_0205b7cc.c:
     complete
     .data       start:0x0205b7cc end:0x0205b7e0
 
+src/overlays/ov005/data/ov005_msglist_0205b3bc.c:
+    complete
+    .rodata     start:0x0205b3bc end:0x0205b3c8
+
 src/overlays/ov005/data/ov005_pointers_0205b368.c:
     complete
     .rodata     start:0x0205b368 end:0x0205b38c
@@ -1215,3 +1219,23 @@ src/overlays/ov005/data/ov005_tables_0205b38c.c:
 src/overlays/ov005/data/ov005_tables_0205b3c8.c:
     complete
     .rodata     start:0x0205b3c8 end:0x0205b4b8
+
+src/overlays/ov005/data/ov005_tables_0205b504.c:
+    complete
+    .data       start:0x0205b504 end:0x0205b50c
+
+src/overlays/ov005/data/ov005_tables_0205b588.c:
+    complete
+    .data       start:0x0205b588 end:0x0205b590
+
+src/overlays/ov005/data/ov005_tables_0205b620.c:
+    complete
+    .data       start:0x0205b620 end:0x0205b788
+
+src/overlays/ov005/data/ov005_tables_0205b7a8.c:
+    complete
+    .data       start:0x0205b7a8 end:0x0205b7cc
+
+src/overlays/ov005/data/ov005_tables_0205b7e0.c:
+    complete
+    .data       start:0x0205b7e0 end:0x0205b800

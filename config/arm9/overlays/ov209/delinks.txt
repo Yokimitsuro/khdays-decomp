@@ -336,3 +336,7 @@ src/overlays/ov209/data/ov209_tables_020d65a4.c:
 src/overlays/ov209/data/ov209_tables_020d65fc.c:
     complete
     .rodata     start:0x020d65fc end:0x020d663c
+
+src/overlays/ov209/data/ov209_tables_020d669c.c:
+    complete
+    .data       start:0x020d669c end:0x020d66c0

@@ -167,3 +167,7 @@ src/overlays/ov297/data/ov297_strings_020d57c0.c:
 src/overlays/ov297/data/ov297_tables_020d5690.c:
     complete
     .rodata     start:0x020d5690 end:0x020d56b4
+
+src/overlays/ov297/data/ov297_tables_020d56b4.c:
+    complete
+    .rodata     start:0x020d56b4 end:0x020d57a4

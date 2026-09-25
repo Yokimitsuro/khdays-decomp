@@ -1032,6 +1032,10 @@ src/overlays/ov009/data/ov009_class_020562e0.c:
     complete
     .data       start:0x020562e0 end:0x020562f4
 
+src/overlays/ov009/data/ov009_msglist_02056108.c:
+    complete
+    .rodata     start:0x02056108 end:0x02056114
+
 src/overlays/ov009/data/ov009_pointers_02055f88.c:
     complete
     .rodata     start:0x02055f88 end:0x02055fb0
@@ -1039,6 +1043,10 @@ src/overlays/ov009/data/ov009_pointers_02055f88.c:
 src/overlays/ov009/data/ov009_pointers_020562dc.c:
     complete
     .data       start:0x020562dc end:0x020562e0
+
+src/overlays/ov009/data/ov009_rodata_02055f54.c:
+    complete
+    .rodata     start:0x02055f54 end:0x02055f6c
 
 src/overlays/ov009/data/ov009_strings_02056234.c:
     complete
@@ -1063,3 +1071,11 @@ src/overlays/ov009/data/ov009_tables_02055fb0.c:
 src/overlays/ov009/data/ov009_tables_02056114.c:
     complete
     .rodata     start:0x02056114 end:0x02056204
+
+src/overlays/ov009/data/ov009_tables_020562c0.c:
+    complete
+    .data       start:0x020562c0 end:0x020562dc
+
+src/overlays/ov009/data/ov009_tables_0205638c.c:
+    complete
+    .data       start:0x0205638c end:0x02056398

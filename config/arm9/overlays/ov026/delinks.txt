@@ -1036,6 +1036,10 @@ src/overlays/ov026/data/ov026_class_02091230.c:
     complete
     .data       start:0x02091230 end:0x02091244
 
+src/overlays/ov026/data/ov026_msglist_020911c4.c:
+    complete
+    .rodata     start:0x020911c4 end:0x020911d0
+
 src/overlays/ov026/data/ov026_strings_02091214.c:
     complete
     .data       start:0x02091214 end:0x02091230
@@ -1059,3 +1063,11 @@ src/overlays/ov026/data/ov026_tables_02091134.c:
 src/overlays/ov026/data/ov026_tables_020911d0.c:
     complete
     .rodata     start:0x020911d0 end:0x020911e0
+
+src/overlays/ov026/data/ov026_tables_0209130c.c:
+    complete
+    .data       start:0x0209130c end:0x02091340
+
+src/overlays/ov026/data/ov026_tracker_02091120.c:
+    complete
+    .rodata     start:0x02091120 end:0x02091134

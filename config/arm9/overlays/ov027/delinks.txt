@@ -211,3 +211,23 @@ src/overlays/ov027/data/ov027_strings_020842f4.c:
 src/overlays/ov027/data/ov027_tables_02083e04.c:
     complete
     .rodata     start:0x02083e04 end:0x02083ed0
+
+src/overlays/ov027/data/ov027_tables_02083ee0.c:
+    complete
+    .data       start:0x02083ee0 end:0x02083ef8
+
+src/overlays/ov027/data/ov027_tables_02083f24.c:
+    complete
+    .data       start:0x02083f24 end:0x02083f54
+
+src/overlays/ov027/data/ov027_tables_02083f9c.c:
+    complete
+    .data       start:0x02083f9c end:0x02083fa4
+
+src/overlays/ov027/data/ov027_tables_020840f0.c:
+    complete
+    .data       start:0x020840f0 end:0x02084148
+
+src/overlays/ov027/data/ov027_tables_02084238.c:
+    complete
+    .data       start:0x02084238 end:0x020842f4

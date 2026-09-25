@@ -587,3 +587,7 @@ src/overlays/ov277/data/ov277_strings_020d37c0.c:
 src/overlays/ov277/data/ov277_tables_020d35c0.c:
     complete
     .rodata     start:0x020d35c0 end:0x020d3750
+
+src/overlays/ov277/data/ov277_tables_020d37b8.c:
+    complete
+    .data       start:0x020d37b8 end:0x020d37c0

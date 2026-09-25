@@ -200,6 +200,10 @@ src/overlays/ov069/calls/func_ov069_020ba71c.c:
     complete
     .text       start:0x020ba71c end:0x020ba7d0
 
+src/overlays/ov069/data/ov069_msglist_020ba7ec.c:
+    complete
+    .rodata     start:0x020ba7ec end:0x020ba7f8
+
 src/overlays/ov069/data/ov069_pointers_020baa20.c:
     complete
     .data       start:0x020baa20 end:0x020baa70
@@ -219,6 +223,10 @@ src/overlays/ov069/data/ov069_strings_020baab4.c:
 src/overlays/ov069/data/ov069_tables_020ba7d0.c:
     complete
     .rodata     start:0x020ba7d0 end:0x020ba7ec
+
+src/overlays/ov069/data/ov069_tables_020ba7f8.c:
+    complete
+    .rodata     start:0x020ba7f8 end:0x020ba9b8
 
 src/overlays/ov069/data/ov069_tables_020ba9b8.c:
     complete

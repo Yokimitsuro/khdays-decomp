@@ -159,3 +159,7 @@ src/overlays/ov298/data/ov298_strings_020d55c0.c:
 src/overlays/ov298/data/ov298_tables_020d54e8.c:
     complete
     .rodata     start:0x020d54e8 end:0x020d54f0
+
+src/overlays/ov298/data/ov298_tables_020d54f0.c:
+    complete
+    .rodata     start:0x020d54f0 end:0x020d55a4
