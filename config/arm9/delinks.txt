@@ -4344,6 +4344,10 @@ libs/nns/snd/auto/func_0201e1b8.c:
     complete
     .text       start:0x0201e1b8 end:0x0201e1d0
 
+src/calls/func_0201e1d0.c:
+    complete
+    .text       start:0x0201e1d0 end:0x0201e374
+
 src/calls/func_0201e374.c:
     complete
     .text       start:0x0201e374 end:0x0201e3cc
