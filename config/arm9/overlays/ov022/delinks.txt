@@ -3165,3 +3165,7 @@ src/overlays/ov022/data/ov022_tables_020b25c4.c:
 src/overlays/ov022/data/ov022_tables_020b2654.c:
     complete
     .rodata     start:0x020b2654 end:0x020b2850
+
+src/overlays/ov022/data/ov022_tuning_020b2538.c:
+    complete
+    .rodata     start:0x020b2538 end:0x020b25a8

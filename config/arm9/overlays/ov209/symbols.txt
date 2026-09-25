@@ -82,7 +82,6 @@ func_ov209_020d6574 kind:function(arm,size=0x30) addr:0x020d6574
 data_ov209_020d65a4 kind:data(any) addr:0x020d65a4
 data_ov209_020d65b8 kind:data(any) addr:0x020d65b8
 data_ov209_020d65f4 kind:data(any) addr:0x020d65f4
-data_ov209_020d65f8 kind:data(any) addr:0x020d65f8
 data_ov209_020d65fc kind:data(any) addr:0x020d65fc
 data_ov209_020d660c kind:data(any) addr:0x020d660c
 data_ov209_020d662c kind:data(any) addr:0x020d662c

@@ -347,3 +347,7 @@ src/overlays/ov224/data/ov224_strings_020d4e20.c:
 src/overlays/ov224/data/ov224_tables_020d4de0.c:
     complete
     .rodata     start:0x020d4de0 end:0x020d4e18
+
+src/overlays/ov224/data/ov224_zero_020d4e78.c:
+    complete
+    .data       start:0x020d4e78 end:0x020d4e80

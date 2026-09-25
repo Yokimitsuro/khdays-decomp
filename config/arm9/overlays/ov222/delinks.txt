@@ -347,3 +347,7 @@ src/overlays/ov222/data/ov222_strings_020d6c20.c:
 src/overlays/ov222/data/ov222_tables_020d6bc8.c:
     complete
     .rodata     start:0x020d6bc8 end:0x020d6c00
+
+src/overlays/ov222/data/ov222_zero_020d6c78.c:
+    complete
+    .data       start:0x020d6c78 end:0x020d6c80

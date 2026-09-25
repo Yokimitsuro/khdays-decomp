@@ -140,6 +140,10 @@ src/overlays/ov031/data/ov031_class_020b4cc0.c:
     complete
     .data       start:0x020b4cc0 end:0x020b4cd4
 
+src/overlays/ov031/data/ov031_const_020b4c44.c:
+    complete
+    .rodata     start:0x020b4c44 end:0x020b4c48
+
 src/overlays/ov031/data/ov031_pointers_020b4cd4.c:
     complete
     .data       start:0x020b4cd4 end:0x020b4cfc

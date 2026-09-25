@@ -359,3 +359,7 @@ src/overlays/ov225/data/ov225_strings_020d50e0.c:
 src/overlays/ov225/data/ov225_tables_020d5094.c:
     complete
     .rodata     start:0x020d5094 end:0x020d50cc
+
+src/overlays/ov225/data/ov225_zero_020d5138.c:
+    complete
+    .data       start:0x020d5138 end:0x020d5140

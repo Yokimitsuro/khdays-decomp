@@ -19,6 +19,7 @@ extern int func_02023eb4(int bound);
 
 int func_ov212_020cd860(int self, int param, unsigned int *hit) {
     int *state = *(int **)(self + 0x214);
+    int span[2] = { 0x300, 0xd9a0 };  /* never read; its initializer still lands after the pair tables */
     int bGrab;
     int stock;
     int limit;

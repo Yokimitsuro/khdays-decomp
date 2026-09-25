@@ -20,6 +20,7 @@ extern void func_ov107_020c5af8(int actor, int id, int mode, void *at);
 int func_ov209_020d2998(char *self, u16 *src, unsigned int *hit)
 {
     int *state = *(int **)(self + 0x214);
+    int coreOffset[1] = { 0x3b8 };  /* never read; its initializer still lands after the pair tables */
     unsigned char idle[2] = { 0, 1 };
     unsigned char hurt[2] = { 2, 3 };
     int bonus;

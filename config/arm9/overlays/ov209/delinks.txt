@@ -63,7 +63,7 @@ src/overlays/ov209/calls/func_ov209_020d293c.c:
 src/overlays/ov209/calls/func_ov209_020d2998.c:
     complete
     .text       start:0x020d2998 end:0x020d2c7c
-    .rodata     start:0x020d65f4 end:0x020d65f8
+    .rodata     start:0x020d65f4 end:0x020d65fc
 
 src/overlays/ov209/auto/func_ov209_020d2c7c.c:
     complete

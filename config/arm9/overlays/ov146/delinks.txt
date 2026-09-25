@@ -356,6 +356,10 @@ src/overlays/ov146/data/ov146_strings_020cf520.c:
     complete
     .data       start:0x020cf520 end:0x020cf534
 
+src/overlays/ov146/data/ov146_tables_020cf4f8.c:
+    complete
+    .rodata     start:0x020cf4f8 end:0x020cf514
+
 src/overlays/ov146/data/ov146_tables_020cf534.c:
     complete
     .data       start:0x020cf534 end:0x020cf540

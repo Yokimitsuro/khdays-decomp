@@ -82,7 +82,6 @@ func_ov208_020d4754 kind:function(arm,size=0x30) addr:0x020d4754
 data_ov208_020d4784 kind:data(any) addr:0x020d4784
 data_ov208_020d4798 kind:data(any) addr:0x020d4798
 data_ov208_020d47d4 kind:data(any) addr:0x020d47d4
-data_ov208_020d47d8 kind:data(any) addr:0x020d47d8
 data_ov208_020d47dc kind:data(any) addr:0x020d47dc
 data_ov208_020d47ec kind:data(any) addr:0x020d47ec
 data_ov208_020d480c kind:data(any) addr:0x020d480c
