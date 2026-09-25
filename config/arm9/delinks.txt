@@ -76,6 +76,10 @@ libs/nitro/os/asm_stubs/auto/SoftReset.c:
     complete
     .text       start:0x02000792 end:0x02000796
 
+libs/nitro/init/asm_stubs/calls/Entry.c:
+    complete
+    .text       start:0x02000800 end:0x0200093c
+
 libs/nitro/os/asm_stubs/auto/INITi_CpuClear32_0x0200093c.c:
     complete
     .text       start:0x0200093c end:0x02000950
@@ -84,9 +88,17 @@ libs/nitro/init/asm_stubs/auto/MIi_UncompressBackward.c:
     complete
     .text       start:0x02000950 end:0x020009fc
 
+libs/nitro/init/asm_stubs/calls/func_020009fc.c:
+    complete
+    .text       start:0x020009fc end:0x02000a74
+
 libs/nitro/nitro/auto/AutoloadCallback.c:
     complete
     .text       start:0x02000a74 end:0x02000a78
+
+libs/nitro/init/asm_stubs/calls/func_02000a78.c:
+    complete
+    .text       start:0x02000a78 end:0x02000b60
 
 src/auto/func_02000b60.c:
     complete

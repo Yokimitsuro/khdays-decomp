@@ -108,6 +108,15 @@
       "source_sha256": "86e0c5d79a9f86ea91273832d7fd62c0652db92118e6436c6ea1ed129e5db0ff",
       "target_sha256": "8911c2f5cca009dc112aed3996c2516b5949669109b1c79881bfb940b0f14e7c"
     },
+    "Entry": {
+      "evidence": "NitroSDK libraries/init/src/crt0.c: asm _start",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 316,
+      "source": "libs/nitro/init/asm_stubs/calls/Entry.c",
+      "source_sha256": "e4c4ad3cb318831cb7e1cb8e8d6a887a38b4a8eedeb7453b7d2f29ca6d2f0c7f",
+      "target_sha256": "2bcf03099ef25046cc7dbcd6f31038bdf85c0440de516c1a14d9499eda0703b9"
+    },
     "GX_SendFifo48B": {
       "evidence": "NitroSDK libraries/gx/src/gxasm.c: asm GX_SendFifo48B",
       "kind": "canonical_sdk_asm",
@@ -779,6 +788,33 @@
       "source": "libs/nitro/os/asm_stubs/calls/func_01ff8330.c",
       "source_sha256": "df57f07776df9413585a41cc2987d2b3bf3f3087da97e0688174052bc352c1db",
       "target_sha256": "e9aa4710e4f3edf8d3b6cf84fce31e928cc13108750becc7d3acf63970920879"
+    },
+    "func_020009fc": {
+      "evidence": "NitroSDK libraries/init/src/crt0.c: static asm do_autoload",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 120,
+      "source": "libs/nitro/init/asm_stubs/calls/func_020009fc.c",
+      "source_sha256": "e439324e4a3b65fb478661286889b727885352633ed122e3292aad64ca9399c2",
+      "target_sha256": "1386173930ecee1a0386dcde280350f69d6a2711148c6f91c94bc23dbacc4d5c"
+    },
+    "func_02000a78": {
+      "evidence": "NitroSDK libraries/init/src/crt0.c: static asm init_cp15",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 232,
+      "source": "libs/nitro/init/asm_stubs/calls/func_02000a78.c",
+      "source_sha256": "0382390dbf1e2f4cbce62f8594877bc89c48392665bc0b71d0b4bedefe69e402",
+      "target_sha256": "3159c36a694c156319b265aa3aa13e04d905387f5c8c5ef3831b35480b617c05"
+    },
+    "func_0200302c": {
+      "evidence": "NitroSDK libraries/os/src/os_exception.c: OSi_DisplayExContext (C with the SDK's inline asm block)",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 124,
+      "source": "libs/nitro/os/asm_stubs/calls/func_0200302c.c",
+      "source_sha256": "fbf1f5a1dd51947eedf237940a5d52107dc0186e180b046966e91435a02e3564",
+      "target_sha256": "1cdb4a7c45521a423b782ff8f77aa27c7e7a28d50cd063d3f10fc6fe28bfbffc"
     },
     "func_0200386c": {
       "evidence": "NitroSDK libraries/os/src/os_system.c: asm OS_SpinWait",

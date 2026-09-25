@@ -155,6 +155,7 @@ OSi_ExceptionHandler kind:function(arm,size=0x74) addr:0x02002f14
 OSi_GetAndDisplayContext kind:function(arm,size=0x14) addr:0x02002f88
 OSi_SetExContext kind:function(arm,size=0x90) addr:0x02002f9c
 func_0200302c kind:function(arm,size=0x7c) addr:0x0200302c
+label_0200307c kind:label(arm) addr:0x0200307c
 OSi_SetTimerReserved kind:function(arm,size=0x1c) addr:0x020030a8
 OSi_ClearAlarmBit kind:function(arm,size=0x20) addr:0x020030c4
 func_020030e4 kind:function(arm,size=0x78) addr:0x020030e4
