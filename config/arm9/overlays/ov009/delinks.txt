@@ -1032,6 +1032,10 @@ src/overlays/ov009/data/ov009_class_020562e0.c:
     complete
     .data       start:0x020562e0 end:0x020562f4
 
+src/overlays/ov009/data/ov009_handlers_020562f4.c:
+    complete
+    .data       start:0x020562f4 end:0x02056338
+
 src/overlays/ov009/data/ov009_msglist_02056108.c:
     complete
     .rodata     start:0x02056108 end:0x02056114

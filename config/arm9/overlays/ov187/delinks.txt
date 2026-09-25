@@ -308,6 +308,14 @@ src/overlays/ov187/calls/func_ov187_020d7078.c:
     complete
     .text       start:0x020d7078 end:0x020d70f0
 
+src/overlays/ov187/data/ov187_const_020d7120.c:
+    complete
+    .data       start:0x020d7120 end:0x020d7124
+
+src/overlays/ov187/data/ov187_const_020d7130.c:
+    complete
+    .data       start:0x020d7130 end:0x020d7134
+
 src/overlays/ov187/data/ov187_strings_020d7124.c:
     complete
     .data       start:0x020d7124 end:0x020d7130

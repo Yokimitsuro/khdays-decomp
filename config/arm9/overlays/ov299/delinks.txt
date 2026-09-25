@@ -128,6 +128,10 @@ src/overlays/ov299/calls/func_ov299_020d4870.c:
     complete
     .text       start:0x020d4870 end:0x020d4de8
 
+src/overlays/ov299/data/ov299_const_020d4de8.c:
+    complete
+    .rodata     start:0x020d4de8 end:0x020d4dec
+
 src/overlays/ov299/data/ov299_strings_020d4e00.c:
     complete
     .data       start:0x020d4e00 end:0x020d4e20

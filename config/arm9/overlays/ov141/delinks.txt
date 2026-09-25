@@ -232,6 +232,10 @@ src/overlays/ov141/calls/func_ov141_020ce99c.c:
     complete
     .text       start:0x020ce99c end:0x020ce9bc
 
+src/overlays/ov141/data/ov141_const_020cea4c.c:
+    complete
+    .data       start:0x020cea4c end:0x020cea50
+
 src/overlays/ov141/data/ov141_strings_020cea40.c:
     complete
     .data       start:0x020cea40 end:0x020cea4c

@@ -196,6 +196,10 @@ src/overlays/ov281/calls/func_ov281_020ce34c.c:
     complete
     .text       start:0x020ce34c end:0x020ce468
 
+src/overlays/ov281/data/ov281_const_020ce468.c:
+    complete
+    .rodata     start:0x020ce468 end:0x020ce46c
+
 src/overlays/ov281/data/ov281_strings_020ce480.c:
     complete
     .data       start:0x020ce480 end:0x020ce540

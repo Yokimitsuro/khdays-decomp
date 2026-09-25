@@ -160,6 +160,10 @@ src/overlays/ov135/calls/func_ov135_020d1b04.c:
     complete
     .text       start:0x020d1b04 end:0x020d1bb8
 
+src/overlays/ov135/data/ov135_const_020d1c40.c:
+    complete
+    .data       start:0x020d1c40 end:0x020d1c44
+
 src/overlays/ov135/data/ov135_strings_020d1c20.c:
     complete
     .data       start:0x020d1c20 end:0x020d1c40

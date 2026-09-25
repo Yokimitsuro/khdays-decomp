@@ -792,6 +792,10 @@ src/overlays/ov006/data/ov006_class_0205652c.c:
     complete
     .data       start:0x0205652c end:0x02056540
 
+src/overlays/ov006/data/ov006_class_020565c0.c:
+    complete
+    .data       start:0x020565c0 end:0x020565e0
+
 src/overlays/ov006/data/ov006_mission_tables.c:
     complete
     .rodata     start:0x0205628c end:0x020563a4

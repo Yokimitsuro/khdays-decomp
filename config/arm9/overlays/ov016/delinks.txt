@@ -331,6 +331,10 @@ src/overlays/ov016/calls/func_ov016_02082664.c:
     complete
     .text       start:0x02082664 end:0x020826dc
 
+src/overlays/ov016/data/ov016_kickable_rows_02082758.c:
+    complete
+    .data       start:0x02082758 end:0x020827c0
+
 src/overlays/ov016/data/ov016_pointers_020826e0.c:
     complete
     .data       start:0x020826e0 end:0x02082740
