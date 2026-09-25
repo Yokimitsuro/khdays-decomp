@@ -20,6 +20,10 @@ src/overlays/ov222/calls/func_ov222_020d1ba0.c:
     complete
     .text       start:0x020d1ba0 end:0x020d1bdc
 
+src/overlays/ov222/calls/func_ov222_020d1bdc.c:
+    complete
+    .text       start:0x020d1bdc end:0x020d2024
+
 src/overlays/ov222/calls/func_ov222_020d2024.c:
     complete
     .text       start:0x020d2024 end:0x020d207c
