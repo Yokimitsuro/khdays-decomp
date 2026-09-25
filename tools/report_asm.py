@@ -18,11 +18,15 @@ def validate_owner(name, entry, root=ROOT):
     path = Path(source)
     if path.is_absolute() or ".." in path.parts or "nonmatching" in path.parts:
         raise ValueError(f"Invalid report source: {source}")
-    if path.stem != name or path.suffix != ".c":
+    # CodeWarrior's runtime helpers branch into each other's bodies, which inline asm
+    # cannot express; they are the one library family kept as GAS .s sources.
+    if path.stem != name or path.suffix not in (".c", ".s"):
         raise ValueError(f"Report source does not identify {name}: {source}")
     kind = entry["kind"]
+    if path.suffix == ".s" and not (kind == "canonical_sdk_asm" and source.startswith("libs/msl/runtime/")):
+        raise ValueError(f"Only the MSL runtime may be a .s report source: {source}")
     if kind == "canonical_sdk_asm":
-        if not re.fullmatch(r"libs/(?:nitro|msl)/[^/]+/asm_stubs/(?:auto|calls)/[^/]+\.c", source):
+        if not re.fullmatch(r"libs/(?:nitro|msl)/[^/]+/asm_stubs/(?:auto|calls)/[^/]+\.(?:c|s)", source):
             raise ValueError(f"SDK assembly must be library-owned: {source}")
     elif kind == "authorized_clz":
         approvals = json.loads((root / "config/arm9/asm_exceptions.json").read_text())

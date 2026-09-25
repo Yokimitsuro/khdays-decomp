@@ -843,6 +843,15 @@
       "source_sha256": "af028c2187cf507b643dfb64208fded7b5d936561edeec6ffc8c2c2ad8d9e254",
       "target_sha256": "3bc1beb64a0de5abb0c883eda6b32c6e2028ec260ca0ea071439d34692e15b8c"
     },
+    "func_0200bd4c": {
+      "evidence": "NitroSDK DGT DGTi_hash2_arm4_small: byte-identical to the prebuilt libdgt.a object sha1s-arm4cw.o (hand-written ARM)",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 640,
+      "source": "libs/nitro/dgt/asm_stubs/auto/func_0200bd4c.c",
+      "source_sha256": "53e85fea0ebd65f78e63c743fcd384e371e8b4abd1838e17dc3ec7873cbb1c77",
+      "target_sha256": "9d8f4b525bc4793377af54290058824c8f6113b4deb004ea9589507e4891d2cf"
+    },
     "func_0200dcf0": {
       "evidence": "NitroSDK libraries/rtc/src/external.c: static asm RtcWaitBusy",
       "kind": "canonical_sdk_asm",
@@ -860,6 +869,69 @@
       "source": "libs/nitro/math/asm_stubs/auto/func_0200fc00.c",
       "source_sha256": "0099b7422a1c5f01c4f8ec640a029e9ed0ba6da0559fee5b085b8786f10b2a7a",
       "target_sha256": "54aa3756d22c704c48e99081f6fbc020ea68f4be1fe4787f5f2564b841ad4502"
+    },
+    "func_020201a8": {
+      "evidence": "CodeWarrior MSL runtime assembly (_ll_mod, signed 64-bit remainder entry); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 16,
+      "source": "libs/msl/runtime/asm_stubs/calls/func_020201a8.s",
+      "source_sha256": "eb748df90c29c3dc779a38fed3c1e0183adefa08751f10e8b3c15725e958885e",
+      "target_sha256": "0cfcdfd477eb7435e397b84772021f2fbf7050853cf54815d11154e2be979bd7"
+    },
+    "func_020201b8": {
+      "evidence": "CodeWarrior MSL runtime assembly (_ll_sdiv, signed 64-bit division); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 432,
+      "source": "libs/msl/runtime/asm_stubs/calls/func_020201b8.s",
+      "source_sha256": "4017f076e2adbc0acd399256f41e89ec26e177a0b2d0b373527fd2c89f4290e7",
+      "target_sha256": "9b1fade2f24764c39daf092e67bc3364b07cda2647995470f3a6ef3e7dbb1c30"
+    },
+    "func_02020368": {
+      "evidence": "CodeWarrior MSL runtime assembly (_ll_udiv, unsigned 64-bit division entry); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 12,
+      "source": "libs/msl/runtime/asm_stubs/calls/func_02020368.s",
+      "source_sha256": "232b0f5a983ee47956ff98748fbfef99913b9fc6816c5aee25b501be93d69715",
+      "target_sha256": "1ebc0f6fa62024d985b12560ce08f6c2f79752aed0fd5e0111a55f54acbd802f"
+    },
+    "func_02020374": {
+      "evidence": "CodeWarrior MSL runtime assembly (_ull_mod, unsigned 64-bit remainder); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 60,
+      "source": "libs/msl/runtime/asm_stubs/calls/func_02020374.s",
+      "source_sha256": "f554478fb2d68f28eae96859fd9657b4d3776a4a5aeffcc72fccfbb5e4367036",
+      "target_sha256": "a74fa0d1af403cb60200d9e5d55bc68c7e34aa737d36246502bd18b589a51809"
+    },
+    "func_020203d0": {
+      "evidence": "CodeWarrior MSL runtime assembly (_ll_shl, 64-bit shift left); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 48,
+      "source": "libs/msl/runtime/asm_stubs/auto/func_020203d0.s",
+      "source_sha256": "54ffa24af098f95aa2590661e0d30d2d9dd40c4a83fcd03af8a9d6deb15fe1f3",
+      "target_sha256": "cd85e331b68cde1500bc5993fcc798229d39975d58570f65d52a9b43e8165d67"
+    },
+    "func_02020400": {
+      "evidence": "CodeWarrior MSL runtime assembly (_s32_div_f, signed 32-bit division); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 524,
+      "source": "libs/msl/runtime/asm_stubs/auto/func_02020400.s",
+      "source_sha256": "e5dc1b16421ef870d892eb7944df4f6f26d75e7543665eeb54c94570043b982a",
+      "target_sha256": "e8183a62ffe6a54210cd7d025b01431ff792025c1b45a0e8537abd8cec16ccfb"
+    },
+    "func_0202060c": {
+      "evidence": "CodeWarrior MSL runtime assembly (_u32_div_f, unsigned 32-bit division); the helpers branch into each other, so they are GAS sources",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 484,
+      "source": "libs/msl/runtime/asm_stubs/auto/func_0202060c.s",
+      "source_sha256": "4b773c92f605da964839aecef0cd9804ed43b859044f38e4619318b0fefecd5a",
+      "target_sha256": "3b0403581ea03e86bdfc0cde00ea2ca13f522291aec399b93ecdf2fef57944eb"
     },
     "func_ov002_02077560": {
       "kind": "authorized_clz",

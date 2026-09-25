@@ -28,7 +28,9 @@ def main() -> None:
     source = Path(sys.argv[2])
     output.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run([
-        find_assembler(), "-mcpu=arm946e-s", "-o", str(output), str(source),
+        # -meabi=gnu: R_ARM_PC24 for branches, the only kind mwldarm accepts (it rejects the
+        # EABI R_ARM_CALL / R_ARM_JUMP24 that GAS emits by default).
+        find_assembler(), "-mcpu=arm946e-s", "-meabi=gnu", "-o", str(output), str(source),
     ], check=True)
 
 

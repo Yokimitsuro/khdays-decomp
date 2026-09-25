@@ -95,7 +95,7 @@ def index_sources():
     for root in SRC_ROOTS:
         if not root.exists():
             continue
-        for pattern in ("*.c", "*.cpp"):
+        for pattern in ("*.c", "*.cpp", "*.s"):
             for p in sorted(root.glob(pattern)):
                 index[p.stem] = str(p.relative_to(ROOT)).replace("\\", "/")
     return index

@@ -130,9 +130,10 @@ def load_sources():
     for src_dir in SRC_DIRS:
         if not src_dir.exists():
             continue
-        for path in sorted(list(src_dir.glob("*.c")) + list(src_dir.glob("*.cpp"))):
+        for path in sorted(list(src_dir.glob("*.c")) + list(src_dir.glob("*.cpp")) + list(src_dir.glob("*.s"))):
             name = path.stem
-            category = source_category(path)
+            # A .s source is hand-written assembly (the CodeWarrior runtime helpers).
+            category = "asm_stub_matched" if path.suffix == ".s" else source_category(path)
             entry = {
                 "path": str(path.relative_to(ROOT)).replace("\\", "/"),
                 "category": category,

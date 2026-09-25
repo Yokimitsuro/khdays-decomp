@@ -85,11 +85,13 @@ class ReportTests(unittest.TestCase):
         # purpose. 2026-09-12: CP_SaveContext and CPi_RestoreContext (PR #29), the
         # NitroSDK's hand-written cp_context.c block transfers, byte-exact and attested.
         # 2026-09-25: the rest of the NitroSDK's assembly-only functions (os_cache, os_interrupt,
-        # os_protectionUnit, os_context, crt0, OSi_DisplayExContext, ...), each with its evidence.
+        # os_protectionUnit, os_context, crt0, OSi_DisplayExContext, ...), each with its evidence,
+        # CodeWarrior's seven runtime division/shift helpers (GAS sources, libs/msl/runtime) and
+        # the DGT SHA-1 transform, byte-identical to the SDK's prebuilt libdgt.a.
         entries = report_asm.load_verified_matches()
-        self.assertEqual(len(entries), 98)
+        self.assertEqual(len(entries), 106)
         self.assertEqual(sum(e["kind"] == "authorized_clz" for e in entries.values()), 2)
-        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 96)
+        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 104)
         self.assertIn("CP_SaveContext", entries)
         self.assertIn("CPi_RestoreContext", entries)
 

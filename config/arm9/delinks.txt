@@ -220,7 +220,7 @@ libs/nitro/os/auto/OS_ResetRequestIrqMask.c:
     complete
     .text       start:0x0200148c end:0x020014b8
 
-libs/nitro/os/asm_stubs/calls/OSi_InitStackChecker.c:
+libs/nitro/os/calls/OSi_InitStackChecker.c:
     complete
     .text       start:0x020014b8 end:0x020014ec
 
@@ -1939,6 +1939,10 @@ libs/nitro/math/calls/func_0200baec.c:
 libs/nitro/math/calls/func_0200bb80.c:
     complete
     .text       start:0x0200bb80 end:0x0200bd38
+
+libs/nitro/dgt/asm_stubs/auto/func_0200bd4c.c:
+    complete
+    .text       start:0x0200bd4c end:0x0200bfcc
 
 libs/nitro/gx/asm_stubs/calls/CP_SaveContext.c:
     complete
@@ -4548,9 +4552,37 @@ src/calls/WM_EndKeySharing_0x0202019c.c:
     complete
     .text       start:0x0202019c end:0x020201a8
 
+libs/msl/runtime/asm_stubs/calls/func_020201a8.s:
+    complete
+    .text       start:0x020201a8 end:0x020201b8
+
+libs/msl/runtime/asm_stubs/calls/func_020201b8.s:
+    complete
+    .text       start:0x020201b8 end:0x02020368
+
+libs/msl/runtime/asm_stubs/calls/func_02020368.s:
+    complete
+    .text       start:0x02020368 end:0x02020374
+
+libs/msl/runtime/asm_stubs/calls/func_02020374.s:
+    complete
+    .text       start:0x02020374 end:0x020203b0
+
 libs/msl/c/asm_stubs/auto/_ll_mul.c:
     complete
     .text       start:0x020203b0 end:0x020203d0
+
+libs/msl/runtime/asm_stubs/auto/func_020203d0.s:
+    complete
+    .text       start:0x020203d0 end:0x02020400
+
+libs/msl/runtime/asm_stubs/auto/func_02020400.s:
+    complete
+    .text       start:0x02020400 end:0x0202060c
+
+libs/msl/runtime/asm_stubs/auto/func_0202060c.s:
+    complete
+    .text       start:0x0202060c end:0x020207f0
 
 src/auto/func_020207f0.c:
     complete

@@ -3041,7 +3041,10 @@ from:0x020200b0 kind:load to:0x0204bd7c module:main
 from:0x020200c4 kind:load to:0x0201ffec module:main
 from:0x02020198 kind:load to:0x02002de4 module:main
 from:0x020201a4 kind:load to:0x0201f7bc module:main
+from:0x020201b4 kind:arm_call to:0x020201c8 module:main
 from:0x020201f4 kind:arm_call to:0x02020400 module:main
+from:0x02020370 kind:arm_call to:0x0202037c module:main
+from:0x02020390 kind:arm_call to:0x0202022c module:main
 from:0x02020398 kind:arm_call to:0x02020614 module:main
 from:0x02020800 kind:arm_call to:0x0201f79c module:main
 from:0x02020830 kind:link_time_const(ARM9_CTOR_START)

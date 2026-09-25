@@ -37,6 +37,14 @@ def source_flags(cpath):
 
 def compile_c(cpath, thumb=False):
     o = cpath + ".o"
+    if os.path.splitext(cpath)[1].lower() == ".s":
+        # Hand-written runtime assembly (CodeWarrior's long-long and division
+        # helpers): assembled exactly as the build's armasm rule does.
+        r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "_run_armasm.py"), o, cpath],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            print(r.stdout, r.stderr); raise SystemExit("ensamblado fallo")
+        return o
     env = dict(os.environ, LM_LICENSE_FILE=LIC)
     flags = source_flags(cpath) + (["-thumb"] if thumb else [])
     r = subprocess.run([MWCC, "-c", *flags, "-o", o, cpath],
