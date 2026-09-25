@@ -1964,6 +1964,7 @@ func_0203cf0c kind:function(arm,size=0x134) addr:0x0203cf0c
 func_0203d040 kind:function(arm,size=0x11c) addr:0x0203d040
 func_0203d15c kind:function(arm,size=0x38) addr:0x0203d15c
 func_0203d194 kind:function(arm,size=0x28) addr:0x0203d194
+data_0203d1bc kind:data(any) addr:0x0203d1bc
 data_0203d210 kind:data(any) addr:0x0203d210
 data_0203da10 kind:data(any) addr:0x0203da10
 data_0203e110 kind:data(any) addr:0x0203e110

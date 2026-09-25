@@ -7725,6 +7725,10 @@ libs/nns/snd/auto/sndarc_stream_adpcm_tables.c:
     complete
     .rodata     start:0x02041b04 end:0x02041bc6
 
+src/data/main_exception_index_0203d1bc.c:
+    complete
+    .rodata     start:0x0203d1bc end:0x0203d210
+
 src/data/main_hmac_alloc_020418c0.c:
     complete
     .rodata     start:0x020418c0 end:0x02041924
