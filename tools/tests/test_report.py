@@ -84,10 +84,12 @@ class ReportTests(unittest.TestCase):
         # The counts are a policy lock: a new non-C match has to be admitted here on
         # purpose. 2026-09-12: CP_SaveContext and CPi_RestoreContext (PR #29), the
         # NitroSDK's hand-written cp_context.c block transfers, byte-exact and attested.
+        # 2026-09-25: the rest of the NitroSDK's assembly-only functions (os_cache, os_interrupt,
+        # os_protectionUnit, os_context, crt0, OSi_DisplayExContext, ...), each with its evidence.
         entries = report_asm.load_verified_matches()
-        self.assertEqual(len(entries), 29)
+        self.assertEqual(len(entries), 98)
         self.assertEqual(sum(e["kind"] == "authorized_clz" for e in entries.values()), 2)
-        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 27)
+        self.assertEqual(sum(e["kind"] == "canonical_sdk_asm" for e in entries.values()), 96)
         self.assertIn("CP_SaveContext", entries)
         self.assertIn("CPi_RestoreContext", entries)
 
