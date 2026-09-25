@@ -4448,6 +4448,10 @@ src/calls/func_0201f390.c:
     complete
     .text       start:0x0201f390 end:0x0201f3d8
 
+src/calls/func_0201f3d8.c:
+    complete
+    .text       start:0x0201f3d8 end:0x0201f468
+
 src/calls/func_0201f468.c:
     complete
     .text       start:0x0201f468 end:0x0201f510
@@ -6799,6 +6803,10 @@ src/auto/func_02031644.c:
 src/auto/func_02031730.c:
     complete
     .text       start:0x02031730 end:0x02031818
+
+src/calls/func_02031818.c:
+    complete
+    .text       start:0x02031818 end:0x02031930
 
 src/calls/func_02031930.c:
     complete
