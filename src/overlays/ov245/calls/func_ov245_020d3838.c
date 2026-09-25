@@ -44,7 +44,8 @@ static inline void VecSetP_(VecP_ *v, int x, int y, int z)
     v->z = z;
 }
 
-void func_ov245_020d3838(char *self)   /* a byte pointer, as in the ROM's unsigned address arithmetic */ {
+/* self is a byte pointer, as in the ROM's unsigned address arithmetic */
+void func_ov245_020d3838(char *self) {
     int pool = *(int *)(self + 0x3b4);
     ShapeRequest req;
     int *slot;
