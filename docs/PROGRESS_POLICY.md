@@ -16,6 +16,20 @@ project is being bootstrapped.
 These functions may match the original bytes, but they do not count as
 C-decompiled progress.
 
+## Complete functions
+
+Some library functions were written in assembly by their authors: NitroSDK's `asm`
+functions (cache and protection-unit control, interrupt masking, context switches,
+memory copy/fill kernels, matrix helpers), the BIOS SWI veneers and the CodeWarrior
+runtime's `_ll_mul`. Many use instructions C cannot express with this compiler
+(`mcr`/`mrc`, `mrs`/`msr`, `swi`, exception returns); the rest are hand-scheduled
+kernels whose shape mwcc never emits. Such a function is **complete** when it is
+integrated as that original assembly under `libs/**/asm_stubs/`, verifies byte-exact,
+and is listed as `canonical_sdk_asm` in `config/arm9/report_asm_matches.json` with the
+library source it comes from (`evidence`). The README's "Complete functions" row is
+real C plus these entries. They are still not counted as C: the C column stays
+C-only, and game code has no such exception.
+
 ## SDK identification
 
 SDK/library functions identified through byte matching are useful for naming and

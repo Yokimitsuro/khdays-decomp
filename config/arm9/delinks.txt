@@ -412,6 +412,18 @@ libs/nitro/os/auto/OS_SetThreadDestructor.c:
     complete
     .text       start:0x02002238 end:0x02002240
 
+libs/nitro/os/asm_stubs/auto/OS_InitContext.c:
+    complete
+    .text       start:0x02002240 end:0x020022ac
+
+libs/nitro/os/asm_stubs/calls/OS_SaveContext.c:
+    complete
+    .text       start:0x020022ac end:0x020022f8
+
+libs/nitro/os/asm_stubs/calls/OS_LoadContext.c:
+    complete
+    .text       start:0x020022f8 end:0x0200233c
+
 src/auto/func_0200233c.c:
     complete
     .text       start:0x0200233c end:0x02002344
@@ -460,9 +472,41 @@ libs/nitro/os/auto/OSi_DequeueItem.c:
     complete
     .text       start:0x020026b0 end:0x020026d4
 
+libs/nitro/os/asm_stubs/auto/DC_InvalidateAll.c:
+    complete
+    .text       start:0x020026d4 end:0x020026e0
+
+libs/nitro/os/asm_stubs/auto/DC_StoreAll.c:
+    complete
+    .text       start:0x020026e0 end:0x0200270c
+
+libs/nitro/os/asm_stubs/auto/DC_FlushAll.c:
+    complete
+    .text       start:0x0200270c end:0x02002740
+
+libs/nitro/os/asm_stubs/auto/DC_InvalidateRange.c:
+    complete
+    .text       start:0x02002740 end:0x0200275c
+
+libs/nitro/os/asm_stubs/auto/DC_StoreRange.c:
+    complete
+    .text       start:0x0200275c end:0x02002778
+
 src/calls/DC_FlushRange.c:
     complete
     .text       start:0x02002778 end:0x0200279c
+
+libs/nitro/os/asm_stubs/auto/DC_WaitWriteBufferEmpty.c:
+    complete
+    .text       start:0x0200279c end:0x020027a8
+
+libs/nitro/os/asm_stubs/auto/IC_InvalidateAll.c:
+    complete
+    .text       start:0x020027a8 end:0x020027b4
+
+libs/nitro/os/asm_stubs/auto/IC_InvalidateRange.c:
+    complete
+    .text       start:0x020027b4 end:0x020027d0
 
 libs/nitro/os/asm_stubs/calls/OSi_CancelDma0.c:
     complete
@@ -528,13 +572,45 @@ libs/nitro/os/calls/OS_FreeToHeap.c:
     complete
     .text       start:0x02002de4 end:0x02002e4c
 
+libs/nitro/os/asm_stubs/auto/OS_GetDTCMAddress.c:
+    complete
+    .text       start:0x02002e4c end:0x02002e60
+
+libs/nitro/os/asm_stubs/auto/OS_EnableProtectionUnit.c:
+    complete
+    .text       start:0x02002e60 end:0x02002e70
+
+libs/nitro/os/asm_stubs/auto/OS_DisableProtectionUnit.c:
+    complete
+    .text       start:0x02002e70 end:0x02002e80
+
+libs/nitro/os/asm_stubs/auto/OS_SetDPermissionsForProtectionRegion.c:
+    complete
+    .text       start:0x02002e80 end:0x02002e94
+
+libs/nitro/os/asm_stubs/auto/OS_SetProtectionRegion1.c:
+    complete
+    .text       start:0x02002e94 end:0x02002e9c
+
+libs/nitro/os/asm_stubs/auto/OS_SetProtectionRegion2.c:
+    complete
+    .text       start:0x02002e9c end:0x02002ea4
+
 libs/nitro/os/calls/OSi_InstallExceptionVector.c:
     complete
     .text       start:0x02002ea4 end:0x02002f14
 
+libs/nitro/os/asm_stubs/calls/OSi_ExceptionHandler.c:
+    complete
+    .text       start:0x02002f14 end:0x02002f88
+
 libs/nitro/os/asm_stubs/calls/OSi_GetAndDisplayContext.c:
     complete
     .text       start:0x02002f88 end:0x02002f9c
+
+libs/nitro/os/asm_stubs/calls/OSi_SetExContext.c:
+    complete
+    .text       start:0x02002f9c end:0x0200302c
 
 libs/nitro/os/asm_stubs/calls/func_0200302c.c:
     complete
@@ -616,6 +692,34 @@ src/calls/func_020037a0.c:
     complete
     .text       start:0x020037a0 end:0x020037e8
 
+libs/nitro/os/asm_stubs/auto/OS_EnableInterrupts.c:
+    complete
+    .text       start:0x020037e8 end:0x020037fc
+
+libs/nitro/os/asm_stubs/auto/OS_DisableInterrupts.c:
+    complete
+    .text       start:0x020037fc end:0x02003810
+
+libs/nitro/os/asm_stubs/auto/OS_RestoreInterrupts.c:
+    complete
+    .text       start:0x02003810 end:0x02003828
+
+libs/nitro/os/asm_stubs/auto/OS_DisableInterrupts_IrqAndFiq.c:
+    complete
+    .text       start:0x02003828 end:0x0200383c
+
+libs/nitro/os/asm_stubs/auto/OS_RestoreInterrupts_IrqAndFiq.c:
+    complete
+    .text       start:0x0200383c end:0x02003854
+
+libs/nitro/os/asm_stubs/auto/OS_GetCpsrIrq.c:
+    complete
+    .text       start:0x02003854 end:0x02003860
+
+libs/nitro/os/asm_stubs/auto/OS_GetProcMode.c:
+    complete
+    .text       start:0x02003860 end:0x0200386c
+
 libs/nitro/os/asm_stubs/auto/func_0200386c.c:
     complete
     .text       start:0x0200386c end:0x02003878
@@ -667,6 +771,10 @@ libs/nitro/os/calls/OS_GetLowEntropyData.c:
 libs/nitro/os/calls/OS_Terminate.c:
     complete
     .text       start:0x02003c38 end:0x02003c48
+
+libs/nitro/os/asm_stubs/auto/OS_Halt.c:
+    complete
+    .text       start:0x02003c48 end:0x02003c54
 
 libs/nitro/mi/calls/MI_SetWramBank.c:
     complete

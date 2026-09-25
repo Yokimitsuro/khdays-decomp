@@ -13,6 +13,7 @@ from collections import Counter
 import audit_progress
 import data_progress
 import progress  # for compute_byte_progress (import is side-effect-free)
+import report_asm
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 README = os.path.join(ROOT, "README.md")
@@ -43,6 +44,12 @@ def main():
     asm = cats["asm_stub_matched"]
     sdk = cats["sdk_identified"]
     named = cats["named_only"]
+    # Library functions whose original source is assembly (NitroSDK/MSL `asm`) cannot be C;
+    # once integrated as that assembly and byte-verified with source evidence they are complete.
+    verified_asm = report_asm.load_verified_matches()
+    lib_asm = sum(1 for f in functions if f["category"] == "asm_stub_matched"
+                  and verified_asm.get(f["name"], {}).get("kind") == "canonical_sdk_asm")
+    complete = c + lib_asm
     c_bytes, total_bytes = progress.compute_byte_progress()
     data_regions = data_progress.load_data_inventory()
     data_bytes = sum(item["verified_bytes"] for item in data_regions)
@@ -55,7 +62,16 @@ def main():
     data_pct = 100.0 * data_bytes / total_data_bytes if total_data_bytes else 0.0
 
     txt = open(README, encoding="utf-8").read()
+    complete_label = "| Complete functions (C + verified original library assembly) |"
+    if complete_label not in txt:
+        anchor = re.search(r"^\| Real C-decompiled matched functions \|[^\n]*\n", txt, re.M)
+        txt = (txt[:anchor.end()] + complete_label + " **0** / ~0 (~0.0%) | Real C, plus library "
+               "functions whose original source is assembly (NitroSDK/MSL `asm`, BIOS veneers): C cannot "
+               "express them, so they count once integrated as that assembly and byte-verified with "
+               "source evidence in `config/arm9/report_asm_matches.json`. |\n" + txt[anchor.end():])
     subs = [
+        (r"(\| Complete functions \(C \+ verified original library assembly\) \| )\*\*[\d,]+\*\* / ~[\d,]+ \(~[\d.]+%\)",
+         r"\g<1>**{:,}** / ~{:,} (~{:.1f}%)".format(complete, total, pct(complete))),
         (r"(\| Real C-decompiled matched functions \| )\*\*[\d,]+\*\* / ~[\d,]+ \(~[\d.]+% by function count\)",
          r"\g<1>**{:,}** / ~{:,} (~{:.1f}% by function count)".format(c, total, pct(c))),
         (r"(\| Real C-decompiled matched \*\*bytes\*\* \| )\*\*[\d,]+\*\* / [\d,]+ \(~[\d.]+% by code bytes\)",
