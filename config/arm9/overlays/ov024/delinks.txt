@@ -464,6 +464,14 @@ src/overlays/ov024/calls/func_ov024_02086800.cpp:
     complete
     .text       start:0x02086800 end:0x02086958
 
+src/overlays/ov024/data/mobiclip_deblock.s:
+    complete
+    .rodata     start:0x02092e60 end:0x020933ac
+
+src/overlays/ov024/data/mobiclip_fastaudio.s:
+    complete
+    .rodata     start:0x02087318 end:0x020886c4
+
 src/overlays/ov024/data/mobiclip_payload.s:
     complete
     .rodata     start:0x0208c8c4 end:0x02092e60

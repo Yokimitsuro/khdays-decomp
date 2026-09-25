@@ -4,6 +4,23 @@
   "classification_overrides": [
     {
       "unit": "ov024",
+      "name": "mobiclip_fastaudio_kernel",
+      "start": "0x02087318",
+      "end": "0x020886c4",
+      "classification": "executable_payload",
+      "progress_category": "mobiclip_payload",
+      "reason": "MobiClip FastAudio decoder (audio coding 2): hand-written ARM the audio dispatcher calls in place from .rodata. Semantic model tools/mobiclip_fastaudio.py; forced DeSmuME capture replayed byte-exact (KH Days streams use IMA ADPCM, so the game never reaches it).",
+      "verification": {
+        "format": "arm_mnemonic_payload_v1",
+        "source_symbol": "func_ov024_02087318_unk",
+        "section": "rodata",
+        "sha256": "3d82c3d30e49e47275fc84945d3977e32065c5357a4ed52e19dcb91ac505cfff",
+        "instruction_count": 567,
+        "embedded_data_bytes": 2768
+      }
+    },
+    {
+      "unit": "ov024",
       "name": "mobiclip_decoder_payload",
       "start": "0x0208c8c4",
       "end": "0x02092e60",
@@ -17,6 +34,23 @@
         "sha256": "5508ae5f765eb86e81b2ad8d76dccf6d4a30e3381d3e8b248fb8d4a6204b83f5",
         "instruction_count": 5899,
         "embedded_data_bytes": 2416
+      }
+    },
+    {
+      "unit": "ov024",
+      "name": "mobiclip_deblock_kernel",
+      "start": "0x02092e60",
+      "end": "0x020933ac",
+      "classification": "executable_payload",
+      "progress_category": "mobiclip_payload",
+      "reason": "MobiClip deblocking post-filter: hand-written ARM the frame blitter calls in place from .rodata (display modes 1/2; KH Days uses mode 0). Semantic model tools/mobiclip_deblock.py; forced DeSmuME capture replayed byte-exact.",
+      "verification": {
+        "format": "arm_mnemonic_payload_v1",
+        "source_symbol": "func_ov024_02092e60_unk",
+        "section": "rodata",
+        "sha256": "d748ec3b7058688d234cc06e71acbd78be5b621d31a7acb2857b1dee6e2a7c1e",
+        "instruction_count": 316,
+        "embedded_data_bytes": 92
       }
     }
   ],
