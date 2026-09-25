@@ -1,37 +1,3 @@
-/* NONMATCHING: 460/460 bytes, 115/115 instructions, literal pool identical word
- * for word and all ten relocations in the same order. Six positions differ, and
- * they are two order-only swaps of independent instruction pairs whose registers
- * already agree: the ROM issues the pool load one slot ahead of the immediate
- * beside it (the publish pointer before the zero, and the registry table before
- * the constant 3) while this build issues the immediate first.
- *
- * Three semantic corrections found on the way here are already in this source
- * and are worth keeping: the resource loader takes TWO arguments, not four --
- * MI_CpuFill8 immediately before it clobbers r2 and r3, so Ghidra's third and
- * fourth arguments are dead values; the stream open is SHARED by both branches,
- * the then-branch's b jumping straight to it; and the function RETURNS the next
- * handler, which Ghidra read as a dead pool load.
- *
- * Axes swept without moving the residue (~300 experiments): all six orders of
- * the opening stores and all 24 orders of the four opening groups; 60 local
- * declaration orders; the publish written as an array index, as *(char **)&g,
- * and as (char *)&g + 4; the whole player typed as a struct with real offsets,
- * which is what cracked MobiClip_StepScreenFade and does nothing here; the work
- * address as a local, whole or split at its +0x198 half; the table declared as
- * const char[], void *const[], and as a function-pointer array with a matching
- * prototype; the registry call unprototyped, varargs and unsigned; the returned
- * handler computed into a local early, as the ov005 sibling does; and the
- * publish chained onto the heap call.
- *
- * Two findings that DO constrain the source: both key reads must stay volatile
- * (dropping it costs five more positions), and the source order must be
- * clear-then-publish-then-clear, which is what puts the work address in slot 6
- * with the ROM's registers.
- *
- * The nearest carved sibling with the ROM's order is func_ov005_020586ac: same
- * heap-root open, same publish, same MI_CpuFill8 pair, same f(small, symbol)
- * final call. Its three structural differences were all tried above.
- */
 /* MobiClip: open the movie player.
  *
  * Takes the heap's current root as the player object, publishes it, clears the
@@ -41,6 +7,11 @@
  *
  * The stream id is built the same way on both paths: the sector goes into the
  * top of the word with bit 31 set, and the length shares the low bits.
+ *
+ * The opening is written as chained assignments (publish = player = root heap,
+ * flags = state = 0): that is what schedules the publish-pointer load ahead of
+ * the zero and the registry table ahead of the constant 3, as the ROM does
+ * (found with decomp-permuter).
  */
 typedef unsigned char u8;
 typedef unsigned short u16;
@@ -96,10 +67,8 @@ void *func_ov024_02082a78(struct MobiClipOpenArgs *args)
     char *pPath;
     u16 wHeld;
 
-    player = (char *)NNSi_FndGetCurrentRootHeap();
-    *(u16 *)player = 0;
-    data_ov024_02093a20[1] = player;
-    *(u16 *)(player + 2) = 0;
+    data_ov024_02093a20[1] = player = (char *)NNSi_FndGetCurrentRootHeap();
+    *(u16 *)(player + 2) = *(u16 *)player = 0;
     *(int *)(player + 0x8be8) = -1;
     *(int *)(player + 0x8bdc) = 0;
     *(int *)(player + 0x8bd8) = 0;
