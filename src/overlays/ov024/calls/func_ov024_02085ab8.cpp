@@ -1,10 +1,12 @@
-/* MobiClip: blit one decoded frame, optionally through the scaler.
+/* MobiClip: blit one decoded frame, optionally through the deblocking post-filter.
  *
- * With no scaling the frame's own luma and chroma planes are handed straight
- * to the blitter. Otherwise a pair of working planes is allocated on first use
- * and the payload is run through the scaler at 02092e60 into them, with its
- * last argument choosing between the two filter modes; the blitter then reads
- * those instead.
+ * In mode 0 the frame's own luma and chroma planes are handed straight to the
+ * blitter. Otherwise a pair of working planes is allocated on first use and the
+ * frame is copied into them through the deblocking filter at 02092e60 (see
+ * tools/mobiclip_deblock.py), which smooths the 8-pixel block edges by the
+ * frame's quantiser: mode 2 filters both edge directions, any other non-zero
+ * mode only the vertical ones. The blitter then reads the filtered planes.
+ * KH Days always passes mode 0, so the filter never runs in the shipped game.
  *
  * Reports zero once every frame the stream holds has been blitted.
  */
@@ -12,16 +14,16 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
 
-struct MobiClipScaleRequest {
+struct MobiClipDeblockRequest {
     void *pSrcLuma;
     void *pSrcChroma;
     void *pDstLuma;
     void *pDstChroma;
     u32 nWidth;
     u32 nHeight;
-    void *pPlane;
-    void *pTable;
-    int bFilter;
+    u32 nQuantiser;
+    void *pClipTable;
+    int bVerticalOnly;
 };
 
 struct MobiClipBlitRequest {
@@ -40,9 +42,9 @@ struct MobiClipDecoder {
     u8 pad004c[0x5c - 0x4c];
     void **apLuma;
     void **apChroma;
-    void **apPlanes;
-    void *pScaleLuma;
-    void *pScaleChroma;
+    u32 *anQuantiser;       /* per-slot frame QP ring */
+    void *pFilteredLuma;
+    void *pFilteredChroma;
     u8 pad0070[0x9c - 0x70];
     u32 nBlitted;
     u32 nBlitTotal;
@@ -56,48 +58,48 @@ extern "C" {
 
 extern void *func_ov024_02083cf0(u32 nSize);
 extern void *func_ov024_0208677c(void);
-extern void func_ov024_02092e60_unk(MobiClipScaleRequest *pRequest);
+extern void func_ov024_02092e60_unk(MobiClipDeblockRequest *pRequest);
 extern void func_ov024_02086004(MobiClipBlitRequest *pRequest);
 
 int func_ov024_02085ab8(MobiClipDecoder *pDecoder, void *pDest, int nWidth,
                         int nMode)
 {
-    MobiClipScaleRequest req;
+    MobiClipDeblockRequest req;
 
     if (pDecoder->nBlitted >= pDecoder->nBlitTotal) {
         return 0;
     }
 
     if (nMode != 0) {
-        if (pDecoder->pScaleLuma == 0) {
-            pDecoder->pScaleLuma = func_ov024_02083cf0(pDecoder->nHeight << 8);
-            if (pDecoder->pScaleLuma == 0) {
+        if (pDecoder->pFilteredLuma == 0) {
+            pDecoder->pFilteredLuma = func_ov024_02083cf0(pDecoder->nHeight << 8);
+            if (pDecoder->pFilteredLuma == 0) {
                 return 0;
             }
         }
-        if (pDecoder->pScaleChroma == 0) {
-            pDecoder->pScaleChroma =
+        if (pDecoder->pFilteredChroma == 0) {
+            pDecoder->pFilteredChroma =
                 func_ov024_02083cf0((pDecoder->nHeight >> 1) << 8);
-            if (pDecoder->pScaleChroma == 0) {
+            if (pDecoder->pFilteredChroma == 0) {
                 return 0;
             }
         }
         req.pSrcLuma = pDecoder->apLuma[pDecoder->nSlot];
         req.pSrcChroma = pDecoder->apChroma[pDecoder->nSlot];
-        req.pDstLuma = pDecoder->pScaleLuma;
-        req.pDstChroma = pDecoder->pScaleChroma;
+        req.pDstLuma = pDecoder->pFilteredLuma;
+        req.pDstChroma = pDecoder->pFilteredChroma;
         req.nWidth = pDecoder->nWidth;
         req.nHeight = pDecoder->nHeight;
-        req.pPlane = pDecoder->apPlanes[pDecoder->nSlot];
-        req.pTable = func_ov024_0208677c();
+        req.nQuantiser = pDecoder->anQuantiser[pDecoder->nSlot];
+        req.pClipTable = func_ov024_0208677c();
         if (nMode == 2) {
-            req.bFilter = 0;
+            req.bVerticalOnly = 0;
         } else {
-            req.bFilter = 1;
+            req.bVerticalOnly = 1;
         }
         func_ov024_02092e60_unk(&req);
-        pDecoder->blit.pLuma = pDecoder->pScaleLuma;
-        pDecoder->blit.pChroma = pDecoder->pScaleChroma;
+        pDecoder->blit.pLuma = pDecoder->pFilteredLuma;
+        pDecoder->blit.pChroma = pDecoder->pFilteredChroma;
     } else {
         pDecoder->blit.pLuma = pDecoder->apLuma[pDecoder->nSlot];
         pDecoder->blit.pChroma = pDecoder->apChroma[pDecoder->nSlot];

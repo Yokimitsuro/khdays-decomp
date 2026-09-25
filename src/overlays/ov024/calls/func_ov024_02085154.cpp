@@ -62,7 +62,7 @@ struct MobiClipDecoder {
     void *pAudioRing;
     void **apLuma;
     void **apChroma;
-    void **apPlanes;
+    u32 *anQuantiser;       /* per-slot frame QP ring */
     int pad0068[2];
     void *apScratch[2];
     int anChunkSize[2];
@@ -185,8 +185,8 @@ int func_ov024_02085154(MobiClipDecoder *pDecoder,
         MI_CpuFill8(pDecoder->apChroma[i], 0x80, (pDecoder->nHeight >> 1) << 8);
     }
 
-    pDecoder->apPlanes = (void **)func_ov024_02083cf0(pDecoder->nSlots << 2);
-    if (pDecoder->apPlanes == 0) {
+    pDecoder->anQuantiser = (u32 *)func_ov024_02083cf0(pDecoder->nSlots << 2);
+    if (pDecoder->anQuantiser == 0) {
         return 0;
     }
     pDecoder->nFrameIndex = 0;

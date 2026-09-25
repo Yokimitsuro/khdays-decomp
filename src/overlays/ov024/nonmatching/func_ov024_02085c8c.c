@@ -4,8 +4,10 @@
  * The coding is a u16 at +0x1c and picks the decoder; each one leaves the bitstream cursor
  * (*(int **)(ctx + 0x34)) advanced past exactly what it read:
  *   0  nothing to do
- *   1  FastAudio transform (func_ov024_02086958) -- it reports how many bytes it consumed
- *   2  the 0x28-byte coding (func_ov024_02087318_unk)
+ *   1  variable-length transform coding (func_ov024_02086958) -- it reports how many bytes it
+ *      consumed
+ *   2  FastAudio: 0x28-byte LPC blocks, 256 samples each (func_ov024_02087318_unk, the in-place
+ *      kernel modelled by tools/mobiclip_fastaudio.py)
  *   3  IMA ADPCM: a 4-byte state header, but only on the first entry of a frame (+0xa4 == 1),
  *      then 0x80 bytes of nibbles
  *   else raw PCM: 0x200 bytes copied straight to the destination
