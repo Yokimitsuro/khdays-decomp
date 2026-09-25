@@ -244,6 +244,10 @@ src/overlays/ov275/calls/func_ov275_020d5420.c:
     complete
     .text       start:0x020d5420 end:0x020d54a4
 
+src/overlays/ov275/calls/func_ov275_020d54a4.c:
+    complete
+    .text       start:0x020d54a4 end:0x020d5c08
+
 src/overlays/ov275/calls/func_ov275_020d5c08.c:
     complete
     .text       start:0x020d5c08 end:0x020d5ed8
