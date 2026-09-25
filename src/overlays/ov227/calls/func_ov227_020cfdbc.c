@@ -1,0 +1,174 @@
+/* Constructor of the ov227 enemy. Installs the handlers (+8, +0xc, +0x1c message, +0x30, +0x28, +0x2c,
+ * +0x34, +0x1d0, +0x1dc, +0x1e0, +0x1e4), the +0x64 pose (scale 3.04), the +0x1fc bounds box (2.0
+ * around the feet, 2.0 high), bit 3 of +0x1ae and bit 5 of the +0x60 high byte; builds the +0x384
+ * rig from pose 0 (020cfd80 hooks it up, subscribed to +0x9c), binds its +0x388 animation (pose 1, 12 frames),
+ * resolves five bones (+0x3d8, +0x3dc, +0x3d4, +0x3e0, +0x3e4) and the +0x414 bone of pose 0x25;
+ * registers action 0/2 lowered 1.52 (rate 1.31), 2/3 lowered 3.04 (0.6), 1/2 (0.8) and 4/2 (1.31);
+ * builds the eight sub-items of data_ov227_020d4b34 into the +0x43c pair table (attached, hidden);
+ * places five spheres at the origin (radius 0.375, 1.63, 1.19 and twice 1.0, all scaled by 1.52),
+ * each reserved in the +0x22c pool (kept in +0x3ac) and the +0x144 pool (kept in +0x3c0), raises
+ * bit 1 of the second one, creates the ten +0x3ec helpers (020d3e0c) and loads sound 0x14d. */
+typedef unsigned short u16;
+typedef void (*Callback)(void);
+typedef struct { int x, y, z; } Vec3;
+typedef struct { int id[8]; } IdTable8;
+typedef struct { Vec3 min; Vec3 max; } Bounds;
+typedef struct { Vec3 pos; int nRadius; } Sphere;
+struct Pair { int res; int handle; };
+struct ShapeFlags { unsigned int lo : 8; };
+struct Ov227 {
+    char pad000[0x3ac];
+    int *bodyShapes[5];     /* +0x3ac */
+    int bodyNodes[5];       /* +0x3c0 */
+    char pad3d4[0x3ec - 0x3d4];
+    int helpers[10];        /* +0x3ec */
+    char pad414[0x43c - 0x414];
+    struct Pair items[8];   /* +0x43c */
+};
+
+extern void func_ov227_020d0224(void);
+extern void func_ov227_020d027c(void);
+extern void func_ov227_020d0328(void);
+extern void func_ov227_020d06c4(void);
+extern void func_ov227_020d02a0(void);
+extern void func_ov227_020d02e4(void);
+extern void func_ov227_020d05d4(void);
+extern void func_ov227_020d0720(void);
+extern void func_ov227_020d0640(void);
+extern void func_ov227_020d09b4(void);
+extern void func_ov227_020d09e0(void);
+extern void *func_ov107_020c9440(char *self, int index);
+extern int func_0203b898(void *item);
+extern void func_ov227_020cfd80(char *self);
+extern int func_0203bfb4(int subscriber, int item);
+extern void func_0202a388(void *dst, int a, void *b, int n);
+extern void func_0203b9ac(int obj, void *block);
+extern int func_0203bdfc(int item, const char *name);
+extern int func_ov107_020c9e50(void *item, const char *name);
+extern void func_ov107_020c92b0(char *self, int slot, int a, const Vec3 *v, int c);
+extern void func_ov107_020c9074(char *self, int item);
+extern int *func_01fffca8(void *pool, int elementSize, int capacity);
+extern int func_ov107_020c319c(const Sphere *sphere);
+extern int func_ov227_020d3e0c(char *self);
+extern void func_0203355c(int resourceId);
+extern IdTable8 data_ov227_020d4b34;
+extern const char data_ov227_020d4b8c[];
+extern const char data_ov227_020d4b98[];
+extern const char data_ov227_020d4ba8[];
+extern const char data_ov227_020d4bb4[];
+extern const char data_ov227_020d4bc0[];
+extern const char data_ov227_020d4bcc[];
+extern const Vec3 data_02041dc8;
+
+#define FX_MUL(a, b) ((int)(((long long)(a) * (b) + 0x800) >> 12))
+
+static inline void VEC_Set(Vec3 *v, int x, int y, int z)
+{
+    v->x = x;
+    v->y = y;
+    v->z = z;
+}
+
+void func_ov227_020cfdbc(char *self)
+{
+    IdTable8 ids = data_ov227_020d4b34;
+    Bounds bounds;
+    Vec3 lift;
+    Sphere sph;
+    Vec3 origin;
+    int i;
+    int k;
+    int node;
+    int *slot;
+
+    bounds.min.x = -0x2000;
+    bounds.min.y = 0;
+    bounds.min.z = -0x2000;
+    bounds.max.x = 0x2000;
+    bounds.max.y = 0x2000;
+    bounds.max.z = 0x2000;
+    *(Callback *)(self + 0x8) = func_ov227_020d0224;
+    *(Callback *)(self + 0xc) = func_ov227_020d027c;
+    *(Callback *)(self + 0x1c) = func_ov227_020d0328;
+    *(Callback *)(self + 0x30) = func_ov227_020d06c4;
+    *(Callback *)(self + 0x28) = func_ov227_020d02a0;
+    *(Callback *)(self + 0x2c) = func_ov227_020d02e4;
+    *(Callback *)(self + 0x34) = func_ov227_020d05d4;
+    *(Callback *)(self + 0x1d0) = func_ov227_020d0720;
+    *(Callback *)(self + 0x1dc) = func_ov227_020d0640;
+    *(Callback *)(self + 0x1e0) = func_ov227_020d09b4;
+    *(Callback *)(self + 0x1e4) = func_ov227_020d09e0;
+    *(int *)(self + 0x70) = 0;          /* overwritten store kept from the source (scheduling) */
+    *(int *)(self + 0x70) = 0x30a4;
+    VEC_Set((Vec3 *)(self + 0x64), 0, *(int *)(self + 0x70), 0);
+    *(Bounds *)(self + 0x1fc) = bounds;
+    *(u16 *)(self + 0x100 + 0xae) |= 8;
+    {
+        u16 hw = *(u16 *)(self + 0x60);
+
+        *(u16 *)(self + 0x60) = (hw & ~0xff00) |
+            ((((((unsigned int)hw << 0x10) >> 0x18) | 0x20) << 0x18) >> 0x10);
+    }
+    *(int *)(self + 0x384) = func_0203b898(func_ov107_020c9440(self, 0));
+    func_ov227_020cfd80(self);
+    func_0203bfb4(*(int *)(self + 0x9c), *(int *)(self + 0x384));
+    func_0202a388(self + 0x388, *(int *)(*(int *)(self + 0x384) + 0x88), func_ov107_020c9440(self, 1), 0xc);
+    func_0203b9ac(*(int *)(self + 0x384), self + 0x388);
+    *(int *)(self + 0x3d8) = func_0203bdfc(*(int *)(self + 0x384), data_ov227_020d4b8c);
+    *(int *)(self + 0x3dc) = func_0203bdfc(*(int *)(self + 0x384), data_ov227_020d4b98);
+    *(int *)(self + 0x3d4) = func_0203bdfc(*(int *)(self + 0x384), data_ov227_020d4ba8);
+    *(int *)(self + 0x3e0) = func_0203bdfc(*(int *)(self + 0x384), data_ov227_020d4bb4);
+    *(int *)(self + 0x3e4) = func_0203bdfc(*(int *)(self + 0x384), data_ov227_020d4bc0);
+    *(int *)(self + 0x414) = func_ov107_020c9e50(func_ov107_020c9440(self, 0x25), data_ov227_020d4bcc);
+    lift.x = 0;
+    lift.y = -0x1852;
+    lift.z = 0;
+    func_ov107_020c92b0(self, 0, 2, &lift, 0x1500);
+    lift.x = 0;
+    lift.y = -0x30a4;
+    lift.z = 0;
+    func_ov107_020c92b0(self, 2, 3, &lift, 0x99a);
+    func_ov107_020c92b0(self, 1, 2, 0, 0xccd);
+    func_ov107_020c92b0(self, 4, 2, 0, 0x1500);
+    for (i = 0; i < 8; i++) {
+        if (ids.id[i] >= 0) {
+            if (i < 0) {
+                node = func_0203b898((void *)ids.id[i]);
+            } else {
+                node = func_0203b898(func_ov107_020c9440(self, ids.id[i]));
+            }
+            func_ov107_020c9074(self, ((struct Ov227 *)self)->items[i].res = node);
+            *(int *)(((struct Ov227 *)self)->items[i].res + 0x5c) |= 2;
+        }
+    }
+    origin = data_02041dc8;
+    for (k = 0; k < 5; k++) {
+        sph.pos = origin;
+        switch (k) {
+        case 1:
+            sph.nRadius = 0x1a00;
+            break;
+        case 0:
+            sph.nRadius = 0x600;
+            break;
+        case 2:
+            sph.nRadius = 0x1300;
+            break;
+        default:
+            sph.nRadius = 0x1000;
+            break;
+        }
+        sph.nRadius = FX_MUL(sph.nRadius, 0x1852);
+        ((struct Ov227 *)self)->bodyShapes[k] = func_01fffca8(self + 0x22c, 0x10, 100);
+        *((struct Ov227 *)self)->bodyShapes[k] = func_ov107_020c319c(&sph);
+        slot = func_01fffca8(self + 0x144, 4, 100);
+        node = func_ov107_020c319c(&sph);
+        *slot = node;
+        ((struct Ov227 *)self)->bodyNodes[k] = node;
+    }
+    ((struct ShapeFlags *)(((struct Ov227 *)self)->bodyShapes[1] + 2))->lo |= 2;
+    for (i = 0; i < 10; i++) {
+        ((struct Ov227 *)self)->helpers[i] = func_ov227_020d3e0c(self);
+    }
+    func_0203355c(0x14d);
+}
