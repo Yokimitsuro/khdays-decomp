@@ -12,12 +12,12 @@ const u8 data_ov245_020d7198[12] = {
     15, 228, 0, 0, 202, 2, 0, 0, 0, 128, 254, 255,
 };
 
-/* read by func_ov245_020cfa14 (not yet decompiled) */
+/* read by func_ov245_020cfa14 (Ov245_StockHitFilter): reaction kinds by parity */
 const u8 data_ov245_020d71a4[8] = {
     2, 3, 0, 1, 0, 4, 0, 0,
 };
 
-/* read by func_ov245_020d2884 (not yet decompiled) */
+/* read by func_ov245_020d2884 (Ov245_HopperConstruct): pool entries of the three slot items */
 const u8 data_ov245_020d71ac[4] = {
     28, 27, 37, 0,
 };
