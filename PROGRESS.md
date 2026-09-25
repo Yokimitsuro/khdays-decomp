@@ -33,7 +33,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov021 | 31 | 0 | 0 | 0 | 31 | 100.0% |
 | DONE ov022 | 758 | 0 | 0 | 0 | 758 | 100.0% |
 | PART ov023 | 222 | 0 | 0 | 2 | 224 | 99.1% |
-| PART ov024 | 115 | 1 | 0 | 1 | 117 | 98.3% |
+| PART ov024 | 115 | 2 | 0 | 0 | 117 | 98.3% |
 | DONE ov025 | 1003 | 0 | 0 | 0 | 1003 | 100.0% |
 | DONE ov026 | 256 | 0 | 0 | 0 | 256 | 100.0% |
 | DONE ov027 | 43 | 0 | 0 | 0 | 43 | 100.0% |
@@ -306,7 +306,7 @@ SDK/library identifications are tracked separately; see
 | DONE ov300 | 3 | 0 | 0 | 0 | 3 | 100.0% |
 | DONE ov301 | 18 | 0 | 0 | 0 | 18 | 100.0% |
 | DONE ov302 | 25 | 0 | 0 | 0 | 25 | 100.0% |
-| **TOTAL** | **23050** | **131** | **3** | **49** | **23233** | **99.2%** |
+| **TOTAL** | **23050** | **132** | **3** | **48** | **23233** | **99.2%** |
 
 ## Byte progress
 
