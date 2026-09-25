@@ -196,6 +196,10 @@ src/overlays/ov146/calls/func_ov146_020ce308.c:
     complete
     .text       start:0x020ce308 end:0x020ce344
 
+src/overlays/ov146/calls/func_ov146_020ce344.c:
+    complete
+    .text       start:0x020ce344 end:0x020ce514
+
 src/overlays/ov146/calls/func_ov146_020ce514.c:
     complete
     .text       start:0x020ce514 end:0x020ce538
