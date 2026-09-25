@@ -7,8 +7,10 @@ func_ov028_0208aa78 kind:function(arm,size=0x9c) addr:0x0208aa78
 WM_EndKeySharing_0x0208ab14 kind:function(arm,size=0xc) addr:0x0208ab14
 func_ov028_0208ab20 kind:function(arm,size=0x58) addr:0x0208ab20
 func_ov028_0208ab78 kind:function(arm,size=0x58) addr:0x0208ab78
-data_ov028_0208abd0 kind:data(any) addr:0x0208abd0
-data_ov028_0208af30 kind:data(any) addr:0x0208af30
+func_ov028_0208abd0 kind:data(any) addr:0x0208abd0
+func_ov028_0208acf0 kind:data(any) addr:0x0208acf0
+func_ov028_0208ae8c kind:data(any) addr:0x0208ae8c
+func_ov028_0208af30 kind:data(any) addr:0x0208af30
 func_ov028_0208b040 kind:data(any) addr:0x0208b040
 func_ov028_0208b120 kind:data(any) addr:0x0208b120
 func_ov028_0208b200 kind:data(any) addr:0x0208b200

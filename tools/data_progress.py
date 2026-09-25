@@ -238,6 +238,11 @@ def load_verified_ranges(root=ROOT):
                     root / "config/arm9/data_progress.json",
                 )
                 matched = verify_executable_data.MATCH
+            elif receipt.get("kind") == "dsprot_encrypted_code":
+                import verify_dsprot
+
+                status, message, info = verify_dsprot.verify(source, index)
+                matched = verify_dsprot.MATCH
             elif receipt.get("kind") == "section_range":
                 import verify_data
 

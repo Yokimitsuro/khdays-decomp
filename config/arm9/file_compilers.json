@@ -1,3 +1,7 @@
 {
-  "src/overlays/ov028/auto/func_ov028_0208a994.c": "1.2/sp4"
+  "src/overlays/ov028/auto/func_ov028_0208a994.c": "1.2/sp4",
+  "src/overlays/ov028/dsprot/dsprot_mac_owner.c": "2.0/sp2p2",
+  "src/overlays/ov028/dsprot/dsprot_rom_util.c": "2.0/sp2p2",
+  "src/overlays/ov028/dsprot/dsprot_rom_test.c": "2.0/sp2p2",
+  "src/overlays/ov028/dsprot/dsprot_main.c": "2.0/sp2p2"
 }

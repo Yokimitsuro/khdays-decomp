@@ -84,6 +84,12 @@ flags = list(FLAGS)
 if src_path.suffix.lower() in (".cpp", ".cp", ".cc"):
     flags[flags.index("c99")] = "c++"
 
+# DS Protect's units share their range markers and types through local headers.
+sys.path.insert(0, str(ROOT / "tools"))
+from dsprot_encode import wants_encoding as _is_dsprot
+if _is_dsprot(src_path):
+    extra += ["-i", str(src_path.parent)]
+
 env = dict(os.environ, LM_LICENSE_FILE=str(LICENSE))
 cmd = [str(mwcc_bin), *flags, *extra, "-o", str(out_path), str(src_path)]
 
@@ -101,7 +107,11 @@ for attempt in range(8):
         # order. Put the data sections back in ROM order so the link lays the
         # file down where the claim says (issue #6). A no-op for objects with
         # at most one named data global.
-        sys.path.insert(0, str(ROOT / "tools"))
+        # DS Protect's units keep part of their code encrypted in the ROM's .rodata; encrypt
+        # the marked ranges and move the code there before anything reads the sections.
+        from dsprot_encode import encode, wants_encoding
+        if wants_encoding(src_path):
+            encode(out_path)
         from reorder_data_sections import reorder
         reorder(out_path)
         # A function file that DEFINES its module's zero-initialised globals to

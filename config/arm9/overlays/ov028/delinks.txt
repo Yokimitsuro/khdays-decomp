@@ -38,3 +38,23 @@ src/overlays/ov028/calls/func_ov028_0208ab20.c:
 src/overlays/ov028/calls/func_ov028_0208ab78.c:
     complete
     .text       start:0x0208ab78 end:0x0208abd0
+
+src/overlays/ov028/data/ov028_dsprot_bad_mac_0208b560.c:
+    complete
+    .rodata     start:0x0208b560 end:0x0208b568
+
+src/overlays/ov028/dsprot/dsprot_mac_owner.c:
+    complete
+    .rodata     start:0x0208abd0 end:0x0208acf0
+
+src/overlays/ov028/dsprot/dsprot_main.c:
+    complete
+    .rodata     start:0x0208b040 end:0x0208b560
+
+src/overlays/ov028/dsprot/dsprot_rom_test.c:
+    complete
+    .rodata     start:0x0208af30 end:0x0208b040
+
+src/overlays/ov028/dsprot/dsprot_rom_util.c:
+    complete
+    .rodata     start:0x0208acf0 end:0x0208af30
