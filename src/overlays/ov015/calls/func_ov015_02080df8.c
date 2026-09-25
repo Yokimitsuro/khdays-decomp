@@ -1,13 +1,15 @@
-/* NOT MATCHING -- 456 bytes, exact size, instruction count and relocations except the
- * 64-bit shift, which mwcc emits as `_ll_shl` (the ROM's func_020203d0: an alias line
- * `_ll_shl kind:label(arm) addr:0x020203d0` in config/arm9/symbols.txt resolves it).  The
- * residue is 6 bytes in the link-collect loop: the entry address sum and the two field
- * offset constants swap r1 / r2 (ROM: adds r2,r1,r7 / movs r1,#2; build 139: movs r2,#2 /
- * adds r1,r1,r7).  Initialising the inner counter before the entry load fixes the choice
- * but the scheduler then hoists that movs above the load, which the ROM keeps inside the
- * if.  ~260 cells swept (declaration orders, entry pointer / cached entries / pointer
- * arithmetic, nKind local, continue / while / switch forms, block-scoped or reused
- * counters, unsigned counters, prototypes).  Notes: build/held/func_ov015_02080df8.md. */
+#pragma thumb on
+/* func_ov015_02080df8 -- Ov015_CreateSpotClass: build the class table (0x184 bytes, ov002
+ * 020769b0) that owns the 0x58-byte spot pieces from the script's table spec: for each spec
+ * row {table, count, entries} the table (+0x58, 0x1c each) gets its links cleared (-1), its
+ * two 64-bit id masks zeroed, its count, a heap copy of the entries (MI_CpuCopy8) and the id
+ * bit of every entry ORed into the first (ids below 0x40) or second mask (runtime shift
+ * 020203d0); then every table collects the distinct link targets (+0x14 of its kind-1
+ * entries) into its four link bytes.  Handlers: free 020807cc (+0x4), 02080684 (+0xc),
+ * drive 0208069c (+0x18), assign 02080ad0 (+0x20), 0208075c (+0x24), facing 02080794 (+0x28),
+ * 02080734 (+0x2c), 0208073c (+0x30); class kind 0xe; the current entry pointer (+0x17c)
+ * cleared, player (+0x180) and current entry (+0x179) -1, the link table (+0x178) 1 -- or 5 in
+ * mission 0x25a (ov002 0206b84c).  Returns the table. */
 typedef signed char        s8;
 typedef unsigned char      u8;
 typedef unsigned short     u16;
@@ -85,6 +87,7 @@ Ov015SpotDef *func_ov015_02080df8(void *pCtx, Ov015SpotSpec *pSpec)
     Ov015SpotTable *pTable;
     int i;
     int nTable;
+    char nLink;    /* the link id as a plain char (s8 codes differently), compared and stored in the table */
     int j;
     pDef = func_ov002_020769b0(sizeof(Ov015SpotDef), 0x58, pCtx);
     for (i = 0; i < pSpec->nRows; i++) {
@@ -115,12 +118,13 @@ Ov015SpotDef *func_ov015_02080df8(void *pCtx, Ov015SpotSpec *pSpec)
         for (j = 0; j < pTable[k].nCount; j++) {
             if (pTable[k].aEntry[j].nKind == 1) {
                 nId = pTable[k].aEntry[j].nLinkTable;
+                nLink = nId;
                 for (m = 0; m < 4; m++) {
-                    if (nId == pTable[k].aLink[m]) {
+                    if (nLink == pTable[k].aLink[m]) {
                         break;
                     }
                     if (pTable[k].aLink[m] == -1) {
-                        pTable[k].aLink[m] = nId;
+                        pTable[k].aLink[m] = nLink;
                         break;
                     }
                 }
