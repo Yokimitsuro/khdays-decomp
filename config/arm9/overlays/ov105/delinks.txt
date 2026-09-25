@@ -247,6 +247,10 @@ src/overlays/ov105/calls/func_ov105_020be96c.c:
     complete
     .text       start:0x020be96c end:0x020bea34
 
+src/overlays/ov105/calls/func_ov105_020bea34.c:
+    complete
+    .text       start:0x020bea34 end:0x020beb98
+
 src/overlays/ov105/calls/func_ov105_020beb98.c:
     complete
     .text       start:0x020beb98 end:0x020bebcc
