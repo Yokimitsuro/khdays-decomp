@@ -4512,6 +4512,10 @@ src/auto/func_0201fa6c.c:
     complete
     .text       start:0x0201fa6c end:0x0201fabc
 
+libs/msl/c/auto/func_0201fabc.c:
+    complete
+    .text       start:0x0201fabc end:0x0201fbd0
+
 libs/msl/c/calls/strncmp.c:
     complete
     .text       start:0x0201fbd0 end:0x0201fc04
