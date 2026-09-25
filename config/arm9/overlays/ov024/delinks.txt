@@ -424,7 +424,7 @@ src/overlays/ov024/auto/func_ov024_02086000.c:
     complete
     .text       start:0x02086000 end:0x02086004
 
-src/overlays/ov024/asm_stubs/auto/func_ov024_02086004.c:
+libs/mobiclip/video/asm_stubs/auto/func_ov024_02086004.c:
     complete
     .text       start:0x02086004 end:0x020865c4
 
@@ -467,6 +467,10 @@ src/overlays/ov024/calls/func_ov024_020867ec.c:
 src/overlays/ov024/calls/func_ov024_02086800.cpp:
     complete
     .text       start:0x02086800 end:0x02086958
+
+libs/mobiclip/audio/asm_stubs/calls/func_ov024_02086958.s:
+    complete
+    .text       start:0x02086958 end:0x02087318
 
 src/overlays/ov024/data/mobiclip_deblock.s:
     complete

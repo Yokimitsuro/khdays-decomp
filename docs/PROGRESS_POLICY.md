@@ -20,11 +20,15 @@ C-decompiled progress.
 
 Some library functions were written in assembly by their authors: NitroSDK's `asm`
 functions (cache and protection-unit control, interrupt masking, context switches,
-memory copy/fill kernels, matrix helpers), the BIOS SWI veneers and the CodeWarrior
-runtime's `_ll_mul`. Many use instructions C cannot express with this compiler
+memory copy/fill kernels, matrix helpers, the DGT SHA-1 transform), the BIOS SWI veneers,
+the CodeWarrior runtime's long-long and division helpers, and two routines of the MobiClip
+movie middleware (Actimagine) that the game links: the YCoCg-to-RGB row blit and the
+coding-1 audio transform. Many use instructions C cannot express with this compiler
 (`mcr`/`mrc`, `mrs`/`msr`, `swi`, exception returns); the rest are hand-scheduled
 kernels whose shape mwcc never emits. Such a function is **complete** when it is
-integrated as that original assembly under `libs/**/asm_stubs/`, verifies byte-exact,
+integrated as that original assembly under `libs/**/asm_stubs/` (inline `asm` in a `.c`,
+or a GAS `.s` where the routines branch into each other or keep data between them, which
+inline asm cannot express), verifies byte-exact,
 and is listed as `canonical_sdk_asm` in `config/arm9/report_asm_matches.json` with the
 library source it comes from (`evidence`). The README's "Complete functions" row is
 real C plus these entries. They are still not counted as C: the C column stays

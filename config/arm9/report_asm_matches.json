@@ -948,6 +948,24 @@
       "source": "src/overlays/ov003/calls/func_ov003_0204d74c.c",
       "source_sha256": "b3d889a801e2554787752c68f3d67a0e2d2c558e936b8d5ea9ccd309aefaff97",
       "target_sha256": "b97dbd98de132ddcd2afe50d2e898935fc1de228f0fd88c3b5485ad9c419404d"
+    },
+    "func_ov024_02086004": {
+      "evidence": "MobiClip middleware (Actimagine) YCoCg-to-RGB row blit: hand-written ARM (ip used as the stack pad, subs+bgt countdowns, paired post-indexed chroma loads -- none emitted by mwcc; see the source header)",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 1472,
+      "source": "libs/mobiclip/video/asm_stubs/auto/func_ov024_02086004.c",
+      "source_sha256": "370123b50edb69bd72e308ea49c857d53e3139609cd3d9488a0ae9ee9fafdddd",
+      "target_sha256": "d73c01e5683150a7a650c444be0d65e7aa5c127c229631df07dab513fc253937"
+    },
+    "func_ov024_02086958": {
+      "evidence": "MobiClip middleware (Actimagine) coding-1 audio transform: hand-written ARM (mov pc, lr returns, constants and padding between routines, inner subroutines entered by bl)",
+      "kind": "canonical_sdk_asm",
+      "mode": "arm",
+      "size": 2496,
+      "source": "libs/mobiclip/audio/asm_stubs/calls/func_ov024_02086958.s",
+      "source_sha256": "9d8487a389a933f75cd8954dacfb21430af1bd429cb8107535f4dea7c97cddf3",
+      "target_sha256": "8adfbb1a200d509d1569353474926b4ea80cb01e4121d5ff96421925f7045d79"
     }
   },
   "schema_version": 1

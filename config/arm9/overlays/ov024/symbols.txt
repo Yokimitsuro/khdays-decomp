@@ -115,9 +115,9 @@ func_ov024_0208677c kind:function(arm,size=0x70) addr:0x0208677c
 func_ov024_020867ec kind:function(arm,size=0x14) addr:0x020867ec
 func_ov024_02086800 kind:function(arm,size=0x158) addr:0x02086800
 func_ov024_02086958 kind:function(arm,size=0x9c0) addr:0x02086958
-.L_02086d38 kind:label(arm) addr:0x02086d38
-.L_02086d88 kind:label(arm) addr:0x02086d88
-.L_02087058 kind:label(arm) addr:0x02087058
+mobiclip_02086d38 kind:label(arm) addr:0x02086d38
+mobiclip_02086d88 kind:label(arm) addr:0x02086d88
+mobiclip_02087058 kind:label(arm) addr:0x02087058
 func_ov024_02087318_unk kind:data(any) addr:0x02087318
 data_ov024_020886c4 kind:data(any) addr:0x020886c4
 data_ov024_0208875c kind:data(any) addr:0x0208875c ambiguous

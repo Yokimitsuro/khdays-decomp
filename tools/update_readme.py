@@ -44,7 +44,7 @@ def main():
     asm = cats["asm_stub_matched"]
     sdk = cats["sdk_identified"]
     named = cats["named_only"]
-    # Library functions whose original source is assembly (NitroSDK/MSL `asm`) cannot be C;
+    # Library functions whose original source is assembly (NitroSDK/MSL `asm`, MobiClip) cannot be C;
     # once integrated as that assembly and byte-verified with source evidence they are complete.
     verified_asm = report_asm.load_verified_matches()
     lib_asm = sum(1 for f in functions if f["category"] == "asm_stub_matched"
@@ -66,7 +66,8 @@ def main():
     if complete_label not in txt:
         anchor = re.search(r"^\| Real C-decompiled matched functions \|[^\n]*\n", txt, re.M)
         txt = (txt[:anchor.end()] + complete_label + " **0** / ~0 (~0.0%) | Real C, plus library "
-               "functions whose original source is assembly (NitroSDK/MSL `asm`, BIOS veneers): C cannot "
+               "functions whose original source is assembly (NitroSDK/MSL `asm`, BIOS veneers, the MobiClip "
+               "middleware): C cannot "
                "express them, so they count once integrated as that assembly and byte-verified with "
                "source evidence in `config/arm9/report_asm_matches.json`. |\n" + txt[anchor.end():])
     subs = [

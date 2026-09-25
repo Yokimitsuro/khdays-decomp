@@ -23,10 +23,13 @@ def validate_owner(name, entry, root=ROOT):
     if path.stem != name or path.suffix not in (".c", ".s"):
         raise ValueError(f"Report source does not identify {name}: {source}")
     kind = entry["kind"]
-    if path.suffix == ".s" and not (kind == "canonical_sdk_asm" and source.startswith("libs/msl/runtime/")):
-        raise ValueError(f"Only the MSL runtime may be a .s report source: {source}")
+    if path.suffix == ".s" and not (kind == "canonical_sdk_asm"
+                                    and source.startswith(("libs/msl/runtime/", "libs/mobiclip/"))):
+        raise ValueError(f"Only the MSL runtime and MobiClip may be .s report sources: {source}")
     if kind == "canonical_sdk_asm":
-        if not re.fullmatch(r"libs/(?:nitro|msl)/[^/]+/asm_stubs/(?:auto|calls)/[^/]+\.(?:c|s)", source):
+        # NitroSDK, MSL (CodeWarrior runtime) and the MobiClip middleware: library code whose
+        # original source is assembly. Game code never qualifies.
+        if not re.fullmatch(r"libs/(?:nitro|msl|mobiclip)/[^/]+/asm_stubs/(?:auto|calls)/[^/]+\.(?:c|s)", source):
             raise ValueError(f"SDK assembly must be library-owned: {source}")
     elif kind == "authorized_clz":
         approvals = json.loads((root / "config/arm9/asm_exceptions.json").read_text())
