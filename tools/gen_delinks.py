@@ -174,6 +174,48 @@ def committed_data_claims(delinks_txt, root=ROOT):
     return claims
 
 
+def _absorb_alignment_padding(unit, by_source, root):
+    """Let a proved range own the linker's alignment fill up to the next proved range.
+
+    Two reconstructed objects can sit 1-3 bytes apart because the second one needs 4-byte
+    alignment (a u16 SDK global followed by a word, an s16[89] table followed by a word
+    table). That fill is not source data, so no object can define it without distorting its
+    declaration; the linker writes it. It only counts once both neighbours are proved, the
+    next one starts on a word boundary and the ROM bytes in between are zero, and the gate's
+    link then has to reproduce them from the objects' alignment alone.
+    """
+    spans = sorted(
+        (sec, s, e, source)
+        for source, items in by_source.items()
+        for sec, s, e in items
+    )
+    holes = []
+    for (sec_a, s_a, e_a, src_a), (sec_b, s_b, e_b, src_b) in zip(spans, spans[1:]):
+        if sec_a == sec_b and e_a < s_b and s_b - e_a < 4 and s_b % 4 == 0:
+            holes.append((sec_a, e_a, s_b, src_a))
+    if not holes:
+        return
+    index_path = Path(root) / "build" / "data_index.json"
+    if not index_path.exists():
+        return
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    for sec, lo, hi, source in holes:
+        known = {}
+        for entry in index.values():
+            addr = entry.get("addr")
+            if entry.get("module") != unit or entry.get("section") != sec or addr is None:
+                continue
+            raw = bytes.fromhex(entry.get("hex", ""))
+            for address in range(max(lo, addr), min(hi, addr + len(raw))):
+                known[address] = raw[address - addr]
+        if len(known) != hi - lo or any(known.values()):
+            continue
+        by_source[source] = [
+            (s_sec, s_start, hi if (s_sec == sec and s_end == lo) else s_end)
+            for s_sec, s_start, s_end in by_source[source]
+        ]
+
+
 def gen_data_block(unit, root=ROOT, committed_delinks=None):
     """FILE entries for reconstructed initialized DATA that the verifier has proved.
 
@@ -223,6 +265,7 @@ def gen_data_block(unit, root=ROOT, committed_delinks=None):
                     by_source[source] = kept
     if not by_source:
         return [], {}, 0
+    _absorb_alignment_padding(unit, by_source, root)
 
     blocks = []
     modes = {}

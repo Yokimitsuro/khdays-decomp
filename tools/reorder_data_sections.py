@@ -177,6 +177,17 @@ def merge_interleaved(buf, shdrs, names, syms, by_sec, path, log):
         buf += blob
         shdrs[first][4] = new_off
         shdrs[first][5] = span
+        # The merged section must keep the strictest alignment its pieces asked for, or a
+        # word-aligned first table that mwcc emitted as its own section loses its alignment
+        # when a byte table with a lower index becomes the carrier (msl_ctype_tables: the
+        # ROM puts the unit at 0x02041bc8 after two bytes of fill). Only alignments every
+        # piece of that section already satisfies at its ROM address are taken over.
+        aligns = [shdrs[first][8]]
+        for idx in members:
+            align = shdrs[idx][8] or 1
+            if base % align == 0 and all(a % align == 0 for a, _, i, _ in chunks if i == idx):
+                aligns.append(align)
+        shdrs[first][8] = max(aligns)
         for idx in members:
             if idx != first:
                 shdrs[idx][5] = 0

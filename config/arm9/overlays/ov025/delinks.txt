@@ -4123,7 +4123,7 @@ src/overlays/ov025/data/ov025_pointers_020b4220.c:
 
 src/overlays/ov025/data/ov025_reportsets_020b4228.c:
     complete
-    .rodata     start:0x020b4228 end:0x020b4232
+    .rodata     start:0x020b4228 end:0x020b4234
 
 src/overlays/ov025/data/ov025_screen_020b4b70.c:
     complete

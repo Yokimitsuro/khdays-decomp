@@ -7667,7 +7667,7 @@ libs/nitro/fx/auto/fx_sincos_table.c:
 
 libs/nitro/gx/auto/gx_disp_on_flag.c:
     complete
-    .data       start:0x020422b4 end:0x020422b6
+    .data       start:0x020422b4 end:0x020422b8
 
 libs/nitro/gx/auto/gx_dma_id.c:
     complete
@@ -7723,7 +7723,7 @@ libs/nns/g3d/auto/g3d_nsbca_pivot_table.c:
 
 libs/nns/snd/auto/sndarc_stream_adpcm_tables.c:
     complete
-    .rodata     start:0x02041b04 end:0x02041bc6
+    .rodata     start:0x02041b04 end:0x02041bc8
 
 src/data/main_exception_index_0203d1bc.c:
     complete

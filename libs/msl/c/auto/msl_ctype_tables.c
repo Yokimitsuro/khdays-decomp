@@ -29,7 +29,9 @@ typedef unsigned short u16;
 #define CT_UPPER  0x0200
 #define CT_XDIGIT 0x0400
 
-const u8 data_02041bc8[128] = {
+/* The ROM starts this unit on a word boundary: the two bytes before it are zero fill
+ * after the 89-entry ADPCM step table, so the original object asked for 4-byte alignment. */
+const u8 data_02041bc8[128] __attribute__((aligned(4))) = {
       0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,
      12,  13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23,
      24,  25,  26,  27,  28,  29,  30,  31,  32,  33,  34,  35,
