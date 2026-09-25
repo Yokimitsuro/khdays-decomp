@@ -1,13 +1,13 @@
 /* Constructor of the ov222 enemy. Installs the handlers (+8, +0xc, +0x1c message, +0x30, +0x28, +0x2c,
  * +0x34, +0x1d0, +0x1dc, +0x1e0, +0x1e4), the +0x64 pose (scale 2.21), the +0x1fc bounds box (2.0
  * around the feet, 2.0 high) and bit 5 of the +0x60 high byte; builds the +0x384 rig from pose 0
- * (020cfd80 hooks it up, subscribed to +0x9c), binds its +0x388 animation (pose 1, 12 frames),
+ * (020d1ba0 hooks it up, subscribed to +0x9c), binds its +0x388 animation (pose 1, 12 frames),
  * resolves five bones (+0x3d8, +0x3dc, +0x3d4, +0x3e0, +0x3e4) and the +0x3fc bone of pose 0x21;
  * registers action 0/2 lowered 1.1 (rate 1.31), 2/3 lowered 2.21 (0.6), 1/2 (0.8) and 4/2 (1.31);
  * builds the eight sub-items of data_ov222_020d6bc8 into the +0x424 pair table (attached, hidden);
  * places five spheres at the origin (radius 0.375, 1.63, 1.19 and twice 1.0, all scaled by 1.1),
  * each reserved in the +0x22c pool (kept in +0x3ac) and the +0x144 pool (kept in +0x3c0), raises
- * bit 1 of the second one, creates the four +0x3ec helpers (020d3f60) and loads sound 0x14c. */
+ * bit 1 of the second one, creates the four +0x3ec helpers (020d5e0c) and loads sound 0x12a. */
 typedef unsigned short u16;
 typedef void (*Callback)(void);
 typedef struct { int x, y, z; } Vec3;
