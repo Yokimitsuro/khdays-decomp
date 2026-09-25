@@ -52,6 +52,10 @@ src/calls/WM_EndKeySharing_0x020cccf4.c:
     complete
     .text       start:0x020cccf4 end:0x020ccd00
 
+src/overlays/ov253/calls/func_ov253_020ccd00.c:
+    complete
+    .text       start:0x020ccd00 end:0x020cce54
+
 src/overlays/ov253/calls/func_ov253_020cce54.c:
     complete
     .text       start:0x020cce54 end:0x020cceb0
