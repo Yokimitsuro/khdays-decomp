@@ -252,6 +252,10 @@ src/overlays/ov258/calls/func_ov258_020d02d0.c:
     complete
     .text       start:0x020d02d0 end:0x020d02f8
 
+src/overlays/ov258/calls/func_ov258_020d02f8.c:
+    complete
+    .text       start:0x020d02f8 end:0x020d06a0
+
 src/overlays/ov258/calls/func_ov258_020d06a0.c:
     complete
     .text       start:0x020d06a0 end:0x020d0738
