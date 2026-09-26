@@ -673,6 +673,10 @@ src/overlays/ov245/calls/func_ov245_020d2c78.c:
     complete
     .text       start:0x020d2c78 end:0x020d2d08
 
+src/overlays/ov245/calls/func_ov245_020d2d08.c:
+    complete
+    .text       start:0x020d2d08 end:0x020d2e58
+
 src/overlays/ov245/calls/func_ov245_020d2e58.c:
     complete
     .text       start:0x020d2e58 end:0x020d2eb4
