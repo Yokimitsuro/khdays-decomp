@@ -128,6 +128,10 @@ src/overlays/ov023/calls/func_ov023_020838b8.c:
     complete
     .text       start:0x020838b8 end:0x02083920
 
+src/overlays/ov023/calls/func_ov023_02083920.c:
+    complete
+    .text       start:0x02083920 end:0x020839b8
+
 src/overlays/ov023/calls/func_ov023_020839b8.c:
     complete
     .text       start:0x020839b8 end:0x020839f4
