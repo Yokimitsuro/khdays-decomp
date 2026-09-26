@@ -16,7 +16,7 @@ src/overlays/ov116/calls/func_ov116_020cfc04.c:
     complete
     .text       start:0x020cfc04 end:0x020cfc60
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020cfc60.c:
+src/overlays/ov116/calls/func_ov116_020cfc60.c:
     complete
     .text       start:0x020cfc60 end:0x020cff74
 
