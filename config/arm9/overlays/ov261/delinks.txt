@@ -71,7 +71,7 @@ src/overlays/ov261/calls/func_ov261_020d03ec.c:
     complete
     .text       start:0x020d03ec end:0x020d04f0
 
-src/overlays/ov261/asm_stubs/calls/func_ov261_020d04f0.c:
+src/overlays/ov261/calls/func_ov261_020d04f0.c:
     complete
     .text       start:0x020d04f0 end:0x020d0700
 
