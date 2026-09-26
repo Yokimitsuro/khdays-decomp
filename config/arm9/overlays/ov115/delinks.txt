@@ -60,7 +60,7 @@ src/overlays/ov115/calls/func_ov115_020cc994.c:
     complete
     .text       start:0x020cc994 end:0x020cc9bc
 
-src/overlays/ov115/asm_stubs/calls/func_ov115_020cc9bc.c:
+src/overlays/ov115/calls/func_ov115_020cc9bc.c:
     complete
     .text       start:0x020cc9bc end:0x020ccddc
 

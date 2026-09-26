@@ -60,7 +60,7 @@ src/overlays/ov116/calls/func_ov116_020d05d4.c:
     complete
     .text       start:0x020d05d4 end:0x020d05fc
 
-src/overlays/ov116/asm_stubs/calls/func_ov116_020d05fc.c:
+src/overlays/ov116/calls/func_ov116_020d05fc.c:
     complete
     .text       start:0x020d05fc end:0x020d0a1c
 
