@@ -22,10 +22,10 @@ identifications are not counted as real C decompilation.
 
 | Category | Count | Meaning |
 |---|---:|---|
-| Real C-decompiled matched functions | **23,094** / ~23,233 (~99.4% by function count) | Functions implemented in C and verified byte-exact |
-| Complete functions (C + verified original library assembly) | **23,200** / ~23,233 (~99.9%) | Real C, plus library functions whose original source is assembly (NitroSDK/MSL `asm`, BIOS veneers): C cannot express them, so they count once integrated as that assembly and byte-verified with source evidence in `config/arm9/report_asm_matches.json`. |
-| Real C-decompiled matched **bytes** | **4,680,694** / 4,728,788 (~98.98% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
-| Inline ASM / ASM stub matched functions | **115** / ~23,233 (~0.5%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
+| Real C-decompiled matched functions | **23,096** / ~23,233 (~99.4% by function count) | Functions implemented in C and verified byte-exact |
+| Complete functions (C + verified original library assembly) | **23,202** / ~23,233 (~99.9%) | Real C, plus library functions whose original source is assembly (NitroSDK/MSL `asm`, BIOS veneers): C cannot express them, so they count once integrated as that assembly and byte-verified with source evidence in `config/arm9/report_asm_matches.json`. |
+| Real C-decompiled matched **bytes** | **4,682,806** / 4,728,788 (~99.03% by code bytes) | Real-C-only byte progress; `asm_stubs/`, inline ASM and `nonmatching/` are excluded. decomp.dev additionally counts source-hashed, verified SDK assembly and authorized CLZ exceptions as matching, not as C. See [progress policy](docs/PROGRESS_POLICY.md). |
+| Inline ASM / ASM stub matched functions | **113** / ~23,233 (~0.5%) | ASM implementations, including temporary game stubs, canonical library assembly and authorized inline exceptions; never counted as real C. Only explicitly verified manifest entries contribute to decomp.dev matching coverage. |
 | SDK/library byte-match identifications | **0** / ~23,233 (~0.0%) | NitroSDK or library functions identified separately by byte matching |
 | Named but not decompiled | **24** / ~23,233 (~0.1%) | Functions known to the project but not implemented as C |
 | Initialized DATA | **188,340** / 188,340 (**100.00%**) | Byte/relocation-verified `.rodata`/`.data`; includes the separately reported MobiClip executable payload at 26,012/26,012 bytes. |
