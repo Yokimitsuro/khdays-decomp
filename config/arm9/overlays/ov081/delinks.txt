@@ -64,7 +64,7 @@ src/overlays/ov081/calls/func_ov081_020b8c98.c:
     complete
     .text       start:0x020b8c98 end:0x020b8d00
 
-src/overlays/ov081/asm_stubs/calls/func_ov081_020b8d00.c:
+src/overlays/ov081/calls/func_ov081_020b8d00.c:
     complete
     .text       start:0x020b8d00 end:0x020b8f1c
 
