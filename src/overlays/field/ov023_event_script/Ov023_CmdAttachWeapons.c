@@ -51,6 +51,9 @@ extern Ov023Entity *ArrayEntryPtrD0(int nEntity);                     /* Entity_
 /* Defined taking nEntity as int, nParent as int: declared narrower here, which is what makes mwcc truncate the
  * argument at the call as the ROM does (declared as defined, the code comes out different). */
 extern void  EntityMgr_LinkChild(u16 nEntity, u16 nParent, void *pRes);  /* Entity_Attach */
+/* Defined taking the first argument as int: declared narrower here, which is what makes mwcc
+ * convert the argument at the call as the ROM does (declared as defined, the code comes out
+ * different). */
 extern int   LoadArrayU8At0ce(u16 nEntity);                            /* Entity_GetModelId */
 extern void  Ov023_PlaceActorModel(Ov023Actor *pActor, char *pszAnchor, const VecFx32 *pPos, int nMode, int nActor); /* Ov023_PlaceActorModel */
 extern void  Ov023_DispatchWorkerRequest(Ov023Actor *pActor, Ov023Actor *pParent, int nActor); /* Ov023_LinkActor */

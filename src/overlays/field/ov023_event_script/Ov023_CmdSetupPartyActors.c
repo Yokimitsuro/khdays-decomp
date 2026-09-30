@@ -36,8 +36,11 @@ extern Ov023SessionSlot *Slot4_GetIfOccupied(int nSlot);                  /* Ses
 extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *pszName, int nHeap);         /* open a text container */
 extern void  Entity_ForwardToSlot(int nEntity, int nA, int nB, Ov023MotionParam *pParam, int nC); /* Entity_StartMotion */
+/* Defined taking the first argument as int: declared narrower here, which is what makes mwcc
+ * convert the argument at the call as the ROM does (declared as defined, the code comes out
+ * different). */
 extern void  TailForwardTrackEntry(u16 nEntity, void *pTable, int nA, int nB); /* Entity_BindResource */
-extern void  Entity_SetVisible(u16 nEntity, int bVisible);              /* Entity_SetVisible */
+extern void  Entity_SetVisible(int nEntity, int bVisible);              /* Entity_SetVisible */
 extern void  Ov002_LoadCharacterWeapon(u8 *pBlock, int nKind, int nArg);  /* build a member block */
 extern void  ZeroHalfThenFree(void *pContainer);                       /* close a text container */
 extern int   Session_GetLocalPlayerIndex(void);                                   /* Session_GetLocalPlayerIndex */
@@ -90,7 +93,7 @@ int Ov023_CmdSetupPartyActors(void)
         param.nArg1 = 0xccd;
         Entity_ForwardToSlot((u16)((u16)i), 0, 0, &param, 0);
         TailForwardTrackEntry((u16)i, data_ov023_0208a334[nKind], 1, 6);
-        Entity_SetVisible((u16)i, 0);
+        Entity_SetVisible(i & 0xffff, 0);
         Ov002_LoadCharacterWeapon(aBlock, nKind, pUsed->nByte04);
         if (data_0204c240 & 4) {
             nFlags = aBlock[0];

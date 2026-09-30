@@ -57,12 +57,12 @@ extern int   ScriptVm_ReadOperandInt(Ov023ScriptCtx *pCtx, Ov023Operand *pOperan
 extern int   ScriptVm_ReadOperandFx32(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand);   /* ScriptVm_ReadOperandFx32 */
 extern int   ScriptVm_ResolveActorIndex(Ov023ScriptCtx *pCtx, int nActor);
 extern Ov023Entity *ArrayEntryPtrD0(int nEntity);                            /* Entity_Get */
-extern int   LoadArrayU8At0ce(u16 nEntity);                                   /* Entity_GetModelId */
+extern int   LoadArrayU8At0ce(int nEntity);                                   /* Entity_GetModelId */
 extern void  Obj_StepMotionTransform(Ov023Camera *pCamera, VecFx32 *pPos, VecFx32 *pAngle, int *pDistance, int *pRoll); /* Camera_SampleMotion */
 /* Defined taking nEntity as int, nModel as int: declared narrower here, which is what makes mwcc truncate the
  * argument at the call as the ROM does (declared as defined, the code comes out different). */
 extern void  Entity_SubmitRenderNode(u16 nEntity, u16 nModel, char *pszSpot, VecFx32 *pPos); /* Entity_SetPosition */
-extern void  Entity_SetVisible(u16 nEntity, int bVisible);                     /* Entity_SetVisible */
+extern void  Entity_SetVisible(int nEntity, int bVisible);                     /* Entity_SetVisible */
 extern void  Ov023_PlaceActorModel(Ov023Actor *pActor, char *pszAnchor, VecFx32 *pPos, int nModel, int nActor); /* Ov023_PlaceActorModel */
 extern void  MTX_Identity43_(MtxFx43 *pMtx);
 extern void  MTX_RotY43_(MtxFx43 *pMtx, int nSin, int nCos);
@@ -101,7 +101,7 @@ int Ov023_CmdPlaceRelative(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand)
     pEntity = ArrayEntryPtrD0((u16)((u16)nReference));
     nHeading = pEntity->nAngle;
     vPos = pEntity->vPos;
-    nModel = LoadArrayU8At0ce((u16)nReference);
+    nModel = LoadArrayU8At0ce(nReference & 0xffff);
     nDistance = pOperand[3].nType == 0 ? nOffset : ScriptVm_ReadOperandFx32(pCtx, pOperand + 3);
     nYaw = (u16)vCameraAngle.x;
     vOffset.x = 0;
@@ -117,7 +117,7 @@ int Ov023_CmdPlaceRelative(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand)
     Entity_SubmitRenderNode((u16)nEntity, (u16)nModel, 0, &vPos);
     pEntity = ArrayEntryPtrD0((u16)((u16)nEntity));
     Ov023_EntitySetAngle(pEntity, nHeading);
-    Entity_SetVisible((u16)nEntity, 1);
+    Entity_SetVisible(nEntity & 0xffff, 1);
     if (pCtx->pEvent->pActors != 0) {
         Ov023_PlaceActorModel(&pCtx->pEvent->pActors[nEntity], 0, &vPos, nModel, nEntity);
     }

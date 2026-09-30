@@ -76,6 +76,9 @@ extern Ov002Vec3 *Ov002_GetElementVelocity(Ov002PieceElement *);
 /* Defined taking argument 0 as int: declared narrower here, which is what makes mwcc truncate the
  * argument at the call as the ROM does (declared as defined, the code comes out different). */
 extern Hit *EntityMgr_RayCastWithParams(u16, CollCastParams *);
+/* Defined taking the first argument as int: declared narrower here, which is what makes mwcc
+ * convert the argument at the call as the ROM does (declared as defined, the code comes out
+ * different). */
 extern Hit *EntityMgr_SphereCastWithParams(u16, CollCastParams *);
 static inline int MulRound(int a, int b) { return (int)(((s64)a * b + 0x800) >> 12); }
 static inline int Abs(int a) { return a < 0 ? -a : a; }

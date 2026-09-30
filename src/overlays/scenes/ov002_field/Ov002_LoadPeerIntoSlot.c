@@ -29,10 +29,13 @@ extern char gOv002ColWallName[];
 extern int Entity_LoadAndAttach(int, u32);
 extern signed char Ov002_GetCtxModeByte(void);
 extern void Res_RequestIdPair(int nId);
-extern TrackEntryGroup *GetTrackEntryBase(u16);
+extern TrackEntryGroup *GetTrackEntryBase(int);
 extern void BitArray_SetBit(void *,int);
 extern int BitArray_TestBit(void *,int);
 extern int Ov002_IsSecondaryEntryLive(int,int);
+/* Defined taking the first argument as int: declared narrower here, which is what makes mwcc
+ * convert the argument at the call as the ROM does (declared as defined, the code comes out
+ * different). */
 extern void StoreValueInNamedEntry(u16,const char *,u8 *);
 extern void Ov002_SelectLinkCallbacks(int,void **,void **);
 extern void Ov002_RebindGroupAnimations(const char *,int,int,int);
@@ -64,7 +67,7 @@ void Ov002_LoadPeerIntoSlot(int nSlot,int nPeer)
         if(pCtx->bResourceKinds&2) Res_RequestIdPair(25);
         if(pCtx->bResourceKinds&4) Res_RequestIdPair(38);
     }
-    pGroup=GetTrackEntryBase((u16)nSlot);
+    pGroup=GetTrackEntryBase(nSlot & 0xffff);
     nOne=1;
     for(i=0;i<pGroup->wCount;i++) {
         pBlob=pGroup->apEntry[i];

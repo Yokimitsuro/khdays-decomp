@@ -46,7 +46,7 @@ extern void  strcpy(char *pszDst, const char *pszSrc);       /* STD_CopyString *
 extern int   strlen(const char *pszString);
 extern int   strcmp(const char *pA, const char *pB);         /* STD_CompareString */
 extern void *Msg_OpenContainerAndReadHeader(const char *pszName, int nHeap);         /* open a text container */
-extern int   Anim_GetLengthQ12(void *pAnim, u16 nTrack);                /* Anim_GetLengthQ12 */
+extern int   Anim_GetLengthQ12(void *pAnim, int nTrack);                /* Anim_GetLengthQ12 */
 extern int   Anim_GetFrame(void *pAnim, int nTrack);                /* Anim_GetFrame */
 extern int   LoadArrayInt244(int nEntity);                            /* Entity_GetSpeed */
 extern char  gOv023P2Name_2[];                                 /* ".p2" */
@@ -76,7 +76,7 @@ void Ov023_ActorQueueMotion(Ov023Actor *pActor, char *pszMotion, s16 nFrame, int
         }
         pMotion->nBlend = nBlend;
         if (nTrack == 0) {
-            nLength = Anim_GetLengthQ12(&pActor->pEntity->wFlags, (u16)nTrack);
+            nLength = Anim_GetLengthQ12(&pActor->pEntity->wFlags, nTrack & 0xffff);
             nCurrent = Anim_GetFrame(&pActor->pEntity->wFlags, (u16)((u16)nTrack));
             if (bHalfway != 0) {
                 if (nCurrent < nLength / 2) {

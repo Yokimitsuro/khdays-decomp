@@ -21,7 +21,7 @@
 extern char *data_ov002_0207fa00;
 
 extern int func_ov022_0208840c(int index);
-extern int LoadArrayU8At0cc(unsigned short id);
+extern int LoadArrayU8At0cc(int id);
 extern unsigned int *ArrayEntryPtrD0(int id);
 extern void func_ov022_02088218(int index, void *slot);
 
@@ -33,7 +33,7 @@ void Ov002_ApplyRosterSlotToNode(int index, void *slot, int value) {
         return;
     }
     id = func_ov022_0208840c(index);
-    if (LoadArrayU8At0cc((unsigned short)id) == 0) {
+    if (LoadArrayU8At0cc(id & 0xffff) == 0) {
         return;
     }
     node = ArrayEntryPtrD0((unsigned short)((unsigned short)id));

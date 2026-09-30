@@ -40,7 +40,7 @@ typedef struct Ov023SeatHeights {
 
 extern int   ScriptVm_ReadOperandInt(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand);   /* ScriptVm_ReadOperandInt */
 extern int   ScriptVm_ReadOperandFx32(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand);   /* ScriptVm_ReadOperandFx32 */
-extern void  TailForwardTrackEntry(u16 nEntity, void *pTable, int nA, int nB); /* Entity_BindResource */
+extern void  TailForwardTrackEntry(int nEntity, void *pTable, int nA, int nB); /* Entity_BindResource */
 extern char *Ov023_FormatIndex(int nIndex);                       /* Ov023_FormatSeatName */
 extern void  strcpy(char *pszDst, const char *pszSrc);       /* STD_CopyString */
 /* Defined taking nEntity as int, nMode as int: declared narrower here, which is what makes mwcc truncate the
@@ -70,7 +70,7 @@ int Ov023_CmdSeatMembers(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand)
 
         vOffset = data_02041dc8;
         for (i = 0; i < 13; i++) {
-            TailForwardTrackEntry((u16)i, gOv023MiOb0CPath, 1, 0xd);
+            TailForwardTrackEntry(i & 0xffff, gOv023MiOb0CPath, 1, 0xd);
             vOffset.y = heights.aHeight[i] + 0xda01;
             strcpy(szSpot, Ov023_FormatIndex(i));
             Entity_SubmitRenderNode((u16)i, 0, szSpot, &vOffset);

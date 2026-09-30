@@ -21,7 +21,7 @@ typedef struct Ov023RampCmd {
 extern int   ScriptVm_ReadOperandInt(void *pCtx, Ov023Operand *pOperand);     /* ScriptVm_ReadOperandInt */
 extern int   ScriptVm_ReadOperandFx32(void *pCtx, Ov023Operand *pOperand);     /* ScriptVm_ReadOperandFx32 */
 extern void *ArrayEntryPtrD0(int nEntity);                            /* Entity_Get */
-extern void  EntityMgr_SetTransition(u16 nEntity, int bEnable, int nDuration); /* Entity_StartTransition */
+extern void  EntityMgr_SetTransition(int nEntity, int bEnable, int nDuration); /* Entity_StartTransition */
 extern int   Anim_GetBlendFactor(int nMode, int nTotal, int nRemaining);  /* Anim_GetBlendFactor */
 extern int   ScaleAroundPivot(int nFactor, int nFrom, int nTo);        /* Anim_Interpolate */
 extern void  Slot48_StoreAtCurrentIndex(void *pCtx, void *pCmd);                 /* ScriptVm_RequeueCommand */
@@ -40,10 +40,10 @@ int Ov023_CmdRampActorTransition(void *pCtx, Ov023RampCmd *pCmd)
     ArrayEntryPtrD0((u16)((u16)nActor));
     pCmd->nRemaining--;
     if (pCmd->nRemaining == 0) {
-        EntityMgr_SetTransition((u16)nActor, 1, nTo);
+        EntityMgr_SetTransition(nActor & 0xffff, 1, nTo);
         return 1;
     }
-    EntityMgr_SetTransition((u16)nActor, 1, ScaleAroundPivot(Anim_GetBlendFactor(2, nFrames, pCmd->nRemaining), nTo, nFrom));
+    EntityMgr_SetTransition(nActor & 0xffff, 1, ScaleAroundPivot(Anim_GetBlendFactor(2, nFrames, pCmd->nRemaining), nTo, nFrom));
     Slot48_StoreAtCurrentIndex(pCtx, pCmd);
     return 0;
 }

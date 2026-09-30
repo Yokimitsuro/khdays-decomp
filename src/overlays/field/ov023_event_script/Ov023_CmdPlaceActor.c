@@ -52,7 +52,7 @@ extern long long func_02020400(int nNumerator, int nDenominator);
 extern void  Entity_SubmitRenderNode(u16 nEntity, u16 nMode, char *pszAnchor, VecFx32 *pPos); /* Entity_SetPosition */
 extern Ov023Entity *ArrayEntryPtrD0(int nEntity);                     /* Entity_Get */
 extern void  Entity_SetVisible(int nEntity, int bVisible);              /* Entity_SetVisible */
-extern int   LoadArrayU8At0cc(u16 nEntity);                            /* Entity_GetFlags */
+extern int   LoadArrayU8At0cc(int nEntity);                            /* Entity_GetFlags */
 extern int   strncmp(const char *pA, const char *pB, int nCount);
 extern int   func_020200b4(char *pszNumber);                        /* parse a number */
 extern int   FX_Mul(int nA, int nB);                           /* FX_Mul */
@@ -113,7 +113,7 @@ int Ov023_CmdPlaceActor(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand)
         }
     }
     Entity_SetVisible((u16)((u16)nActor), 1);
-    if (pCtx->pEvent->pActors != 0 && !(LoadArrayU8At0cc((u16)nActor) & 0x20)) {
+    if (pCtx->pEvent->pActors != 0 && !(LoadArrayU8At0cc(nActor & 0xffff) & 0x20)) {
         Ov023_PlaceActorModel(&pCtx->pEvent->pActors[nActor], pszAnchor, &vPos, nMode, nActor);
     }
     return 1;

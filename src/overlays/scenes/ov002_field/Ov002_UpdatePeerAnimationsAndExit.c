@@ -19,7 +19,7 @@ extern u8 data_0204be04,data_0204c240;
 extern void *GetTrackEntryBase(int);
 extern u16 Sequence_UpdateTracks(void *,int);
 extern int Anim_GetLengthQ12(void *, int);
-extern void Anim_SetFrameWrapped(void *,u16,int);
+extern void Anim_SetFrameWrapped(void *,int,int);
 extern void SceneNode_Enable(void *);
 extern int GameState_IsFlagSet(int);
 extern u16 Session_GetLocalPlayerIndex(void);
@@ -52,7 +52,7 @@ void Ov002_UpdatePeerAnimationsAndExit(int nSlot,int nDeltaQ12,int bAllowExit)
             if((pEntry->bActive&2) && nEnded) {
                 for(j=0;j<5;j++) {
                     if(nEnded&1) {
-                        Anim_SetFrameWrapped(pEntry,(u16)j,Anim_GetLengthQ12(pEntry, (u16)((u16)j))-0x1000);
+                        Anim_SetFrameWrapped(pEntry,j & 0xffff,Anim_GetLengthQ12(pEntry, (u16)((u16)j))-0x1000);
                         nEnded>>=1;
                     }
                 }
@@ -67,7 +67,7 @@ void Ov002_UpdatePeerAnimationsAndExit(int nSlot,int nDeltaQ12,int bAllowExit)
             if((pEntry->bActive&2) && nEnded) {
                 for(j=0;j<5;j++) {
                     if(nEnded&1) {
-                        Anim_SetFrameWrapped(pEntry,(u16)j,Anim_GetLengthQ12(pEntry, (u16)((u16)j))-0x1000);
+                        Anim_SetFrameWrapped(pEntry,j & 0xffff,Anim_GetLengthQ12(pEntry, (u16)((u16)j))-0x1000);
                         nEnded>>=1;
                     }
                 }

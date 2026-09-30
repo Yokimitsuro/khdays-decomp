@@ -6,7 +6,7 @@ extern char *Ov002_ClaimPoolEntry(char *pClass, int nSlot);
 extern int Ov002_GetCtxTableByte(int nSlot);
 extern int Actor_ArmWithMessage(int nNode, int nZero, void *pObj, void *pParams,
                          int nFlag);
-extern int EntityMgr_ProbeGround(u16 nId, int nSpot, VecFx32 *pOut);
+extern int EntityMgr_ProbeGround(int nId, int nSpot, VecFx32 *pOut);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *ab);
 extern void Actor_SetVecAndSyncChild(char *pNode, VecFx32 *pPos);
 extern short EntityMgr_GetCollEntryField14(int nId, int nSpot);
@@ -40,7 +40,7 @@ char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nBucket,
 
     Actor_ArmWithMessage((int)(pElement + 0x1c), 0, pElement, 0, 1);
 
-    if (nSpot != 0 && EntityMgr_ProbeGround((u16)nId, nSpot, &vSpot) != 0) {
+    if (nSpot != 0 && EntityMgr_ProbeGround(nId & 0xffff, nSpot, &vSpot) != 0) {
         if (pPos != 0) {
             VEC_Add(&vSpot, pPos, &vSpot);
         }
