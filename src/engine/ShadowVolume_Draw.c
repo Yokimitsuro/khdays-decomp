@@ -34,10 +34,10 @@ typedef struct ShadowVolume {
     u16 rotY;                           /* +0x16 */
 } ShadowVolume;
 
-extern NNSG3dGlb data_02047394;         /* NNS_G3dGlb */
+extern NNSG3dGlb NNS_G3dGlb;         /* NNS_G3dGlb */
 extern const short data_0203d210[];     /* FX_SinCosTable_ */
 extern void MTX_RotY33_(MtxFx33 *m, fx32 sinVal, fx32 cosVal);
-extern void Gfx_SubmitCachedCommandBlock(void);                                  /* NNS_G3dGlbFlushP */
+extern void NNS_G3dGlbFlush(void);                                  /* NNS_G3dGlbFlushP */
 extern void NNS_G3dMdlSetMdlPolygonID(void *mdl, u32 matID, int polygonID);   /* NNS_G3dMdlSetMdlPolygonID */
 extern void NNS_G3dMdlSetMdlCullMode(void *mdl, u32 matID, int cullMode);    /* NNS_G3dMdlSetMdlCullMode */
 extern void NNS_G3dMdlSetMdlAlpha(void *mdl, u32 matID, int alpha);       /* NNS_G3dMdlSetMdlAlpha */
@@ -52,13 +52,13 @@ void ShadowVolume_Draw(ShadowVolume *sv)
     if (mdl == 0) {
         return;
     }
-    data_02047394.prmBaseScale.x = data_02047394.prmBaseScale.y = data_02047394.prmBaseScale.z = sv->scale;
-    data_02047394.prmBaseTrans = sv->pos;
+    NNS_G3dGlb.prmBaseScale.x = NNS_G3dGlb.prmBaseScale.y = NNS_G3dGlb.prmBaseScale.z = sv->scale;
+    NNS_G3dGlb.prmBaseTrans = sv->pos;
     idx = sv->rotY >> 4;
-    MTX_RotY33_(&data_02047394.prmBaseRot, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);
-    data_02047394.flag &= ~(NNS_G3D_GLB_FLAG_INVBASE_UPTODATE | NNS_G3D_GLB_FLAG_INVBASECAMERA_UPTODATE |
+    MTX_RotY33_(&NNS_G3dGlb.prmBaseRot, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);
+    NNS_G3dGlb.flag &= ~(NNS_G3D_GLB_FLAG_INVBASE_UPTODATE | NNS_G3D_GLB_FLAG_INVBASECAMERA_UPTODATE |
                             NNS_G3D_GLB_FLAG_BASECAMERA_UPTODATE);
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlbFlush();
 
     NNS_G3dMdlSetMdlPolygonID(mdl, 0, 0);
     NNS_G3dMdlSetMdlCullMode(mdl, 0, GX_CULL_FRONT);
@@ -72,7 +72,7 @@ void ShadowVolume_Draw(ShadowVolume *sv)
     NNS_G3dMdlSetMdlPolygonMode(mdl, 0, GX_POLYGONMODE_SHADOW);
     NNS_G3dDraw1Mat1Shp(mdl, 0, 0, 1);
 
-    data_02047394.prmBaseScale.x = data_02047394.prmBaseScale.y = data_02047394.prmBaseScale.z = 0x1000;
-    data_02047394.flag &= ~(NNS_G3D_GLB_FLAG_INVBASE_UPTODATE | NNS_G3D_GLB_FLAG_INVBASECAMERA_UPTODATE |
+    NNS_G3dGlb.prmBaseScale.x = NNS_G3dGlb.prmBaseScale.y = NNS_G3dGlb.prmBaseScale.z = 0x1000;
+    NNS_G3dGlb.flag &= ~(NNS_G3D_GLB_FLAG_INVBASE_UPTODATE | NNS_G3D_GLB_FLAG_INVBASECAMERA_UPTODATE |
                             NNS_G3D_GLB_FLAG_BASECAMERA_UPTODATE);
 }

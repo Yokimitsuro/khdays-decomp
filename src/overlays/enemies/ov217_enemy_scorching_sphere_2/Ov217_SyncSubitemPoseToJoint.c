@@ -25,7 +25,7 @@ typedef struct {
 
 typedef struct { int w[11]; } PoseBlock;
 
-extern int func_02016320(void *model, MtxFx43 *out, void *opt, unsigned int jointId);
+extern int NNS_G3dGetResultMtx(void *model, MtxFx43 *out, void *opt, unsigned int jointId);
 extern void SrtTransform_SetIdentity(void *srt);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *src, VecFx32 *dst);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
@@ -38,7 +38,7 @@ void Ov217_SyncSubitemPoseToJoint(int *scene, char *self)
     VecFx32 position;
     VecFx32 cameraOffset;
 
-    if (func_02016320((char *)scene[0x22] + 0x20, &jointXfm, 0,
+    if (NNS_G3dGetResultMtx((char *)scene[0x22] + 0x20, &jointXfm, 0,
                       *(unsigned int *)(self + 0x438)) != 0) {
         position = jointXfm.translation;
         SrtTransform_SetIdentity(self + 0x3f4);

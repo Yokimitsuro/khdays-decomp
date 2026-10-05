@@ -16,7 +16,7 @@
  * zero-stores go in descending offset order within every vector.
  */
 
-/* Global camera-commit state (GX dirty flags + cached vectors, data_02047394). */
+/* Global camera-commit state (GX dirty flags + cached vectors, NNS_G3dGlb). */
 
 #include "nitro/fx_types.h"
 
@@ -27,7 +27,7 @@ extern struct {
     VecFx32 cachePos;       /* +0x218 (data_020475ac) */
     VecFx32 cacheUp;        /* +0x224 (data_020475b8) */
     VecFx32 cacheTarget;    /* +0x230 (data_020475c4) */
-} data_02047394;
+} NNS_G3dGlb;
 
 extern char data_0204739c[];   /* projection matrix output */
 extern char data_020473e0[];   /* view (look-at) matrix output */
@@ -45,19 +45,19 @@ void Ov002_ResetViewToDefault(void)
 
     MTX_OrthoW(0, 0xc0000, 0, 0x100000, 0, 0x3000, 0x400000,
                   data_0204739c);
-    data_02047394.flags &= ~0x50;
+    NNS_G3dGlb.flags &= ~0x50;
     vPos.z = 0x400000;
     vPos.y = 0;
     vPos.x = 0;
-    data_02047394.cachePos = vPos;
+    NNS_G3dGlb.cachePos = vPos;
     vUp.z = 0;
     vUp.y = 0x1000;
     vUp.x = 0;
-    data_02047394.cacheUp = vUp;
+    NNS_G3dGlb.cacheUp = vUp;
     vTarget.z = 0;
     vTarget.y = 0;
     vTarget.x = 0;
-    data_02047394.cacheTarget = vTarget;
+    NNS_G3dGlb.cacheTarget = vTarget;
     MTX_LookAt(&vPos, &vUp, &vTarget, data_020473e0);
-    data_02047394.flags &= ~0xe8;
+    NNS_G3dGlb.flags &= ~0xe8;
 }

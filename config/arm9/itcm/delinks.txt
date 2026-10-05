@@ -357,35 +357,35 @@ libs/nitro/nns/calls/NNSi_G3dAnmBlendJnt.c:
     complete
     .text       start:0x01ffb304 end:0x01ffb8fc
 
-libs/nitro/nns/calls/func_01ffb8fc.c:
+libs/nitro/nns/calls/NNSi_G3dDrawInternal.c:
     complete
     .text       start:0x01ffb8fc end:0x01ffba90
 
-libs/nitro/nns/auto/func_01ffba90.c:
+libs/nitro/nns/auto/NNSi_G3dFuncSbc_NODE.c:
     complete
     .text       start:0x01ffba90 end:0x01ffbbac
 
-libs/nitro/nns/calls/NNSi_G3dSbcCmdSetPolygonAttr.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_MTX.c:
     complete
     .text       start:0x01ffbbac end:0x01ffbbf0
 
-libs/nitro/nns/calls/NNSi_G3dFuncSbcMAT.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_MAT.c:
     complete
     .text       start:0x01ffbbf0 end:0x01ffc0d0
 
-libs/nitro/nns/calls/func_01ffc0d0.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_SHP.c:
     complete
     .text       start:0x01ffc0d0 end:0x01ffc164
 
-libs/nitro/nns/calls/NNSi_G3dFuncSbcNODEDESC.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_NODEDESC.c:
     complete
     .text       start:0x01ffc164 end:0x01ffc450
 
-libs/nitro/nns/calls/NNSi_G3dFuncSbcNODEMIX.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_NODEMIX.c:
     complete
     .text       start:0x01ffc450 end:0x01ffcbac
 
-libs/nitro/nns/calls/func_01ffcbac.c:
+libs/nitro/nns/calls/NNSi_G3dFuncSbc_POSSCALE.c:
     complete
     .text       start:0x01ffcbac end:0x01ffcc1c
 

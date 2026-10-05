@@ -36,19 +36,19 @@ typedef struct CameraState {
 extern void GX_SendFifoWords(unsigned int command, const void *src,
                           unsigned int words);
 extern void MTX_RotY33_(MtxFx43 *matrix, s32 sine, s32 cosine);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void NNS_G3dRenderObjSetCallBack(void *object, void (*callback)(void), int unused,
                           int field24, int field25);
 extern void NNS_G3dRenderObjResetCallBack(void *object);
 extern void MaterialColorScale_SetRgb555(int value);
-extern int func_02016320(void *object, MtxFx43 *matrix, void *unused,
+extern int NNS_G3dGetResultMtx(void *object, MtxFx43 *matrix, void *unused,
                          int jointId);
 extern void SceneNode_JointCallback(void);
 
 extern VecFx32 data_02047458;
 extern const s16 data_0203d210[];
 extern MtxFx43 data_02047428;
-extern CameraState data_02047394;
+extern CameraState NNS_G3dGlb;
 extern SceneNode *data_0204c1f4;
 
 void Scene_DrawNode(SceneNode *node)
@@ -85,8 +85,8 @@ void Scene_DrawNode(SceneNode *node)
         }
 
         data_02047428 = node->matrix;
-        data_02047394.flags &= ~0xa4;
-        Gfx_SubmitCachedCommandBlock();
+        NNS_G3dGlb.flags &= ~0xa4;
+        NNS_G3dGlbFlush();
     }
 
     if ((node->flags & 0x10) && node->child != 0) {
@@ -99,7 +99,7 @@ void Scene_DrawNode(SceneNode *node)
     if (node->flags & 0x40) {
         MaterialColorScale_SetRgb555(*(u16 *)((char *)node + 0x104));
     }
-    Obj_InitChannelsAndRun(node->object);
+    NNS_G3dDraw(node->object);
 
     child = node->child;
     if (child == 0)
@@ -111,7 +111,7 @@ void Scene_DrawNode(SceneNode *node)
     }
 
     while (child != 0) {
-        func_02016320(node->object, &child->matrix, 0, child->jointId);
+        NNS_G3dGetResultMtx(node->object, &child->matrix, 0, child->jointId);
         if (child->flags & 8)
             Mtx33_ApplyFixedRotation(&child->matrix);
         child = child->next;

@@ -27,8 +27,8 @@ typedef struct {
     void *thread;
 } CardTransferCtx;
 
+extern void CARD_LockBackup(int lockId);
 extern void CARD_UnlockBackup(int lockId);
-extern void CardUnlockAfterKeyShare(int lockId);
 extern int Ov008_EmitCommandAndStoreHandle(int a, void *buf, int size);
 extern long long OS_GetTick(void);
 extern int func_02020368(long long value, int divisor, int c);
@@ -46,10 +46,10 @@ int Ov008_CommitSaveToSlot(int slot) {
     int *pCounter;
     long long elapsed;
 
-    CARD_UnlockBackup(data_0204be10);
+    CARD_LockBackup(data_0204be10);
     Sleep_Block();
     if (Ov008_EmitCommandAndStoreHandle(0, &probe, 1) != 0) {
-        CardUnlockAfterKeyShare(data_0204be10);
+        CARD_UnlockBackup(data_0204be10);
         Sleep_Unblock();
         return 0;
     }

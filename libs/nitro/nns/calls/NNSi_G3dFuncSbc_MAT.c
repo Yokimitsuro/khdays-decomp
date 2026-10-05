@@ -178,7 +178,7 @@ static inline NNSG3dResMatData *NNS_G3dGetWireMatDataByIdx(
 }
 
 extern NNSG3dRSOnGlobal data_020475d4;
-extern NNSG3dGlbMaterial data_02047394;
+extern NNSG3dGlbMaterial NNS_G3dGlb;
 extern const u32 data_0204208c[];
 extern u16 data_027e0654;
 extern MaterialColorScale data_027e0658;
@@ -324,17 +324,17 @@ static inline void MatBody(NNSG3dRenderState *state, u32 option,
         {
             u32 mask = data_0204208c[(matData->flag >> 6) & 7];
             result->prmMatColor0 =
-                (data_02047394.prmMatColor0 & ~mask) |
+                (NNS_G3dGlb.prmMatColor0 & ~mask) |
                 (matData->diffAmb & mask);
         }
         {
             u32 mask = data_0204208c[(matData->flag >> 9) & 7];
             result->prmMatColor1 =
-                (data_02047394.prmMatColor1 & ~mask) |
+                (NNS_G3dGlb.prmMatColor1 & ~mask) |
                 (matData->specEmi & mask);
         }
         result->prmPolygonAttr =
-            (data_02047394.prmPolygonAttr & ~matData->polyAttrMask) |
+            (NNS_G3dGlb.prmPolygonAttr & ~matData->polyAttrMask) |
             (matData->polyAttr & matData->polyAttrMask);
         result->prmTexImage = matData->texImageParam;
         result->prmTexPltt = matData->texPlttBase;
@@ -424,7 +424,7 @@ static inline void MatInternalDefault(NNSG3dRenderState *state, u32 option,
     MatBody(state, option, materialID, matSeed);
 }
 
-void NNSi_G3dFuncSbcMAT(NNSG3dRenderState *state, u32 option)
+void NNSi_G3dFuncSbc_MAT(NNSG3dRenderState *state, u32 option)
 {
     if (!(state->flags & 0x200)) {
         u32 materialID = state->pSbc[1];

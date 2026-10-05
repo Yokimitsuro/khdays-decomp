@@ -3877,7 +3877,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_EmitCommandAndStoreHandle.c:
     complete
     .text       start:0x020b0894 end:0x020b08bc
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_Backup_WriteChunked.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_Backup_ReadChunked.c:
     complete
     .text       start:0x020b08bc end:0x020b094c
 

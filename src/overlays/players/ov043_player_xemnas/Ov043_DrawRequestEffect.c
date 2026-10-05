@@ -23,7 +23,7 @@ extern char data_02047428[];     /* G3D globals: the base rotation */
 extern struct {
     char _p00[0xd4];
     unsigned int flags;          /* 0xd4 */
-} data_02047394;
+} NNS_G3dGlb;
 
 extern void MTX_Identity33_(int *m);
 extern void VEC_Normalize(const VecFx32 *pIn, VecFx32 *pOut);   /* VEC_Normalize */
@@ -34,7 +34,7 @@ extern void NNS_G3dGlbSetBaseScale(const VecFx32 *v);   /* NNS_G3dGlbSetBaseScal
 extern void MI_Copy36B(const int *src, void *dst);
 extern void NNS_G3dGlbSetBaseTrans(const VecFx32 *v);   /* NNS_G3dGlbSetBaseTrans */
 extern void Gfx_ApplyBaseTransform(void);               /* apply the base transform */
-extern void Obj_InitChannelsAndRun(u8 *pObj);           /* Obj_InitChannelsAndRun */
+extern void NNS_G3dDraw(u8 *pObj);           /* NNS_G3dDraw */
 extern char *data_ov043_020b58e0;
 
 void Ov043_DrawRequestEffect(struct Effect *pEffect)
@@ -61,8 +61,8 @@ void Ov043_DrawRequestEffect(struct Effect *pEffect)
     }
     NNS_G3dGlbSetBaseScale(&pEffect->vecScale);
     MI_Copy36B(mRot, data_02047428);
-    data_02047394.flags &= ~0xa4;
+    NNS_G3dGlb.flags &= ~0xa4;
     NNS_G3dGlbSetBaseTrans(&pEffect->vecPos);
     Gfx_ApplyBaseTransform();
-    Obj_InitChannelsAndRun(&pEffect->renderObj);
+    NNS_G3dDraw(&pEffect->renderObj);
 }

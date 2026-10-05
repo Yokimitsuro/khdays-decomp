@@ -1,14 +1,15 @@
 #pragma thumb on
-/* PauseMenu_PollInput -- pause menu input poll, MAIN (THUMB). Always returns 0. While Session_GetLocalPlayerIndex holds,
- * a first open (+0xe8 clear, root state 1) outside mode bit 1 hands over to the overlay and sets
- * game field 0x2484. With data_0204c240 bit 2 outside mode bit 1 it only runs the pending-request
- * pair (PollAndLatchRequest / LatchPendingRequestOnce) when field 0x248f is set and nothing is open. Otherwise the
- * menu needs gPauseAllowed or field 0x20ef, an idle menu (PauseMenu_GetMode) and an expired timer
- * (+0xc8, counted down here); it then reacts to B or a latched request (+0xd8): it is refused while
- * GetMasterBrightnessMain reports busy (unless mode 0xc without GetMasterBrightnessSub), in mode bit 1 without the
- * overlay's permission, and it only latches the request (+0xd8) in mode bit 3 with data_0204be04
- * clear or when an entry (+0xdc) finds none of the three overlay states; a real open pushes step 1
- * or 2 (PauseMenu_SetMode) before Callbacks_Run(0). */
+/* PauseMenu_PollInput -- pause menu input poll, MAIN (THUMB). Always returns 0. While
+ * Session_GetLocalPlayerIndex holds, a first open (+0xe8 clear, root state 1) outside mode bit 1
+ * hands over to the overlay and sets game field 0x2484. With data_0204c240 bit 2 outside mode bit
+ * 1 it only runs the pending-request pair (PollAndLatchRequest / LatchPendingRequestOnce) when
+ * field 0x248f is set and nothing is open. Otherwise the menu needs gPauseAllowed or field 0x20ef,
+ * an idle menu (PauseMenu_GetMode) and an expired timer (+0xc8, counted down here); it then reacts
+ * to START (gPadPressed & 8, KEYINPUT bit 3) or a latched request (+0xd8): it is refused while
+ * GetMasterBrightnessMain reports busy (unless mode 0xc without GetMasterBrightnessSub), in mode
+ * bit 1 without the overlay's permission, and it only latches the request (+0xd8) in mode bit 3
+ * with data_0204be04 clear or when an entry (+0xdc) finds none of the three overlay states; a real
+ * open pushes step 1 or 2 (PauseMenu_SetMode) before Callbacks_Run(0). */
 
 #include "nitro/types.h"
 #include "game/engine.h"

@@ -5,7 +5,7 @@
 struct v3 { int x, y, z; };
 
 extern void Obj_RenderModel(int a, int b, int c, int d);
-extern int func_02016320(int a, void *buf, void *c, unsigned d);
+extern int NNS_G3dGetResultMtx(int a, void *buf, void *c, unsigned d);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void SetSubitemState(int a, int b, int c, int d);
@@ -17,7 +17,7 @@ void Ov216_initSubitemPathTarget(int param_1, int param_2, int param_3, int para
     struct v3 tmp;
     int t;
     Obj_RenderModel(param_1, param_2, param_3, param_4);
-    if (func_02016320(*(int *)(param_1 + 0x88) + 0x20, buf, 0, *(unsigned *)(obj + 0x434)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(param_1 + 0x88) + 0x20, buf, 0, *(unsigned *)(obj + 0x434)) != 0) {
         tmp = *(struct v3 *)&buf[9];
         VEC_Subtract(&tmp, (void *)(obj + 0x3b4), (void *)(obj + 0x424));
         *(struct v3 *)(obj + 0x3b4) = tmp;

@@ -43,7 +43,7 @@ struct SwingEvent {
     int nKey;               /* +0x0c */
 };
 
-extern int func_02016320(void *anim, Mtx43 *out, int a, int key);
+extern int NNS_G3dGetResultMtx(void *anim, Mtx43 *out, int a, int key);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *a, VecFx32 *d);
 extern int Ov107_CollectEntitiesTouchingDisc(struct Owner *owner, struct BoxQuery *query, int *out);
@@ -93,7 +93,7 @@ void Ov277_ArmSwingSweepB(char *self, struct SwingEvent *ev)
     if (ev->nFrame < 0x48c8 || ev->nFrame > 0x5b83) {
         return;
     }
-    if (func_02016320((void *)(*(int *)(self + 0x88) + 0x20), &mtx, 0, ev->nKey) == 0) {
+    if (NNS_G3dGetResultMtx((void *)(*(int *)(self + 0x88) + 0x20), &mtx, 0, ev->nKey) == 0) {
         return;
     }
     tip = mtx.trans;

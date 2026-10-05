@@ -61,7 +61,7 @@ typedef struct NNSG3dRS {
     NNSG3dFuncJntScale funcJntScale;
 } NNSG3dRS;
 
-extern NNSG3dRS *data_020475d0;
+extern NNSG3dRS *NNS_G3dRS;
 
 static inline void *NNS_G3dGetResDataByIdx(const NNSG3dResDict *dict, u32 idx)
 {
@@ -90,7 +90,7 @@ static inline const NNSG3dResNodeData *NNS_G3dGetNodeDataByIdx(const NNSG3dResNo
 
 void NNSi_G3dGetJntScaleFromNode(NNSG3dJntAnmResult *pResult)
 {
-    NNSG3dRS *renderState = data_020475d0;
+    NNSG3dRS *renderState = NNS_G3dRS;
     u32 idxNode;
     const NNSG3dResNodeData *pNd;
     const u8 *p;

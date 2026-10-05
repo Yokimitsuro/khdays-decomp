@@ -2,7 +2,7 @@
  * An orthographic projection over 0..0xc0 x 0..0x100 (near -0x400000, far 0x400000, scale
  * 1.0; MTX_OrthoW 02004eac into data_0204739c) and a camera at the origin looking down +z
  * with y up (MTX_LookAt 01ff9c04 into data_020473e0, the three vectors cached in the G3D
- * global state data_02047394) are installed, the base scale becomes the texture's width and
+ * global state NNS_G3dGlb) are installed, the base scale becomes the texture's width and
  * height (+0x7c / +0x80 of the noise state) in 4.12 (NNS_G3dGlbSetBaseScale 020158b0) and the
  * base rotation a Z rotation by the scroll (+0x70; MTX_RotZ33_ from FX_SinCosTable_ copied
  * into data_02047428 with MI_Copy36B); the matching dirty bits are cleared each time. */
@@ -23,7 +23,7 @@ typedef struct Ov023NoiseState {
     int  nHeight;             /* 0x80 */
 } Ov023NoiseState;
 
-/* Global camera-commit state (GX dirty flags + cached vectors, data_02047394). */
+/* Global camera-commit state (GX dirty flags + cached vectors, NNS_G3dGlb). */
 extern struct {
     char    _p00[0xd4];
     int     flags;          /* +0xd4 */
@@ -31,7 +31,7 @@ extern struct {
     VecFx32 cachePos;       /* +0x218 (data_020475ac) */
     VecFx32 cacheUp;        /* +0x224 (data_020475b8) */
     VecFx32 cacheTarget;    /* +0x230 (data_020475c4) */
-} data_02047394;
+} NNS_G3dGlb;
 
 extern char data_0204739c[];                                        /* projection matrix output */
 extern char data_020473e0[];                                        /* view (look-at) matrix output */
@@ -56,21 +56,21 @@ void Ov023_SetupNoiseDraw(void)
     int nScroll;
 
     MTX_OrthoW(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x1000, data_0204739c);
-    data_02047394.flags &= ~0x50;
+    NNS_G3dGlb.flags &= ~0x50;
     vPos.y = 0;
     vPos.x = 0;
     vPos.z = 0x1000;
-    data_02047394.cachePos = vPos;
+    NNS_G3dGlb.cachePos = vPos;
     vUp.y = 0x1000;
     vUp.z = 0;
     vUp.x = 0;
-    data_02047394.cacheUp = vUp;
+    NNS_G3dGlb.cacheUp = vUp;
     vTarget.z = 0;
     vTarget.y = 0;
     vTarget.x = 0;
-    data_02047394.cacheTarget = vTarget;
+    NNS_G3dGlb.cacheTarget = vTarget;
     MTX_LookAt(&vPos, &vUp, &vTarget, data_020473e0);
-    data_02047394.flags &= ~0xe8;
+    NNS_G3dGlb.flags &= ~0xe8;
     nHeight = data_ov023_0208a7c0->nHeight << 12;
     nWidth = data_ov023_0208a7c0->nWidth << 12;
     vScale.z = 0x1000;
@@ -80,5 +80,5 @@ void Ov023_SetupNoiseDraw(void)
     nScroll = data_ov023_0208a7c0->nScroll >> 4;
     MTX_RotZ33_(&mtxRot, data_0203d210[nScroll * 2], data_0203d210[nScroll * 2 + 1]);
     MI_Copy36B(&mtxRot, data_02047428);
-    data_02047394.flags &= ~0xa4;
+    NNS_G3dGlb.flags &= ~0xa4;
 }

@@ -2,9 +2,9 @@
  * then the cached command block; palette-swap when bit6 of +4 is set; finally push the 12-word
  * matrix command at +0x10c and submit the object's queued gfx. */
 extern void GX_SendFifoWords(int cmd, const void *words, int count);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void MaterialColorScale_SetRgb555(unsigned int pal);
-extern void Obj_InitChannelsAndRun(void *cmdList);
+extern void NNS_G3dDraw(void *cmdList);
 
 void Ov008_SubmitObjectGfx(int param_1) {
     if (*(unsigned char *)param_1 & 1) {
@@ -14,11 +14,11 @@ void Ov008_SubmitObjectGfx(int param_1) {
         buf[1] = value;
         buf[2] = value;
         GX_SendFifoWords(0x1b, buf, 3);
-        Gfx_SubmitCachedCommandBlock();
+        NNS_G3dGlbFlush();
         if (*(unsigned short *)(param_1 + 4) & 0x40) {
             MaterialColorScale_SetRgb555(*(unsigned short *)(param_1 + 0x108));
         }
         GX_SendFifoWords(0x17, (void *)(param_1 + 0x10c), 0xc);
-        Obj_InitChannelsAndRun((void *)(param_1 + 0x24));
+        NNS_G3dDraw((void *)(param_1 + 0x24));
     }
 }

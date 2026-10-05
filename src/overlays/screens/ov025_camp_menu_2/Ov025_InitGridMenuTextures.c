@@ -52,7 +52,7 @@ extern void  NNS_GfdInitFrmPlttVramManager(int a, int b);
 extern void *Archive_LoadFile(const char *pPath, int nHeap);                 /* Archive_LoadFile */
 extern void  Obj_RelocateSections(void *pFile, int bEnableDispatch);             /* Obj_RelocateSections */
 extern void  InstallHandlerPairByFlag(int bPhase);                                   /* InstallHandlerPairByFlag */
-extern u32   func_02010f7c(int nSize, int a, int b);                      /* texture VRAM slot */
+extern u32   NNS_GfdAllocFrmTexVram(int nSize, int a, int b);                      /* texture VRAM slot */
 extern u32   func_020111c0(int nSize, int a, int b);                      /* palette VRAM slot */
 extern void *Archive_GetMember(void *pFile, int nMember, int nSub);           /* Archive_GetMember */
 extern NNSG3dResTex *NNS_G3dGetTex(void *pResource);                      /* NNS_G3dGetTex */
@@ -80,7 +80,7 @@ void Ov025_InitGridMenuTextures(Ov008MenuContext *pCtx)
     InstallHandlerPairByFlag(0);
     for (i = 0; i < TEXTURE_COUNT; i++) {
         pSlot = &pCtx->aTexture[i];
-        pSlot->hTexSlot = func_02010f7c(0x100, 0, 0);
+        pSlot->hTexSlot = NNS_GfdAllocFrmTexVram(0x100, 0, 0);
         pSlot->hPalSlot = func_020111c0(0x40, 0, 1);
         pSlot->nIndex = i;
         pSlot->pResource = Archive_GetMember(pCtx->pIconArchive, TEXTURE_MEMBER, pSlot->nIndex);

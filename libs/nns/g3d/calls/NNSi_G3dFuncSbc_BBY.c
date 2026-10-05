@@ -42,7 +42,7 @@ extern u32 data_02042890[];             /* &bbcmd1[1] */
 extern MtxFx43 data_02042898;           /* bbcmd1[3]: rotation / translation */
 extern VecFx32 data_020428bc;           /* bbcmd1[12]: trans */
 extern VecFx32 data_020428c8;           /* bbcmd1[15]: scale */
-extern NNSG3dGlb data_02047394;         /* NNS_G3dGlb */
+extern NNSG3dGlb NNS_G3dGlb;         /* NNS_G3dGlb */
 
 extern void NNSi_G3dGeBufferCommand1(u32 op, u32 param);      /* one-parameter geometry buffer command */
 extern void GXi_FlushCommandList(void);                   /* NNS_G3dGeFlushBuffer */
@@ -99,14 +99,14 @@ void NNSi_G3dFuncSbc_BBY(NNSG3dRS *rs, u32 opt)
         while (G3X_GetClipMtx(&m)) {
         }
 
-        if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
+        if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
             const MtxFx43 *cam = GetOrInitResource749c();
             MtxFx44 tmp;
 
             MTX_Copy43To44_(cam, &tmp);
             MTX_Concat44(&m, &tmp, &m);
-        } else if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
-            const MtxFx43 *cam = &data_02047394.cameraMtx;
+        } else if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
+            const MtxFx43 *cam = &NNS_G3dGlb.cameraMtx;
             MtxFx44 tmp;
 
             MTX_Copy43To44_(cam, &tmp);
@@ -133,13 +133,13 @@ void NNSi_G3dFuncSbc_BBY(NNSG3dRS *rs, u32 opt)
             mtx->_11 = mtx->_22;
         }
 
-        if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
+        if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
             reg_G3X_GXFIFO = 0x00171012;    /* MTX_POP, MTX_MODE, MTX_LOAD_4x3 */
             MIi_CpuSend32(data_02042890, &reg_G3X_GXFIFO, 2 * sizeof(u32));
             MIi_CpuSend32(GetOrInitResource74cc(), &reg_G3X_GXFIFO, 12 * sizeof(u32));
             reg_G3X_GXFIFO = 0x00001b19;    /* MTX_MULT_4x3, MTX_SCALE */
             MIi_CpuSend32(&data_02042898, &reg_G3X_GXFIFO, sizeof(MtxFx43) + sizeof(VecFx32));
-        } else if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
+        } else if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
             reg_G3X_GXFIFO = 0x00171012;
             MIi_CpuSend32(data_02042890, &reg_G3X_GXFIFO, 2 * sizeof(u32));
             MIi_CpuSend32(G3d_GetInverseCameraMtx(), &reg_G3X_GXFIFO, 12 * sizeof(u32));

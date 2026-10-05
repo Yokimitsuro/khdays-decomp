@@ -39,7 +39,7 @@ extern void  FS_Init(int mode);                   /* 0x0200a9a8                 
 extern int   FS_LoadOverlay(int proc, FSOverlayID overlay);
 extern int   FS_UnloadOverlay(int proc, FSOverlayID overlay);
 extern void  Ov001_BootInit(void);           /* ov001_BootInit  (HW init)    */
-extern void  PublishArchiveVTableAndSeedRng(void);                 /* subsystem init               */
+extern void  G3d_InitSbcFuncTable(void);                 /* subsystem init               */
 extern void  InputState_Init(void);                 /* task-system init             */
 struct BootSettings {
     unsigned char mode;
@@ -120,7 +120,7 @@ int main(void) {
     FS_LoadOverlay(0, FS_OVERLAY_ID_ov001);
     Ov001_BootInit();         /* ov001_BootInit -- DS hardware bring-up  */
     FS_UnloadOverlay(0, FS_OVERLAY_ID_ov001);
-    PublishArchiveVTableAndSeedRng();
+    G3d_InitSbcFuncTable();
     InputState_Init();
 
     /* --- 2. boot mode -> initial game mode --- */

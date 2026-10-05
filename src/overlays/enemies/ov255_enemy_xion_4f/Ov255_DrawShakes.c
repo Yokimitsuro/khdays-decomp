@@ -24,7 +24,7 @@ extern void NNS_G3dMdlSetMdlDiffAll(int model, u16 rgb);
 extern void NNS_G3dDraw1Mat1Shp(int model, int a, int b, int c);
 extern const VecFx32 data_0204227c;
 extern char data_02047428[];
-extern struct G3Glb data_02047394;
+extern struct G3Glb NNS_G3dGlb;
 
 static inline void VEC_Set(VecFx32 *v, int x, int y, int z)
 {
@@ -63,7 +63,7 @@ void Ov255_DrawShakes(char *self)
                 short b;
 
                 alpha = (e->strength * 31) >> 12;
-                VEC_Set(&data_02047394.scale, e->offset, e->offset, e->offset);
+                VEC_Set(&NNS_G3dGlb.scale, e->offset, e->offset, e->offset);
                 NNS_G3dGlbSetBaseTrans(&e->at);
                 Gfx_ApplyBaseTransform();
                 NNS_G3dMdlSetMdlPolygonIDAll(*(int *)(*(int *)(self + 0x88) + 0x78), e->handle);

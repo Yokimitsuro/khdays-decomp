@@ -77,7 +77,7 @@ static inline const NNSG3dResNodeData *GetNodeDataUnchecked(
     return (const NNSG3dResNodeData *)((const u8 *)info + entry->offset);
 }
 
-void NNSi_G3dFuncSbcNODEDESC(NNSG3dRenderState *state, u32 option)
+void NNSi_G3dFuncSbc_NODEDESC(NNSG3dRenderState *state, u32 option)
 {
     u32 nodeId = state->pSbc[1];
     u32 commandSize = 4;

@@ -33,7 +33,7 @@ typedef struct NNSG3dGlb {
     u32 flag;
 } NNSG3dGlb;
 
-extern NNSG3dGlb data_02047394;
+extern NNSG3dGlb NNS_G3dGlb;
 extern void GX_SendFifoWords(u32 op, const u32 *args, u32 num);
 
 static inline void NNS_G3dGeMtxMode(u32 mode)
@@ -44,25 +44,25 @@ static inline void NNS_G3dGeMtxMode(u32 mode)
 void NNS_G3dGlbFlushP(void)
 {
     GX_SendFifoWords(0x00001610,
-                  (u32 *)&data_02047394.mtxmode_proj,
-                  (sizeof(data_02047394.mtxmode_proj) + sizeof(data_02047394.projMtx)) / 4);
+                  (u32 *)&NNS_G3dGlb.mtxmode_proj,
+                  (sizeof(NNS_G3dGlb.mtxmode_proj) + sizeof(NNS_G3dGlb.projMtx)) / 4);
 
     GX_SendFifoWords(0x19,
-                  (u32 *)&data_02047394.cameraMtx,
-                  sizeof(data_02047394.cameraMtx) / 4);
+                  (u32 *)&NNS_G3dGlb.cameraMtx,
+                  sizeof(NNS_G3dGlb.cameraMtx) / 4);
 
     GX_SendFifoWords(0x00001b19,
-                  (u32 *)&data_02047394.prmBaseRot,
-                  (sizeof(data_02047394.prmBaseRot) +
-                   sizeof(data_02047394.prmBaseTrans) +
-                   sizeof(data_02047394.prmBaseScale)) / 4);
+                  (u32 *)&NNS_G3dGlb.prmBaseRot,
+                  (sizeof(NNS_G3dGlb.prmBaseRot) +
+                   sizeof(NNS_G3dGlb.prmBaseTrans) +
+                   sizeof(NNS_G3dGlb.prmBaseScale)) / 4);
 
     NNS_G3dGeMtxMode(2);
 
-    GX_SendFifoWords(data_02047394.cmd1, (u32 *)&data_02047394.cmd1 + 1, 4);
+    GX_SendFifoWords(NNS_G3dGlb.cmd1, (u32 *)&NNS_G3dGlb.cmd1 + 1, 4);
     GX_SendFifoWords(0x15, (u32 *)0, 0);
-    GX_SendFifoWords(0x2a, &data_02047394.prmTexImageParam, 1);
+    GX_SendFifoWords(0x2a, &NNS_G3dGlb.prmTexImageParam, 1);
 
-    data_02047394.flag |= 1u;
-    data_02047394.flag &= ~2u;
+    NNS_G3dGlb.flag |= 1u;
+    NNS_G3dGlb.flag &= ~2u;
 }

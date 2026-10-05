@@ -4,7 +4,7 @@
 typedef struct { char pad0[0x24]; VecFx32 pos; } Probe;
 
 extern void Obj_RenderModel(int a, int b);
-extern int func_02016320(int a, Probe *out, int b, int c);
+extern int NNS_G3dGetResultMtx(int a, Probe *out, int b, int c);
 extern int VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern VecFx32 data_02041dc8;
@@ -22,7 +22,7 @@ void Ov212_RefreshAimPoint(int obj, int param_2) {
     short v;
 
     Obj_RenderModel(obj, param_2);
-    if (func_02016320(*(int *)(obj + 0x88) + 0x20, &probe, 0, *(int *)(owner + 0x588)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(obj + 0x88) + 0x20, &probe, 0, *(int *)(owner + 0x588)) != 0) {
         hit = probe.pos;
         VEC_Subtract(&hit, (void *)(owner + 0x4e4), &delta);
         *(VecFx32 *)(owner + 0x4e4) = hit;

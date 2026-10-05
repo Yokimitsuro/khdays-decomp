@@ -31,7 +31,7 @@ extern int Ov022_IsIndexedRecordBit0Set(char *self, int i);
 extern void BindAnimTrack(char *anim, int track, char *bind, short group);         /* BindAnimTrack */
 extern void Anim_SetFrameWrapped(char *anim, int track, int frame);                     /* Anim_SetFrameWrapped */
 extern void GX_SendFifoWords(unsigned int cmd, const void *src, unsigned int words); /* GX_SendFifoWords */
-extern void Gfx_SubmitCachedCommandBlock(void);                                                  /* submit the cached block */
+extern void NNS_G3dGlbFlush(void);                                                  /* submit the cached block */
 extern void MaterialColorScale_SetRgb555(unsigned int value);
 extern void func_ov022_020ad588(char *self);
 
@@ -104,13 +104,13 @@ void Ov083_UpdateAnchorsAndChannels(char *self)
                 aMaterial[1] = material;
                 aMaterial[2] = material;
                 GX_SendFifoWords(0x1b, aMaterial, 3);
-                Gfx_SubmitCachedCommandBlock();
+                NNS_G3dGlbFlush();
                 if ((*(u16 *)blk & 0x40) != 0) {
                     MaterialColorScale_SetRgb555(*(u16 *)(blk + 0x104));
                 }
                 GX_SendFifoWords(0x17, self + 0x2b4 + 0xc00, 0xc);
                 MaterialColorScale_SetRgb555(*(u16 *)(anim + 0x104));
-                Obj_InitChannelsAndRun(anim + 0x20);
+                NNS_G3dDraw(anim + 0x20);
             }
         } else {
             if (*(signed char *)(self + 0xf0d) != 0) {
@@ -127,10 +127,10 @@ void Ov083_UpdateAnchorsAndChannels(char *self)
                 aMaterial2[1] = material;
                 aMaterial2[2] = material;
                 GX_SendFifoWords(0x1b, aMaterial2, 3);
-                Gfx_SubmitCachedCommandBlock();
+                NNS_G3dGlbFlush();
                 GX_SendFifoWords(0x17, self + 0x2b4 + 0xc00, 0xc);
                 MaterialColorScale_SetRgb555(*(u16 *)(self + 0x2d00 + 0x34));
-                Obj_InitChannelsAndRun(self + 0xc50 + 0x2000);
+                NNS_G3dDraw(self + 0xc50 + 0x2000);
             }
         }
     }

@@ -211,18 +211,18 @@ typedef struct WFSClientContext {
     u8 padding[12];
 } WFSClientContext;
 
-/* Sbc_Nop -- NitroSystem sbc.c: NNSi_G3dFuncSbc_NOP. */
-void Sbc_Nop (NNSG3dRS * rs, u32)
+/* NNSi_G3dFuncSbc_RET -- NitroSystem sbc.c: NNSi_G3dFuncSbc_RET. */
+void NNSi_G3dFuncSbc_RET (NNSG3dRS * rs, u32)
 {
 
 #if !defined(NNS_G3D_SBC_CALLBACK_TIMING_A_DISABLE) || \
     !defined(NNS_G3D_SBC_CALLBACK_TIMING_B_DISABLE) || \
     !defined(NNS_G3D_SBC_CALLBACK_TIMING_C_DISABLE)
 
-    if (rs->cbVecFunc[NNS_G3D_SBC_NOP]) {
-        (*rs->cbVecFunc[NNS_G3D_SBC_NOP])(rs);
+    if (rs->cbVecFunc[NNS_G3D_SBC_RET]) {
+        (*rs->cbVecFunc[NNS_G3D_SBC_RET])(rs);
     }
 #endif
 
-    rs->c++;
+    rs->flag |= NNS_G3D_RSFLAG_RETURN;
 }

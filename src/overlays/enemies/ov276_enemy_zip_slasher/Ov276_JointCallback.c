@@ -8,7 +8,7 @@
 
 struct MtxFx43 { int m[9]; VecFx32 t; };
 
-extern int func_02016320(void *renderObj, struct MtxFx43 *out, void *b, int joint);
+extern int NNS_G3dGetResultMtx(void *renderObj, struct MtxFx43 *out, void *b, int joint);
 extern void Srt_SetTranslation(void *transform, VecFx32 *pos);
 extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *d);
 
@@ -18,7 +18,7 @@ void Ov276_JointCallback(int item, int actor)
     VecFx32 v;
     int i;
 
-    if (func_02016320((void *)(*(int *)(item + 0x88) + 0x20), &mtx, 0, *(int *)(actor + 0x3b4)) != 0) {
+    if (NNS_G3dGetResultMtx((void *)(*(int *)(item + 0x88) + 0x20), &mtx, 0, *(int *)(actor + 0x3b4)) != 0) {
         Srt_SetTranslation((void *)(actor + 0x3c0), &mtx.t);
         for (i = 0; i < 2; i++) {
             v.x = 0;
@@ -29,7 +29,7 @@ void Ov276_JointCallback(int item, int actor)
             Srt_SetTranslation((void *)(actor + 0x3ec + i * 0x2c), &v);
         }
     }
-    if (func_02016320((void *)(*(int *)(item + 0x88) + 0x20), &mtx, 0, *(int *)(actor + 0x3b8)) != 0) {
+    if (NNS_G3dGetResultMtx((void *)(*(int *)(item + 0x88) + 0x20), &mtx, 0, *(int *)(actor + 0x3b8)) != 0) {
         Srt_SetTranslation((void *)(actor + 0x444), &mtx.t);
     }
 }

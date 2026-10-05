@@ -23,7 +23,9 @@ enum {
 
 #define REG_CARDCNT            0x040001a4
 
-#define REG_CARD_DATA          0x04100010
+#define REG_CARD_DATA_ADDR     0x04100010
+
+#define reg_CARD_DATA (*(vu32 *)REG_CARD_DATA_ADDR)
 
 #define REG_CARD_CONTROL (*(vu32 *)0x040001a4)
 

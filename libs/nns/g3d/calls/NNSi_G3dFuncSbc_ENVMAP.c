@@ -94,7 +94,7 @@ typedef struct NNSG3dGlb {
 
 extern u32 data_020427f4[];             /* [2..3]: TEXIMAGE_PARAM command template */
 extern u32 data_02042800[];             /* its parameter word */
-extern NNSG3dGlb data_02047394;         /* NNS_G3dGlb */
+extern NNSG3dGlb NNS_G3dGlb;         /* NNS_G3dGlb */
 
 extern void GX_SendFifoWords(u32 op, const u32 *args, u32 num);    /* NNS_G3dGeBufferOP_N */
 extern void NNS_G3dGetCurrentMtx(MtxFx43 *m, MtxFx33 *n);              /* NNS_G3dGetCurrentMtx */
@@ -210,12 +210,12 @@ void NNSi_G3dFuncSbc_ENVMAP(NNSG3dRS *rs)
             NNS_G3dGetCurrentMtx(0, &n);
             NNS_G3dGeMtxMode(GX_MTXMODE_TEXTURE);
 
-            if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
-                NNS_G3dGeMultMtx33((const MtxFx33 *)&data_02047394.cameraMtx);
-                NNS_G3dGeMultMtx33(&data_02047394.prmBaseRot);
+            if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_WVP) {
+                NNS_G3dGeMultMtx33((const MtxFx33 *)&NNS_G3dGlb.cameraMtx);
+                NNS_G3dGeMultMtx33(&NNS_G3dGlb.prmBaseRot);
                 NNS_G3dGeMultMtx33(&n);
-            } else if (data_02047394.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
-                NNS_G3dGeMultMtx33((const MtxFx33 *)&data_02047394.cameraMtx);
+            } else if (NNS_G3dGlb.flag & NNS_G3D_GLB_FLAG_FLUSH_VP) {
+                NNS_G3dGeMultMtx33((const MtxFx33 *)&NNS_G3dGlb.cameraMtx);
                 NNS_G3dGeMultMtx33(&n);
             } else {
                 NNS_G3dGeMultMtx33(&n);

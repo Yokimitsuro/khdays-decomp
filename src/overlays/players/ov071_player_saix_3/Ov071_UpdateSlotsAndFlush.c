@@ -2,9 +2,9 @@
  * main effect when it is active. */
 
 extern void Ov071_DispatchWhenStateActive(int a);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void GX_SendFifoWords(int a, int b, int c);
-extern void Obj_InitChannelsAndRun(int a);
+extern void NNS_G3dDraw(int a);
 
 typedef struct { unsigned char b0 : 1; } Flags;
 
@@ -17,7 +17,7 @@ void Ov071_UpdateSlotsAndFlush(int self, int blk) {
         Ov071_DispatchWhenStateActive((int)p);
     }
     if (*(int *)blk != 1) return;
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlbFlush();
     GX_SendFifoWords(0x17, blk + 0x8c, 0xc);
-    Obj_InitChannelsAndRun(blk + 0x2c);
+    NNS_G3dDraw(blk + 0x2c);
 }

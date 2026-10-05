@@ -1,3 +1,6 @@
+/* NNSi_G3dFuncSbc_POSSCALE (NitroSystem sbc.c): the SBC POSSCALE command -- MTX_SCALE by the
+ * model's position scale (render state +0xe0), or by the second one (+0xe4) for the command's
+ * other form. */
 
 #include "nitro/types.h"
 
@@ -12,7 +15,7 @@ typedef struct RenderCommandState {
 
 extern void GX_SendFifoWords(u32 command, const void *words, u32 count);
 
-void func_01ffcbac(RenderCommandState *state, int useAlternate)
+void NNSi_G3dFuncSbc_POSSCALE(RenderCommandState *state, int useAlternate)
 {
     u32 values[3];
 

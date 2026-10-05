@@ -16,7 +16,12 @@ static inline void MI_CpuFillFast (void * dest, u32 data, u32 size)
     MIi_CpuClearFast(data, dest, size);
 }
 
-/* ClearChar -- NitroSystem g2d_CharCanvas.c: ClearChar. */
+/* ClearChar -- NitroSystem g2d_CharCanvas.c: ClearChar.
+ *
+ * For an 8-bit character the two masks are shifted by counts that reach 32 and more: x8 for an
+ * area that starts at the character's fifth pixel or later, rw8 for one that ends there or
+ * before. C leaves a shift by the operand's width undefined; the ARM shifts by a register and
+ * gives 0 for 32 or more, so that word's mask comes out empty, which is what the clear needs. */
 void ClearChar (void * pChar, int x, int y, int w, int h, u32 cl8, int bpp)
 {
 

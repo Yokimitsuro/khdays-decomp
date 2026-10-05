@@ -36,7 +36,7 @@ typedef struct {
     VecFx32 up;             /* +0x2c: up / orientation */
 } CamActor;
 
-/* Global camera-commit state (GX dirty flags + cached vectors, at data_02047394). */
+/* Global camera-commit state (GX dirty flags + cached vectors, at NNS_G3dGlb). */
 extern struct {
     char    _p00[0xd4];
     int     flags;          /* +0xd4 */
@@ -44,7 +44,7 @@ extern struct {
     VecFx32 cachePos;       /* +0x218 (data_020475ac) */
     VecFx32 cacheUp;        /* +0x224 (data_020475b8) */
     VecFx32 cacheTarget;    /* +0x230 (data_020475c4) */
-} data_02047394;
+} NNS_G3dGlb;
 
 extern char data_0204739c[];   /* projection matrix output */
 extern char data_020473e0[];   /* view (look-at) matrix output */
@@ -57,10 +57,10 @@ void Camera_CommitMatrices(CamActor *cam)
 {
     Camera_BuildProjectionMtx(cam->projParams[0], cam->projParams[1], cam->projParams[2],
                   cam->projParams[3], cam->f10, 0x1000, data_0204739c);
-    data_02047394.flags &= ~0x50;
-    data_02047394.cachePos = cam->pos;
-    data_02047394.cacheUp = cam->up;
-    data_02047394.cacheTarget = cam->target;
+    NNS_G3dGlb.flags &= ~0x50;
+    NNS_G3dGlb.cachePos = cam->pos;
+    NNS_G3dGlb.cacheUp = cam->up;
+    NNS_G3dGlb.cacheTarget = cam->target;
     MTX_LookAt(&cam->pos, &cam->up, &cam->target, data_020473e0);
-    data_02047394.flags &= ~0xe8;
+    NNS_G3dGlb.flags &= ~0xe8;
 }

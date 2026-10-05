@@ -98,7 +98,7 @@ void CARDi_SetCardDma(void)
     CARDiCommon *const c = &cardi_common;
     CARDRomStat *const p = &rom_stat;
 
-    MIi_CardDmaCopy32(c->dma, (const void *)REG_CARD_DATA, (void *)c->dst, CARD_ROM_PAGE_SIZE);
+    MIi_CardDmaCopy32(c->dma, (const void *)REG_CARD_DATA_ADDR, (void *)c->dst, CARD_ROM_PAGE_SIZE);
 
     CARDi_SetRomOpReadPage1(c->src);
     *(vu32 *)REG_CARDCNT = p->ctrl;

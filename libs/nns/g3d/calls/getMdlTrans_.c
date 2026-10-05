@@ -444,7 +444,7 @@ typedef struct NNSG3dRS_ {
     NNSG3dJntAnmResult tmpJntAnmResult;
     NNSG3dVisAnmResult tmpVisAnmResult;
 } NNSG3dRS;
-extern NNSG3dRS * data_020475d0;
+extern NNSG3dRS * NNS_G3dRS;
 inline void * NNS_G3dGetResDataByIdx(const NNSG3dResDict * dict, u32 idx);
 inline NNSG3dResNodeData * NNS_G3dGetNodeDataByIdx(const NNSG3dResNodeInfo * info, u32 idx);
 inline void * NNS_G3dGetResDataByIdx (const NNSG3dResDict * dict, u32 idx)
@@ -475,8 +475,8 @@ void getMdlTrans_ (NNSG3dJntAnmResult * pResult)
     u32 idxNode;
     const NNSG3dResNodeData * pNd;
 
-    idxNode = *(data_020475d0->c + 1);
-    pNd = NNS_G3dGetNodeDataByIdx(data_020475d0->pResNodeInfo, idxNode);
+    idxNode = *(NNS_G3dRS->c + 1);
+    pNd = NNS_G3dGetNodeDataByIdx(NNS_G3dRS->pResNodeInfo, idxNode);
 
     if (pNd->flag & NNS_G3D_SRTFLAG_TRANS_ZERO) {
         pResult->flag |= NNS_G3D_JNTANM_RESULTFLAG_TRANS_ZERO;

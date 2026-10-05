@@ -14,9 +14,9 @@
 
 extern void GX_SendFifoWords(unsigned int nCmd, const void *pSrc,
                           unsigned int nWords);   /* GX_SendFifoWords */
-extern void Gfx_SubmitCachedCommandBlock(void);                  /* submit the cached block */
+extern void NNS_G3dGlbFlush(void);                  /* submit the cached block */
 extern void MaterialColorScale_SetRgb555(unsigned int nValue);
-extern void Obj_InitChannelsAndRun(unsigned int *pChannels);
+extern void NNS_G3dDraw(unsigned int *pChannels);
 
 void Ov002_SubmitActorDraw(unsigned char *pActor)
 {
@@ -35,11 +35,11 @@ void Ov002_SubmitActorDraw(unsigned char *pActor)
     aMaterial[1] = nValue;
     aMaterial[2] = nValue;
     GX_SendFifoWords(0x1b, aMaterial, 3);
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlbFlush();
 
     if ((*(unsigned short *)(pActor + 4) & 0x40) != 0) {
         MaterialColorScale_SetRgb555(*(unsigned short *)(pActor + 0x108));
     }
     GX_SendFifoWords(0x17, pActor + 0x10c, 0xc);
-    Obj_InitChannelsAndRun((unsigned int *)(pActor + 0x24));
+    NNS_G3dDraw((unsigned int *)(pActor + 0x24));
 }

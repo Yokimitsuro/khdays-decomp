@@ -972,7 +972,7 @@ src/overlays/scenes/ov009_camp_save/Ov009_EmitCommandAndStoreHandle.c:
     complete
     .text       start:0x020559ac end:0x020559d4
 
-src/overlays/scenes/ov009_camp_save/Ov009_Backup_WriteChunked.c:
+src/overlays/scenes/ov009_camp_save/Ov009_Backup_ReadChunked.c:
     complete
     .text       start:0x020559d4 end:0x02055a64
 

@@ -1,5 +1,6 @@
 
 #include "nitro/types.h"
+#include "nitro/hw.h"
 
 enum {
     CARD_ROM_PAGE_SIZE = 512,
@@ -43,7 +44,6 @@ struct CARDRomStat {
 };
 
 #define REG_CARD_CONTROL (*(vu32 *)0x040001a4)
-#define REG_CARD_DATA (*(vu32 *)0x04100010)
 
 extern void CARDi_SetRomOp(u32 command1, u32 command2);
 extern BOOL CARDi_ReadFromCache(struct CARDRomStat *state);
@@ -91,7 +91,7 @@ read_page:
             while (TRUE) {
                 const u32 control = REG_CARD_CONTROL;
                 if ((control & CARD_DATA_READY) != 0) {
-                    u32 data = REG_CARD_DATA;
+                    u32 data = reg_CARD_DATA;
                     if (index * sizeof(u32) < length) {
                         ((u32 *)destination)[index++] = data;
                     }

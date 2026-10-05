@@ -1,3 +1,5 @@
+/* NNSi_G3dFuncSbc_SHP (NitroSystem sbc.c): the SBC SHP command -- sends the shape's display list
+ * (NNS_G3dGeSendDL) when the current node is visible and the draw is not skipping it. */
 
 #include "nitro/types.h"
 
@@ -40,7 +42,7 @@ static inline s32 *GetFrameEntry(FrameTable *table, u32 frame)
     return entry;
 }
 
-void func_01ffc0d0(RenderCommandState *state)
+void NNSi_G3dFuncSbc_SHP(RenderCommandState *state)
 {
     FrameTable *table;
     FrameData *data;

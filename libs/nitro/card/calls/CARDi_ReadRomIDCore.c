@@ -99,5 +99,5 @@ u32 CARDi_ReadRomIDCore(void)
     *(vu32 *)REG_CARDCNT = (u32)(CARDi_GetRomFlag(CARD_COMMAND_ID) & ~CARD_LATENCY1_MASK);
     while (!(*(vu32 *)REG_CARDCNT & CARD_DATA_READY)) {
     }
-    return *(vu32 *)REG_CARD_DATA;
+    return reg_CARD_DATA;
 }

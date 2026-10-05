@@ -21,7 +21,7 @@ typedef struct NNSG3dGlb {
     u32 flag;
 } NNSG3dGlb;
 
-extern NNSG3dGlb data_02047394;
+extern NNSG3dGlb NNS_G3dGlb;
 extern void GX_SendFifoWords(u32 op, const u32 *args, u32 num);
 
 static inline void NNS_G3dGeMtxMode(u32 mode)
@@ -32,16 +32,16 @@ static inline void NNS_G3dGeMtxMode(u32 mode)
 void Gfx_ApplyBaseTransform(void)
 {
     GX_SendFifoWords(0x00001610,
-                  (u32 *)&data_02047394.mtxmode_proj,
-                  (sizeof(data_02047394.mtxmode_proj) + sizeof(data_02047394.projMtx)) / 4);
+                  (u32 *)&NNS_G3dGlb.mtxmode_proj,
+                  (sizeof(NNS_G3dGlb.mtxmode_proj) + sizeof(NNS_G3dGlb.projMtx)) / 4);
 
     GX_SendFifoWords(0x19,
-                  (u32 *)&data_02047394.cameraMtx,
-                  sizeof(data_02047394.cameraMtx) / 4);
+                  (u32 *)&NNS_G3dGlb.cameraMtx,
+                  sizeof(NNS_G3dGlb.cameraMtx) / 4);
 
     NNS_G3dGeMtxMode(2);
-    GX_SendFifoWords(0x15, (u32 *)&data_02047394.cmd1, 0x16);
+    GX_SendFifoWords(0x15, (u32 *)&NNS_G3dGlb.cmd1, 0x16);
 
-    data_02047394.flag &= ~1u;
-    data_02047394.flag |= 2u;
+    NNS_G3dGlb.flag &= ~1u;
+    NNS_G3dGlb.flag |= 2u;
 }

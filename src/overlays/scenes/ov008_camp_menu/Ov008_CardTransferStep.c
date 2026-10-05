@@ -2,7 +2,7 @@
 
 extern int Ov008_CARD_TryWaitRomAsync(void);
 extern int CARD_GetResultCode(void);
-extern void CardUnlockAfterKeyShare(int id);
+extern void CARD_UnlockBackup(int id);
 extern void Ov008_EmitCommandVariantA(int arg0, int arg1, int arg2);
 
 extern unsigned char data_ov008_02090fb4[];
@@ -30,14 +30,14 @@ int Ov008_CardTransferStep(void) {
         rc = CARD_GetResultCode();
         *(int *)(data_ov008_02090fb4 + 4) = rc;
         if (rc != 0) {
-            CardUnlockAfterKeyShare(data_0204be10);
+            CARD_UnlockBackup(data_0204be10);
             Sleep_Unblock();
             return 3;
         }
         data_ov008_02090fb4[0] = data_ov008_02090fb4[0] + 1;
         done = data_ov008_02090fb4[0];
         if (done >= 2) {
-            CardUnlockAfterKeyShare(data_0204be10);
+            CARD_UnlockBackup(data_0204be10);
             Sleep_Unblock();
             return 0;
         }

@@ -43,7 +43,7 @@ extern int data_ov002_0207f600;                 /* slot holding the scene contex
 extern struct {
     char         _p00[0xd4];
     unsigned int flags;                         /* +0xd4 */
-} data_02047394;
+} NNS_G3dGlb;
 
 void Ov002_UpdateSceneFrame(void)
 {
@@ -72,7 +72,7 @@ void Ov002_UpdateSceneFrame(void)
 
         pCtx = (int *)data_ov002_0207f600;
         MTX_OrthoW(0, 0x3000, 0, 0x4000, 0, 0x1000, 0x400000, data_0204739c);
-        data_02047394.flags &= ~0x50;
+        NNS_G3dGlb.flags &= ~0x50;
 
         nHalfX = (int)*(short *)((char *)pCtx + 0x14)
                  * *(int *)((char *)pCtx + 0x28) / 2;

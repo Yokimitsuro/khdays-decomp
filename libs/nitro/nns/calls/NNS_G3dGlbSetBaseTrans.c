@@ -10,7 +10,7 @@ typedef struct {
 } CameraState;
 
 extern VecFx32 data_0204744c;
-extern CameraState data_02047394;
+extern CameraState NNS_G3dGlb;
 
 void NNS_G3dGlbSetBaseTrans(const VecFx32 *target) {
     if (target == 0) {
@@ -18,5 +18,5 @@ void NNS_G3dGlbSetBaseTrans(const VecFx32 *target) {
     }
 
     data_0204744c = *target;
-    data_02047394.dwViewFlags &= ~0xa4;
+    NNS_G3dGlb.dwViewFlags &= ~0xa4;
 }

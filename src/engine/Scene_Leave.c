@@ -1,7 +1,7 @@
 #pragma thumb on
 /* Scene_Leave -- leave the current scene, MAIN. The main screen falls back to BG0 only; in mode
  * bit 3 the effect layer is reset (SetGameMode(2)). Unless a reset is pending (data_0204c240 bit
- * 2 while mode bit 1 is set), the saved state of the game heap is restored: SetupTimer0Reload with
+ * 2 while mode bit 1 is set), the saved state of the game heap is restored: OS_SetTick with
  * +0x0/+0x4, the VBlank count from +0x8, sound stopped, and, when no
  * +0xe0 object holds it, stream 0 restarted from the playback position saved at +0xc4. In mode bit 1 the sound fades out (InvokeSubStructAndStampByte(0x7f, 10)). A +0xdc
  * scene drops its +0xe0 object; the scene state (+0xc8) becomes 5 and Gfx_RestoreAfterPause is queued as
@@ -28,7 +28,7 @@ extern u8 data_0204c240;
 extern char gPauseRefreshName[16];
 extern int LoadGlobalU16At0(void);
 extern void SetGameMode(int mode);
-extern void SetupTimer0Reload(int a, int b);
+extern void OS_SetTick(int a, int b);
 extern void VBlank_SetCount(unsigned int count);
 extern void SNDi_BroadcastChannelOp(int op);
 extern int SoundMgr_StartStream(int slot, int pos);
@@ -47,7 +47,7 @@ void Scene_Leave(void)
         SetGameMode(2);
     }
     if ((data_0204c240 & 4) == 0 || (LoadGlobalU16At0() & 2) == 0) {
-        SetupTimer0Reload(heap->saveA, heap->saveB);
+        OS_SetTick(heap->saveA, heap->saveB);
         VBlank_SetCount(heap->vblankCount);
         SNDi_BroadcastChannelOp(0);
         if (heap->object == 0 && heap->streamPos != -1) {

@@ -656,7 +656,7 @@ libs/nitro/os/calls/OS_GetTickLo.c:
     complete
     .text       start:0x02003274 end:0x02003284
 
-libs/nitro/os/calls/SetupTimer0Reload.c:
+libs/nitro/os/calls/OS_SetTick.c:
     complete
     .text       start:0x02003284 end:0x020032f4
 
@@ -2224,11 +2224,11 @@ libs/nitro/card/calls/CARD_UnlockRom.c:
     complete
     .text       start:0x0200e138 end:0x0200e154
 
-libs/nitro/card/calls/CARD_UnlockBackup.c:
+libs/nitro/card/calls/CARD_LockBackup.c:
     complete
     .text       start:0x0200e154 end:0x0200e164
 
-libs/nitro/card/calls/CardUnlockAfterKeyShare.c:
+libs/nitro/card/calls/CARD_UnlockBackup.c:
     complete
     .text       start:0x0200e164 end:0x0200e18c
 
@@ -2672,7 +2672,7 @@ libs/nns/gfd/auto/Gfd_DefaultFreePlttVram.c:
     complete
     .text       start:0x02010e30 end:0x02010e38
 
-libs/nns/gfd/calls/Party_SetActiveSlots.c:
+libs/nns/gfd/calls/NNSi_GfdSetTexNrmSearchArray.c:
     complete
     .text       start:0x02010e38 end:0x02010e80
 
@@ -2684,7 +2684,7 @@ libs/nns/gfd/calls/NNS_GfdResetFrmTexVramState.c:
     complete
     .text       start:0x02010f08 end:0x02010f7c
 
-libs/nitro/nns/calls/func_02010f7c.c:
+libs/nitro/nns/calls/NNS_GfdAllocFrmTexVram.c:
     complete
     .text       start:0x02010f7c end:0x020110ec
 
@@ -3300,7 +3300,7 @@ libs/nns/g3d/calls/NNS_G3dGlbInit.c:
     complete
     .text       start:0x02015630 end:0x0201571c
 
-libs/nns/g3d/calls/Gfx_SubmitCachedCommandBlock.c:
+libs/nns/g3d/calls/NNS_G3dGlbFlush.c:
     complete
     .text       start:0x0201571c end:0x0201574c
 
@@ -3380,7 +3380,7 @@ libs/nns/g3d/calls/NNS_G3dGetCurrentMtx.c:
     complete
     .text       start:0x02016294 end:0x02016320
 
-libs/nitro/nns/calls/func_02016320.c:
+libs/nitro/nns/calls/NNS_G3dGetResultMtx.c:
     complete
     .text       start:0x02016320 end:0x020163cc
 
@@ -5608,15 +5608,15 @@ libs/nns/g3d/auto/updateHintVec__2.c:
     complete
     .text       start:0x02027978 end:0x020279e0
 
-src/engine/Obj_InitChannelsAndRun.c:
+src/engine/NNS_G3dDraw.c:
     complete
     .text       start:0x020279e0 end:0x02027ac8
 
-libs/nns/g3d/auto/Sbc_Nop.c:
+libs/nns/g3d/auto/NNSi_G3dFuncSbc_NOP.c:
     complete
     .text       start:0x02027ac8 end:0x02027af0
 
-libs/nns/g3d/auto/Sbc_Ret.c:
+libs/nns/g3d/auto/NNSi_G3dFuncSbc_RET.c:
     complete
     .text       start:0x02027af0 end:0x02027b18
 
@@ -5628,7 +5628,7 @@ libs/nns/g3d/calls/NNSi_G3dFuncSbc_BBY.c:
     complete
     .text       start:0x02027d7c end:0x0202803c
 
-libs/nns/g3d/calls/Sbc_CallDl.c:
+libs/nns/g3d/calls/NNSi_G3dFuncSbc_CALLDL.c:
     complete
     .text       start:0x0202803c end:0x020280a4
 
@@ -5640,7 +5640,7 @@ libs/nns/g3d/calls/NNSi_G3dFuncSbc_PRJMAP.c:
     complete
     .text       start:0x02028314 end:0x020285f0
 
-src/engine/PublishArchiveVTableAndSeedRng.c:
+src/engine/G3d_InitSbcFuncTable.c:
     complete
     .text       start:0x020285f0 end:0x02028670
 
@@ -7941,6 +7941,10 @@ src/engine/data/main_exception_index_0203d1bc.c:
     complete
     .rodata     start:0x0203d1bc end:0x0203d210
 
+src/engine/data/main_gfd_frm_tex_regions_02042418.c:
+    complete
+    .data       start:0x02042418 end:0x02042490
+
 src/engine/data/main_hmac_alloc_020418c0.c:
     complete
     .rodata     start:0x020418c0 end:0x02041924
@@ -7948,10 +7952,6 @@ src/engine/data/main_hmac_alloc_020418c0.c:
 src/engine/data/main_overlay_digests_02042ac0.c:
     complete
     .data       start:0x02042ac0 end:0x020442a0
-
-src/engine/data/main_party_roster_02042418.c:
-    complete
-    .data       start:0x02042418 end:0x02042490
 
 src/engine/data/main_pause_menu_02042730.c:
     complete

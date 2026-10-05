@@ -1,8 +1,9 @@
-/* SetupTimer0Reload -- arm the alarm timer for an absolute 64-bit tick.
+/* OS_SetTick (NitroSDK os_tick.c) -- set the system tick to nTick.
  *
- * Timer 0 counts the low 16 bits in hardware; the remaining 48 live in software at
- * data_02044664 (+8 mid, +0xc high) and are counted down by the timer-0 interrupt, which
- * this function acknowledges in REG_IF before re-arming. +4 is the "armed" flag.
+ * Timer 0 counts the tick's low 16 bits; the 48 above them are OSi_TickCounter (data_02044664
+ * +8, a u64, which OS_GetTick reads), counted up by the timer-0 interrupt, acknowledged here
+ * in REG_IF first. OSi_NeedResetTimer (+4) has OSi_CountUpTick put timer 0's reload back to 0
+ * at its next overflow.
  *
  * Two details carry the match. The mask in `(u16)(nTick & 0xffff)` must be applied to
  * the 64-bit value, not to a u32 cast of it: masking a u32 is redundant in front of a
@@ -17,9 +18,9 @@
 
 typedef struct OsAlarmState {
     u8  pad_00[4];
-    u32 bArmed;
-    u32 nTickMid;
-    u32 nTickHigh;
+    u32 bNeedResetTimer;    /* OSi_NeedResetTimer */
+    u32 nTickCounterLo;     /* OSi_TickCounter, low word */
+    u32 nTickCounterHi;     /* OSi_TickCounter, high word */
 } OsAlarmState;
 
 extern OsAlarmState data_02044664;
@@ -27,14 +28,14 @@ extern OsAlarmState data_02044664;
 extern int  OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(int state);
 
-void SetupTimer0Reload(u64 nTick)
+void OS_SetTick(u64 nTick)
 {
     int state = OS_DisableInterrupts();
 
     REG_IF = 8;
-    data_02044664.bArmed = 1;
-    data_02044664.nTickMid = (u32)(nTick >> 16);
-    data_02044664.nTickHigh = (u32)(nTick >> 48);
+    data_02044664.bNeedResetTimer = 1;
+    data_02044664.nTickCounterLo = (u32)(nTick >> 16);
+    data_02044664.nTickCounterHi = (u32)(nTick >> 48);
     REG_TM0CNT_H = 0;
     REG_TM0CNT_L = (u16)(nTick & 0xffff);
     REG_TM0CNT_H = 0xc1;

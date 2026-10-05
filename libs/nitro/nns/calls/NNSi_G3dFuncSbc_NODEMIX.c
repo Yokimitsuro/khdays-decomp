@@ -73,7 +73,7 @@ static inline void AddPosition(MtxFx43 *sum, const MtxFx44 *matrix, s64 weight)
 #undef ADD_P
 }
 
-void NNSi_G3dFuncSbcNODEMIX(NNSG3dRenderState *state, u32 option)
+void NNSi_G3dFuncSbc_NODEMIX(NNSG3dRenderState *state, u32 option)
 {
     s64 weight;
     const NNSG3dSbcNodeMixEntry *entry;

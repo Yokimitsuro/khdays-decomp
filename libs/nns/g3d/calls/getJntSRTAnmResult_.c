@@ -475,7 +475,7 @@ typedef struct NNSG3dRS_ {
     NNSG3dJntAnmResult tmpJntAnmResult;
     NNSG3dVisAnmResult tmpVisAnmResult;
 } NNSG3dRS;
-extern NNSG3dRS * data_020475d0;
+extern NNSG3dRS * NNS_G3dRS;
 extern void getTransData_(fx32 * pVal, fx32 Frame, const u32 * pData, const NNSG3dResJntAnm * pJntAnm);
 extern void getTransDataEx_(fx32 * pVal, fx32 Frame, const u32 * pData, const NNSG3dResJntAnm * pJntAnm);
 extern void func_02017bec(fx32 * s_invs, fx32 Frame, const u32 * pData, const NNSG3dResJntAnm * pJntAnm);
@@ -721,10 +721,10 @@ void getJntSRTAnmResult_ (const NNSG3dResJntAnm * pJntAnm, u32 dataIdx, fx32 Fra
     }
 GET_JOINTSCALE:
 
-    (*data_020475d0->funcJntScale)(
+    (*NNS_G3dRS->funcJntScale)(
         pResult,
         pS_invS,
-        data_020475d0->c,
+        NNS_G3dRS->c,
         ((pResult->flag & NNS_G3D_JNTANM_RESULTFLAG_SCALE_ONE) ?
          NNS_G3D_SRTFLAG_SCALE_ONE :
          0)

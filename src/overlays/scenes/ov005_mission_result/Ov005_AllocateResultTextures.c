@@ -13,7 +13,7 @@ extern void NNS_GfdInitFrmTexVramManager(int,int);
 extern void NNS_GfdInitFrmPlttVramManager(int,int);
 extern void *Archive_LoadFile(const char *,int);
 extern void Obj_RelocateSections(void *,int);
-extern u32 func_02010f7c(int,int,int);
+extern u32 NNS_GfdAllocFrmTexVram(int,int,int);
 extern u32 func_020111c0(int,int,int);
 extern void Ov005_InitializeMenuQuad(Ov005MenuQuad *,short,short,short,short);
 void Ov005_AllocateResultTextures(void) {
@@ -29,7 +29,7 @@ void Ov005_AllocateResultTextures(void) {
     context->textureSet.archive=Archive_LoadFile(gOv005UiPnl3DPackPath,14);
     Obj_RelocateSections(context->textureSet.archive,0);
     for(i=0,texture=set->textures;i<213;i++,texture++) {
-        texture->textureKey=func_02010f7c(0x80,0,0);
+        texture->textureKey=NNS_GfdAllocFrmTexVram(0x80,0,0);
         texture->paletteKey=func_020111c0(0x20,0,1);
     }
     for(i=0,x=10,row=set->quads[0];i<2;i++,x+=112,row+=7) {

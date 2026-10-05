@@ -5,8 +5,8 @@
 extern void MI_Copy48B(int a, int b);
 extern void NNS_G3dMdlSetMdlPolygonID(int a, int b, int c);
 extern void GX_SendFifoWords(int tag, int *buf, int count);
-extern void Gfx_SubmitCachedCommandBlock(void);
-extern void Obj_InitChannelsAndRun(int p);
+extern void NNS_G3dGlbFlush(void);
+extern void NNS_G3dDraw(int p);
 
 void Ov050_configureSubObjectSlot(int this, int entry, int p3) {
     int buf[3];
@@ -31,9 +31,9 @@ void Ov050_configureSubObjectSlot(int this, int entry, int p3) {
         buf[1] = val;
         buf[2] = val;
         GX_SendFifoWords(0x1b, buf, 3);
-        Gfx_SubmitCachedCommandBlock();
+        NNS_G3dGlbFlush();
         GX_SendFifoWords(0x17, (int *)(entry + 0x88), 0xc);
-        Obj_InitChannelsAndRun(entry + 0x28);
+        NNS_G3dDraw(entry + 0x28);
         break;
     default:
         break;

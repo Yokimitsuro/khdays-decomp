@@ -1,3 +1,6 @@
+/* NNS_GfdAllocFrmTexVram (NitroSystem gfd_FrameTexVramMan.c): take szByte of texture VRAM from the
+ * frame manager's regions, in the normal or the 4x4-compressed search order, and return its
+ * texture key (NNS_GFD_ALLOC_ERROR_TEXKEY when no region has room). */
 
 
 #include "nitro/types.h"
@@ -5,7 +8,7 @@
 
 extern NNSGfdFrmTexRegionState *data_020423fc[2];
 extern NNSGfdFrmTexRegionState *data_02042404[5];
-extern NNSGfdFrmTexRegionState data_02042418[5];
+extern NNSGfdFrmTexRegionState gGfdFrmTexRegions[5];
 
 static inline u32 NNSi_GfdGetTexKeyRoundupSize(u32 size)
 {
@@ -58,9 +61,9 @@ static inline NNSGfdFrmTexRegionState *Get4x4IdxRegion_(const NNSGfdFrmTexRegion
     (void)0;
     switch (pRegion->index) {
     case 0:
-        return &data_02042418[1];
+        return &gGfdFrmTexRegions[1];
     case 3:
-        return &data_02042418[2];
+        return &gGfdFrmTexRegions[2];
     default:
         (void)0;
         break;
@@ -83,10 +86,10 @@ static inline BOOL DoAlloc4x4_(u32 szByte, u32 *addr)
                 GetReagionCapacity_(pRegion) >= szByte) {
                 switch (pRegion->index) {
                 case 0:
-                    pPltRegion = &data_02042418[1];
+                    pPltRegion = &gGfdFrmTexRegions[1];
                     break;
                 case 3:
-                    pPltRegion = &data_02042418[2];
+                    pPltRegion = &gGfdFrmTexRegions[2];
                     break;
                 default:
                     pPltRegion = NULL;
@@ -129,7 +132,7 @@ static inline BOOL DoAllocNrm_(u32 szByte, u32 *addr)
     }
 }
 
-NNSGfdTexKey func_02010f7c(u32 szByte, BOOL is4x4comp, u32 opt)
+NNSGfdTexKey NNS_GfdAllocFrmTexVram(u32 szByte, BOOL is4x4comp, u32 opt)
 {
 #pragma unused(opt)
     u32 addr;

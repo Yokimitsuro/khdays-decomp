@@ -24,7 +24,7 @@ typedef struct NNSG3dGlb {
     MtxFx43 cameraMtx;
 } NNSG3dGlb;
 
-extern NNSG3dGlb data_02047394;
+extern NNSG3dGlb NNS_G3dGlb;
 
 extern void MTX_MultVec43(const VecFx32 *src, const MtxFx43 *mtx, VecFx32 *dst);
 extern void FX_InvAsync(fx32 value);
@@ -38,12 +38,12 @@ static inline fx32 FX_Mul32x64c(fx32 x, fx64c y)
 
 static inline const MtxFx44 *NNS_G3dGlbGetProjectionMtx(void)
 {
-    return &data_02047394.projMtx;
+    return &NNS_G3dGlb.projMtx;
 }
 
 static inline const MtxFx43 *NNS_G3dGlbGetCameraMtx(void)
 {
-    return &data_02047394.cameraMtx;
+    return &NNS_G3dGlb.cameraMtx;
 }
 
 int func_0201653c(const VecFx32 *pWorld, int *px, int *py)

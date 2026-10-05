@@ -43,7 +43,8 @@ extern void  Ov009_LoadAndInitResourceSections(int tracker, const void *resource
 extern int   Ov009_FindEntryByTag(int tracker, u32 tag);
 extern void  Ov009_TagTracker_InvokeCallback(int tracker, int entry);
 
-static volatile u32 *const REG_DISPCAPCNT =
+/* BG2HOFS and BG2VOFS, engine A's BG2 scroll, written as one word. */
+static volatile u32 *const REG_BG2OFS =
     (volatile u32 *)0x04000018;
 
 void Ov009_LoadMenuBgWithVariantChars(void)
@@ -78,7 +79,7 @@ void Ov009_LoadMenuBgWithVariantChars(void)
         NNSi_FndFreeFromDefaultHeap(resource);
     }
 
-    *REG_DISPCAPCNT = 0x01e600e3;
+    *REG_BG2OFS = 0x01e600e3;    /* horizontal 0xe3, vertical 0x1e6 */
     Ov009_LoadAndInitResourceSections(tracker, gOv009UiCmSavePath);
     entry = Ov009_FindEntryByTag(tracker, 0);
     Ov009_TagTracker_InvokeCallback(tracker, entry);

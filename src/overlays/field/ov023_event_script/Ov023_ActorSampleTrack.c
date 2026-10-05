@@ -25,13 +25,13 @@ typedef struct Ov023Actor {
     Ov023Entity *pEntity;     /* 0x15e0 */
 } Ov023Actor;
 
-extern void Obj_InitChannelsAndRun(u32 *pAnimControl);                       /* Anim_Advance */
+extern void NNS_G3dDraw(u32 *pAnimControl);                       /* Anim_Advance */
 
 void Ov023_ActorSampleTrack(Ov023Actor *pActor, VecFx32 *pOut)
 {
     pActor->pEntity->nAnimControl |= 1;
     pActor->pEntity->nAnimControl |= 2;
-    Obj_InitChannelsAndRun(&pActor->pEntity->nAnimControl);
+    NNS_G3dDraw(&pActor->pEntity->nAnimControl);
     pActor->pEntity->nAnimControl &= ~2;
     *pOut = pActor->aTrack[pActor->nTrack].vPos;
 }

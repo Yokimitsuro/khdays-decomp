@@ -3,8 +3,8 @@
 
 extern void MI_Copy48B(int dst, int src);
 extern void GX_SendFifoWords(int a, void *b, int c);
-extern void Gfx_SubmitCachedCommandBlock(void);
-extern void Obj_InitChannelsAndRun(int a);
+extern void NNS_G3dGlbFlush(void);
+extern void NNS_G3dDraw(int a);
 
 void Ov057_UploadBoneMatrices(int self, int *blk) {
     int tmp[3];
@@ -17,7 +17,7 @@ void Ov057_UploadBoneMatrices(int self, int *blk) {
         tmp[2] = v;
         GX_SendFifoWords(0x1b, tmp, 3);
     }
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlbFlush();
     GX_SendFifoWords(0x17, (void *)((int)blk + 0x84), 0xc);
-    Obj_InitChannelsAndRun((int)blk + 0x24);
+    NNS_G3dDraw((int)blk + 0x24);
 }

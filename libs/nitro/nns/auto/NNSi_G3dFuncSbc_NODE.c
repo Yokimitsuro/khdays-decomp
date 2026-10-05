@@ -1,3 +1,6 @@
+/* NNSi_G3dFuncSbc_NODE (NitroSystem sbc.c): the SBC NODE command. Sends nothing: it sets the
+ * node's visibility, from the visibility animations when the node has one, otherwise from the
+ * command's own flag, and keeps it in the render state's flag bit 0. */
 
 #include "nitro/types.h"
 
@@ -65,7 +68,7 @@ static inline u32 BlendVisibility(u32 *result, VisibilityNode *node, u32 command
     return found;
 }
 
-void func_01ffba90(RenderCommandState *state)
+void NNSi_G3dFuncSbc_NODE(RenderCommandState *state)
 {
     u32 command;
     VisibilityNode *node;

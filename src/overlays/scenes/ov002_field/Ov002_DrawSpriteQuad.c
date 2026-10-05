@@ -43,7 +43,7 @@ extern char data_02047428[];    /* global 3x3 orientation matrix */
 extern struct {
     char         _p00[0xd4];
     unsigned int flags;         /* +0xd4 */
-} data_02047394;
+} NNS_G3dGlb;
 
 extern void NNS_G3dGlbSetBaseTrans(const VecFx32 *v);   /* set primary camera target */
 extern void NNS_G3dGlbSetBaseScale(const VecFx32 *v);   /* set secondary camera target */
@@ -123,7 +123,7 @@ void Ov002_DrawSpriteQuad(Sprite *p, int bBlend)
         MTX_Concat33(mRot, yaw.m, mRot);
     }
     MI_Copy36B(mRot, data_02047428);
-    data_02047394.flags &= ~0xa4;
+    NNS_G3dGlb.flags &= ~0xa4;
     NNS_G3dGlbFlushP();
 
     GX_SendFifoWords(0x2b2a, &p->nTexParam, 2);

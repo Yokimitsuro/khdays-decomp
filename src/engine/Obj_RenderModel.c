@@ -70,16 +70,16 @@ typedef struct NNSG3dGlb {
 extern VecFx32 data_02047458;
 extern MtxFx33 data_02047428;
 extern VecFx32 data_0204744c;
-extern NNSG3dGlb data_02047394;
+extern NNSG3dGlb NNS_G3dGlb;
 
 extern void Mtx33_FromQuat(MtxFx33 *mtx, const Quat *q);
 extern void Widget_SetTagWord(u16 *p, u16 v);
 extern void MaterialColorScale_SetRgb555(int value);
 extern void Gfx_ApplyBaseTransform(void);
-extern void Obj_InitChannelsAndRun(u32 *param_1);
+extern void NNS_G3dDraw(u32 *param_1);
 extern void *List_First(ObjList *o);
 extern void *List_Next(ObjList *o);
-extern int func_02016320(void *pRenderObj, MtxFx43 *pos, MtxFx33 *nrm, u32 nodeID);
+extern int NNS_G3dGetResultMtx(void *pRenderObj, MtxFx43 *pos, MtxFx33 *nrm, u32 nodeID);
 extern void SrtTransform_SetIdentity(void *o);
 extern void Srt_SetTranslation(void *dst, void *src);
 extern void Node_SetRotationFromMtx(unsigned char *ptr, void *nrm);
@@ -97,7 +97,7 @@ void Obj_RenderModel(Self *self, int region)
     data_02047458 = self->position;
     Mtx33_FromQuat(&data_02047428, &self->quat);
     data_0204744c = self->vecA;
-    data_02047394.flag &= ~0xa4;
+    NNS_G3dGlb.flag &= ~0xa4;
 
     if (self->renderCtx->flags & 0x40) {
         if (!self->flags5c.skipRender) {
@@ -112,12 +112,12 @@ void Obj_RenderModel(Self *self, int region)
         }
     }
     Gfx_ApplyBaseTransform();
-    Obj_InitChannelsAndRun(&self->renderCtx->objFlags);
+    NNS_G3dDraw(&self->renderCtx->objFlags);
 
     if (self->objList != 0) {
         node = (ObjNode *)List_First(self->objList);
         while (node != 0) {
-            if (func_02016320(&self->renderCtx->objFlags, &pos, &nrm, node->nodeID)) {
+            if (NNS_G3dGetResultMtx(&self->renderCtx->objFlags, &pos, &nrm, node->nodeID)) {
                 SrtTransform_SetIdentity((char *)node + 4);
                 if (node->flags & 1) {
                     Srt_SetTranslation((char *)node + 4, &pos.m[3]);

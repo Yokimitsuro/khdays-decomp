@@ -7,9 +7,9 @@ extern void Ov032_EffectBlockPlace(int self, char *block);
 extern int Anim_GetFrame(void *anim, int track);                                 /* Anim_GetFrame */
 extern int Anim_GetLengthQ12(void *anim, int track);
 extern void Anim_SetFrameWrapped(void *anim, int channel, int frame);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void GX_SendFifoWords(unsigned int cmd, const void *src, unsigned int words);
-extern void Obj_InitChannelsAndRun(void *obj);
+extern void NNS_G3dDraw(void *obj);
 
 struct b1 { unsigned char b0 : 1; };
 
@@ -39,9 +39,9 @@ void Ov032_EffectTick(int self)
         if (frame > 0 && frame < len) {
             Anim_SetFrameWrapped(anim, 2, frame);
             Anim_SetFrameWrapped(anim, 0, frame);
-            Gfx_SubmitCachedCommandBlock();
+            NNS_G3dGlbFlush();
             GX_SendFifoWords(0x17, mtx, 0xc);
-            Obj_InitChannelsAndRun(obj);
+            NNS_G3dDraw(obj);
         }
         anim += 0x108;
         mtx += 0x30;

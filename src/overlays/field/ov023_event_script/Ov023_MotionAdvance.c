@@ -23,7 +23,7 @@ typedef struct Ov023MotionState {  /* at +4 of the actor */
 } Ov023MotionState;
 
 extern void Sequence_UpdateTracks(void *pSequence, int nStep);              /* Sequence_UpdateTracks */
-extern void Obj_InitChannelsAndRun(u32 *pAnimControl);                       /* Anim_Advance */
+extern void NNS_G3dDraw(u32 *pAnimControl);                       /* Anim_Advance */
 
 int Ov023_MotionAdvance(Ov023MotionState *pState, int nStep)
 {
@@ -35,7 +35,7 @@ int Ov023_MotionAdvance(Ov023MotionState *pState, int nStep)
     nResult = -1;
     Sequence_UpdateTracks(pState->sequence, nStep);
     pState->nAnimControl |= 1;
-    Obj_InitChannelsAndRun(&pState->nAnimControl);
+    NNS_G3dDraw(&pState->nAnimControl);
     for (i = 0; i < 9; i++) {
         vPos.x = vPos.y = vPos.z = 0;
         nTrack = pState->aTrackIndex[i];

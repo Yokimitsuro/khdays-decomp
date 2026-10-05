@@ -29,7 +29,7 @@ struct Ov266 {
     Quat quats[16];         /* +0x3cc */
 };
 
-extern int func_02016320(int a, Mtx43 *out, int b, int bone);
+extern int NNS_G3dGetResultMtx(int a, Mtx43 *out, int b, int bone);
 extern void VEC_Add(const void *a, const void *b, void *out);
 extern void Srt_SetTranslation(void *srt, const VecFx32 *t);
 extern void VEC_Subtract(const void *a, const void *b, void *out);
@@ -75,7 +75,7 @@ void Ov267_BoneCallback(int rig, char *self)
     int prev;
     int seg;
 
-    if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x58c)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x58c)) != 0) {
         *(VecFx32 *)(self + 0x508) = probe.t;
         *(SrtTransform *)(self + 0x520) = *(SrtTransform *)(self + 0xa0);
         pos.x = 0;
@@ -85,11 +85,11 @@ void Ov267_BoneCallback(int rig, char *self)
         VEC_Add(&pos, self + 0xb0, &pos);
         Srt_SetTranslation(self + 0x520, &pos);
     }
-    if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x598)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x598)) != 0) {
         root = probe.t;
         *(SrtTransform *)(self + 0x54c) = *(SrtTransform *)(self + 0xa0);
         Srt_SetTranslation(self + 0x54c, &root);
-        if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x59c)) != 0) {
+        if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x59c)) != 0) {
             VEC_Subtract(&probe.t, &root, &span);
             for (k = 0; k < 2; k++) {
                 part = k == 0 ? *(int *)(self + 0x4d8) : **(int **)(self + 0x4cc);
@@ -100,11 +100,11 @@ void Ov267_BoneCallback(int rig, char *self)
             }
         }
     }
-    if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x5a0)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x5a0)) != 0) {
         Srt_SetTranslation((void *)(**(int **)(self + 0x4d0) + 0x10), &probe.t);
         Srt_SetTranslation((void *)(*(int *)(self + 0x4dc) + 0x10), &probe.t);
     }
-    if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x5a4)) != 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x5a4)) != 0) {
         Srt_SetTranslation((void *)(**(int **)(self + 0x4d4) + 0x10), &probe.t);
         Srt_SetTranslation((void *)(*(int *)(self + 0x4e0) + 0x10), &probe.t);
     }
@@ -114,7 +114,7 @@ void Ov267_BoneCallback(int rig, char *self)
     if (((Flag2 *)(*(int *)(self + 0x3c8) + 0x5c))->b1) {
         return;
     }
-    if (func_02016320(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x590)) == 0) {
+    if (NNS_G3dGetResultMtx(*(int *)(rig + 0x88) + 0x20, &probe, 0, *(int *)(self + 0x590)) == 0) {
         return;
     }
     blocked = 0;

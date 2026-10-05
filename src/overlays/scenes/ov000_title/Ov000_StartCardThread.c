@@ -20,7 +20,7 @@ extern void *NNSi_FndAllocFromDefaultExpHeap(int size);
 extern void OS_CreateThread(void *thread, void (*func)(void *), void *arg,
                             void *stack, unsigned stackSize, unsigned prio);
 extern void OS_WakeupThreadDirect(void *thread);
-extern void Ov000_Backup_WriteChunked(void *arg);
+extern void Ov000_Backup_ReadChunked(void *arg);
 
 extern CardTransferCtx data_ov000_0205ac2c;
 
@@ -29,7 +29,7 @@ void Ov000_StartCardThread(int a, int b, int c) {
     data_ov000_0205ac2c.thread->paramA = a;
     data_ov000_0205ac2c.thread->paramC = c;
     data_ov000_0205ac2c.thread->paramB = b;
-    OS_CreateThread(data_ov000_0205ac2c.thread, Ov000_Backup_WriteChunked,
+    OS_CreateThread(data_ov000_0205ac2c.thread, Ov000_Backup_ReadChunked,
                     data_ov000_0205ac2c.thread,
                     (char *)data_ov000_0205ac2c.thread + 0x2c0, 0x200, 0x11);
     OS_WakeupThreadDirect(data_ov000_0205ac2c.thread);

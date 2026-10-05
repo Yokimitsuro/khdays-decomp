@@ -1,5 +1,5 @@
 /* Per-frame step for the swinging-weapon enemy, on top of the base step at Obj_RenderModel. First
- * half samples a joint: func_02016320 fetches the matrix for joint index +0x3d0, and words 9..11 of
+ * half samples a joint: NNS_G3dGetResultMtx fetches the matrix for joint index +0x3d0, and words 9..11 of
  * that 12-word block are its translation column (it is a MtxFx43, so the last row IS the position).
  * The sampled point is stored at +0x3a4, and while the 'restart' flag at +0x3e4 is clear the
  * per-frame DELTA is written to +0x3b0 first -- VEC_Subtract(new, +0x3a4, +0x3b0) is dst = new -
@@ -15,7 +15,7 @@
 #include "nitro/fx_types.h"
 
 extern void Obj_RenderModel();
-extern int func_02016320();
+extern int NNS_G3dGetResultMtx();
 extern void VEC_Subtract();
 extern int VEC_Normalize();
 extern void SetSubitemState();
@@ -33,7 +33,7 @@ void Ov199_TickSwingArc(int self, int a, int b, int c)
 
     Obj_RenderModel(self, a, b, c);
 
-    if (func_02016320(*(int *)(self + 0x88) + 0x20, buf, 0,
+    if (NNS_G3dGetResultMtx(*(int *)(self + 0x88) + 0x20, buf, 0,
                       *(unsigned int *)(o + 0x3d0)) != 0) {
         tmp = *(VecFx32 *)&buf[9];
 

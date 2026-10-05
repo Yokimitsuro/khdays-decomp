@@ -15,7 +15,7 @@ data_027e0090 kind:bss addr:0x027e0090
 data_027e0350 kind:bss addr:0x027e0350
 data_027e0654 kind:bss addr:0x027e0654
 data_027e0658 kind:bss addr:0x027e0658
-data_027e0660 kind:bss addr:0x027e0660
+NNS_G3dFuncSbcTable kind:bss addr:0x027e0660
 data_027e06e0 kind:bss addr:0x027e06e0
 data_027e06e4 kind:bss addr:0x027e06e4
 data_027e0764 kind:bss addr:0x027e0764

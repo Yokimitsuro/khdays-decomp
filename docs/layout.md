@@ -85,8 +85,7 @@ Still to do, in this order:
   folders at that point: the boundaries below are approximate, and a prefix such as `Obj_` or
   `Game_` turns up in several of them, so splitting by address now would scatter each system.
 - **`libs/` cleanup**: `libs/nitro/nns/` holds NitroSystem code filed under the NitroSDK, and
-  several library functions still carry shallow names that describe their shape
-  (`Party_SetActiveSlots` sits inside NitroSystem GFD).
+  several library functions still carry shallow names that describe their shape.
 
 ## main (arm9)
 

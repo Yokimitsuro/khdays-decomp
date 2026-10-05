@@ -35,7 +35,7 @@ enum {
     NODEDESC_SKIP_SCALE = 0x04
 };
 
-extern NNSG3dRenderState *data_020475d0;
+extern NNSG3dRenderState *NNS_G3dRS;
 extern u8 data_020483e0[];
 extern u8 data_020483e4[];
 extern u8 data_020483e8[];
@@ -51,7 +51,7 @@ void func_01ffa2dc(NNSG3dJntAnmResult *result,
         result->flag |= JNT_SCALE_ONE;
         if (commandFlags & NODEDESC_STORE_SCALE) {
             u8 nodeId = command->nodeId;
-            data_020475d0->scaleCacheFlags[(u32)nodeId >> 5] |=
+            NNS_G3dRS->scaleCacheFlags[(u32)nodeId >> 5] |=
                 1 << (nodeId & 0x1f);
         }
     } else {
@@ -62,7 +62,7 @@ void func_01ffa2dc(NNSG3dJntAnmResult *result,
             u8 nodeId = command->nodeId;
             int offset = (u16)nodeId * sizeof(NNSG3dJointScale);
 
-            data_020475d0->scaleCacheFlags[(u32)nodeId >> 5] &=
+            NNS_G3dRS->scaleCacheFlags[(u32)nodeId >> 5] &=
                 ~(1 << (nodeId & 0x1f));
             *(fx32 *)(data_020483e0 + offset) = jointScale->inverseScale.x;
             *(fx32 *)(data_020483e4 + offset) = jointScale->inverseScale.y;
@@ -74,7 +74,7 @@ void func_01ffa2dc(NNSG3dJntAnmResult *result,
         u8 parentId = command->parentId;
 
         result->flag |= JNT_MAYA_SSC;
-        if (data_020475d0->scaleCacheFlags[(u32)parentId >> 5] &
+        if (NNS_G3dRS->scaleCacheFlags[(u32)parentId >> 5] &
             (1 << (parentId & 0x1f))) {
             result->flag |= JNT_SCALEEX0_ONE;
         } else {

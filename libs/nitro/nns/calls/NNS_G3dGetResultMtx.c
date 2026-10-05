@@ -1,3 +1,6 @@
+/* NNS_G3dGetResultMtx (NitroSystem g3d): after a draw, restore the matrix stack slot node nodeID
+ * stored its matrix in and read the position and normal matrices back. FALSE when the node
+ * stored none (slot 31). */
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
@@ -79,7 +82,7 @@ static inline void NNS_G3dGeRestoreMtx(int num)
     GX_SendFifoWords(0x14, (u32 *)&num, 1);
 }
 
-BOOL func_02016320(const NNSG3dRenderObj *pRenderObj, MtxFx43 *pos, MtxFx33 *nrm, u32 nodeID)
+BOOL NNS_G3dGetResultMtx(const NNSG3dRenderObj *pRenderObj, MtxFx43 *pos, MtxFx33 *nrm, u32 nodeID)
 {
     const NNSG3dResNodeData *nd;
     u32 stackID;

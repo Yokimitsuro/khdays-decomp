@@ -1,3 +1,7 @@
+/* NNSi_G3dDrawInternal (NitroSystem g3d): run a render object's SBC program with the render state
+ * given -- clear it, point it at the model's (or the render object's own) program, copy the
+ * position scales and the render object's callback into it, call its init function, and
+ * dispatch each SBC byte through NNS_G3dFuncSbcTable until RET ends the draw. */
 
 #include "nitro/types.h"
 
@@ -58,9 +62,9 @@ extern void MIi_CpuClearFast(u32 data, void *dest, u32 size);
 extern const u32 data_02042510[];
 extern const u32 data_02042504[];
 extern const u32 data_0204251c[];
-extern NNSG3dSbcHandler data_027e0660[];
+extern NNSG3dSbcHandler NNS_G3dFuncSbcTable[];
 
-void func_01ffb8fc(NNSG3dRenderState *state, NNSG3dRenderObj *renderObj)
+void NNSi_G3dDrawInternal(NNSG3dRenderState *state, NNSG3dRenderObj *renderObj)
 {
     NNSG3dResMdl *resource;
     u8 *pSbc;
@@ -112,7 +116,7 @@ void func_01ffb8fc(NNSG3dRenderState *state, NNSG3dRenderObj *renderObj)
 
         state->flags &= ~0x40;
         command = *state->pSbc;
-        data_027e0660[command & 0x1f](state, command & 0xe0);
+        NNS_G3dFuncSbcTable[command & 0x1f](state, command & 0xe0);
     } while ((state->flags & 0x20) == 0);
 
     renderObj->flags &= ~1;

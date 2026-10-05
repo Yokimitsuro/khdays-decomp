@@ -19,7 +19,7 @@ extern void ContextEntry_Set(void);
 extern void func_0203123c(void);
 extern int data_0204c024;
 
-/* NitroSystem G3D material SBC (NNSi_G3dFuncSbcMAT): the diffuse/ambient colour-field mask selected by
+/* NitroSystem G3D material SBC (NNSi_G3dFuncSbc_MAT): the diffuse/ambient colour-field mask selected by
  * the material's three flag bits. */
 const u32 data_0204208c[8] = {
     0x00000000, 0x00007fff, 0x7fff0000, 0x7fff7fff,
@@ -27,7 +27,7 @@ const u32 data_0204208c[8] = {
 };
 
 /* For each element of a 3x3 matrix, the four element indices (row-major) of its 2x2 minor:
- * the cofactor walk of the 3x3 inverse (func_01ffae5c, NNSi_G3dFuncSbcNODEDESC, NNSi_G3dGetMdlRot). */
+ * the cofactor walk of the 3x3 inverse (func_01ffae5c, NNSi_G3dFuncSbc_NODEDESC, NNSi_G3dGetMdlRot). */
 const u8 data_020420ac[9][4] = {
     { 4, 5, 7, 8 }, { 3, 5, 6, 8 }, { 3, 4, 6, 7 },
     { 1, 2, 7, 8 }, { 0, 2, 6, 8 }, { 0, 1, 6, 7 },

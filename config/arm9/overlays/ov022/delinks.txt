@@ -1974,7 +1974,7 @@ src/overlays/field/ov022_battle/func_ov022_0209a4e0.c:
     complete
     .text       start:0x0209a4e0 end:0x0209a4f8
 
-src/overlays/field/ov022_battle/func_ov022_0209a4f8.c:
+src/overlays/field/ov022_battle/Ov022_OnItemGiven.c:
     complete
     .text       start:0x0209a4f8 end:0x0209a508
 

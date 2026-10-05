@@ -12,7 +12,7 @@ typedef struct NNSG3dRS {
 
 extern void NNS_G3dGeSendDL(const void *src, u32 size);
 
-void Sbc_CallDl(NNSG3dRS *rs)
+void NNSi_G3dFuncSbc_CALLDL(NNSG3dRS *rs)
 {
     if (!(rs->flag & 0x100)) {
         u32 rel = (u32)(rs->c[1] | (rs->c[2] << 8) | (rs->c[3] << 16) | (rs->c[4] << 24));

@@ -36,40 +36,40 @@ extern struct {
     int field_230;       /* 0x230 */
     int field_234;       /* 0x234 */
     int field_238;       /* 0x238 */
-} data_02047394;
+} NNS_G3dGlb;
 
-extern char data_0204739c[];   /* &data_02047394 + 0x08 */
-extern char data_020473e0[];   /* &data_02047394 + 0x4C */
-extern char data_02047428[];   /* &data_02047394 + 0x94 */
+extern char data_0204739c[];   /* &NNS_G3dGlb + 0x08 */
+extern char data_020473e0[];   /* &NNS_G3dGlb + 0x4C */
+extern char data_02047428[];   /* &NNS_G3dGlb + 0x94 */
 
 void NNS_G3dGlbInit(void) {
-    data_02047394.field_00 = 0x17101610;
-    data_02047394.field_04 = 0;
-    data_02047394.field_48 = 2;
-    data_02047394.field_7c = 0x60293130;
-    data_02047394.field_90 = 0x002a1b19;
+    NNS_G3dGlb.field_00 = 0x17101610;
+    NNS_G3dGlb.field_04 = 0;
+    NNS_G3dGlb.field_48 = 2;
+    NNS_G3dGlb.field_7c = 0x60293130;
+    NNS_G3dGlb.field_90 = 0x002a1b19;
     MTX_Identity43_(&data_020473e0);
     MTX_Identity44_(&data_0204739c);
-    data_02047394.field_80 = 0x4210c210;
-    data_02047394.field_84 = 0x4210c210;
-    data_02047394.field_88 = 0x001f008f;
-    data_02047394.field_8c = (int)0xbfff0000;
-    data_02047394.field_b8 = 0;
-    data_02047394.field_bc = 0;
-    data_02047394.field_c0 = 0;
+    NNS_G3dGlb.field_80 = 0x4210c210;
+    NNS_G3dGlb.field_84 = 0x4210c210;
+    NNS_G3dGlb.field_88 = 0x001f008f;
+    NNS_G3dGlb.field_8c = (int)0xbfff0000;
+    NNS_G3dGlb.field_b8 = 0;
+    NNS_G3dGlb.field_bc = 0;
+    NNS_G3dGlb.field_c0 = 0;
     MTX_Identity33_(&data_02047428);
-    data_02047394.field_c4 = 0x1000;
-    data_02047394.field_c8 = 0x1000;
-    data_02047394.field_cc = 0x1000;
-    data_02047394.field_d0 = 0;
-    data_02047394.field_d4 = 0;
-    data_02047394.field_220 = 0;
-    data_02047394.field_21c = 0;
-    data_02047394.field_218 = 0;
-    data_02047394.field_22c = 0;
-    data_02047394.field_224 = 0;
-    data_02047394.field_228 = 0x1000;
-    data_02047394.field_234 = 0;
-    data_02047394.field_230 = 0;
-    data_02047394.field_238 = -0x1000;
+    NNS_G3dGlb.field_c4 = 0x1000;
+    NNS_G3dGlb.field_c8 = 0x1000;
+    NNS_G3dGlb.field_cc = 0x1000;
+    NNS_G3dGlb.field_d0 = 0;
+    NNS_G3dGlb.field_d4 = 0;
+    NNS_G3dGlb.field_220 = 0;
+    NNS_G3dGlb.field_21c = 0;
+    NNS_G3dGlb.field_218 = 0;
+    NNS_G3dGlb.field_22c = 0;
+    NNS_G3dGlb.field_224 = 0;
+    NNS_G3dGlb.field_228 = 0x1000;
+    NNS_G3dGlb.field_234 = 0;
+    NNS_G3dGlb.field_230 = 0;
+    NNS_G3dGlb.field_238 = -0x1000;
 }

@@ -27,7 +27,7 @@ extern void Ov090_ReleaseIndexedHandles(char *self);
 extern void BindAnimTrack(char *anim, int track, char *bind, short group);       /* BindAnimTrack */
 extern void Anim_SetFrameWrapped(char *anim, int track, int frame);                     /* Anim_SetFrameWrapped */
 extern void GX_SendFifoWords(unsigned int cmd, const void *src, unsigned int words); /* GX_SendFifoWords */
-extern void Gfx_SubmitCachedCommandBlock(void);                                                  /* submit the cached block */
+extern void NNS_G3dGlbFlush(void);                                                  /* submit the cached block */
 extern void MaterialColorScale_SetRgb555(unsigned int value);
 
 void Ov090_UpdateAnimationAndDraw(char *self)
@@ -148,12 +148,12 @@ void Ov090_UpdateAnimationAndDraw(char *self)
         aMaterial[1] = aMaterial[0];
         aMaterial[2] = aMaterial[0];
         GX_SendFifoWords(0x1b, aMaterial, 3);
-        Gfx_SubmitCachedCommandBlock();
+        NNS_G3dGlbFlush();
         if ((*(u16 *)blk & 0x40) != 0) {
             MaterialColorScale_SetRgb555(*(u16 *)(blk + 0x104));
         }
         GX_SendFifoWords(0x17, self + 0x2b4 + 0xc00, 0xc);
-        Obj_InitChannelsAndRun(self + 0xf30);
+        NNS_G3dDraw(self + 0xf30);
     } else {
         if (*(signed char *)(self + 0xf0d) != 0) {
             *(u8 *)(self + 0xf0c) &= ~1;

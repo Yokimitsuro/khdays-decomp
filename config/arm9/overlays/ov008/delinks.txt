@@ -4805,7 +4805,7 @@ src/overlays/scenes/ov008_camp_menu/Ov008_EmitCommandAndStoreHandle.c:
     complete
     .text       start:0x0208b930 end:0x0208b958
 
-src/overlays/scenes/ov008_camp_menu/Ov008_Backup_WriteChunked.c:
+src/overlays/scenes/ov008_camp_menu/Ov008_Backup_ReadChunked.c:
     complete
     .text       start:0x0208b958 end:0x0208b9e8
 

@@ -10,7 +10,7 @@ typedef struct NNSG3dRenderState {
     JointScaleCallback joint_scale_callback;
 } NNSG3dRenderState;
 
-extern NNSG3dRenderState *data_020475d0;
+extern NNSG3dRenderState *NNS_G3dRS;
 
 extern void getJntSRTAnmResult__2(void *model, void *record, u32 packed,
                           u32 coordinate, u32 *result, u32 *scratch);
@@ -51,7 +51,7 @@ void func_01ffb234(u32 *result, u32 *input, s32 index)
     }
 
     callback_flags = (*result & 1) ? 4 : 0;
-    state = data_020475d0;
+    state = NNS_G3dRS;
     state->joint_scale_callback(result, scratch, state->render_context,
                                 callback_flags);
 }

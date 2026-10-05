@@ -35,7 +35,7 @@ extern void NNS_G3dMdlSetMdlPolygonID(void *object, unsigned int index,
                           unsigned int value, int slot);
 extern void Scene_DrawNode(void *renderNode);
 extern void MTX_RotY33_(MtxFx33 *matrix, int sine, int cosine);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void GX_SendFifoWords(unsigned int command, const void *source,
                           unsigned int wordCount);
 
@@ -43,7 +43,7 @@ extern VecFx32 data_02047458;
 extern s16 data_0203d210[];
 extern MtxFx33 data_02047428;
 extern VecFx32 data_0204744c;
-extern NNSG3dGlobalState data_02047394;
+extern NNSG3dGlobalState NNS_G3dGlb;
 
 void Ov022_AnimSlot_Draw(Ov022AnimationSlot *entry,
                           Ov022AnimationSlot *base)
@@ -66,8 +66,8 @@ void Ov022_AnimSlot_Draw(Ov022AnimationSlot *entry,
     MTX_RotY33_(&data_02047428, data_0203d210[angle * 2],
                 data_0203d210[angle * 2 + 1]);
     data_0204744c = entry->translationA8;
-    data_02047394.flagsD4 &= ~0xa4;
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlb.flagsD4 &= ~0xa4;
+    NNS_G3dGlbFlush();
     GX_SendFifoWords(0x17, entry->commandBlock10c, 0xc);
-    Obj_InitChannelsAndRun((char *)entry + 0x24);
+    NNS_G3dDraw((char *)entry + 0x24);
 }

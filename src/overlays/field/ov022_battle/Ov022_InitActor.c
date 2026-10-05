@@ -216,7 +216,7 @@ extern void Ov022_ClearFields(u8 *pBlk);                                      /*
 extern void Ov022_LoadActorEffects(struct Actor *pActor);                          /* Ov022_LoadActorEffects */
 extern void func_ov022_0209d08c(struct Actor *pActor, struct HpDrain *pDrain, int nPeriod);   /* InitPairIfFlag2: period only under mode flag bit 1 */
 extern void Ov022_VeneerTo_Ov022_CopyBlock2c00(struct Actor *pActor);                    /* veneer to Ov022_CopyBlock2c00 */
-extern void func_ov022_0209a4f8(void);                                          /* DispatchField18c */
+extern void Ov022_OnItemGiven(void);                                          /* DispatchField18c */
 extern void Ov022_ApplyActorAction(void);                                          /* Ov022_ApplyActorAction */
 extern void func_ov022_0209a614(void);                                          /* DispatchField18c9 */
 extern void func_ov022_0209a630(void);                                          /* SetNodeBit80000IfReady */
@@ -266,12 +266,12 @@ void Ov022_InitActor(struct Actor *pActor)
     if (pActor->pSub != 0) {
         nRule = Slot_EvalPackedParam(pActor->nId, RULE_RATE);
         if (Session_GetLocalPlayerIndex() == 0) {
-            pActor->pSub->pfnDispatch = func_ov022_0209a4f8;
+            pActor->pSub->pfnDispatch = Ov022_OnItemGiven;
             pActor->pSub->pfnApplyAction = Ov022_ApplyActorAction;
             pActor->pSub->pfnDispatch9 = func_ov022_0209a614;
             pActor->pSub->pfnSetReadyBit = func_ov022_0209a630;
         } else if (pActor->nOwner == Session_GetLocalPlayerIndex()) {
-            pActor->pSub->pfnDispatch = func_ov022_0209a4f8;
+            pActor->pSub->pfnDispatch = Ov022_OnItemGiven;
         }
         if (Session_IsActive() != 0 && (pActor->nFlags & FLAG_BIT36) == 0) {
             nRate = SUB_RATE_FAST;

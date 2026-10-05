@@ -137,7 +137,8 @@ def main():
         hits = [i for i, l in enumerate(lines) if l.split(' ', 1)[0] == old]
         if len(hits) != 1:
             sys.exit('%s: %d definitions of %s' % (path, len(hits), old))
-        clash = [l for l in lines if l.split(' ', 1)[0] == new]
+        # a name the table itself renames away is free (swaps and chains apply in one pass)
+        clash = [l for l in lines if l.split(' ', 1)[0] == new and new not in mapping]
         if clash:
             sys.exit('%s: %s already defined' % (path, new))
         lines[hits[0]] = new + lines[hits[0]][len(old):]

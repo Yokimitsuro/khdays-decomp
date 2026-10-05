@@ -8,10 +8,10 @@ extern char data_02047428[];
 extern char data_020473e0[];
 extern char data_0204749c[];
 extern char data_020474cc[];
-extern struct { char _0[0xc4]; int field_c4; int field_c8; int field_cc; } data_02047394;
+extern struct { char _0[0xc4]; int field_c4; int field_c8; int field_cc; } NNS_G3dGlb;
 
 void G3dGlb_ComputeInvBaseMtx(void) {
     MTX_Concat43(&data_02047428, &data_020473e0, &data_0204749c);
-    MTX_ScaleApply43(&data_0204749c, &data_0204749c, data_02047394.field_c4, data_02047394.field_c8, data_02047394.field_cc);
+    MTX_ScaleApply43(&data_0204749c, &data_0204749c, NNS_G3dGlb.field_c4, NNS_G3dGlb.field_c8, NNS_G3dGlb.field_cc);
     MTX_Inverse43(&data_0204749c, &data_020474cc);
 }

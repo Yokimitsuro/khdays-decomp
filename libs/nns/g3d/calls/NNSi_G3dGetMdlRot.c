@@ -453,7 +453,7 @@ typedef struct NNSG3dRS_ {
     NNSG3dJntAnmResult tmpJntAnmResult;
     NNSG3dVisAnmResult tmpVisAnmResult;
 } NNSG3dRS;
-extern NNSG3dRS * data_020475d0;
+extern NNSG3dRS * NNS_G3dRS;
 inline void * NNS_G3dGetResDataByIdx(const NNSG3dResDict * dict, u32 idx);
 inline NNSG3dResNodeData * NNS_G3dGetNodeDataByIdx(const NNSG3dResNodeInfo * info, u32 idx);
 inline void * NNS_G3dGetResDataByIdx (const NNSG3dResDict * dict, u32 idx)
@@ -492,9 +492,9 @@ void NNSi_G3dGetMdlRot (NNSG3dJntAnmResult * pResult)
     const NNSG3dResNodeData * pNd;
     u32 idxNode;
 
-    idxNode = *(data_020475d0->c + 1);
+    idxNode = *(NNS_G3dRS->c + 1);
 
-    pNd = NNS_G3dGetNodeDataByIdx(data_020475d0->pResNodeInfo, idxNode);
+    pNd = NNS_G3dGetNodeDataByIdx(NNS_G3dRS->pResNodeInfo, idxNode);
     flag = pNd->flag;
     p = (const u8 *)pNd + sizeof(*pNd);
 

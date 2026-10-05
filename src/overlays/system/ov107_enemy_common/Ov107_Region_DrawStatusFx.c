@@ -24,10 +24,10 @@ extern int VEC_Normalize(VecFx32 *src, VecFx32 *dst);
 extern void ScaleVec3Fx12(int factor, VecFx32 *src, VecFx32 *dst);
 extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *out);
 extern void MTX_Identity33_(Mtx33 *m);
-extern void Gfx_SubmitCachedCommandBlock(void);
-extern void Obj_InitChannelsAndRun(unsigned int *p);
+extern void NNS_G3dGlbFlush(void);
+extern void NNS_G3dDraw(unsigned int *p);
 
-extern Xform394 data_02047394;
+extern Xform394 NNS_G3dGlb;
 extern VecFx32 data_0204744c;
 extern Mtx33 data_02047428;
 
@@ -51,9 +51,9 @@ void Ov107_Region_DrawStatusFx(char *self, int action) {
                     void *thread;
                     VecFx32 result;
 
-                    data_02047394.f_c4 = v;
-                    data_02047394.f_c8 = v;
-                    data_02047394.f_cc = 1;
+                    NNS_G3dGlb.f_c4 = v;
+                    NNS_G3dGlb.f_c8 = v;
+                    NNS_G3dGlb.f_cc = 1;
 
                     src = n->field_2cc != 0 ? (VecFx32 *)n->field_2cc : &n->sphere.center;
                     *g = *src;
@@ -69,9 +69,9 @@ void Ov107_Region_DrawStatusFx(char *self, int action) {
                     }
 
                     MTX_Identity33_(&data_02047428);
-                    data_02047394.f_d4 &= ~0xa4;
-                    Gfx_SubmitCachedCommandBlock();
-                    Obj_InitChannelsAndRun((unsigned int *)&(*(Ctx **)(self + 0x88))->f20);
+                    NNS_G3dGlb.f_d4 &= ~0xa4;
+                    NNS_G3dGlbFlush();
+                    NNS_G3dDraw((unsigned int *)&(*(Ctx **)(self + 0x88))->f20);
                 }
             }
         }

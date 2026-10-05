@@ -4,7 +4,7 @@
 #include "game/engine.h"
 
 extern int VEC_Add();
-extern int func_02016320();
+extern int NNS_G3dGetResultMtx();
 extern int Srt_SetTranslation();
 
 struct A {
@@ -24,7 +24,7 @@ void Ov248_SyncEffectNodesToJoints(struct A *a0, struct B *sl) {
     int work[3];
     int i;
 
-    if (func_02016320(a0->p88 + 0x20, loc, 0, sl->f3b4) != 0) {
+    if (NNS_G3dGetResultMtx(a0->p88 + 0x20, loc, 0, sl->f3b4) != 0) {
         char *p;
         Srt_SetTranslation((char *)sl + 0x3e0, buf4);
 
@@ -40,7 +40,7 @@ void Ov248_SyncEffectNodesToJoints(struct A *a0, struct B *sl) {
         }
     }
 
-    if (func_02016320(a0->p88 + 0x20, loc, 0, sl->f3b8) == 0)
+    if (NNS_G3dGetResultMtx(a0->p88 + 0x20, loc, 0, sl->f3b8) == 0)
         return;
 
     Srt_SetTranslation((char *)sl + 0x64 + 0x400, buf4);

@@ -57,7 +57,7 @@ typedef struct NNSG3dRS {
     const NNSG3dResNodeInfo *pResNodeInfo;
 } NNSG3dRS;
 
-extern NNSG3dRS *data_020475d0;
+extern NNSG3dRS *NNS_G3dRS;
 
 static inline void *NNS_G3dGetResDataByIdx(const NNSG3dResDict *dict, u32 idx)
 {
@@ -89,8 +89,8 @@ void NNSi_G3dGetJntTransFromNode(NNSG3dJntAnmResult *pResult)
     u32 idxNode;
     const NNSG3dResNodeData *pNd;
 
-    idxNode = *(data_020475d0->c + 1);
-    pNd = NNS_G3dGetNodeDataByIdx(data_020475d0->pResNodeInfo, idxNode);
+    idxNode = *(NNS_G3dRS->c + 1);
+    pNd = NNS_G3dGetNodeDataByIdx(NNS_G3dRS->pResNodeInfo, idxNode);
 
     if (pNd->flag & 1) {
         pResult->flag |= 4;

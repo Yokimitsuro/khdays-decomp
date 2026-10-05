@@ -14,7 +14,7 @@ struct Ov253Item { char pad[0x10]; Pose44 pose; };
 struct Ov253Actor { char pad[0x30]; Pose44 pose; };
 
 extern void Obj_RenderModel(int self, int arg);
-extern int func_02016320(void *model, MtxFx43 *out, MtxFx33 *rot, unsigned int jointId);
+extern int NNS_G3dGetResultMtx(void *model, MtxFx43 *out, MtxFx33 *rot, unsigned int jointId);
 extern void SrtTransform_SetIdentity(Pose44 *srt);
 extern void Srt_SetTranslation(Pose44 *srt, const VecFx32 *translation);
 extern void Node_SetRotationFromMtx(Pose44 *srt, const MtxFx33 *rot);
@@ -31,7 +31,7 @@ void Ov253_CarriedItemUpdate(int self, int arg) {
 
     Obj_RenderModel(self, arg);
     ((struct Ov253Item *)*(int *)(owner + 0x440))->pose = ((struct Ov253Actor *)self)->pose;
-    if (func_02016320((void *)(*(int *)(self + 0x88) + 0x20), &joint, &rot, *(unsigned int *)(owner + 0x43c)) == 0) {
+    if (NNS_G3dGetResultMtx((void *)(*(int *)(self + 0x88) + 0x20), &joint, &rot, *(unsigned int *)(owner + 0x43c)) == 0) {
         return;
     }
     SrtTransform_SetIdentity(&srt);

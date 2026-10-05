@@ -4,7 +4,7 @@
 extern void MTX_Identity33_(int *m);
 extern void NNS_G3dGlbSetBaseTrans(const VecFx32 *target);
 extern void Gfx_ApplyBaseTransform(void);
-extern void Obj_InitChannelsAndRun(unsigned int *param_1);
+extern void NNS_G3dDraw(unsigned int *param_1);
 extern int data_02047428[9];
 
 extern struct {
@@ -12,7 +12,7 @@ extern struct {
     int field_c4;
     int field_c8;
     int field_cc;
-} data_02047394;
+} NNS_G3dGlb;
 
 // Reset the global orientation matrix, then for every list entry (stride 0x38,
 // count at +0x8c, array at +0x90) with a live marker at offset 0, stamp the
@@ -26,12 +26,12 @@ void Ov253_RenderMarkers(char *this)
         char *entry = *(char **)(this + 0x90) + i * 0x38;
         int marker = *(int *)entry;
         if (marker != 0) {
-            data_02047394.field_c4 = marker;
-            data_02047394.field_c8 = marker;
-            data_02047394.field_cc = marker;
+            NNS_G3dGlb.field_c4 = marker;
+            NNS_G3dGlb.field_c8 = marker;
+            NNS_G3dGlb.field_cc = marker;
             NNS_G3dGlbSetBaseTrans((VecFx32 *)(entry + 0x2c));
             Gfx_ApplyBaseTransform();
-            Obj_InitChannelsAndRun((unsigned int *)(*(int *)(this + 0x88) + 0x20));
+            NNS_G3dDraw((unsigned int *)(*(int *)(this + 0x88) + 0x20));
         }
     }
 }

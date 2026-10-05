@@ -35,9 +35,9 @@ struct ActionTable {
 extern void BindAnimTrack(u8 *pAnim, int nChannel, u8 *pBind, int nGroup);
 extern int Anim_GetLengthQ12(u8 *pAnim, int nChannel);
 extern void Anim_SetFrameWrapped(u8 *pAnim, int nChannel, int nFrame);
-extern void Gfx_SubmitCachedCommandBlock(void);
+extern void NNS_G3dGlbFlush(void);
 extern void GX_SendFifoWords(u32 nCmd, const void *pSrc, u32 nWords);
-extern void Obj_InitChannelsAndRun(u8 *pObj);
+extern void NNS_G3dDraw(u8 *pObj);
 
 void Ov022_DrawTaggedVoice(struct ActionTable *pTable, int nTag, int nFrame,
                          const void *pMtx)
@@ -81,7 +81,7 @@ void Ov022_DrawTaggedVoice(struct ActionTable *pTable, int nTag, int nFrame,
     for (nChannel = 0; nChannel < CHANNEL_COUNT; nChannel++) {
         Anim_SetFrameWrapped(&pTable->anim, (u16)nChannel, nFrame);
     }
-    Gfx_SubmitCachedCommandBlock();
+    NNS_G3dGlbFlush();
     GX_SendFifoWords(0x17, pMtx, 12);
-    Obj_InitChannelsAndRun(&pTable->renderObj);
+    NNS_G3dDraw(&pTable->renderObj);
 }
