@@ -12,7 +12,7 @@ typedef void *StateFn;
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void  Ov000_SetupBootTextScreen(int);
 extern unsigned long long OS_GetTick(void);
-extern unsigned long long func_02020368(unsigned long long value, unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int   Ov000_BackupAccessGate(void);
 extern void  MI_CpuFill8(void *dst, int val, int size);
 extern StateFn Ov000_FreshBootGfxSetup(int arg);
@@ -23,14 +23,14 @@ StateFn Ov000_HoldTimerState(void) {
     if (*(int *)(h + 0x4c5c) != 0) {
         Ov000_SetupBootTextScreen(0);
         *(unsigned int *)(h + 0x4c60) =
-            (unsigned int)(func_02020368(OS_GetTick() << 6, 0x82ea, 0) + 0x7d0);
+            (unsigned int)(func_02020368(OS_GetTick() << 6, 0x82ea) + 0x7d0);
         *(int *)(h + 0x4c5c) = 0;
         if (Ov000_BackupAccessGate() == 0) {
             *(int *)(h + 0x4c4c) = 2;
             return (StateFn)Ov000_ShowErrorAndHalt;
         }
     }
-    if (func_02020368(OS_GetTick() << 6, 0x82ea, 0) < *(unsigned int *)(h + 0x4c60)) {
+    if (func_02020368(OS_GetTick() << 6, 0x82ea) < *(unsigned int *)(h + 0x4c60)) {
         return 0;
     }
     MI_CpuFill8(h, 0, 0x507c);

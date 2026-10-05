@@ -77,7 +77,7 @@ extern void Ov025_SetBitInBitset(Ov008MenuContext *pCtx, int nItemId);     /* Ov
 extern void Ov025_UpdateMenuButton5(int nArg);                                /* Ov008_UpdateMenuButton5 */
 extern int  Ov025_GetItemDescriptionForMember(int *pList, void *pNode);                 /* text index of a node */
 extern void Ov025_RepaintTextRow(Ov008MenuContext *pCtx, int nRow, int nText, int nColour); /* Ov008_RepaintTextRow */
-extern int  Ov025_DrawPageBElement(int nMode, int nA, int nB);               /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void Ov025_PageB_UploadSurface154(void);                                    /* grid refresh */
 extern void *Ov025_FindEntryById(int nCtx, int nId);                      /* FindEntryById */
 extern void Ov025_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible);    /* SetEntrySlotsVisible */

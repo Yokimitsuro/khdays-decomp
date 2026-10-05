@@ -26,8 +26,7 @@ extern const int data_ov002_0207e3a0[];
 extern void TileSurface_SetCurrentItem(void *pCtx, int nStyle, int nFlags);
 
 extern int Ov002_GetVarRecordByIndex(void *pMsg, int nId);
-extern void Ov002_VariadicMapForward(void *pMsg, int nKind, char *pOut, int nSize,
-                                int nEntry);
+extern void *Ov002_VariadicMapForward(void *pMsg, int nKind, void *pOut, int nSize, ...);
 
 void Ov002_DrawMessageCaption(void)
 {

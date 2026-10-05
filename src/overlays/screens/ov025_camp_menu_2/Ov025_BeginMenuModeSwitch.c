@@ -50,7 +50,7 @@ typedef struct Ov008MenuContext {
 extern int  Ov025_GetContext(void);                                    /* Ov008_GetContext */
 extern void Ov025_ResetGridDrag(Ov008MenuContext *pCtx, int nArg);        /* grid reset */
 extern void Ov025_EnterMenuState(Ov008MenuContext *pCtx, int nState);      /* enter a menu state */
-extern int  Ov025_DrawPageBElement(int nMode, int nA, int nB);               /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void *Ov025_FindEntryById(int nCtx, int nId);                      /* FindEntryById */
 extern void Ov025_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible);    /* SetEntrySlotsVisible */
 extern void Ov025_ClearTagRange(void);                                    /* Ov008_DisableRowBlock */

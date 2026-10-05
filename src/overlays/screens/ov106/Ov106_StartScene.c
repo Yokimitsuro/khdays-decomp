@@ -13,7 +13,7 @@ extern char data_0204c41c[];
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void MI_CpuFill8(void *dst, int val, int size);
 extern void StoreGlobalArrayEntry(int nId, void *nFlags);
-extern void OS_SPrintf(char *buf, const char *fmt);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void Gfx_ResetDisplayAndVram(void *p, int a);
 extern void Obj_SetWord8(void *pCamera, int nMode);
 extern void Obj_SetWord4(void *p, int a);

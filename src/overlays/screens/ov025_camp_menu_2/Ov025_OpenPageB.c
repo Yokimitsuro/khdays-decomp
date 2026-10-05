@@ -2,7 +2,7 @@
 
 extern int Ov025_GetPageA();
 extern int Ov025_UpdateMenuButton5();
-extern int Ov025_DrawPageBElement();
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...);
 extern int Ov025_PageB_UploadSurface154();
 
 void Ov025_OpenPageB(int arg0) {

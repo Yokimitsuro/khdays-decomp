@@ -79,7 +79,7 @@ extern void  Ov008_TagTracker_InvokeCallback(void *pTracker, void *pCell);      
 extern void *Ov008_FindEntryById(void *pWidgets, int nId);                  /* FindEntryById */
 extern void  Ov008_SetEntrySlotsVisible(void *pWidgets, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
 extern void  Ov008_DrawTitleBar(int nCaption);                             /* set the dialog caption */
-extern int   Ov008_CreateMissionCell(int hSlots, int nKind, int nSlot, int nY, int nX); /* create a cell */
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void  Ov008_ShowCounterPanel(void);                                     /* Ov008_ShowCounterPanel */
 extern void  Ov008_UpdateCounterPanel(void);                                     /* refresh the totals */
 extern void  Obj_InvokeInnerVtable8(void *pSurface, int nX, int nY, int nW, int nH); /* Obj_InvokeInnerVtable8 */
@@ -118,10 +118,10 @@ void Ov008_OpenBuyDialog(void)
         Ov008_SetEntrySlotsVisible(pWidgets, Ov008_FindEntryById(pWidgets, 7), 1);
         Ov008_DrawTitleBar(0x17);
         for (i = 0; i < DIGIT_CELLS; i++) {
-            pDialog->aDigitCell[i] = Ov008_CreateMissionCell(hSlots, 0x15, 0, (0xc0 + i * 8) << 12, 0x52000);
+            pDialog->aDigitCell[i] = Ov008_CreateMissionCell((int *)hSlots, 0x15, 0, (0xc0 + i * 8) << 12, 0x52000);
         }
-        pDialog->aCategoryCell[0] = Ov008_CreateMissionCell(hSlots, 0x13, 0, 0xb0000, 0x50000);
-        pDialog->aCategoryCell[1] = Ov008_CreateMissionCell(hSlots, 0x14, 0, 0xb0000, 0x50000);
+        pDialog->aCategoryCell[0] = Ov008_CreateMissionCell((int *)hSlots, 0x13, 0, 0xb0000, 0x50000);
+        pDialog->aCategoryCell[1] = Ov008_CreateMissionCell((int *)hSlots, 0x14, 0, 0xb0000, 0x50000);
         Ov008_ShowCounterPanel();
         Ov008_UpdateCounterPanel();
         pDialog->bFirstOpen = 0;

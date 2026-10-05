@@ -2,6 +2,7 @@
  * queue. */
 
 #include "nitro/types.h"
+#include "nitro/os_types.h"
 
 typedef void (*OSAlarmHandler)(void *);
 
@@ -16,7 +17,7 @@ typedef struct OSAlarm {
 extern u32 OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(u32);
 extern void OS_Terminate(void);
-extern void OSi_InsertAlarm(OSAlarm *, int, int);
+extern void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire);
 
 void OS_SetPeriodicAlarm(OSAlarm *alarm, s64 fire, s64 period, OSAlarmHandler handler, void *arg)
 {
@@ -31,6 +32,6 @@ void OS_SetPeriodicAlarm(OSAlarm *alarm, s64 fire, s64 period, OSAlarmHandler ha
     alarm->fire = fire;
     alarm->handler = handler;
     alarm->arg = arg;
-    OSi_InsertAlarm(alarm, 0, 0);
+    OSi_InsertAlarm(alarm, 0);
     OS_RestoreInterrupts(irq);
 }

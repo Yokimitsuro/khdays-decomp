@@ -12,7 +12,7 @@ struct PointTable { VecFx32 p[15]; };
 
 extern void func_ov107_020c0b90(int actor, int a, VecFx32 v, int d);
 extern void Ov107_BuildAndSendUpdate(int actor, int a, int b, void *at);
-extern int Ov298_ComputeNormalizedDir(int *node, VecFx32 v);
+extern int Ov298_ComputeNormalizedDir(int node, VecFx32 pos);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const struct PointTable data_ov298_020d54f0;
 extern const VecFx32 data_02041dc8;
@@ -41,7 +41,7 @@ void Ov298_RetreatEntry(int *node)
                 done = 0;
             }
         }
-        if (Ov298_ComputeNormalizedDir(node, p[k]) > 0x18000) {
+        if (Ov298_ComputeNormalizedDir((int)node, p[k]) > 0x18000) {
             tries++;
             if (tries < 100) {
                 done = 0;

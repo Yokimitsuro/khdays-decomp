@@ -49,7 +49,7 @@ extern u16  *Ov025_Res_GetDataBlock(void *pList);                            /* 
 extern void  Ov008_DrawStyledTextWithShadow(void *pSurface, const u16 *pText, int nX, int nY, u8 nStyle, int bShadow); /* Ov008_DrawStyledTextWithShadow */
 extern u16  *Ov008_GetVarRecordByIndex(void *pRecords, int nIndex);             /* GetVarRecordByIndex */
 extern short Ov025_Res_GetCount(void *pList);                            /* list entry count */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pTemplate, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern u16  *Ov025_NextStreamRecord(void *pList);                            /* entry text */
 extern int   Ov008_CountWideStringLines(const u16 *pText);                       /* CountWideStringLines */
 extern void  Ov008_ForwardConfigured(void *pSurface, const u16 *pText, int nX, int nY); /* Ov008_ForwardConfigured */

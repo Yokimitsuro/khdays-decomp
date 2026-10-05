@@ -25,7 +25,7 @@ extern s64 Ov002_GetEndTicks(void);
 extern s64 Ov002_GetTimeoutTicks(void);
 extern s64 Ov002_GetTimeoutRemaining(void);
 extern s64 Ov002_GetRemainingTicks(void);
-extern u64 func_02020368(u64, u64);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 
 /* Dispatches HUD creation, sampled time counters and value-only entries.
  * Commands 1/2 convert signed milliseconds to ticks before sampling; 6/7

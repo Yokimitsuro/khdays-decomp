@@ -4,7 +4,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract();
-extern void Ov148_BuildHeadingRotation(int *obj, VecFx32 v, int flag);
+extern int Ov148_BuildHeadingRotation(int *self, VecFx32 v, int flag);
 extern void Ov148_SeedDefaultPoseAndAdvance(int owner, int a);
 extern void SetIndexedSlot(int self, int index, void *cb);
 extern void Ov148_FaceTargetCheckReach(void);

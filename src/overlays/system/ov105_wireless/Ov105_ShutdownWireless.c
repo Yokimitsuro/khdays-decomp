@@ -1,7 +1,10 @@
+#include "nitro/types.h"
+#include "nitro/wm.h"
+
 extern int OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(int state);
 extern int Ov105_IsDeviceReady(void);
-extern int Ov105_WMi_CheckStateEx(int a, int b);
+extern WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...);
 extern void Ov105_ClearSharedRequestBit(void);
 extern void PXI_SetFifoRecvCallback(int tag, void *callback);
 extern char data_ov105_020bfa20;

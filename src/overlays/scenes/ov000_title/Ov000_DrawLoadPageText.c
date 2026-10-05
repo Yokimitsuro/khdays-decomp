@@ -48,7 +48,7 @@ extern Ov000TextSceneContext *data_ov000_0205ac24;
 extern void Obj_InvokeInnerVtable4(void *surface);
 extern int *Ov000_GetVarRecordByIndex(void *object, int index);
 extern void Ov000_DrawWithShadow(void *surface, int x, int y, int size, int *record, int sel);
-extern void Text_FormatUtf16(u16 *dst, int count, const void *tmpl, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern void EnqueueObjGfxCommand(void *surface);
 
 void Ov000_DrawLoadPageText(void)
@@ -88,7 +88,7 @@ void Ov000_DrawLoadPageText(void)
             if (ctx->field_4ad4 == 0) {
                 if (ctx->pageIndex < 3) {
                     record = Ov000_GetVarRecordByIndex(ctx->messageArchive, 3);
-                    Text_FormatUtf16(buffer, 0x80, record,
+                    Text_FormatUtf16(buffer, 0x80, (const u16 *)record,
                                   data_ov000_0205ac24->pageIndex + 1);
                     Ov000_DrawWithShadow(data_ov000_0205ac24->surface1, 0x10, 0xf, 2,
                                         (int *)buffer, 0);
@@ -110,7 +110,7 @@ void Ov000_DrawLoadPageText(void)
         case 4:
             if (ctx->field_4ae0 == 2) {
                 record = Ov000_GetVarRecordByIndex(ctx->messageArchive, 10);
-                Text_FormatUtf16(buffer, 0x80, record,
+                Text_FormatUtf16(buffer, 0x80, (const u16 *)record,
                               data_ov000_0205ac24->pageIndex + 1);
                 Ov000_DrawWithShadow(data_ov000_0205ac24->surface1, 0x10, 0xf, 6,
                                     (int *)buffer, 0);
@@ -124,14 +124,14 @@ void Ov000_DrawLoadPageText(void)
                 if (ctx->pageIndex < 3 &&
                     ctx->slots[ctx->pageIndex].base == 2) {
                     record = Ov000_GetVarRecordByIndex(ctx->messageArchive, 0xe);
-                    Text_FormatUtf16(buffer, 0x80, record,
+                    Text_FormatUtf16(buffer, 0x80, (const u16 *)record,
                                   data_ov000_0205ac24->pageIndex + 1,
                                   data_ov000_0205ac24->pageIndex + 1);
                     Ov000_DrawWithShadow(data_ov000_0205ac24->surface1, 0x10, 0, 6,
                                         (int *)buffer, 0);
                 } else {
                     record = Ov000_GetVarRecordByIndex(ctx->messageArchive, 4);
-                    Text_FormatUtf16(buffer, 0x80, record,
+                    Text_FormatUtf16(buffer, 0x80, (const u16 *)record,
                                   data_ov000_0205ac24->pageIndex + 1);
                     Ov000_DrawWithShadow(data_ov000_0205ac24->surface1, 0x10, 0, 6,
                                         (int *)buffer, 0);

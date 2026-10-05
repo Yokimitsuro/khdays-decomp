@@ -26,7 +26,7 @@ extern char data_0204c254[];            /* g_ov002PanelThresholds */
 extern u64 Ov002_GetTimeoutTicks(void);   /* the configured timeout, in OS ticks */
 /* The two MSL divides.  The tree calls them by address rather than letting
  * mwcc emit its own _ll_sdiv and _s32_div_f references. */
-extern long long func_02020368(long long nValue, unsigned int nDiv, int nUnused);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern long long func_02020400(int nNum, int nDen);
 
 /* Writes the value the mission panel is showing into *pValue and reports which
@@ -59,9 +59,8 @@ int Ov002_FetchPanelMetric(int *pValue)
 
     switch (nMetric) {
     case OV002_METRIC_TIME_LEFT:
-        nTicks = func_02020368((long long)Ov002_GetTimeoutTicks() << 6,
-                               0x82ea, 0);
-        *pValue = (int)func_02020368(nTicks, 10, 0);
+        nTicks = func_02020368((long long)Ov002_GetTimeoutTicks() << 6, 0x82ea);
+        *pValue = (int)func_02020368(nTicks, 10);
         break;
     case OV002_METRIC_PANEL_TOTAL:
         *pValue = *(int *)(pRoot + 0x8bdc);

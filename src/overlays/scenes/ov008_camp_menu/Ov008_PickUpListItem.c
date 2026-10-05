@@ -61,7 +61,7 @@ extern Ov008TextureEntry *Ov008_FindEntryBy1BasedTag(Ov008MenuContext *pCtx, u32
 extern void Ov008_GetTextureParams(int *pTexture, int *pParams);                /* Ov008_GetTextureParams */
 extern void Ov008_ReleaseTwoSlotsEx(int nCtx, void *pEntry, int nFrame);         /* Ov008_ReleaseTwoSlotsEx */
 extern void Ov008_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible);       /* SetEntrySlotsVisible */
-extern int  Ov008_DrawPageBElement(int nMode, int nA, int nB);                  /* cursor mode request */
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void Ov008_PageB_UploadSurface154(void);                                       /* grid refresh */
 
 int Ov008_PickUpListItem(Ov008MenuContext *pCtx, Ov008InventoryItem *pItem, u16 nSlot)

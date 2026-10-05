@@ -7,7 +7,7 @@ extern void MIi_CpuClear16(int val, void *buf, int n);
 extern void Utf8_ToUcs2(void *src, unsigned short *dst);
 extern void MI_CpuFill8(void *buf, int val, int n);
 extern int GameState_GetField(int key, int kind);
-extern void OS_SPrintf(void *buf, void *fmt, int arg);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void Ov002_SetSeatFlag(int a, int b);
 extern void Ov002_TryBeginPanelRequest(void *s, int nValue);
 
@@ -83,7 +83,7 @@ int Ov019_ShowMessageWithCounters(int param_1, unsigned short *param_2, int para
                 Utf8_ToUcs2(&header[0], scratch);
             }
 
-            OS_SPrintf(fmtbuf, gOv019IntFmt, val);
+            OS_SPrintf((char *)fmtbuf, gOv019IntFmt, val);
             Utf8_ToUcs2(fmtbuf, found);
 
             i = pos;
@@ -134,7 +134,7 @@ int Ov019_ShowMessageWithCounters(int param_1, unsigned short *param_2, int para
         val = GameState_GetField(0x1400, 10);
         Utf8_ToUcs2(&header[4], scratch);
 
-        OS_SPrintf(fmtbuf, gOv019IntFmt, val);
+        OS_SPrintf((char *)fmtbuf, gOv019IntFmt, val);
         Utf8_ToUcs2(fmtbuf, found);
 
         {

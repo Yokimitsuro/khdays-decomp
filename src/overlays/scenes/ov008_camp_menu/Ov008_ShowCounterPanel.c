@@ -39,7 +39,7 @@ typedef struct Ov008PanelContext {
 } Ov008PanelContext;
 
 extern Ov008PanelContext *data_ov008_02090fac;
-extern int   Ov008_CreateMissionCell(int *hSlots, unsigned int nKind, int nSlot, int nY, int nX); /* create a cell */
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void *Ov008_FindEntryById(void *pManager, int nId);                /* FindEntryById */
 extern void  Ov008_SetEntrySlotsVisible(void *pManager, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
 

@@ -29,7 +29,7 @@ typedef struct Tween {
 } Tween;
 
 extern long long OS_GetTick(void);                     /* 64-bit tick counter */
-extern int func_02020368(u64 value, u32 divisor, int mode); /* runtime 64/32 divide */
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor); /* runtime 64/32 divide */
 
 /* Sample a tween's current value. Does nothing if it hasn't been started.
  * Once finished, keeps reporting the end value. While paused, the elapsed
@@ -46,10 +46,9 @@ void Tween_Sample(Tween *tween, s32 *value)
         u32 duration;
 
         if (!tween->flags.paused) {
-            elapsed = func_02020368(
-                (u64)(OS_GetTick() - tween->startTick) << 6, 0x82ea, 0);
+            elapsed = (int)func_02020368((u64)(OS_GetTick() - tween->startTick) << 6, 0x82ea);
         } else {
-            elapsed = func_02020368((u64)tween->startTick << 6, 0x82ea, 0);
+            elapsed = (int)func_02020368((u64)tween->startTick << 6, 0x82ea);
         }
         duration = tween->duration;
         if (elapsed >= duration) {

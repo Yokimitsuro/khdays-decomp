@@ -90,7 +90,7 @@ extern void  Ov008_MissionMenu_DrawInfo(Ov008MissionMenu *pMenu, Ov008MissionLis
 extern void  Ov008_DrawMissionInfoText(Ov008MissionMenu *pMenu, Ov008MissionListEntry *pEntry, Ov008MissionNameNode *pNode); /* Ov008_DrawMissionInfoText */
 extern void  Ov008_SwitchMenuTab(Ov008MissionMenu *pMenu, int nTab);     /* Ov008_SwitchMenuTab */
 extern int   GameState_IsFlagSet(int nFlag);                                   /* GameState_IsFlagSet */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pFormat, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern void  Ov008_BindDescriptor0B(void *pSurface);
 extern void  Obj_InvokeInnerVtable4(void *pSurface);                              /* Obj_InvokeInnerVtable4 */
 extern void  Text_DrawWithShadow(void *pSurface, int nX, int nY, int nColour, void *pText, int nFlag); /* Text_DrawWithShadow */

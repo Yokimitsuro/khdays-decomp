@@ -39,7 +39,7 @@ typedef struct Ov023ScriptCtx {
 extern int   Ov002_GetPanelField018c(void);                             /* the ov002 panel system is up */
 extern int   ScriptVm_ReadOperandInt(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand);   /* ScriptVm_ReadOperandInt */
 extern char *ByteCode_ResolveOperand(Ov023ScriptCtx *pCtx, Ov023Operand *pOperand);   /* ScriptVm_ReadOperandString */
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void  Ov023_SplitPath(char *pszPath, char *pszTail);     /* Ov023_SplitPath */
 extern void  Utf8_ToUcs2(char *pszSrc, u16 *pDst);                /* widen a string */
 extern int   Ov002_TryBeginPanelRequest(Ov023PanelRequest *pRequest, int nArg); /* open an ov002 panel */

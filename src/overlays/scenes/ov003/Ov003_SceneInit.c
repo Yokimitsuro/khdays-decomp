@@ -83,7 +83,7 @@ extern void NNS_GfdInitFrmPlttVramManager(int a, int b);
 extern void GX_SetGraphicsMode(int a, int b, int c);          /* SetDisplayControl(1,0,1) */
 extern void CamAnim_Start();
 extern void RegisterSeqAndInit(unsigned short *obj, unsigned int *vram, int a, int b); /* RegisterSeqAndInit */
-extern void OS_SPrintf(unsigned int *out, unsigned int tbl, unsigned int n, int idx);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void SceneNode_AttachToModelJoint(int obj, int anim, unsigned int *ctx);
 extern void Snd_RegisterSeqAndBind(unsigned int *a, int obj, unsigned int *vram, int b);
 extern void BindAnimTrack(int obj, int slot, int a, int b);
@@ -206,7 +206,7 @@ int Ov003_SceneInit(int param_1) {
         puVar4  = root + 0xb60;
         puVar14 = root + 0x738;
         do {
-            OS_SPrintf(auStack_30, (unsigned int)gOv003PFmt, uVar7, iVar12 + 1);
+            OS_SPrintf((char *)auStack_30, (const char *)gOv003PFmt, uVar7, iVar12 + 1);
             RegisterSeqAndInit(puVar16, (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 |
                           0x80000000 | (iVar12 + 3U & 0x00fffffcU >> 0xf)), 1, 0);
             SceneNode_AttachToModelJoint((int)puVar16, (int)(root + 0x84), auStack_30);

@@ -31,7 +31,7 @@ extern void CARD_LockBackup(int lockId);
 extern void CARD_UnlockBackup(int lockId);
 extern int Ov008_EmitCommandAndStoreHandle(int a, void *buf, int size);
 extern long long OS_GetTick(void);
-extern int func_02020368(long long value, int divisor, int c);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void MATH_CalcSHA1(void *digest, const void *data, int len);
 extern void Ov008_EmitCommandVariantA(int a, int b, int c);
 
@@ -55,7 +55,7 @@ int Ov008_CommitSaveToSlot(int slot) {
     }
     elapsed = OS_GetTick() - data_0204be1c;
     pCounter = gGameState;
-    *pCounter += func_02020368(elapsed << 6, 0x1ff6210, 0);
+    *pCounter += (int)func_02020368(elapsed << 6, 0x1ff6210);
     MATH_CalcSHA1(data_0204be14 + 4, data_0204be14 + 0x18, 0x1cac);
     *(int *)data_0204be14 = 0xc8f592a6;
     data_ov008_02090fb4.blockCounter = 0;

@@ -52,7 +52,7 @@ extern char gOv022StrFmt_2[];          /* "%s" */
 extern char gOv022BaEfInfoPackPath[];          /* "ba/ef/info.p.z" */
 extern char gOv022BaEfStPackPath[];          /* "ba/ef/st_&.p.z" */
 
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszArg);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern char *Msg_BuildLangPath(char *pszPath);                                      /* Msg_BuildLangPath */
 extern void *SND_RegisterSeq(char *pszPath, int nHeap);                         /* archive load */
 extern void InstallHandlerPairByFlag(int bPhase);                                          /* InstallHandlerPairByFlag */

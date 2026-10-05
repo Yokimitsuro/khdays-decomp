@@ -27,7 +27,7 @@ extern char gOv002StrIntIntFmt[];      /* "%s%02d_%d" */
 extern char gOv002PentName[];      /* "pent" */
 
 extern Ov002DayEntry *Ov002_FindPeerRow(int nDay, int nSlotValue);
-extern void OS_SPrintf(char *pDest, const char *pFmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern Ov002PlaceResult *EntityMgr_FindCollEntry(int nSlot, const char *pKey);
 
 /* Builds a placement key out of the mission name and looks the placement up.

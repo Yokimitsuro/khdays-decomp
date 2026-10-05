@@ -43,7 +43,7 @@ extern void Ov005_InitObjectWithList(Ov005MissionListManager *,Ov005MissionListC
 extern Ov005MissionListEntry *Ov005_FindListObjectWithField10Zero(Ov005MissionListManager *,Ov005MissionListEntry *);
 extern Ov005MissionListEntry *Ov005_FindListEntryByKey(Ov005MissionListManager *,int);
 extern void MIi_CpuCopy16(const void *,void *,u32);
-extern u64 func_02020368(u64,u64);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern u32 GameState_GetField(u32,u32);
 extern int MsgDb_FetchRecord(RewardRecord **,int,u32,int);
 extern int DispatchByNodeKind(RewardRecord **);
@@ -112,7 +112,7 @@ void Ov005_InitializeResultConfiguration(void) {
     }
     switch((int)config->rewardMode) {
     case 2:case 4:case 5:case 6:case 7:case 8:case 255:config->missionResultValue=result->nDuration;break;
-    case 0:config->missionResultValue=func_02020368(result->nStampTicks<<6,0x82ea);break;
+    case 0:config->missionResultValue=func_02020368(result->nStampTicks<<6, 0x82ea);break;
     case 1:config->missionResultValue=(short)result->wPanelTotal;break;
     case 3:config->missionResultValue=result->nRaw;break;
     }

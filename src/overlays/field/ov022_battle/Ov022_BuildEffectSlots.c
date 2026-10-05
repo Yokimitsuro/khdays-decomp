@@ -74,7 +74,7 @@ extern void *InstantiateClass(u8 *pClass, struct SlotInitParams *pParams);      
 extern void Ov022_AllocateSlotWithClass(void **papSlots, int nId, int nIndex, struct SlotInitParams *pParams);   /* Ov022_AllocateSlotWithClass */
 extern void Ov022_RegisterSequence(struct Actor *pActor, char *pszDescriptor);      /* Ov022_RegisterSequence */
 extern int Ov002_GetSlotTableByte(int nSlot);
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszName);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void Ov022_StartCharge(struct Actor *pActor);                          /* Ov022_StartCharge */
 
 void Ov022_BuildEffectSlots(struct Actor *pActor)

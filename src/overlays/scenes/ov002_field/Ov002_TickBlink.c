@@ -8,8 +8,7 @@ typedef struct {
 extern Ov002Blink *data_ov002_0207fa18;
 
 extern unsigned long long OS_GetTick(void);
-extern unsigned long long func_02020368(unsigned long long value, unsigned int nDiv,
-                                        int nMode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov002_DrawTileCursor2x2(int nPhase);
 extern void Ov002_UploadHudTileRow(void);
 
@@ -23,7 +22,7 @@ void Ov002_TickBlink(void)
     nNow = OS_GetTick();
     pBlink = data_ov002_0207fa18;
 
-    if (func_02020368((nNow - pBlink->nLastTick) << 6, 0x82ea, 0) > 0x12c) {
+    if (func_02020368((nNow - pBlink->nLastTick) << 6, 0x82ea) > 0x12c) {
         pBlink->nPhase ^= 1;
         Ov002_DrawTileCursor2x2(data_ov002_0207fa18->nPhase);
         pBlink = data_ov002_0207fa18;

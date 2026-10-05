@@ -72,7 +72,7 @@ typedef struct Ov000ScrollWork {
 extern const int data_ov000_0205a7ac[4][8];
 extern Ov000LoadPageContext *data_ov000_0205ac24;
 
-extern int  Ov000_IsSelectionMoveCollisionFree(int page, Ov000Pair step);
+extern int Ov000_IsSelectionMoveCollisionFree(int selectedIndex, Ov000Pair movement);
 extern int  Ov000_FindEntryById(u8 *obj, int id);
 extern void Ov000_SetEntryPosition(u8 *obj, int entry, Ov000Pair *pos);
 extern void Ov000_TickSelectionPulse(void);

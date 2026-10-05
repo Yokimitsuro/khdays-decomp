@@ -38,7 +38,7 @@ typedef struct Ov008SaveMenu {
 extern void  Obj_InvokeInnerVtable4(void *pSurface);                                  /* Obj_InvokeInnerVtable4: clear */
 extern u16  *Ov008_GetVarRecordByIndex(void *pRecords, int nIndex);                /* GetVarRecordByIndex */
 extern void  Ov008_DrawTextNewline(void *pSurface, int nX, int nY, int nStyle, const u16 *pText); /* Ov008_DrawTextNewline */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pTemplate, ...);  /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern void  Ov008_DrawWithShadow(void *pSurface, int nX, int nY, int nStyle, const u16 *pText, int nShadow); /* Ov008_DrawWithShadow */
 extern void  Text_DrawWithShadow(void *pSurface, int nX, int nY, int nStyle, const u16 *pText, int nShadow); /* Text_DrawWithShadow */
 extern void  EnqueueObjGfxCommand(void *pSurface);                                  /* EnqueueObjGfxCommand */

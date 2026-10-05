@@ -37,8 +37,7 @@ extern void MI_CpuCopy8(const void *pSrc, void *pDst, unsigned int nSize);
 extern void *TileSurface_AddCanvas(void *pCtx, int nFlags);
 
 extern void Ov002_DestroyOwnedEntry(void *pNode, int nMode);
-extern void Ov002_VariadicMapForward(void *pMsg, int nKind, char *pOut, int nSize,
-                                int nEntry);
+extern void *Ov002_VariadicMapForward(void *pMsg, int nKind, void *pOut, int nSize, ...);
 extern int Ov002_GetPanelField0058(void);
 extern void *Ov002_Field_GetWordB8(void);
 extern void Ov002_DrawMessageCaption(void);

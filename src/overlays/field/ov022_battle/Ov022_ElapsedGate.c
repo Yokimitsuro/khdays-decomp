@@ -17,7 +17,7 @@
  */
 extern int NNSi_FndGetCurrentRootHeap(void);
 extern long long OS_GetTick(void);
-extern unsigned long long func_02020368(long long value, int divisor, int flag);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void func_ov022_02086d60(int arg0);
 extern int Ov022_StepCursorTween(void);
 extern int data_0204be04;
@@ -31,7 +31,7 @@ int Ov022_ElapsedGate(void) {
     if (*(unsigned char *)&data_0204be04 != 0) {
         return 0;
     }
-    q = func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+    q = func_02020368(OS_GetTick() << 6, 0x82ea);
     limit = *(int *)(h + 0xc4) + 100;
     if (q > (unsigned long long)(long long)limit) {
         ret = (int)Ov022_StepCursorTween;

@@ -3,7 +3,7 @@
 
 #include "game/engine.h"
 
-extern void OS_SPrintf(char *dst, const char *fmt, int value);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 
 extern int data_0204c270[];
 extern char data_0204c278[];

@@ -32,8 +32,7 @@ typedef struct Ov002SessionClock {
 extern char *data_ov002_0207fa00;   /* the session root context */
 
 extern unsigned long long Ov002_GetTimeoutTicks(void);        /* raw tick count */
-extern unsigned long long func_02020368(unsigned long long value,
-                                        unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 
 void Ov002_EditSessionClock(int bLimit, int nOp, int nValue)
 {
@@ -51,7 +50,7 @@ void Ov002_EditSessionClock(int bLimit, int nOp, int nValue)
 
     switch (nOp) {
     case 0:
-        *pField = (int)func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea, 0);
+        *pField = (int)func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea);
         break;
     case 1:
         *pField = nValue;

@@ -32,8 +32,7 @@ extern int GameState_GetField(int a, int b);
 extern void Text_DrawDirectional_2(void *pCtx, int a, int b, int c, int d, void *pText);
 
 extern void Ov002_DestroyOwnedEntry(void *pNode, int nMode);
-extern void *Ov002_VariadicMapForward(void *pMsg, int nKind, char *pOut, int nSize,
-                                 ...);
+extern void *Ov002_VariadicMapForward(void *pMsg, int nKind, void *pOut, int nSize, ...);
 extern int Ov002_GetPanelField0058(void);
 extern void Ov002_DrawNoticeGauge(void);
 

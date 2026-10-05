@@ -41,7 +41,7 @@
 
 extern void Ov193_ProbeGroundBelowNode(int *state, int *p);
 extern long long FX_DivFx64c(int a, int b);
-extern void Ov193_BoxSweepPush(int *state, int lo, int hi, int *p);
+extern void Ov193_BoxSweepPush(int *state, long long t, int *p);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern int Ov193_FindTarget(int obj, int out);
 extern void VEC_Subtract(void *a, void *b, void *d);
@@ -64,7 +64,7 @@ void Ov193_ChargeAimedShotState(int *self) {
     t = state[0xb];
     if (t >= 0x4cc && t <= 0xbba) {
         long long fx = FX_DivFx64c(t - 0x4cc, 0x6ee);
-        Ov193_BoxSweepPush(state, (int)fx, (int)((unsigned long long)fx >> 32), state + 8);
+        Ov193_BoxSweepPush(state, fx, state + 8);
     }
     if (*(unsigned char *)state[1] != 0) {
         return;

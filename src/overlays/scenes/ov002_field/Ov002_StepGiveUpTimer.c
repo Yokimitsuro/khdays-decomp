@@ -37,8 +37,7 @@ typedef struct Ov002SessionScreen {
 
 extern Ov002SessionScreen *NNSi_FndGetCurrentRootHeap(void);
 extern unsigned long long Ov002_GetTimeoutTicks(void);
-extern unsigned long long func_02020368(unsigned long long value,
-                                        unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 
 int Ov002_StepGiveUpTimer(void)
 {
@@ -49,7 +48,7 @@ int Ov002_StepGiveUpTimer(void)
     pSess = NNSi_FndGetCurrentRootHeap();
     pLink = &pSess->link;
     if (pLink->nLastMs > 0) {
-        nNow = (int)func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea, 0);
+        nNow = (int)func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea);
         if (nNow - pLink->nLastMs >= 1000) {
             pLink->nSecondsLeft = (s16)(pLink->nSecondsLeft - 1);
             pLink->nLastMs = nNow;

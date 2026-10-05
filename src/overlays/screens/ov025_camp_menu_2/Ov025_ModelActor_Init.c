@@ -52,7 +52,7 @@ extern void  MI_CpuFill8(void *pDst, int nValue, u32 nSize);
 extern void  Camera_CommitMatrices(Ov025ModelActor *pActor);                /* Camera_CommitMatrices */
 extern void  NNS_GfdGetFrmTexVramState(void *pMatrix);
 extern void  GFXi_SaveStateTo(void *pState);
-extern int   OS_SPrintf(char *pBuffer, const char *pszFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void  BindAnimTrack(void *pSequence, int nTrack, void *pBlend, int nArg); /* BindAnimTrack */
 extern void  NNS_G3dRenderObjSetCallBack(void *pController, void *pCallback, int nA, int nB, int nC); /* Obj_SetValueAndTwoBytes */
 extern void  Ov025_RefreshMatchingMatrices(int nNode);                        /* the matrix re-read callback */

@@ -59,7 +59,7 @@ extern Ov000CardContext *data_ov000_0205ac24;
 extern u16 gPadPressed;
 
 extern s64  OS_GetTick(void);
-extern s64  func_02020368(u32 nLo, u32 nHi, u32 dLo, u32 dHi);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int  Ov000_PollSaveCheck(void);
 extern unsigned char  Ov000_UpdateLoadState(int step);
 extern void Ov000_RefreshSelectionGroupDraw(void);
@@ -78,7 +78,7 @@ void Ov000_PollSaveCheckState(void)
         {
             int r;
             s64 t = OS_GetTick() << 6;
-            if ((u64)func_02020368((u32)t, (u32)((u64)t >> 32), 0x82ea, 0)
+            if ((u64)func_02020368(t, 0x82ea)
                     < data_ov000_0205ac24->dwCheckDelay) {
                 r = -1;
             } else {

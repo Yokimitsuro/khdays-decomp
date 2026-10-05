@@ -18,11 +18,11 @@ extern int  Ov025_GetCtxBlock968c(void);
 extern int  Ov025_GetDescriptor3(void);
 extern int  Ov025_FindEntryByTag(int list, int tag);
 extern void Ov025_ApplyTempFieldsAndRestore(int block, int entry, int a, int b);
-extern int  Ov025_VariadicMapForward(int a, int b, void *work, int n, ...);
+extern void *Ov025_VariadicMapForward(void *pMsg, int nKind, void *pOut, int nSize, ...);
 extern void StrNCopy16(void *dst, void *src, int n);
 extern int  NNSi_G2dFontGetTextWidth(int a, int b, void *buf);
 extern void Text_DrawWithShadow(int a, int b, int c, int d, void *e, int f);
-extern void Text_FormatUtf16(void *buf, int cap, const char *fmt, ...);
+extern void Text_FormatUtf16(unsigned short *dst, unsigned int len, const unsigned short *fmt, ...);
 extern void Text_DrawDirectional_2(int a, int b, int c, int d, int e, void *buf);
 
 void Ov025_DrawListEntryRow(int self, int col, int *node)
@@ -69,7 +69,7 @@ void Ov025_DrawListEntryRow(int self, int col, int *node)
         Ov025_ApplyTempFieldsAndRestore(block1, entry, 0xf, (short)(col << 1));
     }
     if (node[3] >= 0)
-        Ov025_VariadicMapForward(self + 0x58, 0x37, buf, 0x40, node[5], node[3]);
+        Ov025_VariadicMapForward((void *)(self + 0x58), 0x37, buf, 0x40, node[5], node[3]);
     else
         StrNCopy16(buf, (void *)node[5], 0x40);
     buf[63] = 0;
@@ -82,11 +82,11 @@ void Ov025_DrawListEntryRow(int self, int col, int *node)
     if (node[4] > 0) {
         *(int *)(self + 0x1b0) = iVar3;
         if (node[2] == 3) {
-            Ov025_VariadicMapForward(self + 0x58, 0x38, buf, 0x40, node[4]);
+            Ov025_VariadicMapForward((void *)(self + 0x58), 0x38, buf, 0x40, node[4]);
         } else if (node[2] == 5 && node[0] == 0x5a) {
-            Text_FormatUtf16(buf, 0x40, data_ov025_020b52c4, node[4]);
+            Text_FormatUtf16(buf, 0x40, (const unsigned short *)data_ov025_020b52c4, node[4]);
         } else {
-            Text_FormatUtf16(buf, 0x40, data_ov025_020b52cc, node[4]);
+            Text_FormatUtf16(buf, 0x40, (const unsigned short *)data_ov025_020b52cc, node[4]);
         }
         buf[63] = 0;
         Text_DrawDirectional_2(self + 0x190, 0x71, row + 4, 0xf1, 0x821, buf);

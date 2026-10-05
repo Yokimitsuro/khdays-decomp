@@ -56,7 +56,7 @@ extern struct Record gPartyMembers[];
 extern char *data_02042a70[];
 extern char gOv022BaChWPathFmt[];
 
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszName);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(char *pszName, int nHeap);
 extern void Ov002_ClearBytes01AndWord160(struct SubBlock *pBlock);
 extern void Ov022_BuildActionTable(u8 *pBlkActions, struct Actor *pActor,

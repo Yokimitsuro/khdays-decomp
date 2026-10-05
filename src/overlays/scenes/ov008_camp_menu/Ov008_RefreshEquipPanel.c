@@ -17,7 +17,7 @@ extern int   Ov008_GetPageB(void);
 extern void  PlayRecord_FoldFrame(int obj, void *state);
 extern void  LevelTable_ReadEntry(int a, int b, void *out);
 extern void  Ov008_LoadWeaponStats(int id, int flag);
-extern int   Ov008_DrawPageBElement(int id, int a, ...);
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...);
 extern void  Ov008_DrawPageBElementAt(int a, int b, int idx);
 extern int  *NNS_FndGetNthListObject(void *list, int key);
 extern void  Ov008_ForEachNode(int self);

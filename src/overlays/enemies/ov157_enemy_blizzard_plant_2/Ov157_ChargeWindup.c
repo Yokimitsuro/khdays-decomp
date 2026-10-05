@@ -16,7 +16,7 @@ extern void VEC_Subtract(void *a, void *b, void *d);
 extern fx16 FX_Atan2(int x, int z);
 extern void Ov157_ProbeGroundBelowNode(int *state, int *p);
 extern long long FX_DivFx64c(int a, int b);
-extern void Ov157_GroundSweep(int *state, int lo, int hi, int *p);
+extern void Ov157_GroundSweep(int *state, long long t, int *p);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern int Ov157_ChargeAimedShotState;
 void Ov157_ChargeWindup(int *self) {
@@ -38,7 +38,7 @@ void Ov157_ChargeWindup(int *self) {
     t = state[0xb];
     if (t >= 0x1bbb && t <= 0x22a9) {
         long long fx = FX_DivFx64c(t - 0x1bbb, 0x6ee);
-        Ov157_GroundSweep(state, (int)fx, (int)((unsigned long long)fx >> 32), state + 8);
+        Ov157_GroundSweep(state, fx, state + 8);
     }
     if (*(unsigned char *)state[1] != 0) {
         return;

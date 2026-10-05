@@ -63,7 +63,7 @@ extern int func_ov022_02083f0c(void);
 extern void Ov002_ResetViewToDefault(void);
 extern int Ov002_ResourceNodeCallback(Ov022DisplayRecord *record);
 extern u64 OS_GetTick(void);
-extern u64 func_02020368(u64 value, u32 divisor, int mode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int FX_Div(int numerator, int denominator);
 extern void Ov002_ReaimActor();
 
@@ -127,9 +127,7 @@ second_done:
 
             group->records[2].point = *point;
             ratio = FX_Div(
-                (int)func_02020368(
-                    (actor->deadline - OS_GetTick()) << 6,
-                                   0x82ea, 0) << 12,
+                (int)func_02020368((actor->deadline - OS_GetTick()) << 6, 0x82ea) << 12,
                 0x02710000);
             if (ratio >= 0x1000) {
                 ratio = 0x1000;

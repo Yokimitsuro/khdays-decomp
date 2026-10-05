@@ -22,7 +22,7 @@ typedef void (*Ov002TickFn)(void);
 extern void Ov002_GetBootModeStep(void);
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
-extern void OS_SPrintf(char *pDst, const char *pFmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov002_GetWorldName(int nId);
 extern void Ov002_Slot_LoadCellFile(unsigned short *pDst, const char *pName);
 

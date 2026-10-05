@@ -25,7 +25,7 @@ typedef struct Ov002LinkCtx {
 extern Ov002LinkCtx *data_ov002_0207fa10;
 extern char gOv002MiWdWdPathFmt[];
 extern const char *data_ov002_0207f0a4[];
-extern int OS_SPrintf(char *,const char *,...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *,int);
 extern void Ov002_SetRootWord8a28(int,void *);
 extern void NNSi_FndFreeFromDefaultHeap(void *);

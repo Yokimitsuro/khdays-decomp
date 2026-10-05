@@ -20,7 +20,7 @@ extern int   Ov008_GetDescriptor3(void);
 extern int  *Ov008_GetVarRecordByIndex(int base, int id);
 extern void  Text_DrawWithShadow(int dctx, int x, int y, int mode, int rec, int flag);
 extern int   GetLanguage(void);
-extern int   Ov008_DrawPageBElement(int id, int a, ...);
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...);
 extern int   GameState_GetField(int id, int field);
 extern void  MsgDb_FetchRecord(int *rec, int a, int b, int c);
 extern void  DispatchByNodeKind(int *rec);

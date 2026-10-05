@@ -13,7 +13,7 @@ typedef struct Ov022RootContext {
 
 extern Ov022RootContext *NNSi_FndGetCurrentRootHeap(void);
 extern long long OS_GetTick(void);
-extern unsigned long long func_02020368(long long value, int divisor, int flag);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Tween_Configure(Ov022Tween *tween, int mode, int start, int target,
                           int duration);
 extern void Tween_Start(Ov022Tween *tween);
@@ -32,7 +32,7 @@ int Ov022_WaitDwellTimer(void)
         return 0;
     }
 
-    now = func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+    now = func_02020368(OS_GetTick() << 6, 0x82ea);
     limit = context->timestamp + 800;
     if (now > (unsigned long long)(long long)limit) {
         Tween_Configure(&context->tweenHeader, 2, 0x1000, 0x3000, 200);

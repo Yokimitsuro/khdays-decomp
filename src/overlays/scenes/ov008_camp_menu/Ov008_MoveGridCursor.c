@@ -95,7 +95,7 @@ extern void  Ov008_PreviewDropSummary(Ov008MenuContext *pCtx);                  
 extern void  Ov008_RebuildGridHits(Ov008MenuContext *pCtx);                        /* Ov008_RebuildGridHits */
 extern void  Ov008_DisableRowBlock(void);                                          /* Ov008_DisableRowBlock */
 extern void  Ov008_RefreshEquipPanel(void *pSummary);                                /* Ov008_RefreshEquipPanel */
-extern int   Ov008_DrawPageBElement(int nMode, int nA, int nB);                     /* cursor mode request */
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern int   Ov008_CanFillNodeGap(Ov008MenuContext *pCtx);                        /* the cursor cell can be filled */
 extern void  Ov008_PageB_UploadSurface154(void);                                          /* grid refresh */
 extern void  Ov008_ReleaseTwoSlotsEx(int nCtx, void *pEntry, int nFrame);            /* Ov008_ReleaseTwoSlotsEx */

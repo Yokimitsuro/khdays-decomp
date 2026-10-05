@@ -85,7 +85,7 @@ extern int   Ov008_DrawListWindow(Ov008ScrollMenu *pMenu, int nTop, int bFinal, 
 extern void  Ov008_LayoutScrollGauge(Ov008ScrollMenu *pMenu, int nPos);      /* Ov008_LayoutScrollGauge */
 extern void  Ov008_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible);  /* SetEntrySlotsVisible */
 extern Ov008ListNode *NNS_FndGetNthListObject(void *pList, int nIndex);          /* List_GetNthObject */
-extern int   Ov008_DrawPageBElement(int nMode, int nA, u32 nText);          /* cursor mode / text request */
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode / text request */
 extern void *Ov008_GetVarRecordByIndex(void *pRecords, int nIndex);            /* GetVarRecordByIndex */
 extern u16   Ov008_GetLocalPlayerStatB(void);                                  /* text db of the page */
 extern int   EnqueueObjGfxCommand(void *pSurface);                              /* EnqueueObjGfxCommand */

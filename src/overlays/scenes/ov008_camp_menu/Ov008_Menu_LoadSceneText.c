@@ -18,7 +18,7 @@
 
 typedef struct { int f0; unsigned char pad_04[0x30]; } SceneParam;
 
-extern int  OS_SPrintf(void *buf, const char *fmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(void *name, int unit);
 extern void Ov008_LoadCharacterWeapon(void *dst, int sceneId, int slot);
 extern SceneParam data_ov008_0208e9c4[];

@@ -54,7 +54,7 @@ typedef struct Ov000SceneContext {
 } Ov000SceneContext;
 
 extern Ov000SceneContext *NNSi_FndGetCurrentRootHeap(void);
-extern int OS_SPrintf(char *destination, const char *format, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern char gOv000ZFmt[];
 extern void Ov000_TeardownTitle(void);
 extern Ov000SceneContext *data_ov000_0205ac3c;

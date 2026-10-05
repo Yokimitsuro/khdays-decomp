@@ -24,7 +24,7 @@ extern u64 Ov002_GetTimeoutTicks(void);
 extern u64 Ov002_GetTimeoutRemaining(void);
 extern u64 Ov002_GetRemainingTicks(void);
 /* 64-bit divide; 0x82ea ticks make up one second at 64x resolution. */
-extern u64 func_02020368(u64 qValue, unsigned int nDiv, int nMode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int Ov002_NodeGetResult(Ov002TaskNode *pNode);
 
 /* Writes a hook slot unless the caller passes -1, which means "leave this one
@@ -59,7 +59,7 @@ int Ov002_NodeWatchCounterPhase(Ov002TaskNode *pNode)
         if (qTicks == 0) {
             break;
         }
-        if (func_02020368(qTicks << 6, 0x82ea, 0) >= (u64)nGoal) {
+        if (func_02020368(qTicks << 6, 0x82ea) >= (u64)nGoal) {
             pNode->nResult = -1;
         }
         break;
@@ -74,7 +74,7 @@ int Ov002_NodeWatchCounterPhase(Ov002TaskNode *pNode)
         if (qTicks == 0) {
             break;
         }
-        if (func_02020368(qTicks << 6, 0x82ea, 0) >= (u64)nGoal) {
+        if (func_02020368(qTicks << 6, 0x82ea) >= (u64)nGoal) {
             pNode->nResult = -1;
         }
         break;
@@ -89,7 +89,7 @@ int Ov002_NodeWatchCounterPhase(Ov002TaskNode *pNode)
         if (qTicks == 0) {
             break;
         }
-        if (func_02020368(qTicks << 6, 0x82ea, 0) >= (u64)nGoal) {
+        if (func_02020368(qTicks << 6, 0x82ea) >= (u64)nGoal) {
             pNode->nResult = -1;
         }
         break;
@@ -104,7 +104,7 @@ int Ov002_NodeWatchCounterPhase(Ov002TaskNode *pNode)
         if (qTicks == 0) {
             break;
         }
-        if (func_02020368(qTicks << 6, 0x82ea, 0) >= (u64)nGoal) {
+        if (func_02020368(qTicks << 6, 0x82ea) >= (u64)nGoal) {
             pNode->nResult = -1;
         }
         break;

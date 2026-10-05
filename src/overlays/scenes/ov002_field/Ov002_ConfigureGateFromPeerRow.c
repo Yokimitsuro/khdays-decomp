@@ -44,7 +44,7 @@ extern char gOv002StrIntFmt[],gOv002ColWallName[],gOv002GateName[],gOv00210Name[
 extern u8 data_0204c240;
 extern Ov002GateModelEntry *Ov002_FindEntryAddrByKey(int nKey);
 extern void Ov002_BuildModelSlot(Ov002ModelDesc *,int,int);
-extern int OS_SPrintf(char *,const char *,...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern unsigned int strlen(const char *);
 extern void Ov002_RebindGroupAnimations(char *,unsigned int,int,int);
 extern Ov002NamedEntry *SymbolGroup_FindName(int, char *);

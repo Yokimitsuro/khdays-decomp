@@ -56,7 +56,7 @@ extern SlotCreateFn data_ov022_020b29e4[];
 
 extern struct SlotTemplate *Archive_LoadFile(char *pszName, int nHeap);
 extern int Slot_EvalPackedParam(int nId, int nKind);
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszName);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void NNSi_FndFreeFromDefaultHeap(void *pBlock);
 
 void Ov022_BuildSlotPool(struct SlotPool *pPool, struct Actor *pActor)

@@ -100,7 +100,7 @@ typedef struct Ov008PanelContext {
 
 extern Ov008PanelContext *data_ov026_02091368;
 extern void  Ov026_ShowTierPage(int nWidgetA, int nWidgetB, int nTag, int nList, int nText, int nColumn); /* Ov008_ShowTierPage */
-extern int   Ov026_CreateMissionCell(int hSlots, int nKind, int nSlot, int nX, int nY); /* create a cell */
+extern int Ov026_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void  Slot_SetMode2Bit(int hSlots, int nCell, int bSet);           /* Slot_SetMode2Bit */
 extern void *Ov026_FindEntryById(void *pWidgets, int nId);             /* FindEntryById */
 extern void  Ov026_SetEntrySlotsVisible(void *pWidgets, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
@@ -180,27 +180,27 @@ void Ov026_Shop_LayoutPage(int bKeep)
         } else {
             nKind = 1;
         }
-        pView->aCellIconA[i] = Ov026_CreateMissionCell(hSlots, nKind, 1, nX, nY);
+        pView->aCellIconA[i] = Ov026_CreateMissionCell((int *)hSlots, nKind, 1, nX, nY);
         if (nTab == TAB_REWARDS) {
             nKind = 4;
         } else {
             nKind = 2;
         }
-        pView->aCellIconB[i] = Ov026_CreateMissionCell(hSlots, nKind, 1, nX, nY);
+        pView->aCellIconB[i] = Ov026_CreateMissionCell((int *)hSlots, nKind, 1, nX, nY);
         Slot_SetMode2Bit(hSlots, pView->aCellIconA[i], 0);
         Slot_SetMode2Bit(hSlots, pView->aCellIconB[i], 0);
-        pView->aCellText[i] = Ov026_CreateMissionCell(hSlots, 0, ctx->nRow, aX[0], nY);
+        pView->aCellText[i] = Ov026_CreateMissionCell((int *)hSlots, 0, ctx->nRow, aX[0], nY);
         if (nTab == TAB_REWARDS) {
-            pView->aCellRewardA[i] = Ov026_CreateMissionCell(hSlots, 7, 1, 0xc1 << 12, nY);
+            pView->aCellRewardA[i] = Ov026_CreateMissionCell((int *)hSlots, 7, 1, 0xc1 << 12, nY);
             Slot_SetMode2Bit(hSlots, pView->aCellRewardA[i], 0);
-            pView->aCellRewardB[i] = Ov026_CreateMissionCell(hSlots, 0x17, 0, 0xb6 << 12, nY);
+            pView->aCellRewardB[i] = Ov026_CreateMissionCell((int *)hSlots, 0x17, 0, 0xb6 << 12, nY);
             Slot_SetMode2Bit(hSlots, pView->aCellRewardB[i], 0);
         } else if (nTab == TAB_SHOP) {
-            pView->aCellShop[i] = Ov026_CreateMissionCell(hSlots, 8, 1, 0xb4 << 12, nY);
+            pView->aCellShop[i] = Ov026_CreateMissionCell((int *)hSlots, 8, 1, 0xb4 << 12, nY);
             Slot_SetMode2Bit(hSlots, pView->aCellShop[i], 0);
         }
         if (nTab != TAB_REWARDS) {
-            pView->aCellPrice[i] = Ov026_CreateMissionCell(hSlots, 0xb, 1, aX[0] - (0xb << 12), nY + 0x4000);
+            pView->aCellPrice[i] = Ov026_CreateMissionCell((int *)hSlots, 0xb, 1, aX[0] - (0xb << 12), nY + 0x4000);
             Slot_SetMode2Bit(hSlots, pView->aCellPrice[i], 0);
         }
         nY += ROW_Y_STEP;

@@ -12,8 +12,7 @@
 #define REG_DISPCNT (*(volatile u32 *)0x04000000)
 
 typedef struct GameHeap {
-    int saveA;                          /* +0x00 */
-    int saveB;                          /* +0x04 */
+    unsigned long long savedTick;       /* +0x00: the tick Game_EnterPauseScene saved */
     unsigned int vblankCount;           /* +0x08 */
     char pad0c[0xc4 - 0xc];
     int streamPos;                      /* +0xc4: stream 0 position saved on pausing, -1 = none */
@@ -28,7 +27,7 @@ extern u8 data_0204c240;
 extern char gPauseRefreshName[16];
 extern int LoadGlobalU16At0(void);
 extern void SetGameMode(int mode);
-extern void OS_SetTick(int a, int b);
+extern void OS_SetTick(unsigned long long nTick);
 extern void VBlank_SetCount(unsigned int count);
 extern void SNDi_BroadcastChannelOp(int op);
 extern int SoundMgr_StartStream(int slot, int pos);
@@ -47,7 +46,7 @@ void Scene_Leave(void)
         SetGameMode(2);
     }
     if ((data_0204c240 & 4) == 0 || (LoadGlobalU16At0() & 2) == 0) {
-        OS_SetTick(heap->saveA, heap->saveB);
+        OS_SetTick(heap->savedTick);
         VBlank_SetCount(heap->vblankCount);
         SNDi_BroadcastChannelOp(0);
         if (heap->object == 0 && heap->streamPos != -1) {

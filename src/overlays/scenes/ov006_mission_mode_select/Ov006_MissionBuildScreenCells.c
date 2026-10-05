@@ -101,7 +101,7 @@ extern void SlotTable_SetEntryVelocity(void *panel, int cell, int order);
 extern void Slot_SetFlagBit1(void *panel, int cell);
 extern void Slot_ClearFlagBit1(void *panel, int cell);
 extern void Tween_Clear(MissionTween *tween);
-extern void Ov006_MissionPlaceCell(void *panel, int cell, MissionPlacementConfig config);
+extern void Ov006_MissionPlaceCell(void *panel, int idx, MissionPlacementConfig config);
 extern void Ov006_MissionPlaceCellPair(int slot, int selector);
 
 void Ov006_MissionBuildScreenCells(int mode)

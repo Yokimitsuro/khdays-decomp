@@ -36,8 +36,7 @@ typedef struct {
 extern Ov002EntryPool *data_ov002_0207f61c;
 extern u8 data_0204c240;
 
-extern unsigned long long func_02020368(unsigned long long value,
-                                        unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void MI_CpuFill8(void *pDest, int nValue, unsigned int nSize);
 extern void Ov002_PanelBlitGlyph(Ov002PoolEntry *pEntry, int nColumn, char cGlyph,
                                 int bLower, int nWords);
@@ -71,7 +70,7 @@ void Ov002_RepaintStopwatchEntry(Ov002PoolEntry *pEntry) {
         }
     }
 
-    v = (unsigned int)func_02020368(qwValue << 6, 0x82ea, 0);
+    v = (unsigned int)func_02020368(qwValue << 6, 0x82ea);
 
     if (pEntry->nKind == 2 && v < 60000) {
         bLower = 1;

@@ -52,7 +52,7 @@ extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void MI_CpuFill8(void *pDst, int nValue, unsigned int nSize);
 extern void MI_CpuCopy8(const void *pSrc, void *pDst, unsigned int nSize);
 extern u64 OS_GetTick(void);
-extern unsigned int func_02020368(u64 llValue, unsigned int nDiv, int nMode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int Msg_OpenContainerAndReadHeader(const void *pName, int nHeap);
 extern void ZeroHalfThenFree(int nRes);
 extern void Projection_LoadDefaults(void *pProj);
@@ -92,7 +92,7 @@ void *Ov002_SceneCreatePanel(const void *pInit)
     s->llBlinkStamp = llNow;
     s->llBlinkInterval = 0x1474;
     s->llHoldStamp = llNow;
-    s->nHoldMs = func_02020368(llNow << 6, 0x82ea, 0);
+    s->nHoldMs = (unsigned int)func_02020368(llNow << 6, 0x82ea);
 
     s->nHeaderFrame = 0;
     s->nCounterState = 0;

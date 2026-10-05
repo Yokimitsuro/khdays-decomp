@@ -54,7 +54,7 @@ extern int Ov107_CloneResourceTransform(const Placement *placement);
 extern int Ov237_New(char *self);
 extern int JointModel_New(void *record, int kind);
 extern int Ov237_CreateSparkEmitter(char *self);
-extern void OS_SPrintf(char *buf, const char *fmt, int a);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov107_OpenCachedResourceByName(char *buf);
 extern void func_ov107_020c6624(int obj, int arg);
 extern void Res_RequestIdPair(int resourceId);

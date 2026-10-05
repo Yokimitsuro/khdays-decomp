@@ -54,7 +54,7 @@ typedef struct Ov025Page {
 
 extern Ov025Page *Ov025_GetPageA(void);
 extern void *Archive_LoadFile(u32 path, int heap);
-extern int OS_SNPrintf(char *dst, int cap, const char *fmt, ...);
+extern int OS_SNPrintf(char *dst, unsigned int len, const char *fmt, ...);
 extern u32 Ov025_PackSlotTag(int member);
 extern void *NNSi_FndAllocFromDefaultExpHeap(u32 size);
 extern void MI_CpuFill8(void *dst, int value, u32 size);

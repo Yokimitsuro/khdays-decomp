@@ -56,8 +56,7 @@ extern int Ov002_NextStreamRecord(void *pSub);
 extern int Ov002_CountTextLines(void *pRecord);
 extern void Text_DrawDirectional_2(void *pWidget, int a, int b, int c, int d, int e);
 extern void EnqueueObjGfxCommand(void *pWidget);
-extern void Ov002_VariadicMapForward(void *pWidget, int a, void *pOut, int b,
-                                int c, int d);
+extern void *Ov002_VariadicMapForward(void *pMsg, int nKind, void *pOut, int nSize, ...);
 extern void Ov002_DrawOnSurface(void *pWidget, int a, int b, int c, void *p);
 extern void Ov002_LoadBackgroundSet(void);
 

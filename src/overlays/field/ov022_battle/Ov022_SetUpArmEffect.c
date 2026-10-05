@@ -43,7 +43,7 @@ extern void RegisterSeqAndInit(struct Anim *pAnim, char *pszDescriptor, int nA,
                           int nB);
 extern void BindAnimTrack(struct Anim *pAnim, int nChannel, u8 *pBlk,
                           int nGroup);
-extern void OS_SPrintf(char *pBuf, const char *pszFmt);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern struct ArmEntry *Archive_LoadFile(char *pszPath, int nHeap);
 extern void NNSi_FndFreeFromDefaultHeap(void *pBlock);
 extern int Slot_EvalPackedParam(int nId, int nWhat);

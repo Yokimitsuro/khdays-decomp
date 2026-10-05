@@ -31,7 +31,7 @@ typedef struct {
 
 extern const MissionOffsetTable data_ov006_0205630c;
 extern Ov006RootContext *data_ov006_02056664;
-extern void Ov006_MissionPlaceCell(void *panel, int cell, ...);
+extern void Ov006_MissionPlaceCell(void *panel, int idx, MissionPlacementConfig config);
 
 void Ov006_MissionPlaceCellPair(int slot, int selector) {
     MissionPlacementConfig config = {0, 0, 0, 0};

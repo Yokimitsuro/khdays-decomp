@@ -52,7 +52,7 @@ extern Ov002GaugeCountContext *data_ov002_0207f618;
 extern Ov002GaugeSetup data_ov002_0207e98c[];
 
 extern long long OS_GetTick(void);
-extern long long func_02020368(long long qValue, long long qDivisor);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern long long func_02020400(int nNumerator, int nDenominator);
 extern void Ov002_UploadSlotIconPalette(int nIndex, int nMode);
 extern void Ov002_BuildGaugeRowMap(int nColumn, int nRows);

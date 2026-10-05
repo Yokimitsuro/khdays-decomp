@@ -5,7 +5,7 @@
  * returns. That is what the ROM does -- `add r0,sp,#0` right before the epilogue -- and callers
  * evidently read it before anything else reuses the stack. Kept as-is deliberately; do not
  * "fix" it into a static buffer, that would change the bytes. */
-extern void OS_SPrintf(char *dst, const char *fmt, int n);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern char gOv023Chair0Fmt[];
 extern char gOv023ChairFmt[];
 

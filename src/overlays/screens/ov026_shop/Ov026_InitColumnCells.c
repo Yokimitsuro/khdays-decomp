@@ -28,7 +28,7 @@ typedef struct Ov008PanelContext {
 } Ov008PanelContext;
 
 extern Ov008PanelContext *data_ov026_02091368;
-extern int  Ov026_CreateMissionCell(int *hSlots, unsigned int nKind, int nSlot, int nY, int nX); /* create a cell */
+extern int Ov026_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void Ov026_RedrawBothColumns(void);                                  /* Ov008_RedrawBothColumns */
 
 void Ov026_InitColumnCells(void)

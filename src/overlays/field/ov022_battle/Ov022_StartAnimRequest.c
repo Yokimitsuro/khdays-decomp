@@ -49,7 +49,7 @@ extern const char *const data_02042a70[];
 extern const char gOv022BaChPathFmt[];
 extern const char gOv022BaChEtaPackPathFmt[];
 
-extern void OS_SPrintf(char *pDst, const char *pFmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov022_ResolveRequestPart(struct AnimRequest *pReq, int nWhich);
 extern void Ov022_ConfigureGridSlotMode(int nId, int nMode);
 extern struct AnimTrack *Ov022_AcquireGridSlot(const char *pPath, int nId,

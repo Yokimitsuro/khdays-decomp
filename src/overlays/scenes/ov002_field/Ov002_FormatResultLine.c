@@ -1,7 +1,7 @@
 /* Format the result line into the caller's buffer: one wording when a reason
  * code is supplied, another carrying the signed score from +2 of the result
  * block when it is not. */
-extern void OS_SPrintf(char *buffer, const char *format, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 
 typedef struct {
     char pad0000[2];

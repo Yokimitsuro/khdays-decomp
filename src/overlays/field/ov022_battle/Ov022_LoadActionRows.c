@@ -38,8 +38,7 @@ extern char *data_02042a70[];
 extern char gOv022AmPathFmt[];
 extern char gOv022BaChPath[];
 
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszSet,
-                       char *pszKind);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(char *pszName, int nHeap);
 extern void *Archive_LoadFile(u32 nFile, int nSlot);
 extern void Resource_BindFileToSlot(u8 *pBind, u8 *pAnim, void *pFile, int nSlot);

@@ -51,7 +51,7 @@ extern void Ov025_ScrollListEased(Ov008MenuContext *pCtx, int nPos, int nBase, i
 extern void Ov025_HighlightListRow(Ov008MenuContext *pCtx, int nRow);        /* highlight a visible row */
 extern void Ov025_UpdateMenuButton5(int nArg);                                /* Ov008_UpdateMenuButton5 */
 extern int  Ov025_MoveGridCursor(Ov008MenuContext *pCtx, int nColumn, int nRow, int nStep);
-extern int  Ov025_DrawPageBElement(int nMode, int nA, int nB);               /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void Ov025_PageB_UploadSurface154(void);                                    /* grid refresh */
 
 void Ov025_UpdateKnobDrag(Ov008MenuContext *pCtx)

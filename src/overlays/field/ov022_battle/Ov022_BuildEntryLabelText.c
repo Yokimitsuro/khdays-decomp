@@ -12,7 +12,7 @@
  * (the word buffer at sp+0, the text buffer at sp+0x48). */
 extern int data_ov022_020b2394;
 extern int gOv022BaMaMoPackPathFmt;
-extern void OS_SPrintf(char *buf, const char *fmt, int value);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov022_AcquireGridSlot(char *text, int palette, int layer, int owner);
 
 struct Buf0208a830 { int w[18]; };

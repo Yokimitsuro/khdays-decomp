@@ -1,7 +1,7 @@
 
 #include "nitro/fx_types.h"
 
-extern void Ov148_BuildHeadingRotation(int node, VecFx32 v, int flag);
+extern int Ov148_BuildHeadingRotation(int *self, VecFx32 v, int flag);
 extern void Ov107_PostTagUpdate(int obj, int a, int b);
 extern void Ov148_SeedDefaultPoseAndAdvance(int obj, int arg1);
 extern void SetIndexedSlot(int obj, int a, int cb);
@@ -13,7 +13,7 @@ extern void Ov148_StepChargeUntilSettled(void);
 void Ov148_ApplyTransformThenReseedIfFree(int *this)
 {
     int node = this[1];
-    Ov148_BuildHeadingRotation(node, *(VecFx32 *)(node + 0x28), 1);
+    Ov148_BuildHeadingRotation((int *)node, *(VecFx32 *)(node + 0x28), 1);
     if (*(unsigned char *)(*(int *)(node + 4) + 0xad) != 0) {
         return;
     }

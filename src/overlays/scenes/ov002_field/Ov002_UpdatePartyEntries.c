@@ -24,7 +24,7 @@ typedef struct { u16 a, b, c, d; } Head;
 
 extern int  data_ov002_0207fa00;
 extern unsigned long long Ov002_GetTimeoutTicks(void);
-extern int  func_02020368(unsigned long long value, unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int  Ov022_GetEntryField12(int i);
 extern int  func_ov022_020886f8(int i);
 extern int  Ov002_TestRosterSlotGroundRay(int i);
@@ -46,7 +46,7 @@ void Ov002_UpdatePartyEntries(void)
 
     if (*(int *)(ctx + 0x8bcc) == -1) return;
     t = Ov002_GetTimeoutTicks();
-    *(int *)((char *)&data_0204c4d8 + 0x14) = func_02020368(t << 6, 0x82ea, 0);
+    *(int *)((char *)&data_0204c4d8 + 0x14) = (int)func_02020368(t << 6, 0x82ea);
     {
         int state = *(int *)(ctx + 0x8bb4);
         int done = 0;

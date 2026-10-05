@@ -71,7 +71,7 @@ extern void  Ov025_ResetGridDrag(Ov008MenuContext *pCtx, int bRestore);     /* O
 extern void  Ov025_RebuildGridHits(Ov008MenuContext *pCtx);                   /* Ov008_RebuildGridHits */
 extern void  Ov025_EnterMenuState(Ov008MenuContext *pCtx, int nState);       /* Ov008_EnterMenuState */
 extern int   Ov025_CanFillNodeGap(Ov008MenuContext *pCtx);                   /* fill the cursor cell */
-extern int   Ov025_DrawPageBElement(int nMode, int nA, int nB);                /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern int   Ov025_MoveGridCursor(Ov008MenuContext *pCtx, int nColumn, int nRow, int nStep); /* move the cursor */
 extern void  Ov025_ClearTagRange(void);                                     /* Ov008_DisableRowBlock */
 extern void  Ov025_RefreshStatusPage(void *pSummary);                           /* Ov008_RefreshEquipPanel */

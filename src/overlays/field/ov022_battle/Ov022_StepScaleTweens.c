@@ -44,7 +44,7 @@ typedef struct Ov022RootContext {
 extern Ov022RootContext *NNSi_FndGetCurrentRootHeap(void);
 extern void Tween_Sample(Ov022Tween *tween, int *value);
 extern long long OS_GetTick(void);
-extern unsigned long long func_02020368(long long value, int divisor, int flag);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int FX_Mul(int a, int b);
 extern void func_ov022_02086e80(int count);
 extern int Ov022_WaitDwellTimer(void);
@@ -67,8 +67,7 @@ int Ov022_StepScaleTweens(void)
 
     Tween_Sample(&context->tweenHeader, &value);
     if (context->tweenHeader.flags.finished) {
-        context->timestamp = (int)func_02020368(OS_GetTick() << 6,
-                                               0x82ea, 0);
+        context->timestamp = (int)func_02020368(OS_GetTick() << 6, 0x82ea);
         result = (int)Ov022_WaitDwellTimer;
     }
 

@@ -18,7 +18,8 @@ typedef struct Ov005ResultContext {
     int activeTweenIndex;
 } Ov005ResultContext;
 extern Ov005ResultContext *data_ov005_0205b810;
-extern u64 OS_GetTick(void), func_02020368(u64, u64);
+extern u64 OS_GetTick(void);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov005_SelectAndShowResultSprite(int, int);
 extern void *Ov005_FindEntryById(Ov005SpriteManager *, int);
 extern void Ov005_ReleaseTwoSlots_2(Ov005SpriteManager *, void *);

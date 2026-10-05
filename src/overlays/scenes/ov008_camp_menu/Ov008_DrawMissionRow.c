@@ -135,7 +135,7 @@ extern u32   Ov008_BuildRankMask(Ov008MissionList *pList, u32 nWord);    /* Ov00
 extern Ov008MissionNameNode *Ov008_FindListObjectByKey_2(Ov008MissionList *pList, u32 nWord); /* find the name node */
 extern void  Ov008_BindDescriptor0(Ov008RowSurface *pSurface);
 extern void  Obj_InvokeInnerVtable4(void *pSurface);                              /* Obj_InvokeInnerVtable4 */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pFormat, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern void  Text_DrawWithShadow(void *pSurface, int nX, int nY, int nColour, void *pText, int nFlag); /* Text_DrawWithShadow */
 extern int   Ov008_GetNextMissionEntry_4(u32 nTextSlot);
 extern void  Ov008_BindDescriptorPair(Ov008RowSurface *pSurface, int nValue, int nWidth); /* Ov008_Set_f96c */

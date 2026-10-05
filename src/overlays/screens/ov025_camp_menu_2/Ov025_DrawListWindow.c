@@ -13,7 +13,7 @@ extern void Obj_InvokeInnerVtable4(int obj);
 extern void Ov025_ClearGridRows(int a, int b, int c, int d, int e);
 extern int  NNS_FndGetNextListObject(void *list, int obj);
 extern void Ov025_DrawListEntryRow(int self, int col, int *node);
-extern int  Ov025_DrawPageBElement(int id, int a, ...);
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...);
 extern void Ov025_PageB_UploadSurfaceDC(void);
 extern void Ov025_MarkSlotUsed(int a);
 

@@ -12,7 +12,7 @@ struct Flag17a { u8 b0 : 1; u8 b1 : 1; };
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern fx16 FX_Atan2(int x, int y);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int Ov259_ComputeNormalizedDir(int *node, VecFx32 goal);
+extern int Ov259_ComputeNormalizedDir(int node, VecFx32 pos);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov259_LandingCheck(void);
@@ -38,7 +38,7 @@ void Ov259_LungeTick(int *node)
         state[6] = y;
         state[7] = data_0203d210[idx * 2 + 1];
     }
-    if (Ov259_ComputeNormalizedDir(node, *(VecFx32 *)(state + 0xb)) > 0x800 &&
+    if (Ov259_ComputeNormalizedDir((int)node, *(VecFx32 *)(state + 0xb)) > 0x800 &&
         !((struct Flag17a *)(*state + 0x17a))->b0 && !((struct Flag17a *)(*state + 0x17a))->b1) {
         ScaleVec3Fx12(0x700, (VecFx32 *)(state + 5), (VecFx32 *)(state + 5));
     } else {

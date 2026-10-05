@@ -30,7 +30,7 @@ extern Ov009GameState *volatile gGameState;
 extern void Ov009_GetContext(void);
 extern long long OS_GetTick(void);
 extern long long Ov009_GetLatchedTick(void);
-extern u64 func_02020368(long long value, unsigned int divisor, int unused);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov009_RenderTimeDigits(int value);
 extern int Ov009_PollSaveTransfer(Ov009SaveContext *ctx);
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
@@ -55,7 +55,7 @@ void Ov009_TickSaveCommitState(Ov009SaveContext *ctx)
                 OS_GetTick() - Ov009_GetLatchedTick();
             Ov009_RenderTimeDigits(
                 (u32)(gGameState->value0 +
-                      func_02020368(elapsed << 6, 0x1ff6210, 0)));
+                      func_02020368(elapsed << 6, 0x1ff6210)));
         }
         break;
 

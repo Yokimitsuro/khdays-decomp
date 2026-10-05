@@ -7,7 +7,7 @@
 struct bf { unsigned b : 8; };
 extern void Ov157_ProbeGroundBelowNode(void *state, void *p);
 extern long long FX_DivFx64c(int a, int b);
-extern void Ov157_GroundSweep(void *state, int a, int b, void *p);
+extern void Ov157_GroundSweep(void *state, long long t, void *p);
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 
 void Ov157_stTimedInterpPhases(int *node) {
@@ -26,7 +26,7 @@ void Ov157_stTimedInterpPhases(int *node) {
     }
     if (state[0xb] >= 0x4cc && state[0xb] <= 0xbba) {
         long long res = FX_DivFx64c(state[0xb] - 0x4cc, 0x6ee);
-        Ov157_GroundSweep(state, (int)res, (int)(res >> 32), (char *)state + 0x20);
+        Ov157_GroundSweep(state, res, (char *)state + 0x20);
     }
     if (*(unsigned char *)state[1] == 0) {
         int lo, hi, d;

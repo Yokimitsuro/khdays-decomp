@@ -20,7 +20,7 @@
 #include "nitro/fx_types.h"
 #include "game/enemy_common.h"
 
-extern int Ov147_BuildHeadingRotation(int *ctx, VecFx32 v, int flag);
+extern int Ov147_BuildHeadingRotation(int *self, VecFx32 v, int flag);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
 extern void SetIndexedSlot(int *self, int action, void *cb);
 extern void Ov147_PointHeadingCheckPose(void);

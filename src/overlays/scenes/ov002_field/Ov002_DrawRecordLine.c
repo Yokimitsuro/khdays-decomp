@@ -44,8 +44,8 @@ extern char gOv002StrFmt_2[];
 
 extern int ScriptVm_ReadOperandInt(Ov002Ctx *pCtx, void *pArg);
 extern char *ByteCode_ResolveOperand(Ov002Ctx *pCtx, void *pArg);
-extern void OS_SPrintf(char *pDest, const char *pFmt, ...);
-extern void OS_SNPrintf(char *pDest, u32 nSize, const char *pFmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
+extern int OS_SNPrintf(char *dst, unsigned int len, const char *fmt, ...);
 extern void Ov002_SplitPath(char *pDest, const s8 *pName);
 extern u32 strlen(const char *pStr);
 extern void *NNSi_FndAllocFromDefaultExpHeap(u32 nSize);

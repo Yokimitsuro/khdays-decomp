@@ -36,7 +36,7 @@ extern const int data_ov009_020560a8[3][8];
 
 extern int   Ov009_GetCtxBlock9500(void);
 extern int   Ov009_GetContext(void);
-extern int   Ov009_TryApplyPageStep(Ov009PageCtx *ctx, int page, Ov009Pair step);
+extern int Ov009_TryApplyPageStep(void *pCtx, int tag, Ov009Pair step);
 extern int   Ov009_FindEntryById(int obj, int id);
 extern Ov009Pair *Ov009_ApplyFirstValidSlot(int obj, int entry);
 extern void  Ov009_ReleaseTwoSlotsEx(int obj, int entry, Ov009Pair *pos);

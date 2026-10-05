@@ -65,8 +65,7 @@ extern void      Ov000_RegisterLogoObjects(void);
 extern void      Camera_CommitMatricesEx(void *bounds, int a, int b, int c, int d);
 extern void      Scene_DrawNode(void *node);
 extern long long OS_GetTick(void);
-extern unsigned long long func_02020368(unsigned long long value, unsigned int divisor,
-                                        int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void      Table_TailCallWithEntry(int a, int b);
 extern void      Ov000_TickMenuLevelChange(void);
 extern void      Ov000_TickFadeThenPublishContext(void);
@@ -171,7 +170,7 @@ StateFn Ov000_TickMenuLoop(void) {
     if (ctx->inputReady != 0 && gPadHeld != 0) {
         ctx->enterTick = OS_GetTick();
     }
-    if (func_02020368((OS_GetTick() - ctx->enterTick) << 6, 0x01ff6210, 0) > 0x69) {
+    if (func_02020368((OS_GetTick() - ctx->enterTick) << 6, 0x01ff6210) > 0x69) {
         Table_TailCallWithEntry(0, 0x1e);
         ctx->counter = 0;
         return (StateFn)Ov000_FadeOutAndStartMovie;

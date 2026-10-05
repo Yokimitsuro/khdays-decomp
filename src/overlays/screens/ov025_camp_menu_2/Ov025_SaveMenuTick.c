@@ -50,7 +50,7 @@ extern GameState *gGameState;
 extern int  Ov025_GetContext(void);                                   /* Ov008_GetContext */
 extern long long OS_GetTick(void);                                    /* GetTick64 */
 extern long long Ov025_GetLatchedTick(void);                              /* tick at menu open */
-extern u64  func_02020368(long long nValue, unsigned int nDivisor, int nUnused); /* _ll_udiv */
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor); /* _ll_udiv */
 extern void Ov025_RenderTimeDigits(u32 nSeconds);                           /* Ov008_RenderTimeDigits */
 extern int  Ov025_PollSaveCardOp(Ov008SaveMenu *pMenu);                   /* Ov008_PollSaveCardOp */
 extern void MI_CpuCopy8(const void *pSrc, void *pDst, u32 nSize);
@@ -74,7 +74,7 @@ void Ov025_SaveMenuTick(Ov008SaveMenu *pMenu)
     switch (pMenu->nPhase) {
     case PHASE_PICK:
         nElapsed = OS_GetTick() - Ov025_GetLatchedTick();
-        Ov025_RenderTimeDigits((u32)(gGameState->nPlayTimeSeconds + func_02020368(nElapsed << 6, TICKS_PER_SECOND, 0)));
+        Ov025_RenderTimeDigits((u32)(gGameState->nPlayTimeSeconds + func_02020368(nElapsed << 6, TICKS_PER_SECOND)));
         break;
     case PHASE_SAVING:
         nResult = Ov025_PollSaveCardOp(pMenu);

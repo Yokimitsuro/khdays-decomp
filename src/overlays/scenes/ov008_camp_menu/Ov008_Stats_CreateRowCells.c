@@ -22,7 +22,7 @@ typedef struct {
 typedef struct Ov026WidgetEntry Ov026WidgetEntry;
 
 extern char *data_ov008_02090fac;
-extern int Ov008_CreateMissionCell(int *manager, unsigned int kind, int label, int x, ...);
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...);
 extern Ov026WidgetEntry *Ov008_FindEntryById(void *panel, int id);
 extern int Ov008_GetEntryBlock2c(void *panel, Ov026WidgetEntry *cell);
 extern void Ov008_SetEntryPos(void *panel, Ov026WidgetEntry *cell, int value);

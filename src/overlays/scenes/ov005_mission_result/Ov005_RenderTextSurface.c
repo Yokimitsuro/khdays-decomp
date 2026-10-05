@@ -49,7 +49,7 @@ extern const u16 data_ov005_0205b504[];
 extern void Obj_InvokeInnerVtable4(TileSurface *);
 extern u16 *Ov005_GetVarRecordByIndex(Ov005TextTable *,unsigned int);
 extern void Ov005_DrawShadowedText(TileSurface *,const u16 *,int,int,int,unsigned int,int);
-extern void Text_FormatUtf16(u16 *,unsigned int,const u16 *,...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern int NNSi_G2dFontGetTextWidth(FontInfo *,int,const u16 *);
 extern void TextCanvas_DrawShadowedAt(TileSurface *,int,int,int,int,const u16 *);
 extern void EnqueueObjGfxCommand(TileSurface *);

@@ -6,8 +6,9 @@ extern void Tween_Clear(char *pEmitter);
 /* Arm the shake for the given duration: record it with the current tick, raise
  * the two active flags, and pick the profile. Short shakes take the simple
  * path; long ones clear it and restart the emitter. */
-void Ov002_ArmShake(unsigned int nDuration)
+void Ov002_ArmShake(unsigned long long nTicks)
 {
+    unsigned int nDuration = (unsigned int)nTicks;
     char *pOwner;
 
     pOwner = data_ov002_0207f628;

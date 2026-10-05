@@ -9,19 +9,20 @@ typedef struct {
     u8 itemCountMinus3;
 } Ov000SceneContext;
 
+typedef struct Ov000Pair { int x; int y; } Ov000Pair;
+
 extern Ov000SceneContext *data_ov000_0205ac24;
 extern int Ov000_FindEntryById(int object, int id);
 extern int Ov000_GetEntryPosition(int object, int entry);
 
-int Ov000_IsSelectionMoveCollisionFree(int selectedIndex, int movementXArg,
-                        int movementYArg, ...) {
+int Ov000_IsSelectionMoveCollisionFree(int selectedIndex, Ov000Pair movement) {
     int movementX;
     int context;
     int i;
     int *selectedPosition;
     int movementY;
 
-    movementY = *(int *)&movementYArg;
+    movementY = *(int *)&movement.y;
     context = (int)data_ov000_0205ac24;
     selectedPosition = (int *)Ov000_GetEntryPosition(
         context + 0x4c,
@@ -29,7 +30,7 @@ int Ov000_IsSelectionMoveCollisionFree(int selectedIndex, int movementXArg,
     i = 0;
 
     if (i < data_ov000_0205ac24->itemCountMinus3 + 3) {
-        movementX = *(int *)&movementXArg;
+        movementX = *(int *)&movement.x;
         do {
             int *position = (int *)Ov000_GetEntryPosition(
                 context + 0x4c,

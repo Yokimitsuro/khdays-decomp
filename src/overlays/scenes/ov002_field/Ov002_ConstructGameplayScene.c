@@ -35,7 +35,7 @@ extern u8    data_0204c240;
 extern u8    data_0204c248;
 extern u8    data_0204c254;
 extern int   data_0204c4d8;
-extern int   gOv002MiMiPathFmt;
+extern char gOv002MiMiPathFmt[];
 extern int   gOv002SName;
 extern int   gOv002IName;
 extern int   data_ov002_0207f134;
@@ -52,7 +52,7 @@ extern void Ov002_InitPlayRecord(void);
 extern void MI_CpuFill8(void *dest, int data, int size);
 extern void Game_ApplyModeFlags(void);
 extern void GameState_SetField(int a, int b, int c);
-extern void OS_SPrintf(char *buf, void *fmt, int arg);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int  Msg_OpenContainerAndReadHeader(char *buf, int a);
 extern void Ov002_ResetGlobalTracks(int a);
 extern void Ov002_ClearRosterRow(void);
@@ -140,7 +140,7 @@ void *Ov002_ConstructGameplayScene(void *param_1)
             }
         }
     }
-    OS_SPrintf(buf, &gOv002MiMiPathFmt, *(short *)rec);
+    OS_SPrintf(buf, gOv002MiMiPathFmt, *(short *)rec);
     *(int *)(heap + 4) = Msg_OpenContainerAndReadHeader(buf, 2);
     Ov002_ResetGlobalTracks(*(int *)(rec + 0x14));
     Ov002_ClearRosterRow();

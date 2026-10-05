@@ -22,7 +22,7 @@ extern int   Ov025_GetPageB(void);
 extern void  PlayRecord_FoldFrame(int obj, void *state);
 extern void  LevelTable_ReadEntry(int a, int b, void *out);
 extern void  Ov025_StatusPanel_SetWeapon(int id, int flag);
-extern int   Ov025_DrawPageBElement(int id, int a, ...);
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...);
 extern void  Ov025_DrawPageBElementAt(int a, int b, int idx);
 extern int  *NNS_FndGetNthListObject(void *list, int key);
 extern void  Ov025_ProcessAllAtField1cc(int self);

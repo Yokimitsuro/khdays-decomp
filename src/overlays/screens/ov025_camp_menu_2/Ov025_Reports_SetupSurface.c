@@ -58,7 +58,7 @@ typedef struct Ov025ReportsPage {
 } Ov025ReportsPage;           /* 0x278: a view of page A (Ov008_GetPageA) */
 
 extern Ov025ReportsPage *Ov025_GetPageA(void);                 /* Ov008_GetPageA */
-extern void  OS_SNPrintf(char *pBuffer, int nSize, const char *pFormat, ...);
+extern int OS_SNPrintf(char *dst, unsigned int len, const char *fmt, ...);
 extern void  Ov025_InitResourceRecord(void *pText, const char *pszPath); /* Ov008_Set_5c4c */
 extern void *Ov025_GetCtxBlock968c(void);                             /* Ov008_GetCtxBlock968c */
 extern int   Ov025_LookupEntry(int nSlot);                        /* Ov008_ResetEntry: slot handle */

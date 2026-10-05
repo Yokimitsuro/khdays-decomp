@@ -31,7 +31,7 @@ typedef struct Ov023WorldTable {
 } Ov023WorldTable;
 
 extern void  MI_CpuCopy8(const void *pSrc, void *pDst, u32 nSize);
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *pszName, int nHeap);         /* open a text container */
 extern u32   func_020200b4(void *pLine);                            /* encode a line */
 extern void  Stream_DecodeIntoStagingBuffer(u32 *pDst, u32 nDescriptor, void *pSrc, u8 **ppStaging); /* stream into a script */

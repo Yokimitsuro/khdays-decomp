@@ -1,4 +1,4 @@
-extern void OS_SPrintf(char *buf, char *fmt, char *code);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Archive_LoadFile(void *path, int heap);
 extern void Ov002_PackTableRow(void *dst, void *file, int slot, int arg);
 extern void NNSi_FndFreeFromDefaultHeap(void *p);

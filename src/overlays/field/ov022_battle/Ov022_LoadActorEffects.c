@@ -34,7 +34,7 @@ struct Actor {
 extern const char *data_02042a70[];
 extern const char gOv022BaChAbPathFmt[];
 
-extern void OS_SPrintf(char *pBuf, const char *pFmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *pPath, int nKind);
 extern void ZeroHalfThenFree(void *pContainer);
 extern unsigned int Slot_EvalPackedParam(int nId, int nKey);

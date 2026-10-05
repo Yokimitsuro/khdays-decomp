@@ -26,7 +26,7 @@ extern Ov002TickCtx *data_ov002_0207fa08;
 extern long long OS_GetTick(void);   /* the 64-bit tick counter */
 /* The MSL divide.  The tree calls it by address rather than letting mwcc emit
  * its own _ll_sdiv reference. */
-extern long long func_02020368(long long nValue, unsigned int nDiv, int nUnused);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern unsigned int Ov002_BuildSessionCommand(int nKind, unsigned short *pBuf);
 extern void Ov002_ApplyTimerCommand(int nCommand, int nDelta);
 
@@ -49,7 +49,7 @@ int Ov002_StepTimedPhase(void)
     int nNowMs;
 
     pCtx = data_ov002_0207fa08;
-    nNowMs = (int)func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+    nNowMs = (int)func_02020368(OS_GetTick() << 6, 0x82ea);
     if ((pCtx->nFlags & 4) > 0) {
         pCtx->nElapsed = 0;
     } else {

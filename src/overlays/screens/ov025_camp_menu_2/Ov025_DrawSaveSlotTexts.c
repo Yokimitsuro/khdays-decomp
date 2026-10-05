@@ -58,7 +58,7 @@ extern void  Obj_InvokeInnerVtable4(void *pSurface);                            
 extern u16  *Ov025_GetVarRecordByIndex(void *pRecords, int nIndex);            /* GetVarRecordByIndex */
 extern void  Ov025_DrawWithShadow(void *pSurface, int nX, int nY, int nStyle, const u16 *pText, int nShadow); /* Ov008_DrawWithShadow */
 extern void  Ov025_SplitTimeUnitsHMS(u32 nTime, u16 *pHours, u8 *pMinutes, u8 *pSeconds); /* ov008_SplitTimeUnitsHMS */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pFormat, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 
 void Ov025_DrawSaveSlotTexts(Ov008SaveMenu *pMenu)
 {

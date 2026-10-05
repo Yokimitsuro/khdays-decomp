@@ -90,7 +90,7 @@ extern Ov008ChoiceBox data_ov008_0208fe74[];
 extern int   Ov008_IsEntryVisible(Ov008ParamRecord *pRecord);               /* Ov008_IsEntryVisible */
 extern void *Ov008_FindEntryByTag(void *pTracker, int nTag);                 /* ov008_FindEntryByTag */
 extern void  Ov008_TagTracker_InvokeCallback(void *pTracker, void *pCell);              /* Ov008_TagTracker_InvokeCallback */
-extern int   Ov008_CreateMissionCell(int hSlots, int nKind, int nSlot, int nX, int nY); /* create a cell */
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void *Ov008_FindEntryById(void *pWidgets, int nId);                  /* FindEntryById */
 extern void  Ov008_SetEntryPos(void *pWidgets, void *pEntry, UiLayoutPos *pPos); /* Ov008_SetEntryPos */
 extern void  Ov008_SetEntrySlotsVisible(void *pWidgets, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
@@ -118,8 +118,8 @@ void Ov008_OpenShopDetailPanel(void)
     for (i = 0; i < CHOICE_BOXES; i++) {
         pos.nX = (data_ov008_0208fe74[i].nX + (data_ov008_0208fe74[i].nW >> 1)) << 12;
         pos.nY = (data_ov008_0208fe74[i].nY + (data_ov008_0208fe74[i].nH >> 1)) << 12;
-        ctx->aChoiceCell[i][0] = Ov008_CreateMissionCell(hSlots, 1, 0, pos.nX, pos.nY);
-        ctx->aChoiceCell[i][1] = Ov008_CreateMissionCell(hSlots, 2, 0, pos.nX, pos.nY);
+        ctx->aChoiceCell[i][0] = Ov008_CreateMissionCell((int *)hSlots, 1, 0, pos.nX, pos.nY);
+        ctx->aChoiceCell[i][1] = Ov008_CreateMissionCell((int *)hSlots, 2, 0, pos.nX, pos.nY);
     }
     pos.nX = 0x80000;
     Ov008_SetEntryPos(pWidgets, Ov008_FindEntryById(pWidgets, WIDGET_CURSOR), &pos);
@@ -132,8 +132,8 @@ void Ov008_OpenShopDetailPanel(void)
     pPanel->nTitleWidth = TextWindow_GetTextWidth(ctx->detailSurface, pPanel->pRecord->pItemDef->pName);
     pos.nY = 0x40000;
     pos.nX = (0x87 - ((pPanel->nTitleWidth + 0x10) >> 1)) << 12;
-    pPanel->hTitleCell = Ov008_CreateMissionCell(hSlots, 0, ctx->nCell, pos.nX, pos.nY);
-    pPanel->hIconCell = Ov008_CreateMissionCell(hSlots, 0xb, 1, pos.nX - 0xb000, pos.nY + 0x4000);
+    pPanel->hTitleCell = Ov008_CreateMissionCell((int *)hSlots, 0, ctx->nCell, pos.nX, pos.nY);
+    pPanel->hIconCell = Ov008_CreateMissionCell((int *)hSlots, 0xb, 1, pos.nX - 0xb000, pos.nY + 0x4000);
     if (pPanel->pRecord->pItemDef->nIconId != 0) {
         Slot_SetVisible(hSlots, pPanel->hTitleCell, 1);
         Slot_SetVisible(hSlots, pPanel->hIconCell, gGameState->aItemCount[pPanel->pRecord->pItemDef->nItemId] != Ov008_CountSpareItemsOfChild(pPanel->pRecord));

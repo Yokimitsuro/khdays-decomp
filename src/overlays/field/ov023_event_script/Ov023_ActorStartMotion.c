@@ -52,7 +52,7 @@ extern void  FreeAllResourceTables(Ov023AnimSlot *pSlot);                   /* A
 extern int   strcmp(const char *pA, const char *pB);         /* STD_CompareString */
 extern void  Snd_RegisterSeqAndBind(Ov023AnimSlot *pSlots, void *pAnim, void *pSource, int nHeap); /* AnimSlot_Load */
 extern void  strcpy(char *pszDst, const char *pszSrc);       /* STD_CopyString */
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern char  gOv023P2Name_2[];                                 /* ".p2" */
 extern char  gOv023ZName[];                                 /* ".z" */
 extern char  gOv023MiMoPathFmt[];                                 /* "mi/mo/%s.z" */

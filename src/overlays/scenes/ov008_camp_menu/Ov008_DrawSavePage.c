@@ -54,7 +54,7 @@ extern void  MIi_CpuCopyFast(void *dst, void *src, unsigned n);
 extern int  *Ov008_GetVarRecordByIndex(int base, int idx);
 extern void  Text_DrawWithShadow(int dctx, int x, int y, int mode, int a5, void *a6);
 extern void  Text_DrawDirectional_2(int dctx, int x, int y, int mode, int a5, void *a6);
-extern void  Text_FormatUtf16(void *buf, int cap, const char *fmt, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern int   GameState_IsFlagSet(int flagId);
 extern int   NNSi_G2dFontGetTextWidth(int a, int b, int c);
 extern int   Ov008_GetCtxBlock968c(void);
@@ -98,26 +98,26 @@ void Ov008_DrawSavePage(int ctx, int page)
     if (flag != 0) {
         int clamp = *(int *)(ctx + 0x1e74);
         if (clamp > 0x78) {
-            Text_FormatUtf16(text, 0x80, data_ov008_020903c4, f04, 0x78);
+            Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903c4, f04, 0x78);
         } else {
-            Text_FormatUtf16(text, 0x80, data_ov008_020903c4, f04, clamp);
+            Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903c4, f04, clamp);
         }
     } else {
-        Text_FormatUtf16(text, 0x80, data_ov008_020903d0, data_ov008_020903dc, data_ov008_020903dc);
+        Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903d0, data_ov008_020903dc, data_ov008_020903dc);
     }
     Text_DrawDirectional_2(ctx + 0xe8, 0xf8, 4, 0xf1, 0x821, text);
 
     if (flag != 0) {
-        Text_FormatUtf16(text, 0x80, data_ov008_020903e0, count);
+        Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903e0, count);
     } else {
-        Text_FormatUtf16(text, 0x80, data_ov008_020903e8, data_ov008_020903dc);
+        Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903e8, data_ov008_020903dc);
     }
     Text_DrawDirectional_2(ctx + 0xe8, 0xb4, 0x12, 0xf1, 0x821, text);
 
     if (flag != 0) {
-        Text_FormatUtf16(text, 0x80, data_ov008_020903e0, f00);
+        Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903e0, f00);
     } else {
-        Text_FormatUtf16(text, 0x80, data_ov008_020903e8, data_ov008_020903dc);
+        Text_FormatUtf16(text, 0x80, (const unsigned short *)data_ov008_020903e8, data_ov008_020903dc);
     }
     Text_DrawDirectional_2(ctx + 0xe8, 0xf8, 0x12, 0xf1, 0x821, text);
 

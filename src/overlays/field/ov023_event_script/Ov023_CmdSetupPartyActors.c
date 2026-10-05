@@ -33,7 +33,7 @@ typedef struct Ov023MotionParam {
 } Ov023MotionParam;
 
 extern Ov023SessionSlot *Slot4_GetIfOccupied(int nSlot);                  /* Session_GetSlotIfOccupied */
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *pszName, int nHeap);         /* open a text container */
 extern void  Entity_ForwardToSlot(int nEntity, int nA, int nB, Ov023MotionParam *pParam, int nC); /* Entity_StartMotion */
 /* Defined taking the first argument as int: declared narrower here, which is what makes mwcc

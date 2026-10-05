@@ -29,7 +29,7 @@ extern Ov022Obj *data_ov022_020b2e60;
 extern int data_ov022_020b2888[];
 extern unsigned char data_0204be04;
 
-extern void Ov002_InstantiateSceneClass(int kind);
+extern int Ov002_InstantiateSceneClass(int first, ...);
 extern void *InstantiateClass(int a, int b);
 extern void Ov022_SetBit3OnPtr20(void *p, int a);
 extern int Ov002_GetRootField8d68(void);

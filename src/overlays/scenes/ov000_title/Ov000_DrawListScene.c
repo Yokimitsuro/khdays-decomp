@@ -31,6 +31,10 @@ typedef struct Ov000ListSceneContext {
 extern Ov000ListSceneContext *NNSi_FndGetCurrentRootHeap(void);
 extern void Obj_InvokeInnerVtable4(Ov000RenderSurface *surface);
 extern void EnqueueObjGfxCommand(Ov000RenderSurface *surface);
+/* Defined taking the colour and flags as one by-value struct (DrawTextStyle), which makes it read
+ * them back from the stack at each use; declared here as the two words this caller passes, which
+ * is how the ROM's calls store them (building the struct here costs a copy the ROM does not
+ * make). The two agree word for word on the DS. */
 extern void Ov000_DrawTextWithShadow(Ov000RenderSurface *surface, int textHandle, int x, int y, int color, u32 flags);
 extern void Ov000_DrawGlyphRunWithShadow(Ov000RenderSurface *surface, const Ov000GlyphRun *run, int x, int y, int depth);
 

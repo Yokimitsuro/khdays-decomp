@@ -43,7 +43,7 @@ static inline int Ov044_GetBoneBase(char *object)
 }
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
-extern void OS_SPrintf(void *, const char *, const char *);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int NNS_G3dGetResDictIdxByName(void *, void *);
 extern void Ov022_InitActor(void *);
 

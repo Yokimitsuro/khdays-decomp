@@ -51,7 +51,7 @@ extern void Ov009_SplitTimeUnitsHMS(
     char *minutes,
     char *seconds
 );
-extern void Text_FormatUtf16(u16 *dst, int count, const u16 *format, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern const u16 data_ov009_0205638c[];
 
 void Ov009_SaveMenu_DrawSummaries(Ov009SaveContext *ctx)

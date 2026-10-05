@@ -12,7 +12,7 @@
  * right type -- and it also gives the stride-8 indexing the ROM uses.
  *
  * Two spellings are load-bearing:
- *  - `pairs[k]` must come off a struct member: 0xcc is not a multiple of the 8-byte
+ *  - `covered[k]` must come off a struct member: 0xcc is not a multiple of the 8-byte
  *    element, so `self[k*2 + 0x33]` makes mwcc build a k*2 induction variable instead of
  *    the ROM's `add r0, r4, r5, lsl #3`. See codegen-cracks.md.
  *  - `base` must advance in the for-increment. Written as a statement in the body it is
@@ -28,10 +28,9 @@ extern int Ov025_LookupTypeCode(int a);
 extern void *NNS_FndGetNextListObject(void *list, void *cur);
 extern void MIi_CpuCopy32(const void *src, void *dst, unsigned int n);
 extern void Ov025_LayoutPanelEntry(int *self, int a, void *node, int idx);
-extern void Ov025_FoldPanelIntoTally(int *self, int base, int a, int b, unsigned long long *m);
+extern void Ov025_FoldPanelIntoTally(int *self, int base, unsigned long long covered, unsigned long long *m);
 
-struct Pair { int a, b; };
-struct Self { char pad[0xcc]; struct Pair pairs[3]; };
+struct Self { char pad[0xcc]; unsigned long long covered[3]; };
 extern void Ov025_ClampStatBlock(void *p);
 
 void Ov025_RebuildViewAndCountCells(int *self, int base, void *list, int p4) {
@@ -66,8 +65,7 @@ void Ov025_RebuildViewAndCountCells(int *self, int base, void *list, int p4) {
     }
     MIi_CpuCopy32((char *)self + 0xcc, mask, 0x18);
     for (k = 0; k < 3; k++, base += 0xa0) {
-        Ov025_FoldPanelIntoTally(self, base, ((struct Self *)self)->pairs[k].a,
-                            ((struct Self *)self)->pairs[k].b, &mask[k]);
+        Ov025_FoldPanelIntoTally(self, base, ((struct Self *)self)->covered[k], &mask[k]);
     }
     self[1] = 0;
     for (k = 0; k < 3; k++) {

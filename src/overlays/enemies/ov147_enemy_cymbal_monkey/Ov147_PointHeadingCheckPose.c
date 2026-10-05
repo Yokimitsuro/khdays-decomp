@@ -17,7 +17,7 @@
 #include "nitro/fx_types.h"
 #include "game/enemy_common.h"
 
-extern void Ov147_BuildHeadingRotation(int *state, VecFx32 v, int flag);
+extern int Ov147_BuildHeadingRotation(int *self, VecFx32 v, int flag);
 extern void Ov147_SeedDefaultPoseAndAdvance(int a, int b);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern int Ov147_InvokeWithVec3ThenSetSubState5;

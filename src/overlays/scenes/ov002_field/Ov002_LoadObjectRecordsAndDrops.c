@@ -16,7 +16,7 @@ typedef struct Ov002DropTable {u32 header;Ov002DropTableRow aRows[1];} Ov002Drop
 extern Ov002ObjectContext *data_ov002_0207fa14;
 extern u8 data_0204c240;
 extern char data_ov002_0207f114[],data_ov002_0207f118[],gOv0020Fmt[],gOv002EmName[],gOv002MiMiEidPath[];
-extern int OS_SPrintf(char *,const char *,...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov002_GetRootSub04(void);
 extern u32 MsgArchive_FindEntryByName(int,const char *);
 extern void *Archive_LoadFile(u32,int);

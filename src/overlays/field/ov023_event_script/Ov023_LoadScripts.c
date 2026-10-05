@@ -43,7 +43,7 @@ typedef struct Ov023WorldTable {
 extern void  Ov002_FormatResultLine(int nLine, char *pOut);            /* build a text line */
 extern int   Ov002_GetRootSub04(void);                             /* the text sub-object */
 extern int   Ov002_GetSceneHandle(void);
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(const char *pszName, int nHeap);         /* open a text container */
 extern u32   MsgArchive_FindEntryByName(int nSubObject, char *pLine);            /* encode a line */
 extern void  Stream_DecodeIntoStagingBuffer(u32 *pDst, u32 nDescriptor, void *pSrc, u8 **ppStaging); /* stream into a message block */

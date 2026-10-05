@@ -16,13 +16,13 @@ typedef struct {
 
 extern OverlayContext *volatile data_ov000_0205ac24;
 extern u64 OS_GetTick(void);
-extern int func_02020368(u64 value, u32 divisor, int mode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 
 void Ov000_TickFadeOutFromCtxTimer(void) {
     u64 elapsed =
         OS_GetTick() - *(u64 *)((u8 *)data_ov000_0205ac24 + 0x4ae4);
 
-    SetMasterBrightnessSub(-func_02020368(elapsed, 0x4cb5, 0));
+    SetMasterBrightnessSub(-(int)func_02020368(elapsed, 0x4cb5));
     if (elapsed <= 0x4cb51) {
         return;
     }

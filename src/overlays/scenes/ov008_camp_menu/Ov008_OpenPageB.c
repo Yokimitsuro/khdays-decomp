@@ -2,7 +2,7 @@
 
 extern char *Ov008_GetMenuContext(void);
 extern void Ov008_UpdateMenuButton5(int arg0);
-extern void Ov008_DrawPageBElement(int arg0, int arg1, int arg2);
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...);
 extern void Ov008_PageB_UploadSurface154(void);
 
 void Ov008_OpenPageB(void)

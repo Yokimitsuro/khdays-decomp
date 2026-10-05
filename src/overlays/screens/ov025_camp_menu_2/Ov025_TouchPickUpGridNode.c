@@ -57,7 +57,7 @@ extern void *Ov025_FindEntryById(int nCtx, int nId);                      /* Fin
 extern void Ov025_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible);    /* SetEntrySlotsVisible */
 extern void Ov025_UpdateMenuButton5(int nArg);                                /* Ov008_UpdateMenuButton5 */
 extern void Ov025_ReleaseTwoSlotsEx_2(int nCtx, void *pEntry, int nFrame);      /* Ov008_ReleaseTwoSlotsEx */
-extern int  Ov025_DrawPageBElement(int nMode, int nA, int nB);               /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void Ov025_PageB_UploadSurface154(void);                                    /* grid refresh */
 extern int  Ov025_GetItemDescriptionForMember(int *pList, Ov008ShapeEntry *pNode);      /* text index of a node */
 extern void Ov025_RepaintTextRow(Ov008MenuContext *pCtx, int nRow, int nText, int nColour); /* Ov008_RepaintTextRow */

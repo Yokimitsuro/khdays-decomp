@@ -58,7 +58,7 @@ extern void Ov025_PageB_UploadSurface154(void);                                 
 extern int  Ov025_RemoveGridNode(Ov008MenuContext *pCtx, u32 nPage, u32 nCol, u32 nRow, int bSilent); /* Ov008_RemoveGridNode */
 extern int  Ov025_SelectListRow(Ov008MenuContext *pCtx, int nPage);       /* switch page */
 extern void Ov025_HighlightListRow(Ov008MenuContext *pCtx, int nRow);        /* highlight a visible row */
-extern int  Ov025_DrawPageBElement(int nMode, int nA, int nB);               /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 
 void Ov025_EnterMenuState(Ov008MenuContext *pCtx, int nState)
 {

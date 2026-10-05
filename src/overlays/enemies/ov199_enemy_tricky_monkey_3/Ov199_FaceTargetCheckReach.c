@@ -21,7 +21,7 @@
 #include "nitro/fx_types.h"
 
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern void Ov199_BuildHeadingRotation(int *state, VecFx32 v, int flag);
+extern int Ov199_BuildHeadingRotation(int *self, VecFx32 v, int flag);
 extern int VEC_Normalize(void *a, void *d);
 extern void SetIndexedSlot(int self, int idx, int cb);
 

@@ -21,7 +21,7 @@ extern void Ov008_SetEntrySlotsVisible(int manager, int entry, int visible);
 extern void Ov008_DrawNumberDigits(int value);
 extern long long OS_GetTick(void);
 extern long long Ov008_GetLatchedTick(void);
-extern u64 func_02020368(long long value, unsigned int divisor, int unused);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov008_RenderTimeDigits(u32 value);
 extern int Ov008_FindEntryByTag(int tracker, int tag);
 extern void Ov008_TagTracker_InvokeCallback(int tracker, int entry);
@@ -51,7 +51,7 @@ void Ov008_SetMenuEntriesVisible(int visible, int secondaryVisible)
         elapsed = OS_GetTick() - Ov008_GetLatchedTick();
         Ov008_RenderTimeDigits(
             (u32)(gGameState->value0 +
-                  func_02020368(elapsed << 6, 0x1ff6210, 0)));
+                  func_02020368(elapsed << 6, 0x1ff6210)));
     } else {
         int entry = Ov008_FindEntryByTag(tracker, 2);
         Ov008_TagTracker_InvokeCallback(tracker, entry);

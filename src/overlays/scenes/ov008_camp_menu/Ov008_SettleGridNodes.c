@@ -51,7 +51,7 @@ extern int  Ov008_ComputeGridChanges(Ov008GridChanges *pOut, Ov008GridSummary *p
 extern void Ov008_TriggerTag48IfState0(void);                                            /* Ov008_TriggerTag48IfState0 */
 extern void Ov008_EnableMissionRowOnPage1(void);                                            /* Ov008_EnableMissionRowOnPage1 */
 extern void Ov008_RebuildGridHits(Ov008MenuContext *pCtx);                          /* Ov008_RebuildGridHits */
-extern int  Ov008_DrawPageBElement(int nMode, int nA, int nB);                       /* cursor mode request */
+extern int Ov008_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern int  Ov008_MoveGridCursor(Ov008MenuContext *pCtx, int nColumn, int nRow, int nStep);
 
 void Ov008_SettleGridNodes(Ov008MenuContext *pCtx)

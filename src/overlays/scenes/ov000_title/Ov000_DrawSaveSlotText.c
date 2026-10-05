@@ -77,7 +77,7 @@ extern Ov000Pair *Ov000_GetEntryPosition(u8 *obj, int entry);
 extern u16 *Ov000_GetVarRecordByIndex(u8 *table, int index);
 extern void Ov000_DrawWithShadow(u8 *obj, int x, int y, int a, u16 *text, int mode);
 extern void Ov000_SplitTimeUnitsHMS(u32 t, u16 *h, u8 *m, u8 *s);
-extern void Text_FormatUtf16(u16 *buf, int size, const u16 *fmt, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern void EnqueueObjGfxCommand(u8 *obj);
 
 void Ov000_DrawSaveSlotText(int a1, int a2, int a3, int a4)

@@ -6,7 +6,7 @@
 #include "game/enemy_id.h"
 
 extern int CallocInstance(int a);
-extern void OS_SPrintf(char *buf, const char *fmt, int a);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void func_ov107_020c6624(int a, int b);
 extern const char gOv135PackPathFmt[];
 extern void Ov135_Construct(int);

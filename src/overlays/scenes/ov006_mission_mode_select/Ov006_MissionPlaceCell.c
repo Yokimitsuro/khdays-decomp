@@ -17,7 +17,7 @@ extern void Slot_ForwardToEntry(int panel, int idx, int cell);
 extern void Slot_ClearFlagBit1(int panel, int idx);
 extern void Slot_SetPosition(int panel, int idx, UiLayoutPos *pos);
 
-void Ov006_MissionPlaceCell(int panel, int idx, MissionPlacementConfig config)
+void Ov006_MissionPlaceCell(void *panel, int idx, MissionPlacementConfig config)
 {
     UiLayoutPos pos;
 
@@ -30,8 +30,8 @@ void Ov006_MissionPlaceCell(int panel, int idx, MissionPlacementConfig config)
         pos.y = config.y << 12;
     }
     if (config.cell >= 0 && config.keep == 0) {
-        Slot_ForwardToEntry(panel, idx, config.cell & 0xffff);
-        Slot_ClearFlagBit1(panel, idx);
+        Slot_ForwardToEntry((int)panel, idx, config.cell & 0xffff);
+        Slot_ClearFlagBit1((int)panel, idx);
     }
-    Slot_SetPosition(panel, idx, &pos);
+    Slot_SetPosition((int)panel, idx, &pos);
 }

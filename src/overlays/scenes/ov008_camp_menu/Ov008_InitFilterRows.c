@@ -48,7 +48,7 @@ typedef struct Ov008PanelContext {
 extern Ov008PanelContext *data_ov008_02090fac;
 extern const Ov008RowRect data_ov008_0208fedc[];
 
-extern int  Ov008_CreateMissionCell(int hSlots, int nKind, int nLabel, int nX, int nY); /* create a cell */
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void *Ov008_GetVarRecordByIndex(void *pCache, int nIndex);             /* GetVarRecordByIndex */
 extern int  Ov008_FindEntryByTag(void *pTracker, int nTag);              /* ov008_FindEntryByTag */
 extern void Ov008_TagTracker_InvokeCallback(void *pTracker, int nCell);             /* Ov008_TagTracker_InvokeCallback */
@@ -76,8 +76,8 @@ void Ov008_InitFilterRows(void)
     for (i = 0; i < FILTER_ROWS; i++) {
         nX = (data_ov008_0208fedc[i].x + (data_ov008_0208fedc[i].w >> 1)) << 12;
         nY = (data_ov008_0208fedc[i].y + (data_ov008_0208fedc[i].h >> 1)) << 12;
-        pRows->aOffCell[i] = Ov008_CreateMissionCell(hSlots, 2, 0, nX, nY);
-        pRows->aOnCell[i] = Ov008_CreateMissionCell(hSlots, 1, 0, nX + ON_CELL_DX, nY);
+        pRows->aOffCell[i] = Ov008_CreateMissionCell((int *)hSlots, 2, 0, nX, nY);
+        pRows->aOnCell[i] = Ov008_CreateMissionCell((int *)hSlots, 1, 0, nX + ON_CELL_DX, nY);
         pRows->aLabel[i] = Ov008_GetVarRecordByIndex(ctx->textLoader, i);
     }
     Ov008_TagTracker_InvokeCallback(ctx->trackerB, Ov008_FindEntryByTag(ctx->trackerB, TAG_FILTER_FRAME));

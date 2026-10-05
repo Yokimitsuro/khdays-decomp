@@ -47,7 +47,7 @@ extern const int data_ov008_0208f588[3][8];
 
 extern int   Ov008_GetCtxBlock9500(void);
 extern int   Ov008_GetContext(void);
-extern int   Ov008_TryApplyPageStep(Ov008PageCtx *ctx, int page, Ov008Pair step);
+extern int Ov008_TryApplyPageStep(void *pCtx, int tag, Ov008Pair step);
 extern int   Ov008_FindEntryById(int obj, int id);
 extern Ov008Pair *Ov008_GetEntryPos(int obj, int entry);
 extern void  Ov008_SetEntryPos(int obj, int entry, Ov008Pair *pos);

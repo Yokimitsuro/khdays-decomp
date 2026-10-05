@@ -102,7 +102,7 @@ extern void  Obj_ForwardToSub1c(void *pSurface, int nX, int nY, int nColour, int
 extern int   Ov025_MeasureWideStringHeight(const u16 *pText);                    /* text height */
 extern void  StrCopy16(u16 *pDst, const u16 *pSrc);                /* StrCopy16 */
 extern int   Wcslen(const u16 *pStr);                           /* Wcslen */
-extern void  Text_FormatUtf16(u16 *pDst, int nCap, const u16 *pFormat, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern u32   GameState_GetField(int nField, int nBits);                     /* GameState_GetField */
 extern void  Ov025_SplitResultMilliseconds(int nRecord, u8 *pMinutes, u8 *pSeconds, u8 *pFrames); /* split a time record */
 

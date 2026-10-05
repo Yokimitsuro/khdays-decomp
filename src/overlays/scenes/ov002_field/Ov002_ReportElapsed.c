@@ -33,8 +33,7 @@ typedef struct Ov002TickCtx {
 extern Ov002TickCtx *data_ov002_0207fa08;
 
 extern unsigned long long OS_GetTick(void);
-extern unsigned long long func_02020368(unsigned long long value,
-                                        unsigned int divisor, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov002_ApplyTimerCommand(int bFlag, u32 nElapsed);
 extern int Ov002_BuildSessionCommand(int nKind, void *pCmd);
 
@@ -45,7 +44,7 @@ void Ov002_ReportElapsed(void)
     int nNow;
 
     pCtx = data_ov002_0207fa08;
-    nNow = (int)func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+    nNow = (int)func_02020368(OS_GetTick() << 6, 0x82ea);
     pCtx->nElapsed = pCtx->nElapsed + (nNow - pCtx->nLastMs);
 
     if (pCtx->nElapsed >= 1000 || Session_IsActive() == 0) {

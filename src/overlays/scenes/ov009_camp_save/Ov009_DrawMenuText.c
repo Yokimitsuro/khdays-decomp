@@ -27,7 +27,7 @@ extern void Ov009_DrawTextNewline(
     int style,
     const u16 *text
 );
-extern void Text_FormatUtf16(u16 *dst, int count, const u16 *format, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern void Ov009_DrawWithShadow(
     void *renderer,
     int x,

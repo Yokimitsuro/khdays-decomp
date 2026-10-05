@@ -12,7 +12,7 @@
 #define ONE_ADVANCE   4
 
 extern u16 data_ov008_02090ea8[];                                       /* L"%3d" */
-extern void Text_FormatUtf16(u16 *pDst, int nCount, const void *pFmt, ...); /* Text_FormatUtf16 */
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...); /* Text_FormatUtf16 */
 extern int Obj_ForwardInnerPayload(void *pSurface, int nX, int nY, int nColour, int nGlyph); /* Obj_ForwardInnerPayload */
 
 void Ov008_DrawNumber3Shadowed(void *pSurface, int nValue, int nX, int nY, int nColour)

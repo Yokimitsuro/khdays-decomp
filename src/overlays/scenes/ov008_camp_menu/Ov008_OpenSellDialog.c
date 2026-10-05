@@ -147,7 +147,7 @@ extern const Ov008CellRect data_ov008_0208fe84[2];
 extern GameState *volatile gGameState;                                       /* g_pTallySource */
 extern void *Ov008_FindEntryByTag(void *pTracker, unsigned int nTag);            /* ov008_FindEntryByTag */
 extern void  Ov008_TagTracker_InvokeCallback(void *pTracker, void *pCell);         /* Ov008_TagTracker_InvokeCallback */
-extern int   Ov008_CreateMissionCell(int hSlots, int nKind, int nSlot, int nX, int nY); /* create a cell */
+extern int Ov008_CreateMissionCell(int *mgr, unsigned int res, int slot, int xform, ...); /* create a cell */
 extern void *Ov008_FindEntryById(void *pWidgets, int nId);             /* FindEntryById */
 extern void  Ov008_SetEntryPos(void *pWidgets, void *pEntry, UiLayoutPos *pPos); /* Ov008_SetEntryPos */
 extern void  Ov008_SetEntrySlotsVisible(void *pWidgets, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
@@ -204,8 +204,8 @@ int Ov008_OpenSellDialog(void)
     for (i = 0; i < 2; i++) {
         pos.nX = (data_ov008_0208fe84[i].nX + (data_ov008_0208fe84[i].nW >> 1)) << 12;
         pos.nY = (data_ov008_0208fe84[i].nY + (data_ov008_0208fe84[i].nH >> 1)) << 12;
-        ctx->aChoice[i].hA = Ov008_CreateMissionCell(hSlots, 1, 0, pos.nX, pos.nY);
-        ctx->aChoice[i].hB = Ov008_CreateMissionCell(hSlots, 2, 0, pos.nX, pos.nY);
+        ctx->aChoice[i].hA = Ov008_CreateMissionCell((int *)hSlots, 1, 0, pos.nX, pos.nY);
+        ctx->aChoice[i].hB = Ov008_CreateMissionCell((int *)hSlots, 2, 0, pos.nX, pos.nY);
     }
     pos.nX = 0x80 << 12;
     Ov008_SetEntryPos(pWidgets, Ov008_FindEntryById(pWidgets, WIDGET_QTY), &pos);
@@ -240,8 +240,8 @@ int Ov008_OpenSellDialog(void)
     }
     pDialog->nStep = 0;
     pDialog->nMark = -1;
-    pDialog->hCounterA = Ov008_CreateMissionCell(hSlots, 0, ctx->nRow, 0x3b << 12, 0x4d << 12);
-    pDialog->hCounterB = Ov008_CreateMissionCell(hSlots, 0xb, 1, 0x30 << 12, 0x51 << 12);
+    pDialog->hCounterA = Ov008_CreateMissionCell((int *)hSlots, 0, ctx->nRow, 0x3b << 12, 0x4d << 12);
+    pDialog->hCounterB = Ov008_CreateMissionCell((int *)hSlots, 0xb, 1, 0x30 << 12, 0x51 << 12);
     if (nStock > 0) {
         Slot_SetVisible(hSlots, pDialog->hCounterA, 1);
         nItem = Ov008_GetChildField14OrNeg1(pDialog->pRecord);

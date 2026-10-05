@@ -54,7 +54,7 @@ typedef struct Ov023SceneRoot {
 extern Ov023Scene *NNSi_FndGetCurrentRootHeap(void);
 extern void  MI_CpuFill8(void *pDst, int nValue, unsigned int nSize);
 extern void  StoreGlobalArrayEntry(int nSlot, const void *pTable);          /* register a global table */
-extern void  OS_SPrintf(char *pBuffer, const char *pFormat);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int   LoadGlobalU16At0(void);                                   /* the global mode halfword */
 extern void  Ov023_SetupMainBackgrounds(void);                             /* Ov023_LoadBackgrounds */
 extern void  Ov023_SetupSubBackgrounds(void);

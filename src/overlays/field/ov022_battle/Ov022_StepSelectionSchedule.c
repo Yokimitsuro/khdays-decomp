@@ -25,7 +25,7 @@ extern Ov022SelectionController *NNSi_FndGetCurrentRootHeap(void);
 extern void Tween_Sample(void *tween, s32 *value);
 extern void func_ov022_02086d0c(int enabled);
 extern u64 OS_GetTick(void);
-extern s32 func_02020368(u64 value, u32 divisor, int mode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void func_ov022_02086d60(s32 value);
 extern void Ov022_ElapsedGate(void);
 
@@ -44,7 +44,7 @@ Ov022Callback Ov022_StepSelectionSchedule(void)
         func_ov022_02086d0c(0);
         value = 0x10000;
         context->scheduledHandle0c4 =
-            func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+            (s32)func_02020368(OS_GetTick() << 6, 0x82ea);
         callback = Ov022_ElapsedGate;
     }
 

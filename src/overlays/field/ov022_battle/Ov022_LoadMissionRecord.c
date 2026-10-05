@@ -1,7 +1,7 @@
 /* Loads the per-mission record file named by the index (formatted path) and copies the object's
  * record out of it. */
 
-extern int OS_SPrintf(char *buf, char *fmt, int a, int b);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Archive_LoadFile(void *arg0, int arg1);
 extern void NNSi_FndFreeFromDefaultHeap(int arg0);
 extern int gOv022BaChCpPath;

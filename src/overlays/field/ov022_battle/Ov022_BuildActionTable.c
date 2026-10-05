@@ -48,8 +48,7 @@ extern char gOv022CmPathFmt[];
 
 extern void Ov002_LoadCharacterWeapon(u8 *pBlk, int nKind, int nArg);
 extern int Slot_EvalPackedParam(int nId, int nWhat);
-extern void OS_SPrintf(char *pszOut, char *pszFormat, char *pszSet,
-                       char *pszKind);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Archive_LoadFile(char *pszName, int nHeap);
 extern void Ov022_RebaseAnimRecord(struct ActionTable *pTable,
                                 void *pFile);   /* rebase the anim records */

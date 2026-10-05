@@ -44,8 +44,7 @@ extern Ov002PanelContext *data_ov002_0207f614;
 
 extern Ov002PoolEntry *Ov002_CreateEntry(Ov002EntryDesc *pDesc);
 
-u8 Ov002_AddPanelCounter(int nValue, int nValueHi, int nSelect,
-                       long long (*pfnSample)(void))
+u8 Ov002_AddPanelCounter(u64 nValue, int nSelect, long long (*pfnSample)(void))
 {
     Ov002PanelContext *ctx;
     Ov002EntryDesc sDesc;
@@ -67,10 +66,10 @@ u8 Ov002_AddPanelCounter(int nValue, int nValueHi, int nSelect,
     sDesc.bPalette = 0xb;
     sDesc.nTarget = 9;
     sDesc.bColour = ctx->nNextEntryKey;
-    sDesc.nValue = nValue;
+    sDesc.nValue = (int)nValue;
     sDesc.pfnSample = pfnSample;
     sDesc.nExtra = 0xb;
-    sDesc.nValueHi = nValueHi;
+    sDesc.nValueHi = (int)(nValue >> 32);
     ctx->nNextEntryKey = ctx->nNextEntryKey + 1;
     return Ov002_CreateEntry(&sDesc)->bKey;
 }

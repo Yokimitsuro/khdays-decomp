@@ -7,7 +7,7 @@ extern void Ov008_InitLayoutMetrics(int *obj);
 extern void Camera_CommitMatrices(void *obj);
 extern void NNS_GfdGetFrmTexVramState(void *p);
 extern void GFXi_SaveStateTo(void *p);
-extern int  OS_SPrintf(void *buf, const char *fmt, ...);
+extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void BindAnimTrack(void *seq, int b, void *track, int d);
 extern void NNS_G3dRenderObjSetCallBack(int a, int b, int c, int d, int e);
 extern void Ov008_Menu_LoadSceneText(int obj, int sceneId, int c);
@@ -49,16 +49,16 @@ void Ov008_Menu_InitSceneObject(int *param_1, int *param_2)
     val = *(int *)(val + sceneId * 0x34);
     switch (*(int *)param_2) {
     case 0:
-        OS_SPrintf(auStack, gOv008BaChDefHbPackPathFmt, val, val);
+        OS_SPrintf((char *)auStack, gOv008BaChDefHbPackPathFmt, val, val);
         break;
     case 5:
     case 0x10:
     case 0x11:
     case 0x12:
-        OS_SPrintf(auStack, gOv008BaChDefPackPathFmt, val, val);
+        OS_SPrintf((char *)auStack, gOv008BaChDefPackPathFmt, val, val);
         break;
     default:
-        OS_SPrintf(auStack, gOv008BaChDefHPackPathFmt, val, val);
+        OS_SPrintf((char *)auStack, gOv008BaChDefHPackPathFmt, val, val);
         break;
     }
 

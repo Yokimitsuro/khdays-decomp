@@ -4,11 +4,9 @@
  * 0x2000/0x24000 in Y). An overlap with a cell that is not our own tag means the placement
  * collides -> 0; if none of the three collide -> 1.
  *
- * Parked as a "homed-struct register-allocation tie" after modelling the second argument as a
- * by-value {tag, dx, dy}. The `stmdb sp!,{r0,r1,r2,r3}` at entry is the VARIADIC prologue, not a
- * struct home: `tag` is the last named argument and dx/dy are varargs, which is why the ROM keeps
- * tag in its argument register and reads the other two out of the block at fixed offsets.
- * Naming the varargs (`a2`, `a3`) and reading them through their own addresses reproduces that.
+ * The step arrives by value in r2-r3 and its fields are read through their addresses, which is
+ * what makes mwcc home the four argument registers (`stmdb sp!,{r0,r1,r2,r3}`) and read dx/dy
+ * back out of that block at fixed offsets while `tag` stays in its register.
  *
  * Two more things were load-bearing:
  *  - the ROM RE-READS p5[1] for the fourth comparison instead of reusing the load from the third,
@@ -18,21 +16,22 @@
  *  - the loop test is `i >= 3`, not `i > 2` (`cmp #3 ; blt` vs `cmp #2 ; ble`).
  * The declaration order below is the one that colours dy->r8, dx->r4, i->r5 as the ROM does.
  */
+typedef struct Ov009Pair { int x; int y; } Ov009Pair;
 extern int Ov009_GetContext(void);
 extern int Ov009_FindEntryById(int ctx, int tag);
 extern int *Ov009_ApplyFirstValidSlot(int ctx, int slot);
 
-int Ov009_TryApplyPageStep(int param1, int tag, int a2, int a3, ...) {
+int Ov009_TryApplyPageStep(void *pCtx, int tag, Ov009Pair step) {
     int dx;
     int i;
     int ctx;
     int *p3;
     int dy;
-    dy = *(int *)&a3;
+    dy = *(int *)&step.y;
     ctx = Ov009_GetContext();
     p3 = Ov009_ApplyFirstValidSlot(ctx, Ov009_FindEntryById(ctx, tag + 1));
     i = 0;
-    dx = *(int *)&a2;
+    dx = *(int *)&step.x;
 
     while (1) {
         int *p5 = Ov009_ApplyFirstValidSlot(ctx, Ov009_FindEntryById(ctx, i + 1));

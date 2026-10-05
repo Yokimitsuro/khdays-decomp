@@ -8,7 +8,7 @@ typedef int (*Ov002SessionProc)(void);
 
 extern Ov002Session *NNSi_FndGetCurrentRootHeap(void);
 extern unsigned long long OS_GetTick(void);
-extern int func_02020368(unsigned long long value, unsigned int nDiv, int nMode);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern void Ov002_ReportElapsed(void);
 extern int Ov002_StartSession(void);
 
@@ -27,7 +27,7 @@ Ov002SessionProc Ov002_StepSession(void)
     }
 
     if ((nFlags & 4) > 0) {
-        pSession->nRate = func_02020368(OS_GetTick() << 6, 0x82ea, 0);
+        pSession->nRate = (int)func_02020368(OS_GetTick() << 6, 0x82ea);
         return 0;
     }
 

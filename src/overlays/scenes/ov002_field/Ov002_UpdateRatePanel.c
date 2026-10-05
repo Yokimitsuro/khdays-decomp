@@ -3,7 +3,7 @@ extern unsigned char data_0204c240;
 extern unsigned char data_0204c248[];
 
 extern unsigned long long Ov002_GetTimeoutTicks(void);
-extern int func_02020368(unsigned long long value, unsigned int arg2, int arg3);
+extern unsigned long long func_02020368(unsigned long long dividend, unsigned long long divisor);
 extern int Ov002_GetRootField8bc8(void);
 extern void Ov002_StartHudTimer(int nKind, int nValue);
 
@@ -24,7 +24,7 @@ void Ov002_UpdateRatePanel(void)
         return;
     }
 
-    *(int *)(pPanel + 0x1c) = func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea, 0);
+    *(int *)(pPanel + 0x1c) = (int)func_02020368(Ov002_GetTimeoutTicks() << 6, 0x82ea);
     *(short *)(pPanel + 0x20) = data_0204c248[4];
 
     Ov002_StartHudTimer(0, Ov002_GetRootField8bc8());

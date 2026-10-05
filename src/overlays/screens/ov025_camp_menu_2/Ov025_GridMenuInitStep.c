@@ -103,7 +103,7 @@ extern void *Ov025_FindEntryByTag(int nTracker, int nTag);                /* ov0
 extern void  Ov025_TagTracker_InvokeCallback(int nTracker, void *pCell);             /* Ov008_TagTracker_InvokeCallback */
 extern void  Ov025_ShowGridPage(Ov008MenuContext *pCtx, int nPage, int bSound); /* Ov008_ShowGridPage */
 extern int   Ov025_Menu_ChangePage(Ov008MenuContext *pCtx, int nPage);     /* Ov008_Menu_ChangePage */
-extern int   Ov025_DrawPageBElement(int nMode, int nA, int nB);             /* cursor mode request */
+extern int Ov025_DrawPageBElement(int param_1, int param_2, ...); /* cursor mode request */
 extern void  Ov025_PageB_UploadSurface154(void);                                  /* grid refresh */
 extern void  Ov025_MarkAnyActiveSlot(Ov008MenuContext *pCtx);                /* Ov008_MarkAnyActiveSlot */
 extern void  Ov025_EnterMenuState(Ov008MenuContext *pCtx, int nState);    /* Ov008_EnterMenuState */

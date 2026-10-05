@@ -18,7 +18,7 @@ extern Ov004Context *data_ov004_02051384;
 extern int data_ov004_020510cc[68];
 extern u16 data_ov004_0205136c[];
 extern void *Ov004_GetVarRecordByIndex(Ov004LabelRecords *table, int index);
-extern void Text_FormatUtf16(u16 *buffer, unsigned capacity, const u16 *format, ...);
+extern void Text_FormatUtf16(u16 *dst, unsigned int len, const u16 *fmt, ...);
 extern void Text_DrawDirectional(void *self, int x, int y, int style, unsigned flags, const u16 *text);
 extern int Text_UploadTileBuffer(Ov004LabelTiles *self);
 
