@@ -35,7 +35,7 @@ extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(void *a, void *b);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern short data_0203d210[];
@@ -57,7 +57,7 @@ void Ov135_AimSpinPickAttack(int self) {
     VEC_Subtract((void *)(target + 0x190), (void *)(*state + 0xb0), &aim);
     aim.y = 0;
     VEC_Normalize(&aim, &aim);
-    state[4] = func_020050b4(aim.x, aim.z);
+    state[4] = FX_Atan2(aim.x, aim.z);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[3] * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
     VEC_Set(&dir, (int)data_0203d210[idx * 2], 0, (int)data_0203d210[idx * 2 + 1]);

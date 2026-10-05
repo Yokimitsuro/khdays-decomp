@@ -7,7 +7,7 @@
 
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(int actor, int resource, int mode, int position);
 extern void SetIndexedSlot(void *node, int index, void *next);
 extern void Ov281_AiStep_QueueAction2OnAnimEnd(void);
@@ -34,7 +34,7 @@ void Ov281_CompleteAction48Windup(int *node)
     state[2] = Ov107_FindNearestObject(state[0], 0);
     if (state[2] != 0) {
         VEC_Subtract((void *)(state[2] + 0x74), (void *)(state[0] + 0x74), &delta);
-        heading = func_020050b4(delta.x, delta.z);
+        heading = FX_Atan2(delta.x, delta.z);
         state[5] = heading;
         state[4] = heading;
     }

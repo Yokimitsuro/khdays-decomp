@@ -7,7 +7,7 @@
 struct Flag17a { u8 b0 : 1; u8 b1 : 1; };
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const VecFx32 data_02041dc8;
 
@@ -21,7 +21,7 @@ void Ov259_LandingCheck(int *node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
-    state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     *(signed char *)(*state + 0x1c7) = 0xa;
     SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), 0);
 }

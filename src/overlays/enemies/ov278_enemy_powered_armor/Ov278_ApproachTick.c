@@ -11,7 +11,7 @@ extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern int FX_Sqrt(int x);
 extern void Ov278_StrafeTick(void);
@@ -40,7 +40,7 @@ void Ov278_ApproachTick(int *node) {
         int target = state[1];
         dist = VEC_Normalize(&d, &d) - (*(int *)(target + 0x80) + *(int *)(actor + 0x80));
     }
-    state[0xc] = func_020050b4(d.x, d.z);
+    state[0xc] = FX_Atan2(d.x, d.z);
     ScaleVec3Fx12(0x400, &d, (VecFx32 *)(state + 2));
     {
         int actor = state[0];

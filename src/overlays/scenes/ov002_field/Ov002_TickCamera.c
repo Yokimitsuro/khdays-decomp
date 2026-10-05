@@ -6,7 +6,7 @@ extern int QueryActiveStateOrDelegate(void);
 extern void *GetEntryField20ByIndex(int nPlayer);
 extern void *Obj_GetCurrent(void);   /* the active actor */
 extern int FX_Div(int a, int b);
-extern short FX_Atan2(int x, int y);
+extern short FX_Atan2Idx(int x, int y);
 /* Cosine to angle: a binary search over the shared sin/cos table. The other
  * three registers Ghidra shows at the call site are the callee's own locals. */
 extern unsigned short FX_AcosIdx(int nCos);
@@ -185,7 +185,7 @@ void *Ov002_TickCamera(void)
             if (VEC_Mag(&vDelta) != 0) {
                 VEC_Normalize(&vDelta, &vDelta);
             }
-            nAngle = FX_Atan2(vDelta.x, vDelta.z);
+            nAngle = FX_Atan2Idx(vDelta.x, vDelta.z);
             *(int *)(pCam + 0x80) =
                 Ov002_TurnAngleToward(*(int *)(pCam + 0x80), nAngle);
             if ((*(unsigned int *)(pCam + 0x38) & 0x100) == 0

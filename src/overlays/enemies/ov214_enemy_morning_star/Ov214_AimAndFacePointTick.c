@@ -19,7 +19,7 @@ static inline void VEC_Set(VecFx32 *vec, int x, int y, int z) {
 }
 
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(void *a, void *d);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern void SetIndexedSlot(int self, int idx, int cb);
@@ -33,7 +33,7 @@ void Ov214_AimAndFacePointTick(int self) {
     int owner;
 
     VEC_Subtract((void *)(*state + 0x190), (void *)state[4], &aim);
-    state[0x13] = func_020050b4(aim.x, aim.z);
+    state[0x13] = FX_Atan2(aim.x, aim.z);
     owner = *state;
     dist = VEC_Normalize(&aim, &aim);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[0x11] * 0x28be60db9391LL +

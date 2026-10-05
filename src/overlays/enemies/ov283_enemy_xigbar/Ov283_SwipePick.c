@@ -9,7 +9,7 @@
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov283_DecideTick(void);
 extern const short data_0203d210[];
@@ -39,7 +39,7 @@ void Ov283_SwipePick(int *node)
         if (VEC_DotProduct(&fwd, &d) >= 0) {
             front = 1;
         }
-        state[0xe] = state[0x10] = func_020050b4(d.x, d.z);
+        state[0xe] = state[0x10] = FX_Atan2(d.x, d.z);
     }
     actor = *state;
     if (front) {

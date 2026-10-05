@@ -19,7 +19,7 @@ extern int Ov258_AcquireTarget(int *node, int face);
 extern void Ov258_StepCue(int *node, int step, int phase, unsigned int variant);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void Ov107_BuildAndSendUpdate(int actor, int bank, u16 variant, void *at);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
@@ -97,7 +97,7 @@ void Ov258_TickBarrage(int *node)
             break;
         case 1:
         case 2: {
-            int angle = func_020050b4(*(int *)(*(int *)(*state + 0x454) + 0x19c), *(int *)(*(int *)(*state + 0x454) + 0x1a4));
+            int angle = FX_Atan2(*(int *)(*(int *)(*state + 0x454) + 0x19c), *(int *)(*(int *)(*state + 0x454) + 0x1a4));
 
             off = data_ov258_020d1838;
             if (k == 2) {

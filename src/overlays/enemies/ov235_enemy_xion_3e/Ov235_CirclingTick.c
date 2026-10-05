@@ -19,7 +19,7 @@ typedef struct { u16 lo; u16 hi; } Cmd4;
 extern const Cmd4 data_ov235_020d24d0[];
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
@@ -40,7 +40,7 @@ void Ov235_CirclingTick(int *node)
     state[0x17] = Ov107_FindNearestObject(*state, 0);
     if (state[0x17] != 0) {
         VEC_Subtract((void *)(state[0x17] + 0x74), (void *)(*state + 0x74), &d);
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
         VEC_CrossProduct(&data_02042264, &d, &v);
         VEC_Normalize(&v, &v);
         ScaleVec3Fx12(state[0x1f] * state[0x16], &v, &v);

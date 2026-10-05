@@ -8,7 +8,7 @@
 
 struct w8 { unsigned int lo : 8, rest : 24; };
 
-extern int func_020050b4(int y, int x);
+extern short FX_Atan2(int y, int x);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov253_HoldEnter(void);
 extern void Ov253_SubStateDispatchB(void);
@@ -21,8 +21,8 @@ void Ov253_SubStateRootB(int *node) {
     *(signed char *)(*state + 0x1c7) = -1;
     state[1] = *(int *)(*state + 0x38c) + 0xad;
     state[2] = *state + 0xb0;
-    state[3] = func_020050b4(0, 0x1000);
-    state[4] = func_020050b4(0x1000, 0);
+    state[3] = FX_Atan2(0, 0x1000);
+    state[4] = FX_Atan2(0x1000, 0);
     ((struct w8 *)(*(int *)(*state + 0x444) + 8))->lo &= ~1;
     {
         u16 hw = *(u16 *)(*state + 0x60);

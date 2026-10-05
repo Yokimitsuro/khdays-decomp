@@ -13,7 +13,7 @@
 struct b8 { unsigned int b : 8; };
 extern int Ov107_FindNearestObject(int obj, int out);
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov157_ProbeGroundBelowNode(int *state, int *p);
 extern long long FX_DivFx64c(int a, int b);
 extern void Ov157_GroundSweep(int *state, int lo, int hi, int *p);
@@ -27,7 +27,7 @@ void Ov157_ChargeWindup(int *self) {
     state[6] = Ov107_FindNearestObject(*state, 0);
     if (state[6] != 0) {
         VEC_Subtract((void *)(state[6] + 0x190), (void *)state[2], aim);
-        state[5] = func_020050b4(aim[0], aim[2]);
+        state[5] = FX_Atan2(aim[0], aim[2]);
         state[0xc] = *(int *)(*self + 0x2c) * 0x1e / 10;
     }
     state[0xb] += *(int *)(*self + 0x2c);
@@ -50,7 +50,7 @@ void Ov157_ChargeWindup(int *self) {
         VEC_Subtract((void *)(state[6] + 0x190), (void *)state[2], aim2);
         {
             int roll = RandNextScaled(0x1923) - 0xc91;
-            int a = func_020050b4(aim2[0], aim2[2]);
+            int a = FX_Atan2(aim2[0], aim2[2]);
             a += roll;
             state[5] = a;
         }

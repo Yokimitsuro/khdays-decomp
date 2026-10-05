@@ -55,8 +55,8 @@ extern void Ov022_UpdateTrack10ByFlag(void);
 extern void func_ov022_0208fdf8(void);
 extern void Ov022_StepReaction(void);
 extern void func_ov022_02090070(void);
-extern int Ov022_VeneerTo_Ov022_LaunchSlotPart;
-extern int Ov022_VeneerTo_Ov022_EnterBlockReaction;
+extern void Ov022_VeneerTo_Ov022_LaunchSlotPart(void);
+extern void Ov022_VeneerTo_Ov022_EnterBlockReaction(void);
 
 void *data_ov022_020b29bc[5] = {
 

@@ -27,7 +27,7 @@ extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *pOut);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *pOut);
 extern long long FX_DivFx64c(int nNum, int nDen);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *pOut);
-extern int func_020050b4(int nX, int nZ);
+extern short FX_Atan2(int nX, int nZ);
 
 void Ov127_UpdateChaseFacing(struct SpinState *pState)
 {
@@ -63,5 +63,5 @@ void Ov127_UpdateChaseFacing(struct SpinState *pState)
 
     VEC_Add(&vToTarget, &vFromAnchor, &vBlend);
     VEC_Normalize(&vBlend, &vBlend);
-    nd->nFacing28 = func_020050b4(vBlend.nX, vBlend.nZ);
+    nd->nFacing28 = FX_Atan2(vBlend.nX, vBlend.nZ);
 }

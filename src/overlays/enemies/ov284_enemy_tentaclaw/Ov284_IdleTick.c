@@ -6,7 +6,7 @@
 
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int FX_Sqrt(int x);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
@@ -21,7 +21,7 @@ void Ov284_IdleTick(int *node)
     state[3] = Ov107_FindNearestObject(*state, &dist);
     if (state[3] != 0) {
         VEC_Subtract((void *)(state[3] + 0x190), (void *)state[1], &d);
-        state[5] = func_020050b4(d.x, d.z);
+        state[5] = FX_Atan2(d.x, d.z);
     }
     target = state[3];
     actor = *state;

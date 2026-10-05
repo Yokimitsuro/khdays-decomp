@@ -30,7 +30,7 @@ extern int FX_Div(int a, int b);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int dx, int dz);
+extern fx16 FX_Atan2(int dx, int dz);
 extern void SetIndexedSlot(int self, int action, void *cb);
 extern void Ov228_SlamTick(void);
 extern short data_0203d210[];
@@ -70,7 +70,7 @@ void Ov228_AiHomingDriftTick(int self) {
                      &d);
         d.y = 0;
         strength = VEC_Normalize(&d, &d);
-        ctx[0x11] = func_020050b4(d.x, d.z);
+        ctx[0x11] = FX_Atan2(d.x, d.z);
         if (strength >= 0x1000) {
             strength = 0x1000;
         }

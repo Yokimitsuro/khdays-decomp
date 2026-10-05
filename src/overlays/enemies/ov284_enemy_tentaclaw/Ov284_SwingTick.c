@@ -46,7 +46,7 @@ struct Ov284SwingState {
 
 extern int Ov107_FindNearestObject(struct Ov284Owner *owner, int mode);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern s64 FX_DivFx64c(int num, int den);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -93,7 +93,7 @@ void Ov284_SwingTick(int *node)
     state->pTarget = Ov107_FindNearestObject(state->pOwner, 0);
     if (state->pTarget != 0) {
         VEC_Subtract((void *)(state->pTarget + 0x190), state->pPos, &d);
-        state->nYaw = func_020050b4(d.x, d.z);
+        state->nYaw = FX_Atan2(d.x, d.z);
     }
     state->nTimer += *(int *)(*node + 0x2c);
     t = FX_DivFx64c(state->nTimer, 0xa22);

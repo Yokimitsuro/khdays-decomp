@@ -14,7 +14,7 @@ typedef struct { int m[9]; } Mtx33;
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(VecFx32 *v, Mtx33 *m, VecFx32 *d);
@@ -54,7 +54,7 @@ void Ov140_ApproachDecision(int *node)
     actor = *state;
     target = state[1];
     gap = VEC_Normalize(&dir, &dir) - (*(int *)(target + 0x80) + *(int *)(actor + 0x80));
-    state[3] = func_020050b4(dir.x, dir.z);
+    state[3] = FX_Atan2(dir.x, dir.z);
     if (gap < 0x2000) {
         idx = ANG2IDX(state[2]);
         facing.x = data_0203d210[idx * 2];

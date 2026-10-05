@@ -9,7 +9,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
 extern int FX_Div(int num, int den);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -37,7 +37,7 @@ void Ov260_HopTick(int *node)
         Ov107_PostTagUpdate((Actor *)(*state), 0x1a, 0);
         Ov107_StartAnim(*(int *)(*state + 0x428), 0xf, 0);
         VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x420) + 0x190), (VecFx32 *)state[4], &d);
-        state[0x19] = state[0x1a] = func_020050b4(d.x, d.z);
+        state[0x19] = state[0x1a] = FX_Atan2(d.x, d.z);
         d.y = 0;
         t = FX_Div(VEC_Normalize(&d, &d), *(int *)(*state + 0x80));
         if (t > 0x1000) {

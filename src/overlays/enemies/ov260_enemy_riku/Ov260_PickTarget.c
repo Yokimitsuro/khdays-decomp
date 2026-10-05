@@ -7,7 +7,7 @@
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 
 int Ov260_PickTarget(int *node)
 {
@@ -22,6 +22,6 @@ int Ov260_PickTarget(int *node)
     VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x420) + 0x190), (VecFx32 *)state[4], &d);
     d.y = 0;
     len = VEC_Normalize(&d, &d);
-    state[0x1a] = func_020050b4(d.x, d.z);
+    state[0x1a] = FX_Atan2(d.x, d.z);
     return len;
 }

@@ -5,14 +5,14 @@
  */
 
 extern void FSi_CloseFileCommand(void);
-extern int FSi_FindPathCommand;
-extern int FSi_GetPathCommand;
-extern int FSi_OpenFileDirectCommand;
-extern int FSi_OpenFileFastCommand;
-extern int FSi_ReadDirCommand;
-extern int FSi_ReadFileCommand;
-extern int FSi_SeekDirCommand;
-extern int FSi_WriteFileCommand;
+extern void FSi_FindPathCommand(void);
+extern void FSi_GetPathCommand(void);
+extern void FSi_OpenFileDirectCommand(void);
+extern void FSi_OpenFileFastCommand(void);
+extern void FSi_ReadDirCommand(void);
+extern void FSi_ReadFileCommand(void);
+extern void FSi_SeekDirCommand(void);
+extern void FSi_WriteFileCommand(void);
 
 void *const data_0204185c[9] = {
 

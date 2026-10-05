@@ -6,7 +6,7 @@ extern char *ScriptVm_ResolveOperand(int ctx, void *arg);
 extern int ScriptVm_ResolveActorIndex(int ctx, int arg);
 extern char *ArrayEntryPtrD0(int index);
 extern void EntityMgr_ProbeGround(int id, int a, void *out);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int Ov023_TurnActorToward(int ctx, int id, int angle);
 
 /* Script command: turns the entity to face the point named by operand 1 -- either another
@@ -29,6 +29,6 @@ int Ov023_Cmd_FaceEntityTowards(int ctx, char *args) {
     here = *(VecFx32 *)(ArrayEntryPtrD0((unsigned short)id) + 0xa8);
     here.x = target.x - here.x;
     here.z = target.z - here.z;
-    angle = (unsigned short)(0x13fff - FX_Atan2(here.z, here.x));
+    angle = (unsigned short)(0x13fff - FX_Atan2Idx(here.z, here.x));
     return Ov023_TurnActorToward(ctx, id, angle);
 }

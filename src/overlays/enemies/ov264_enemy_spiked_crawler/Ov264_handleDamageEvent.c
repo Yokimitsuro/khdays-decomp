@@ -13,7 +13,7 @@ typedef struct { unsigned int lo : 16; unsigned int hi : 16; } EvtWord;
 extern int Ov107_CalcHitDamage(void *self, unsigned int *evt);
 extern void Ov107_BuildAndSendUpdate(void *self, int id, u8 kind, void *owner);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern u8 data_ov264_020cebfc[];
 extern const s16 data_0203d210[];
 
@@ -116,7 +116,7 @@ int Ov264_handleDamageEvent(char *self, char *attacker, unsigned int *evt)
             {
                 int sinv;
                 int cosv;
-                int idx = (u16)((int)(((long long)(func_020050b4(delta.x, delta.z) + 0xc91) * 0x28be60db9391LL + 0x80000000000LL) >> 44)) >> 4;
+                int idx = (u16)((int)(((long long)(FX_Atan2(delta.x, delta.z) + 0xc91) * 0x28be60db9391LL + 0x80000000000LL) >> 44)) >> 4;
                 sinv = data_0203d210[idx * 2];
                 cosv = data_0203d210[idx * 2 + 1];
                 *(int *)(node + 5) = sinv;

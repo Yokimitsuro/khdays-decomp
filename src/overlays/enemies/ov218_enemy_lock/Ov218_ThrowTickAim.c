@@ -18,7 +18,7 @@ extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov107_BuildAndSendUpdate(int actor, int bank, int variant, void *at);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern void Ov218_PlaceAt(int partner, void *hand, VecFx32 *aim, int spin);
@@ -55,7 +55,7 @@ void Ov218_ThrowTickAim(int *node)
         VEC_Subtract(&aim, (VecFx32 *)(*state + 0x39c), &aim);
         VEC_Normalize(&aim, &aim);
         {
-            int turn = state[3] - func_020050b4(aim.x, aim.z);
+            int turn = state[3] - FX_Atan2(aim.x, aim.z);
             int idx = ANG2IDX(turn) * 2;
 
             MTX_RotY33_(&rot, data_0203d210[idx], data_0203d210[idx + 1]);

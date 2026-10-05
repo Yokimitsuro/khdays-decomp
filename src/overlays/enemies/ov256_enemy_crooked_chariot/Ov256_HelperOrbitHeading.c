@@ -5,7 +5,7 @@
 
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 
 int Ov256_HelperOrbitHeading(int *node)
 {
@@ -16,5 +16,5 @@ int Ov256_HelperOrbitHeading(int *node)
     p = *(VecFx32 *)state[3];
     VEC_Add(&p, (VecFx32 *)(state + 4), &p);
     VEC_Subtract(&p, (VecFx32 *)(state + 0xd), &d);
-    return func_020050b4(d.x, d.z);
+    return FX_Atan2(d.x, d.z);
 }

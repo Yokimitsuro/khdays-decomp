@@ -6,10 +6,10 @@
  * size NitroSDK declares for FX_AtanTable_. They differ only in the angle unit:
  *
  *   02041210  radians in 1.19.12 fixed point, round(4096 * atan(i/128)),
- *             so the last entry is 3217 = 4096 * pi/4
+ *             so the last entry is 3217 = 4096 * pi/4; the one FX_Atan2 indexes
  *   02041314  1/65536 of a turn, round(65536 * atan(i/128) / 2pi),
- *             so the last entry is 8192 = an eighth of a turn; this is the one
- *             FX_Atan2 indexes
+ *             so the last entry is 8192 = an eighth of a turn; the one
+ *             FX_Atan2Idx indexes
  *
  * Every entry is the rounded formula above, checked against the delinked image.
  */

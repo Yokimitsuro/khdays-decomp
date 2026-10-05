@@ -3,7 +3,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract();
-extern int func_020050b4();
+extern fx16 FX_Atan2();
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov162_AiDecelUntilFlagClear(void);
 void Ov162_stateAnimAimAtTarget(int *node) {
@@ -13,7 +13,7 @@ void Ov162_stateAnimAimAtTarget(int *node) {
         int buf[3];
         int a;
         VEC_Subtract(state[0xe] + 0x190, *state + 0xb0, buf);
-        a = func_020050b4(buf[0], buf[2]);
+        a = FX_Atan2(buf[0], buf[2]);
         state[4] = a;
         state[3] = a;
     }

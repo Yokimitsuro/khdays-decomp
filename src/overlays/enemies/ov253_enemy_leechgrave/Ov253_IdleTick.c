@@ -18,7 +18,7 @@ extern int List_Next(int list);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int RandNextScaled(int scale);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const VecFx32 data_02042258;
@@ -61,7 +61,7 @@ void Ov253_IdleTick(int *node) {
         hit = it == 0 ? 0 : *(int *)it;
     }
     if (bestnode != 0) {
-        state[5] = func_020050b4(bestv.x, bestv.z);
+        state[5] = FX_Atan2(bestv.x, bestv.z);
         if (best < 0x4000) {
             if (VEC_DotProduct(&fwd, &bestv) >= 0x800) {
                 if (RandNextScaled(0x3d) + (v_ - v_) == 0) {

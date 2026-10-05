@@ -4,10 +4,10 @@
  * a zero word is a null entry.
  */
 
-extern int func_ov030_020b3220;
-extern int func_ov050_020b5a20;
-extern int func_ov070_020b8100;
-extern int func_ov088_020ba7c0;
+extern void func_ov030_020b3220(void);
+extern void func_ov050_020b5a20(void);
+extern void func_ov070_020b8100(void);
+extern void func_ov088_020ba7c0(void);
 
 void *const data_ov029_020b2f70[80] = {
 

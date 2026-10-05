@@ -2,11 +2,11 @@
 
 #include "nitro/types.h"
 #include "nitro/card.h"
+#include "nitro/hw.h"
 
 #define reg_CARD_MASTERCNT (*(vu8 *)0x040001a1)
 #define reg_CARD_CMD       (*(vu8 *)0x040001a8)
 #define reg_CARD_CNT       (*(vu32 *)0x040001a4)
-#define reg_CARD_DATA      (*(vu32 *)0x04100010)
 
 void func_01ff84b8(u32 source, void *destination, s32 length)
 {

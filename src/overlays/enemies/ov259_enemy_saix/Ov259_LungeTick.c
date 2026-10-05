@@ -10,7 +10,7 @@
 struct Flag17a { u8 b0 : 1; u8 b1 : 1; };
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
 extern int Ov259_ComputeNormalizedDir(int *node, VecFx32 goal);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -28,7 +28,7 @@ void Ov259_LungeTick(int *node)
     VecFx32 n;
 
     VEC_Subtract((VecFx32 *)(state + 0xb), (VecFx32 *)state[4], &d);
-    state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     VEC_Normalize(&d, &n);
     {
         int idx = ANG2IDX(state[0x1e]);

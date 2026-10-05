@@ -1,7 +1,7 @@
 /* Ov229_AiApproachTick -- face the target and close in, unless it is already too near.
  *
  * Takes the vector from the target (+0xc) to the owner's position (ctx[0]+0x190), turns it into a
- * heading with func_020050b4(dx, dz) -- an atan2, since the result is fed to the Q12-radians
+ * heading with FX_Atan2(dx, dz) -- an atan2, since the result is fed to the Q12-radians
  * conversion below -- and parks that heading at +0x44.
  *
  * VEC_Normalize is handed the SAME vector twice, so it reads as a self dot-product (squared
@@ -24,7 +24,7 @@ typedef struct {
 } MtxFx33;
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int dx, int dz);
+extern fx16 FX_Atan2(int dx, int dz);
 extern int VEC_Normalize(const VecFx32 *a, const VecFx32 *b);
 extern void SetIndexedSlot(int self, int action, void *cb);
 extern void Ov229_startAnim(int owner, int a);
@@ -42,7 +42,7 @@ void Ov229_AiApproachTick(int self) {
 
     ctx = *(int **)(self + 4);
     VEC_Subtract((const VecFx32 *)(ctx[0] + 0x190), (const VecFx32 *)ctx[3], &d);
-    ctx[0x11] = func_020050b4(d.x, d.z);
+    ctx[0x11] = FX_Atan2(d.x, d.z);
 
     if (VEC_Normalize(&d, &d) - *(int *)(ctx[0] + 0x4a0) < 0x2000) {
         *(unsigned char *)(ctx[0] + 0x1c7) = 2;

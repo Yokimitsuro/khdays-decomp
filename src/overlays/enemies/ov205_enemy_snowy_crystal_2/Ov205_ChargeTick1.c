@@ -50,7 +50,7 @@ extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void Ov205_ChargeSweep(struct Ov204ChargeState *state);
 extern int Ov107_FindNearestObject(struct Ov204Owner *actor, int mode);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int FX_Div(int a, int b);
 extern void Ov107_BuildAndSendUpdate(struct Ov204Owner *owner, int a, int id, VecFx32 *at);
 extern s64 FX_DivFx64c(int num, int den);
@@ -103,7 +103,7 @@ void Ov205_ChargeTick1(int *node)
     state->pTarget = Ov107_FindNearestObject(state->pOwner, 0);
     if (state->pTarget != 0) {
         VEC_Subtract((void *)(state->pTarget + 0x74), state->pPos, &dir);
-        state->nTargetYaw = func_020050b4(dir.x, dir.z);
+        state->nTargetYaw = FX_Atan2(dir.x, dir.z);
     }
     rate = FX_Div(speed, 0x3000);
     if (rate > 0x200) {

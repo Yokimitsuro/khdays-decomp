@@ -21,7 +21,7 @@ extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *v, void *out);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern struct v3 data_02042258;
 extern int  data_02042264;
 extern const short data_0203d210[];
@@ -50,7 +50,7 @@ void Ov273_IdleTick(int *self) {
     if (VEC_Normalize(&dir, &unit) == 0) {
         unit = data_02042258;
     }
-    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, func_020050b4(unit.x, unit.z));
+    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, FX_Atan2(unit.x, unit.z));
     state[0x13] += *(int *)(self[0] + 0x2c) * 30;
     if (state[0x13] >= 0x3c000) state[0x13] = 0;
     {

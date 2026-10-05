@@ -13,7 +13,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 
 extern int Ov144_LureToPiece(int *state, int flag);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
 void Ov144_SpawnReadyTick(int *node)
@@ -43,7 +43,7 @@ void Ov144_SpawnReadyTick(int *node)
     Ov107_MoveNodeAndRelayout((Actor *)(*state), (VecFx32 *)(*state + 0x3ac));
     if (Ov144_LureToPiece(state, 0) != 0) {
         VEC_Subtract(state + 3, (void *)state[2], &d);
-        state[0xc] = state[0xd] = func_020050b4(d.x, d.z);
+        state[0xc] = state[0xd] = FX_Atan2(d.x, d.z);
         state[0x13] = 1;
         *(unsigned char *)(*state + 0x1c7) = 7;
     } else {

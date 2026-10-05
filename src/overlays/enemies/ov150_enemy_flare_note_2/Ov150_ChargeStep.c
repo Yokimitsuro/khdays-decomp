@@ -59,7 +59,7 @@ extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern int VEC_Mag(const VecFx32 *v);
 extern int VEC_Normalize(VecFx32 *out, VecFx32 *in);
 extern void ScaleVec3Fx12(int scale, VecFx32 *in, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void *Ov107_FindNearestObject(void *actor, int mode);
 extern int Ov107_CollectSphereOverlaps(void *a, VecFx32 *at, void **out);
 extern int Ov107_InvokeHitCallback(void *victim, void *actor, void *owner, int mode,
@@ -162,7 +162,7 @@ void Ov150_ChargeStep(struct Node *node)
             if (VEC_DotProduct(&vToTarget, &vFacing) > 0x800) {
                 VEC_Add(&vToTarget, &vFacing, &vSum);
                 off = RandNextScaled(0x10c1) - 0x860;
-                angle = func_020050b4(vSum.x, vSum.z);
+                angle = FX_Atan2(vSum.x, vSum.z);
                 angle = angle + off;
                 t = (unsigned short)(((long long)angle * 0x28be60db9391LL
                                       + 0x80000000000LL) >> 44) >> 4;

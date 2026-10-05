@@ -21,7 +21,7 @@ struct Ov252Armour { char pad[0x4e8]; int shapes[16]; };
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern VecFx32 Ov252_PickLandingSpot(int *node);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void Ov107_BuildAndSendUpdate(int actor, int bank, int variant, void *at);
@@ -53,7 +53,7 @@ void Ov252_LeapTick(int *node)
         if (VEC_Normalize(&to, &v) > 0x680) {
             ScaleVec3Fx12(0x680, &v, &to);
         }
-        state[0x16] = func_020050b4(state[0xf], state[0x11]);
+        state[0x16] = FX_Atan2(state[0xf], state[0x11]);
     }
     if (state[0x19] > 0x4000 && state[0x27] == 0) {
         spot = Ov252_PickLandingSpot(node);
@@ -102,7 +102,7 @@ void Ov252_LeapTick(int *node)
             (((unsigned int)(u16)((((unsigned int)hw << 0x10) >> 0x18) & ~0x10) << 0x18) >> 0x10);
     }
     if (*((u8 *)state + 0x88) == 0) {
-        state[0x16] = func_020050b4(state[0xf], state[0x11]);
+        state[0x16] = FX_Atan2(state[0xf], state[0x11]);
         ScaleVec3Fx12(0x400, (VecFx32 *)(state + 0xf), (VecFx32 *)(state + 0xf));
         if (state[0x29] != 0) {
             VecSet((VecFx32 *)(state + 3), state[0xf] * 2, 0x800, state[0x11] * 2);

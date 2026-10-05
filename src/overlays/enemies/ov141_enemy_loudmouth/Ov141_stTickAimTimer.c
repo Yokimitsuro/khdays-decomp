@@ -7,7 +7,7 @@
 struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov107_FindNearestObject(void *obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov141_AiStep_QueueAction2OnFlag44Clear(void);
 
@@ -24,7 +24,7 @@ void Ov141_stTickAimTimer(int *node) {
         if (r != 0) {
             int ang;
             VEC_Subtract((void *)(r + 0x74), (void *)state[0x10], buf);
-            ang = func_020050b4(buf[0], buf[2]);
+            ang = FX_Atan2(buf[0], buf[2]);
             state[3] = ang;
             state[2] = ang;
         }

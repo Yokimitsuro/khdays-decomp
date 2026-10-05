@@ -11,7 +11,7 @@
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov146_SwoopTick(void);
@@ -42,7 +42,7 @@ void Ov146_ApproachTick(int *node)
             if (range >= 0x6000) {
                 return;
             }
-            state[0xc] = func_020050b4(d.x, d.z);
+            state[0xc] = FX_Atan2(d.x, d.z);
             state[0xe] = range + 0x8000;
         }
         state[0xd] = 0;
@@ -55,7 +55,7 @@ void Ov146_ApproachTick(int *node)
     dist = VEC_Normalize(&to, &unit);
     to.y = 0;
     flat = VEC_Normalize(&to, &to);
-    state[0xb] = func_020050b4(to.x, to.z);
+    state[0xb] = FX_Atan2(to.x, to.z);
     {
         int idx = ANG2IDX(state[0xb]) * 2;
 

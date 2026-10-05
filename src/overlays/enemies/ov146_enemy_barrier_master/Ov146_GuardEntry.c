@@ -9,7 +9,7 @@
 extern int Ov146_Rider_LaunchIfReady(int partner, VecFx32 at);
 extern int Ov146_Mount_SetStateIfReady(int param_1, int param_2);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov146_HopTick(void);
 
@@ -28,7 +28,7 @@ void Ov146_GuardEntry(int *node)
     }
     if (state[0x15] != 0) {
         VEC_Subtract((VecFx32 *)(state[0x15] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
-        state[0xa] = state[0xb] = func_020050b4(d.x, d.z);
+        state[0xa] = state[0xb] = FX_Atan2(d.x, d.z);
     }
     state[0x12] = 0;
     SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), Ov146_HopTick);

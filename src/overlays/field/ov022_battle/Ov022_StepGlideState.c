@@ -255,7 +255,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pIn, VecFx32 *pOut);                         /* VEC_Normalize */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern u32 Ov022_ClampAngleTowardTarget(struct Actor *pActor, u32 nAngle);               /* Ov022_ClampAngleTowardTarget */
 extern int GetFrameRateMode(void);                                                 /* 0: 30 fps, 1: 20 fps, 2: 60 fps */
 extern int VEC_Distance(VecFx32 *pA, VecFx32 *pB);                             /* VEC_Distance */
@@ -363,7 +363,7 @@ static inline int FxMulL(int nValue, s64 nScale)
             if (VEC_Mag(&vecDir) != 0) {
                 VEC_Normalize(&vecDir, &vecDir);
             }
-            nTarget = FX_Atan2(-vecDir.x, -vecDir.z);
+            nTarget = FX_Atan2Idx(-vecDir.x, -vecDir.z);
             nFace = (u16)(pActor->pNode->nAngle - ANGLE_BIAS);
             nAway = (u16)(nTarget - nFace);
             if (nAway > AIM_RETURN_MIN) {
@@ -499,7 +499,7 @@ static inline int FxMulL(int nValue, s64 nScale)
         if ((pActor->nFlags & FLAG_BIT35) != 0) {
             if ((pActor->nInputMask & INPUT_BIT1) != 0 && pActor->collWallA.pContacts != 0) {
                 VecFx32FromVecS16(pActor->collWallA.nHandle, &pActor->collWallA.pContacts->nX, &vecWall);
-                nWallAngle = FX_Atan2(vecWall.x, vecWall.z);
+                nWallAngle = FX_Atan2Idx(vecWall.x, vecWall.z);
                 nDiff = (u16)(nWallAngle - nAngle);
                 if (nDiff < WALL_FACE_SPAN || nDiff > 0x10000 - WALL_FACE_SPAN) {
                     vecAimAt = pActor->collWallA.vecContact;

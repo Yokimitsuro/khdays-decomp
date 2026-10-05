@@ -81,7 +81,7 @@ extern void ScaleVec3Fx12(int scale, VecFx32 *source, VecFx32 *destination);
 extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *out);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *out);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov107_FindNearestObject(struct Ov214Actor *actor, int kind);
 extern int FX_Div(int numerator, int denominator);
 extern void MTX_RotY33_(struct MtxFx33 *matrix, int sine, int cosine);
@@ -181,7 +181,7 @@ void Ov216_StepBounceOffContact(struct Ov214Task *task)
             if (collision == 0) {
                 delta = data_02042258;
             }
-            targetAngle = func_020050b4(delta.x, delta.z);
+            targetAngle = FX_Atan2(delta.x, delta.z);
             index = ANGLE_TO_INDEX(targetAngle);
             state->vDirection14.x = data_0203d210[index * 2];
             state->vDirection14.y = 0;
@@ -205,7 +205,7 @@ void Ov216_StepBounceOffContact(struct Ov214Task *task)
                 if (state->pTarget != 0) {
                     VEC_Subtract((VecFx32 *)((char *)state->pTarget + 0x190),
                                  &state->pActor->vCenterb0, &delta2);
-                    targetAngle = func_020050b4(delta2.x, delta2.z);
+                    targetAngle = FX_Atan2(delta2.x, delta2.z);
                     index = ANGLE_TO_INDEX(targetAngle);
                     state->vDirection14.x = data_0203d210[index * 2];
                     state->vDirection14.y = 0;

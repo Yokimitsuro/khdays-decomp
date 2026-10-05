@@ -9,7 +9,7 @@ typedef struct {
 } A;
 
 extern void VEC_Subtract(int *a, int *b, int *out);
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 
 void Ov283_Item_AiAimAtTarget(A *a, void *b) {
     void *p1 = a->p0;
@@ -20,7 +20,7 @@ void Ov283_Item_AiAimAtTarget(A *a, void *b) {
     int angle;
 
     VEC_Subtract(vecA, a->vecB, out);
-    angle = func_020050b4(out[0], out[2]);
+    angle = FX_Atan2(out[0], out[2]);
     a->field_18 = angle;
     a->field_14 = angle;
     *(unsigned char *)((char *)a->p0 + 0x1c7) = 1;

@@ -16,7 +16,7 @@ struct Bits52 { unsigned char b0 : 1; };
 extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern int  VEC_DotProduct(void *a, void *b);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
@@ -38,7 +38,7 @@ void Ov278_DashSteerTick(int *self) {
         VEC_Subtract((void *)(target + 0x74), (void *)(*state + 0x74), &d);
         d.y = 0;
         VEC_Normalize(&d, &d);
-        state[4] = func_020050b4(d.x, d.z);
+        state[4] = FX_Atan2(d.x, d.z);
         dot = VEC_DotProduct(&w, &d);
         if (dot < 0) dot = 0;
     } else {

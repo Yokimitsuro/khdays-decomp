@@ -21,7 +21,7 @@ extern void MTX_MultVec33(const VecFx32 *v, const Mtx33 *m, VecFx32 *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern const short data_0203d210[];
 
 void Ov226_Steer(int *node, int rad)
@@ -48,7 +48,7 @@ void Ov226_Steer(int *node, int rad)
     VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x3e8) + 0x190), &d, &d);
     d.y = 0;
     len = VEC_Normalize(&d, &d);
-    state[0x16] = func_020050b4(d.x, d.z);
+    state[0x16] = FX_Atan2(d.x, d.z);
     if (((struct Bit0 *)(*state + 0x17a))->bit0 != 0) {
         return;
     }

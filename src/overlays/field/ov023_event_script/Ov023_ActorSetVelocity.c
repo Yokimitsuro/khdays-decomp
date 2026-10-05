@@ -1,7 +1,7 @@
 /* Ov023_ActorSetVelocity -- Ov023_ActorSetVelocity: set an actor's velocity (+0x15cc), or clear
  * it without a vector.  With flag bit 2 (+0x1a28) the actor turns to face it: the target angle
  * (+0x1a34) becomes 0x13fff minus the heading of the normalised vector (VEC_Normalize,
- * FX_Atan2 of z / x), as a u16.  The horizontal step (+0x15e8 x, +0x15ec 0, +0x15f0 z) is the
+ * FX_Atan2Idx of z / x), as a u16.  The horizontal step (+0x15e8 x, +0x15ec 0, +0x15f0 z) is the
  * velocity, or zero when it is no longer than 0x10 (VEC_Mag). */
 
 #include "nitro/types.h"
@@ -20,7 +20,7 @@ typedef struct Ov023Actor {
 } Ov023Actor;
 
 extern void VEC_Normalize(const VecFx32 *pVec, VecFx32 *pOut);      /* VEC_Normalize */
-extern u16  FX_Atan2(int nY, int nX);
+extern u16  FX_Atan2Idx(int nY, int nX);
 extern int  VEC_Mag(const VecFx32 *pVec);
 
 void Ov023_ActorSetVelocity(Ov023Actor *pActor, VecFx32 *pVelocity)
@@ -36,7 +36,7 @@ void Ov023_ActorSetVelocity(Ov023Actor *pActor, VecFx32 *pVelocity)
         pActor->vVelocity = *pVelocity;
         if (pActor->nFlags & 4) {
             VEC_Normalize(&pActor->vVelocity, &vDir);
-            pActor->nAngleTarget = (u16)(0x13fff - FX_Atan2(vDir.z, vDir.x));
+            pActor->nAngleTarget = (u16)(0x13fff - FX_Atan2Idx(vDir.z, vDir.x));
         }
     }
     vStep = pActor->vVelocity;

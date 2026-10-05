@@ -1,7 +1,7 @@
 /*
  * Steer toward the anchor. If bit 0 of the hw60 lo byte is set, run 020ce120 first.
  * Take the vector from the anchor (ctx[2]) to the owner's point (owner+0x190), cache its
- * heading as a Q12-radian angle (atan2 = func_020050b4(dx, dz)) at ctx[0xf], and measure
+ * heading as a Q12-radian angle (atan2 = FX_Atan2(dx, dz)) at ctx[0xf], and measure
  * how far past the owner's reach (+0x80) it is. Convert the heading to a 16-bit table
  * index, write {sin, 0, cos} into ctx[4..6], scale it by the owner's speed (+0x578) in
  * place, and once inside 0x2000 latch phase 2 and dispatch.
@@ -23,7 +23,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 
 extern void Ov212_ReactionCueTick(void *self, int a, int b);
 extern int VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int s, VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(void *self, int idx, void *cb);
@@ -39,7 +39,7 @@ void Ov212_SteerTowardAnchorTick(void *self) {
         Ov212_ReactionCueTick(self, *ctx, ctx[2]);
     }
     VEC_Subtract((void *)(*ctx + 0x190), (void *)ctx[2], &d);
-    ctx[0xf] = func_020050b4(d.x, d.z);
+    ctx[0xf] = FX_Atan2(d.x, d.z);
     { int node = *ctx;
     dist = VEC_Normalize(&d, &d) - *(int *)(node + 0x80); }
     idx = (unsigned short)(((long long)ctx[0xf] * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4;

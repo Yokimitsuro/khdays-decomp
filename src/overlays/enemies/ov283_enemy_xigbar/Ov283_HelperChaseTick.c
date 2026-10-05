@@ -9,7 +9,7 @@
 typedef struct { int x, y, z, w; } Quat;
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void Srt_SetRotationQuat(void *srt, const Quat *rot);
@@ -40,7 +40,7 @@ void Ov283_HelperChaseTick(int *node)
     rate = *(int *)(node[0] + 0x2c) * 0x5a / 80;
     target = *(int *)(*(int *)(*state + 0x38c) + 0x390);
     VEC_Subtract((VecFx32 *)(target + 0x190), (VecFx32 *)state[1], &d);
-    state[6] = func_020050b4(d.x, d.z);
+    state[6] = FX_Atan2(d.x, d.z);
     VEC_Normalize(&d, &unit);
     state[5] = Angle_TurnToward(state[5], state[6], rate, 0);
     {

@@ -7,7 +7,7 @@
 extern int Ov107_FindNearestObject();
 extern void VEC_Subtract(int *a, int *b, int *out);
 extern int VEC_Normalize(int *source, int *destination);
-extern int func_020050b4();
+extern fx16 FX_Atan2();
 
 typedef struct {
     char pad0[0x80];
@@ -61,6 +61,6 @@ int Ov283_MeasureTargetGap(Param_020ccb48 *param)
     if (diff < 0) {
         diff = 0;
     }
-    wrap->v40 = func_020050b4(local.x, local.z);
+    wrap->v40 = FX_Atan2(local.x, local.z);
     return diff;
 }

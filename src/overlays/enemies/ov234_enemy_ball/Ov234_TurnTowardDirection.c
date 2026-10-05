@@ -83,7 +83,7 @@ extern void ScaleVec3Fx12(int, VecFx32 *, VecFx32 *);
 extern void VEC_Subtract(VecFx32 *, VecFx32 *,
                          VecFx32 *);
 extern int VEC_Normalize(VecFx32 *, VecFx32 *);
-extern int func_020050b4(int, int);
+extern fx16 FX_Atan2(int, int);
 extern void Ov107_BuildAndSendUpdate(struct Ov234Object *, int, int, int);
 
 void Ov234_TurnTowardDirection(struct Ov234Node *node)
@@ -130,7 +130,7 @@ void Ov234_TurnTowardDirection(struct Ov234Node *node)
                       &objectVector, &projected);
         VEC_Subtract(&projected, &facing, &projected);
         VEC_Normalize(&projected, &projected);
-        state->computedAngle3c = func_020050b4(projected.x, projected.z);
+        state->computedAngle3c = FX_Atan2(projected.x, projected.z);
 
         oldDirection = state->direction10;
         ScaleVec3Fx12(VEC_Normalize(&state->direction10,
@@ -140,7 +140,7 @@ void Ov234_TurnTowardDirection(struct Ov234Node *node)
         state->direction10.y = oldDirection.y;
         state->direction10.z = newDirection.z;
         state->angle34 = state->targetAngle38 =
-            func_020050b4(state->direction10.x, state->direction10.z);
+            FX_Atan2(state->direction10.x, state->direction10.z);
         Ov107_BuildAndSendUpdate(state->object00, 0x178, 4, state->node08);
         state->reactionLatched6c = 1;
     }

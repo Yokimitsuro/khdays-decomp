@@ -8,7 +8,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov229_startAnim(int actor, int anim);
 extern void func_ov107_020c0b90(int actor, int a, VecFx32 v, int b);
 extern void Ov107_BuildAndSendUpdate(int actor, int a, int id, void *at);
@@ -23,7 +23,7 @@ void Ov229_GrabRelease(int *node)
 
     if (state[2] != 0 && (*(unsigned char *)((char *)state + 0x1c4) & 2) == 0) {
         VEC_Subtract((void *)(state[2] + 0x190), (void *)state[3], &d);
-        state[0x10] = state[0x11] = func_020050b4(d.x, d.z);
+        state[0x10] = state[0x11] = FX_Atan2(d.x, d.z);
         state[2] = 0;
     }
     Ov107_PostTagUpdate((Actor *)(*state), 0xc, 0);

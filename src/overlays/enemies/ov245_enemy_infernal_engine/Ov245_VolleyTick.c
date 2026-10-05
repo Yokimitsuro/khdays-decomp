@@ -14,7 +14,7 @@ struct Ov245Actor { char pad[0x390]; int slots[10]; };
 extern int Ov107_FindNearestObject(int actor, int a);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void Ov245_HitReact3(int self, void *anchor, VecFx32 *pos, int angle, int flag);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -33,7 +33,7 @@ void Ov245_VolleyTick(int *node) {
     if (target != 0) {
         VEC_Subtract((VecFx32 *)(target + 0x190), (VecFx32 *)(*state + 0xb0), &d);
         VEC_Normalize(&d, &d);
-        state[5] = func_020050b4(d.x, d.z);
+        state[5] = FX_Atan2(d.x, d.z);
         state[7] += *(int *)(node[0] + 0x2c);
         if (state[7] >= 0x110 && *((unsigned char *)state + 0x20) == 0) {
             for (i = 0; i < 10; i++) {

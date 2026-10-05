@@ -17,7 +17,7 @@ extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
 extern int  VEC_DotProduct(void *a, void *b);
 extern void Ov275_FireAttackCOnIdle(void);
@@ -40,7 +40,7 @@ void Ov275_SteerHeadingGate(int *self) {
     VEC_Subtract((void *)(target + 0x190), (void *)state[1], &v);
     VEC_Normalize(&v, &v);
     state[0xf] = *(int *)(*self + 0x2c) * 30 / 30;
-    state[0x11] = func_020050b4(v.x, v.z);
+    state[0x11] = FX_Atan2(v.x, v.z);
     factor = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3b4), &w);
     Vec3TransformViaTempMtx((void *)(state + 5), (void *)(*state + 0xa0), &w);
     ScaleVec3Fx12(factor, (void *)(state + 5), (void *)(state + 5));

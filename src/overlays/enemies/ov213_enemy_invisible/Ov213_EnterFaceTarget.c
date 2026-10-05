@@ -9,7 +9,7 @@ struct m4 { int w[4]; };
 struct S213 { char pad[0x28]; struct m4 dst; struct m4 src; };
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *v, void *out);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov213_AiEnterSubState9(void);
 extern int  data_02042264;
@@ -21,7 +21,7 @@ void Ov213_EnterFaceTarget(int *self) {
     VEC_Subtract((void *)(*(int *)(*state + 0x3dc) + 0x74), (void *)(*state + 0x74), v);
     v[1] = 0;
     VEC_Normalize(v, v);
-    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, func_020050b4(v[0], v[2]));
+    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, FX_Atan2(v[0], v[2]));
     ((struct S213 *)state)->dst = ((struct S213 *)state)->src;
     if (*(unsigned char *)state[2] != 0) return;
     Ov107_PostTagUpdate((Actor *)(*state), 0x17, 0);

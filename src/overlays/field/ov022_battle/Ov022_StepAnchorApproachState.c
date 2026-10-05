@@ -82,7 +82,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);                        /* VEC_Normalize */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int Ov022_ClampAngleTowardTarget(struct Actor *pActor, u32 nAngle);               /* Ov022_ClampAngleTowardTarget */
 extern int Ov022_TestAnchorReachable(struct Actor *pActor);                           /* Ov022_TestAnchorReachable */
 extern int Ov022_ResetTimersAndMaybeSignal(struct Actor *pActor, int bSignal);              /* Ov022_ResetTimersAndMaybeSignal */
@@ -127,7 +127,7 @@ int Ov022_StepAnchorApproachState(struct Actor *pActor)
                 if (VEC_Mag(&vecDelta) != 0) {
                     VEC_Normalize(&vecDelta, &vecDelta);
                 }
-                pActor->nAnchorAngle = FX_Atan2(-vecDelta.x, -vecDelta.z);
+                pActor->nAnchorAngle = FX_Atan2Idx(-vecDelta.x, -vecDelta.z);
                 pActor->nAnchorPhase = PHASE_TURN;
                 /* fall through */
             case PHASE_TURN:

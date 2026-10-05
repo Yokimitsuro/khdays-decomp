@@ -7,7 +7,7 @@
 extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov270_SwingTick;
 
 void Ov270_BeginSwing(int *self) {
@@ -20,7 +20,7 @@ void Ov270_BeginSwing(int *self) {
     state[2] = target;
     if (target != 0) {
         VEC_Subtract((void *)(target + 0x74), (void *)state[0x10], aim);
-        state[4] = func_020050b4(aim[0], aim[2]);
+        state[4] = FX_Atan2(aim[0], aim[2]);
     }
     state[0x15] += *(int *)(*self + 0x2c);
     if (*(unsigned char *)(state[1] + 0xad) == 0) {

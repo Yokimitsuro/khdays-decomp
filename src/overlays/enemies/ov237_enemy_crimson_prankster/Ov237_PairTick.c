@@ -18,7 +18,7 @@ typedef struct { int m[9]; } Mtx33;
 extern int Ov237_TargetGap(int *node);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
@@ -102,7 +102,7 @@ void Ov237_PairTick(int *node)
 
         VEC_Subtract((VecFx32 *)(PARTNER + 0xb0), (VecFx32 *)state[0xe], &d);
         dist = VEC_Normalize(&d, &d);
-        ang = func_020050b4(d.x, d.z);
+        ang = FX_Atan2(d.x, d.z);
         if (dist < 0x7000) {
             off = data_ov237_020d1bc4;
             {

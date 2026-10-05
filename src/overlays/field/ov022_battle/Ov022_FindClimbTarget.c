@@ -175,7 +175,7 @@ extern void MTX_RotY33_(MtxFx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(VecFx32 *pVec, MtxFx33 *pMtx, VecFx32 *pOut);
 extern struct Hit *EntityMgr_SphereCastWithParams(int nSlot, struct CollCastParams *pParams);    /* CollCast (sphere) */
 extern struct Hit *EntityMgr_RayCastWithParams(int nSlot, struct CollCastParams *pParams);    /* CollCast (ray) */
-extern short FX_Atan2(int y, int x);
+extern short FX_Atan2Idx(int y, int x);
 extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 
 /* Keep the signed 16-bit return and explicit inline: changing the return to
@@ -389,7 +389,7 @@ int Ov022_FindClimbTarget(struct Actor *pActor)
             }
         }
         if (apHit[0] != 0) {
-            pActor->ground.nFacingAngle = FX_Atan2(vecNormal.x, vecNormal.z);
+            pActor->ground.nFacingAngle = FX_Atan2Idx(vecNormal.x, vecNormal.z);
             nTrig = (pActor->ground.nFacingAngle >> 4) * 2;
             MTX_RotY33_(&mtx, data_0203d210[nTrig], data_0203d210[nTrig + 1]);
             vecOff.x = pActor->nClimbReach;

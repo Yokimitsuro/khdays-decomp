@@ -8,7 +8,7 @@ extern void *Ov107_FindNearestObject(void *obj, int a);
 extern void SetIndexedSlot(void *node, int idx, void *value);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Normalize(void *v, void *v2);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern int VEC_DotProduct(void *a, void *b);
 extern void ScaleVec3Fx12(int scale, void *vec, void *out);
 extern void Ov133_AiStep_QueueAction9OnFlag48Clear(void);
@@ -41,7 +41,7 @@ void Ov133_stSeekTargetSteer(int *node)
         int *h = (int *)state[2];
         dist = VEC_Normalize(vd, vd) - (*(int *)((char *)h + 0x80) + *(int *)((char *)o + 0x80));
     }
-    state[4] = func_020050b4(vd[0], vd[2]);
+    state[4] = FX_Atan2(vd[0], vd[2]);
 
     angle = (int)(((unsigned)(((long long)state[3] * 0x28be60db9391LL + 0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
 

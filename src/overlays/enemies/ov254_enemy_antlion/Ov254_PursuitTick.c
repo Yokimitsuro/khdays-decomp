@@ -24,7 +24,7 @@ struct Ov254 {
 extern void Ov254_ChooseWaypoint(int *state, int a, int b);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern int VEC_Mag(VecFx32 *v);
 extern int FX_Div(int num, int den);
@@ -83,7 +83,7 @@ void Ov254_PursuitTick(int *node)
         aim.y += 0x7b31;
         VEC_Subtract(&aim, (void *)state[2], &aim);
         VEC_Normalize(&aim, &aim);
-        state[0xd] = func_020050b4(aim.x, aim.z);
+        state[0xd] = FX_Atan2(aim.x, aim.z);
         ScaleVec3Fx12(0x400, &aim, (VecFx32 *)(state + 3));
         VecSet(&aim, state[3], 0, state[5]);
         state[0x19] += VEC_Mag(&aim);
@@ -102,7 +102,7 @@ void Ov254_PursuitTick(int *node)
         VEC_Subtract((VecFx32 *)(state + 6), (void *)state[2], &d);
         d.y = 0;
         dist = VEC_Normalize(&d, &d);
-        state[0xd] = func_020050b4(d.x, d.z);
+        state[0xd] = FX_Atan2(d.x, d.z);
         f = FX_Div(dist, 0xa000);
         if (f > 0x1000) {
             f = 0x1000;

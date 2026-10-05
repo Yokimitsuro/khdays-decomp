@@ -13,7 +13,7 @@ struct Bits17a { unsigned char bit0 : 1, bit1 : 1; };
 
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int func_02020400(int num, int den);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
@@ -44,7 +44,7 @@ void Ov146_SwoopTick(int *node)
     if (*(int *)(*state + 0x3b4) != 0) {
         VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x3b4) + 0x190), (VecFx32 *)(*state + 0xb0), &d);
         VEC_Normalize(&d, &d);
-        state[0xb] = func_020050b4(d.x, d.z);
+        state[0xb] = FX_Atan2(d.x, d.z);
     }
     len = state[0xe];
     t = state[0xd];
@@ -62,7 +62,7 @@ void Ov146_SwoopTick(int *node)
             ScaleVec3Fx12(VEC_DotProduct(&neg, &n) << 1, &n, &refl);
             VEC_Subtract(&refl, &neg, &refl);
             VEC_Normalize(&refl, &back);
-            state[0xc] = func_020050b4(back.x, back.z);
+            state[0xc] = FX_Atan2(back.x, back.z);
             state[0x13] = 0;
         }
         idx = ANG2IDX(state[0xc]);

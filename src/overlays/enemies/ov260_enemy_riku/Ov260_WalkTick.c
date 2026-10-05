@@ -17,7 +17,7 @@ extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern int FX_Div(int num, int den);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void Ov260_MapHeldItemKindToAnim(int actor, int flag);
@@ -49,7 +49,7 @@ void Ov260_WalkTick(int *node)
             speed = FX_MUL(len, *(int *)(*state + 0x470) != 0 ? 0x1800 : 0x1000);
         }
         VEC_Subtract((VecFx32 *)state[0x14], (VecFx32 *)state[4], &d);
-        state[0x1a] = func_020050b4(d.x, d.z);
+        state[0x1a] = FX_Atan2(d.x, d.z);
         d.y = 0;
         t = FX_Div(VEC_Normalize(&d, &d), 0x3000);
         if (t > 0x1000) {

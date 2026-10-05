@@ -13,7 +13,7 @@ extern int  Ov208_PickBestFacingNode(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void Ov208_AiChooseAttack(void);
 
 void Ov208_FaceTargetFireReadyC(int *self) {
@@ -31,7 +31,7 @@ void Ov208_FaceTargetFireReadyC(int *self) {
     }
     VEC_Subtract((void *)(target + 0x190), (void *)state[2], v);
     VEC_Normalize(v, v);
-    state[0xd] = func_020050b4(v[0], v[2]);
+    state[0xd] = FX_Atan2(v[0], v[2]);
     if (*(unsigned char *)(state[1] + 0xad) != 0) {
         return;
     }

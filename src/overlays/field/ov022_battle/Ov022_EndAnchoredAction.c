@@ -59,7 +59,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);           /* VEC_Normalize */
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern int Ov022_ClampAngleTowardTarget(struct Actor *pActor, u32 nAngle);  /* Ov022_ClampAngleTowardTarget */
 
 int Ov022_EndAnchoredAction(struct Actor *pActor)
@@ -89,7 +89,7 @@ int Ov022_EndAnchoredAction(struct Actor *pActor)
             if (VEC_Mag(&vecDir) != 0) {
                 VEC_Normalize(&vecDir, &vecDir);
             }
-            nAngle = Ov022_ClampAngleTowardTarget(pActor, (u16)FX_Atan2(-vecDir.x, -vecDir.z));
+            nAngle = Ov022_ClampAngleTowardTarget(pActor, (u16)FX_Atan2Idx(-vecDir.x, -vecDir.z));
             pNode = pActor->pNode;
             if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
                 pNode->nAngle = nAngle + ANGLE_BIAS;

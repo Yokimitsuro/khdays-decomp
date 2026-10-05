@@ -9,7 +9,7 @@ typedef struct Quat {
 } Quat;
 
 extern int FX_Sqrt(int x);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern long long FX_InvFx64c(int x);
 
 static inline fx32 FX_Mul(fx32 a, fx32 b)
@@ -25,7 +25,7 @@ static inline fx32 FX_Mul(fx32 a, fx32 b)
  * magSq is the squared length of the vector part (x, y, z). If it is zero the
  * rotation is identity: angle = 0, axis = (FX32_ONE, 0, 0).
  * Otherwise the half-angle is recovered from w: w <= -1 clamps to PI, w >= 1
- * clamps to 0, otherwise half = atan2(sqrt(1 - w*w), w) via func_020050b4. The
+ * clamps to 0, otherwise half = atan2(sqrt(1 - w*w), w) via FX_Atan2. The
  * full angle is 2 * half. axis is (x, y, z) scaled by 1/|xyz| (FX_InvFx64c's
  * 64-bit reciprocal), each component rounded via the standard
  * (recip * v + 0x80000000) >> 32 idiom.
@@ -41,7 +41,7 @@ void Quat_ToAxisAngle(VecFx32 *axis, int *angle, Quat *q)
         if (w > -0x1000) {
             if (w < 0x1000) {
                 int sinHalf = FX_Sqrt(FX_Mul(0x1000 - w, 0x1000 + w));
-                half = func_020050b4(sinHalf, w);
+                half = FX_Atan2(sinHalf, w);
             } else {
                 half = 0;
             }

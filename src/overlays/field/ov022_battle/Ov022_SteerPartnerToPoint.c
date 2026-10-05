@@ -99,7 +99,7 @@ extern struct PlayerSlot *GetPlayerSlotTableEntry(int nSlot);                   
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern int FX_Div(int nNumerator, int nDenominator);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int VEC_Distance(VecFx32 *pA, VecFx32 *pB);                             /* VEC_Distance */
 extern int func_ov022_020afd0c(struct Actor *pActor, int nY);                   /* IsDeltaOver1000 */
 extern int Ov022_IsState9Or6WithFlag200(u32 *pRun);                                      /* ov022_IsState9Or6WithFlag200 */
@@ -140,7 +140,7 @@ int Ov022_SteerPartnerToPoint(struct Actor *pSelf, struct Actor *pLeader, VecFx3
     } else {
         return 0;
     }
-    nAngle = FX_Atan2(-vecDir.x, -vecDir.z);
+    nAngle = FX_Atan2Idx(-vecDir.x, -vecDir.z);
     pSelf->nAngleBias = nAngle;
     pSelf->nButtons2 |= BUTTON2_BIT6;
     if ((pSelf->nFlags2 & FLAG2_BIT7) != 0 || (pSelf->nFlags3 & FLAG3_BIT7) != 0) {

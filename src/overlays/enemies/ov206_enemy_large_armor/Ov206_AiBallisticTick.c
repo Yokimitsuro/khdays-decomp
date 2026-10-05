@@ -4,12 +4,12 @@
 
 #include "nitro/fx_types.h"
 
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 void Ov206_AiBallisticTick(int param_1) {
     int child = *(int *)(param_1 + 4);
     int m;
     *(int *)(child + 0x3c) = *(int *)(*(int *)param_1 + 0x2c) * 30 / 20;
-    *(int *)(child + 0x44) = func_020050b4(*(int *)(child + 0x30), *(int *)(child + 0x38));
+    *(int *)(child + 0x44) = FX_Atan2(*(int *)(child + 0x30), *(int *)(child + 0x38));
     m = *(int *)(*(int *)param_1 + 0x2c) * 30;
     *(int *)(child + 0x34) -= (int)((((long long)m << 8) + 0x800) >> 12);
     *(VecFx32 *)(child + 0x14) = *(VecFx32 *)(child + 0x30);

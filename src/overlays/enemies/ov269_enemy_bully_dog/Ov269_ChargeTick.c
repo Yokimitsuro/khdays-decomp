@@ -31,7 +31,7 @@ struct Ov269Owner {
 
 extern void Ov107_BuildAndSendUpdate(struct Ov269Owner *owner, int a, int id, void *at);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(const VecFx32 *v, Mtx33 *m, VecFx32 *d);
 extern void VEC_Add(const void *a, const void *b, VecFx32 *d);
@@ -87,7 +87,7 @@ void Ov269_ChargeTick(int *node)
     if (*(u8 *)((char *)state + 0x50) == 0 && state[0xc] >= 0x999) {
         msg20 = data_ov269_020d4a9c;
         VEC_Subtract((char *)*(int *)(*state + 0x398) + 0x14, (void *)state[0xf], &d);
-        msg20.w[4] = func_020050b4(d.x, d.z);
+        msg20.w[4] = FX_Atan2(d.x, d.z);
         pPos = (VecFx32 *)state[0xf];
         vStart.x = *(Fx32 *)&pPos->x;
         PACK3(&msg20, 5, vStart.x.value);

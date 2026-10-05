@@ -6,7 +6,7 @@
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Normalize(void *v, void *v2);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate();
 extern void Ov214_stEnterSetFlag40(void);
 
@@ -23,7 +23,7 @@ void Ov214_stAimAtTargetOrIdle(int *node) {
     buf[1] = 0;
     state[0x12] = VEC_Normalize(buf, buf);
     {
-        int angle = func_020050b4(buf[0], buf[2]);
+        int angle = FX_Atan2(buf[0], buf[2]);
         state[0x13] = angle;
         state[0x11] = angle;
     }

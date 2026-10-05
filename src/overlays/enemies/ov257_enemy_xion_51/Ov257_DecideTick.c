@@ -15,7 +15,7 @@ struct Bits5c { int b0 : 1, b1 : 1; };
 
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int func_02020400(int num, int den);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -51,7 +51,7 @@ void Ov257_DecideTick(int *node)
         owner = *state;
         state[0x10] = *(int *)(node[0] + 0x2c) * 30 / 15;
         VEC_Subtract((void *)(target + 0x74), (void *)(owner + 0x74), &d);
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
         gap = VEC_Normalize(&d, &d) - *(int *)(owner + 0x80) - *(int *)(target + 0x80);
     }
     if (state[0x20] < 0x3000) {

@@ -16,7 +16,7 @@
 
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(int obj, int a, int b, int c);
 extern void Ov183_AiSwingRecover(void);
 
@@ -40,7 +40,7 @@ void Ov183_BeginApproach(int *node) {
     }
     Ov107_PostTagUpdate((Actor *)state[0], 0xc, 0);
     VEC_Subtract((void *)(state[4] + 0x190), (void *)state[1], &v);
-    h = func_020050b4(v.x, v.z);
+    h = FX_Atan2(v.x, v.z);
     state[6] = h;
     state[5] = h;
     state[8] = *(int *)(node[0] + 0x2c) * 0x1e / 0x1e;

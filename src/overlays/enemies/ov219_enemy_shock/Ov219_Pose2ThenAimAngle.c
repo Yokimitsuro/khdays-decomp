@@ -5,7 +5,7 @@
 
 extern void Ov107_BuildAndSendUpdate(int a, int b, int c, int d);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov219_ConfigSubStateThenAdvanceSlot(void);
 
@@ -19,7 +19,7 @@ void Ov219_Pose2ThenAimAngle(int *node) {
     if (state[0x10] != 0) {
         int r;
         VEC_Subtract((void *)(state[0x10] + 0x190), (void *)(*state + 0xb0), v);
-        r = func_020050b4(v[0], v[2]);
+        r = FX_Atan2(v[0], v[2]);
         state[4] = r;
         state[3] = r;
     }

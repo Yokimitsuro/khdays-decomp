@@ -45,7 +45,7 @@ extern int Ov107_FindNearestObject(int a, int b);
 extern void SetIndexedSlot(void *obj, int idx, int v);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern short data_0203d210[];
 
@@ -67,7 +67,7 @@ void Ov188_AimApproachAndDispatch(int *self) {
     VEC_Subtract((void *)(state[2] + 0x190), (void *)(*state + 0xb0), &d);
     d.y = 0;
     len = VEC_Normalize(&d, &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[4] * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
     gap = (len - *(int *)(state[2] + 0x80)) - *(int *)(*state + 0x80);

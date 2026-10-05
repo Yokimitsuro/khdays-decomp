@@ -1,8 +1,8 @@
 /* Set anim 5; if the target object (+0x48) exists, aim toward it via VEC_Subtract
- * + func_020050b4 and store the angle at +0x10/+0xc; then dispatch. */
+ * + FX_Atan2 and store the angle at +0x10/+0xc; then dispatch. */
 extern void Ov107_PostTagUpdate(int a, int b, int c);
 extern void VEC_Subtract(const void *a, const void *b, void *out);
-extern int func_020050b4(int a, int b);
+extern short FX_Atan2(int a, int b);
 extern int SetIndexedSlot(int a, int b, void *handler);
 extern void Ov160_AiDecelUntilAnimEnd(void);
 void Ov160_AiEnterTurnToTarget(int param_1) {
@@ -13,7 +13,7 @@ void Ov160_AiEnterTurnToTarget(int param_1) {
         if (target != 0) {
             int diff[3];
             VEC_Subtract((const void *)(target + 0x190), (const void *)(*(int *)child + 0xb0), diff);
-            int r = func_020050b4(diff[0], diff[2]);
+            int r = FX_Atan2(diff[0], diff[2]);
             *(int *)(child + 0x10) = r;
             *(int *)(child + 0xc) = r;
         }

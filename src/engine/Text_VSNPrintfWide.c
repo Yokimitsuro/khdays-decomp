@@ -6,14 +6,13 @@
 
 #include "nitro/types.h"
 
-typedef unsigned int size_t;
 
 typedef char *va_list;
 #define __fourbytealign(n) ((((unsigned long)(n)) + 3U) & ~3U)
 #define va_arg(ap, type) (*(type *)(((ap) += __fourbytealign(sizeof(type))) - __fourbytealign(sizeof(type))))
 
 typedef struct dst_string_tag {
-    size_t len;
+    unsigned int len;
     u16 *cur;
     u16 *base;
 } dst_string;
@@ -28,7 +27,7 @@ extern u32 Wcslen(const u16 *str);                           /* wide string leng
 #define string_fill_char PrintfDestWide_FillChar
 #define string_put_string PrintfDestWide_PutString
 
-int Text_VSNPrintfWide(u16 *dst, size_t len, const u16 *fmt, va_list vlist)
+int Text_VSNPrintfWide(u16 *dst, unsigned int len, const u16 *fmt, va_list vlist)
 {
     u16 buf[24];
     u16 frac[14];

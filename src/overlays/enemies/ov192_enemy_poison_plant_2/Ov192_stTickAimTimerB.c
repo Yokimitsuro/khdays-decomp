@@ -7,7 +7,7 @@
 struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov192_FindTarget(void *obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov192_stRandDelayInRange(void);
 
@@ -23,7 +23,7 @@ void Ov192_stTickAimTimerB(int *node) {
         state[6] = r;
         if (r != 0) {
             VEC_Subtract((void *)(r + 0x74), (void *)(*state + 0x74), buf);
-            state[4] = func_020050b4(buf[0], buf[2]);
+            state[4] = FX_Atan2(buf[0], buf[2]);
         }
     }
     ((struct hw60 *)(*state + 0x60))->hi &= ~0x82;

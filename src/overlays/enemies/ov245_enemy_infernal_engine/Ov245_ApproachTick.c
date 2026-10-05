@@ -9,7 +9,7 @@
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
 void Ov245_ApproachTick(int *node) {
@@ -30,7 +30,7 @@ void Ov245_ApproachTick(int *node) {
     if (gap > *(int *)(*state + 0x2d8)) {
         return;
     }
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     if (gap > 0x3000) {
         *(unsigned char *)(*state + 0x1c7) = 4;
         SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), 0);

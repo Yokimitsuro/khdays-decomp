@@ -22,7 +22,7 @@ extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern int Collision_CastSphereEx(int collision, VecFx32 *origin, VecFx32 *dir, int radius, void *ignore);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern const short data_0203d210[];
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
@@ -103,7 +103,7 @@ void Ov283_CircleTick(int *node)
         }
         VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x390) + 0x74), (VecFx32 *)(*state + 0x74), &out);
         VEC_Normalize(&out, &out);
-        state[0xe] = state[0x10] = func_020050b4(out.x, out.z);
+        state[0xe] = state[0x10] = FX_Atan2(out.x, out.z);
         *(signed char *)(*state + 0x1c7) = 5;
         return;
     }

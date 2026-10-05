@@ -9,7 +9,7 @@
 #include "game/engine.h"
 
 extern void VEC_Subtract(void *a, void *b, void *c);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov126_AimedAttackTick(void);
 extern int  data_02042264;
@@ -22,7 +22,7 @@ void Ov126_EnterAimedAttack(int *self) {
     Ov107_PostTagUpdate((Actor *)(*state), 2, 0);
     if (state[0xc] != 0) {
         VEC_Subtract((void *)(state[0xc] + 0x190), (void *)(*state + 0xb0), v);
-        QuatFromAxisAngle((void *)(state + 0x1a), &data_02042264, func_020050b4(v[0], v[2]));
+        QuatFromAxisAngle((void *)(state + 0x1a), &data_02042264, FX_Atan2(v[0], v[2]));
     }
     SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), (int)&Ov126_AimedAttackTick);
 }

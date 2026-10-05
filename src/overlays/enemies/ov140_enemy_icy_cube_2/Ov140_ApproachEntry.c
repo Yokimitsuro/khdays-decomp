@@ -11,7 +11,7 @@ extern int Ov107_FindNearestObject(int actor, int mode);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, void *v, void *d);
 extern void Ov107_StartAnim(void *part, int a, int b);
 extern void Ov107_PostTagUpdate(int actor, int anim, int flag);
@@ -34,7 +34,7 @@ void Ov140_ApproachEntry(int *node)
     VEC_Subtract((void *)(state[1] + 0x74), (void *)state[0x13], &dir);
     dir.y = 0;
     VEC_Normalize(&dir, &dir);
-    state[3] = func_020050b4(dir.x, dir.z);
+    state[3] = FX_Atan2(dir.x, dir.z);
     idx = (unsigned short)((0x28BE60DB9391LL * state[2] + 0x80000000000LL) >> 44);   /* FX_RAD_TO_IDX */
     fwd.y = 0;
     fwd.x = data_0203d210[(idx >> 4) << 1];                                             /* FX_SinIdx */

@@ -136,7 +136,7 @@ extern int Ov022_ComputeStrengthDamage(struct Actor *pActor, int nFace, int nMat
 extern int Slot_EvalPackedParam(int nId, int nRule);
 extern int Ov022_RunCommandHandlers(struct Actor *pActor, struct FanQuery *pFan,
                                struct SweepHit *pCtx);          /* Ov022_RunCommandHandlers */
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);       /* VEC_Normalize */
 extern void Ov022_EmitEventBlocks(struct Actor *pActor, int nKind, u32 nAngle,
                                 VecFx32 *pAt);                 /* Ov022_EmitEventBlocks */
@@ -230,7 +230,7 @@ void Ov022_RunContactMode1(struct Actor *pActor, struct ComboSlot *pSlot, short 
         pActor->contact.nState = 0;
     }
     if (nHit != 0) {
-        nAxis = FX_Atan2(fan.vecDir.x, fan.vecDir.z);
+        nAxis = FX_Atan2Idx(fan.vecDir.x, fan.vecDir.z);
         VEC_Subtract(&fan.vecOrigin, &pActor->contact.vec, &vecToApex);
         VEC_Normalize(&vecToApex, &vecToApex);
         VEC_Add(&vecToApex, &pActor->contact.vec, &vecAt);
@@ -254,7 +254,7 @@ void Ov022_RunContactMode1(struct Actor *pActor, struct ComboSlot *pSlot, short 
     if (nSend <= 0) {
         return;
     }
-    nAxis = FX_Atan2(fan.vecDir.x, fan.vecDir.z);
+    nAxis = FX_Atan2Idx(fan.vecDir.x, fan.vecDir.z);
     vecAt = fan.vecOrigin;
     Ov022_MarshalNetworkRecord(pActor, NET_RECORD_CONTACT, &vecAt, NET_TAG_CONTACT, nAxis,
                         pSlot->nEventKind21);

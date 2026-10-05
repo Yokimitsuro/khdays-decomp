@@ -27,7 +27,7 @@ struct ActorHitEvent {
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int Ov107_CalcHitDamage(char *actor, struct ActorHitEvent *hit);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void Ov107_BuildAndSendUpdate(int actor, int a, int id, int at);
@@ -65,7 +65,7 @@ int Ov259_OnHit(char *self, int other, struct ActorHitEvent *hit)
     }
     if (state[0x16] != 0 && frontal != 0) {
         VEC_Subtract((void *)(state[3] + 0x190), (void *)(*state + 0xb0), &v);
-        state[0x1e] = state[0x1f] = func_020050b4(v.x, v.z);
+        state[0x1e] = state[0x1f] = FX_Atan2(v.x, v.z);
         hit->nDamage = 0;
         hit->uResultLo |= 9;
         owner = *state;

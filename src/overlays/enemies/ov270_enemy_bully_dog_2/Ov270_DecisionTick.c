@@ -15,7 +15,7 @@
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
@@ -43,7 +43,7 @@ void Ov270_DecisionTick(int node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
-    state[4] = func_020050b4(d.x, d.z);
+    state[4] = FX_Atan2(d.x, d.z);
     if (state[0x11] > 0) {
         *(unsigned char *)(*state + 0x1c7) = 4;
         SetIndexedSlot(node, *(signed char *)(node + 0x20), 0);

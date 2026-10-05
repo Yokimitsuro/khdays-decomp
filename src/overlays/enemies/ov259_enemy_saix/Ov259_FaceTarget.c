@@ -5,7 +5,7 @@
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 
 void Ov259_FaceTarget(int *node)
 {
@@ -17,5 +17,5 @@ void Ov259_FaceTarget(int *node)
     }
     VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
     VEC_Normalize(&d, &d);
-    state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1f] = FX_Atan2(d.x, d.z);
 }

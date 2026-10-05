@@ -900,11 +900,11 @@ libs/nitro/mtx/calls/MTX_OrthoW.c:
     complete
     .text       start:0x02004eac end:0x020050b4
 
-libs/nitro/fx/calls/func_020050b4.c:
+libs/nitro/fx/calls/FX_Atan2.c:
     complete
     .text       start:0x020050b4 end:0x0200526c
 
-libs/nitro/fx/calls/FX_Atan2.c:
+libs/nitro/fx/calls/FX_Atan2Idx.c:
     complete
     .text       start:0x0200526c end:0x02005414
 
@@ -3596,7 +3596,7 @@ libs/nns/g3d/calls/texmtxCalc_flag_.c:
     complete
     .text       start:0x02019218 end:0x02019320
 
-libs/nns/g3d/calls/NNSi_G3dCalcTexMtxRot.c:
+libs/nns/g3d/calls/texmtxCalc_flagS_.c:
     complete
     .text       start:0x02019320 end:0x020193f0
 
@@ -3612,7 +3612,7 @@ libs/nns/g3d/calls/texmtxCalc_flagT_.c:
     complete
     .text       start:0x020194b4 end:0x02019594
 
-libs/nns/g3d/calls/G3d_ComputeFrustumPlanes.c:
+libs/nns/g3d/calls/texmtxCalc_flagTS_.c:
     complete
     .text       start:0x02019594 end:0x0201964c
 
@@ -3624,7 +3624,7 @@ libs/nns/g3d/calls/texmtxCalc_flag__2.c:
     complete
     .text       start:0x02019690 end:0x02019798
 
-libs/nns/g3d/calls/texmtxCalc_flagS_.c:
+libs/nns/g3d/calls/texmtxCalc_flagS__2.c:
     complete
     .text       start:0x02019798 end:0x02019880
 
@@ -3640,7 +3640,7 @@ libs/nns/g3d/calls/texmtxCalc_flagT__2.c:
     complete
     .text       start:0x02019948 end:0x02019a40
 
-libs/nns/g3d/calls/texmtxCalc_flagTS_.c:
+libs/nns/g3d/calls/texmtxCalc_flagTS__2.c:
     complete
     .text       start:0x02019a40 end:0x02019b18
 

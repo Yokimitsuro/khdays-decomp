@@ -9,7 +9,7 @@
 extern VecFx32 *List_First(void *list);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
 extern int VEC_Mag(const VecFx32 *v);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 
 int Ov254_ChooseWaypoint(int *state, int nearest, int *outHeading)
 {
@@ -40,7 +40,7 @@ int Ov254_ChooseWaypoint(int *state, int nearest, int *outHeading)
         for (p = List_First((void *)(*state + 0x434)), i = 0; p != 0; p = (VecFx32 *)List_Next((void *)(*state + 0x434)), i++) {
             if (i == state[0x1b]) {
                 VEC_Subtract(p, state + 6, &d);
-                *outHeading = func_020050b4(d.x, d.z);
+                *outHeading = FX_Atan2(d.x, d.z);
                 break;
             }
         }

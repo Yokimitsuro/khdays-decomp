@@ -21,7 +21,7 @@ extern const short data_0203d210[];
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern int Ov107_CollectSphereOverlaps(int owner, Sphere *sphere, int *hits);
 extern int Ov107_InvokeHitCallback(int hit, int owner, int item, int kind, VecFx32 *push, int z);
@@ -46,7 +46,7 @@ void Ov256_HomingOrbTick(int *node)
     aim.y += 0x1000;
     VEC_Subtract(&aim, (void *)state[2], &d);
     VEC_Normalize(&d, &d);
-    state[6] = func_020050b4(d.x, d.z);
+    state[6] = FX_Atan2(d.x, d.z);
     ScaleVec3Fx12(0x480 - (*(int *)(*(int *)(*state + 0x398) + 0x45c) << 7), &d, &d);
     *(VecFx32 *)(state + 3) = d;
     if (state[5] != 0 && state[4] != 0 && state[3] != 0) {

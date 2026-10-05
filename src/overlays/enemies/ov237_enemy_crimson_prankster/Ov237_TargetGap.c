@@ -8,7 +8,7 @@
 extern int Ov107_FindNearestObject(int a, int b);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *src, VecFx32 *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 
 int Ov237_TargetGap(int this_) {
     int *state = (int *)(*(int *)(this_ + 4));
@@ -27,6 +27,6 @@ int Ov237_TargetGap(int this_) {
     radiusSum = *(int *)(*(int *)(*state + 0x3dc) + 0x80) + *(int *)(*state + 0x80);
     dist -= radiusSum;
     if (dist < 0) dist = 0;
-    *(int *)((int)state + 0x14) = func_020050b4(delta.x, delta.z);
+    *(int *)((int)state + 0x14) = FX_Atan2(delta.x, delta.z);
     return dist;
 }

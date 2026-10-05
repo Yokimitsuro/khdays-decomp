@@ -10,7 +10,7 @@
 extern int Ov227_MeasureTargetGap(int *node, VecFx32 *dir);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int Ov227_ChooseMove(int *node, int dist);
 extern void Ov227_Steer(int *node, int rad);
 
@@ -26,7 +26,7 @@ void Ov227_WalkTick(int *node)
         return;
     }
     VEC_Subtract((void *)(state + 0xe), (void *)state[2], &d);
-    state[0x16] = func_020050b4(d.x, d.z);
+    state[0x16] = FX_Atan2(d.x, d.z);
     if (*(unsigned char *)(*(int *)(*state + 0x384) + 0xad) == 0) {
         if (RandNextScaled(100) < 0x1e) {
             *(signed char *)(*state + 0x1c7) = 0x10;

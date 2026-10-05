@@ -38,7 +38,7 @@ extern int Ov107_FindNearestObject(int owner, int flag);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const PosMsg data_ov206_020d05cc;
 extern const VecFx32 data_02041dc8;
@@ -93,6 +93,6 @@ void Ov206_JumpWindupTick(int *node)
         ScaleVec3Fx12(len / 20, (VecFx32 *)(state + 0xc), (VecFx32 *)(state + 0xc));
     }
     state[0xd] = 0x1000;
-    state[0x11] = func_020050b4(state[0xc], state[0xe]);
+    state[0x11] = FX_Atan2(state[0xc], state[0xe]);
     SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), (void *)Ov206_AiBallisticTick);
 }

@@ -29,7 +29,7 @@ extern void VEC_Normalize(VecFx32 *pIn, VecFx32 *pOut);
 extern void ScaleVec3Fx12(int nScale, VecFx32 *pIn, VecFx32 *pOut);
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB,
                          VecFx32 *pOut);
-extern short FX_Atan2(int x, int y);
+extern short FX_Atan2Idx(int x, int y);
 extern void MTX_RotY33_(struct MtxFx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(VecFx32 *pIn, struct MtxFx33 *pMtx,
                           VecFx32 *pOut);
@@ -66,7 +66,7 @@ void Ov022_BuildHitPush(VecFx32 *pOut, struct SweepHit *pHit,
         VEC_Subtract(pAt, pFrom, &vecAim);
         vecPush = pHit->vecPush;
         vecPush.y = 0;
-        nAngle = FX_Atan2(-vecAim.x, -vecAim.z);
+        nAngle = FX_Atan2Idx(-vecAim.x, -vecAim.z);
         nIndex = nAngle >> 4;
         MTX_RotY33_(&mtx, data_0203d210[nIndex * 2],
                     data_0203d210[nIndex * 2 + 1]);

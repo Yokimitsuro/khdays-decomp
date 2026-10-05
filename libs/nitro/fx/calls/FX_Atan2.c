@@ -1,114 +1,99 @@
-/* FX_Atan2 - fixed-point arctangent of a 2D vector, returned as a 1/65536-turn
- * angle (0x10000 = 360 degrees).
- *
- * The two components are sorted into a numerator/denominator pair with the
- * smaller magnitude over the larger, so the ratio handed to the table is
- * always in [0,1]. FX_Inv here is called two-argument style (numer, denom):
- * it is the same reciprocal primitive used elsewhere in the tree as a divide
- * by leaving the caller's denominator sitting in r1. data_02041314 holds
- * atan(i/128) for i = 0..128 in 1/65536-turn units; the ratio is scaled and
- * shifted down to an index into it, then added to or subtracted from the
- * octant's base angle depending on which side of the diagonal the vector
- * falls on. Each axis-aligned or diagonal special case (both zero handled by
- * degenerate ratios, one axis zero, or the two components equal) returns its
- * angle directly without the table.
- *
- * The angle comes back as an int, zero-extended: that is how every caller in the
- * game reads it (declared returning u16, their code changes).
- */
 
-extern int FX_Div(int numer, int denom);
-extern const short data_02041314[130];
 
-int FX_Atan2(int x, int y)
+#include "nitro/types.h"
+#include "nitro/fx_types.h"
+#include "nitro/os.h"
+
+#define offsetof(type, member) ((u32)&(((type *)0)->member))
+
+fx32 FX_Div(fx32 numer, fx32 denom);
+extern const fx16 data_02041210[128 + 1];
+
+/* FX_Atan2 -- NitroSDK fx_atan.c: FX_Atan2. */
+fx16 FX_Atan2 (fx32 y, fx32 x)
 {
-    int numer;
-    int denom;
-    int base;
-    int add;
+	fx32 a, b, c;
+	int sgn;
 
-    if (x > 0) {
-        if (y > 0) {
-            if (y > x) {
-                numer = x;
-                denom = y;
-                base = 0;
-                add = 1;
-            } else if (y < x) {
-                numer = y;
-                denom = x;
-                base = 0x4000;
-                add = 0;
-            } else {
-                return 0x2000;
-            }
-        } else if (y < 0) {
-            int ny = -y;
+	if (y > 0) {
+		if (x > 0) {
+			if (x > y) {
+				a = y;
+				b = x;
+				c = 0;
+				sgn = 1;
+			} else if (x < y)   {
+				a = x;
+				b = y;
+				c = 6434;
+				sgn = 0;
+			} else {
+				return (fx16)3217;
+			}
+		} else if (x < 0)   {
+			x = -x;
+			if (x < y) {
+				a = x;
+				b = y;
+				c = 6434;
+				sgn = 1;
+			} else if (x > y)   {
+				a = y;
+				b = x;
+				c = 12868;
+				sgn = 0;
+			} else {
+				return (fx16)9651;
+			}
+		} else {
+			return (fx16)6434;
+		}
+	} else if (y < 0)   {
+		y = -y;
+		if (x < 0) {
+			x = -x;
+			if (x > y) {
+				a = y;
+				b = x;
+				c = -12868;
+				sgn = 1;
+			} else if (x < y)   {
+				a = x;
+				b = y;
+				c = -6434;
+				sgn = 0;
+			} else {
+				return (fx16) - 9651;
+			}
+		} else if (x > 0)   {
+			if (x < y) {
+				a = x;
+				b = y;
+				c = -6434;
+				sgn = 1;
+			} else if (x > y)   {
+				a = y;
+				b = x;
+				c = 0;
+				sgn = 0;
+			} else {
+				return (fx16) - 3217;
+			}
+		} else {
+			return (fx16) - 6434;
+		}
+	} else {
+		if (x >= 0) {
+			return 0;
+		} else {
+			return (fx16)12868;
+		}
+	}
 
-            if (ny < x) {
-                numer = ny;
-                denom = x;
-                base = 0x4000;
-                add = 1;
-            } else if (ny > x) {
-                numer = x;
-                denom = ny;
-                base = 0x8000;
-                add = 0;
-            } else {
-                return 0x6000;
-            }
-        } else {
-            return 0x4000;
-        }
-    } else if (x < 0) {
-        int nx = -x;
-
-        if (y < 0) {
-            int ny = -y;
-
-            if (ny > nx) {
-                numer = nx;
-                denom = ny;
-                base = -0x8000;
-                add = 1;
-            } else if (ny < nx) {
-                numer = ny;
-                denom = nx;
-                base = -0x4000;
-                add = 0;
-            } else {
-                return 0xa000;
-            }
-        } else if (y > 0) {
-            if (y < nx) {
-                numer = y;
-                denom = nx;
-                base = -0x4000;
-                add = 1;
-            } else if (y > nx) {
-                numer = nx;
-                denom = y;
-                base = 0;
-                add = 0;
-            } else {
-                return 0xe000;
-            }
-        } else {
-            return 0xc000;
-        }
-    } else {
-        if (y >= 0) {
-            return 0;
-        }
-        return 0x8000;
-    }
-
-    if (denom == 0) {
-        return 0;
-    }
-    if (add) {
-        return (unsigned short)(base + data_02041314[FX_Div(numer, denom) >> 5]);
-    }
-    return (unsigned short)(base - data_02041314[FX_Div(numer, denom) >> 5]);
+	if (b == 0)
+		return 0;
+	if (sgn)
+		return (fx16)(c + data_02041210[FX_Div(a, b) >> 5]);
+	else
+		return (fx16)(c - data_02041210[FX_Div(a, b) >> 5]);
 }

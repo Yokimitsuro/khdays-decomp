@@ -211,7 +211,7 @@ extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int Ov022_SteerPartnerToPoint(struct Actor *pSelf, struct Actor *pLeader, VecFx32 *pPoint, int bNoClimb);   /* Ov022_SteerPartnerToPoint */
 extern int Ov022_IsState9Or6WithFlag200(u32 *pRun);                                      /* ov022_IsState9Or6WithFlag200 */
 extern int Ov022_IsActionBlocked(u32 *pRun);                                      /* Ov022_IsActionBlocked */
-extern short FX_Atan2(int y, int x);
+extern short FX_Atan2Idx(int y, int x);
 
 #define CLAMP(v, lo, hi) ((v) > (hi) ? (hi) : ((v) < (lo) ? (lo) : (v)))
 
@@ -410,7 +410,7 @@ void Ov022_DrivePartnerTarget(struct Actor *pActor, struct Actor *pLeader, VecFx
                         VEC_Subtract(&pActor->pRefItem->pPlace->vecPos, &pActor->vecAim, &vecFace);
                         vecFace.y = 0;
                         if (VEC_Normalize(&vecFace, &vecFace) != 0) {
-                            pActor->nAngleBias = FX_Atan2(-vecFace.x, -vecFace.z);
+                            pActor->nAngleBias = FX_Atan2Idx(-vecFace.x, -vecFace.z);
                             pActor->nButtons2 |= BUTTON2_FACE;
                         }
                     }

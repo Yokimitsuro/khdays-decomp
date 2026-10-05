@@ -9,7 +9,7 @@ extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern short  FX_Atan2(int x, int z);
 extern void Ov137_ArmMovePhase2(void);
 
 void Ov137_FaceTargetSetTurnRate(int *self) {
@@ -28,7 +28,7 @@ void Ov137_FaceTargetSetTurnRate(int *self) {
     VEC_Subtract((void *)(state[2] + 0x190), (void *)state[0x13], v);
     v[1] = 0;
     VEC_Normalize(v, v);
-    state[4] = func_020050b4(v[0], v[2]);
+    state[4] = FX_Atan2(v[0], v[2]);
     *(unsigned short *)(*state + 0x1ae) |= 8;
     state[5] = *(int *)(*self + 0x2c) * 0x1e / 5;
     SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), (int)&Ov137_ArmMovePhase2);

@@ -27,7 +27,7 @@ typedef struct { VecFx32 push; u8 b0c; u8 b0d; u8 pad[2]; int team; int mode; in
     ((u8 *)&(cmd))[(at) + 1] = (u8)((unsigned int)(dead).value >> 8);         \
     ((u8 *)&(cmd))[(at) + 2] = (u8)(dead).value
 
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int Ov107_CollectSphereOverlaps(int owner, Sphere *src, int *out);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
@@ -92,7 +92,7 @@ void Ov207_RockFlightTick(int *node)
     landed = state[0xd] < 0 && *(int *)(*state + 0x10c) == 0 ? 1 : 0;
     state[0xf] = *(int *)(*node + 0x2c) * 30 / 20;
     done = 0;
-    state[0x11] = func_020050b4(state[0xc], state[0xe]);
+    state[0x11] = FX_Atan2(state[0xc], state[0xe]);
     state[9] += *(int *)(*node + 0x2c);
     scan[k].world = *(int *)(*state + 4);
     state[0xd] -= (int)(((long long)(*(int *)(*node + 0x2c) * 30) * 0x100 + 0x800) >> 12);

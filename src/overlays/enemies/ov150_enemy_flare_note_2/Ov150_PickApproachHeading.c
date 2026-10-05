@@ -34,7 +34,7 @@ extern int Ov107_FindNearestObject(int owner, int mode);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
 extern int FX_Div(int num, int den);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov150_PoseAdvanceUnlessField14AtLeast80(void);
 
@@ -84,9 +84,9 @@ void Ov150_PickApproachHeading(int *node)
     off = FX_Mul(roll - spread, 0x3244);
 
     if (t > 0) {
-        state[3] = (func_020050b4(-v.x, -v.z) + 0x3244) - off;
+        state[3] = (FX_Atan2(-v.x, -v.z) + 0x3244) - off;
     } else {
-        state[3] = off + (func_020050b4(v.x, v.z) + 0x3244);
+        state[3] = off + (FX_Atan2(v.x, v.z) + 0x3244);
     }
 
     state[4] = *(int *)(*node + 0x2c) * 30 / 5;

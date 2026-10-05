@@ -1,0 +1,4 @@
+texmtxCalc_flagS_	texmtxCalc_flagS__2	main
+texmtxCalc_flagTS_	texmtxCalc_flagTS__2	main
+NNSi_G3dCalcTexMtxRot	texmtxCalc_flagS_	main
+G3d_ComputeFrustumPlanes	texmtxCalc_flagTS_	main

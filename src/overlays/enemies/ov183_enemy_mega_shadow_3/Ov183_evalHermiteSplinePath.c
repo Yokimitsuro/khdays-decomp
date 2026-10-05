@@ -12,7 +12,7 @@ extern void ScaleVec3Fx12(int scale, void *src, void *dst);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void VEC_Normalize(void *src, void *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov183_AiFadeInTick(void);
 extern short data_0203d210[];
 
@@ -59,7 +59,7 @@ void Ov183_evalHermiteSplinePath(int *param_1) {
             ScaleVec3Fx12(0x800, state + 0x15, state + 0x15);
         }
         VEC_Subtract((void *)(state[4] + 400), (void *)state[1], l40);
-        state[6] = func_020050b4(l40[0], l40[2]);
+        state[6] = FX_Atan2(l40[0], l40[2]);
         if (state[7] >= 0x1000) {
             Ov107_PostTagUpdate((Actor *)(*state), 7, 0);
             ((struct hw60 *)(*state + 0x60))->hi &= ~2;

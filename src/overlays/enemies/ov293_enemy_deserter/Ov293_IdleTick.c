@@ -29,7 +29,7 @@ struct Ov293HitRecord {
 extern int Ov107_FindNearestObject(struct Ov293Owner *actor, int mode);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(struct Ov293Owner *actor, int id, int mode, void *anchor);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov293_SwingTick(int *node);
@@ -53,7 +53,7 @@ void Ov293_IdleTick(int *node)
         if (state[1] != 0) {
             VEC_Subtract((void *)(state[1] + 0x190), (char *)state[0] + 0xb0, &d);
             VEC_Normalize(&d, &d);
-            state[4] = func_020050b4(d.x, d.z);
+            state[4] = FX_Atan2(d.x, d.z);
         }
     }
     state[0x10] += *(int *)(*node + 0x2c);

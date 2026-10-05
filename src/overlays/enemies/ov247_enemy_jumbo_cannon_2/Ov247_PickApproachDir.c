@@ -40,7 +40,7 @@
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
 extern int FX_Div(int num, int den);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern VecFx32 data_02042258;
 extern const short data_0203d210[];
 
@@ -88,9 +88,9 @@ void Ov247_PickApproachDir(int *ctx, VecFx32 *out) {
     off = FX_Mul(RandNextScaled(off + 1) + (-spread), 0x3244);
 
     if (t > 0) {
-        rad = (func_020050b4(-v.x, -v.z) + 0x3244) - off;
+        rad = (FX_Atan2(-v.x, -v.z) + 0x3244) - off;
     } else {
-        rad = off + (func_020050b4(v.x, v.z) + 0x3244);
+        rad = off + (FX_Atan2(v.x, v.z) + 0x3244);
     }
 
     idx = (unsigned short)(((long long)rad * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4;

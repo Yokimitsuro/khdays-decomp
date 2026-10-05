@@ -10,7 +10,7 @@
 typedef struct { int w[4]; } Quat;
 
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern const VecFx32 data_02042264;
 
@@ -25,7 +25,7 @@ int Ov255_SteerToTarget(int *state, int target, VecFx32 *dir, int *speed)
     if (target != 0) {
         owner = *state;
         VEC_Subtract((void *)(target + 0x74), (void *)(owner + 0x74), &d);
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
         gap = VEC_Normalize(&d, &d) - *(int *)(owner + 0x80) - *(int *)(target + 0x80);
         s = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3a4), &step);
         Vec3TransformViaTempMtx(&step, state + 7, &step);

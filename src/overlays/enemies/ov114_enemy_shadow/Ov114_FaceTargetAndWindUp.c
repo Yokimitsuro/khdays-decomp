@@ -17,7 +17,7 @@
 typedef struct { unsigned short a, b; } Ov114Pair;
 
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov114_AiSwingRecover(void);
 extern Ov114Pair data_ov114_020cdfbc;
@@ -36,7 +36,7 @@ void Ov114_FaceTargetAndWindUp(int *node) {
     }
     Ov107_PostTagUpdate((Actor *)state[0], 0xc, 0);
     VEC_Subtract((void *)(state[4] + 0x190), (void *)state[1], &d);
-    v = func_020050b4(d.x, d.z);
+    v = FX_Atan2(d.x, d.z);
     state[6] = v;
     state[5] = v;
     state[0x11] = 0;

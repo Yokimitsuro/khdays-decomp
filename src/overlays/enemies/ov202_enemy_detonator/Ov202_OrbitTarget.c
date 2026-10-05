@@ -42,7 +42,7 @@ extern int Ov107_FindNearestObject(int a, int b);
 extern void SetIndexedSlot(int self, int idx, void *cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void VEC_CrossProduct(void *a, void *b, void *d);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern int RandNextScaled();
@@ -74,7 +74,7 @@ void Ov202_OrbitTarget(int self) {
     target = state[1];
     len = VEC_Normalize(&d, &d);
     gap = len - (*(int *)(target + 0x80) + *(int *)(owner + 0x80));
-    state[3] = func_020050b4(d.x, d.z);
+    state[3] = FX_Atan2(d.x, d.z);
     VEC_Set(&up, 0, (int)*(signed char *)((int)state + 0x58) << 12, 0);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[2] * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;

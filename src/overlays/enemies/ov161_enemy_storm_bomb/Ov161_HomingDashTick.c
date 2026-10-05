@@ -65,7 +65,7 @@ extern int VEC_Normalize(FxVec *out, FxVec *in);
 extern void ScaleVec3Fx12(int scale, FxVec *in, FxVec *out);
 extern void Quat_FromTwoVectors(Quat *out, const FxVec *a, FxVec *b);
 extern void Quat_Slerp(Quat *out, int t, Quat *a, Quat *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Srt_SetRotationQuat(void *srt, Quat *q);
 extern void *Ov107_FindNearestObject(void *actor, int mode);
 extern int Ov107_CollectSphereOverlaps(void *actor, struct Sphere *shape, void **out);
@@ -186,7 +186,7 @@ void Ov161_HomingDashTick(struct Node *node)
     if (VEC_Normalize(&vFacing, &vFacing) == 0) {
         vFacing = data_02042258;
     }
-    angle = st->nAngle10 = func_020050b4(vFacing.x.value, vFacing.z.value);
+    angle = st->nAngle10 = FX_Atan2(vFacing.x.value, vFacing.z.value);
     st->nAngle0c = angle;
     QuatFromAxisAngle(&quat, &data_02042264, angle);
     Srt_SetRotationQuat((char *)st->pActor + 0xa0, &quat);

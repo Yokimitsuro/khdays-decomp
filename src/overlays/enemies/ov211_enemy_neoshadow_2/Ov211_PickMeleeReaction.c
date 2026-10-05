@@ -16,7 +16,7 @@
 struct b17a { unsigned char b0 : 1; };
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_DotProduct(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov211_AiLandPickNext(void);
 extern int  data_02042258;
@@ -33,14 +33,14 @@ void Ov211_PickMeleeReaction(int self) {
         if (VEC_DotProduct(&v, &w) > 0) {
             if (((struct b17a *)(*state + 0x17a))->b0) {
                 Ov107_PostTagUpdate((Actor *)(*state), 2, 0);
-                a = func_020050b4(v.x, v.z);
+                a = FX_Atan2(v.x, v.z);
                 state[10] = a;
                 state[9] = a;
                 SetIndexedSlot(self, *(signed char *)(self + 0x20), (int)&Ov211_AiLandPickNext);
                 return;
             }
             Ov107_PostTagUpdate((Actor *)(*state), 4, 0);
-            a = func_020050b4(v.x, v.z);
+            a = FX_Atan2(v.x, v.z);
             state[10] = a;
             state[9] = a;
             SetIndexedSlot(self, *(signed char *)(self + 0x20), (int)&Ov211_AiLandPickNext);
@@ -48,14 +48,14 @@ void Ov211_PickMeleeReaction(int self) {
         }
         if (((struct b17a *)(*state + 0x17a))->b0) {
             Ov107_PostTagUpdate((Actor *)(*state), 3, 0);
-            a = func_020050b4(v.x, v.z) + 0x3244;
+            a = FX_Atan2(v.x, v.z) + 0x3244;
             state[10] = a;
             state[9] = a;
             SetIndexedSlot(self, *(signed char *)(self + 0x20), (int)&Ov211_AiLandPickNext);
             return;
         }
         Ov107_PostTagUpdate((Actor *)(*state), 5, 0);
-        a = func_020050b4(v.x, v.z) + 0x3244;
+        a = FX_Atan2(v.x, v.z) + 0x3244;
         state[10] = a;
         state[9] = a;
         SetIndexedSlot(self, *(signed char *)(self + 0x20), (int)&Ov211_AiLandPickNext);

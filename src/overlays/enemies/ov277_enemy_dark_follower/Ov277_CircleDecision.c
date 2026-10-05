@@ -12,7 +12,7 @@
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
@@ -38,7 +38,7 @@ void Ov277_CircleDecision(int node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[4] + 0x190), (VecFx32 *)state[1], &d);
-    state[6] = func_020050b4(d.x, d.z);
+    state[6] = FX_Atan2(d.x, d.z);
     d.y = 0;
     VEC_Normalize(&d, &d);
     VEC_CrossProduct(&d, &data_02042264, (VecFx32 *)(state + 0x14));

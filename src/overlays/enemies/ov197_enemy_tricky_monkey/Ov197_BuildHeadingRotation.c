@@ -23,7 +23,7 @@
 #include "game/engine.h"
 
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(void *a, void *d);
 extern void MTX_RotY33_(void *mtx, int sin, int cos);
 extern void MTX_MultVec33(void *a, void *mtx, void *d);
@@ -37,12 +37,12 @@ int Ov197_BuildHeadingRotation(int *self, int vx, int vy, int vz, int flag) {
 
     if (*(int *)(*self + 0x394) != 0) {
         VEC_Subtract((void *)(*(int *)(*self + 0x394) + 0x190), (void *)self[3], aim);
-        self[0xe] = func_020050b4(aim[0], aim[2]);
+        self[0xe] = FX_Atan2(aim[0], aim[2]);
     }
     {
     int *v = &vx;
     mag = VEC_Normalize(v, v);
-    idx = (int)(((unsigned)(((long long)(int)(unsigned)func_020050b4(v[0], v[2]) * 0x28be60db9391LL +
+    idx = (int)(((unsigned)(((long long)(int)(unsigned)FX_Atan2(v[0], v[2]) * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
     MTX_RotY33_(mtx, (int)data_0203d210[idx * 2], (int)data_0203d210[idx * 2 + 1]);
     }

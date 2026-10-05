@@ -5,7 +5,7 @@
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
 void Ov146_FaceTick(int *node)
@@ -15,7 +15,7 @@ void Ov146_FaceTick(int *node)
 
     VEC_Subtract((VecFx32 *)(state[2] + 0xb0), (VecFx32 *)(*state + 0xb0), &d);
     VEC_Normalize(&d, &d);
-    state[0xb] = func_020050b4(d.x, d.z);
+    state[0xb] = FX_Atan2(d.x, d.z);
     if (*(unsigned char *)(state[1] + 0xad) != 0) {
         return;
     }

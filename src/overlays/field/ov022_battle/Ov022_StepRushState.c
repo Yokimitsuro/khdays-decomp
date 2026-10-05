@@ -94,7 +94,7 @@ extern int Ov022_GetGlobal34(void);                                           /*
 extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      /* Ov022_GetTargetPos */
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int Ov022_ClampAngleTowardTarget(struct Actor *pActor, u32 nAngle);               /* Ov022_ClampAngleTowardTarget */
 extern void ScaleVec3Fx12(int nFactor, VecFx32 *pSrc, VecFx32 *pDst);          /* ScaleVec3Fx12 */
 extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
@@ -143,7 +143,7 @@ int Ov022_StepRushState(struct Actor *pActor)
                 || pActor->nRushSpeed < SPEED_MIN) {
                 nRet = Ov022_ActorSetState(pActor, STATE_REACHED);
             } else {
-                nAngle = FX_Atan2(-vecDelta.x, -vecDelta.z);
+                nAngle = FX_Atan2Idx(-vecDelta.x, -vecDelta.z);
                 nNewAngle = Ov022_ClampAngleTowardTarget(pActor, nAngle);
                 pNode = pActor->pNode;
                 if ((pNode->nFlags & NODE_NO_ANIM) == 0) {

@@ -71,7 +71,7 @@ extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b,
                          VecFx32 *out);
 extern int VEC_Mag(const VecFx32 *v);
 extern void VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern void Ov022_StepAnchorDelta(struct Ov044Actor *actor, VecFx32 *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b,
                     VecFx32 *out);
@@ -103,7 +103,7 @@ void *Ov030_UpdateController(struct Ov044Controller4c14 *self)
         if (VEC_Mag(&vectors.direction) != 0) {
             VEC_Normalize(&vectors.direction, &vectors.direction);
         }
-        angle = (u16)FX_Atan2(-vectors.direction.x, -vectors.direction.z);
+        angle = (u16)FX_Atan2Idx(-vectors.direction.x, -vectors.direction.z);
     }
 
     if (actor->timeline7b0 % 0x6000 == 0 && angle != -1) {

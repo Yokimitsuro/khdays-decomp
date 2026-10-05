@@ -40,7 +40,7 @@ extern void VEC_Subtract(const Vec3 *a, const Vec3 *b, Vec3 *dst);
 extern int VEC_Normalize(const Vec3 *v, Vec3 *unit);
 extern int FX_Div(int num, int den);
 extern int RandNextScaled();
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const Vec3 *src, Vec3 *dst);
 extern void SetIndexedSlot(struct Node *node, int slot, void *next);
 
@@ -79,10 +79,10 @@ void Ov285_Chase_Tick(struct Node *node)
 
     if (nFactor > 0) {
         st->nAngleTarget08 =
-            (func_020050b4(-vToTarget.nX, -vToTarget.nZ) + 0x3244) - nSpread;
+            (FX_Atan2(-vToTarget.nX, -vToTarget.nZ) + 0x3244) - nSpread;
     } else {
         st->nAngleTarget08 =
-            nSpread + (func_020050b4(vToTarget.nX, vToTarget.nZ) + 0x3244);
+            nSpread + (FX_Atan2(vToTarget.nX, vToTarget.nZ) + 0x3244);
     }
 
     st->nAngleStep14 = (*(int *)((char *)node->pList + 0x2c) * 0x1e) / 10;

@@ -8,7 +8,7 @@ extern void *func_ov022_020ad0c0();
 extern void VEC_Subtract();
 extern int VEC_Mag();
 extern void VEC_Normalize();
-extern int FX_Atan2();
+extern int FX_Atan2Idx();
 extern void Ov022_ActorSetState();
 
 void Ov051_activateAndComputeAimAngle(void *this)
@@ -28,7 +28,7 @@ void Ov051_activateAndComputeAimAngle(void *this)
         if (VEC_Mag(buf) != 0) {
             VEC_Normalize(buf, buf);
         }
-        t = (unsigned short)FX_Atan2(-buf[0], -buf[2]);
+        t = (unsigned short)FX_Atan2Idx(-buf[0], -buf[2]);
         {
             int *disp = *(int **)((char *)this + 0x20);
             if ((*disp & 0x20) == 0) {

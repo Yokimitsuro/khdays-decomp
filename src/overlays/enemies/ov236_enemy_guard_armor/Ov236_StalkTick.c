@@ -40,7 +40,7 @@ extern int Ov107_InvokeHitCallback(int hit, int owner, int item, int kind, VecFx
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern int FX_Div(int a, int b);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern const Cmd4 data_ov236_020d6430[];
 extern const Cmd14 data_ov236_020d647e;
 extern const Cmd14 data_ov236_020d648c;
@@ -196,9 +196,9 @@ void Ov236_StalkTick(int *node)
     a = 0x1000 - (t < 0 ? -t : t);
     a = FX_Mul(RandRange(0, a * 2) - a, 0x3244);
     if (t > 0) {
-        state[0xb] = func_020050b4(-d.x, -d.z) + 0x3244 - a;
+        state[0xb] = FX_Atan2(-d.x, -d.z) + 0x3244 - a;
     } else {
-        state[0xb] = a + (func_020050b4(d.x, d.z) + 0x3244);
+        state[0xb] = a + (FX_Atan2(d.x, d.z) + 0x3244);
     }
     speed = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3c8), &step);
     Vec3TransformViaTempMtx((VecFx32 *)(state + 2), (void *)(*state + 0xa0), &step);

@@ -18,7 +18,7 @@ extern void SrtTransform_SetIdentity(void *transform);
 extern void Srt_SetTranslation(void *transform, const VecFx32 *translation);
 extern void Srt_SetRotationQuat(void *transform, Quat *rotation);
 extern void Vec3TransformViaTempMtx(VecFx32 *out, Quat *rotation, const VecFx32 *in);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void QuatFromAxisAngle(Quat *out, const VecFx32 *axis, int angle);
 extern const VecFx32 data_02042258;
 extern const VecFx32 data_02042264;
@@ -54,7 +54,7 @@ void Ov291_HeadBoneCallback(char *joint)
     at.y = *(int *)(*(char **)(actor + 0x9c) + 0x44);
     Quat_Multiply(&rot, &rot, &tilt);
     Vec3TransformViaTempMtx(&fwd, &rot, &data_02042258);
-    QuatFromAxisAngle(&rot, &data_02042264, func_020050b4(fwd.x, fwd.z));
+    QuatFromAxisAngle(&rot, &data_02042264, FX_Atan2(fwd.x, fwd.z));
     SrtTransform_SetIdentity(*(char **)(actor + 0x398) + 0x30);
     Srt_SetRotationQuat(*(char **)(actor + 0x398) + 0x30, &rot);
     Srt_SetTranslation(*(char **)(actor + 0x398) + 0x30, &at);

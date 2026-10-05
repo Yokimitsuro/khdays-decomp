@@ -34,7 +34,7 @@ struct Ov269Owner {
 
 extern void Ov107_BuildAndSendUpdate(struct Ov269Owner *owner, int a, int id, void *at);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(const VecFx32 *v, Mtx33 *m, VecFx32 *d);
 extern void VEC_Add(const void *a, const void *b, VecFx32 *d);
@@ -107,7 +107,7 @@ void Ov194_ComboTick(int *node)
         PACK3(&msg20, 8, vStart.y.value);
         vStart.z = *(Fx32 *)&pPos->z;
         PACK3(&msg20, 11, vStart.z.value);
-        msg20.w[4] = func_020050b4(d.x, d.z);
+        msg20.w[4] = FX_Atan2(d.x, d.z);
         if (((struct Ov269Owner *)*state)->pfnMessage != 0) {
             ((struct Ov269Owner *)*state)->pfnMessage((struct Ov269Owner *)*state, &msg20, 0x14);
         }

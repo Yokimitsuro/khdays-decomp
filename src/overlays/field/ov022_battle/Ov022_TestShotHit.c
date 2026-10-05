@@ -114,7 +114,7 @@ struct ActionParams {
 #define FIRST_HIT_AGE 0x3000
 
 extern void VEC_Add(VecFx32 *a, VecFx32 *b, VecFx32 *pOut);
-extern u16 FX_Atan2(int x, int z);
+extern u16 FX_Atan2Idx(int x, int z);
 extern int Ov022_SearchMatchingRow(void *pActor, int bEnabled, int *pMatchMask,
                                u8 *pAmount);
 extern int Ov022_ComputeStrengthDamage(void *pActor, int nFactor, int nLevel, int bEnabled);
@@ -173,7 +173,7 @@ int Ov022_TestShotHit(struct ReactionCtx *pCtx, struct Shot *pShot,
         pQuery = &cast;
         break;
     }
-    FX_Atan2(pDelta->x, pDelta->z);
+    FX_Atan2Idx(pDelta->x, pDelta->z);
     bRow = 0;
     params.nField08 = pDesc->nHitFlags;
     params.bFlagA = 0;

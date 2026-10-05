@@ -75,7 +75,7 @@ extern struct Ov107LockTarget *Ov107_FindNearestObject(Actor *owner, int out);
 extern void SetIndexedSlot(void *node, int idx, void *value);
 extern int VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *unit);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, void *src, void *dst);
 
@@ -103,7 +103,7 @@ void Ov122_ChargeTowardTarget_Step(struct Ov120ActionNode *node)
     target = state->pTarget;
     owner = state->pOwner;
     gap = VEC_Normalize(&vAim, &vAim) - target->nRadius80 - owner->sphere.radius;
-    state->nHeading14 = func_020050b4(vAim.x, vAim.z);
+    state->nHeading14 = FX_Atan2(vAim.x, vAim.z);
     if (gap > state->pOwner->range) {
         state->pOwner->nextState = 2;
         SetIndexedSlot(node, node->slot, 0);

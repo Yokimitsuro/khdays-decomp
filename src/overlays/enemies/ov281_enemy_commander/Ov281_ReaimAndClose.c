@@ -13,7 +13,7 @@
 #include "nitro/fx_types.h"
 
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(void *a, void *b);
 extern void ScaleVec3Fx12(int a, void *b, void *c);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
@@ -27,7 +27,7 @@ void Ov281_ReaimAndClose(int *node) {
     int gap;
 
     VEC_Subtract((void *)(state[0] + 0x190), (void *)state[3], &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     obj = (int *)state[0];
     mag = VEC_Normalize(&d, &d);
     gap = mag - obj[0x20];

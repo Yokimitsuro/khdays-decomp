@@ -10,7 +10,7 @@ extern void ScaleVec3Fx12(int scale, void *src, void *dst);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void VEC_Normalize(void *src, void *dst);
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 extern short data_0203d210[];
 
 void Ov277_BounceTick(int *param_1)
@@ -57,7 +57,7 @@ void Ov277_BounceTick(int *param_1)
             ScaleVec3Fx12(0x800, state + 0x14, state + 0x14);
         }
         VEC_Subtract((void *)(state[4] + 400), (void *)state[1], l40);
-        state[6] = func_020050b4(l40[0], l40[2]);
+        state[6] = FX_Atan2(l40[0], l40[2]);
         if (state[0x11] >= 0x1000) {
             *(signed char *)(*state + 0x1c7) = 8;
             SetIndexedSlot(param_1, *(signed char *)(param_1 + 8), 0);

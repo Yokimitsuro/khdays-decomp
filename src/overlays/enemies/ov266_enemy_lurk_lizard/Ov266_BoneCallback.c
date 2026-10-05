@@ -36,7 +36,7 @@ extern void VEC_Subtract(const void *a, const void *b, void *out);
 extern int VEC_Normalize(const VecFx32 *v, void *out);
 extern void ScaleVec3Fx12(int scale, const void *v, void *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov266_WrapSignedDelta6488(int a, int b);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(const VecFx32 *v, const Mtx33 *m, VecFx32 *out);
@@ -132,7 +132,7 @@ void Ov266_BoneCallback(int rig, char *self)
             blocked = 1;
             quat = saved;
         } else {
-            ang = func_020050b4(dir.x, dir.z);
+            ang = FX_Atan2(dir.x, dir.z);
             if (i != 0) {
                 int diff = Ov266_WrapSignedDelta6488(ang, prev);
 

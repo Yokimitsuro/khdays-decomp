@@ -93,7 +93,7 @@ extern int Ov022_IsIndexedRecordBit0Set(struct Actor *pActor, int nIndex);
 extern int Ov022_TestBit4(u32 *pFlags);
 extern struct CollSurfaceAttr *Actor_GetRecord(struct CollBlock *pBlock, int nTag);
 extern void VecFx32FromVecS16(int nHandle, u8 *pFace, VecFx32 *pOut);
-extern int FX_Atan2(int x, int y);
+extern int FX_Atan2Idx(int x, int y);
 
 int Ov022_MayActOnHit(struct Actor *pActor)
 {
@@ -174,7 +174,7 @@ int Ov022_MayActOnHit(struct Actor *pActor)
                 }
                 VecFx32FromVecS16(aBlocks[i]->nHandle, aBlocks[i]->pContacts + 0x14,
                               &vecNormal);
-                nDelta = (u16)(nFacing - (u16)FX_Atan2(-vecNormal.x,
+                nDelta = (u16)(nFacing - (u16)FX_Atan2Idx(-vecNormal.x,
                                                        -vecNormal.z));
                 if (nDelta <= FACING_NEAR || nDelta >= FACING_FAR) {
                     bResult = 1;

@@ -87,7 +87,7 @@ extern void Vec3TransformViaTempMtx(VecFx32 *dst, const Quaternion *q, const Vec
 extern void ScaleVec3Fx12(int scale, const VecFx32 *src, VecFx32 *dst);
 extern void Mtx33_LookAt(MtxFx33 *m, const VecFx32 *a, const VecFx32 *b, const VecFx32 *c);
 extern void Quat_FromMtx33(Quaternion *q, const MtxFx33 *m);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_InvokeHitCallback(int a, int b, int c, int d, const VecFx32 *e, int f);
 extern void Ov186_AiFallTick(void);
 extern VecFx32 data_020475ac;
@@ -202,7 +202,7 @@ void Ov186_EmitAtOrbit(OrbitTask *self) {
         ctx->owner->status.hi &= ~6;
         SetVec3(&ctx->motion, ctx->steering.x, 0x400, ctx->steering.z);
         QuatFromAxisAngle(&ctx->orientation, &data_02042264,
-                      func_020050b4(ctx->steering.x, ctx->steering.z));
+                      FX_Atan2(ctx->steering.x, ctx->steering.z));
         ctx->previousOrientation = ctx->orientation;
         SetIndexedSlot(self, self->actionSlot, Ov186_AiFallTick);
         return;

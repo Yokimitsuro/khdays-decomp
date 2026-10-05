@@ -8,7 +8,7 @@ struct hw { unsigned short lo:8, hi:8; };
 
 extern int Ov107_FindNearestObject(int a, int b);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern void Ov131_AiRollTimerQueue2(void);
 
@@ -24,7 +24,7 @@ void Ov131_stAdvanceTimerAimTarget(int *param_1) {
         if (target != 0) {
             int angle;
             VEC_Subtract((void *)(target + 0x74), (void *)state[0x11], sp);
-            angle = func_020050b4(sp[0], sp[2]);
+            angle = FX_Atan2(sp[0], sp[2]);
             state[4] = angle;
             state[3] = angle;
         }

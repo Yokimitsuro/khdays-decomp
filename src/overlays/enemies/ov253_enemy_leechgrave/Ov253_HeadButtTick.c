@@ -25,7 +25,7 @@ typedef struct { VecFx32 center; int nRadius; } Sphere;
 
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void Ov107_BuildAndSendUpdate(int owner, int id, int mode, void *at);
 extern long long FX_DivFx64c(int num, int den);
 extern int Ov107_CollectSphereOverlaps(int owner, Sphere *sphere, int *hits);
@@ -55,7 +55,7 @@ void Ov253_HeadButtTick(int *node)
     state[3] = Ov107_FindNearestObject(*state, 0);
     if (state[3] != 0) {
         VEC_Subtract((void *)(state[3] + 0x190), (void *)state[1], &d);
-        state[5] = func_020050b4(d.x, d.z);
+        state[5] = FX_Atan2(d.x, d.z);
     }
     state[7] += *(int *)(node[0] + 0x2c);
     if (*((u8 *)state + 0x32) == 0 && state[7] >= 0x888) {

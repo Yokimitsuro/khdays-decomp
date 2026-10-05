@@ -9,7 +9,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void Ov260_PlaySound(int owner, int mode, int arg);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -23,7 +23,7 @@ void Ov260_DashEntryTick(int *node)
 
     if (state[2] != 0) {
         VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)state[4], &d);
-        state[0x19] = state[0x1a] = func_020050b4(d.x, d.z);
+        state[0x19] = state[0x1a] = FX_Atan2(d.x, d.z);
         Ov107_PostTagUpdate((Actor *)(*state), 0xa, 0);
         Ov107_StartAnim(*(int *)(*state + 0x428), 4, 0);
         func_ov107_020c0b90(*state, 0xd, data_02041dc8, 8);

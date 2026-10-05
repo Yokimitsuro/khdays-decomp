@@ -52,7 +52,7 @@ static inline void VecFx32_Set(VecFx32 *vec, int x, int y, int z)
 extern Actor *Ov107_FindNearestObject(Actor *actor, int index);
 extern void SetIndexedSlot(Ov188ActionNode *node, int slot, void *callback);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *src, VecFx32 *dst);
 extern void func_ov107_020c0b90();
 extern void *Ov188_ProcessHitTargets(Ov188ActionState *state, unsigned int mask,
@@ -78,7 +78,7 @@ void Ov188_UpdateAimedHitAction(Ov188ActionNode *node)
     VEC_Subtract((const VecFx32 *)((char *)state->target + 0x190),
                  (const VecFx32 *)((char *)state->actor + 0xb0), &scratch.toTarget);
     scratch.toTarget.y = 0;
-    state->targetHeading = func_020050b4(scratch.toTarget.x, scratch.toTarget.z);
+    state->targetHeading = FX_Atan2(scratch.toTarget.x, scratch.toTarget.z);
 
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state->heading *
                             0x28be60db9391LL + 0x80000000000LL) >> 0x20) << 4)

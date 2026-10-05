@@ -9,7 +9,7 @@
 
 extern void *Ov107_FindNearestObject(void *obj, int a);
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov154_AiStep_QueueAction2OnFlag0cClear(void);
 
@@ -30,7 +30,7 @@ void Ov154_AiWaitThenTarget(int *node) {
     state[6] = (int)Ov107_FindNearestObject((void *)state[0], 0);
     if (state[6] != 0) {
         VEC_Subtract((void *)(state[6] + 0x74), (void *)(state[0] + 0x74), &d);
-        h = func_020050b4(d.x, d.z);
+        h = FX_Atan2(d.x, d.z);
         state[5] = h;
         state[4] = h;
     }

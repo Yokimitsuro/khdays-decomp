@@ -67,7 +67,7 @@ extern void SetIndexedSlot(int node, int slot, void *cb);
 extern struct Ov153Actor *Ov107_FindNearestObject(struct Ov153Actor *owner, int mode);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Mag(const VecFx32 *v);
 extern const short data_0203d210[];
 extern const PosMsg data_ov154_020d1c68;
@@ -147,7 +147,7 @@ void Ov154_HomingFlightTick(int node)
             if (VEC_DotProduct(&d, &dir) > 0x800) {
                 VEC_Add(&d, &dir, &sum);
                 r = RandNextScaled(0x10c1) - 0x860;
-                angle = func_020050b4(sum.x, sum.z);
+                angle = FX_Atan2(sum.x, sum.z);
                 angle += r;
                 idx = (unsigned short)((0x28BE60DB9391LL * angle + 0x80000000000LL) >> 44);   /* FX_RAD_TO_IDX */
                 state->nDirX = data_0203d210[(idx >> 4) << 1];                               /* FX_SinIdx */

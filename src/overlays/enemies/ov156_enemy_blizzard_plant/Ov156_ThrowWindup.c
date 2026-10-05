@@ -14,7 +14,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern void Ov107_BuildAndSendUpdate(int actor, int id, int mode, void *anchor);
 extern void Ov156_RelayoutAndStoreVec(int item, void *from, VecFx32 *dir);
@@ -36,7 +36,7 @@ void Ov156_ThrowWindup(int *node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[2], &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     state[0xc] = *(int *)(*node + 0x2c) * 0x1e / 5;
     state[0xb] += *(int *)(*node + 0x2c);
     if (*(unsigned char *)(state + 0xe) == 0 && state[0xb] >= 0xccc) {

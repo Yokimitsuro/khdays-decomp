@@ -40,7 +40,7 @@ extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(void *a, void *b);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern int Ov216_AiCountdownQueue6(int *self, int dist);
@@ -66,7 +66,7 @@ void Ov216_SteerTowardTarget(int *self) {
     aim.y = 0;
     aim.z = -aim.z;
     dist = VEC_Normalize(&aim, &aim);
-    state[0x13] = func_020050b4(aim.x, aim.z);
+    state[0x13] = FX_Atan2(aim.x, aim.z);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[0x11] * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
     VEC_Set(&dir, (int)data_0203d210[idx * 2], 0, (int)data_0203d210[idx * 2 + 1]);

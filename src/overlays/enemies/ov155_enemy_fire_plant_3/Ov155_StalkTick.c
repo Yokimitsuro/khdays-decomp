@@ -17,7 +17,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void SetIndexedSlot(int node, int slot, void *cb);
@@ -46,7 +46,7 @@ void Ov155_StalkTick(int node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[1], &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     if (state[7] > 0) {
         state[7] -= *(int *)(*(int *)node + 0x2c);
     }

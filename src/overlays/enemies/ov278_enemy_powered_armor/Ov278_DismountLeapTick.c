@@ -23,7 +23,7 @@ extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void Quat_Slerp(void *a, int s, void *b, void *m);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const VecFx32 data_02042258;
 extern void Ov278_DismountLandingTick(void);
@@ -57,7 +57,7 @@ void Ov278_DismountLeapTick(int *node) {
     VEC_Subtract(&acc, (VecFx32 *)state[7], (VecFx32 *)(state + 2));
     Quat_Slerp(&pose, t, state + 0x19, (void *)(*(int *)(*state + 0x384) + 0xa0));
     Vec3TransformViaTempMtx(&tmp, (void *)(*(int *)(*state + 0x384) + 0xa0), &data_02042258);
-    state[0xb] = state[0xa] = func_020050b4(tmp.x, tmp.z);
+    state[0xb] = state[0xa] = FX_Atan2(tmp.x, tmp.z);
     if (state[5] < 0x1000) return;
     {
         int actor = *state;

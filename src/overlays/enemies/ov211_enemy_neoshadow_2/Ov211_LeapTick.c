@@ -14,7 +14,7 @@ extern void Ov211_BindOwnerAndAttach(int height, int a, int b);
 extern int Ov107_FindNearestObject(int owner, int flag);
 extern int Ov107_BuildAndSendUpdate(int a, int b, int c, int d);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern long long FX_DivFx64c(int num, int denom);
 extern void SetIndexedSlot(int self, int idx, int cb);
 
@@ -42,7 +42,7 @@ void Ov211_LeapTick(int *self) {
         }
     }
     VEC_Subtract((void *)(state[4] + 0x190), (void *)state[1], &d);
-    state[0xa] = func_020050b4(d.x, d.z);
+    state[0xa] = FX_Atan2(d.x, d.z);
     state[0xb] += *(int *)(*self + 0x2c);
     if (state[0xb] > 0) {
         state[0xc] += *(int *)(*self + 0x2c);

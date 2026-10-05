@@ -6,7 +6,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov146_Launch(int *state, VecFx32 dir);
 extern const short data_0203d210[];
 
@@ -24,7 +24,7 @@ int Ov146_OnKnockback(char *self, char *attacker)
     if (attacker != 0 && *(signed char *)(*state + 0x1c6) != 1) {
         VEC_Subtract((VecFx32 *)(*state + 0xb0), (VecFx32 *)(attacker + 0x190), &d);
         {
-            int idx = ANG2IDX(func_020050b4(d.x, d.z)) * 2;
+            int idx = ANG2IDX(FX_Atan2(d.x, d.z)) * 2;
 
             dir.y = 0;
             dir.x = data_0203d210[idx];

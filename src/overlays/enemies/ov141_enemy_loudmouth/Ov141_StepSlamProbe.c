@@ -70,7 +70,7 @@ extern void Ov141_StepSlamStrike(void);
 extern void Quat_FromTwoVectors(struct Ov141Quat *out, const VecFx32 *from,
                           const VecFx32 *to);
 extern void Srt_SetRotationQuat(void *srt, const struct Ov141Quat *rot);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *src, VecFx32 *dst);
 extern void MTX_RotY33_(struct Ov141Mtx33 *m, int sine, int cosine);
 extern void MTX_MultVec33(const VecFx32 *v, const struct Ov141Mtx33 *m,
@@ -112,7 +112,7 @@ void Ov141_StepSlamProbe(struct Ov141StepNode *node)
     state->pSelf->pPoolEntry388->flags |= 1;
 
     state->vFacing14 = state->pSelf->vFacing38c;
-    angle = func_020050b4(state->vFacing14.x, state->vFacing14.z);
+    angle = FX_Atan2(state->vFacing14.x, state->vFacing14.z);
     state->nSpeed28 = 0x800;
     ScaleVec3Fx12(0x800, &state->vFacing14, &state->vVelocity08);
 

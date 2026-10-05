@@ -25,7 +25,7 @@ extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern int Ov298_AcquireTargetGapAndAngle(int *node);
 extern void Ov298_DashSetup(int *node);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -80,7 +80,7 @@ void Ov298_WanderTick(int *node)
             if ((unsigned int)RandNextScaled(0x64) < 0xf) {
                 VEC_Subtract((void *)(*(int *)(*state + 0x394) + 0x74), (void *)(*state + 0x74), &dir);
                 VEC_Normalize(&dir, &dir);
-                state[0xb] = state[0xc] = func_020050b4(dir.x, dir.z);
+                state[0xb] = state[0xc] = FX_Atan2(dir.x, dir.z);
                 *(u8 *)(*state + 0x1c7) = 5;
             }
         }
@@ -123,7 +123,7 @@ void Ov298_WanderTick(int *node)
             ScaleVec3Fx12(VEC_DotProduct(&back, &n) << 1, &n, &refl);
             VEC_Subtract(&refl, &back, &refl);
             VEC_Normalize(&refl, &refl);
-            state[0xd] = func_020050b4(refl.x, refl.z);
+            state[0xd] = FX_Atan2(refl.x, refl.z);
             len = VEC_Normalize((VecFx32 *)(state + 4), (VecFx32 *)(state + 4));
             ScaleVec3Fx12(len, &refl, (VecFx32 *)(state + 4));
             state[0x1e]++;

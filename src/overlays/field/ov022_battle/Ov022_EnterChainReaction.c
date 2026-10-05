@@ -111,7 +111,7 @@ extern void func_ov022_0208acdc(struct ReactionCtx *pCtx, VecFx32 *pAim,
                                 int nReaction);
 extern int Ov022_ValidateTargetRef(struct Actor *pActor);
 extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void ScaleVec3Fx12(int nFactor, VecFx32 *pSrc,
                           VecFx32 *pDst);
 extern void func_ov022_020b15a4(void *pOwner, u16 *pBinding);
@@ -161,7 +161,7 @@ void Ov022_EnterChainReaction(struct ReactionCtx *pCtx)
     pSlot->nMarkNext = (unsigned int)(resetCarrier >> 32);
     if (Ov022_ValidateTargetRef(pActor) != 0) {
         VEC_Subtract(func_ov022_020ad0c0(pActor), &pActor->vecAim, &vecToTarget);
-        nAngle = FX_Atan2(vecToTarget.x, vecToTarget.z);
+        nAngle = FX_Atan2Idx(vecToTarget.x, vecToTarget.z);
     }
     nTrig = (nAngle >> ANGLE_STEP) * 2;
     vecDir.x = data_0203d210[nTrig];

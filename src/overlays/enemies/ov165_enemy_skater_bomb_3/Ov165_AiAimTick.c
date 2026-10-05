@@ -42,7 +42,7 @@ extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void VEC_CrossProduct(void *a, void *b, void *d);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern int RandNextScaled();
@@ -71,7 +71,7 @@ void Ov165_AiAimTick(int *self) {
         gap = VEC_Normalize(&aim, &aim) -
               (*(int *)((char *)h + 0x80) + *(int *)((char *)o + 0x80));
     }
-    state[4] = func_020050b4(aim.x, aim.z);
+    state[4] = FX_Atan2(aim.x, aim.z);
 
     axis.y = (int)*(signed char *)((int)state + 0x6c) << 12;
     axis.x = 0;

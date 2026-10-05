@@ -12,7 +12,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov107_FindNearestObject(int actor, int *distSq);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
 void Ov156_ApproachDecision(int *node)
@@ -35,7 +35,7 @@ void Ov156_ApproachDecision(int *node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[2], &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     if (state[0xd] > 0) {
         return;
     }

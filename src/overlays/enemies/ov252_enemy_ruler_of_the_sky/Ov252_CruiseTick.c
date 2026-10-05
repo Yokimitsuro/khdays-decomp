@@ -39,7 +39,7 @@ extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void Ov107_BuildAndSendUpdate(int actor, int bank, int variant, void *at);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern int Ov252_IsAwayFromOrigin(int *node);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern CollisionHit *Collision_CastRay(void *collision, VecFx32 *origin, VecFx32 *direction);
@@ -194,7 +194,7 @@ void Ov252_CruiseTick(int *node)
 
             ring = data_ov252_020d4428;
             {
-                int idx = ANG2IDX(func_020050b4(*(int *)(*(int *)(*state + 0x4e4) + 0x19c), *(int *)(*(int *)(*state + 0x4e4) + 0x1a4))) * 2;
+                int idx = ANG2IDX(FX_Atan2(*(int *)(*(int *)(*state + 0x4e4) + 0x19c), *(int *)(*(int *)(*state + 0x4e4) + 0x1a4))) * 2;
 
                 MTX_RotY33_(&rot, data_0203d210[idx], data_0203d210[idx + 1]);
             }

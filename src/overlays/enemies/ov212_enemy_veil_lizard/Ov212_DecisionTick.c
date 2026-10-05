@@ -20,7 +20,7 @@ extern int Ov107_FindNearestObject(int actor, int mode);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov212_IsState6cActive(int *state, int a);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
@@ -59,7 +59,7 @@ void Ov212_DecisionTick(int *node)
     aim.y = 0;
     len = VEC_Normalize(&aim, &aim);
     gap = len - *(int *)(*(int *)(*state + 0x5a8) + 0x80) - *(int *)(*state + 0x80);
-    state[0xf] = func_020050b4(aim.x, aim.z);
+    state[0xf] = FX_Atan2(aim.x, aim.z);
     idx = FX_RadToIdx(state[0xd]);
     fwd.y = 0;
     fwd.x = data_0203d210[(idx >> 4) * 2];

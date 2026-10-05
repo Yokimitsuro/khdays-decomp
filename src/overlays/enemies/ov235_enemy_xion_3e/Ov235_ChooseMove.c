@@ -58,7 +58,7 @@
 
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const int *a, const int *b, int *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const int *v, int *unit);
 extern int func_02020400(int a, int b);
 extern void SetIndexedSlot(int self, int slot, void (*cb)(void));
@@ -91,7 +91,7 @@ void Ov235_ChooseMove(int self) {
     owner = (int *)ctx[0];
     ctx[0x10] = *(int *)(*(int *)self + 0x2c) * 30 / 15;
     VEC_Subtract((const int *)(target + 0x74), (const int *)((int)owner + 0x74), toTarget);
-    QuatFromAxisAngle(&ctx[0xb], data_02042264, func_020050b4(toTarget[0], toTarget[2]));
+    QuatFromAxisAngle(&ctx[0xb], data_02042264, FX_Atan2(toTarget[0], toTarget[2]));
     gap = VEC_Normalize(toTarget, toTarget) - owner[0x20] - *(int *)(target + 0x80);
 
     if (ctx[0x22] != 0) {

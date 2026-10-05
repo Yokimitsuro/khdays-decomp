@@ -16,7 +16,7 @@ extern int Ov107_FindNearestObject(int owner, int flag);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 static inline int RandRange(int lo, int hi) { return (int)RandNextScaled(hi - lo + 1) + lo; }
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
@@ -43,7 +43,7 @@ void Ov275_DecisionTick(int *node)
     owner = *state;
     gap = VEC_Normalize(&dir, &dir) - (*(int *)(owner + 0x80) + *(int *)(target + 0x80));
     state[0xf] = *(int *)(node[0] + 0x2c) * 30 / 30;
-    state[0x11] = func_020050b4(dir.x, dir.z);
+    state[0x11] = FX_Atan2(dir.x, dir.z);
     reach = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3b4), &aim);
     Vec3TransformViaTempMtx((VecFx32 *)(state + 5), (char *)*state + 0xa0, &aim);
     ScaleVec3Fx12(reach, (VecFx32 *)(state + 5), (VecFx32 *)(state + 5));

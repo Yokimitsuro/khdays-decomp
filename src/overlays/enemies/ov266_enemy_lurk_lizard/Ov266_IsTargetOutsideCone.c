@@ -18,7 +18,7 @@
 
 extern int *Ov107_FindNearestObject(int a, int b);
 extern int VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern short data_0203d210[];
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
@@ -34,7 +34,7 @@ int Ov266_IsTargetOutsideCone(void *self) {
     if (tgt != 0) {
         VEC_Subtract((char *)tgt + 0x190, (void *)ctx[2], &d);
         d.y = 0;
-        a = func_020050b4(d.x, d.z);
+        a = FX_Atan2(d.x, d.z);
         ia = ANG2IDX(ctx[0xd]);
         im = ANG2IDX(a);
         ang = Fx_Acos(FX_MUL(data_0203d210[im * 2], data_0203d210[ia * 2]) +

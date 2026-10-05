@@ -15,7 +15,7 @@ extern int  Ov268_PickBestFacingNode(int obj, void *p);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern int  VEC_DotProduct(void *a, void *b);
 extern void Ov268_FireRangedShot(void);
 extern void Ov268_FaceTargetFireReady(void);
@@ -44,7 +44,7 @@ void Ov268_FaceTargetFireGate(int *self) {
         ((unsigned short)((state[0xc] * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4) * 2 + 1];
     VEC_Subtract((void *)(state[4] + 0x190), (void *)state[2], &v);
     VEC_Normalize(&v, &v);
-    state[0xd] = func_020050b4(v.x, v.z);
+    state[0xd] = FX_Atan2(v.x, v.z);
     if (VEC_DotProduct(&dir, &v) >= 0xf00) {
         Ov107_PostTagUpdate((Actor *)(*state), 3, 0);
         SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), (int)&Ov268_FireRangedShot);

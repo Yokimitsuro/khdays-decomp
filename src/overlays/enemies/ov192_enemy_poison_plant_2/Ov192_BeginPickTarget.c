@@ -16,7 +16,7 @@ extern int *List_First(void *list);
 extern int *List_Next(void *list);
 extern int RandNextScaled(int bound);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern Pair data_ov192_020d4b90;
 extern void Ov192_FireShockwave(void);
@@ -64,7 +64,7 @@ void Ov192_BeginPickTarget(int node)
         }
         state[6] = found[RandNextScaled(n)];
         VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[2], &d);
-        state[5] = func_020050b4(d.x, d.z);
+        state[5] = FX_Atan2(d.x, d.z);
         state[0xc] = *(int *)(*(int *)node + 0x2c) * 30 / 5;
         SetIndexedSlot(node, *(signed char *)(node + 0x20), Ov192_FireShockwave);
     }

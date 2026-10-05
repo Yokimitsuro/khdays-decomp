@@ -4,7 +4,7 @@
 
 extern void VEC_Subtract(int *a, int *b, int *out);
 extern int VEC_Normalize(const VecFx32 *source, VecFx32 *destination);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void func_ov107_020c0b90(int owner, int a, VecFx32 v, int flag);
 extern void SetIndexedSlot(int self, int idx, void *cb);
 extern void Ov283_AiLandStart(int);
@@ -19,7 +19,7 @@ void Ov283_AiFaceTarget(int *self) {
 
     VEC_Normalize(&diff, &diff);
 
-    int angle = func_020050b4(diff.x, diff.z);
+    int angle = FX_Atan2(diff.x, diff.z);
     *(int *)(state + 0x40) = angle;
     *(int *)(state + 0x38) = angle;
 

@@ -49,7 +49,7 @@ extern int Ov022_GetGlobalPlus14(void);
 extern void Ov022_ResolveTargetPick(Ov022Node *node, int value);
 extern VecFx32 *Ov002_GetWordAt0x20Plus0x20(int actor);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern short FX_Atan2(int x, int y);
+extern short FX_Atan2Idx(int x, int y);
 extern void func_ov022_020a0678(Ov022Node *node, int isPrimary);
 extern void func_ov022_020ad474(Ov022Node *node);
 extern void Ov022_RunPendingHitCallback(Ov022Node *node);
@@ -92,7 +92,7 @@ void Ov022_StepPrimaryNodeTarget(int unused)
 
     target = *Ov002_GetWordAt0x20Plus0x20(actor);
     VEC_Subtract(&target, &node->position48c, &delta);
-    node->facing478 = FX_Atan2(delta.x, delta.z);
+    node->facing478 = FX_Atan2Idx(delta.x, delta.z);
 
     if ((node->flags & 0x1000000ULL) != 0) {
         node->flags018 &= ~0xc02;

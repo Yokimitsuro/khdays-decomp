@@ -24,7 +24,7 @@
 
 extern void BindAnimTrack(char *p, int i, char *tbl, short m);
 extern void Anim_SetFrameWrapped(char *p, int i, int z);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern char *data_ov042_020b4800;
 
 void Ov042_ClaimSlotAndLaunch(VecFx32 *pos, VecFx32 *dir) {
@@ -58,7 +58,7 @@ void Ov042_ClaimSlotAndLaunch(VecFx32 *pos, VecFx32 *dir) {
     Anim_SetFrameWrapped(slot + 4, 1, 0);
 
     *(VecFx32 *)(slot + 0xa8) = *pos;
-    *(short *)(slot + 0x80) = (short)FX_Atan2(-dir->x, -dir->z);
+    *(short *)(slot + 0x80) = (short)FX_Atan2Idx(-dir->x, -dir->z);
     *(unsigned short *)(slot + 4) |= 0x20;
     *(int *)(blk + 0xc) = *(int *)(blk + 0xc) + 1;
 }

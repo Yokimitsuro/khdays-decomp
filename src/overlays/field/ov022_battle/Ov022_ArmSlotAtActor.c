@@ -105,7 +105,7 @@ extern int Ov022_ValidateTargetRef(struct Actor *pActor);
 extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB,
                          VecFx32 *pOut);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void VEC_MultAdd(int nScale, VecFx32 *pVec,
                         VecFx32 *pAdd, VecFx32 *pDst);
 extern void func_ov022_020b15a4(int nTrack, u16 *pBinding);
@@ -159,7 +159,7 @@ void Ov022_ArmSlotAtActor(struct ReactionCtx *pCtx)
     if (Ov022_ValidateTargetRef(pActor) != 0) {
         VEC_Subtract(func_ov022_020ad0c0(pActor), &pActor->vecAim,
                      &vecToTarget);
-        nFacing = FX_Atan2(vecToTarget.x, vecToTarget.z);
+        nFacing = FX_Atan2Idx(vecToTarget.x, vecToTarget.z);
     }
     nIndex = nFacing >> 4;
     vecAim = pActor->vecAim;

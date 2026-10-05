@@ -112,7 +112,7 @@ extern int Ov022_GetActorValue(void *pActor, int nField,
 extern int func_ov022_0208ac10(struct ReactionCtx *pCtx,
                                struct ActionQuery *pQuery,
                                struct ActionParams *pParams);
-extern s16 FX_Atan2(int x, int z);
+extern s16 FX_Atan2Idx(int x, int z);
 extern void Ov022_MarshalNetworkRecord(void *pActor, int nKind,
                                 VecFx32 *pAt, int nScale,
                                 unsigned int nAngle, unsigned int bEnd);
@@ -184,7 +184,7 @@ void Ov022_MovePartTo(struct ReactionCtx *pCtx, struct SlotPart *pPart,
             if (nAnswer == ANSWER_FAR) {
                 bEnd = 1;
             } else {
-                nAngle = FX_Atan2(-pDir->x, -pDir->z);
+                nAngle = FX_Atan2Idx(-pDir->x, -pDir->z);
                 Ov022_MarshalNetworkRecord(pActor, RECORD_KIND, pAt, CONE_FULL,
                                     nAngle, bEnd);
             }

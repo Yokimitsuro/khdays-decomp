@@ -28,7 +28,7 @@ extern VecFx32 *func_ov022_020ad0c0(char *self);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Mag(const VecFx32 *v);
 extern void VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int Ov022_StepAnchorDelta(char *self, void *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int Ov022_IsSlotReady(char *chan);
@@ -62,7 +62,7 @@ void *Ov076_ApproachStep(char *self)
         if (VEC_Mag(&dir) != 0) {
             VEC_Normalize(&dir, &dir);
         }
-        angle = (u16)FX_Atan2(-dir.x, -dir.z);
+        angle = (u16)FX_Atan2Idx(-dir.x, -dir.z);
     }
     if (*(int *)(self + 0x7b0) % 0x6000 == 0 && angle != -1) {
         node = *(unsigned int **)(self + 0x20);

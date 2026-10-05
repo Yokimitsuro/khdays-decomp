@@ -36,7 +36,7 @@ extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(void *a, void *b);
 extern short data_0203d210[];
 
@@ -60,7 +60,7 @@ void Ov121_AimPickMeleeReaction(int *self) {
     tgt = state[2];
     own = *state;
     gap = (VEC_Normalize(&aim, &aim) - *(int *)(tgt + 0x80)) - *(int *)(own + 0x80);
-    state[5] = func_020050b4(aim.x, aim.z);
+    state[5] = FX_Atan2(aim.x, aim.z);
     if (gap > *(int *)(*state + 0x2d8)) {
         return;
     }

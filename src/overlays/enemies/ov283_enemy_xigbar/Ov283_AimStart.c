@@ -9,7 +9,7 @@
 extern void Ov283_MeasureTargetGap(int *node);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -29,7 +29,7 @@ void Ov283_AimStart(int *node)
     Ov283_MeasureTargetGap(node);
     VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x390) + 0x190), (VecFx32 *)(*state + 0x74), &d);
     VEC_Normalize(&d, &d);
-    state[0xe] = state[0x10] = func_020050b4(d.x, d.z);
+    state[0xe] = state[0x10] = FX_Atan2(d.x, d.z);
     target = *(VecFx32 *)(*(int *)(*state + 0x390) + 0x190);
     VEC_Normalize(&d, &unit);
     {

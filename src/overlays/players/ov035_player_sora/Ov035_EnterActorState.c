@@ -8,7 +8,7 @@ extern int *Anim_SetFrameWrapped(int node, int index, int value);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *dst);
 extern int VEC_Mag(const VecFx32 *v);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern int Ov022_ValidateTargetRef(char *self);
 extern VecFx32 *func_ov022_020ad0c0(char *self);
 extern char *data_ov035_020b4ca0;
@@ -38,7 +38,7 @@ void *Ov035_EnterActorState(char *self, int msg) {
             delta.y = 0;
             if (VEC_Mag(&delta) != 0)
                 VEC_Normalize(&delta, &delta);
-            angle = (unsigned short)FX_Atan2(-delta.x, -delta.z);
+            angle = (unsigned short)FX_Atan2Idx(-delta.x, -delta.z);
             node = *(int **)(self + 0x20);
             if ((node[0] & 0x20) == 0) {
                 *(unsigned short *)((char *)node + 0x80) = angle + 0x8000;

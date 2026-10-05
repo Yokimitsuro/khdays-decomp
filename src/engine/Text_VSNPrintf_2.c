@@ -7,14 +7,13 @@
 
 #include "nitro/types.h"
 
-typedef unsigned int size_t;
 
 typedef char *va_list;
 #define __fourbytealign(n) ((((unsigned long)(n)) + 3U) & ~3U)
 #define va_arg(ap, type) (*(type *)(((ap) += __fourbytealign(sizeof(type))) - __fourbytealign(sizeof(type))))
 
 typedef struct dst_string_tag {
-    size_t len;
+    unsigned int len;
     char *cur;
     char *base;
 } dst_string;
@@ -29,7 +28,7 @@ extern int STD_GetStringLength(const char *str);                          /* STD
 #define string_fill_char PrintfDest_FillChar
 #define string_put_string PrintfDest_PutString
 
-int Text_VSNPrintf_2(char *dst, size_t len, const char *fmt, va_list vlist)
+int Text_VSNPrintf_2(char *dst, unsigned int len, const char *fmt, va_list vlist)
 {
     char buf[24];
     char frac[14];

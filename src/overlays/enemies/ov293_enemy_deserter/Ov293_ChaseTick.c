@@ -50,7 +50,7 @@ extern void VEC_Subtract(const Vec3 *a, const Vec3 *b, Vec3 *dst);
 extern int VEC_Normalize(const Vec3 *v, Vec3 *unit);
 extern int FX_Div(int num, int den);
 extern int RandNextScaled();
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 extern int Ov107_FindNearestObject(char *actor, int mode);
 extern void SetIndexedSlot(struct Node *node, int slot, void *next);
 extern void ScaleVec3Fx12(int scale, const Vec3 *src, Vec3 *dst);
@@ -90,10 +90,10 @@ void Ov293_ChaseTick(struct Node *node)
                          0x800) >> 12);
         if (nFactor > 0) {
             st->nAngleTarget10 =
-                (func_020050b4(-vToTarget.nX, -vToTarget.nZ) + 0x3244) - nSpread;
+                (FX_Atan2(-vToTarget.nX, -vToTarget.nZ) + 0x3244) - nSpread;
         } else {
             st->nAngleTarget10 =
-                nSpread + (func_020050b4(vToTarget.nX, vToTarget.nZ) + 0x3244);
+                nSpread + (FX_Atan2(vToTarget.nX, vToTarget.nZ) + 0x3244);
         }
     } else {
         if (((struct Ov293Owner *)((int *)&data_ov293_020d3660)[2])->nOwner04 == *(int *)(st->pActor + 4)) {
@@ -104,7 +104,7 @@ void Ov293_ChaseTick(struct Node *node)
         if (st->pTarget04 != 0) {
             VEC_Subtract((const Vec3 *)(st->pTarget04 + 0x190), (const Vec3 *)(st->pActor + 0xb0), &vToTarget);
             nDist = VEC_Normalize(&vToTarget, &vToTarget);
-            st->nAngleTarget10 = func_020050b4(vToTarget.nX, vToTarget.nZ);
+            st->nAngleTarget10 = FX_Atan2(vToTarget.nX, vToTarget.nZ);
         } else {
             st->nSpeed18 = 0x2000;
             *(u8 *)(st->pActor + 0x1c7) = 2;

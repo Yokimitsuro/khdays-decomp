@@ -5,7 +5,7 @@
 extern int Ov107_FindNearestObject(int owner, int a);
 extern void SetIndexedSlot(int self, int index, void *cb);
 extern void Ov158_PickApproachDir(int *obj, int *out);
-extern int func_020050b4(int dx, int dz);
+extern short FX_Atan2(int dx, int dz);
 extern void Ov158_StartLeapMotion(void);
 void Ov158_AimAtTargetAndDispatch(int self) {
     int *obj = *(int **)(self + 4);
@@ -17,7 +17,7 @@ void Ov158_AimAtTargetAndDispatch(int self) {
         return;
     }
     Ov158_PickApproachDir(obj, buf);
-    obj[4] = func_020050b4(buf[0], buf[2]);
+    obj[4] = FX_Atan2(buf[0], buf[2]);
     {
         unsigned short v = *(unsigned short *)(*obj + 0x60);
         *(unsigned short *)(*obj + 0x60) =

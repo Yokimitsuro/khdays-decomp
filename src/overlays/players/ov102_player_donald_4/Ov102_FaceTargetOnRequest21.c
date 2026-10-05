@@ -9,7 +9,7 @@ extern int func_ov022_020ad0c0(int self);
 extern void VEC_Subtract(int a, int b, void *out);
 extern int VEC_Mag(void *v);
 extern void VEC_Normalize(void *a, void *b);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 
 void *Ov102_FaceTargetOnRequest21(int self, int req) {
     VecFx32 d;
@@ -29,7 +29,7 @@ void *Ov102_FaceTargetOnRequest21(int self, int req) {
                 VEC_Normalize(&d, &d);
             }
             {
-                unsigned short ang = (unsigned short)FX_Atan2(-d.x, -d.z);
+                unsigned short ang = (unsigned short)FX_Atan2Idx(-d.x, -d.z);
                 int *n = *(int **)(self + 0x20);
                 if ((*n & 0x20) == 0) {
                     *(unsigned short *)((char *)n + 0x80) = ang + 0x8000;

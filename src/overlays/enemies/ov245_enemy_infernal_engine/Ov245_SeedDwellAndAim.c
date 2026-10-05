@@ -3,10 +3,10 @@
 
 #include "game/engine.h"
 
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 
 void Ov245_SeedDwellAndAim(int *node, int *arg) {
     node[0xd] = RandNextScaled(0x1f79) + 0x88;
-    node[6] = func_020050b4(arg[0], arg[2]);
+    node[6] = FX_Atan2(arg[0], arg[2]);
     *(unsigned char *)(node[0] + 0x1c7) = 1;
 }

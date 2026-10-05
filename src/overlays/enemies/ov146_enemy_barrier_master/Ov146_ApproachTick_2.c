@@ -5,7 +5,7 @@
 #include "nitro/fx_types.h"
 
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -22,7 +22,7 @@ void Ov146_ApproachTick_2(int *node)
     unsigned int idx;
 
     VEC_Subtract((void *)(*state + 0x190), (void *)state[3], &d);
-    state[0xb] = func_020050b4(d.x, d.z);
+    state[0xb] = FX_Atan2(d.x, d.z);
     owner = *state;
     dist = VEC_Normalize(&d, &d) - *(int *)(owner + 0x80);
     idx = ANG2IDX(state[0xa]);

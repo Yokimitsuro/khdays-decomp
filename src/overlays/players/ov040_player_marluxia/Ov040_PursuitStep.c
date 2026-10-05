@@ -14,7 +14,7 @@ extern int Ov022_ValidateTargetRef(char *self);
 extern VecFx32 *func_ov022_020ad0c0(char *self);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Mag(const VecFx32 *v);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);         /* ScaleVec3Fx12 */
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
@@ -59,7 +59,7 @@ void *Ov040_PursuitStep(char *self)
             VEC_Subtract(func_ov022_020ad0c0(self), (VecFx32 *)(self + 0x8c + 0x400), &d);
             dist = VEC_Mag(&d);
             if (dist >= 0x1800) {
-                a = (u16)FX_Atan2(-d.x, -d.z);
+                a = (u16)FX_Atan2Idx(-d.x, -d.z);
                 node = *(unsigned int **)(self + 0x20);
                 if ((*node & 0x20) == 0) {
                     *(u16 *)((char *)node + 0x80) = a + 0x8000;

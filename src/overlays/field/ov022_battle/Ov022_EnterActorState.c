@@ -275,7 +275,7 @@ extern short data_0203d210[];               /* sin/cos table */
 extern int Session_GetLocalPlayerIndex(void);                                                 /* Session_GetLocalPlayerIndex */
 extern int Slot_EvalPackedParam(int nId, int nRule);                                   /* Slot_EvalPackedParam */
 extern struct PlayerSlot *GetPlayerSlotTableEntry(int nSlot);                             /* GetPlayerSlotTableEntry */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);                        /* VEC_Normalize */
@@ -353,7 +353,7 @@ static inline void FaceAwayFrom(struct Actor *pActor, VecFx32 *pVec)
     struct ActorNode *pNode;
     u16 nAngle;
 
-    nAngle = (u16)FX_Atan2(-pVec->x, -pVec->z);
+    nAngle = (u16)FX_Atan2Idx(-pVec->x, -pVec->z);
     pNode = pActor->pNode;
     if ((pNode->nFlags & NODE_LOCKED) == 0) {
         pNode->nAngle = nAngle + ANGLE_HALF;

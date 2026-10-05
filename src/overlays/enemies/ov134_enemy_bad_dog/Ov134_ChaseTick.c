@@ -15,7 +15,7 @@ extern int Ov107_FindNearestObject(int actor, int mode);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void Ov134_AimSpinPickAttack(void);
 extern const short data_0203d210[];
@@ -43,7 +43,7 @@ void Ov134_ChaseTick(int node)
     actor = *state;
     target = state[2];
     dist = VEC_Normalize(&d, &d) - (*(int *)(target + 0x80) + *(int *)(actor + 0x80));
-    state[4] = func_020050b4(d.x, d.z);
+    state[4] = FX_Atan2(d.x, d.z);
     idx = (unsigned short)((0x28BE60DB9391LL * state[3] + 0x80000000000LL) >> 44);   /* FX_RAD_TO_IDX */
     fwd.x = data_0203d210[(idx >> 4) << 1];                                              /* FX_SinIdx */
     fwd.z = data_0203d210[((idx >> 4) << 1) + 1];                                        /* FX_CosIdx */

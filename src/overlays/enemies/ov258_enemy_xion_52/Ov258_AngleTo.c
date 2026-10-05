@@ -4,7 +4,7 @@
 #include "nitro/fx_types.h"
 #include "game/engine.h"
 
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern const short data_0203d210[];
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
@@ -12,7 +12,7 @@ extern const short data_0203d210[];
 
 int Ov258_AngleTo(int *node, VecFx32 *dir, int angle, int absolute)
 {
-    int heading = func_020050b4(dir->x, dir->z);
+    int heading = FX_Atan2(dir->x, dir->z);
     int ia = ANG2IDX(angle) * 2;
     int ih = ANG2IDX(heading) * 2;
     int diff = Fx_Acos(FX_MUL(data_0203d210[ih], data_0203d210[ia]) +

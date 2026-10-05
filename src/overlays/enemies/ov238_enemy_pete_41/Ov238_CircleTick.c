@@ -15,7 +15,7 @@ struct b2 { unsigned char b0 : 1, b1 : 1; };
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(VecFx32 *v, Mtx33 *m, VecFx32 *d);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -46,7 +46,7 @@ void Ov238_CircleTick(int *node)
     VEC_Subtract((void *)(state[6] + 0x190), (void *)state[2], (VecFx32 *)(state + 0x10));
     dist = VEC_Normalize((VecFx32 *)(state + 0x10), (VecFx32 *)(state + 0x10));
     if (state[0xf] == 0) {
-        state[10] = state[9] = func_020050b4(state[0x10], state[0x12]);
+        state[10] = state[9] = FX_Atan2(state[0x10], state[0x12]);
         state[9] += 0x1922;
         idx = ANG2IDX(state[9]);
         state[0x10] = data_0203d210[idx * 2];

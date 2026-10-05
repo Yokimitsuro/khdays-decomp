@@ -13,7 +13,7 @@ extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
 extern void VEC_Add(void *a, void *b, void *c);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 
 void Ov200_AimLeadTarget(int *self) {
     int *state = (int *)self[1];
@@ -30,5 +30,5 @@ void Ov200_AimLeadTarget(int *self) {
     *(VecFx32 *)(state + 0xc) = v;
     state[0xd] = *(int *)(*state + 0x78) - *(int *)(*state + 0x80);
     VEC_Subtract((void *)(state + 0xc), (void *)(*state + 0xb0), w);
-    *(int *)(*state + 0x3ac) = func_020050b4(w[0], w[2]);
+    *(int *)(*state + 0x3ac) = FX_Atan2(w[0], w[2]);
 }

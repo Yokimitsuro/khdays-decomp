@@ -6,7 +6,7 @@
  * the phase timer and the two one-shot bytes, and chain to the next state.
  *
  * Two faithful game quirks, preserved on purpose:
- *  - The freshly measured atan2 (func_020050b4(d.x, d.z)) is COMPUTED AND DISCARDED; the
+ *  - The freshly measured atan2 (FX_Atan2(d.x, d.z)) is COMPUTED AND DISCARDED; the
  *    facing is rebuilt from the stored heading instead. Same shape as ov231_020cdd3c's
  *    discarded VEC_DotProduct -- a likely original bug, reproduced, not fixed.
  *  - `0x800` does double duty: the Q12 rounding constant for the angle conversion and the
@@ -23,7 +23,7 @@
 
 extern int *Ov107_FindNearestObject(int a, int b);
 extern int VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern void ScaleVec3Fx12(int s, VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(void *self, int idx, void *cb);
 extern void Ov267_LeapTick(void);
@@ -45,7 +45,7 @@ void Ov267_AcquireTargetAndFaceTick(void *self) {
         return;
     }
     VEC_Subtract((char *)tgt + 0x190, (void *)ctx[2], &d);
-    func_020050b4(d.x, d.z);
+    FX_Atan2(d.x, d.z);
     idx = ANG2IDX(ctx[0xd]);
     ctx[0xa] = data_0203d210[idx * 2];
     ctx[0xb] = 0;

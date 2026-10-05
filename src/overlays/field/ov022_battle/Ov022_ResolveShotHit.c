@@ -71,7 +71,7 @@ struct ReactionCtx {
 
 extern int Ov022_TestShotHit(struct ReactionCtx *pCtx, struct Shot *pShot,
                                VecFx32 *pPos, VecFx32 *pDelta);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void Ov022_MarshalNetworkRecord(struct Actor *pActor, int nKind, VecFx32 *pAt, int nScale,
                                        unsigned int nAngle, int nArg);
 extern void Ov022_SetBit3IfClear(u32 *pStateFlags);
@@ -91,7 +91,7 @@ void Ov022_ResolveShotHit(struct ReactionCtx *pCtx, struct Shot *pShot,
     pShooter = pCtx->pShooter;
     pDesc = pShot->pDesc;
     bHit = Ov022_TestShotHit(pCtx, pShot, pPos, pDelta);
-    nAngle = FX_Atan2(pDelta->x, pDelta->z);
+    nAngle = FX_Atan2Idx(pDelta->x, pDelta->z);
     if (bHit != 0 && (pDesc->nFlags & DESC_NO_HIT) == 0 && pShooter->nHitState != 0) {
         if ((pDesc->nFlags & DESC_KEEP) == 0) {
             pShot->nState = STATE_RETIRED;

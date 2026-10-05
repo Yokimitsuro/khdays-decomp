@@ -38,7 +38,7 @@ struct ActorFlags60 {
 
 extern struct Actor *Ov107_FindNearestObject(struct Actor *actor, int mode);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_PostTagUpdate(struct Actor *actor, int arg1, int arg2);
 extern void Ov107_BuildAndSendUpdate(struct Actor *actor, int reactionId,
                                 int reactionMode, int context);
@@ -59,7 +59,7 @@ void Ov189_CompleteAction48Windup(struct Ov189ActionNode *node)
     if (state->target != 0) {
         VEC_Subtract(&state->target->position74,
                      &state->actor->position74, &direction);
-        state->angle10 = state->angle14 = func_020050b4(direction.x,
+        state->angle10 = state->angle14 = FX_Atan2(direction.x,
                                                         direction.z);
     }
 

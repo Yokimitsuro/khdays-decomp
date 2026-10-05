@@ -10,7 +10,7 @@
 struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *c);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov209_AiStep_QueueAction2OnAnimEnd(void);
 
@@ -28,7 +28,7 @@ void Ov209_WindUpFaceReset(int *self) {
     if (target != 0) {
         int a;
         VEC_Subtract((void *)(target + 0x74), (void *)state[3], v);
-        a = func_020050b4(v[0], v[2]);
+        a = FX_Atan2(v[0], v[2]);
         state[0xd] = a;
         state[0xc] = a;
     }

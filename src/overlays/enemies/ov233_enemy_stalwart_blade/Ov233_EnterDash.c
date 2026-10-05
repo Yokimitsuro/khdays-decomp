@@ -11,7 +11,7 @@
 struct hw60 { unsigned short lo : 8, hi : 8; };
 typedef struct { unsigned int lo : 8, rest : 24; } Byte8;
 
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(int owner, int id, int mode, void *at);
 extern void func_ov107_020c0b90(int actor, int a, VecFx32 v, int b);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -22,7 +22,7 @@ void Ov233_EnterDash(int *node)
     int *state = (int *)node[1];
     unsigned short v;
 
-    state[0xa] = func_020050b4(*(int *)(*state + 0x398), *(int *)(*state + 0x3a0));
+    state[0xa] = FX_Atan2(*(int *)(*state + 0x398), *(int *)(*state + 0x3a0));
     *(VecFx32 *)(state + 5) = *(VecFx32 *)(*state + 0x398);
     v = *(unsigned short *)(*state + 0x60);
     *(unsigned short *)(*state + 0x60) = (unsigned short)((v & ~0xff00) | (((((unsigned int)v << 0x10) >> 0x18 | 1) << 0x18) >> 0x10));

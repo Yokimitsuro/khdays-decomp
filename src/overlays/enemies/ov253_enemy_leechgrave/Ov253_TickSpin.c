@@ -27,7 +27,7 @@ struct Capsules { char pad[0x3a0]; int handles[3]; };
 
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov107_CollectSphereOverlaps(int actor, Sphere *sphere, int *out);
 extern int Ov253_IdIsFree(int item, int hit);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
@@ -73,7 +73,7 @@ void Ov253_TickSpin(int *node)
     state[9] = Ov107_FindNearestObject(*state, 0);
     if (state[9] != 0) {
         VEC_Subtract((void *)(state[9] + 0x190), (void *)state[2], &diff);
-        state[4] = func_020050b4(diff.x, diff.z);
+        state[4] = FX_Atan2(diff.x, diff.z);
     }
     state[7] += *(int *)(node[0] + 0x2c);
     if (state[7] >= 0x2aa && state[7] <= 0x1210) {

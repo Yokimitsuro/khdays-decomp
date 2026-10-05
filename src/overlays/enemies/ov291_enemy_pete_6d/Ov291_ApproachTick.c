@@ -17,7 +17,7 @@ extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void Ov107_PostTagUpdate(int actor, int anim, int flag);
 extern void Ov107_StartAnim(void *part, int a, int b);
 extern void Ov291_AiSpinTick(void);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(int node, int slot, void *cb);
@@ -57,7 +57,7 @@ void Ov291_ApproachTick(int node)
     if (dist < limit) {
         limit = dist >> 1;
     }
-    state[2] = func_020050b4(d.x, d.z);
+    state[2] = FX_Atan2(d.x, d.z);
     dot = VEC_DotProduct(&d, &fwd);
     if (dot < 0) {
         dot = 0;

@@ -9,7 +9,7 @@ extern void MTX_RotY33_(Mtx33 *pMtx, int nSin, int nCos);
 extern void MTX_MultVec33(const VecFx32 *pIn, const Mtx33 *pMtx, VecFx32 *pOut);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern const short data_0203d210[];
 
 #define ANG2IDX(a) ((unsigned short)(((long long)(a) * 0x28be60db9391LL + 0x80000000000LL) >> 44) >> 4)
@@ -30,5 +30,5 @@ void Ov283_AimVelocity(int *node)
     MTX_MultVec33((VecFx32 *)(state + 4), &rot, (VecFx32 *)(state + 4));
     VEC_Normalize((VecFx32 *)(state + 4), (VecFx32 *)(state + 4));
     ScaleVec3Fx12(0x400, (VecFx32 *)(state + 4), (VecFx32 *)(state + 4));
-    state[0xe] = state[0x10] = func_020050b4(state[4], state[6]);
+    state[0xe] = state[0x10] = FX_Atan2(state[4], state[6]);
 }

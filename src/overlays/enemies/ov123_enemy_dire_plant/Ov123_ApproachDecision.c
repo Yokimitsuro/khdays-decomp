@@ -14,7 +14,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov123_FindTarget(int actor, int *distOut);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void SetIndexedSlot(int node, int slot, void *cb);
@@ -46,7 +46,7 @@ void Ov123_ApproachDecision(int node)
     VEC_Normalize(&d, &d);
     Vec3TransformViaTempMtx(&fwd, (void *)(*state + 0xa0), &data_02042258);
     if (dist < 0x1000 && VEC_DotProduct(&fwd, &d) >= 0xe00) {
-        state[7] = func_020050b4(d.x, d.z);
+        state[7] = FX_Atan2(d.x, d.z);
         if ((((struct hw60 *)(*(int *)(*state + 0x394) + 0x60))->lo & 1) != 0) {
             return;
         }
@@ -60,7 +60,7 @@ void Ov123_ApproachDecision(int node)
         SetIndexedSlot(node, *(signed char *)(node + 0x20), 0);
         return;
     }
-    state[7] = func_020050b4(d.x, d.z);
+    state[7] = FX_Atan2(d.x, d.z);
     if ((((struct hw60 *)(*(int *)(*state + 0x394) + 0x60))->lo & 1) != 0) {
         return;
     }

@@ -26,7 +26,7 @@ extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void VEC_Add(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Mag(const VecFx32 *v);
 extern const short data_0203d210[];
 
@@ -75,7 +75,7 @@ void Ov168_DashTick(int *node)
         if (VEC_DotProduct(&dir, &heading) > 0x800) {
             VEC_Add(&dir, &heading, &sum);
             rnd = RandNextScaled(0x10c1) - 0x860;
-            angle = func_020050b4(sum.x, sum.z);
+            angle = FX_Atan2(sum.x, sum.z);
             angle += rnd;
             idx = (unsigned short)((0x28BE60DB9391LL * angle + 0x80000000000LL) >> 44);   /* FX_RAD_TO_IDX */
             state[6] = data_0203d210[(idx >> 4) << 1];                                       /* FX_SinIdx */

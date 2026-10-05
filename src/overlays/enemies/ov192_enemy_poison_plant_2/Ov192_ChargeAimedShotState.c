@@ -45,7 +45,7 @@ extern void Ov192_BoxSweepPush(int *state, int lo, int hi, int *p);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern int Ov192_FindTarget(int obj, int out);
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov192_stTimedInterpPhases;
 
 void Ov192_ChargeAimedShotState(int *self) {
@@ -88,7 +88,7 @@ void Ov192_ChargeAimedShotState(int *self) {
     VEC_Subtract((void *)(target + 0x190), (void *)state[2], aim);
     {
         int roll = RandNextScaled(0x1923) - 0xc91;
-        int a = func_020050b4(aim[0], aim[2]);
+        int a = FX_Atan2(aim[0], aim[2]);
         a += roll;
         state[5] = a;
     }

@@ -67,7 +67,7 @@ extern struct Ov293AreaMsg data_ov293_020d3608;
 extern void Ov293_DecayCopyPosFireOnHitFlag(void);
 extern int Ov107_FindNearestObject(struct Ov293Actor *actor, int mode);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov107_ActionResource_GetOffsetAndScale(void *resource, VecFx32 *out);
 extern void ScaleVec3Fx12(int scale, void *src, void *dst);
 extern void VEC_Add(void *a, void *b, void *out);
@@ -101,7 +101,7 @@ void Ov293_SwingTick(struct Ov293ActionNode *node)
     state->pTarget04 = Ov107_FindNearestObject(state->pOwner, 0);
     if (state->pTarget04 != 0) {
         VEC_Subtract((char *)state->pTarget04 + 0x190, (char *)state->pOwner + 0xb0, &vToTarget);
-        state->nHeading10 = func_020050b4(vToTarget.x, vToTarget.z);
+        state->nHeading10 = FX_Atan2(vToTarget.x, vToTarget.z);
     }
     scale = Ov107_ActionResource_GetOffsetAndScale(state->pOwner->pActionResource39c, &vLocalOffset);
     Vec3TransformViaTempMtx(&state->vVelocity, &state->pOwner->xfm, &vLocalOffset);

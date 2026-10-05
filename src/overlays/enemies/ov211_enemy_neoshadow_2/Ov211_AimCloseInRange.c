@@ -15,7 +15,7 @@ extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern int  Ov107_ActionResource_GetOffsetAndScale(int obj, void *out);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
 extern void Ov211_AimSteerFireWhenReady(void);
@@ -36,7 +36,7 @@ void Ov211_AimCloseInRange(int *self) {
     VEC_Subtract((void *)(target + 0x190), (void *)state[1], v);
     v[1] = 0;
     height = VEC_Normalize(v, v);
-    state[0xa] = func_020050b4(v[0], v[2]);
+    state[0xa] = FX_Atan2(v[0], v[2]);
     height = height - *(int *)(state[4] + 0x80) - *(int *)(*state + 0x80);
     factor = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3b8), w);
     Vec3TransformViaTempMtx((void *)(state + 5), (void *)(*state + 0xa0), w);

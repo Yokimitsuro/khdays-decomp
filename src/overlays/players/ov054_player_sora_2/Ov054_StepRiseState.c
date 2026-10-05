@@ -111,7 +111,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);                        /* VEC_Normalize */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern void Ov022_StepAnchorDelta(struct Actor *pActor, VecFx32 *pOut);           /* Ov022_StepAnchorDelta */
 extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern VecFx32 Ov054_GetMarkPoint(struct Actor *pActor);                       /* Ov054_GetMarkPoint */
@@ -147,7 +147,7 @@ int Ov054_StepRiseState(struct Actor *pActor)
         if (VEC_Mag(&vecDelta) != 0) {
             VEC_Normalize(&vecDelta, &vecDelta);
         }
-        nAngle = (u16)FX_Atan2(-vecDelta.x, -vecDelta.z);
+        nAngle = (u16)FX_Atan2Idx(-vecDelta.x, -vecDelta.z);
         pNode = pActor->pNode;
         if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
             pNode->nAngle = nAngle + ANGLE_BIAS;

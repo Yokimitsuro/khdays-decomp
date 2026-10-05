@@ -15,7 +15,7 @@ extern int Ov107_FindNearestObject(int owner, int kind);
 extern void SetIndexedSlot(int self, int action, void (*cb)(void));
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov159_ArmMovePhase2(void);
 
 void Ov159_AiEnterApproach(int self) {
@@ -35,7 +35,7 @@ void Ov159_AiEnterApproach(int self) {
     VEC_Subtract((const VecFx32 *)(target + 0x190), (const VecFx32 *)ctx[0x13], &v);
     v.y = 0;
     VEC_Normalize(&v, &v);
-    ctx[4] = func_020050b4(v.x, v.z);
+    ctx[4] = FX_Atan2(v.x, v.z);
 
     *(unsigned short *)(ctx[0] + 0x1ae) |= 8;
     ctx[5] = *(int *)(*(int *)self + 0x2c) * 30 / 5;

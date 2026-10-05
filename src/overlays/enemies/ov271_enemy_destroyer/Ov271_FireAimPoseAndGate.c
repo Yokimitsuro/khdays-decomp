@@ -12,7 +12,7 @@
 struct m4 { int w[4]; };
 struct S200 { char pad[0x84]; struct m4 dst; struct m4 src; };
 extern void VEC_Subtract(void *a, void *b, void *c);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov271_DecayOffsetPickGiveUp(void);
 extern int  data_02042264;
@@ -24,7 +24,7 @@ void Ov271_FireAimPoseAndGate(int *self) {
     Ov107_PostTagUpdate((Actor *)(*state), 2, 0);
     if (state[0x15] != 0) {
         VEC_Subtract((void *)(state[0x15] + 0x190), (void *)(*state + 0xb0), v);
-        QuatFromAxisAngle((void *)(state + 0x25), &data_02042264, func_020050b4(v[0], v[2]));
+        QuatFromAxisAngle((void *)(state + 0x25), &data_02042264, FX_Atan2(v[0], v[2]));
         ((struct S200 *)state)->dst = ((struct S200 *)state)->src;
     }
     SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), (int)&Ov271_DecayOffsetPickGiveUp);

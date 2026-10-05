@@ -13,7 +13,7 @@ struct Flags394 { int b0 : 1; int b1 : 1; };
 extern void Ov107_PostTagUpdate(int a, int b, int c);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *v, void *out);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov273_EnterFaceTarget(void);
 extern int  data_02042264;
@@ -31,7 +31,7 @@ void Ov273_PairUpWaitTick(int *self) {
     VEC_Subtract((void *)(partner + 0x74), (void *)(*state + 0x74), v);
     v[1] = 0;
     VEC_Normalize(v, v);
-    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, func_020050b4(v[0], v[2]));
+    QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, FX_Atan2(v[0], v[2]));
     ((struct S213 *)state)->dst = ((struct S213 *)state)->src;
     Ov107_PostTagUpdate(*state, 0xa, 0);
     {

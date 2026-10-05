@@ -9,7 +9,7 @@
 extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern int FX_Sqrt(int x);
 extern const short data_0203d210[];
@@ -32,7 +32,7 @@ void Ov244_ApproachTick(int node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[4] + 0x190), (VecFx32 *)state[1], &d);
-    state[6] = func_020050b4(d.x, d.z);
+    state[6] = FX_Atan2(d.x, d.z);
     idx = ANG2IDX(state[5]);
     state[0x14] = data_0203d210[idx * 2];                                     /* FX_SinIdx */
     state[0x15] = 0;

@@ -9,7 +9,7 @@
 extern int Ov224_MeasureTargetGap(int self, int a);
 extern void SetIndexedSlot(int self, int index, void *cb);
 extern void VEC_Subtract(int *a, int *b, VecFx32 *out);
-extern int func_020050b4(int dx, int dz);
+extern fx16 FX_Atan2(int dx, int dz);
 extern int Ov224_ChooseMove(int self, int r);
 extern void Ov224_Steer(int self, int arg);
 void Ov224_GuardedAimOrHandoff(int self) {
@@ -21,7 +21,7 @@ void Ov224_GuardedAimOrHandoff(int self) {
         return;
     }
     VEC_Subtract(obj + 0xe, (int *)obj[2], &buf);
-    obj[0x16] = func_020050b4(buf.x, buf.z);
+    obj[0x16] = FX_Atan2(buf.x, buf.z);
     if (*(unsigned char *)(*(int *)(*obj + 0x384) + 0xad) == 0) {
         if (Ov224_ChooseMove(self, r) != 0) {
             SetIndexedSlot(self, *(signed char *)(self + 0x20), 0);

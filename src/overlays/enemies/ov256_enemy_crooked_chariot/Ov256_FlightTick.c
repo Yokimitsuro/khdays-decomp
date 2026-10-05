@@ -21,7 +21,7 @@ struct Flag17a { u8 b0 : 1; u8 b1 : 1; };
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov256_RotateByActorHeading(VecFx32 *out, int *node, void *part);
 extern int Ov256_PickTarget(int *node);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -59,7 +59,7 @@ void Ov256_FlightTick(int *node)
         if (state[0x16] < 0) {
             state[0x16] = done;
         }
-        state[0x11] = func_020050b4(state[0xd], state[0xf]);
+        state[0x11] = FX_Atan2(state[0xd], state[0xf]);
         Ov256_RotateByActorHeading(&v1, node, (void *)(*(int *)(*state + 0x450) + 0x2c));
         *(VecFx32 *)(state + 4) = v1;
         state[5] *= *((signed char *)state + 0x71);

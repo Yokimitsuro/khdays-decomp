@@ -5,7 +5,7 @@
 
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Normalize(void *dst, void *src);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov107_BuildAndSendUpdate(int a, int b, int c, int d);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov216_stEnterSetFlag40(void);
@@ -22,7 +22,7 @@ void Ov216_ComputeAimAngleThenAction6(int *node) {
     VEC_Subtract((void *)(state[2] + 0x190), (void *)(*state + 0xb0), v);
     v[1] = 0;
     state[0x12] = VEC_Normalize(v, v);
-    r = func_020050b4(v[0], v[2]);
+    r = FX_Atan2(v[0], v[2]);
     state[0x13] = r;
     state[0x11] = r;
     Ov107_PostTagUpdate((Actor *)(*state), 3, 0);

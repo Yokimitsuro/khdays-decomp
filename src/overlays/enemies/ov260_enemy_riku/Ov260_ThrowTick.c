@@ -12,7 +12,7 @@
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 at, int flag);
 extern void Ov260_PlaySound(int owner, int mode, int arg);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void Ov260_PlacePart(int part, VecFx32 *at, VecFx32 *dir);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -50,7 +50,7 @@ void Ov260_ThrowTick(int *node)
     }
     if ((*((u8 *)state + 0x7b) & 8) == 0) {
         VEC_Subtract((VecFx32 *)(*(int *)(*state + 0x420) + 0x190), (VecFx32 *)state[4], &d);
-        state[0x1a] = func_020050b4(d.x, d.z);
+        state[0x1a] = FX_Atan2(d.x, d.z);
         if (state[0x1c] < 0x2a80) {
             return;
         }

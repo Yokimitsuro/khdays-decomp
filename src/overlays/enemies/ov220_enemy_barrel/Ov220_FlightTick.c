@@ -19,7 +19,7 @@ extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov220_DistanceToTarget(int *node);
 extern int Ov220_IdleCountdown(int *node, int dist);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -64,7 +64,7 @@ void Ov220_FlightTick(int *node)
         ScaleVec3Fx12(VEC_DotProduct(&back, &n) << 1, &n, &refl);
         VEC_Subtract(&refl, &back, &refl);
         VEC_Normalize(&refl, &refl);
-        state[0x12] = func_020050b4(refl.x, refl.z);
+        state[0x12] = FX_Atan2(refl.x, refl.z);
         len = VEC_Normalize((VecFx32 *)(state + 9), (VecFx32 *)(state + 9));
         ScaleVec3Fx12(len, &refl, (VecFx32 *)(state + 9));
         state[0x17] = 1;
@@ -78,7 +78,7 @@ void Ov220_FlightTick(int *node)
         SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), 0);
         return;
     }
-    state[4] = state[3] = func_020050b4(state[9], state[0xb]);
+    state[4] = state[3] = FX_Atan2(state[9], state[0xb]);
     state[0x13] += *(int *)(*node + 0x2c) * state[0x14] / 0x1000;
     if (state[0x13] < 0x8000) {
         return;

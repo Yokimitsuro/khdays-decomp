@@ -6,7 +6,7 @@ extern int func_ov022_020ad0c0(int this);
 extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void VEC_Normalize(void *a, void *b);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void Ov088_ActorFireAttack(void);
 
 void *Ov088_enterState21ComputeAimAngle(int this, int param_2) {
@@ -26,7 +26,7 @@ void *Ov088_enterState21ComputeAimAngle(int this, int param_2) {
             if (VEC_Mag(local) != 0) {
                 VEC_Normalize(local, local);
             }
-            angle = (unsigned short)FX_Atan2(-local[0], -local[2]);
+            angle = (unsigned short)FX_Atan2Idx(-local[0], -local[2]);
             obj = *(int **)(this + 0x20);
             if ((*obj & 0x20) == 0) {
                 *(short *)((int)obj + 0x80) = angle + 0x8000;

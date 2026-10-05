@@ -45,7 +45,7 @@ extern int Ov107_FindNearestObject(int a, int b);
 extern void SetIndexedSlot(int self, int idx, void *cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(void *a, void *b);
 extern void ScaleVec3Fx12(int s, void *v, void *d);
 extern void Ov202_AdvanceNodeWhenGateClear(void);
@@ -74,7 +74,7 @@ void Ov202_CloseOnTarget(int self) {
     target = state[1];
     len = VEC_Normalize(&d, &d);
     gap = len - (*(int *)(target + 0x80) + *(int *)(owner + 0x80));
-    state[3] = func_020050b4(d.x, d.z);
+    state[3] = FX_Atan2(d.x, d.z);
     idx = (int)(((unsigned)(((long long)(int)(unsigned)state[2] * 0x28be60db9391LL +
                  0x80000000000LL) >> 0x20) << 4) >> 0x10) >> 4;
     VEC_Set(&v, (int)data_0203d210[idx * 2], 0, (int)data_0203d210[idx * 2 + 1]);

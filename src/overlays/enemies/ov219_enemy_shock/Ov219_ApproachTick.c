@@ -16,7 +16,7 @@ extern int Ov219_DistanceToTarget(int *node);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(const VecFx32 *v, Mtx33 *m, VecFx32 *d);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov219_WanderTick(int *node);
 extern short data_0203d210[];
 extern const VecFx32 data_02042258;
@@ -54,7 +54,7 @@ void Ov219_ApproachTick(int *node)
     ScaleVec3Fx12(bob / 0x1000 + 0x200 + state[8], (VecFx32 *)(state + 9), (VecFx32 *)(state + 9));
     state[0x13] += *(int *)(*node + 0x2c) * 0x18000 / 0x1000;
     state[0x13] &= 0x7fff;
-    state[4] = state[3] = func_020050b4(state[9], state[0xb]);
+    state[4] = state[3] = FX_Atan2(state[9], state[0xb]);
     state[5] += *(int *)(*node + 0x2c);
     if (state[5] >= 0x1000) {
         SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), Ov219_WanderTick);

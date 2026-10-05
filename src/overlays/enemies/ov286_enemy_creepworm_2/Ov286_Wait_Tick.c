@@ -34,7 +34,7 @@ struct Node {
 };
 
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *ab);
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 extern void *Ov107_FindNearestObject(char *actor, int mode);
 extern void Ov107_PostTagUpdate(char *actor, int a, int b);
 extern void SetIndexedSlot(struct Node *node, int slot, void *next);
@@ -60,7 +60,7 @@ void Ov286_Wait_Tick(struct Node *node)
     st->pTarget = pTarget;
     if (pTarget != 0) {
         VEC_Subtract((VecFx32 *)((char *)pTarget + 0x74), st->pPos10, &vToTarget);
-        nAngle = func_020050b4(vToTarget.nX, vToTarget.nZ);
+        nAngle = FX_Atan2(vToTarget.nX, vToTarget.nZ);
         st->nAngleTarget08 = nAngle;
         st->nAngle04 = nAngle;
     }

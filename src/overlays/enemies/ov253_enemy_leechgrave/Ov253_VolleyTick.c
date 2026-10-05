@@ -13,7 +13,7 @@ struct hw60 { unsigned short lo : 8, hi : 8; };
 extern int Ov253_FindNearestTarget(int self, const VecFx32 *pos, const VecFx32 *dir, int minDot, int maxDist);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void Ov253_Item_StoreVecAndRelayout(int part, void *anchor, VecFx32 *dir);
 extern void Ov107_BuildAndSendUpdate(int actor, int id, int kind, void *anchor);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -40,7 +40,7 @@ void Ov253_VolleyTick(int *node) {
         VEC_Normalize(&dir, &dir);
         VEC_Subtract((VecFx32 *)(state[9] + 0x74), (VecFx32 *)state[2], &aim);
         aim.y = 0;
-        state[4] = func_020050b4(aim.x, aim.z);
+        state[4] = FX_Atan2(aim.x, aim.z);
         state[7] += *(int *)(node[0] + 0x2c);
         if (state[7] >= 0x2aa) {
             VEC_Normalize(&aim, &aim);

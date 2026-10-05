@@ -26,7 +26,7 @@ struct PathEntry {
 extern void Ov107_BuildAndSendUpdate(int actor, int id, int mode, void *anchor);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -73,7 +73,7 @@ void Ov291_PathFollowTick(int *node)
     if (len < speed) {
         speed = len >> 1;
     }
-    state[2] = func_020050b4(dir.x, dir.z);
+    state[2] = FX_Atan2(dir.x, dir.z);
     dot = VEC_DotProduct(&dir, &fwd);
     if (dot < 0) {
         dot = 0;

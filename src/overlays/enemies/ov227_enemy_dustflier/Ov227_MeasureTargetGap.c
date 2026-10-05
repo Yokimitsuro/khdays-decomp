@@ -4,7 +4,7 @@
 extern int Ov107_FindNearestObject();
 extern int VEC_Subtract();
 extern int VEC_Normalize();
-extern int func_020050b4();
+extern short FX_Atan2();
 
 struct s3 {
     int a;
@@ -36,7 +36,7 @@ int Ov227_MeasureTargetGap(int *arg0, struct s3 *out) {
     if (r6 < 0) {
         r6 = 0;
     }
-    ((int *)r4)[22] = func_020050b4(v.a, v.c);
+    ((int *)r4)[22] = FX_Atan2(v.a, v.c);
     if (out != 0) {
         *out = v;
     }

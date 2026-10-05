@@ -14,7 +14,7 @@ extern int  Ov209_PickBestFacingNode(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *in, void *out);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern int  Ov107_ActionResource_GetOffsetAndScale(int obj, void *out);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
 extern int  VEC_DotProduct(void *a, void *b);
@@ -37,7 +37,7 @@ void Ov209_AimSteerDotGate(int *self) {
     }
     VEC_Subtract((void *)(target + 0x190), (void *)state[2], v);
     VEC_Normalize(v, v);
-    state[0xd] = func_020050b4(v[0], v[2]);
+    state[0xd] = FX_Atan2(v[0], v[2]);
     factor = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3ac), w);
     Vec3TransformViaTempMtx((void *)(state + 5), (void *)(*state + 0xa0), w);
     ScaleVec3Fx12(factor, (void *)(state + 5), (void *)(state + 5));

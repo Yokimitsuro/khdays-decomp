@@ -12,7 +12,7 @@ struct LowByte32 { unsigned bits : 8; };
 extern int Ov298_AcquireTargetGapAndAngle(void *node);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(int actor, int a, int b, void *at);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov298_ForwardThenEnterSubState4(int *node);
@@ -27,7 +27,7 @@ void Ov298_TurnEntry(int *node)
         Ov298_AcquireTargetGapAndAngle(node);
         VEC_Subtract((void *)(*(int *)(*state + 0x394) + 0x74), (void *)(*state + 0x74), &d);
         VEC_Normalize(&d, &d);
-        state[0xc] = func_020050b4(d.x, d.z);
+        state[0xc] = FX_Atan2(d.x, d.z);
         state[0xc] += state[10];
     }
     Ov107_PostTagUpdate((Actor *)(*state), 8, 0);

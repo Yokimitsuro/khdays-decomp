@@ -9,7 +9,7 @@
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov297_CopyScaleVecSetFlag88ThenAdvance(int *node);
 extern short data_0203d210[];
@@ -33,7 +33,7 @@ void Ov297_ApproachEntry(int *node)
         VEC_Subtract((void *)(state[3] + 0x74), (void *)(*state + 0x74), &dir);
         VEC_Normalize(&dir, &dir);
         VEC_DotProduct(&facing, &dir);
-        state[0xb] = state[0xc] = func_020050b4(dir.x, dir.z);
+        state[0xb] = state[0xc] = FX_Atan2(dir.x, dir.z);
     }
     actor = *state;
     Ov107_PostTagUpdate((Actor *)actor, RandNextScaled(2) + 5, 0);

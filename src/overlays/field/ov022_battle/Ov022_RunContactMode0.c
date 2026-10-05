@@ -155,7 +155,7 @@ extern int Ov022_ComputeStrengthDamage(struct Actor *pActor, int nFace, int nMat
 extern int Slot_EvalPackedParam(int nId, int nRule);
 extern int Ov022_RunCommandHandlers(struct Actor *pActor, struct FanQuery *pFan,
                                struct SweepHit *pCtx);          /* Ov022_RunCommandHandlers */
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void Ov022_EmitEventBlocks(struct Actor *pActor, int nKind, u32 nAngle,
                                 VecFx32 *pAt);                 /* Ov022_EmitEventBlocks */
 extern void Ov022_FireChargeRelease(struct Actor *pActor);
@@ -227,7 +227,7 @@ void Ov022_RunContactMode0(struct Actor *pActor, struct ScaledFanSlot *pSlot, sh
     if (nHit == 0) {
         return;
     }
-    nAxis = FX_Atan2(fan.vecDir.x, fan.vecDir.z);
+    nAxis = FX_Atan2Idx(fan.vecDir.x, fan.vecDir.z);
     nKind = pSlot->nEventKind;
     if (bFull) {
         nKind++;

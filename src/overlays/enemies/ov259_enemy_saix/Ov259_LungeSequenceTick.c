@@ -20,7 +20,7 @@ extern void Ov259_RefreshAim(int *node);
 extern void Ov259_ForwardSweep(int body, int a, int b, VecFx32 lift);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov259_LaunchHelper(int helper, int climb, VecFx32 *dir, int heading);
 extern void Ov259_MirrorPartnerPose(int *node, int pose, int mode);
 extern void Ov259_MapHeldItemKindToAnim(int actor, int flag);
@@ -66,7 +66,7 @@ void Ov259_LungeSequenceTick(int *node)
 
             VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0x74), &d);
             VEC_Normalize(&d, &d);
-            state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+            state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
             Ov259_ForwardSweep(*(int *)(*state + 0x384), 0x198, 0x6e8, data_ov259_020d2f6c);
             *(int *)(*state + 0x420) = 5;
             state[0x26]++;
@@ -97,7 +97,7 @@ void Ov259_LungeSequenceTick(int *node)
 
             VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0x74), &d);
             VEC_Normalize(&d, &d);
-            state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+            state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
             if (n > *(int *)(*state + 0x80) * 12) {
                 *(signed char *)(*state + 0x1c7) = 0x12;
                 SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), 0);

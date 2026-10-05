@@ -26,7 +26,7 @@ struct CollisionResult
   int nAlong;
 };
 extern void ScaleVec3Fx12(int scale, Vec3 *v, Vec3 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void MTX_RotY33_(Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(Vec3 *v, Mtx33 *m, Vec3 *d);
 extern void VEC_Add(Vec3 *a, Vec3 *b, Vec3 *d);
@@ -92,7 +92,7 @@ void Ov226_FlightTick(int *node)
     v.y = 0;
     v.z = 0;
     {
-        unsigned int idx = (unsigned short)(((long long)func_020050b4(state[9], state[0xb]) * 0x28be60db9391LL
+        unsigned int idx = (unsigned short)(((long long)FX_Atan2(state[9], state[0xb]) * 0x28be60db9391LL
                                              + 0x80000000000LL) >> 44) >> 4;
 
         MTX_RotY33_(&mtx, data_0203d210[idx * 2], data_0203d210[idx * 2 + 1]);

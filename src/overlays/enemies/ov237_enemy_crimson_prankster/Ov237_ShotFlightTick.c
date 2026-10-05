@@ -24,7 +24,7 @@ extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern int Ov107_FindNearestObject(int actor, int kind);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int FX_Div(int value, int denom);
 extern void Ov107_BuildAndSendUpdate(int actor, int bank, int variant, int at);
 extern int Collision_CastSphereEx(int collision, VecFx32 *origin, VecFx32 *dir, int radius, void *ignore);
@@ -89,7 +89,7 @@ void Ov237_ShotFlightTick(int *node)
 
                 VEC_Add(&to, &dir, &sum);
                 spread = RandNextScaled(0x10c1) - 0x860;
-                ang = func_020050b4(sum.x, sum.z);
+                ang = FX_Atan2(sum.x, sum.z);
                 ang += spread;
                 {
                     int idx = ANG2IDX(ang) * 2;

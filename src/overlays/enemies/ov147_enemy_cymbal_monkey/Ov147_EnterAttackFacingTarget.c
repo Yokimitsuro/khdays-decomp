@@ -14,7 +14,7 @@ extern void Ov107_BuildAndSendUpdate();
 extern void func_ov107_020c0b90(int owner, int mode, VecFx32 v, int flag);
 extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void VEC_Subtract();
-extern int  func_020050b4(int a, int b);
+extern fx16  FX_Atan2(int a, int b);
 extern void SetIndexedSlot(int self, int index, void *cb);
 extern VecFx32 data_02041dc8;
 extern void Ov147_ClearMoveTimerAndFire(void);
@@ -38,7 +38,7 @@ void Ov147_EnterAttackFacingTarget(int self) {
     target = *(int *)(*obj + 0x394);
     if (target != 0) {
         VEC_Subtract(target + 0x74, *obj + 0x74, v);
-        obj[0xe] = func_020050b4(v[0], v[2]);
+        obj[0xe] = FX_Atan2(v[0], v[2]);
         obj[0xd] = obj[0xe];
     }
     obj[0x10] = 0;

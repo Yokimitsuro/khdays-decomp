@@ -11,7 +11,7 @@ struct Bits52 { unsigned char b0 : 1; };
 
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
@@ -27,13 +27,13 @@ void Ov278_RollTick(int *node) {
     }
     if (state[5] != 0) {
         VEC_Subtract((VecFx32 *)(target + 0x74), (VecFx32 *)(*state + 0x74), &d);
-        state[3] = state[4] = func_020050b4(d.x, d.z);
+        state[3] = state[4] = FX_Atan2(d.x, d.z);
         state[5] = 0;
     }
     VEC_Subtract((VecFx32 *)(state[2] + 0x74), (VecFx32 *)(*state + 0x74), &d);
     d.y = 0;
     VEC_Normalize(&d, &d);
-    state[4] = func_020050b4(d.x, d.z);
+    state[4] = FX_Atan2(d.x, d.z);
     state[0xa] -= *(int *)(*node + 0x2c);
     child = state[1];
     if (*(unsigned char *)(child + 0xa8) != 0 && state[0xa] <= 0) {

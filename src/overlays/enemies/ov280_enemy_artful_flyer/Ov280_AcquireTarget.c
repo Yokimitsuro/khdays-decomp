@@ -7,7 +7,7 @@
 extern int Ov107_FindNearestObject(int owner, int kind);
 extern void VEC_Subtract(const int *a, const int *b, int *out);
 extern int VEC_Normalize(const int *v, int *out);
-extern int func_020050b4(int x, int z);
+extern short FX_Atan2(int x, int z);
 
 int Ov280_AcquireTarget(int self) {
     int *ctx;
@@ -25,6 +25,6 @@ int Ov280_AcquireTarget(int self) {
     if (ctx[8] < 0) {
         ctx[8] = 0;
     }
-    ctx[7] = func_020050b4(ctx[0xf], ctx[0x11]);
+    ctx[7] = FX_Atan2(ctx[0xf], ctx[0x11]);
     return 1;
 }

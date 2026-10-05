@@ -21,7 +21,7 @@ typedef struct {
 
 extern int Ov107_FindNearestObject(int owner, int kind);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int action, void (*cb)(void));
 extern void Ov275_AiStep_QueueAction2OnFlag0cClear(void);
 
@@ -40,7 +40,7 @@ void Ov275_AiWaitThenTarget(int self) {
     ctx[4] = target;
     if (target != 0) {
         VEC_Subtract((const VecFx32 *)(target + 0x74), (const VecFx32 *)ctx[2], &v);
-        ctx[0x11] = func_020050b4(v.x, v.z);
+        ctx[0x11] = FX_Atan2(v.x, v.z);
         ctx[0x10] = ctx[0x11];
     }
 

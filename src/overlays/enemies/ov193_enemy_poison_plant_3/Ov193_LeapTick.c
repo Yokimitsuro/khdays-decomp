@@ -16,7 +16,7 @@ struct bf { unsigned b : 8; };
 
 extern int Ov193_FindTarget(int obj, int *out);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov193_ProbeGroundBelowNode(int *node, VecFx32 *out);
 extern long long FX_DivFx64c(int num, int denom);
 extern void Ov193_BoxSweepPush(int *node, long long t, VecFx32 *at);
@@ -34,7 +34,7 @@ void Ov193_LeapTick(int node)
     state[6] = Ov193_FindTarget(*state, 0);
     if (state[6] != 0) {
         VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[2], &d);
-        state[5] = func_020050b4(d.x, d.z);
+        state[5] = FX_Atan2(d.x, d.z);
         state[0xc] = *(int *)(*(int *)node + 0x2c) * 30 / 10;
     }
     state[0xb] += *(int *)(*(int *)node + 0x2c);
@@ -54,7 +54,7 @@ void Ov193_LeapTick(int node)
     if (state[6] != 0) {
         VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[2], &d2);
         spread = RandNextScaled(0x1923) - 0xc91;
-        heading = func_020050b4(d2.x, d2.z);
+        heading = FX_Atan2(d2.x, d2.z);
         state[5] = heading + spread;
     }
     state[0xb] = 0;

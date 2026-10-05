@@ -11,7 +11,7 @@ typedef struct { int w[4]; } Quat;
 
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov235_AiEnterGroundAttack(int *node);
 extern const VecFx32 data_02042264;
@@ -24,7 +24,7 @@ void Ov235_TurnTick(int *node)
     state[0x17] = Ov107_FindNearestObject(*state, 0);
     if (state[0x17] != 0) {
         VEC_Subtract((void *)(state[0x17] + 0x74), (void *)(*state + 0x74), &d);
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
     }
     state[0x10] = *(int *)(node[0] + 0x2c) * 30 / 10;
     if (*(unsigned char *)state[3] != 0) {

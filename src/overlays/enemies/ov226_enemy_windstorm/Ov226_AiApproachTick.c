@@ -3,7 +3,7 @@
 #include "game/ai_task.h"
 
 extern int VEC_Subtract();
-extern int func_020050b4();
+extern short FX_Atan2();
 extern int VEC_Normalize();
 extern int ScaleVec3Fx12();
 extern int MTX_RotY33_();
@@ -51,7 +51,7 @@ void Ov226_AiApproachTick(struct top *a)
     struct sub *sub0;
 
     VEC_Subtract((char *)r4->f0 + 0x190, r4->f8, s24);
-    r4->f58 = func_020050b4(s24[0], s24[2]);
+    r4->f58 = FX_Atan2(s24[0], s24[2]);
     sub0 = r4->f0;
     diff = VEC_Normalize(s24, s24) - sub0->f80;
 

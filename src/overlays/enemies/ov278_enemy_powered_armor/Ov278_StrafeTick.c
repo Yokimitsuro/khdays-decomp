@@ -15,7 +15,7 @@ extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern const VecFx32 data_02042264;
 extern void Ov278_ApproachTick(void);
@@ -56,7 +56,7 @@ void Ov278_StrafeTick(int *node) {
         dist = VEC_Normalize(&d, &d) - (*(int *)(target + 0x80) + *(int *)(actor + 0x80));
     }
     VEC_CrossProduct(&data_02042264, &d, &side);
-    state[0xc] = func_020050b4(d.x, d.z);
+    state[0xc] = FX_Atan2(d.x, d.z);
     ScaleVec3Fx12(state[0xe] * state[0xd], &side, (VecFx32 *)(state + 2));
     state[0xe] += (0x500 - state[0xe]) / 50;
     state[3] -= 0x300;

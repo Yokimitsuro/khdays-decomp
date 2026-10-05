@@ -8,7 +8,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov259_MirrorPartnerPose(int *node, int pose, int mode);
 extern void Ov259_ArmPartnerCue(int *node, int pose, int delay);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -24,7 +24,7 @@ void Ov259_ShootEntry(int *node)
     state[0x25] = 0xb4;
     if (state[3] != 0) {
         VEC_Subtract((VecFx32 *)(state[3] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
-        state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+        state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     }
     state[0x16] = 1;
     Ov107_PostTagUpdate((Actor *)(*state), 0xc, 0);

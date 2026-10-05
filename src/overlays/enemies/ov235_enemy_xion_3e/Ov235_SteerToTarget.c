@@ -18,7 +18,7 @@ extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void Quat_FromTwoVectors(Quat *out, const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern const VecFx32 data_02041dc8;
 extern const VecFx32 data_02042264;
 extern const VecFx32 data_02042258;
@@ -73,7 +73,7 @@ int Ov235_SteerToTarget(int *state, int target, VecFx32 *dir, int *speed)
         blend.z = (int)(((long long)flat.z * dot + (long long)side.z * (0x1000 - dot) + 0x800) >> 12);
         Quat_FromTwoVectors((Quat *)(state + 0xb), &data_02042258, &blend);
     } else {
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
     }
     s = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3a8), &step);
     Vec3TransformViaTempMtx(&step, state + 7, &step);

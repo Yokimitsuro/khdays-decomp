@@ -15,7 +15,7 @@
 struct b1 { unsigned char b0 : 1; };
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern int Ov259_ComputeNormalizedDir(int *node, VecFx32 pos);
 extern void Ov259_MirrorPartnerPose(int *node, int pose, int loop);
@@ -43,7 +43,7 @@ void Ov259_TickDive(int *node)
     zero = data_02041dc8;
     *(VecFx32 *)(state + 5) = data_02041dc8;
     VEC_Subtract((VecFx32 *)(state + 0xb), (VecFx32 *)state[4], &d);
-    state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     VEC_Normalize(&d, &n);
     {
         int idx = ANG2IDX(state[0x1e]) * 2;

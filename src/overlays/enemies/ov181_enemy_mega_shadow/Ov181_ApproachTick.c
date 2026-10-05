@@ -14,7 +14,7 @@ extern int Ov107_FindNearestObject(int actor, int *distOut);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void Ov181_BeginLunge(void);
 extern const VecFx32 data_02042258;
@@ -38,7 +38,7 @@ void Ov181_ApproachTick(int node)
     dist = FX_Sqrt(dist) - (*(int *)(target + 0x80) + *(int *)(obj + 0x80));
     state[8] = *(int *)(*(int *)node + 0x2c) * 30 / 20;
     VEC_Subtract((VecFx32 *)(state[4] + 0x74), (VecFx32 *)state[2], &d);
-    state[6] = func_020050b4(d.x, d.z);
+    state[6] = FX_Atan2(d.x, d.z);
     Vec3TransformViaTempMtx((VecFx32 *)(state + 0x15), (void *)(*state + 0xa0), &data_02042258);
     ScaleVec3Fx12(0x300, (VecFx32 *)(state + 0x15), (VecFx32 *)(state + 0x15));
     if (state[0x1d] <= 0) {

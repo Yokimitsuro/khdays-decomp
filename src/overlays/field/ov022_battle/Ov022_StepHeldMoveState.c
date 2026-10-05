@@ -103,7 +103,7 @@ extern int Session_GetLocalPlayerIndex(void);                                   
 extern int Ov022_ValidateTargetRef(struct Actor *pActor);                           /* Ov022_ValidateTargetRef */
 extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      /* Ov022_GetTargetPos */
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern int Ov022_IsEnabledAndFlag100Set(u16 *pCtx);                                      /* Ov022_IsEnabledAndFlag100Set */
 extern void func_ov022_02097038(struct Actor *pActor, int nFrame);              /* SetField7b0AndDispatch */
 extern void Ov022_StepAnchorDelta(struct Actor *pActor, VecFx32 *pOut);           /* Ov022_StepAnchorDelta */
@@ -137,7 +137,7 @@ int Ov022_StepHeldMoveState(struct Actor *pActor)
         pTarget = func_ov022_020ad0c0(pActor);
         VEC_Subtract(pTarget, &pActor->vecAim, &vecToTarget);
         vecToTarget.y = 0;
-        nAngle = FX_Atan2(-vecToTarget.x, -vecToTarget.z);
+        nAngle = FX_Atan2Idx(-vecToTarget.x, -vecToTarget.z);
         pNode = pActor->pNode;
         if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
             pNode->nAngle = nAngle + ANGLE_BIAS;

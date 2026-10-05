@@ -15,7 +15,7 @@ extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void Ov207_FaceTargetAndGate(void);
 extern int  data_02041dc8;
 
@@ -34,7 +34,7 @@ void Ov207_FireAttack2OnIdle(int *self) {
     VEC_Subtract((void *)(target + 0x190), (void *)state[1], &v);
     VEC_Normalize(&v, &v);
     state[0xf] = *(int *)(*self + 0x2c) * 0x1e / 20;
-    state[0x11] = func_020050b4(v.x, v.z);
+    state[0x11] = FX_Atan2(v.x, v.z);
     *(VecFx32 *)(state + 5) = *(VecFx32 *)&data_02041dc8;
     if (*(unsigned char *)state[3] != 0) {
         return;

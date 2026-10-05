@@ -178,7 +178,7 @@ extern int Slot_EvalPackedParam(int nId, int nRule);                            
 extern int Ov022_CanTriggerFinisher(struct Actor *pActor);                           /* Ov022_CanTriggerFinisher */
 extern int Ov022_IsBit0Set(u8 *pBlk);                                       /* slot block ready */
 extern int func_ov022_0209fc78(struct Actor *pActor, int nSlot);                /* IsAnySlotFlagSet */
-extern short FX_Atan2(int y, int x);
+extern short FX_Atan2Idx(int y, int x);
 extern struct PlayerSlot *GetPlayerSlotTableEntry(int nSlot);                             /* GetPlayerSlotTableEntry */
 extern int Session_RandNext(void);                                                 /* Session_RandNext */
 extern int VEC_Normalize(VecFx32 *pIn, VecFx32 *pOut);                          /* VEC_Normalize */
@@ -267,7 +267,7 @@ int Ov022_TryBlockHit(struct Actor *pActor, struct HitRequest *pReq)
         if (bAuto == 0 && bHasDir) {
             nFace = pActor->pNode->nAngle - ANGLE_BIAS;
             nAngle = nFace + ANGLE_BIAS;
-            nHit = FX_Atan2(-pReq->vecPush.x, -pReq->vecPush.z);
+            nHit = FX_Atan2Idx(-pReq->vecPush.x, -pReq->vecPush.z);
             nDiff = (u16)(nAngle - nHit);
             if (nDiff > BEHIND_MIN && nDiff < BEHIND_MAX) {
                 return 0;
@@ -310,7 +310,7 @@ int Ov022_TryBlockHit(struct Actor *pActor, struct HitRequest *pReq)
             pActor->nFlags3 |= FLAG3_BIT26;
             pActor->vecDrift = pReq->vecPush;
             if (bHasDir) {
-                nHit = (u16)FX_Atan2(pActor->vecDrift.x, pActor->vecDrift.z);
+                nHit = (u16)FX_Atan2Idx(pActor->vecDrift.x, pActor->vecDrift.z);
                 pNode = pActor->pNode;
                 if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
                     pNode->nAngle = nHit + ANGLE_BIAS;

@@ -7,7 +7,7 @@
 struct bf { unsigned b : 8; };
 extern int Ov107_FindNearestObject();
 extern void VEC_Subtract();
-extern int func_020050b4();
+extern fx16 FX_Atan2();
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov182_AiFadeInSlowTick(void);
 void Ov182_stateAcquireAimInit(int *node) {
@@ -18,7 +18,7 @@ void Ov182_stateAcquireAimInit(int *node) {
         int buf[3];
         int a;
         VEC_Subtract(t + 0x190, state[1], buf);
-        a = func_020050b4(buf[0], buf[2]);
+        a = FX_Atan2(buf[0], buf[2]);
         state[6] = a;
         state[5] = a;
     }

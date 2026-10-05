@@ -25,7 +25,7 @@ extern int Ov107_FindNearestObject(int obj, int out);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void VEC_Subtract(void *a, void *b, void *d);
 extern int VEC_Normalize(void *a, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 
 void Ov281_AimPickAttack(int *self) {
     int *state = (int *)self[1];
@@ -44,7 +44,7 @@ void Ov281_AimPickAttack(int *self) {
     }
     VEC_Subtract((void *)(target + 0x190), (void *)(*state + 0xb0), aim);
     dist = VEC_Normalize(aim, aim);
-    state[5] = func_020050b4(aim[0], aim[2]);
+    state[5] = FX_Atan2(aim[0], aim[2]);
     if (dist > 0x4000) {
         *(char *)(*state + 0x1c7) = 4;
         SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), 0);

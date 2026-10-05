@@ -12,7 +12,7 @@ struct PartFlags { unsigned int lo : 8; };
 extern int Ov107_FindNearestObject(int owner, int a);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void VEC_CrossProduct(const VecFx32 *a, const VecFx32 *b, void *out);
 extern void ScaleVec3Fx12(int scale, void *v, void *out);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -37,7 +37,7 @@ void Ov236_ChargeTick(int *node)
         VEC_Subtract((void *)(target + 0x74), (void *)(*state + 0x74), &d);
         d.y = 0;
         VEC_Normalize(&d, &d);
-        state[4] = func_020050b4(d.x, d.z);
+        state[4] = FX_Atan2(d.x, d.z);
         VEC_CrossProduct(&data_02042264, &d, state + 6);
         ScaleVec3Fx12(state[0xc] << 9, state + 6, state + 6);
         ((struct PartFlags *)(*(int *)(*state + 0x3a8) + 8))->lo &= ~2;

@@ -9,7 +9,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov259_MirrorPartnerPose(int *node, int pose, int mode);
 extern void Ov259_ArmPartnerCue(int *node, int pose, int delay);
 extern void Ov259_ForwardSweep(int body, int a, int b, VecFx32 lift);
@@ -27,7 +27,7 @@ void Ov259_LungeEntry(int *node)
     state[0x1a] = 0;
     *(VecFx32 *)(state + 0xb) = *(VecFx32 *)(state[2] + 0x190);
     VEC_Subtract((VecFx32 *)(state + 0xb), (VecFx32 *)(*state + 0xb0), &d);
-    state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     {
         u16 hw = *(u16 *)(*state + 0x60);
         *(u16 *)(*state + 0x60) = (hw & ~0xff00) |

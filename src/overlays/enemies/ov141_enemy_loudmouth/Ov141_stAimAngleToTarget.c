@@ -4,7 +4,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov141_stAdvanceProjectilePose(void);
 
@@ -17,7 +17,7 @@ void Ov141_stAimAngleToTarget(int *node) {
         if (p != 0) {
             int r;
             VEC_Subtract((void *)(p + 0x190), (void *)(*state + 0xb0), buf);
-            r = func_020050b4(buf[0], buf[2]);
+            r = FX_Atan2(buf[0], buf[2]);
             state[3] = r;
             state[2] = r;
         }

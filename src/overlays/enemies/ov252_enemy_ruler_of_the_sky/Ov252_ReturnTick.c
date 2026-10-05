@@ -8,7 +8,7 @@
 extern int Ov252_CheckTarget(int *node, VecFx32 *delta, int face);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov252_HoverTick(void);
 extern const VecFx32 data_02041dc8;
@@ -22,7 +22,7 @@ void Ov252_ReturnTick(int *node)
     VEC_Subtract(&data_02041dc8, (VecFx32 *)state[2], &d);
     d.y = 0;
     VEC_Normalize(&d, &d);
-    state[0x16] = func_020050b4(d.x, d.z);
+    state[0x16] = FX_Atan2(d.x, d.z);
     if (*(unsigned char *)(state[1] + 0xad) != 0) {
         return;
     }

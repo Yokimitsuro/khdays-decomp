@@ -8,7 +8,7 @@ extern void MTX_RotY33_(void *mtx, int cos, int sin);
 extern void MTX_MultVec33(VecFx32 *vec, void *mtx, VecFx32 *dst);
 extern int VEC_Normalize(VecFx32 *src, VecFx32 *dst);
 extern void ScaleVec3Fx12(int factor, VecFx32 *src, VecFx32 *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern const short data_0203d210[];
 
 void Ov297_UpdateHeadingVector(int this_) {
@@ -28,5 +28,5 @@ void Ov297_UpdateHeadingVector(int this_) {
     MTX_MultVec33(dir, &mtx, dir);
     VEC_Normalize(dir, dir);
     ScaleVec3Fx12(0x440, dir, dir);
-    *(int *)((int)node + 0x2c) = *(int *)((int)node + 0x30) = func_020050b4(dir->x, dir->z);
+    *(int *)((int)node + 0x2c) = *(int *)((int)node + 0x30) = FX_Atan2(dir->x, dir->z);
 }

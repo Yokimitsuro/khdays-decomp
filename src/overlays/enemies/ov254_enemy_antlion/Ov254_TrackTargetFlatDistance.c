@@ -6,7 +6,7 @@
 
 extern char *Ov107_FindNearestObject(char *o, int a);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int a, int b);
+extern fx16 FX_Atan2(int a, int b);
 extern int VEC_Mag(VecFx32 *v);
 
 int Ov254_TrackTargetFlatDistance(char *self) {
@@ -19,7 +19,7 @@ int Ov254_TrackTargetFlatDistance(char *self) {
         return 0;
     }
     VEC_Subtract((VecFx32 *)(t + 0x190), *(VecFx32 **)(ctx + 8), &d);
-    *(int *)(ctx + 0x34) = func_020050b4(d.x, d.z);
+    *(int *)(ctx + 0x34) = FX_Atan2(d.x, d.z);
     d.y = 0;
     return VEC_Mag(&d);
 }

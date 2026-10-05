@@ -10,7 +10,7 @@
 extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern int  VEC_Normalize(void *v, void *out);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern void Ov273_WindupTickA(void);
 extern int  data_02042258;
@@ -34,7 +34,7 @@ void Ov273_EnterAttack(int *self) {
         if (VEC_Normalize(&v, &v) == 0) {
             v = *(struct v3 *)&data_02042258;
         }
-        QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, func_020050b4(v.a, v.c));
+        QuatFromAxisAngle((void *)(state + 0xe), &data_02042264, FX_Atan2(v.a, v.c));
     }
     SetIndexedSlot((int)self, *(signed char *)((int)self + 0x20), (int)&Ov273_WindupTickA);
 }

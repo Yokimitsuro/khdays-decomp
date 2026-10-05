@@ -128,7 +128,7 @@ extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);                        /* VEC_Normalize */
 extern void ScaleVec3Fx12(int nFactor, VecFx32 *pSrc, VecFx32 *pDst);          /* ScaleVec3Fx12 */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern void SceneNode_Enable(u16 *pAnimFlags);                                     /* SceneNode_Enable */
 extern int Session_GetLocalPlayerIndex(void);                                                 /* Session_GetLocalPlayerIndex */
@@ -185,7 +185,7 @@ int Ov022_StepChaseState(struct Actor *pActor)
                 VEC_Normalize(&vecDelta, &vecDelta);
             }
             ScaleVec3Fx12(CHASE_SPEED, &vecDelta, &pActor->vecMotion);
-            nAngle = FX_Atan2(-vecDelta.x, -vecDelta.z);
+            nAngle = FX_Atan2Idx(-vecDelta.x, -vecDelta.z);
             pNode = pActor->pNode;
             if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
                 pNode->nAngle = nAngle + ANGLE_BIAS;

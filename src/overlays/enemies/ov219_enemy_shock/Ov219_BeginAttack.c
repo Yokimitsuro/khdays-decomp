@@ -13,7 +13,7 @@ struct b8 { unsigned f : 8; };
 extern void Ov219_startAnim(int actor, int anim);
 extern void Ov107_BuildAndSendUpdate(int actor, int a, int id, void *at);
 extern void VEC_Subtract(void *a, void *b, void *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov219_AttackTick(int *node);
 
@@ -33,7 +33,7 @@ void Ov219_BeginAttack(int *node)
         }
         if (state[0x10] != 0) {
             VEC_Subtract((void *)(state[0x10] + 0x190), (void *)(*state + 0xb0), &dir);
-            state[3] = state[4] = func_020050b4(dir.x, dir.z);
+            state[3] = state[4] = FX_Atan2(dir.x, dir.z);
         }
     }
     state[0x10] = 0;

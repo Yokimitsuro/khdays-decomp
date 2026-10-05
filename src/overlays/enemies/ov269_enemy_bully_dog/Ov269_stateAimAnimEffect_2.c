@@ -5,7 +5,7 @@
 
 extern int Ov107_FindNearestObject();
 extern void VEC_Subtract();
-extern int func_020050b4();
+extern fx16 FX_Atan2();
 extern void SetIndexedSlot(void *obj, int idx, void *value);
 extern void Ov269_TickSpinRetreat(void);
 void Ov269_stateAimAnimEffect_2(int *node) {
@@ -20,7 +20,7 @@ void Ov269_stateAimAnimEffect_2(int *node) {
         state[2] = t;
         if (t != 0) {
             VEC_Subtract(t + 0x190, *state + 0xb0, buf);
-            state[4] = func_020050b4(buf[0], buf[2]);
+            state[4] = FX_Atan2(buf[0], buf[2]);
         }
     }
     Ov107_PostTagUpdate((Actor *)(*state), 0xb, 0);

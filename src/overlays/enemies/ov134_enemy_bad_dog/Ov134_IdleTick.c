@@ -14,7 +14,7 @@ struct Flags42 { unsigned char bCharge : 1; };
 extern int Ov107_FindNearestObject(int actor, int *distSq);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 
 void Ov134_IdleTick(int *node)
@@ -38,7 +38,7 @@ void Ov134_IdleTick(int *node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0xb0), &d);
-    state[4] = func_020050b4(d.x, d.z);
+    state[4] = FX_Atan2(d.x, d.z);
     if (((struct Flags42 *)((char *)state + 0x42))->bCharge) {
         *(unsigned char *)(*state + 0x1c7) = 4;
         SetIndexedSlot(node, *(signed char *)((char *)node + 0x20), 0);

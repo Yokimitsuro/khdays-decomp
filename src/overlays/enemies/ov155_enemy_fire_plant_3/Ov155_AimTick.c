@@ -13,7 +13,7 @@
 extern int Ov107_FindNearestObject(int actor, int mode);
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_BuildAndSendUpdate(int actor, int id, int mode, void *anchor);
 extern void Ov155_RelayoutAndStoreVec(int item, void *anchor, VecFx32 *dir);
 extern const VecFx32 data_02042258;
@@ -31,7 +31,7 @@ void Ov155_AimTick(int node)
         return;
     }
     VEC_Subtract((VecFx32 *)(state[6] + 0x190), (VecFx32 *)state[1], &d);
-    state[5] = func_020050b4(d.x, d.z);
+    state[5] = FX_Atan2(d.x, d.z);
     state[8] = *(int *)(*(int *)node + 0x2c) * 30 / 40;
     state[7] += *(int *)(*(int *)node + 0x2c);
     if (*(unsigned char *)(state + 9) == 0 && state[7] >= 0xccc) {

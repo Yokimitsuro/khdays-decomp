@@ -9,7 +9,7 @@
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void Ov259_MirrorPartnerPose(int *node, int pose, int mode);
 extern void Ov259_ForwardSweep(int body, int a, int b, VecFx32 lift);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
@@ -23,7 +23,7 @@ void Ov259_ChargeEntry(int *node)
 
     VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)(*state + 0x74), &d);
     VEC_Normalize(&d, &d);
-    state[0x1e] = state[0x1f] = func_020050b4(d.x, d.z);
+    state[0x1e] = state[0x1f] = FX_Atan2(d.x, d.z);
     Ov107_PostTagUpdate((Actor *)(*state), 0x11, 0);
     Ov259_MirrorPartnerPose(node, 0x11, 0);
     Ov259_ForwardSweep(*(int *)(*state + 0x384), 0x908, 0xb28, data_02041dc8);

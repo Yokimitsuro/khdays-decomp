@@ -29,7 +29,7 @@ typedef struct { VecFx32 push; u8 nPower; u8 nType; int nSe; int nKind; int nMas
 struct Bits17a { unsigned char b0 : 1, b1 : 1; };
 
 extern const VecFx32 data_02042258;
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void VEC_Add(const void *a, const void *b, void *out);
 extern int Ov107_CollectSphereOverlaps(int owner, Sphere *sphere, int *hits);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
@@ -72,7 +72,7 @@ void Ov209_BounceShotTick(int *node)
     falling = state[0x16] < 0 && *(int *)(*state + 0x10c) == 0 ? 1 : 0;
     state[0x18] = *(int *)(node[0] + 0x2c) * 30 / 20;
     done = 0;
-    n = func_020050b4(state[0x15], state[0x17]);
+    n = FX_Atan2(state[0x15], state[0x17]);
     state[0xd] = n;
     state[0xb] += *(int *)(node[0] + 0x2c);
     grid = *(int *)(*state + 4);

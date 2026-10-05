@@ -122,7 +122,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);                      
 extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int VEC_Mag(VecFx32 *pVec);
 extern void VEC_Normalize(VecFx32 *pSrc, VecFx32 *pDst);                        /* VEC_Normalize */
-extern int FX_Atan2(int y, int x);
+extern int FX_Atan2Idx(int y, int x);
 extern void ScaleVec3Fx12(int nFactor, VecFx32 *pSrc, VecFx32 *pDst);          /* ScaleVec3Fx12 */
 extern void MTX_RotY33_(MtxFx33 *pMtx, int nSin, int nCos);                   /* MTX_RotY33_ */
 extern void MTX_MultVec33(VecFx32 *pVec, MtxFx33 *pMtx, VecFx32 *pOut);         /* MTX_MultVec33 */
@@ -186,7 +186,7 @@ void Ov022_ShapeMotionDelta(VecFx32 *pOut, struct Actor *pActor, VecFx32 *pIn, i
     if (pActor->combo.pComboLock->pRecord->nWindowEnd + WINDOW_SLACK >= pActor->nAnimFrame
         || (pActor->nFlags & FLAG_BIT32) != 0) {
         pActor->nMoveRate = data_ov022_020b2eb0 ? RATE_FAST : RATE_SLOW;
-        nAngle = FX_Atan2(-vecDir.x, -vecDir.z);
+        nAngle = FX_Atan2Idx(-vecDir.x, -vecDir.z);
         pNode = pActor->pNode;
         if ((pNode->nFlags & NODE_NO_ANIM) == 0) {
             pNode->nAngle = nAngle + ANGLE_BIAS;
@@ -212,8 +212,8 @@ void Ov022_ShapeMotionDelta(VecFx32 *pOut, struct Actor *pActor, VecFx32 *pIn, i
     vecRot.y = 0;
     nRadius += VEC_Mag(&vecRot);
     if (nRadius > (int)nDist) {
-        nAngleRot = FX_Atan2(-vecRot.x, -vecRot.z);
-        nAngleDir = FX_Atan2(-vecDir.x, -vecDir.z);
+        nAngleRot = FX_Atan2Idx(-vecRot.x, -vecRot.z);
+        nAngleDir = FX_Atan2Idx(-vecDir.x, -vecDir.z);
         nIndex = (u16)(nAngleDir - nAngleRot) >> 4;
         MTX_RotY33_(&mtx, data_0203d210[nIndex * 2], data_0203d210[nIndex * 2 + 1]);
         MTX_MultVec33(&vecScaled, &mtx, &vecScaled);

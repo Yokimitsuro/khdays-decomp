@@ -8,7 +8,7 @@
 extern int  Ov107_FindNearestObject(int obj, int flag);
 extern void VEC_Subtract(void *a, void *b, void *c);
 extern void VEC_Normalize(void *a, void *b);
-extern int  func_020050b4(int x, int z);
+extern short  FX_Atan2(int x, int z);
 extern void VEC_CrossProduct(void *a, void *b, void *c);
 extern void ScaleVec3Fx12(int scale, void *in, void *out);
 extern void SetIndexedSlot(int self, int idx, int cb);
@@ -24,7 +24,7 @@ void Ov211_AimPerpStrafe(int *self) {
         VEC_Subtract((void *)(target + 0x190), (void *)state[1], v);
         v[1] = 0;
         VEC_Normalize(v, v);
-        state[0xa] = func_020050b4(v[0], v[2]);
+        state[0xa] = FX_Atan2(v[0], v[2]);
         VEC_CrossProduct(&data_02042264, v, (void *)(state + 5));
         ScaleVec3Fx12(0x100, (void *)(state + 5), (void *)(state + 5));
     }

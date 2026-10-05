@@ -7,7 +7,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov260_TickRecovery(void);
 
@@ -18,7 +18,7 @@ void Ov260_TurnEntry(int *node)
 
     if (state[2] != 0) {
         VEC_Subtract((VecFx32 *)(state[2] + 0x190), (VecFx32 *)state[4], &d);
-        state[0x19] = state[0x1a] = func_020050b4(d.x, d.z);
+        state[0x19] = state[0x1a] = FX_Atan2(d.x, d.z);
     }
     Ov107_PostTagUpdate((Actor *)(*state), 8, 0);
     state[0x1f] = 0;

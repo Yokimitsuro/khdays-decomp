@@ -70,7 +70,7 @@ extern const short data_0203d210[];
 extern int Ov107_CalcHitDamage();
 extern void Ov107_BuildAndSendUpdate(struct Ov234Actor *, int, u16, int);
 extern void ScaleVec3Fx12(int, VecFx32 *, VecFx32 *);
-extern int func_020050b4(int, int);
+extern fx16 FX_Atan2(int, int);
 extern int VEC_Normalize(VecFx32 *, VecFx32 *);
 extern void func_ov107_020c0b90(struct Ov234Object *, int,
                                 VecFx32, int);
@@ -140,7 +140,7 @@ int Ov234_ResolveHitReaction(struct Ov234Actor *self, void *source,
     work->field44 = 0;
     work->direction10 = work->velocity28;
     work->angle34 = work->angle38 =
-        func_020050b4(work->velocity28.x, work->velocity28.z);
+        FX_Atan2(work->velocity28.x, work->velocity28.z);
 
     if (hit->flags.low & 0x20) {
         VEC_Normalize(&work->velocity28, &normalized);

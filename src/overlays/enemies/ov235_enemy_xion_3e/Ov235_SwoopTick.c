@@ -12,7 +12,7 @@ typedef struct { int w[4]; } Quat;
 
 extern int Ov107_FindNearestObject(int obj, int kind);
 extern void VEC_Subtract(const void *a, const void *b, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void Ov235_CircleTick(int *node);
@@ -29,7 +29,7 @@ void Ov235_SwoopTick(int *node)
     state[0x17] = Ov107_FindNearestObject(*state, 0);
     if (state[0x17] != 0) {
         VEC_Subtract((void *)(state[0x17] + 0x74), (void *)(*state + 0x74), &d);
-        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, func_020050b4(d.x, d.z));
+        QuatFromAxisAngle((Quat *)(state + 0xb), &data_02042264, FX_Atan2(d.x, d.z));
         speed = Ov107_ActionResource_GetOffsetAndScale(*(int *)(*state + 0x3a8), &v);
         Vec3TransformViaTempMtx(&v, (Quat *)(state + 7), &v);
         ScaleVec3Fx12(speed, &v, (VecFx32 *)(state + 4));

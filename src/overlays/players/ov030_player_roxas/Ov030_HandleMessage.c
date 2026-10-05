@@ -25,7 +25,7 @@
 
 extern int VEC_Mag(const VecFx32 *v);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void Ov030_SetActionAnimation(char *slots, int msg);
 extern unsigned char data_0204c240;
 extern void Ov030_StepActor(void);
@@ -55,7 +55,7 @@ void *Ov030_HandleMessage(char *self, int msg) {
             if (VEC_Mag(&d) != 0) {
                 VEC_Normalize(&d, &d);
             }
-            a = (unsigned short)FX_Atan2(d.x, d.z);
+            a = (unsigned short)FX_Atan2Idx(d.x, d.z);
             node = *(unsigned int **)(self + 0x20);
             if ((*node & 0x20) == 0) {
                 *(unsigned short *)((char *)node + 0x80) = a + 0x8000;

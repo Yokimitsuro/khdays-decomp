@@ -18,7 +18,7 @@
 
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *src, VecFx32 *dst);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern long long func_02020400(int num, int den);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
@@ -43,7 +43,7 @@ void Ov292_StepSteering(char *state)
                  &vToTarget);
     VEC_Normalize(&vToTarget, &vToTarget);
     QuatFromAxisAngle(state + 0x48, &data_02042264,
-                  func_020050b4(vToTarget.x, vToTarget.z));
+                  FX_Atan2(vToTarget.x, vToTarget.z));
     Vec3TransformViaTempMtx(&vFacing, *(char **)state + 0xa0, &data_02042258);
 
     nSpeed = 0x780;

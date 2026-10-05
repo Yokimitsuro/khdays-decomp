@@ -8,7 +8,7 @@ typedef struct {
 } Quat;
 
 extern int FX_Sqrt(int x);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern long long FX_InvFx64c(int x);
 extern short data_0203d210[];
 
@@ -83,7 +83,7 @@ void Quat_Slerp(Quat *out, int t, Quat *a, Quat *b)
     } else {
         int sinSq = (int)(((long long)diff * sum + 0x800) >> 0xc);
         int sinOmega = FX_Sqrt(sinSq);
-        omega = func_020050b4(sinOmega, dot);
+        omega = FX_Atan2(sinOmega, dot);
     }
     goto omega_done;
 

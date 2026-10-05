@@ -41,7 +41,7 @@ struct Actor {
 
 extern int VEC_Mag(VecFx32 *pVec);
 extern int VEC_Normalize(VecFx32 *pOut, VecFx32 *pIn);
-extern short FX_Atan2(int x, int y);
+extern short FX_Atan2Idx(int x, int y);
 extern int Session_RandNextScaled(int nRange);
 extern void func_ov022_02097038(struct Actor *pActor, int nArg);
 
@@ -66,7 +66,7 @@ void Ov022_TurnAwayFromDrift(struct Actor *pActor, int nArg1, int nArg2, int nAr
     if (VEC_Mag(&vecDrift) != 0) {
         VEC_Normalize(&vecDrift, &vecDrift);
     }
-    nAim = FX_Atan2(-vecDrift.x, -vecDrift.z);
+    nAim = FX_Atan2Idx(-vecDrift.x, -vecDrift.z);
     nDiff = (u16)(nAim - nFacing);
     if (nDiff > HALF_TURN) {
         nDiff = (u16)(0x10000 - nDiff);

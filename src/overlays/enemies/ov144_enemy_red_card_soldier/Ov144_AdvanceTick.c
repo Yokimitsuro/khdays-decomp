@@ -13,7 +13,7 @@ extern int Ov144_LureToPiece(int *state, int flag);
 extern int Ov107_ActionResource_GetOffsetAndScale(void *item, int mode);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *d);
 extern int VEC_Normalize(VecFx32 *v, VecFx32 *d);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_DotProduct(VecFx32 *a, VecFx32 *b);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern void ScaleVec3Fx12(int scale, VecFx32 *v, VecFx32 *d);
@@ -53,7 +53,7 @@ void Ov144_AdvanceTick(int *node)
     if (len < speed) {
         speed = len >> 1;
     }
-    state[0xd] = func_020050b4(dir.x, dir.z);
+    state[0xd] = FX_Atan2(dir.x, dir.z);
     dot = VEC_DotProduct(&dir, &facing);
     if (*(signed char *)(*state + 0x1c6) == 3 && dot < 0x800) {
         *(int *)(*state + 0x3f4) = 0;

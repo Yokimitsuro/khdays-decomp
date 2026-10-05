@@ -14,7 +14,7 @@
 struct pt { unsigned short a, b; };
 extern int  Ov107_FindNearestObject(int obj, void *out);
 extern void VEC_Subtract(void *a, void *b, void *c);
-extern int  func_020050b4(int x, int z);
+extern fx16  FX_Atan2(int x, int z);
 extern void SetIndexedSlot(int self, int idx, int cb);
 extern struct pt data_ov282_020d4700[];
 extern void Ov282_DoubleClawTick(void);
@@ -32,7 +32,7 @@ void Ov282_BeginPounce(int *self) {
     state[4] = target;
     if (target != 0) {
         VEC_Subtract((void *)(target + 0x190), (void *)state[1], v);
-        state[0xa] = func_020050b4(v[0], v[2]);
+        state[0xa] = FX_Atan2(v[0], v[2]);
     }
     state[0xb] = 0;
     state[0x14] = 0x6000;

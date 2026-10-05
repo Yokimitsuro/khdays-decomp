@@ -11,7 +11,7 @@ typedef struct ActorFlags60 {
 
 extern int Ov107_FindNearestObject(int actor, int arg);
 extern void VEC_Subtract(VecFx32 *a, VecFx32 *b, VecFx32 *out);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern void Ov107_PostTagUpdate(int actor, int a, int b);
 extern void SetIndexedSlot(void *node, int idx, void *next);
 extern void Ov122_AiStep_QueueAction2OnFlag48Clear(void);
@@ -31,7 +31,7 @@ void Ov122_TimerAcquireTargetAngleThenAdvance(int *node) {
     state[0x2] = target;
     if (target != 0) {
         VEC_Subtract((VecFx32 *)(target + 0x74), (VecFx32 *)state[0x3], &delta);
-        angle = func_020050b4(delta.x, delta.z);
+        angle = FX_Atan2(delta.x, delta.z);
         state[0x4] = state[0x5] = angle;
     }
 

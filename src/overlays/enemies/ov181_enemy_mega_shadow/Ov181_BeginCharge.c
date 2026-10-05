@@ -13,7 +13,7 @@ extern int Ov107_FindNearestObject(int owner, int *out);
 extern void SetIndexedSlot(void *self, int index, void *handler);
 extern int FX_Sqrt(int x);
 extern void VEC_Subtract(void *a, void *b, VecFx32 *out);
-extern int func_020050b4(int dx, int dz);
+extern fx16 FX_Atan2(int dx, int dz);
 extern void ScaleVec3Fx12(int scale, void *dst, void *src);
 extern const int data_02042258[];
 extern void Ov181_ApproachTick(void);
@@ -42,7 +42,7 @@ void Ov181_BeginCharge(int *self) {
     obj[8] = *(int *)(self[0] + 0x2c) * 30 / 20;
 
     VEC_Subtract((void *)(obj[4] + 0x190), (void *)obj[1], &delta);
-    obj[6] = func_020050b4(delta.x, delta.z);
+    obj[6] = FX_Atan2(delta.x, delta.z);
 
     Vec3TransformViaTempMtx((char *)obj + 0x54, (void *)(obj[0] + 0xa0), data_02042258);
     ScaleVec3Fx12(0x100, (char *)obj + 0x54, (char *)obj + 0x54);

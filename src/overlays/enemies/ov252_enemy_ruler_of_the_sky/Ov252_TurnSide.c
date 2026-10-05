@@ -6,7 +6,7 @@
 #include "nitro/fx_types.h"
 #include "game/engine.h"
 
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
 extern const short data_0203d210[];
 
@@ -15,7 +15,7 @@ extern const short data_0203d210[];
 
 u8 Ov252_TurnSide(int *state, VecFx32 v)
 {
-    int a = func_020050b4(v.x, v.z);
+    int a = FX_Atan2(v.x, v.z);
     unsigned int ia = ANG2IDX(state[0x15]);
     unsigned int im = ANG2IDX(a);
     int turn = Fx_Acos(FX_MUL(data_0203d210[im * 2], data_0203d210[ia * 2]) +

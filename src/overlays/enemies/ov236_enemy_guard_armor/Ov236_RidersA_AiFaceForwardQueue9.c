@@ -1,7 +1,7 @@
 /* Unless the +0x24 gate is busy, resolve a value from obj+0xa0 via 0202f384/020050b4 into
  * +0x2c/+0x30, clear bit0 of +0x3c0, latch sub-state 9 and dispatch. */
 extern int Vec3TransformViaTempMtx(void *, int, void *);
-extern int func_020050b4(int, int);
+extern short FX_Atan2(int, int);
 extern int SetIndexedSlot(int, int, void *);
 extern int data_02042258;
 void Ov236_RidersA_AiFaceForwardQueue9(int param_1) {
@@ -9,7 +9,7 @@ void Ov236_RidersA_AiFaceForwardQueue9(int param_1) {
     if (*(unsigned char *)(*(int *)(owner + 0x24)) != 0) return;
     int buf[3];
     Vec3TransformViaTempMtx(buf, *(int *)owner + 0xa0, &data_02042258);
-    int result = func_020050b4(buf[0], buf[2]);
+    int result = FX_Atan2(buf[0], buf[2]);
     *(int *)(owner + 0x2c) = result;
     *(int *)(owner + 0x30) = result;
     *(int *)(*(int *)owner + 0x3c0) &= ~1;

@@ -24,7 +24,7 @@ extern VecFx32 *func_ov022_020ad0c0(char *self);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Mag(const VecFx32 *v);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *unit);
-extern int FX_Atan2(int x, int z);
+extern int FX_Atan2Idx(int x, int z);
 extern void Ov072_ChargeTick(void);
 extern void Ov072_HoverStep(void);
 extern void Ov072_TryFire(void);
@@ -87,7 +87,7 @@ void *Ov072_HandleStateMessage(char *self, int msg)
             if (VEC_Mag(&d) != 0) {
                 VEC_Normalize(&d, &d);
             }
-            a = (u16)FX_Atan2(-d.x, -d.z);
+            a = (u16)FX_Atan2Idx(-d.x, -d.z);
             node = *(unsigned int **)(self + 0x20);
             if ((*node & 0x20) == 0) {
                 *(u16 *)((char *)node + 0x80) = a + 0x8000;

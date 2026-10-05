@@ -4,7 +4,7 @@
 #include "game/enemy_common.h"
 
 extern void VEC_Subtract(void *a, void *b, void *out);
-extern int func_020050b4(int x, int y);
+extern fx16 FX_Atan2(int x, int y);
 extern void SetIndexedSlot(void *node, int idx, void *cb);
 extern void Ov139_CopyScaleVec3GuardedThenAdvance(void);
 
@@ -17,7 +17,7 @@ void Ov139_Pose5ClearHitFlagAimAdvance(int *node) {
     ((struct hw60 *)(*state + 0x60))->hi &= ~0x40;
     if (state[0x11] != 0) {
         VEC_Subtract((void *)(state[0x11] + 400), (void *)(*state + 0xb0), local);
-        int r = func_020050b4(local[0], local[2]);
+        int r = FX_Atan2(local[0], local[2]);
         state[3] = r;
         state[2] = r;
     }

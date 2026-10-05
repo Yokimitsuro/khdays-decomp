@@ -110,7 +110,7 @@ extern void Ov107_BuildAndSendUpdate(struct Ov156Actor *owner, u16 a, u16 id, Ve
 extern void SetIndexedSlot(int node, int slot, void *cb);
 extern struct Ov156Actor *Ov107_FindNearestObject(struct Ov156Actor *owner, int mode);
 extern int VEC_DotProduct(const VecFx32 *a, const VecFx32 *b);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern char *Ov107_FindEntityHitBySphere(struct Ov156Actor *owner, VecFx32 *pos, int *shape);
 extern int Ov107_AiState_ApplyHit(char *other, int source, struct HitPacket *packet);
 extern struct CollisionResult *Collision_CastSphereEx(void *collision, VecFx32 *position, VecFx32 *direction, int radius, void *ignore);
@@ -189,8 +189,8 @@ void Ov157_DashTick(int node)
     if (target != 0) {
         VEC_Subtract(&target->base.sphere.center, &actor->base.sphere.center, &d);
         if (VEC_DotProduct(&d, (VecFx32 *)&state->nDirX) > 0) {
-            cur = func_020050b4(state->nDirX, state->nDirZ);
-            want = func_020050b4(d.x, d.z);
+            cur = FX_Atan2(state->nDirX, state->nDirZ);
+            want = FX_Atan2(d.x, d.z);
             angle = Angle_TurnToward(cur, want, *(int *)(*(int *)node + 0x2c) * 30 / 15, 0);
             idx = ANG2IDX(angle);
             state->nDirX = data_0203d210[idx * 2];                                       /* FX_SinIdx */

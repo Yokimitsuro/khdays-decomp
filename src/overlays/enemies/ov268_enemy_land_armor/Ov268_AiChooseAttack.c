@@ -42,7 +42,7 @@ extern void SetIndexedSlot(int self, int slot, void (*cb)(void));
 extern void VEC_Subtract(const int *a, const int *b, int *dst);
 extern int VEC_DotProduct(const int *a, const int *b);
 extern int VEC_Normalize(const int *v, int *unit);
-extern int func_020050b4(int x, int z);
+extern fx16 FX_Atan2(int x, int z);
 extern int Ov107_ActionResource_GetOffsetAndScale(int a, int *out);
 extern void ScaleVec3Fx12(int scale, const int *src, int *dst);
 extern short data_0203d210[];
@@ -76,7 +76,7 @@ void Ov268_AiChooseAttack(int self) {
     owner = (int *)ctx[0];
     gap = VEC_Normalize(toTarget, toTarget);
     gap -= owner[0x20] + *(int *)(tgt + 0x80);
-    ctx[0xd] = func_020050b4(toTarget[0], toTarget[2]);
+    ctx[0xd] = FX_Atan2(toTarget[0], toTarget[2]);
 
     scale = Ov107_ActionResource_GetOffsetAndScale(*(int *)(ctx[0] + 0x3ac), forward);
     Vec3TransformViaTempMtx(&ctx[5], (const int *)(ctx[0] + 0xa0), forward);

@@ -11,7 +11,7 @@
 extern int Ov253_FindNearestTarget(int self, const VecFx32 *pos, const VecFx32 *dir, int minDot, int maxDist);
 extern void VEC_Subtract(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern int VEC_Normalize(const VecFx32 *v, VecFx32 *out);
-extern int func_020050b4(int y, int x);
+extern fx16 FX_Atan2(int y, int x);
 extern void SetIndexedSlot(int *node, int slot, void *cb);
 extern const short data_0203d210[];
 extern void Ov253_AiQueueStoredOnAnimEnd(void);
@@ -39,7 +39,7 @@ void Ov253_SeekTick(int *node) {
     }
     VEC_Subtract((VecFx32 *)(target + 0x190), (VecFx32 *)state[2], &d);
     dist = VEC_Normalize(&d, &d);
-    state[4] = func_020050b4(d.x, d.z);
+    state[4] = FX_Atan2(d.x, d.z);
     if (state[0xc] > 0) {
         return;
     }
