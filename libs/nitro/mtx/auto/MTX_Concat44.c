@@ -4,8 +4,8 @@
  * Written against this tree's own already-matched sibling
  * libs/nitro/mtx/auto/MTX_Concat43.c; the row/column evaluation ORDER (which
  * product is emitted when, and which column of b is cached in locals across
- * two rows) was cross-checked against a matched C version of the NitroSDK's
- * FX_mtx44.c, which reproduces the same SDK routine.
+ * two rows) was cross-checked against pret/pokediamond's matched
+ * arm9/lib/NitroSDK/src/FX_mtx44.c, which reproduces the same SDK routine.
  * Verified byte-exact against this ROM: 1636 bytes, 0 relocs.
  */
 

@@ -6,8 +6,8 @@
  * 64-bit fixed-point rounding, and the scaleW rescale through func_020201b8.
  *
  * Identified by behavior, not by name: the argument list, the cotangent divide,
- * the -scaleW in _23 and the zero cells all agree with a matched C version of the
- * NitroSDK's GX_g3_util.c (G3i_PerspectiveW_), which is the same SDK
+ * the -scaleW in _23 and the zero cells all agree with pret/pokediamond's matched
+ * arm9/lib/NitroSDK/src/GX_g3_util.c (G3i_PerspectiveW_), which is the same SDK
  * routine with the load-to-hardware path still present. This copy has no load
  * path and takes 7 arguments, so it is the MTX_ form, not the G3i_ one. The
  * statement ORDER differs from that reference (the two divides are pipelined the

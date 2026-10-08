@@ -125,6 +125,9 @@ See the [Nintendo DS decompilation guide](https://decomp.wiki/platforms/nintendo
 - The DS Protect 1.10 sources in ov028 (`src/overlays/system/ov028_dsprotect/dsprot/`) and
   `tools/dsprot_decrypt.py` are reconstructed after taxicat1's decompilation of DS Protect,
   [taxicat1/dsprot](https://github.com/taxicat1/dsprot) (branch `1.10`).
+- The NitroSDK identification harness in `sdk/` compiles the NitroSDK sources of pret's
+  decompilation of Pokémon Diamond, [pret/pokediamond](https://github.com/pret/pokediamond),
+  and several `libs/nitro` routines were cross-checked against its matched C.
 
 ## Contributing
 

@@ -2,8 +2,8 @@
  * VRAM spin-lock id, blank both engines' display registers and reset both
  * background affine matrices to identity.
  *
- * Algorithm cross-checked against a matched C version of the NitroSDK's GX.c
- * (GX_Init); verified byte-exact against this ROM.
+ * Algorithm cross-checked against pret/pokediamond's
+ * arm9/lib/NitroSDK/src/GX.c (GX_Init); verified byte-exact against this ROM.
  */
 
 #include "nitro/types.h"

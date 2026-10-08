@@ -1,6 +1,6 @@
 /* NitroSDK SND_FlushCommand: hand the reserved command list to the ARM7 over PXI.
-   Algorithm cross-checked against a matched C version of the NitroSDK's
-   SND_command.c (SND_FlushCommand). */
+   Algorithm cross-checked against pret/pokediamond's
+   arm9/lib/NitroSDK/src/SND_command.c (SND_FlushCommand). */
 
 typedef struct SNDCommand {
     struct SNDCommand *next;

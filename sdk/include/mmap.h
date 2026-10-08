@@ -1,5 +1,5 @@
-#ifndef SDK_HARNESS_ARM9_MMAP_H
-#define SDK_HARNESS_ARM9_MMAP_H
+#ifndef POKEDIAMOND_ARM9_MMAP_H
+#define POKEDIAMOND_ARM9_MMAP_H
 
 #include "nitro/types.h"
 #include "nitro/mmap_shared.h"
@@ -99,4 +99,4 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DTCM_SYSRV_OFS_INTR_VECTOR   0x3c
 #define HW_RESET_VECTOR         0xffff0000
 
-#endif //SDK_HARNESS_ARM9_MMAP_H
+#endif //POKEDIAMOND_ARM9_MMAP_H
