@@ -4,7 +4,7 @@
 #include "game/engine.h"
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
-extern int func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 
 typedef struct {
     char _00[0x20];
@@ -20,7 +20,7 @@ int Session_CheckSceneLoop(void)
     int flag = 0;
 
     if (Session_IsActive() != 0 && Session_IsReady() != 0) {
-        if (obj->h20 != func_01ff8138())
+        if (obj->h20 != WH_GetBitmap())
             flag = 1;
     }
     if (Session_IsSceneInterruptible() != 0)

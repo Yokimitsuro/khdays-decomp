@@ -2,7 +2,7 @@
  * task list of checks through pointers stored with a +0x320 bias (so no call inside the encrypted
  * range needs a relocation), folds the results and calls the optional callback when its verdict
  * holds; the "Not" variants invert the verdict. KH Days calls them from ov000, ov001, ov004,
- * ov005 and ov023. Reconstruction after taxicat1/dsprot (branch 1.10). */
+ * ov005 and ov023. */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 
@@ -20,7 +20,7 @@ typedef u32 (*DSProtTask)(void);
 typedef void (*DSProtCallback)(void);
 
 /* DSProt_DetectFlashcart: run the ROM test; TRUE (and the callback) when a flashcart is detected. */
-u32 func_ov028_0208b040(void *callback)
+u32 Ov028_DSProt_DetectFlashcart(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;
@@ -29,7 +29,7 @@ u32 func_ov028_0208b040(void *callback)
     BOOL result;
 
     result = FALSE;
-    queue[0] = (u32)&func_ov028_0208af30 + TASK_BIAS;
+    queue[0] = (u32)&Ov028_DSProt_ROMTest_IsBad + TASK_BIAS;
     queue[1] = TASK_QUEUE_END;
 
     resultSum = 0;
@@ -56,7 +56,7 @@ u32 func_ov028_0208b040(void *callback)
 }
 
 /* DSProt_DetectNotFlashcart: run the ROM test; TRUE (and the callback) when NO flashcart is detected. */
-u32 func_ov028_0208b120(void *callback)
+u32 Ov028_DSProt_DetectNotFlashcart(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;
@@ -65,7 +65,7 @@ u32 func_ov028_0208b120(void *callback)
     BOOL result;
 
     result = FALSE;
-    queue[0] = (u32)&func_ov028_0208af30 + TASK_BIAS;
+    queue[0] = (u32)&Ov028_DSProt_ROMTest_IsBad + TASK_BIAS;
     queue[1] = TASK_QUEUE_END;
 
     resultSum = 0;
@@ -92,7 +92,7 @@ u32 func_ov028_0208b120(void *callback)
 }
 
 /* DSProt_DetectEmulator: run the MAC/owner check; TRUE (and the callback) when an emulator is detected. */
-u32 func_ov028_0208b200(void *callback)
+u32 Ov028_DSProt_DetectEmulator(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;
@@ -101,7 +101,7 @@ u32 func_ov028_0208b200(void *callback)
     BOOL result;
 
     result = FALSE;
-    queue[0] = (u32)&func_ov028_0208abd0 + TASK_BIAS;
+    queue[0] = (u32)&Ov028_DSProt_MACOwner_IsBad + TASK_BIAS;
     queue[1] = TASK_QUEUE_END;
 
     resultSum = 0;
@@ -128,7 +128,7 @@ u32 func_ov028_0208b200(void *callback)
 }
 
 /* DSProt_DetectNotEmulator: run the MAC/owner check; TRUE (and the callback) when NO emulator is detected. */
-u32 func_ov028_0208b2e0(void *callback)
+u32 Ov028_DSProt_DetectNotEmulator(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;
@@ -137,7 +137,7 @@ u32 func_ov028_0208b2e0(void *callback)
     BOOL result;
 
     result = FALSE;
-    queue[0] = (u32)&func_ov028_0208abd0 + TASK_BIAS;
+    queue[0] = (u32)&Ov028_DSProt_MACOwner_IsBad + TASK_BIAS;
     queue[1] = TASK_QUEUE_END;
 
     resultSum = 0;
@@ -164,7 +164,7 @@ u32 func_ov028_0208b2e0(void *callback)
 }
 
 /* DSProt_DetectDummy: an empty task list: always FALSE, the callback never runs (a decoy). */
-u32 func_ov028_0208b3c0(void *callback)
+u32 Ov028_DSProt_DetectDummy(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;
@@ -200,7 +200,7 @@ u32 func_ov028_0208b3c0(void *callback)
 }
 
 /* DSProt_DetectNotDummy: an empty task list: always TRUE, the callback always runs (a decoy). */
-u32 func_ov028_0208b490(void *callback)
+u32 Ov028_DSProt_DetectNotDummy(void *callback)
 {
     u32 queue[32];
     BOOL taskResult;

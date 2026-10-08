@@ -2,7 +2,7 @@
  *
  * SetMasterBrightnessSub/0201e374 are SetMasterBrightnessSub/Main; the argument runs step-16 (i.e. -16..0),
  * so this is a master-brightness fade from black up to full. Sub is always driven; Main only when
- * the sharing handle (pResource5074) is non-null. On the frame the counter passes 16 it pins the
+ * the scene object (pResource5074) is non-null. On the frame the counter passes 16 it pins the
  * counter to 120, stamps GetTick64 into llTimestamp, and returns Ov000_TickMenuLoop as the next
  * scene tick. Same 0xd18c Ov000SceneContext as the other menu ticks; +0 is read as a 32-bit frame
  * counter here (the reading the type's +0 comment records).

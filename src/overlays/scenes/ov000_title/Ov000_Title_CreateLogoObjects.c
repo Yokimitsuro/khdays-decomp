@@ -5,7 +5,7 @@
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void ObjNode_InitFromDesc(void *mgr, void *desc);
 extern void G2x_SetBlendAlpha_(int reg, int a, int b, int c, int d);
-extern int func_02032444(void *mgr, int index, int);
+extern int VeneerTo_SlotTable_AddEntry(void *mgr, int index, int);
 extern void Slot_ForwardToEntry(void *mgr, int obj, int);
 extern void Slot_ClearFlagBit1(void *mgr, int obj);
 extern void Slot_SetMode2Bit(void *mgr, int obj, int);
@@ -65,7 +65,7 @@ void Ov000_Title_CreateLogoObjects(void) {
 
     for (i = 0; i < 10; i++) {
         context->objects[i].handle =
-            func_02032444(context->objectManager, i, 0);
+            VeneerTo_SlotTable_AddEntry(context->objectManager, i, 0);
     }
 
     for (j = 0; j < 10; j++) {

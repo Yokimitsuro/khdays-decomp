@@ -9,11 +9,11 @@ typedef struct Ov005Context {
 extern Ov005Context *data_ov005_0205b80c;
 extern void Ov005_UpdateDialogVisibility(void);
 extern int Ov005_IsSubContextUsable(void);
-extern void func_02023ad0(void *);
+extern void VeneerTo_Obj_Destroy(void *);
 void Ov005_WaitForExitTask(void) {
     Ov005_UpdateDialogVisibility();
     if(Ov005_IsSubContextUsable()==0)return;
-    func_02023ad0(data_ov005_0205b80c->exitTaskHandle);
+    VeneerTo_Obj_Destroy(data_ov005_0205b80c->exitTaskHandle);
     data_ov005_0205b80c->exitTaskHandle=0;
     data_ov005_0205b80c->menuState=6;
 }

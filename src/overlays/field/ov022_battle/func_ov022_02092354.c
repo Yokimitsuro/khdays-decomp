@@ -2,7 +2,7 @@
  * instances. */
 
 extern void ClearGlobalArrayInt(int arg0);
-extern void func_02023ad0(int arg0);
+extern void VeneerTo_Obj_Destroy(int arg0);
 extern int data_ov022_020b2eac;
 
 void func_ov022_02092354(int *arg0) {
@@ -12,7 +12,7 @@ void func_ov022_02092354(int *arg0) {
     if (c == 0) ClearGlobalArrayInt(10);
     i = 0;
     do {
-        if (*arg0 != 0) func_02023ad0(*arg0);
+        if (*arg0 != 0) VeneerTo_Obj_Destroy(*arg0);
         i = i + 1;
         arg0 = arg0 + 1;
     } while (i < 6);

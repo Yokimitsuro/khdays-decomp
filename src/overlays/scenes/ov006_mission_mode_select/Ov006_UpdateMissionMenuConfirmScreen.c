@@ -29,7 +29,7 @@ extern u16 data_ov006_0205651c[8];
 extern int Ov006_SetMissionCursorSelection(int selection);
 extern int Ov006_IsMissionMenuExitRequested(void);
 extern void Ov006_BlankScreensAndTeardownText(void);
-extern u16 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern int Ov006_GetMissionMenuSelection(void);
 extern void Ov006_ResetTextLayers(void);
 extern void *Ov006_GetVarRecordByIndex(void *resource, u32 index);
@@ -69,11 +69,11 @@ MissionState Ov006_UpdateMissionMenuConfirmScreen(void)
         goto draw_screen;
     case 4:
         if (data_ov006_02056660->sessionReady != 0) {
-            if (func_01ff8138() != 1) {
+            if (WH_GetBitmap() != 1) {
                 nextState = 0;
             }
         } else {
-            if (func_01ff8138() == 0) {
+            if (WH_GetBitmap() == 0) {
                 nextState = 0;
             }
         }

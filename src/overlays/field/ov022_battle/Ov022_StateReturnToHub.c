@@ -1,4 +1,4 @@
-/* Fades both screens to white and moves to ending the key sharing session, clearing game-state
+/* Fades both screens to white and moves to closing the ov106 scene, clearing game-state
  * field 0x20e6. */
 
 #include "nitro/types.h"
@@ -17,7 +17,7 @@ extern u8 data_0204be04;
 extern Ov022Context *data_ov022_020b2e60;
 
 extern void Ov022_UpdateCameraAndViews(int mode);
-extern void *Ov022_EndKeySharingSession(void);
+extern void *Ov022_StateCloseOv106Scene(void);
 
 Ov022StateCallback Ov022_StateReturnToHub(void)
 {
@@ -41,7 +41,7 @@ Ov022StateCallback Ov022_StateReturnToHub(void)
 
     if (completed != 0) {
         StoreToGlobalPtr4Field28(1);
-        next = Ov022_EndKeySharingSession;
+        next = Ov022_StateCloseOv106Scene;
         GameState_SetField(0x20e6, 1, 0);
     }
 

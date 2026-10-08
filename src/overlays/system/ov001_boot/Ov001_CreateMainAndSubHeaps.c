@@ -38,11 +38,11 @@ extern NNSFndHeapHandle NNS_FndCreateExpHeapEx(void *startAddress, u32 size, u16
    block. Their bodies are ciphertext in the static ROM and only become ARM
    instructions at run time; we only ever need their addresses. See
    docs/ov028_encrypted_code.md. */
-extern BOOL func_ov028_0208b040(int);
-extern BOOL func_ov028_0208b120(int);
-extern BOOL func_ov028_0208b200(int);
-extern BOOL func_ov028_0208b2e0(int);
-extern BOOL func_ov028_0208b490(int);
+extern BOOL Ov028_DSProt_DetectFlashcart(int);
+extern BOOL Ov028_DSProt_DetectNotFlashcart(int);
+extern BOOL Ov028_DSProt_DetectEmulator(int);
+extern BOOL Ov028_DSProt_DetectNotEmulator(int);
+extern BOOL Ov028_DSProt_DetectNotDummy(int);
 
 #define MAIN_HEAP_SIZE 0xc8000 /* 800 KiB */
 #define HEAP_ALIGN 0x10
@@ -55,7 +55,7 @@ void Ov001_CreateMainAndSubHeaps(NNSFndHeapHandle *outMainHeap, NNSFndHeapHandle
 
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID_ov028);
 
-    if (func_ov028_0208b490(0)) {
+    if (Ov028_DSProt_DetectNotDummy(0)) {
         mainHeap = NNS_FndCreateExpHeapEx(
             OS_AllocFromArenaLo(OS_ARENA_MAIN, MAIN_HEAP_SIZE, HEAP_ALIGN),
             MAIN_HEAP_SIZE, 0);
@@ -64,12 +64,12 @@ void Ov001_CreateMainAndSubHeaps(NNSFndHeapHandle *outMainHeap, NNSFndHeapHandle
     arenaLo = ((u32)OS_GetArenaLo(OS_ARENA_MAIN) + 0xf) & ~0xf;
     arenaHi = (u32)OS_GetArenaHi(OS_ARENA_MAIN) & ~0xf;
 
-    if (func_ov028_0208b200(0) || func_ov028_0208b040(0)) {
+    if (Ov028_DSProt_DetectEmulator(0) || Ov028_DSProt_DetectFlashcart(0)) {
         /* share the remaining arena: sub heap gets half */
         u32 size = (arenaHi - arenaLo) >> 1;
         subHeap = NNS_FndCreateExpHeapEx(
             OS_AllocFromArenaLo(OS_ARENA_MAIN, size, HEAP_ALIGN), size, 0);
-    } else if (func_ov028_0208b120(0) && func_ov028_0208b2e0(0)) {
+    } else if (Ov028_DSProt_DetectNotFlashcart(0) && Ov028_DSProt_DetectNotEmulator(0)) {
         /* sub heap takes all of the remaining arena */
         u32 size = arenaHi - arenaLo;
         subHeap = NNS_FndCreateExpHeapEx(

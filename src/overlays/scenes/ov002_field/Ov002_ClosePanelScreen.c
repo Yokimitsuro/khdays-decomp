@@ -59,7 +59,7 @@ typedef struct {
 extern Ov002PanelContext *data_ov002_0207f614;
 
 extern void NNSi_FndFreeFromDefaultHeap(void *pBlock);
-extern void func_02023ad0(void *hClass);
+extern void VeneerTo_Obj_Destroy(void *hClass);
 extern void FreeAllListNodeSubBuffers(int *pSurface);
 extern void Ov002_RemoveAndFreeNode(void *hNode);
 
@@ -112,31 +112,31 @@ void Ov002_ClosePanelScreen(void)
         NNSi_FndFreeFromDefaultHeap(ctx->pUnk01d8);
     }
     if (ctx->hClass0014 != 0) {
-        func_02023ad0(ctx->hClass0014);
+        VeneerTo_Obj_Destroy(ctx->hClass0014);
     }
     if (ctx->hFlipClass != 0) {
-        func_02023ad0(ctx->hFlipClass);
+        VeneerTo_Obj_Destroy(ctx->hFlipClass);
     }
     if (ctx->hClass0004 != 0) {
-        func_02023ad0(ctx->hClass0004);
+        VeneerTo_Obj_Destroy(ctx->hClass0004);
     }
     if (ctx->hClass0008 != 0) {
-        func_02023ad0(ctx->hClass0008);
+        VeneerTo_Obj_Destroy(ctx->hClass0008);
     }
     if (ctx->hClass000c != 0) {
-        func_02023ad0(ctx->hClass000c);
+        VeneerTo_Obj_Destroy(ctx->hClass000c);
     }
     if (ctx->hClass0010 != 0) {
-        func_02023ad0(ctx->hClass0010);
+        VeneerTo_Obj_Destroy(ctx->hClass0010);
     }
     if (ctx->hClass0018 != 0) {
-        func_02023ad0(ctx->hClass0018);
+        VeneerTo_Obj_Destroy(ctx->hClass0018);
     }
     if (ctx->hClass001c != 0) {
-        func_02023ad0(ctx->hClass001c);
+        VeneerTo_Obj_Destroy(ctx->hClass001c);
     }
     if (ctx->hClass0020 != 0) {
-        func_02023ad0(ctx->hClass0020);
+        VeneerTo_Obj_Destroy(ctx->hClass0020);
     }
 
     pDispCnt = (volatile u32 *)0x04000000;

@@ -3,7 +3,7 @@
 
 extern int OS_DisableInterrupts(void);
 extern void OS_RestoreInterrupts(int state);
-extern int Ov105_IsDeviceReady(void);
+extern int Ov105_WMi_CheckInitialized(void);
 extern WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...);
 extern void Ov105_ClearSharedRequestBit(void);
 extern void PXI_SetFifoRecvCallback(int tag, void *callback);
@@ -14,7 +14,7 @@ extern char data_ov105_020bfa20;
 int Ov105_ShutdownWireless(void) {
     int enabled = OS_DisableInterrupts();
     int err;
-    if (Ov105_IsDeviceReady() != 0) {
+    if (Ov105_WMi_CheckInitialized() != 0) {
         OS_RestoreInterrupts(enabled);
         return 3;
     }

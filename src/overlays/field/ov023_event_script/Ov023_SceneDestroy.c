@@ -35,7 +35,7 @@ typedef struct Ov023SceneRoot {
 
 extern void Ov023_ResetEntryTable(void);                              /* Ov023_ResetActors */
 extern void NNSi_FndFreeFromDefaultHeap(void *pBlock);
-extern void func_02023ad0(void *pObject);            /* end a sub-object */
+extern void VeneerTo_Obj_Destroy(void *pObject);            /* end a sub-object */
 extern u8   data_0204c240;                                          /* session bits */
 extern Ov023SceneRoot data_ov023_0208a784;
 
@@ -61,7 +61,7 @@ void Ov023_SceneDestroy(void)
         ZeroHalfThenFree(data_ov023_0208a784.pScene->pWorldText);
     }
     if (data_ov023_0208a784.pScene->pSubObject != 0) {
-        func_02023ad0(data_ov023_0208a784.pScene->pSubObject);
+        VeneerTo_Obj_Destroy(data_ov023_0208a784.pScene->pSubObject);
     }
     StoreGlobalArrayEntry(1, 0);
     StoreGlobalArrayEntry(0x14, 0);

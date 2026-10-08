@@ -6,8 +6,8 @@
  * Twin of ov027 02083dbc / ov026 02082b4c. */
 typedef struct Ov002SceneHooks {
     void (*pfnSetup)(void);          /* 0x00 */
-    void (*pfnRegister)(int nArg);   /* 0x04 */
-    void (*pfnUnregister)(void);     /* 0x08 */
+    void (*pfnCreateTask)(int nArg); /* 0x04 */
+    void (*pfnDestroyTask)(void);    /* 0x08 */
     void (*pfnActivate)(void);       /* 0x0c */
     void (*pfnDeactivate)(void);     /* 0x10 */
     int  (*pfnIsActive)(void);       /* 0x14 */
@@ -20,7 +20,7 @@ typedef struct Ov002SceneHooks {
 
 extern void  Ov026_BlankScreens(void);                             /* Ov025_SetupDisplay */
 extern void  Ov026_CreateService(int nArg);                         /* Ov025_RegisterCallback */
-extern void  Ov026_CloseKeySharing(void);                             /* Ov025_UnregisterCallback */
+extern void  Ov026_DestroyService(void);                             /* Ov025_UnregisterCallback */
 extern void  Ov026_SceneActivate(void);                             /* Ov025_SetStateActive */
 extern void  Ov026_SetMenuFlag4(void);                             /* Ov025_SetStateDone */
 extern int   Ov026_SceneIsActive(void);                             /* Ov025_IsStateDone */
@@ -30,8 +30,8 @@ extern int   Ov026_SceneHook24NoOp(void);                             /* returns
 void Ov026_FillSceneHooks(Ov002SceneHooks *pHooks)
 {
     pHooks->pfnSetup = Ov026_BlankScreens;
-    pHooks->pfnRegister = Ov026_CreateService;
-    pHooks->pfnUnregister = Ov026_CloseKeySharing;
+    pHooks->pfnCreateTask = Ov026_CreateService;
+    pHooks->pfnDestroyTask = Ov026_DestroyService;
     pHooks->pfnActivate = Ov026_SceneActivate;
     pHooks->pfnDeactivate = Ov026_SetMenuFlag4;
     pHooks->pfnIsActive = Ov026_SceneIsActive;

@@ -19,9 +19,9 @@ typedef struct Ov000BootContext {
     u8 savedSceneFlag;
     int savedSceneId;
     u8 pad_4c58[0x414];
-    void *sharingHandle;
+    void *pSceneObject;
     u8 pad_5070[4];
-    void *sharingAux;
+    void *pAuxObject;
 } Ov000BootContext;
 
 extern Ov000BootContext *NNSi_FndGetCurrentRootHeap(void);
@@ -34,7 +34,7 @@ extern void Scene_DrawNode(void *renderNode);
 extern int Ov000_GetLoadState(void);
 extern int Ov000_GetLoadResultA(void);
 extern int Ov000_GetLoadResultB(void);
-extern void *func_02023ad0(void *handle);
+extern void *VeneerTo_Obj_Destroy(void *handle);
 extern void Ov000_PreloadLogoResources(void);
 extern void Ov000_Title_CreateLogoObjects(void);
 extern void Ov000_ReleaseLogoResources(void);
@@ -58,8 +58,8 @@ Ov000StateFn Ov000_TickBootTeardown(void) {
     case 7:
         context->savedSceneFlag = Ov000_GetLoadResultA();
         context->savedSceneId = Ov000_GetLoadResultB();
-        func_02023ad0(context->sharingHandle);
-        context->sharingHandle = context->sharingAux = 0;
+        VeneerTo_Obj_Destroy(context->pSceneObject);
+        context->pSceneObject = context->pAuxObject = 0;
         *(volatile u32 *)0x04001000 &= ~0xe000;
 
         Ov000_PreloadLogoResources();

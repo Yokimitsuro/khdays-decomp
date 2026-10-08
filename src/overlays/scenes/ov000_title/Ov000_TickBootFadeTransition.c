@@ -15,8 +15,8 @@ typedef struct Ov000BootContext {
     u8 scrollBounds[0x4b19];
     s8 transitionMode;
     u8 pad_4c2e[0x43e];
-    void *sharingHandle;
-    void *sharingAux;
+    void *pSceneObject;
+    void *pAuxObject;
 } Ov000BootContext;
 
 extern Ov000BootContext *NNSi_FndGetCurrentRootHeap(void);
@@ -27,7 +27,7 @@ extern void Scene_DrawNode(void *renderNode);
 extern void G2x_SetBlendBrightness_(u32 registerAddress, int planeMask,
                                     int brightness);
 extern void Table_TailCallWithEntry(int first, int second);
-extern void func_02023ad0(void *handle);
+extern void VeneerTo_Obj_Destroy(void *handle);
 extern void Ov000_BootDispatch(void);
 
 Ov000StateFn Ov000_TickBootFadeTransition(void) {
@@ -63,20 +63,20 @@ Ov000StateFn Ov000_TickBootFadeTransition(void) {
             context->frame = 0;
             switch (context->transitionMode) {
             case 0:
-                if (context->sharingHandle != 0) {
-                    func_02023ad0(context->sharingHandle);
-                    context->sharingHandle = 0;
+                if (context->pSceneObject != 0) {
+                    VeneerTo_Obj_Destroy(context->pSceneObject);
+                    context->pSceneObject = 0;
                 }
                 break;
             case 1:
             case 2:
-                if (context->sharingHandle != 0) {
-                    func_02023ad0(context->sharingHandle);
-                    context->sharingHandle = 0;
+                if (context->pSceneObject != 0) {
+                    VeneerTo_Obj_Destroy(context->pSceneObject);
+                    context->pSceneObject = 0;
                 }
-                if (context->sharingAux != 0) {
-                    func_02023ad0(context->sharingAux);
-                    context->sharingAux = 0;
+                if (context->pAuxObject != 0) {
+                    VeneerTo_Obj_Destroy(context->pAuxObject);
+                    context->pAuxObject = 0;
                 }
                 break;
             }

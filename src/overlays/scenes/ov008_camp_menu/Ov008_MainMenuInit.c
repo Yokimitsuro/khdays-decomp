@@ -9,7 +9,7 @@ extern void  Ov008_SetupMenuDisplay(void);
 extern void  Ov008_LoadMenuUi(void);
 extern void  StoreGlobalPtrArray4At0c(int, void *);
 extern char  Ov008_ReceiveMenuMessage[];
-extern void  Ov008_ArmWirelessCallback(int);
+extern void  Ov008_OpenMissionLobby(int);
 extern int   Session_IsReady(void);
 extern int   Ov008_IsSessionReady(void);
 extern int   Ov008_GetPlayerMask(void);
@@ -31,7 +31,7 @@ void *Ov008_MainMenuInit(void) {
     Ov008_SetupMenuDisplay();
     Ov008_LoadMenuUi();
     StoreGlobalPtrArray4At0c(0xe, Ov008_ReceiveMenuMessage);
-    Ov008_ArmWirelessCallback(0);
+    Ov008_OpenMissionLobby(0);
     *(int *)(heap + 0x14) = -1;
     *(unsigned short *)(heap + 0x504c) = 0xffff;
     *(int *)heap = Session_IsReady();

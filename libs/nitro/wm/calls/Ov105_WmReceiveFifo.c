@@ -408,18 +408,21 @@ typedef struct WMPortRecvCallback {
 typedef struct WMPortSendCallback {
     u16 apiid;                    /* 0x00 */
     u16 errcode;                  /* 0x02 */
-    u16 state;                    /* 0x04 */
-    u16 port;                     /* 0x06 */
-    u16 destBitmap;               /* 0x08 */
-    u16 restBitmap;               /* 0x0a */
-    u16 sentBitmap;               /* 0x0c */
-    u16 reserved;                 /* 0x0e */
-    u16 *data;                    /* 0x10 */
-    u16 length;                   /* 0x14 */
-    u16 seqNo;                    /* 0x16 */
-    u32 reserved2;                /* 0x18 */
+    u16 wlCmdID;                  /* 0x04 */
+    u16 wlResult;                 /* 0x06 */
+    u16 state;                    /* 0x08 */
+    u16 port;                     /* 0x0a */
+    u16 destBitmap;               /* 0x0c */
+    u16 restBitmap;               /* 0x0e */
+    u16 sentBitmap;               /* 0x10 */
+    u16 reserved;                 /* 0x12 */
+    const u16 *data;              /* 0x14: the buffer sent (AsyncMessage_OnSendDone compares it) */
+    u16 length;                   /* 0x18 */
+    u16 seqNo;                    /* 0x1a */
     WMCallbackFunc callback;      /* 0x1c */
     void *arg;                    /* 0x20: the helper passes its WhSendCallbackFunc here */
+    u16 maxSendDataSize;          /* 0x24 */
+    u16 maxRecvDataSize;          /* 0x26 */
 } WMPortSendCallback;
 
 typedef void (*WhScanCallbackFunc)(WMBssDesc *pBssDesc);

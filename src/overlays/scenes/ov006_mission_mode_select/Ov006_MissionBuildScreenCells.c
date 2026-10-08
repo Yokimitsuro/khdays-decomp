@@ -92,7 +92,7 @@ extern const MissionOffsetTable data_ov006_0205630c;
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern int func_02020400(int numerator, int denominator);
-extern int func_02032444(void *panel, int kind, int variant);
+extern int VeneerTo_SlotTable_AddEntry(void *panel, int kind, int variant);
 extern void Slot_UnlinkAll(void *panel);
 extern void Slot_SetMode2Bit(void *panel, int cell, int mode);
 extern void SlotTable_SetEntryStyle(void *panel, int cell, int step);
@@ -142,7 +142,7 @@ void Ov006_MissionBuildScreenCells(int mode)
     switch (mode) {
     case 0:
     case 1:
-        handle = func_02032444(&data_ov006_02056664->panel, 0, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 0, 0);
         data_ov006_02056664->cellBackdrop = handle;
         config.x = 0x38;
         config.y = 0x98;
@@ -152,7 +152,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellBackdrop, config);
 
         for (i = 0; i < 4; i++) {
-            handle = func_02032444(&data_ov006_02056664->panel, 2, 0);
+            handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 2, 0);
             data_ov006_02056664->rowCells[i] = handle;
             config.y = i * 0x18 + 0x28;
             config.x = 0x80;
@@ -162,7 +162,7 @@ void Ov006_MissionBuildScreenCells(int mode)
             Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->rowCells[i], config);
         }
 
-        handle = func_02032444(&data_ov006_02056664->panel, 1, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 1, 0);
         data_ov006_02056664->cellTitle = handle;
         config.x = 0x80;
         config.y = 0x28;
@@ -172,7 +172,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         SlotTable_SetEntryStyle(&data_ov006_02056664->panel, data_ov006_02056664->cellTitle, fade);
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellTitle, config);
 
-        handle = func_02032444(&data_ov006_02056664->panel, 5, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 5, 0);
         data_ov006_02056664->cellHeader = handle;
         config.x = 0xf8;
         config.y = 0xa8;
@@ -181,7 +181,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Slot_SetMode2Bit(&data_ov006_02056664->panel, data_ov006_02056664->cellHeader, 1);
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellHeader, config);
 
-        handle = func_02032444(&data_ov006_02056664->panel, 4, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 4, 0);
         data_ov006_02056664->cellFrame = handle;
         config.x = 0x80;
         config.y = 0x98;
@@ -190,7 +190,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Slot_SetMode2Bit(&data_ov006_02056664->panel, data_ov006_02056664->cellFrame, 1);
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellFrame, config);
 
-        handle = func_02032444(&data_ov006_02056664->panel, 3, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 3, 0);
         data_ov006_02056664->cellBody = handle;
         config.x = 0x80;
         config.y = 0x98;
@@ -203,7 +203,7 @@ void Ov006_MissionBuildScreenCells(int mode)
 
     case 2:
     case 3:
-        handle = func_02032444(&data_ov006_02056664->panel, 0, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 0, 0);
         data_ov006_02056664->cellBackdrop = handle;
         config.x = 0x38;
         config.y = 0x98;
@@ -213,7 +213,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellBackdrop, config);
 
         for (i = 0; i < 4; i++) {
-            handle = func_02032444(&data_ov006_02056664->panel, 0, 1);
+            handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 0, 1);
             data_ov006_02056664->rowCells[i] = handle;
             config.y = i * 0x18 + 0x28;
             config.x = 0x88;
@@ -223,7 +223,7 @@ void Ov006_MissionBuildScreenCells(int mode)
             Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->rowCells[i], config);
         }
 
-        handle = func_02032444(&data_ov006_02056664->panel, 5, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 5, 0);
         data_ov006_02056664->cellHeader = handle;
         config.x = 0xf8;
         config.y = 0xa8;
@@ -232,7 +232,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Slot_SetMode2Bit(&data_ov006_02056664->panel, data_ov006_02056664->cellHeader, 1);
         Ov006_MissionPlaceCell(&data_ov006_02056664->panel, data_ov006_02056664->cellHeader, config);
 
-        handle = func_02032444(&data_ov006_02056664->panel, 4, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 4, 0);
         data_ov006_02056664->cellFrame = handle;
         config.x = 0x80;
         config.y = 0x98;
@@ -245,7 +245,7 @@ void Ov006_MissionBuildScreenCells(int mode)
             ctx->entries[data_ov006_02056664->cellFrame].flags &= ~4;
         }
 
-        handle = func_02032444(&data_ov006_02056664->panel, 3, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&data_ov006_02056664->panel, 3, 0);
         data_ov006_02056664->cellBody = handle;
         config.x = 0x80;
         config.y = 0x98;
@@ -257,7 +257,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         return;
 
     case 4:
-        handle = func_02032444(&ctx->sidePanel, 0, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 0, 0);
         ctx->cellBackdrop = handle;
         config.x = 0;
         config.y = 0x24;
@@ -266,7 +266,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Slot_SetMode2Bit(&ctx->sidePanel, ctx->cellBackdrop, 1);
         Ov006_MissionPlaceCell(&ctx->sidePanel, ctx->cellBackdrop, config);
 
-        handle = func_02032444(&ctx->sidePanel, 1, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 1, 0);
         ctx->cellHeader = handle;
         config.x = 0x48;
         config.y = 0x24;
@@ -276,7 +276,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Ov006_MissionPlaceCell(&ctx->sidePanel, ctx->cellHeader, config);
 
         for (i = 0; i < 4; i++) {
-            handle = func_02032444(&ctx->sidePanel, 2, 0);
+            handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 2, 0);
             (&ctx->cellBody)[i] = handle;
             config.y = i * 0x10 + 0x3e;
             config.x = 0xa0;
@@ -288,7 +288,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         }
 
         for (i = 0; i < 3; i++) {
-            handle = func_02032444(&ctx->sidePanel, 3, 0);
+            handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 3, 0);
             (&ctx->rowCells[1])[i] = handle;
             config.y = i * 0x10 + 0x3e;
             config.x = 0xfd;
@@ -300,7 +300,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         }
 
         for (i = 0; i < 7; i++) {
-            handle = func_02032444(&ctx->sidePanel, 4, 0);
+            handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 4, 0);
             ctx->iconCells[i] = handle;
             if (i < 4) {
                 config.x = 0xa0;
@@ -316,7 +316,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         }
 
         for (i = 0; i < 4; i++) {
-            handle = func_02032444(&ctx->sidePanel, 0, 1);
+            handle = VeneerTo_SlotTable_AddEntry(&ctx->sidePanel, 0, 1);
             ctx->markCells[i] = handle;
             switch (i) {
             case 0:
@@ -344,7 +344,7 @@ void Ov006_MissionBuildScreenCells(int mode)
             Ov006_MissionPlaceCell(&ctx->sidePanel, ctx->markCells[i], config);
         }
 
-        handle = func_02032444(&ctx->panel, 0xe, 1);
+        handle = VeneerTo_SlotTable_AddEntry(&ctx->panel, 0xe, 1);
         ctx->cellCaption = handle;
         config.x = 0x84;
         config.y = 0xa8;
@@ -356,7 +356,7 @@ void Ov006_MissionBuildScreenCells(int mode)
             ctx->entries[ctx->cellCaption].flags &= ~4;
         }
 
-        handle = func_02032444(&ctx->panel, 0, 1);
+        handle = VeneerTo_SlotTable_AddEntry(&ctx->panel, 0, 1);
         ctx->cellTopBar = handle;
         config.x = 0x80;
         config.y = 0xc;
@@ -365,7 +365,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         Ov006_MissionPlaceCell(&ctx->panel, ctx->cellTopBar, config);
         Slot_SetMode2Bit(&ctx->panel, ctx->cellTopBar, 1);
 
-        handle = func_02032444(&ctx->panel, 0, 0);
+        handle = VeneerTo_SlotTable_AddEntry(&ctx->panel, 0, 0);
         ctx->cellFooter = handle;
         config.x = 0xf8;
         config.y = 0xa8;
@@ -375,9 +375,9 @@ void Ov006_MissionBuildScreenCells(int mode)
 
         pos = data_ov006_0205628c.origin;
         for (i = 0; i < 4; i++) {
-            ctx->primaryCells[i] = func_02032444(&ctx->panel, i + 5, 1);
-            ctx->secondaryCells[i] = func_02032444(&ctx->panel, i + 1, 1);
-            ctx->cursorCells[i] = func_02032444(&ctx->panel, i + 9, 1);
+            ctx->primaryCells[i] = VeneerTo_SlotTable_AddEntry(&ctx->panel, i + 5, 1);
+            ctx->secondaryCells[i] = VeneerTo_SlotTable_AddEntry(&ctx->panel, i + 1, 1);
+            ctx->cursorCells[i] = VeneerTo_SlotTable_AddEntry(&ctx->panel, i + 9, 1);
             Slot_SetPosition(&ctx->panel, ctx->cursorCells[i], &pos);
             ctx->pairIndex[i] = i;
             ctx->pairState[i] = 0;
@@ -431,7 +431,7 @@ void Ov006_MissionBuildScreenCells(int mode)
         i = 0;
         offsets = data_ov006_0205630c;
         do {
-            ctx->slotCells[i] = func_02032444(&ctx->panel, i + 1, 0);
+            ctx->slotCells[i] = VeneerTo_SlotTable_AddEntry(&ctx->panel, i + 1, 0);
             selector = i;
             if (selector == -1 || selector >= 19) {
                 config.x = -48;

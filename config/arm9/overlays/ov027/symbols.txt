@@ -1,6 +1,6 @@
 Ov027_SetupGraphics kind:function(thumb,size=0x160) addr:0x02082960
-func_ov027_02082ac0 kind:function(thumb,size=0x18) addr:0x02082ac0
-Ov027_EndKeySharingIfOpen kind:function(thumb,size=0x18) addr:0x02082ad8
+Ov027_CreateSceneTask kind:function(thumb,size=0x18) addr:0x02082ac0
+Ov027_DestroySceneTask kind:function(thumb,size=0x18) addr:0x02082ad8
 Ov027_SceneIsIdle kind:function(thumb,size=0x18) addr:0x02082af0
 Ov027_SceneActivate kind:function(thumb,size=0x1c) addr:0x02082b08
 Ov027_SetFlag4 kind:function(thumb,size=0x14) addr:0x02082b24

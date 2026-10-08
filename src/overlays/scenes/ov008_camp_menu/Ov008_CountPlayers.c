@@ -3,7 +3,7 @@
 
 #include "game/engine.h"
 
-extern int func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern int Ov008_CountPlayersInMask(void *value);
 
 int Ov008_CountPlayers(void)
@@ -13,7 +13,7 @@ int Ov008_CountPlayers(void)
     if (Session_Exists() != 0) {
         value = GetGlobalU16At6();
     } else {
-        value = func_01ff8138();
+        value = WH_GetBitmap();
     }
 
     return Ov008_CountPlayersInMask(&value);

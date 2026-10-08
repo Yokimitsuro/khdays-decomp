@@ -1,5 +1,5 @@
 /* ov028 .rodata 0x0208b560-0x0208b568: the MAC address DS Protect's emulator check
- * (func_ov028_0208abd0, MACOwner_IsBad) treats as an emulator, 00:09:BF:00:00:31, stored with
+ * (Ov028_DSProt_MACOwner_IsBad, MACOwner_IsBad) treats as an emulator, 00:09:BF:00:00:31, stored with
  * every byte inverted; the last two bytes are the zero fill up to the overlay's word-aligned end. */
 
 #include "nitro/types.h"

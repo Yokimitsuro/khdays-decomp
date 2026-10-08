@@ -25,11 +25,11 @@
 #include "game/engine.h"
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
-extern void Ov105_RunScriptedStepState3(void);
+extern void Ov105_WH_End(void);
 extern void Ov105_WH_Finalize(void);
 extern void GXx_SetMasterBrightness_(unsigned int reg, int value);
-extern unsigned short Ov105_GetState(void);
-extern unsigned short Ov105_GetStatusLow(void);
+extern unsigned short Ov105_WH_GetLastError(void);
+extern unsigned short Ov105_WH_GetDisconnectReason(void);
 extern void OS_ResetSystem(unsigned int a);
 
 void Game_RunSceneLoop(void) {
@@ -48,7 +48,7 @@ void Game_RunSceneLoop(void) {
         do {
             switch (Game_PollSceneAlive()) {
             case 1:
-                Ov105_RunScriptedStepState3();
+                Ov105_WH_End();
                 break;
             case 0:
                 running = 0;
@@ -63,8 +63,8 @@ void Game_RunSceneLoop(void) {
     }
     GXx_SetMasterBrightness_(0x400006c, 0x10);
     GXx_SetMasterBrightness_(0x400106c, 0x10);
-    packed = Ov105_GetState() << 16;
-    packed |= Ov105_GetStatusLow();
+    packed = Ov105_WH_GetLastError() << 16;
+    packed |= Ov105_WH_GetDisconnectReason();
     Heap_SetCurrent(0);
     OS_ResetSystem(packed | 0x80000000);
 }

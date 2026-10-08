@@ -1,6 +1,6 @@
 /* Releases the link service instance. */
 
-extern void func_02023ad0();
+extern void VeneerTo_Obj_Destroy();
 extern int data_ov002_0207f024;
 
 void Ov002_Link_ReleaseService(void) {
@@ -8,6 +8,6 @@ void Ov002_Link_ReleaseService(void) {
     if (p == -1) {
         return;
     }
-    func_02023ad0(p);
+    VeneerTo_Obj_Destroy(p);
     data_ov002_0207f024 = -1;
 }

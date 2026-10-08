@@ -22,7 +22,7 @@ typedef struct {
 extern Ov002Block *data_ov002_0207f634;
 extern Ov002Handle *Ov002_Field_GetBlock194(void);
 extern void NNSi_FndFreeFromDefaultHeap(void *p);
-extern void func_02023ad0(void *p);
+extern void VeneerTo_Obj_Destroy(void *p);
 
 void Ov002_DestroyBlock(void) {
     Ov002Block *b = data_ov002_0207f634;
@@ -38,6 +38,6 @@ void Ov002_DestroyBlock(void) {
     if (b->bufF != 0) NNSi_FndFreeFromDefaultHeap(b->bufF);
     if (b->bufC != 0) NNSi_FndFreeFromDefaultHeap(b->bufC);
     if (b->bufD != 0) NNSi_FndFreeFromDefaultHeap(b->bufD);
-    func_02023ad0(b->owner);
+    VeneerTo_Obj_Destroy(b->owner);
     data_ov002_0207f634 = 0;
 }

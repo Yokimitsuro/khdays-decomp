@@ -1,10 +1,9 @@
 # ov028 encrypted/self-modifying code (anti-tamper) — why ov001 can't reach 100% matched C
 
 > **2026-07-19 — this is DS Protect 1.10**, a commercial anti-piracy library used by 300+ DS
-> titles, not game code. Identified via the decomp.me community and verified here by
-> decrypting the bodies with `tools/dsprot_decrypt.py`: the plaintext maps line for line onto
-> the public decompilation at <https://github.com/taxicat1/dsprot> (branch `1.10`), down to
-> the literal `0x320` obfuscation offset visible in each prologue.
+> titles, not game code. Verified here by decrypting the bodies with
+> `tools/dsprot_decrypt.py`: the plaintext is the library's 1.10 code, down to the literal
+> `0x320` obfuscation offset visible in each prologue.
 >
 > The eight encrypted symbols are, in address order, `MACOwner_IsBad`, `ROMTest_IsBad`,
 > then `DSProt_Detect{Flashcart,NotFlashcart,Emulator,NotEmulator,Dummy,NotDummy}`. It also

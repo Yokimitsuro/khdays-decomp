@@ -31,7 +31,7 @@ extern void SceneNode_SetFlag40(void *object, int enabled);
 extern void Ov004_LayoutRollingDigits(int valueFx12);
 extern void Projection_LoadDefaults(void *object);
 extern void ObjNode_InitFromDesc(void *manager, SpriteManagerInit *init);
-extern void *func_02032444(void *manager, int index, int arg);
+extern void *VeneerTo_SlotTable_AddEntry(void *manager, int index, int arg);
 extern void SlotTable_SetEntryPriority(void *manager, void *object, int arg);
 extern void Slot_SetPosition(void *manager, void *object, Fx32Pair *position);
 extern void Slot_ClearFlagBit1(void *manager, void *object);
@@ -72,7 +72,7 @@ void Ov004_LoadSceneGraphics(void) {
     ObjNode_InitFromDesc((char *)data_ov004_02051384 + 0xb0c, &init);
 
     for (i = 0; i < 3; i++) {
-        object = func_02032444((char *)data_ov004_02051384 + 0xb0c, i, 0);
+        object = VeneerTo_SlotTable_AddEntry((char *)data_ov004_02051384 + 0xb0c, i, 0);
         data_ov004_02051384->objects[i] = object;
         SlotTable_SetEntryPriority((char *)data_ov004_02051384 + 0xb0c,
                       data_ov004_02051384->objects[i], 0);

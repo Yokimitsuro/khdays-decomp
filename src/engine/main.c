@@ -12,8 +12,9 @@
  *    1. Core services up + the ov001 ONE-SHOT hardware-init overlay:
  *         FS_LoadOverlay(0, OV_BOOT)  ->  ov001_BootInit()  ->  FS_UnloadOverlay
  *       (ov001 only exists to run the DS HW bring-up once.)
- *    2. Read the boot mode (0..5) and pick the initial game mode:
- *         SetGameMode(valid boot mode 1..5, otherwise 1, 0)
+ *    2. Take the game's language from the firmware's owner profile:
+ *         Msg_SetLanguage(the firmware language if it is 1..5 (English .. Spanish),
+ *                         otherwise 1, English; 0)
  *    3. Load the boot resource tables and INSTANTIATE THE ROOT/BOOT TASK:
  *         InstantiateClass(&gBootTaskClass, 1)
  *       gBootTaskClass -> BootTask_Construct (0x02020928, THUMB)
@@ -26,6 +27,7 @@
  * ==========================================================================*/
 
 #include "nitro/types.h"
+#include "nitro/os_types.h"
 
 #include "game/scene.h"
 typedef u32 FSOverlayID;
@@ -41,21 +43,9 @@ extern int   FS_UnloadOverlay(int proc, FSOverlayID overlay);
 extern void  Ov001_BootInit(void);           /* ov001_BootInit  (HW init)    */
 extern void  G3d_InitSbcFuncTable(void);                 /* subsystem init               */
 extern void  InputState_Init(void);                 /* task-system init             */
-struct BootSettings {
-    unsigned char mode;
-    unsigned char flags;
-    unsigned char byte2;
-    unsigned char byte3;
-    unsigned char data04[0x14];
-    unsigned short reserved18;
-    unsigned short field1a;
-    unsigned char data1c[0x34];
-    unsigned short reserved50;
-    unsigned short field52;
-};
-
-extern void  Game_ReadLocalProfile(struct BootSettings *out);
-extern void  Record_EnsureAllocatedAndSetId(int mode, int arg);    /* SetGameMode                  */
+extern void  OS_GetOwnerInfo(OSOwnerInfo *info);
+/* The game's language; main passes a second word, 0, which the function does not read. */
+extern void  Msg_SetLanguage(int language, int unused);
 extern int   func_02016264(void *list);           /* init global list             */
 extern int   FS_TryLoadTable(int a, int b);       /* 0x0200b100  resource table   */
 extern int   AllocFromExpHeapWrapper(int handle, int arena);
@@ -111,7 +101,7 @@ extern struct SceneState data_020442a0;
 #define REG_0540   (*(volatile unsigned int   *)0x04000540)
 
 int main(void) {
-    struct BootSettings boot;
+    OSOwnerInfo owner;
     unsigned int  frameTarget;
 
     /* --- 1. core services + ov001 one-shot HW init --- */
@@ -123,11 +113,11 @@ int main(void) {
     G3d_InitSbcFuncTable();
     InputState_Init();
 
-    /* --- 2. boot mode -> initial game mode --- */
-    Game_ReadLocalProfile(&boot);
+    /* --- 2. the firmware's language -> the game's (English unless it is one of the five) --- */
+    OS_GetOwnerInfo(&owner);
     {
-        int mode = boot.mode;
-        switch (mode) {
+        int language = owner.language;
+        switch (language) {
     case 1:
     case 2:
     case 3:
@@ -135,10 +125,10 @@ int main(void) {
     case 5:
         break;
     default:
-            mode = 1;
+            language = OS_LANGUAGE_ENGLISH;
         break;
         }
-        Record_EnsureAllocatedAndSetId(mode, 0);
+        Msg_SetLanguage(language, 0);
     }
 
     /* --- 3. boot resource tables + root/boot task --- */

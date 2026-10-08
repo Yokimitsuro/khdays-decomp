@@ -37,9 +37,9 @@ extern Ov005Context *data_ov005_0205b80c;
 extern Ov005Config data_ov005_0205b85c;
 extern u32 OVERLAY_28_ID[1];
 extern int Ov005_StartTouchSampling(void);
-extern int func_ov028_0208b3c0(int (*)(void));
-extern int func_ov028_0208b040(int (*)(void));
-extern int func_ov028_0208b200(int (*)(void));
+extern int Ov028_DSProt_DetectDummy(int (*)(void));
+extern int Ov028_DSProt_DetectFlashcart(int (*)(void));
+extern int Ov028_DSProt_DetectEmulator(int (*)(void));
 void Ov005_CommitMenuRewards(void) {
     Ov005Config *config=&data_ov005_0205b85c;
     int row,index,itemId;
@@ -67,12 +67,12 @@ void Ov005_CommitMenuRewards(void) {
         if(gGameState->itemCounts[63]>99)gGameState->itemCounts[63]=99;
     }
     LoadOverlaySync(0,(u32)OVERLAY_28_ID);
-    if(func_ov028_0208b3c0(0)) {
+    if(Ov028_DSProt_DetectDummy(0)) {
         flags=GameState_GetField(config->missionIndex*4+0x92b,4)|config->specialItemMask;
         GameState_SetField(config->missionIndex*4+0x92b,4,flags);
     } else {
         flags=GameState_GetField(config->missionIndex*4+0x92b,4)|config->specialItemMask;
-        if(!func_ov028_0208b040(Ov005_StartTouchSampling))func_ov028_0208b200(Ov005_StartTouchSampling);
+        if(!Ov028_DSProt_DetectFlashcart(Ov005_StartTouchSampling))Ov028_DSProt_DetectEmulator(Ov005_StartTouchSampling);
         GameState_SetField(config->missionIndex*4+0x92b,4,flags);
     }
     UnloadOverlaySync(0,(u32)OVERLAY_28_ID);

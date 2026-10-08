@@ -10,7 +10,7 @@ extern void GFXi_EnqueueCommand(int a, int b, int c, int d);
 extern void Gfx_EnqueueTableCmdAt14(int a, int b, int c, int d);
 extern void Gfx_EnqueueTableCmdAtC(int a, int b, int c, int d);
 extern void ObjNode_InitFromDesc(int *a, unsigned int *b);
-extern int func_02032444(int *a, int b, int c);
+extern int VeneerTo_SlotTable_AddEntry(int *a, int b, int c);
 extern void Slot_SetPosition(int *a, int b, unsigned int *c);
 extern void Slot_SetMode2Bit(int *a, int b, int c);
 extern void Font_LoadUTF16(int *a, void *b);
@@ -71,7 +71,7 @@ void *Ov007_SceneInit(int param_1, int param_2, int param_3, int param_4) {
         fr.l24[2] = 0;
         fr.l24[3] = 0;
         ObjNode_InitFromDesc(heap + 0x41f, fr.l24);
-        heap[0x16ad] = func_02032444(heap + 0x41f, 0, 0);
+        heap[0x16ad] = VeneerTo_SlotTable_AddEntry(heap + 0x41f, 0, 0);
 
         fr.box[0] = 0x80000;
         fr.box[1] = 0xbc000;

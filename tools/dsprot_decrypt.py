@@ -1,8 +1,6 @@
-"""Descifra los cuerpos protegidos de ov028 usando el algoritmo de DS Protect 1.10.
-
-Fuente del algoritmo: https://github.com/taxicat1/dsprot (rama 1.10), src/rc4.c +
-src/encryptor.c. Reimplementado aqui en Python para VERIFICAR que ov028 es DS Protect;
-no se copia codigo al repo.
+"""Decrypt ov028's protected bodies with DS Protect 1.10's algorithm (its RC4 over the
+instructions and its range encryptor), reimplemented here in Python to verify that ov028 is
+DS Protect.
 """
 import os as _os
 _HERE = _os.path.dirname(_os.path.abspath(__file__))

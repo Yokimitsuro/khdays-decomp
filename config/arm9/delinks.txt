@@ -760,7 +760,7 @@ libs/nitro/os/calls/OS_GetMacAddress.c:
     complete
     .text       start:0x02003a04 end:0x02003a20
 
-libs/nitro/os/calls/Game_ReadLocalProfile.c:
+libs/nitro/os/calls/OS_GetOwnerInfo.c:
     complete
     .text       start:0x02003a20 end:0x02003aa4
 
@@ -5160,7 +5160,7 @@ src/engine/Obj_Destroy.c:
     complete
     .text       start:0x02023a4c end:0x02023ad0
 
-src/engine/func_02023ad0.c:
+src/engine/VeneerTo_Obj_Destroy.c:
     complete
     .text       start:0x02023ad0 end:0x02023adc
 
@@ -5436,7 +5436,7 @@ src/engine/Touch_GetRecentSamples.c:
     complete
     .text       start:0x02024da4 end:0x02024e34
 
-src/engine/Record_EnsureAllocatedAndSetId.c:
+src/engine/Msg_SetLanguage.c:
     complete
     .text       start:0x02024e34 end:0x02024e5c
 
@@ -5908,7 +5908,7 @@ src/engine/Widget_SetTagWord.c:
     complete
     .text       start:0x0202afdc end:0x0202afe8
 
-src/engine/func_0202afe8.c:
+src/engine/VeneerTo_SceneNode_JointCallback.c:
     complete
     .text       start:0x0202afe8 end:0x0202aff4
 
@@ -6908,7 +6908,7 @@ src/engine/DispObjList_AddResource.c:
     complete
     .text       start:0x0203243c end:0x02032444
 
-src/engine/func_02032444.c:
+src/engine/VeneerTo_SlotTable_AddEntry.c:
     complete
     .text       start:0x02032444 end:0x02032450
 

@@ -2,7 +2,7 @@
  * (when loaded) and resets it. */
 
 extern void ReleaseField74AndCleanup(int arg0);
-extern void func_02023ad0(int arg0);
+extern void VeneerTo_Obj_Destroy(int arg0);
 extern void Ov022_ResetBlock94c(unsigned char *arg0);
 
 void func_ov022_02092e4c(unsigned char *arg0, int arg1, int arg2, int arg3) {
@@ -17,7 +17,7 @@ void func_ov022_02092e4c(unsigned char *arg0, int arg1, int arg2, int arg3) {
                 p = p + 0x108;
             } while (i < 9);
             if (*(int *)((char *)arg0 + 0x94c) != 0) {
-                func_02023ad0(*(int *)((char *)arg0 + 0x94c));
+                VeneerTo_Obj_Destroy(*(int *)((char *)arg0 + 0x94c));
             }
         }
         Ov022_ResetBlock94c(arg0);

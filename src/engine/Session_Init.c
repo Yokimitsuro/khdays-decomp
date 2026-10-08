@@ -43,9 +43,9 @@ typedef struct SessionCtx {
 } SessionCtx;
 
 extern SessionCtx *NNSi_FndGetCurrentRootHeap(void);
-extern u16 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern void *InstantiateClass(const void *desc, int flags);
-extern int func_01ff8128(void);
+extern unsigned short WH_GetCurrentAid(void);
 extern SessionCtx *data_0204c228;
 extern const char data_02042990[];
 extern const char data_020429a4[];
@@ -67,7 +67,7 @@ void *Session_Init(void)
     if (Session_IsActive() != 0) {
         ctx->memberMask = src->memberMask;
         Rng_Seed(src->key, src->key, 0);
-        ctx->selfIndex = func_01ff8138();
+        ctx->selfIndex = WH_GetBitmap();
     } else {
         ctx->memberMask = 1;
     }
@@ -84,7 +84,7 @@ void *Session_Init(void)
     }
     ctx->packedMask = bits;
     pos = 0;
-    self = func_01ff8128();
+    self = WH_GetCurrentAid();
     for (j = 0; j < 4; j++) {
         if ((1 << j) & ctx->memberMask) {
             if (self == j) {

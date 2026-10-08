@@ -21,7 +21,7 @@ extern unsigned short Mem_ReadU16(void *image);
 extern void Ov000_SetSubSceneHalf1C(int);
 extern void Scene_DrawNode(void *object);
 extern int Ov000_GetSubSceneResult(void);
-extern void func_02023ad0(int handle);
+extern void VeneerTo_Obj_Destroy(int handle);
 extern void Ov000_PreloadLogoResources(void);
 extern void Ov000_Title_CreateLogoObjects(void);
 extern void Ov000_ReleaseLogoResources(void);
@@ -39,7 +39,7 @@ OverlayCallback Ov000_WaitSubMenuResult(void) {
 
     switch (Ov000_GetSubSceneResult()) {
     case 4:
-        func_02023ad0(context->sharing_handle);
+        VeneerTo_Obj_Destroy(context->sharing_handle);
         context->sharing_handle = context->sharing_state = 0;
         Ov000_PreloadLogoResources();
         Ov000_Title_CreateLogoObjects();

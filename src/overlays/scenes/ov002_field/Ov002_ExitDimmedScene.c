@@ -48,7 +48,7 @@ extern void Ov002_RemoveAndFreeNode(void *obj);
 extern void NNSi_FndFreeFromDefaultHeap(void *p);
 extern void FreeAllListNodeSubBuffers(TileSurface *s);
 extern void Ov002_FreeResourceRecordBuffer(int *p);
-extern void func_02023ad0(void *obj);
+extern void VeneerTo_Obj_Destroy(void *obj);
 
 extern char *data_ov002_0207f62c;
 
@@ -78,9 +78,9 @@ void Ov002_ExitDimmedScene(void) {
         FreeAllListNodeSubBuffers(&ctx->aSurfaces[2]);
     }
     Ov002_FreeResourceRecordBuffer(ctx->aSubCtx);
-    func_02023ad0(ctx->pObjectA);
+    VeneerTo_Obj_Destroy(ctx->pObjectA);
     if (ctx->pObjectB != 0) {
-        func_02023ad0(ctx->pObjectB);
+        VeneerTo_Obj_Destroy(ctx->pObjectB);
     }
     ZeroHalfThenFree(ctx->pAnimB);
     ZeroHalfThenFree(ctx->pAnimA);

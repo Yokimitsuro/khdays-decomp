@@ -1,0 +1,72 @@
+# What the functions that destroy a scene's task object, the wireless helper and its WM calls, the
+# owner profile and DS Protect really are (DECOMP_FINDINGS 1.4, checked against each body).
+#
+# func_02023ad0 forwards to Obj_Destroy: the "*KeySharing*" functions destroy a task object
+# (a scene's main task, the pause menu, the party object, the mission lobby), they end no key
+# sharing. The scene hook tables' slot 1 creates that task and slot 2 destroys it.
+func_02023ad0	VeneerTo_Obj_Destroy	main
+func_0202afe8	VeneerTo_SceneNode_JointCallback	main
+func_02032444	VeneerTo_SlotTable_AddEntry	main
+Ov002_EndKeySharing	Ov002_DestroyPartyObject	ov002
+Ov002_CloseKeySharing	Ov002_DestroyPauseMenu	ov002
+Ov008_ArmWirelessCallback	Ov008_OpenMissionLobby	ov008
+Ov008_TickKeySharingShutdown	Ov008_ReleaseMissionLobby	ov008
+func_ov008_0205697c	Ov008_VeneerTo_Ov008_MergeSortList	ov008
+Ov022_EndKeySharingSession	Ov022_StateCloseOv106Scene	ov022
+Ov023_MobiClip_SrcOpen	Ov023_CreateSceneTask	ov023
+Ov023_EndKeySharingIfOpen	Ov023_DestroySceneTask	ov023
+Ov024_MobiClip_SrcOpen	Ov024_MobiClip_CreatePlayerTask	ov024
+Ov024_EndKeySharingIfOpen	Ov024_MobiClip_DestroyPlayerTask	ov024
+func_ov024_02083d00	Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap	ov024
+Ov025_MobiClip_SrcOpen	Ov025_CreateMenuTask	ov025
+Ov025_EndKeySharingIfOpen	Ov025_DestroyMenuTask	ov025
+Ov026_CloseKeySharing	Ov026_DestroyService	ov026
+func_ov027_02082ac0	Ov027_CreateSceneTask	ov027
+Ov027_EndKeySharingIfOpen	Ov027_DestroySceneTask	ov027
+# The send callback of AsyncMessage_Flush; the language the game takes from the owner profile.
+ClearNodeIfHeadMatches	AsyncMessage_OnSendDone	itcm
+Record_EnsureAllocatedAndSetId	Msg_SetLanguage	main
+Game_ReadLocalProfile	OS_GetOwnerInfo	main
+# The wireless helper (the SDK demos' wh.c): its own statics, read and set.
+func_01ff8128	WH_GetCurrentAid	itcm
+func_01ff8138	WH_GetBitmap	itcm
+Ov105_GetWord24	Ov105_WH_GetSystemState	ov105
+Ov105_GetState	Ov105_WH_GetLastError	ov105
+Ov105_GetStatusLow	Ov105_WH_GetDisconnectReason	ov105
+Ov105_SetParamWord8	Ov105_WH_SetGgid	ov105
+Ov105_SetBuffer	Ov105_WH_SetUserGameInfo	ov105
+Ov105_SetPacketFilter	Ov105_WH_SetJudgeAcceptFunc	ov105
+Ov105_EnterState1AndResolveId	Ov105_WH_GetMeasureChannel	ov105
+Ov105_KickIdleHandler	Ov105_WH_Reset	ov105
+Ov105_EnterMode3Step_c	Ov105_WH_StateInReset	ov105
+Ov105_ApplyTargetFromState9	Ov105_WH_StateOutReset	ov105
+Ov105_RunScriptedStepState3	Ov105_WH_End	ov105
+func_ov105_020bf240	Ov105_WH_GetLinkLevel	ov105
+func_ov105_020bf900	Ov105_WH_SendData	ov105
+# NitroSDK WM functions in ov105.
+Ov105_SetSlotEventHandler	Ov105_WM_SetPortCallback	ov105
+Ov105_ResourceEntryCallback	Ov105_WM_StartParent	ov105
+Ov105_GetTransitionFrame	Ov105_WM_GetAllowedChannel	ov105
+Ov105_GetSessionChannel	Ov105_WM_GetAID	ov105
+Ov105_GetSessionLinkState	Ov105_WM_GetConnectedAIDs	ov105
+Ov105_RunTransitionSlot1	Ov105_WM_Reset	ov105
+Ov105_RunTransitionSlot2	Ov105_WM_End	ov105
+Ov105_RunTransitionSlot9	Ov105_WM_EndParent	ov105
+Ov105_RunTransitionSlotB	Ov105_WM_EndScan	ov105
+Ov105_SetCommandArg	Ov105_WMi_SetCallbackTable	ov105
+Ov105_GetContext	Ov105_WMi_GetSystemWork	ov105
+Ov105_IsDeviceReady	Ov105_WMi_CheckInitialized	ov105
+Ov105_PollDeviceStatus	Ov105_WMi_CheckIdle	ov105
+# DS Protect 1.10 in ov028: the decryptor and the library's units (their bytes in the ROM are
+# ciphertext, so config keeps them as data symbols).
+func_ov028_0208ab14	Ov028_RC4_DecryptInstructions	ov028
+func_ov028_0208abd0	Ov028_DSProt_MACOwner_IsBad	ov028
+func_ov028_0208acf0	Ov028_DSProt_ROMUtil_Read	ov028
+func_ov028_0208ae8c	Ov028_DSProt_ROMUtil_CRC32	ov028
+func_ov028_0208af30	Ov028_DSProt_ROMTest_IsBad	ov028
+func_ov028_0208b040	Ov028_DSProt_DetectFlashcart	ov028
+func_ov028_0208b120	Ov028_DSProt_DetectNotFlashcart	ov028
+func_ov028_0208b200	Ov028_DSProt_DetectEmulator	ov028
+func_ov028_0208b2e0	Ov028_DSProt_DetectNotEmulator	ov028
+func_ov028_0208b3c0	Ov028_DSProt_DetectDummy	ov028
+func_ov028_0208b490	Ov028_DSProt_DetectNotDummy	ov028

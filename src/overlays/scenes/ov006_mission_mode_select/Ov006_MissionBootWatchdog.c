@@ -5,14 +5,14 @@
 
 #include "game/engine.h"
 
-extern void func_02023ad0(int *p);
+extern void VeneerTo_Obj_Destroy(int *p);
 extern void OS_ResetSystem(int code);
 extern int  data_ov006_02056668;
 
 #define OBJ (*(int **)&data_ov006_02056668)
 
 void Ov006_MissionBootWatchdog(void) {
-    func_02023ad0(*(int **)OBJ);
+    VeneerTo_Obj_Destroy(*(int **)OBJ);
     if (OBJ[1] != 2) {
         return;
     }

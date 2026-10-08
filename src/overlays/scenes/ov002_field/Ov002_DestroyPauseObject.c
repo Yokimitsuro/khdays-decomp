@@ -13,7 +13,7 @@ typedef struct {
     unsigned char bRedraw;      /* +0x77 */
 } Ov002PauseSlot;
 
-extern void func_02023ad0(int object);
+extern void VeneerTo_Obj_Destroy(int object);
 extern void Ov002_SetLazyClassEnabled(int mode);
 
 extern char *data_ov002_0207fa00;
@@ -25,7 +25,7 @@ void Ov002_DestroyPauseObject(void) {
         return;
     }
 
-    func_02023ad0(slot->nObject);
+    VeneerTo_Obj_Destroy(slot->nObject);
     slot->nObject = -1;
     slot->bRedraw = 1;
 

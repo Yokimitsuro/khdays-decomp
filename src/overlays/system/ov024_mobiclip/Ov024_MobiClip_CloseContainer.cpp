@@ -42,7 +42,7 @@ struct MobiClipDecoder {
 
 extern "C" {
 
-extern void func_ov024_02083d00(void *pBlock);
+extern void Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(void *pBlock);
 
 void Ov024_MobiClip_CloseContainer(MobiClipDecoder *pDecoder)
 {
@@ -54,40 +54,40 @@ void Ov024_MobiClip_CloseContainer(MobiClipDecoder *pDecoder)
         delete pDecoder->pReader;
     }
 
-    func_ov024_02083d00(pDecoder->pFrameState);
+    Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->pFrameState);
 
     if (pDecoder->apLuma != 0) {
         for (i = 0; i < pDecoder->nSlots; i++) {
-            func_ov024_02083d00(pDecoder->apLuma[i]);
+            Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->apLuma[i]);
         }
-        func_ov024_02083d00(pDecoder->apLuma);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->apLuma);
     }
     if (pDecoder->apChroma != 0) {
         for (i = 0; i < pDecoder->nSlots; i++) {
-            func_ov024_02083d00(pDecoder->apChroma[i]);
+            Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->apChroma[i]);
         }
-        func_ov024_02083d00(pDecoder->apChroma);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->apChroma);
     }
     if (pDecoder->anQuantiser != 0) {
-        func_ov024_02083d00(pDecoder->anQuantiser);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->anQuantiser);
     }
     if (pDecoder->pFilteredLuma != 0) {
-        func_ov024_02083d00(pDecoder->pFilteredLuma);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->pFilteredLuma);
     }
     if (pDecoder->pFilteredChroma != 0) {
-        func_ov024_02083d00(pDecoder->pFilteredChroma);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->pFilteredChroma);
     }
     for (j = 0; j < 2; j++) {
         if (pDecoder->apScratch[j] != 0) {
-            func_ov024_02083d00(pDecoder->apScratch[j]);
+            Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->apScratch[j]);
         }
         pDecoder->apScratch[j] = 0;
     }
     if (pDecoder->pIndex != 0) {
-        func_ov024_02083d00(pDecoder->pIndex);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->pIndex);
     }
     if (pDecoder->pAudioTracks != 0) {
-        func_ov024_02083d00(pDecoder->pAudioTracks);
+        Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(pDecoder->pAudioTracks);
     }
 
     pDecoder->pReader = 0;

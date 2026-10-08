@@ -48,11 +48,11 @@ src/overlays/system/ov024_mobiclip/Ov024_MobiClip_RestoreDisplay.c:
     complete
     .text       start:0x020831dc end:0x02083238
 
-src/overlays/system/ov024_mobiclip/Ov024_MobiClip_SrcOpen.c:
+src/overlays/system/ov024_mobiclip/Ov024_MobiClip_CreatePlayerTask.c:
     complete
     .text       start:0x02083238 end:0x0208325c
 
-src/overlays/system/ov024_mobiclip/Ov024_EndKeySharingIfOpen.c:
+src/overlays/system/ov024_mobiclip/Ov024_MobiClip_DestroyPlayerTask.c:
     complete
     .text       start:0x0208325c end:0x02083280
 
@@ -176,7 +176,7 @@ src/overlays/system/ov024_mobiclip/Ov024_MobiClip_Alloc.c:
     complete
     .text       start:0x02083cf0 end:0x02083d00
 
-src/overlays/system/ov024_mobiclip/func_ov024_02083d00.c:
+src/overlays/system/ov024_mobiclip/Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap.c:
     complete
     .text       start:0x02083d00 end:0x02083d0c
 

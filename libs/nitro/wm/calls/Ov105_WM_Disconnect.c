@@ -232,12 +232,12 @@ extern u16 data_ov105_020bfa20;
 #define wmInitialized data_ov105_020bfa20
 #define wm9buf (*(WMArm9Buf **)((u8 *)&data_ov105_020bfa20 + 4))
 
-extern WMArm9Buf *Ov105_GetContext(void);      /* WMi_GetSystemWork */
-extern WMErrCode Ov105_IsDeviceReady(void);       /* WMi_CheckInitialized */
+extern WMArm9Buf *Ov105_WMi_GetSystemWork(void);      /* WMi_GetSystemWork */
+extern WMErrCode Ov105_WMi_CheckInitialized(void);       /* WMi_CheckInitialized */
 extern WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...);   /* WMi_CheckStateEx */
 extern WMErrCode Ov105_WMi_SendCommand(WMApiid id, u16 paramNum, ...);   /* WMi_SendCommand */
 extern WMErrCode Ov105_WMi_SendCommandDirect(void *data, u32 length);   /* WMi_SendCommandDirect */
-extern void Ov105_SetCommandArg(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
+extern void Ov105_WMi_SetCallbackTable(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
 extern void DC_InvalidateRange(void *addr, u32 size);
 extern void DC_StoreRange(void *addr, u32 size);
 extern void MI_CpuCopy8(const void *src, void *dst, u32 size);
@@ -260,7 +260,7 @@ extern void MI_CpuFill8(void *dst, u8 data, u32 size);
 WMErrCode Ov105_WM_Disconnect(WMCallbackFunc callback, u16 aid)
 {
     WMErrCode result;
-    WMArm9Buf *p = Ov105_GetContext();
+    WMArm9Buf *p = Ov105_WMi_GetSystemWork();
 
     result = Ov105_WMi_CheckStateEx(5,
                                  WM_STATE_PARENT, WM_STATE_MP_PARENT,
@@ -281,7 +281,7 @@ WMErrCode Ov105_WM_Disconnect(WMCallbackFunc callback, u16 aid)
         }
     }
 
-    Ov105_SetCommandArg(WM_APIID_DISCONNECT, callback);
+    Ov105_WMi_SetCallbackTable(WM_APIID_DISCONNECT, callback);
 
     result = Ov105_WMi_SendCommand(WM_APIID_DISCONNECT, 1, (u32)(0x0001 << aid));
     WM_CHECK_RESULT(result);

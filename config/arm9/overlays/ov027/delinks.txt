@@ -8,11 +8,11 @@ src/overlays/screens/ov027_game_over/Ov027_SetupGraphics.c:
     complete
     .text       start:0x02082960 end:0x02082ac0
 
-src/overlays/screens/ov027_game_over/func_ov027_02082ac0.c:
+src/overlays/screens/ov027_game_over/Ov027_CreateSceneTask.c:
     complete
     .text       start:0x02082ac0 end:0x02082ad8
 
-src/overlays/screens/ov027_game_over/Ov027_EndKeySharingIfOpen.c:
+src/overlays/screens/ov027_game_over/Ov027_DestroySceneTask.c:
     complete
     .text       start:0x02082ad8 end:0x02082af0
 

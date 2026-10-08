@@ -19,7 +19,7 @@ typedef struct Ov008MenuContext {
 } Ov008MenuContext;
 
 extern char *NNSi_FndGetCurrentRootHeap(void);
-extern void func_02023ad0(int handle);
+extern void VeneerTo_Obj_Destroy(int handle);
 extern char *gGameState;
 extern void Ov008_BuildMenuListFrom(void *source);
 extern Ov008MenuContext *data_ov008_02090f00;
@@ -31,7 +31,7 @@ void *Ov008_RefreshMenuAndSynchronizePersistentFlagState(void)
     char *root = NNSi_FndGetCurrentRootHeap();
 
     if (*(int *)(root + 0x14) >= 0) {
-        func_02023ad0(*(int *)(root + 0x14));
+        VeneerTo_Obj_Destroy(*(int *)(root + 0x14));
         *(int *)(root + 0x14) = -1;
     }
 

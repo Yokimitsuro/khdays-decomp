@@ -2,7 +2,7 @@
  *
  * Which scene is running depends on ctx->transitionMode: mode 0 is the movie player (ov012),
  * anything else is ov011.  While that scene reports "still running" this returns 0 and the
- * state machine stays.  Once it is done: release the key-sharing handle, black out both
+ * state machine stays.  Once it is done: destroy the launched scene's object, black out both
  * screens, unload whichever overlay was used, arm handler 0x20e9, and re-enter the menu
  * through Ov000_EnterSceneAndLoadResource with the two scene values as start parameters.
  *
@@ -33,13 +33,13 @@ typedef struct Ov000SceneContext {
     short firstValue;
     u8 pad_0004[0xd134];
     int transitionMode;
-    void *sharingHandle;
+    void *pSceneObject;
 } Ov000SceneContext;
 
 extern Ov000SceneContext *NNSi_FndGetCurrentRootHeap(void);
 extern int Ov012_IsGlobalFlag3Set(void);
 extern int Ov011_IsBootStateReady(void);
-extern void *func_02023ad0(void *handle);
+extern void *VeneerTo_Obj_Destroy(void *handle);
 extern Ov000StateFn Ov000_EnterSceneAndLoadResource(const OverlayStartParams *params);
 
 Ov000StateFn Ov000_WaitLaunchedSceneThenMenu(void) {
@@ -53,7 +53,7 @@ Ov000StateFn Ov000_WaitLaunchedSceneThenMenu(void) {
     } else if (Ov011_IsBootStateReady() == 0) {
         return 0;
     }
-    func_02023ad0(ctx->sharingHandle);
+    VeneerTo_Obj_Destroy(ctx->pSceneObject);
     SetMasterBrightnessMain(-0x10);
     SetMasterBrightnessSub(-0x10);
     if (ctx->transitionMode == 0) {

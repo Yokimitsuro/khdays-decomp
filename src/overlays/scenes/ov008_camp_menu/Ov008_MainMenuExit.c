@@ -16,7 +16,7 @@ extern int  Ov008_GetCtxField9678(void);
 extern void Ov008_TeardownMenu2D(void);
 extern void Ov008_ReleaseMenuUi(void);
 extern void ClearGlobalArrayInt(int flag);
-extern void Ov008_TickKeySharingShutdown(void);
+extern void Ov008_ReleaseMissionLobby(void);
 extern int  Ov008_CountOccupiedSlots(void);
 extern void OS_ResetSystem(int mode);
 
@@ -35,7 +35,7 @@ void Ov008_MainMenuExit(void) {
         ClearGlobalArrayInt(0xd);
         ClearGlobalArrayInt(0xe);
     }
-    Ov008_TickKeySharingShutdown();
+    Ov008_ReleaseMissionLobby();
     if (action != 7) {
         if (action == 8) {
             cfg = *(struct Cfg4 *)Session_GetSetup();

@@ -16,8 +16,8 @@ extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void ConstReturn1_2(int *p);
 extern void Ov008_FreeResourceRecordBuffer(int *p);
 extern void Table_TailCallWithEntry(int a, int b);
-extern void Ov008_TickKeySharingShutdown(void);
-extern void func_02023ad0(int *obj);
+extern void Ov008_ReleaseMissionLobby(void);
+extern void VeneerTo_Obj_Destroy(int *obj);
 extern int  data_ov008_02090fa0;
 
 void Ov008_MissionSceneDtor(void) {
@@ -25,9 +25,9 @@ void Ov008_MissionSceneDtor(void) {
     ConstReturn1_2(heap + 1);
     Ov008_FreeResourceRecordBuffer(heap + 0x18);
     Table_TailCallWithEntry(0, 0x1e);
-    Ov008_TickKeySharingShutdown();
+    Ov008_ReleaseMissionLobby();
     if (heap[0] != 0) {
-        func_02023ad0((int *)heap[0]);
+        VeneerTo_Obj_Destroy((int *)heap[0]);
         heap[0] = 0;
     }
     data_ov008_02090fa0 = 0;

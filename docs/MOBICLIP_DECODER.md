@@ -304,8 +304,13 @@ into `lumaHistory[0]`/`chromaHistory[0]` with `[1..5]` as the previous frames
 newest first, and returns the bytes consumed rounded up to 16-bit words, which
 the owner adds to the bitstream pointer. Like the payload it records the
 quantizer (`+0x3b4`), the coefficient table in use (`+0x3b8`), the I-frame
-format bit (`+0x048`, kept by P-frames) and the quant/scan tables (`+0x074`,
-`+0x174`); the rest of the state is per-frame scratch. The ROM build still
+format bit (`+0x048`, kept by P-frames), the quant/scan tables (`+0x074`,
+`+0x174`) and the borders of the prediction-mode cache (`+0x04c` +1..+4, +8,
++16, +24, +32, set to 9, "unavailable"); the rest of the state is per-frame
+scratch. Those borders are the one thing the payload reads from an earlier
+frame: `MobiClip_SetupQuantTables` writes them with the tables, the frame
+decoder calls it only when the quantizer changes, and the blocks read their
+neighbours at -1 and -8 but write only the cache's interior. The ROM build still
 links the mnemonic payload; these files are not part of it.
 
 `tools/tests/mobiclip_frame_core_test.cpp` checks the entry the way the game

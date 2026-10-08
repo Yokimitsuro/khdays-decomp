@@ -45,7 +45,7 @@ typedef struct Ov023HintPositions {
 } Ov023HintPositions;
 
 extern void  ObjNode_InitFromDesc(void *pManager, SpriteManagerInit *pInit);  /* SpriteManager_Init */
-extern void *func_02032444(void *pManager, int nIndex, int nArg); /* SpriteManager_Create */
+extern void *VeneerTo_SlotTable_AddEntry(void *pManager, int nIndex, int nArg); /* SpriteManager_Create */
 extern void  Slot_SetPosition(void *pManager, void *pSprite, Fx32Pair *pPos); /* Sprite_SetPosition */
 extern void  Slot_ForwardToEntry(void *pManager, void *pSprite, int nEntry); /* Sprite_SetEntry */
 extern void  Slot_SetVisible(void *pManager, void *pSprite, int bVisible); /* Sprite_SetVisible */
@@ -69,7 +69,7 @@ void Ov023_CreateHintSprites(void)
     init.nReserved1 = 0;
     ObjNode_InitFromDesc(pManager, &init);
     for (i = 0; i < 3; i++) {
-        pManager->apHintSprite[i] = func_02032444(pManager, i, 0);
+        pManager->apHintSprite[i] = VeneerTo_SlotTable_AddEntry(pManager, i, 0);
         Slot_SetPosition(pManager, pManager->apHintSprite[i], &positions.aPos[i]);
         Slot_ForwardToEntry(pManager, pManager->apHintSprite[i], 0);
         Slot_SetVisible(pManager, pManager->apHintSprite[i], 1);

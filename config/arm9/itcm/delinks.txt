@@ -17,11 +17,11 @@ libs/nitro/fs/calls/FSi_WaitForCardThread.c:
     complete
     .text       start:0x01ff8110 end:0x01ff8128
 
-libs/nitro/os/calls/func_01ff8128.c:
+src/engine/WH_GetCurrentAid.c:
     complete
     .text       start:0x01ff8128 end:0x01ff8138
 
-libs/nitro/os/calls/func_01ff8138.c:
+src/engine/WH_GetBitmap.c:
     complete
     .text       start:0x01ff8138 end:0x01ff8148
 
@@ -569,7 +569,7 @@ src/engine/AsyncMessage_Flush.c:
     complete
     .text       start:0x01fffaf4 end:0x01fffbf4
 
-src/engine/ClearNodeIfHeadMatches.c:
+src/engine/AsyncMessage_OnSendDone.c:
     complete
     .text       start:0x01fffbf4 end:0x01fffc24
 

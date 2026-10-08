@@ -20,7 +20,7 @@ extern void *Ov005_FindEntryById(Ov005SpriteManager *,int);
 extern void Ov005_ReleaseTwoSlotsEx_2(Ov005SpriteManager *,void *,int);
 extern void Ov005_ReleaseTwoSlots(Ov005SpriteManager *,void *);
 extern void Ov005_ReleaseTwoSlots_2(Ov005SpriteManager *,void *);
-extern int func_02032444(Ov005SpriteManager *,int,int);
+extern int VeneerTo_SlotTable_AddEntry(Ov005SpriteManager *,int,int);
 extern void SlotTable_SetEntryVelocity(Ov005SpriteManager *,int,int);
 extern void Slot_SetPosition(Ov005SpriteManager *,int,UiLayoutPos *);
 extern void Slot_ClearFlagBit1(Ov005SpriteManager *,int);
@@ -54,7 +54,7 @@ void Ov005_InitializeResultSprites(void) {
         x=17+id*112;
         for(index=0;index<7;index++) {
             y=49+index*16;
-            data_ov005_0205b80c->indicatorSlots[id][index]=func_02032444(data_ov005_0205b80c->spriteManager,0,1);
+            data_ov005_0205b80c->indicatorSlots[id][index]=VeneerTo_SlotTable_AddEntry(data_ov005_0205b80c->spriteManager,0,1);
             SetPixelPosition(&position,x,y);
             SlotTable_SetEntryVelocity(data_ov005_0205b80c->spriteManager,data_ov005_0205b80c->indicatorSlots[id][index],120);
             Slot_SetPosition(data_ov005_0205b80c->spriteManager,data_ov005_0205b80c->indicatorSlots[id][index],&position);

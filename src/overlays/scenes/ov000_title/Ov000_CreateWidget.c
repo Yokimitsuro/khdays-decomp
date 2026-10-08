@@ -66,7 +66,7 @@ extern void *NNSi_FndAllocFromDefaultExpHeap(unsigned int size);
 extern void *MI_CpuFill8(void *dst, unsigned char v, unsigned int n);
 extern void *MI_CpuCopy8(const void *src, void *dst, unsigned int n);
 extern void Tween_Clear(void *p);
-extern int func_02032444(Root *self, int key, int a);
+extern int VeneerTo_SlotTable_AddEntry(Root *self, int key, int a);
 extern void SlotTable_SetEntryVelocity(Root *self, int slot, int prio);
 extern void SlotTable_SetEntryStyle(Root *self, int slot, int a);
 extern void Ov000_EmitSplinePair(Root *self, void *obj, int n, void *a, void *b, int span);
@@ -104,7 +104,7 @@ void *Ov000_CreateWidget(Root *self, WidgetDescriptor *desc) {
             obj->keysAlternate[i] = desc->keysAlternate[i];
 
             if (((int *)keys)[i] >= 0) {
-                obj->slots[i] = func_02032444(self, ((int *)keys)[i], desc->groupId);
+                obj->slots[i] = VeneerTo_SlotTable_AddEntry(self, ((int *)keys)[i], desc->groupId);
                 SlotTable_SetEntryVelocity(self, obj->slots[i], (unsigned char)(desc->priorityBase + 1 - i));
                 SlotTable_SetEntryStyle(self, obj->slots[i], self->style);
             } else {

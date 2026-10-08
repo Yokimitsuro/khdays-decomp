@@ -20,7 +20,7 @@ typedef struct Ov008SendCtx {
 
 #define MISSION_CONTEXT (data_ov006_020565e4.pContext)
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
-extern int  func_ov105_020bf900(void *buf, int size, void *callback);
+extern int  Ov105_WH_SendData(void *buf, int size, void *callback);
 extern void Ov006_PacketSentCallback(void);
 
 int Ov006_SendNetworkPacket(const void *src, int size)
@@ -32,7 +32,7 @@ int Ov006_SendNetworkPacket(const void *src, int size)
     MISSION_CONTEXT->sendBusy = 1;
     *(int *)MISSION_CONTEXT->primaryBuffer = MISSION_CONTEXT->sendSeq;
     MI_CpuCopy8(src, MISSION_CONTEXT->primaryBuffer + 4, size);
-    if (func_ov105_020bf900(MISSION_CONTEXT->primaryBuffer, (u16)(size + 4),
+    if (Ov105_WH_SendData(MISSION_CONTEXT->primaryBuffer, (u16)(size + 4),
                                     Ov006_PacketSentCallback) != 0) {
         return 1;
     }

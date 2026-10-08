@@ -34,7 +34,7 @@ extern void Ov006_BlankScreensAndTeardownText(void);
 extern int Ov006_CanConfirmMissionMenu(void);
 extern int Ov006_IsMissionMenuBusy(void);
 extern int Ov006_ReadMissionMenuAction(void);
-extern int func_01ff8128(void);
+extern unsigned short WH_GetCurrentAid(void);
 extern int Ov006_TickInputUpdate(void);
 extern void Ov006_RequestMenuState(int state, int arg1, int arg2);
 extern int Ov006_GetMissionScreenFlag(void);
@@ -50,7 +50,7 @@ extern void MI_CpuFill8(void *dst, int value, u32 size);
 extern void Ov006_CopyMissionOptionTextRows(void *destination);
 extern void Ov006_MissionToggleSlotVisible(int visible);
 extern void Ov006_SetMissionCursorSelection(int selection);
-extern u16 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern int Ov006_GetMissionMenuSelection(void);
 extern void Ov006_FlushTextLayers(void);
 
@@ -94,7 +94,7 @@ MissionState Ov006_UpdateMissionMenuSelectionScreen(void)
 
     transitionReady = 1;
     if (data_ov006_02056660->sessionReady != 0) {
-        if (func_01ff8128() != 0) {
+        if (WH_GetCurrentAid() != 0) {
             transitionReady = 0;
         }
         if (data_ov006_02056660->messageStateFlag != 0) {
@@ -216,11 +216,11 @@ MissionState Ov006_UpdateMissionMenuSelectionScreen(void)
 
     Ov006_SetMissionCursorSelection(-1);
     if (data_ov006_02056660->sessionReady != 0) {
-        if (func_01ff8138() > 1) {
+        if (WH_GetBitmap() > 1) {
             Ov006_SetMissionCursorSelection(Ov006_GetMissionMenuSelection());
         }
     } else {
-        if (func_01ff8138() != 0) {
+        if (WH_GetBitmap() != 0) {
             Ov006_SetMissionCursorSelection(Ov006_GetMissionMenuSelection());
         }
     }

@@ -36,14 +36,15 @@ typedef struct OSOwnerInfo {
 extern s32 OS_GetLockID(void);
 extern void OS_ReleaseLockID(u16 lockId);
 extern void OS_GetMacAddress(u8 *pMacAddress);
-extern void Game_ReadLocalProfile(OSOwnerInfo *pInfo);           /* OS_GetOwnerInfo */
+extern void OS_GetOwnerInfo(OSOwnerInfo *pInfo);           /* OS_GetOwnerInfo */
 extern void CARD_LockRom(u16 lockId);
 extern void CARD_UnlockRom(u16 lockId);
 
-/* The library's own units (ov028) */
-extern u32 func_ov028_0208abd0(void);                       /* MACOwner_IsBad */
-extern void func_ov028_0208acf0(void *dest, u32 addr, s32 size);  /* ROMUtil_Read */
-extern u32 func_ov028_0208ae8c(void *buf, u32 size);        /* ROMUtil_CRC32 */
-extern u32 func_ov028_0208af30(void);                       /* ROMTest_IsBad */
+/* The library's own units (ov028). config lists them as data symbols in .rodata: their bytes in
+ * the ROM are ciphertext (docs/ov028_encrypted_code.md). */
+extern u32 Ov028_DSProt_MACOwner_IsBad(void);
+extern void Ov028_DSProt_ROMUtil_Read(void *dest, u32 addr, s32 size);
+extern u32 Ov028_DSProt_ROMUtil_CRC32(void *buf, u32 size);
+extern u32 Ov028_DSProt_ROMTest_IsBad(void);
 
 #endif

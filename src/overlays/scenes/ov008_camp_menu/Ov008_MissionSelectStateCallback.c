@@ -13,7 +13,7 @@ typedef void (*MissionCallback)(void);
 extern void Ov105_WH_SetSsid(u8 *mode, int value);
 extern int Ov105_WH_ChildConnect(int value, MissionRecord *record);
 extern void Ov105_WH_SetReceiver(MissionCallback callback);
-extern u16 Ov105_GetState(void);
+extern u16 Ov105_WH_GetLastError(void);
 extern void MI_CpuFill8(void *dst, int value, u32 size);
 extern void Ov008_MissionIdleStateNoOp(void);
 extern void Ov008_UpdateSlotCache_2(void);
@@ -49,11 +49,11 @@ MissionCallback Ov008_MissionSelectStateCallback(void) {
         break;
 
     default:
-        if (Ov105_GetState() == 12) {
+        if (Ov105_WH_GetLastError() == 12) {
             MISSION_CONTEXT->signal = 1;
             return Ov008_MissionSceneIdleCallback;
         }
-        if (Ov105_GetState() == 11) {
+        if (Ov105_WH_GetLastError() == 11) {
             MISSION_CONTEXT->signal = 1;
             return Ov008_MissionSceneIdleCallback;
         }

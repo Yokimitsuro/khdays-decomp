@@ -1,7 +1,7 @@
 /* DS Protect 1.10, flashcart check (ov028 0x0208af30-0x0208b040): CRC six ROM pages. A real
  * cartridge mirrors reads below 0x8000 into 0x8000 + (addr & 0x1ff), so pages 0, 0x200 and
  * 0x400 must equal the one at 0x8000 while 0x8200 and 0x8400 differ; a flashcart reads them
- * all as they are. Reconstruction after taxicat1/dsprot (branch 1.10). */
+ * all as they are. */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 
@@ -9,7 +9,7 @@
 #define ROM_PAGE_SIZE       0x200
 
 /* ROMTest_IsBad */
-u32 func_ov028_0208af30(void)
+u32 Ov028_DSProt_ROMTest_IsBad(void)
 {
     u32 crcs[7];            /* one more than used: the frame layout needs it */
     u8 page[ROM_PAGE_SIZE];
@@ -20,8 +20,8 @@ u32 func_ov028_0208af30(void)
     result = 0;
     romAddr = 0;
     for (i = 0; i < 6; i++) {
-        func_ov028_0208acf0(&page[0], romAddr, ROM_PAGE_SIZE);
-        crcs[i] = func_ov028_0208ae8c(&page[0], ROM_PAGE_SIZE);
+        Ov028_DSProt_ROMUtil_Read(&page[0], romAddr, ROM_PAGE_SIZE);
+        crcs[i] = Ov028_DSProt_ROMUtil_CRC32(&page[0], ROM_PAGE_SIZE);
         if (i == 2) {
             romAddr = 1;
             romAddr <<= 15;

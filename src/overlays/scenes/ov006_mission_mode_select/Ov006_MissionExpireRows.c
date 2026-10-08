@@ -8,7 +8,7 @@
  * MissionRecord 0xc0 established by the first hand-off. */
 
 extern u8 data_ov006_020561c8[];
-extern void Ov105_SetParamWord8(u32 value);
+extern void Ov105_WH_SetGgid(u32 value);
 extern void Ov105_WH_StartScan(void (*callback)(const MissionRecord *),
                                 void *data, int value);
 extern void VBlank_GetCount(void);
@@ -18,7 +18,7 @@ extern void Ov006_MissionDriveSound(void);
 void *Ov006_MissionExpireRows(void) {
     switch (Game_PollSceneAlive()) {
     case 1:
-        Ov105_SetParamWord8(0x800356);
+        Ov105_WH_SetGgid(0x800356);
         Ov105_WH_StartScan(Ov006_MissionUpsertRowByKey,
                             data_ov006_020561c8, 0);
         break;

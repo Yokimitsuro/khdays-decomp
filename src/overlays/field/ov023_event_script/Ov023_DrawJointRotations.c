@@ -41,7 +41,7 @@ typedef struct Ov023JointHook {
     int  nValue;              /* 0x2c */
 } Ov023JointHook;
 
-extern void func_0202afe8(Ov023Node *pNode, int nValue); /* apply the joint hook value (0202afe8) */
+extern void VeneerTo_SceneNode_JointCallback(Ov023Node *pNode, int nValue); /* apply the joint hook value (0202afe8) */
 extern void NNS_G3dGetCurrentMtx(MtxFx43 *pPosition, MtxFx33 *pVector);  /* G3_ReadClipAndVectorMtx */
 extern MtxFx33 *Ov023_RotTweenStep(Ov023RotTween *pTween, MtxFx33 *pOut); /* Ov023_RotTweenStep */
 extern void MTX_Concat43(const MtxFx43 *pA, const MtxFx43 *pB, MtxFx43 *pOut);
@@ -64,7 +64,7 @@ void Ov023_DrawJointRotations(Ov023Node *pNode)
     int nTransZ;
 
     if (data_ov023_0208a790.nValue != 0) {
-        func_0202afe8(pNode, data_ov023_0208a790.nValue);
+        VeneerTo_SceneNode_JointCallback(pNode, data_ov023_0208a790.nValue);
     }
     for (i = 0; i < 7; i++) {
         Ov023RotTween *pTween = data_ov023_0208a7a0[i];

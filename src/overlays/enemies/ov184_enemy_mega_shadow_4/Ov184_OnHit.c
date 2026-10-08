@@ -53,7 +53,7 @@ int Ov184_OnHit(char *actor, int nParam, struct ActorHitEvent *hit)
     if ((hit->uFlagsLo & 1) != 0 && (hit->uFlagsLo & 0x10) != 0) {
         if (*(signed char *)(state->pOwner + 0x1c6) == 9) {
             *(u8 *)(state->pOwner + 0x1c7) = 10;
-            return;
+            return (int)actor;  /* r0 as it came: non-zero, the hit counts as taken */
         }
     }
     switch (*(signed char *)(state->pOwner + 0x1c6)) {

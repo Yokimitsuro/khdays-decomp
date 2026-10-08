@@ -21,7 +21,7 @@ typedef struct {
 extern Ov030Context *NNSi_FndGetCurrentRootHeap(void);
 extern void FreeAllResourceTables(int *p);
 extern void NNSi_FndFreeFromDefaultHeap(void *p);
-extern void func_02023ad0(void *obj);
+extern void VeneerTo_Obj_Destroy(void *obj);
 extern void Ov002_FreeResourceTables(int *a, int *b);
 extern void Ov030_setupTriple(int *p);
 extern void *Ov022_DestroyRoot(Ov030Context *ctx);
@@ -36,7 +36,7 @@ void *Ov030_TeardownScene(void) {
         NNSi_FndFreeFromDefaultHeap(ctx->pBuffer2c50);
     }
     if (ctx->pObject2cac != 0) {
-        func_02023ad0(ctx->pObject2cac);
+        VeneerTo_Obj_Destroy(ctx->pObject2cac);
     }
     Ov002_FreeResourceTables(ctx->aSub2c54, ctx->aSub0910);
     Ov030_setupTriple(ctx->aSub2cb0);

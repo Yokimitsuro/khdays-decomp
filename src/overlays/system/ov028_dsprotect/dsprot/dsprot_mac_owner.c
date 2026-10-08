@@ -1,7 +1,6 @@
 /* DS Protect 1.10, emulator check (ov028 0x0208abd0-0x0208acf0): the console's MAC address and
  * owner profile against the defaults of an early emulator (MAC 00:09:BF:00:00:31 with a 1/1
- * birthday and no nickname), or an all-zero MAC. Both checks run inside encrypted ranges.
- * Reconstruction after taxicat1/dsprot (branch 1.10). */
+ * birthday and no nickname), or an all-zero MAC. Both checks run inside encrypted ranges. */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 
@@ -15,7 +14,7 @@
 extern const u8 data_ov028_0208b560[MAC_ADDRESS_SIZE];
 
 /* MACOwner_IsBad */
-u32 func_ov028_0208abd0(void)
+u32 Ov028_DSProt_MACOwner_IsBad(void)
 {
     u8 macAddress[MAC_ADDRESS_SIZE];
     OSOwnerInfo ownerInfo;
@@ -33,7 +32,7 @@ u32 func_ov028_0208abd0(void)
     }
     DSPROT_RANGE_END(KEY_MAC_OWNER_1)
 
-    Game_ReadLocalProfile(&ownerInfo);
+    OS_GetOwnerInfo(&ownerInfo);
 
     DSPROT_RANGE_BEGIN(KEY_MAC_OWNER_2)
     /* `i` doubles as the result */

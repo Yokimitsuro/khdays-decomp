@@ -13,7 +13,7 @@ extern void VBlank_UnregisterCallback(int a, void *b);
 extern void Gfx_SetupSubEngine(void *p);
 extern void ReleaseField74AndCleanup(void *p);
 extern void SoundMgr_SetSeEnabled(char arg0);
-extern void func_02023ad0(int handle);
+extern void VeneerTo_Obj_Destroy(int handle);
 extern void StoreGlobalArrayEntry(int nId, int nFlags);
 
 void Ov106_TeardownScene(void)
@@ -28,7 +28,7 @@ void Ov106_TeardownScene(void)
     ReleaseField74AndCleanup(data_ov106_020b8b60 + 0x8cd0);
     ReleaseField74AndCleanup(data_ov106_020b8b60 + 0x8bc4);
     SoundMgr_SetSeEnabled(1);
-    func_02023ad0(*(int *)(data_ov106_020b8b60 + 0x8e40));
+    VeneerTo_Obj_Destroy(*(int *)(data_ov106_020b8b60 + 0x8e40));
     StoreGlobalArrayEntry(0x14, 0);
     data_ov106_020b8b60 = 0;
 }

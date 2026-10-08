@@ -27,7 +27,7 @@ src/overlays/system/ov028_dsprotect/Ov028_RC4_EncryptInstructions.c:
     complete
     .text       start:0x0208aa78 end:0x0208ab14
 
-src/overlays/system/ov028_dsprotect/func_ov028_0208ab14.c:
+src/overlays/system/ov028_dsprotect/Ov028_RC4_DecryptInstructions.c:
     complete
     .text       start:0x0208ab14 end:0x0208ab20
 

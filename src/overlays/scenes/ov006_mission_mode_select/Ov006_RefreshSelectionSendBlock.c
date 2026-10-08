@@ -10,7 +10,7 @@
 
 #define MISSION_CONTEXT (data_ov006_020565e4.pContext)
 extern const u16 data_ov006_020563d4[];
-extern u16 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern void MI_CpuFill8(void *dst, int value, u32 size);
 extern u32 VBlank_GetCount(void);
 extern void StrCopy16(u16 *dst, const u16 *src);
@@ -32,7 +32,7 @@ void Ov006_RefreshSelectionSendBlock(void) {
     name = 0;
 
     sendBlock = &MISSION_CONTEXT->message.selection;
-    sessionMask = func_01ff8138();
+    sessionMask = WH_GetBitmap();
 
     MISSION_CONTEXT->refreshTimer--;
     if (MISSION_CONTEXT->refreshTimer < 0) {

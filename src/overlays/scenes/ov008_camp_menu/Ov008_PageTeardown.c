@@ -92,7 +92,7 @@ extern void *G2_GetBG3CharPtr(void);
 extern void  MIi_CpuClearFast(u32 value, void *destination, u32 size);
 extern void  G3X_SetClearColor(
     u32 color, u32 alpha, u32 depth, u32 polygonId, int fog);
-extern void *func_02023ad0(void *handle);
+extern void *VeneerTo_Obj_Destroy(void *handle);
 extern void  TP_RequestAutoSamplingStopAsync(void);
 extern void  TP_WaitBusy(u32 mask);
 extern int   TP_CheckError(int mask);
@@ -237,7 +237,7 @@ void Ov008_PageTeardown(void)
     REG_SUB_BG_OFFSETS[2] = 0;
     REG_SUB_BG_OFFSETS[3] = 0;
 
-    func_02023ad0(
+    VeneerTo_Obj_Destroy(
         data_ov008_02090f04[1]->graphicsObject);
     TP_RequestAutoSamplingStopAsync();
     TP_WaitBusy(4);

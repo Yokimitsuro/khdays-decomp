@@ -1,5 +1,5 @@
-/* Fades both screens out (or waits for the scene when not fading) and moves to ending the key
- * sharing session. */
+/* Fades both screens out (or waits for the scene when not fading) and moves to closing the ov106
+ * scene. */
 
 #include "nitro/types.h"
 #include "game/engine.h"
@@ -20,7 +20,7 @@ extern Ov022Context *data_ov022_020b2e60;
 
 extern void Ov022_UpdateCameraAndViews(int mode);
 extern int Ov002_Scene_IsIdle(void);
-extern void *Ov022_EndKeySharingSession(void);
+extern void *Ov022_StateCloseOv106Scene(void);
 
 Ov022StateCallback Ov022_StateAdvanceAfterPause(void)
 {
@@ -35,7 +35,7 @@ Ov022StateCallback Ov022_StateAdvanceAfterPause(void)
     if (context->state != 0) {
         if (context->state == 2 && Ov002_Scene_IsIdle() != 0) {
             StoreToGlobalPtr4Field28(1);
-            next = Ov022_EndKeySharingSession;
+            next = Ov022_StateCloseOv106Scene;
         }
     } else {
         context->brightnessMain -= GetFrameRateMode() == 1 ? 0x3000 : 0x2000;
@@ -54,7 +54,7 @@ Ov022StateCallback Ov022_StateAdvanceAfterPause(void)
 
         if (completed >= 2 && Ov002_Scene_IsIdle() != 0) {
             StoreToGlobalPtr4Field28(1);
-            next = Ov022_EndKeySharingSession;
+            next = Ov022_StateCloseOv106Scene;
         }
 
         SetMasterBrightnessMain(context->brightnessMain >> 12);

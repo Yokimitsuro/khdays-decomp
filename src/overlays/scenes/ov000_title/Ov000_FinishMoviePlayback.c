@@ -2,7 +2,7 @@
 
 extern char *NNSi_FndGetCurrentRootHeap(void);
 extern int Ov000_List_GetState(void);
-extern void func_02023ad0(int h);
+extern void VeneerTo_Obj_Destroy(int h);
 extern int Ov000_FreshBootGfxSetup(int a);
 extern int data_ov000_0205ac20;
 
@@ -13,7 +13,7 @@ int Ov000_FinishMoviePlayback(void) {
     if (Ov000_List_GetState() != 6) {
         return 0;
     }
-    func_02023ad0(*(int *)(heap + 0x5000 + 0x74));
+    VeneerTo_Obj_Destroy(*(int *)(heap + 0x5000 + 0x74));
     data_ov000_0205ac20 = 0;
     Gfx_Reset2DEngines();
     return Ov000_FreshBootGfxSetup(1);

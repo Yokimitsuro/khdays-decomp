@@ -9,7 +9,7 @@
 #include "game/engine.h"
 
 extern void *Ov008_GetCtxBlock4a80(void);
-extern int   func_ov105_020bf240(void);
+extern int   Ov105_WH_GetLinkLevel(void);
 extern void *Ov008_FindEntryById(void *ctx, int id);
 extern void  Ov008_ReleaseTwoSlotsEx(void *ctx, void *widget, int value);
 extern void  Ov008_SetEntrySlotsVisible(void *ctx, void *widget, int flag);
@@ -21,7 +21,7 @@ void Ov008_UpdateCommWidgets(void)
     if (Session_Exists() == 0) return;
     if (Session_IsActive() == 0) return;
     {
-        int v = (signed char)func_ov105_020bf240();
+        int v = (signed char)Ov105_WH_GetLinkLevel();
         if (v >= 0) {
             Ov008_ReleaseTwoSlotsEx(ctx, Ov008_FindEntryById(ctx, 2), (u16)v);
             Ov008_ReleaseTwoSlotsEx(ctx, Ov008_FindEntryById(ctx, 1), (u16)v);

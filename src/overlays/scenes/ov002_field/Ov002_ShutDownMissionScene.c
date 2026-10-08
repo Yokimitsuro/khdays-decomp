@@ -5,7 +5,7 @@
  *
  * The scene's own exit hook runs first and its overlay - plus overlay 0x45 when
  * this was scene kind 7 - is unloaded, then every subsystem the scene brought
- * up is closed in the reverse order it was opened: link session, key sharing,
+ * up is closed in the reverse order it was opened: link session, party object,
  * pause buffers, slot table, deferred draws, link state and scene context. The
  * saved global slots are cleared, the two heap buffers the scene owns are
  * freed, and the scene pointer is dropped.
@@ -39,11 +39,11 @@ extern void StoreGlobalByteAt0(int nValue);
 extern void ZeroHalfThenFree(int pBlock);
 
 extern void func_ov002_0206fb74(void);
-extern void Ov002_EndKeySharing(void);
+extern void Ov002_DestroyPartyObject(void);
 extern void Ov002_FreePauseBuffers(void);
 extern void Ov002_DestroySlotTable(void);
 extern void Ov002_ResetSubsystem(void);
-extern void Ov002_CloseKeySharing(void);
+extern void Ov002_DestroyPauseMenu(void);
 extern void Ov002_DropLinkSession(void);
 extern void Ov002_FreeRootBuffer0x8d14(void);
 extern void Ov002_World_ClearTarget(void);
@@ -79,11 +79,11 @@ void Ov002_ShutDownMissionScene(void)
     }
     FSi_BindCardTransfer(0);
     PartyState_ReleaseNodes();
-    Ov002_EndKeySharing();
+    Ov002_DestroyPartyObject();
     Ov002_FreePauseBuffers();
     Ov002_DestroySlotTable();
     Ov002_ResetSubsystem();
-    Ov002_CloseKeySharing();
+    Ov002_DestroyPauseMenu();
     Ov002_DropLinkSession();
     Ov002_FreeRootBuffer0x8d14();
     Ov002_World_ClearTarget();

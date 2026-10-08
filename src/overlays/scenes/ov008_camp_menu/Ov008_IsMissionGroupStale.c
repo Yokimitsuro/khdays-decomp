@@ -5,8 +5,8 @@
 #define SCENE_POLL_IDLE 4
 
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
-extern int func_01ff8128(void);
-extern u16 func_01ff8138(void);    /* current session id */
+extern unsigned short WH_GetCurrentAid(void);
+extern unsigned short WH_GetBitmap(void); /* current session id */
 
 int Ov008_IsMissionGroupStale(void)
 {
@@ -16,9 +16,9 @@ int Ov008_IsMissionGroupStale(void)
     if (pCtx == 0 || pCtx->localMode != 0) {
         return 0;
     }
-    if (func_01ff8128() == 0) {
+    if (WH_GetCurrentAid() == 0) {
         nRecorded = GetGlobalU16At4();
-        if (nRecorded != func_01ff8138()) {
+        if (nRecorded != WH_GetBitmap()) {
             MISSION_CONTEXT->liveEntries.header.bits.dirty = 1;
             return 1;
         }

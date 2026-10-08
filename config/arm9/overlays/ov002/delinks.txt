@@ -3064,7 +3064,7 @@ src/overlays/scenes/ov002_field/Ov002_InitContextRecord.c:
     complete
     .text       start:0x020697e8 end:0x02069844
 
-src/overlays/scenes/ov002_field/Ov002_EndKeySharing.c:
+src/overlays/scenes/ov002_field/Ov002_DestroyPartyObject.c:
     complete
     .text       start:0x02069844 end:0x02069878
 
@@ -3120,7 +3120,7 @@ src/overlays/scenes/ov002_field/Ov002_World_ClearPending.c:
     complete
     .text       start:0x0206a080 end:0x0206a098
 
-src/overlays/scenes/ov002_field/Ov002_CloseKeySharing.c:
+src/overlays/scenes/ov002_field/Ov002_DestroyPauseMenu.c:
     complete
     .text       start:0x0206a098 end:0x0206a0bc
 

@@ -14,7 +14,7 @@
  * scene label is not. The offsets and logic below are this function's -- the code is
  * byte-identical to the rep.
  */
-extern void Ov105_KickIdleHandler(void);
+extern void Ov105_WH_Reset(void);
 extern int  Ov105_WH_Initialize(void);
 extern void Ov105_WH_Finalize(void);
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
@@ -25,7 +25,7 @@ void Ov008_MissionDriveSound(void) {
     switch (Game_PollSceneAlive()) {
     case 9:
     case 10:
-        Ov105_KickIdleHandler();
+        Ov105_WH_Reset();
         return;
     case 0:
         if (OBJ[0x127] != 0) {

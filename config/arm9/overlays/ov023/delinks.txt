@@ -20,11 +20,11 @@ src/overlays/field/ov023_event_script/Ov023_SetupDisplay.c:
     complete
     .text       start:0x02082a80 end:0x02082bdc
 
-src/overlays/field/ov023_event_script/Ov023_MobiClip_SrcOpen.c:
+src/overlays/field/ov023_event_script/Ov023_CreateSceneTask.c:
     complete
     .text       start:0x02082bdc end:0x02082c00
 
-src/overlays/field/ov023_event_script/Ov023_EndKeySharingIfOpen.c:
+src/overlays/field/ov023_event_script/Ov023_DestroySceneTask.c:
     complete
     .text       start:0x02082c00 end:0x02082c24
 

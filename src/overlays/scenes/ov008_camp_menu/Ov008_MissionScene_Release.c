@@ -4,12 +4,12 @@
 #include "game/engine.h"
 
 extern char *data_ov008_02090fa8;
-extern void func_02023ad0(int arg0);
+extern void VeneerTo_Obj_Destroy(int arg0);
 extern void OS_ResetSystem(int arg0);
 
 void Ov008_MissionScene_Release(void)
 {
-    func_02023ad0(*(int *)data_ov008_02090fa8);
+    VeneerTo_Obj_Destroy(*(int *)data_ov008_02090fa8);
 
     if (*(int *)(data_ov008_02090fa8 + 4) == 2) {
         Overlay105_Release();

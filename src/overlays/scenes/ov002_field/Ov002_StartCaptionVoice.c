@@ -45,7 +45,7 @@ extern int data_ov002_0207f62c;
 extern const int data_ov002_0207ebf4[];
 
 extern int InstantiateClass(int nSound, int nArg);
-extern void func_02023ad0(int hVoice);
+extern void VeneerTo_Obj_Destroy(int hVoice);
 
 extern void Ov002_ClearWorldElements(void);
 extern int Ov002_ForwardToSubDc(int nSound);
@@ -62,7 +62,7 @@ void Ov002_StartCaptionVoice(void)
 
     Ov002_ClearWorldElements();
     if (s->hVoice != 0) {
-        func_02023ad0(s->hVoice);
+        VeneerTo_Obj_Destroy(s->hVoice);
     }
 
     if (s->nLine == 2) {

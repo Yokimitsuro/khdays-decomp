@@ -2,14 +2,14 @@
  * Runs once (guarded by heap[0x608]): clears the two OBJ palettes, loads the UI archive
  * (gOv008UiMltResPath = "UI/mlt/res.p2") via Msg_OpenContainerAndReadHeader, then registers the root cell
  * in the object manager (heap+0x60c) from a {resAddr, 2, 0, 0} descriptor (ObjNode_InitFromDesc),
- * creates it (func_02032444 slot 5 -> heap[0x5044]), sets frame 0 and scale
+ * creates it (VeneerTo_SlotTable_AddEntry slot 5 -> heap[0x5044]), sets frame 0 and scale
  * 1.0, and enables sub-BG mode 1. */
 extern char *data_ov008_02090f00;
 extern char  gOv008UiMltResPath[];
 extern void *Msg_OpenContainerAndReadHeader(void *desc, int mode);
 extern void  SetMasterBrightnessSub(int);
 extern void  ObjNode_InitFromDesc(void *mgr, int *desc);
-extern void *func_02032444(void *mgr, int slot, int);
+extern void *VeneerTo_SlotTable_AddEntry(void *mgr, int slot, int);
 extern void  Slot_ForwardToEntry(void *mgr, void *obj, int);
 extern void  Slot_ClearFlagBit1(void *mgr, void *obj);
 extern void  Slot_SetPosition(void *mgr, void *obj, int *scale);
@@ -31,7 +31,7 @@ void Ov008_LoadMenuUi(void) {
         ObjNode_InitFromDesc(data_ov008_02090f00 + 0x60c, desc);
     }
     *(void **)(data_ov008_02090f00 + 0x5044) =
-        func_02032444(data_ov008_02090f00 + 0x60c, 5, 0);
+        VeneerTo_SlotTable_AddEntry(data_ov008_02090f00 + 0x60c, 5, 0);
     {
         int scale[2];
         scale[0] = 0x8000;

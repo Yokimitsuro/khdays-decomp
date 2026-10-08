@@ -50,9 +50,9 @@ typedef struct Ov000BootContext {
 
 extern Ov000BootContext *NNSi_FndGetCurrentRootHeap(void);
 extern void Ov000_ResetPartyMemberAndLayout(int a, int b);
-extern int  func_ov028_0208b490(int a);
-extern int  func_ov028_0208b120(int a);
-extern int  func_ov028_0208b2e0(int a);
+extern int  Ov028_DSProt_DetectNotDummy(int a);
+extern int  Ov028_DSProt_DetectNotFlashcart(int a);
+extern int  Ov028_DSProt_DetectNotEmulator(int a);
 extern void Ov000_RequestScene11(void);
 extern BootModeState data_0204c240;
 
@@ -77,8 +77,8 @@ int Ov000_BootRunSelector(void) {
         data_0204c240.resetWord = 0;
         data_0204c240.state = 0;
         LoadOverlaySync(0, FS_OVERLAY_ID_ov028);
-        if (func_ov028_0208b490(0) != 0 && func_ov028_0208b120(0) != 0 &&
-            func_ov028_0208b2e0(0) != 0) {
+        if (Ov028_DSProt_DetectNotDummy(0) != 0 && Ov028_DSProt_DetectNotFlashcart(0) != 0 &&
+            Ov028_DSProt_DetectNotEmulator(0) != 0) {
             data_0204c240.elapsed = 0x2710;
             Ov000_RequestScene11();
         }

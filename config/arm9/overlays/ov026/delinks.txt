@@ -32,7 +32,7 @@ src/overlays/screens/ov026_shop/Ov026_CreateService.c:
     complete
     .text       start:0x02082a84 end:0x02082aac
 
-src/overlays/screens/ov026_shop/Ov026_CloseKeySharing.c:
+src/overlays/screens/ov026_shop/Ov026_DestroyService.c:
     complete
     .text       start:0x02082aac end:0x02082ad0
 

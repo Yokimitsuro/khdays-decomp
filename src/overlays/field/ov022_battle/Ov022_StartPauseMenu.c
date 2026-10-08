@@ -18,7 +18,9 @@ void *Ov022_StartPauseMenu(void) {
     int entry;
     unsigned short alpha;
     if (data_0204be04 != 0) {
-        /* No value: the ROM really does leave r0 untouched on this path. */
+        /* No value: the ROM leaves r0 as it came, which is this function's own address
+         * (Obj_UpdateAll calls each update through r0, `ldr r0,[r1,#0x14]; blx r0`), so the
+         * object keeps this update and tries again next frame. */
         return;
     }
     Ov022_UpdateCameraAndViews(0);

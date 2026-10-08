@@ -3,15 +3,15 @@
  * pointer block (no handler for that slot), and +0x18/+0x1c/+0x28 are the per-instance state
  * the handlers own. */
 extern void Ov024_MobiClip_RestoreDisplay(void);
-extern void Ov024_MobiClip_SrcOpen(void);
-extern void Ov024_EndKeySharingIfOpen(void);
+extern void Ov024_MobiClip_CreatePlayerTask(void);
+extern void Ov024_MobiClip_DestroyPlayerTask(void);
 extern void Ov024_StreamSourceStart(void);
 extern void Ov024_StreamSourceIsReady(void);
 
 void Ov024_MobiClip_InstallStreamSourceVtbl(int *obj) {
     obj[0] = (int)Ov024_MobiClip_RestoreDisplay;
-    obj[1] = (int)Ov024_MobiClip_SrcOpen;
-    obj[2] = (int)Ov024_EndKeySharingIfOpen;
+    obj[1] = (int)Ov024_MobiClip_CreatePlayerTask;
+    obj[2] = (int)Ov024_MobiClip_DestroyPlayerTask;
     obj[3] = (int)Ov024_StreamSourceStart;
     obj[4] = 0;
     obj[5] = (int)Ov024_StreamSourceIsReady;

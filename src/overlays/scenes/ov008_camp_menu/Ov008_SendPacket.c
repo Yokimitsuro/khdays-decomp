@@ -13,7 +13,7 @@
 
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
-extern int  func_ov105_020bf900(void *buf, int size, void *callback);
+extern int  Ov105_WH_SendData(void *buf, int size, void *callback);
 extern void Ov008_PacketSentCallback(void);
 
 int Ov008_SendPacket(const void *src, int size)
@@ -25,7 +25,7 @@ int Ov008_SendPacket(const void *src, int size)
     MISSION_CONTEXT->sendBusy = 1;
     *(int *)MISSION_CONTEXT->primaryBuffer = MISSION_CONTEXT->sendSeq;
     MI_CpuCopy8(src, MISSION_CONTEXT->primaryBuffer + 4, size);
-    if (func_ov105_020bf900(MISSION_CONTEXT->primaryBuffer, (u16)(size + 4),
+    if (Ov105_WH_SendData(MISSION_CONTEXT->primaryBuffer, (u16)(size + 4),
                                     Ov008_PacketSentCallback) != 0) {
         return 1;
     }

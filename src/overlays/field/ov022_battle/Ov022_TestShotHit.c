@@ -15,9 +15,10 @@
  * 8, the scaled row values (flag 0x200, and 0x400 when descriptor bit 9 is
  * set). A shot past its first hit only tests once its age reaches 0x3000.
  *
- * The early exit is a bare `return;` in an int function: the ROM leaves r0
- * untouched there (the last callee's result) and hands the hit resolver's
- * result back otherwise, which is what the original evidently did.
+ * The early exit is a bare `return;` in an int function: the ROM leaves r0 as
+ * the last call left it -- the damage Ov022_ComputeStrengthDamage returned, or
+ * the 0 Ov022_ScaleRowValues last stored (`mov r0,#0`) -- and callers read it
+ * as the hit. Otherwise it hands back the hit resolver's result.
  */
 
 /* Ov022ShotDesc */

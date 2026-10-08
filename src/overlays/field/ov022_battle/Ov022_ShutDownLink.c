@@ -1,4 +1,4 @@
-/* Shut the link down: close the two key-sharing handles at +0x14, tear the four
+/* Shut the link down: destroy the two objects whose handles are at +0x14, tear the four
  * subsystems down, release the frame slot and clear both root words.
  *
  * The handle loop counts UNSIGNED (blo), and the handle array is walked rather
@@ -7,7 +7,7 @@
 #include "game/engine.h"
 
 extern void func_ov022_020831dc(void *ctx);
-extern void func_02023ad0(int handle);
+extern void VeneerTo_Obj_Destroy(int handle);
 extern void Ov002_ReleaseAllSlotObjects(void);
 extern void Ov002_RetirePendingSlotEntries(void);
 extern void Ov002_TearDownContext(void);
@@ -28,7 +28,7 @@ void Ov022_ShutDownLink(void) {
 
     for (i = 0; i < 2; i++) {
         if (*(int *)(handle + 0x14) != 0) {
-            func_02023ad0(*(int *)(handle + 0x14));
+            VeneerTo_Obj_Destroy(*(int *)(handle + 0x14));
         }
         handle += 4;
     }

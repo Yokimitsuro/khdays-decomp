@@ -1,4 +1,5 @@
 #include "nitro/types.h"
+#include "nitro/os_types.h"
 
 #include "game/ov006_mission_mode_select.h"
 #include "game/engine.h"
@@ -9,21 +10,16 @@
 
 typedef void (*MissionCallback)(void);
 
-typedef struct {
-    u32 header;
-    u8 payload[0x50];
-} MissionSelectionBuffer;
-
 #define MISSION_CONTEXT (data_ov006_020565e4.pContext)
 extern u16 data_ov006_02056600[];
 
-extern void Ov105_SetParamWord8(u32 value);
-extern void Game_ReadLocalProfile(MissionSelectionBuffer *buffer);
+extern void Ov105_WH_SetGgid(u32 value);
+extern void OS_GetOwnerInfo(OSOwnerInfo *info);
 extern u16 *StrCopy16(u16 *dst, const u16 *src);
 extern void MI_CpuCopy8(const void *src, void *dst, u32 size);
 extern void Ov105_WH_StartMeasureChannel(void);
 extern void Ov006_MissionStartTransition(void);
-extern u16 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern int Ov006_GetPeerTileUploadPending(int peerIndex);
 extern void Ov006_UploadSlotTiles(int peerIndex, u16 *name, u32 size);
 extern void MI_CpuFill8(void *dst, int value, u32 size);
@@ -33,18 +29,18 @@ extern int Ov006_SendNetworkPacket(const void *payload, u32 payloadSize);
 extern void Ov006_UpdateAndGetIdleHandler(void);
 
 MissionCallback Ov006_MissionPeerSyncState(void) {
-    MissionSelectionBuffer localProfile;
+    OSOwnerInfo localProfile;
     MissionCallback nextState = 0;
 
     switch (Game_PollSceneAlive()) {
     case 1: {
         MissionContext *context;
 
-        Ov105_SetParamWord8(0x800356);
+        Ov105_WH_SetGgid(0x800356);
         context = MISSION_CONTEXT;
-        Game_ReadLocalProfile(&localProfile);
+        OS_GetOwnerInfo(&localProfile);
         StrCopy16(context->active.roster.records.split.local.name,
-                      (u16 *)localProfile.payload);
+                      localProfile.nickName);
         *(u16 *)&context->active.roster.records.split.local.status = 1;
         MISSION_CONTEXT->active.roster.remotePeerCapacity = 3;
         MI_CpuCopy8(&MISSION_CONTEXT->active.roster.records.split.local,
@@ -66,7 +62,7 @@ MissionCallback Ov006_MissionPeerSyncState(void) {
         peerIndex = 0;
         remotePeerActive = 0;
         remotePeerActive = MISSION_CONTEXT->active.roster.remotePeerActive;
-        sessionMask = func_01ff8138();
+        sessionMask = WH_GetBitmap();
 
         peerIndex = 1;
         goto check_peer;

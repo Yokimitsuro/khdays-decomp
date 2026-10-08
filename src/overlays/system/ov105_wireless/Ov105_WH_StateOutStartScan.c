@@ -394,18 +394,21 @@ typedef struct WMPortRecvCallback {
 typedef struct WMPortSendCallback {
     u16 apiid;                    /* 0x00 */
     u16 errcode;                  /* 0x02 */
-    u16 state;                    /* 0x04 */
-    u16 port;                     /* 0x06 */
-    u16 destBitmap;               /* 0x08 */
-    u16 restBitmap;               /* 0x0a */
-    u16 sentBitmap;               /* 0x0c */
-    u16 reserved;                 /* 0x0e */
-    u16 *data;                    /* 0x10 */
-    u16 length;                   /* 0x14 */
-    u16 seqNo;                    /* 0x16 */
-    WMCallbackFunc callback;      /* 0x18 */
-    void *arg;                    /* 0x1c */
-    void (*pSendCallback)(BOOL bDelivered);   /* 0x20: the helper's completion callback */
+    u16 wlCmdID;                  /* 0x04 */
+    u16 wlResult;                 /* 0x06 */
+    u16 state;                    /* 0x08 */
+    u16 port;                     /* 0x0a */
+    u16 destBitmap;               /* 0x0c */
+    u16 restBitmap;               /* 0x0e */
+    u16 sentBitmap;               /* 0x10 */
+    u16 reserved;                 /* 0x12 */
+    const u16 *data;              /* 0x14: the buffer sent (AsyncMessage_OnSendDone compares it) */
+    u16 length;                   /* 0x18 */
+    u16 seqNo;                    /* 0x1a */
+    WMCallbackFunc callback;      /* 0x1c */
+    void *arg;                    /* 0x20: the helper passes its WhSendCallbackFunc here */
+    u16 maxSendDataSize;          /* 0x24 */
+    u16 maxRecvDataSize;          /* 0x26 */
 } WMPortSendCallback;
 
 typedef void (*WhScanCallbackFunc)(WMBssDesc *pBssDesc);
@@ -474,12 +477,12 @@ extern void Ov105_WH_SetError(int nError);      /* WH_SetError */
 #define WH_ChangeSysState Ov105_WH_ChangeSysState
 #define WH_SetError Ov105_WH_SetError
 
-extern WMErrCode Ov105_ResourceEntryCallback(WMCallbackFunc callback);   /* WM_StartParent */
+extern WMErrCode Ov105_WM_StartParent(WMCallbackFunc callback);   /* WM_StartParent */
 extern WMErrCode Ov105_WM_Disconnect(WMCallbackFunc callback, u16 aid);   /* WM_Disconnect */
 extern WMErrCode Ov105_WM_StartMP(WMCallbackFunc callback, u16 *recvBuf, u16 recvBufSize, u16 *sendBuf, u16 sendBufSize, u16 mpFreq);   /* WM_StartMP */
 extern WMErrCode Ov105_WM_StartScan(WMCallbackFunc callback, const WMScanParam *param);   /* WM_StartScan */
 extern WMErrCode Ov105_WM_StartConnectEx(WMCallbackFunc callback, const WMBssDesc *pInfo, const u8 *ssid, BOOL powerSave, const u16 authMode);   /* WM_StartConnectEx */
-extern u16 Ov105_GetTransitionFrame(void);             /* WM_GetAllowedChannel */
+extern u16 Ov105_WM_GetAllowedChannel(void);             /* WM_GetAllowedChannel */
 extern u16 Ov105_WM_GetDispersionScanPeriod(void);             /* WM_GetDispersionScanPeriod */
 extern BOOL Ov105_RunStep3ViaBackend(void);            /* WH_StateInSetParentWEPKey */
 extern BOOL Ov105_WH_StateInStartParent(void);            /* WH_StateInStartParent */

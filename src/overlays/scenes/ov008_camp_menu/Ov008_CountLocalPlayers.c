@@ -1,9 +1,9 @@
-/* Returns the number of players in the local player mask (func_01ff8138). */
+/* Returns the number of players in the local player mask (WH_GetBitmap). */
 
-extern int func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 extern int Ov008_CountPlayersInMask(short *);
 int Ov008_CountLocalPlayers(void)
 {
-    short mask = func_01ff8138();
+    short mask = WH_GetBitmap();
     return Ov008_CountPlayersInMask(&mask);
 }

@@ -16,9 +16,9 @@ typedef struct {
 extern Ov004Context *data_ov004_02051384;
 extern char OVERLAY_28_ID[];
 extern u64 OS_GetTick(void);
-extern int func_ov028_0208b490(Ov004AlarmCallback callback);
-extern int func_ov028_0208b040(Ov004AlarmCallback callback);
-extern int func_ov028_0208b200(Ov004AlarmCallback callback);
+extern int Ov028_DSProt_DetectNotDummy(Ov004AlarmCallback callback);
+extern int Ov028_DSProt_DetectFlashcart(Ov004AlarmCallback callback);
+extern int Ov028_DSProt_DetectEmulator(Ov004AlarmCallback callback);
 extern void Ov004_RearmIdleAlarm(void *arg);
 
 void Ov004_RunDelayedProtectionChecks(void)
@@ -30,13 +30,13 @@ void Ov004_RunDelayedProtectionChecks(void)
     if (context->sourceSlotState != 2)
         return;
     LoadOverlaySync(0, (int)OVERLAY_28_ID);
-    if (func_ov028_0208b490(0))
+    if (Ov028_DSProt_DetectNotDummy(0))
         data_ov004_02051384->lastTick += elapsed + 0x7fd88;
-    if (func_ov028_0208b040(Ov004_RearmIdleAlarm)) {
+    if (Ov028_DSProt_DetectFlashcart(Ov004_RearmIdleAlarm)) {
         data_ov004_02051384->lastTick += elapsed + 0x3fec4;
         Ov004_RearmIdleAlarm((void *)2);
     }
-    if (func_ov028_0208b200(Ov004_RearmIdleAlarm)) {
+    if (Ov028_DSProt_DetectEmulator(Ov004_RearmIdleAlarm)) {
         data_ov004_02051384->lastTick += elapsed + 0x7fd88;
         Ov004_RearmIdleAlarm((void *)1);
     }

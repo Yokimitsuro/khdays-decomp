@@ -28,11 +28,11 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_SetupDisplay.c:
     complete
     .text       start:0x02082a48 end:0x02082b1c
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MobiClip_SrcOpen.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_CreateMenuTask.c:
     complete
     .text       start:0x02082b1c end:0x02082b40
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_EndKeySharingIfOpen.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_DestroyMenuTask.c:
     complete
     .text       start:0x02082b40 end:0x02082b64
 

@@ -8,7 +8,7 @@ struct Foo {
 };
 
 extern struct Foo *data_0204c228;
-extern u32 func_01ff8138(void);
+extern unsigned short WH_GetBitmap(void);
 
 u32 Session_PackConnectedPlayerMask(void) {
     struct Foo *p = data_0204c228;
@@ -22,7 +22,7 @@ u32 Session_PackConnectedPlayerMask(void) {
         return 0;
     }
     mask = p->mask;
-    cur = func_01ff8138();
+    cur = WH_GetBitmap();
     out = 0;
     j = 0;
     for (i = 0; i < 4; i++) {

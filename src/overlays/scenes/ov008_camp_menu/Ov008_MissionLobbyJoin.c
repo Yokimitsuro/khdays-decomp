@@ -16,7 +16,7 @@
 
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
 extern int  Session_IsReady(void);                                  /* Session_IsReady */
-extern u16  func_01ff8128(void);                             /* local slot */
+extern unsigned short WH_GetCurrentAid(void); /* local slot */
 extern u32  Session_GetLocalPlayerIndex(void);                                  /* Session_GetLocalPlayerIndex */
 extern void MsgQueue_SendGate(int nGate, void *pBuf, int nSize);      /* MsgQueue_SendGate */
 extern void StoreToGlobalPtr4Field28(int nState);                            /* StoreToGlobalPtr4Field28 */
@@ -29,9 +29,9 @@ void *Ov008_MissionLobbyJoin(void)
     MissionContext *pCtx;
 
     if (Session_IsReady()) {
-        MISSION_CONTEXT->liveEntries.entries[func_01ff8128()].flags.request = 0;
+        MISSION_CONTEXT->liveEntries.entries[WH_GetCurrentAid()].flags.request = 0;
         pCtx = MISSION_CONTEXT;
-        pCtx->localEntry = pCtx->liveEntries.entries[func_01ff8128()];
+        pCtx->localEntry = pCtx->liveEntries.entries[WH_GetCurrentAid()];
     } else {
         pCtx = MISSION_CONTEXT;
         if (pCtx->entryUpdateMask != 0) {

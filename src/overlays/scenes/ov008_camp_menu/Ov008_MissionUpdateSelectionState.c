@@ -1,15 +1,11 @@
 #include "nitro/types.h"
+#include "nitro/os_types.h"
 
 #include "game/ov008_camp_menu.h"
 #include "game/engine.h"
-typedef struct {
-    u32 header;
-    u8 payload[0x50];
-} MissionSelectionBuffer;
-
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
 
-extern void Game_ReadLocalProfile(MissionSelectionBuffer *buffer);
+extern void OS_GetOwnerInfo(OSOwnerInfo *info);
 extern void StrCopy16(void *selection_block, void *payload);
 extern int Ov008_GetPeerTileUploadPending(int value);
 extern void Ov008_UploadSlotTiles(int mode, void *send_block, u32 size);
@@ -20,15 +16,15 @@ extern void Ov008_UpdateSelectionConfirmationState(void);
 extern void Ov008_MissionIdleStateNoOp(void);
 
 void *Ov008_MissionUpdateSelectionState(void) {
-    MissionSelectionBuffer buffer;
+    OSOwnerInfo owner;
     void *next = 0;
 
     switch (Game_PollSceneAlive()) {
     case 3:
         break;
     case 4:
-        Game_ReadLocalProfile(&buffer);
-        StrCopy16(MISSION_CONTEXT->selectionBlock, buffer.payload);
+        OS_GetOwnerInfo(&owner);
+        StrCopy16(MISSION_CONTEXT->selectionBlock, owner.nickName);
         if (Ov008_GetPeerTileUploadPending(0) != 0) {
             Ov008_UploadSlotTiles(0, &MISSION_CONTEXT->message.selection.flags, 0x68);
             if (MISSION_CONTEXT->message.selection.flags.bits.sendStarted != 0) {

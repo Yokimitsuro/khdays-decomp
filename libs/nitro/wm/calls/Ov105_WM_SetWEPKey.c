@@ -19,13 +19,13 @@ extern u16 data_ov105_020bfa20;
 #define wmInitialized data_ov105_020bfa20
 #define wm9buf (*(WMArm9Buf **)((u8 *)&data_ov105_020bfa20 + 4))
 
-extern WMArm9Buf *Ov105_GetContext(void);      /* WMi_GetSystemWork */
-extern WMErrCode Ov105_IsDeviceReady(void);       /* WMi_CheckInitialized */
-extern WMErrCode Ov105_PollDeviceStatus(void);       /* WMi_CheckIdle */
+extern WMArm9Buf *Ov105_WMi_GetSystemWork(void);      /* WMi_GetSystemWork */
+extern WMErrCode Ov105_WMi_CheckInitialized(void);       /* WMi_CheckInitialized */
+extern WMErrCode Ov105_WMi_CheckIdle(void);       /* WMi_CheckIdle */
 extern WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...);   /* WMi_CheckStateEx */
 extern WMErrCode Ov105_WMi_SendCommand(WMApiid id, u16 paramNum, ...);   /* WMi_SendCommand */
 extern WMErrCode Ov105_WMi_SendCommandDirect(void *data, u32 length);   /* WMi_SendCommandDirect */
-extern void Ov105_SetCommandArg(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
+extern void Ov105_WMi_SetCallbackTable(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
 extern int Ov105_WM_GetMPSendBufferSize(void);             /* WM_GetMPSendBufferSize */
 extern int Ov105_WM_GetMPReceiveBufferSize(void);             /* WM_GetMPReceiveBufferSize */
 extern void DC_InvalidateRange(void *addr, u32 size);
@@ -42,7 +42,7 @@ WMErrCode Ov105_WM_SetWEPKey(WMCallbackFunc callback, u16 wepmode, const u16 *we
 {
     WMErrCode result;
 
-    result = Ov105_PollDeviceStatus();
+    result = Ov105_WMi_CheckIdle();
     WM_CHECK_RESULT(result);
 
     if (wepmode > 3) {
@@ -57,7 +57,7 @@ WMErrCode Ov105_WM_SetWEPKey(WMCallbackFunc callback, u16 wepmode, const u16 *we
         DC_StoreRange((void *)wepkey, WM_SIZE_WEPKEY);
     }
 
-    Ov105_SetCommandArg(WM_APIID_SET_WEPKEY, callback);
+    Ov105_WMi_SetCallbackTable(WM_APIID_SET_WEPKEY, callback);
 
     result = Ov105_WMi_SendCommand(WM_APIID_SET_WEPKEY, 2, (u32)wepmode, (u32)wepkey);
     WM_CHECK_RESULT(result);

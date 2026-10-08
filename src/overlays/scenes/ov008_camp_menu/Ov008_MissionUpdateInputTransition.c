@@ -14,7 +14,7 @@ extern void Ov105_WH_SetReceiver(void *callback);
 extern void ReleaseServiceInstance(void);
 extern void Session_StoreSetup(void *config);
 extern void EnsureServiceInstance(void);
-extern int func_01ff8128(void);
+extern unsigned short WH_GetCurrentAid(void);
 extern void Ov008_MissionPushDisplayConfig(void);
 extern void StoreGlobalPtrArray4At0c(int slot, void *callback);
 extern void Ov008_MissionApplyEntryUpdate(void);
@@ -36,7 +36,7 @@ void Ov008_MissionUpdateInputTransition(void) {
         Session_StoreSetup(&exit_config);
         EnsureServiceInstance();
     } else {
-        if (func_01ff8128() == 0) {
+        if (WH_GetCurrentAid() == 0) {
             Ov008_MissionPushDisplayConfig();
         } else {
             key_block = &MISSION_CONTEXT->message.keys;

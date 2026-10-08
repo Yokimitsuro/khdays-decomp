@@ -1,8 +1,11 @@
 /* Joint callback: moves the two nodes of the selected body part (+0x3ac.. / +0x3c0..) to the
- * current joint matrix. */
+ * current joint matrix. NNS_G3dGetCurrentMtx fills one 4x3 matrix, whose last row is the
+ * joint's translation. */
 
-extern int NNS_G3dGetCurrentMtx();
-extern int Srt_SetTranslation();
+#include "nitro/fx.h"
+
+extern void NNS_G3dGetCurrentMtx(MtxFx43 *m, MtxFx33 *n);
+extern void Srt_SetTranslation(void *transform, const VecFx32 *translation);
 
 struct Obj {
     char pad0[4];
@@ -35,8 +38,7 @@ void Ov227_SyncPartNodesToJoint(struct Obj *a)
 {
     struct Sub *s;
     int sel;
-    char local24[0xc];
-    char local0[0x24];
+    MtxFx43 mtx;
 
     s = *(struct Sub **)(((char *)a->field4) + 0x2c);
 
@@ -47,33 +49,33 @@ void Ov227_SyncPartNodesToJoint(struct Obj *a)
     }
 
     if (sel == s->f3d8) {
-        NNS_G3dGetCurrentMtx(local0, 0);
-        Srt_SetTranslation((char *)(*s->f3ac) + 0x10, local24);
-        Srt_SetTranslation(s->f3c0 + 0x10, local24);
+        NNS_G3dGetCurrentMtx(&mtx, 0);
+        Srt_SetTranslation((char *)(*s->f3ac) + 0x10, (const VecFx32 *)&mtx._30);
+        Srt_SetTranslation(s->f3c0 + 0x10, (const VecFx32 *)&mtx._30);
         return;
     }
     if (sel == s->f3dc) {
-        NNS_G3dGetCurrentMtx(local0, 0);
-        Srt_SetTranslation((char *)(*s->f3b4) + 0x10, local24);
-        Srt_SetTranslation(s->f3c8 + 0x10, local24);
+        NNS_G3dGetCurrentMtx(&mtx, 0);
+        Srt_SetTranslation((char *)(*s->f3b4) + 0x10, (const VecFx32 *)&mtx._30);
+        Srt_SetTranslation(s->f3c8 + 0x10, (const VecFx32 *)&mtx._30);
         return;
     }
     if (sel == s->f3d4) {
-        NNS_G3dGetCurrentMtx(local0, 0);
-        Srt_SetTranslation((char *)(*s->f3b0) + 0x10, local24);
-        Srt_SetTranslation(s->f3c4 + 0x10, local24);
+        NNS_G3dGetCurrentMtx(&mtx, 0);
+        Srt_SetTranslation((char *)(*s->f3b0) + 0x10, (const VecFx32 *)&mtx._30);
+        Srt_SetTranslation(s->f3c4 + 0x10, (const VecFx32 *)&mtx._30);
         return;
     }
     if (sel == s->f3e0) {
-        NNS_G3dGetCurrentMtx(local0, 0);
-        Srt_SetTranslation((char *)(*s->f3b8) + 0x10, local24);
-        Srt_SetTranslation(s->f3cc + 0x10, local24);
+        NNS_G3dGetCurrentMtx(&mtx, 0);
+        Srt_SetTranslation((char *)(*s->f3b8) + 0x10, (const VecFx32 *)&mtx._30);
+        Srt_SetTranslation(s->f3cc + 0x10, (const VecFx32 *)&mtx._30);
         return;
     }
     if (sel == s->f3e4) {
-        NNS_G3dGetCurrentMtx(local0, 0);
-        Srt_SetTranslation((char *)(*s->f3bc) + 0x10, local24);
-        Srt_SetTranslation(s->f3d0 + 0x10, local24);
+        NNS_G3dGetCurrentMtx(&mtx, 0);
+        Srt_SetTranslation((char *)(*s->f3bc) + 0x10, (const VecFx32 *)&mtx._30);
+        Srt_SetTranslation(s->f3d0 + 0x10, (const VecFx32 *)&mtx._30);
         return;
     }
 }

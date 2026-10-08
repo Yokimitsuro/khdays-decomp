@@ -16,7 +16,7 @@ extern struct Foo *NNSi_FndGetCurrentRootHeap(void);
 extern u32 Session_GetLinkMode(void);
 extern void Session_LayoutPacketSlots(u32 linkMode);
 extern void MsgQueue_Init(void);
-extern int Ov105_SetSlotEventHandler(unsigned short port, void (*callback)(void *), void *arg);
+extern int Ov105_WM_SetPortCallback(unsigned short port, void (*callback)(void *), void *arg);
 extern void SubmitEntryIfActive(int arg0);
 extern void DrawTileIfReady(int arg0);
 extern void EffectList_StepIfIdle(void);
@@ -41,10 +41,10 @@ void (*Session_Init_2(void))(void)
     r = Session_GetLinkMode();
     switch (r) {
     case 2:
-        Ov105_SetSlotEventHandler(12, (void (*)(void *))SubmitEntryIfActive, 0);
+        Ov105_WM_SetPortCallback(12, (void (*)(void *))SubmitEntryIfActive, 0);
         break;
     case 3:
-        Ov105_SetSlotEventHandler(12, (void (*)(void *))DrawTileIfReady, 0);
+        Ov105_WM_SetPortCallback(12, (void (*)(void *))DrawTileIfReady, 0);
         break;
     }
     p->_00 = 0;

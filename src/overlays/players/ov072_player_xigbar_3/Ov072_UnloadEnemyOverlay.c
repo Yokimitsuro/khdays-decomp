@@ -3,7 +3,7 @@
 extern char *NNSi_FndGetCurrentRootHeap(void);
 extern void Ov072_DisposeAndFreeChild(char *obj);
 extern void Ov072_ReleaseChildFromGlobal(char *heap);
-extern void func_02023ad0(int h);
+extern void VeneerTo_Obj_Destroy(int h);
 extern void Ov022_DestroyRoot(char *heap);
 
 /* Enemy overlay teardown: drops the model handle, the two animation blocks and the sound block,
@@ -12,7 +12,7 @@ void Ov072_UnloadEnemyOverlay(void) {
     char *heap = NNSi_FndGetCurrentRootHeap();
     Ov072_DisposeAndFreeChild(heap);
     Ov072_ReleaseChildFromGlobal(heap);
-    func_02023ad0(*(int *)(heap + 0x2c2c));
+    VeneerTo_Obj_Destroy(*(int *)(heap + 0x2c2c));
     ReleaseField74AndCleanup(heap + 0x2c34);
     ReleaseField74AndCleanup(heap + 0x2d3c);
     FreeAllResourceTables(heap + 0x2e44);

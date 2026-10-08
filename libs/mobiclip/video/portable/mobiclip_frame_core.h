@@ -37,7 +37,10 @@ typedef struct MobiClipDecoderState {
     const unsigned char *pClampTable;        /* +0x044: reconstruction clamp lookup */
     unsigned int bFormatVariant;             /* +0x048: format bit of the last I-frame; P-frames
                                                 keep it */
-    unsigned char aPredictionModes[40];      /* +0x04c: intra prediction-mode cache */
+    unsigned char aPredictionModes[40];      /* +0x04c: intra prediction-mode cache, 8 per row; its
+                                                borders (+1..+4, +8, +16, +24, +32) hold 9,
+                                                "unavailable", set with the quant/scan tables and
+                                                kept between frames */
     unsigned int aQuantScan8x8[64];          /* +0x074: packed scan index | multiplier << 8 */
     unsigned int aQuantScan4x4[16];          /* +0x174 */
     int aTransformWorkspace[128];            /* +0x1b4: coefficient and inverse-transform

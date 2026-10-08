@@ -7,7 +7,7 @@ extern void ConstReturn1_2(int *p);
 extern void Ov006_FreeResourceRecordBuffer(int *p);
 extern void Table_TailCallWithEntry(int a, int b);
 extern void Ov006_ReleaseSecondaryResource(void);
-extern void func_02023ad0(int *obj);
+extern void VeneerTo_Obj_Destroy(int *obj);
 extern int  data_ov006_02056660;
 
 void Ov006_MissionSceneDtor(void) {
@@ -17,7 +17,7 @@ void Ov006_MissionSceneDtor(void) {
     Table_TailCallWithEntry(0, 0x1e);
     Ov006_ReleaseSecondaryResource();
     if (heap[0] != 0) {
-        func_02023ad0((int *)heap[0]);
+        VeneerTo_Obj_Destroy((int *)heap[0]);
         heap[0] = 0;
     }
     data_ov006_02056660 = 0;

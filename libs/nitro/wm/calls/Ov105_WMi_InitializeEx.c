@@ -187,11 +187,11 @@ extern u16 data_ov105_020bfa20;
 #define wmInitialized data_ov105_020bfa20
 #define wm9buf (*(WMArm9Buf **)((u8 *)&data_ov105_020bfa20 + 4))
 
-extern WMArm9Buf *Ov105_GetContext(void);      /* WMi_GetSystemWork */
-extern WMErrCode Ov105_IsDeviceReady(void);       /* WMi_CheckInitialized */
+extern WMArm9Buf *Ov105_WMi_GetSystemWork(void);      /* WMi_GetSystemWork */
+extern WMErrCode Ov105_WMi_CheckInitialized(void);       /* WMi_CheckInitialized */
 extern WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...);   /* WMi_CheckStateEx */
 extern WMErrCode Ov105_WMi_SendCommand(WMApiid id, u16 paramNum, ...);   /* WMi_SendCommand */
-extern void Ov105_SetCommandArg(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
+extern void Ov105_WMi_SetCallbackTable(WMApiid id, WMCallbackFunc callback);   /* WMi_SetCallbackTable */
 extern void DC_InvalidateRange(void *addr, u32 size);
 extern void OS_GetMacAddress(u8 *macAddress);
 #define WM_DEFAULT_BEACON_PERIOD 200
@@ -213,10 +213,10 @@ WMErrCode Ov105_WMi_InitializeEx(void *wmSysBuf, WMCallbackFunc callback, u16 dm
         return result;
     }
 
-    Ov105_SetCommandArg(WM_APIID_INITIALIZE, callback);
+    Ov105_WMi_SetCallbackTable(WM_APIID_INITIALIZE, callback);
 
     {
-        WMArm9Buf *p = Ov105_GetContext();
+        WMArm9Buf *p = Ov105_WMi_GetSystemWork();
 
         result = Ov105_WMi_SendCommand(WM_APIID_INITIALIZE, 4, (u32)(p->WM7), (u32)(p->status), (u32)(p->fifo7to9), miscFlags);
         if (result != WM_ERRCODE_SUCCESS) {

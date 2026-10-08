@@ -270,7 +270,7 @@ extern void DC_StoreRange(void *addr, u32 size);
 extern s32 PXI_SendWordByFifo(int tag, u32 data, BOOL err);   /* PXI_SendWordByFifo */
 extern void MI_CpuCopy8(const void *src, void *dst, u32 size);
 extern u32 *Ov105_WmGetCommandBuffer4Arm7(void);            /* WmGetCommandBuffer4Arm7 */
-extern WMErrCode Ov105_IsDeviceReady(void);       /* WMi_CheckInitialized */
+extern WMErrCode Ov105_WMi_CheckInitialized(void);       /* WMi_CheckInitialized */
 extern OSMessageQueue data_ov105_020bfa28;        /* bufMsgQ */
 #define bufMsgQ data_ov105_020bfa28
 
@@ -284,7 +284,7 @@ WMErrCode Ov105_WMi_CheckStateEx(s32 paramNum, ...)
     u32 temp;
     va_list vlist;
 
-    result = Ov105_IsDeviceReady();
+    result = Ov105_WMi_CheckInitialized();
     if (result != WM_ERRCODE_SUCCESS) {
         return result;
     }

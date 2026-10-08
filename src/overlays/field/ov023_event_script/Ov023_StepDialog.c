@@ -31,7 +31,7 @@ typedef struct Ov023SceneRoot {
 
 extern void  G2x_SetBlendBrightness_(int nBldCnt, int nPlanes, int nBrightness);
 extern int   Ov002_HudPage_IsState3(void);                             /* the ov002 dialog is done */
-extern void  func_02023ad0(void *pObject);            /* end an object */
+extern void  VeneerTo_Obj_Destroy(void *pObject);            /* end an object */
 extern Ov023SceneRoot data_ov023_0208a784;
 
 int Ov023_StepDialog(void)
@@ -56,7 +56,7 @@ int Ov023_StepDialog(void)
         break;
     case 3:
         if (Ov002_HudPage_IsState3() != 0) {
-            func_02023ad0(data_ov023_0208a784.pScene->pDialog);
+            VeneerTo_Obj_Destroy(data_ov023_0208a784.pScene->pDialog);
             data_ov023_0208a784.pScene->pDialog = 0;
             data_ov023_0208a784.pScene->nDialogState = 4;
             G2x_SetBlendBrightness_(0x04000050, 1, 0);

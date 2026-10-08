@@ -55,7 +55,7 @@ extern int   GameState_IsFlagSet(int nFlag);                                   /
 extern int   Header_InitWithLimits(void *pHeader, short *pLimits);               /* Header_InitWithLimits */
 extern void *InstantiateClass(void *pClass, int nArg);                      /* InstantiateClass */
 extern void  Ov008_StartWipeToSubState(int nSubState);                         /* Ov008_StartWipeToSubState */
-extern void  Ov008_ArmWirelessCallback(int bArm);                              /* Ov008_ArmWirelessCallback */
+extern void  Ov008_OpenMissionLobby(int bArm);                              /* Ov008_OpenMissionLobby */
 extern int   Ov008_TickInputUpdate(void);                                  /* Ov008_TickInputUpdate */
 extern int   Session_Exists(void);                                        /* Session_Exists */
 extern int   Session_IsActive(void);                                        /* Session_IsActive */
@@ -86,7 +86,7 @@ MissionState Ov008_MissionMenuCreate(int bHost)
     if (bHost != 0) {
         data_ov008_02090fa0->sceneObject = InstantiateClass(&data_ov008_02090d1c, 1);
         Ov008_StartWipeToSubState(0xd);
-        Ov008_ArmWirelessCallback(1);
+        Ov008_OpenMissionLobby(1);
         data_ov008_02090fa0->sessionReady = 1;
         data_ov008_02090fa0->singleRowMode = Ov008_TickInputUpdate();
         pNext = Ov008_MissionMenuWaitReady;
@@ -94,7 +94,7 @@ MissionState Ov008_MissionMenuCreate(int bHost)
         pNext = Ov008_MissionMenuArmWireless;
     } else {
         data_ov008_02090fa0->sceneObject = InstantiateClass(&data_ov008_02090d1c, 0);
-        Ov008_ArmWirelessCallback(0);
+        Ov008_OpenMissionLobby(0);
         Ov008_StartWipeToSubState(0);
         pNext = Ov008_MissionMenuTick;
     }

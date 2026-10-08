@@ -4,7 +4,7 @@
 
 extern void ExpHeap_Free(u32 a, u32 b);
 extern void Session_ShutdownHookNoOp(void);
-extern void func_02023ad0(void *p);
+extern void VeneerTo_Obj_Destroy(void *p);
 
 extern u32 **gMsgQueue;
 extern u32 *data_0204c024;
@@ -42,7 +42,7 @@ void Session_Shutdown(void)
     r5 = 0x758;
     r4 = 0;
     do {
-        func_02023ad0((void *)*(u32 *)((char *)r6 + r5));
+        VeneerTo_Obj_Destroy((void *)*(u32 *)((char *)r6 + r5));
         r4++;
         r6 = (u32 *)((char *)r6 + 4);
     } while (r4 < 2);

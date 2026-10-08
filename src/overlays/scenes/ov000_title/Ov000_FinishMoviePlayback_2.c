@@ -2,7 +2,7 @@
  *
  * Polls the ov012 movie-player scene (Ov012_IsGlobalFlag3Set); while it is still running this
  * returns 0 and the state machine stays put.  Once it reports done: black out both screens,
- * release the key-sharing handle parked at heap+0x5078, unload ov012, mark the movie slot at
+ * destroy the object parked at heap+0x5078, unload ov012, mark the movie slot at
  * heap+0x5074 as empty (-1), re-run the one-time display init, put engine A back on the top
  * screen (POWCNT1 bit 15) and hand control to the title graphics setup with mode 2.
  *
@@ -25,7 +25,7 @@ extern u32 OVERLAY_12_ID[1];
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern int  Ov012_IsGlobalFlag3Set(void);
-extern void func_02023ad0(int handle);
+extern void VeneerTo_Obj_Destroy(int handle);
 extern StateFn Ov000_FreshBootGfxSetup(int arg);
 
 StateFn Ov000_FinishMoviePlayback_2(void) {
@@ -35,7 +35,7 @@ StateFn Ov000_FinishMoviePlayback_2(void) {
     }
     SetMasterBrightnessMain(-0x10);
     SetMasterBrightnessSub(-0x10);
-    func_02023ad0(*(int *)(heap + 0x5078));
+    VeneerTo_Obj_Destroy(*(int *)(heap + 0x5078));
     UnloadOverlaySync(0, FS_OVERLAY_ID_ov012);
     *(int *)(heap + 0x5074) = -1;
     Gfx_Reset2DEngines();

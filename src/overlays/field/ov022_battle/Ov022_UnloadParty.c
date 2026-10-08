@@ -2,7 +2,7 @@ extern char *NNSi_FndGetCurrentRootHeap(void);
 extern void Ov022_CleanupEntry(int slot);
 extern void func_ov022_02087298(int slot);
 extern void SNDi_ProcessEntry(int id);
-extern void func_02023ad0(int h);
+extern void VeneerTo_Obj_Destroy(int h);
 extern void Ov029_ReleaseOverlaySlot(int h);
 extern int LoadGlobalU16At0(void);
 extern void Ov022_FreeResourceSubLists(char *p);
@@ -28,7 +28,7 @@ body:
         Ov022_CleanupEntry(i);
         func_ov022_02087298(i);
         SNDi_ProcessEntry(*(signed char *)(obj + 0x4bc));
-        func_02023ad0(*(int *)(slot + 4));
+        VeneerTo_Obj_Destroy(*(int *)(slot + 4));
         Ov029_ReleaseOverlaySlot(*(int *)(slot + 8));
     }
     slot += 0xc;
@@ -39,7 +39,7 @@ test:
         goto body;
     }
     if (*(int *)(heap + 0x38) != -1) {
-        func_02023ad0(*(int *)(heap + 0x38));
+        VeneerTo_Obj_Destroy(*(int *)(heap + 0x38));
     }
     Ov022_FreeResourceSubLists(heap + 0x68);
     Ov022_FreeResourceSubLists(heap + 0xa4);

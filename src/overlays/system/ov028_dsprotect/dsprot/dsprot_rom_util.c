@@ -1,7 +1,7 @@
 /* DS Protect 1.10, ROM utilities (ov028 0x0208acf0-0x0208af30): a hand-rolled cartridge ROM
  * read and a CRC-32. Both bodies are encrypted in the ROM; tools/dsprot_encode.py re-encrypts
- * the marked ranges after compilation. Reconstruction after taxicat1/dsprot (branch 1.10),
- * whose spellings are the ones that reproduce the library's obfuscated code. */
+ * the marked ranges after compilation. Written in the spellings that reproduce the library's
+ * obfuscated code. */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 
@@ -27,7 +27,7 @@
 
 /* ROMUtil_Read: read `size` bytes of cartridge ROM at `addr` into `dest` by driving the card
  * registers directly (page reads of 0x200 bytes, rounded down to the page). */
-void func_ov028_0208acf0(void *dest, u32 addr, s32 size)
+void Ov028_DSProt_ROMUtil_Read(void *dest, u32 addr, s32 size)
 {
     u32 registerBase;
     vu8 *cardCmd;
@@ -103,7 +103,7 @@ void func_ov028_0208acf0(void *dest, u32 addr, s32 size)
 
 /* ROMUtil_CRC32: reflected CRC-32 over `size` bytes -- with the branch inverted from the usual
  * form (the polynomial is applied when the low bit is CLEAR), as the library ships it. */
-u32 func_ov028_0208ae8c(void *buf, u32 size)
+u32 Ov028_DSProt_ROMUtil_CRC32(void *buf, u32 size)
 {
     int i;
     u32 crc;

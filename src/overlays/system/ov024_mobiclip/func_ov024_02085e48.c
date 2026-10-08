@@ -1,6 +1,6 @@
-/* Interworking tail-call veneer (`ldr ip,[pc] ; bx ip`): forwards to WM_EndKeySharing_0x02083d00. */
-extern void *func_ov024_02083d00();
+/* Interworking tail-call veneer (`ldr ip,[pc] ; bx ip`): forwards to Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap. */
+extern void *Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap();
 
 void *func_ov024_02085e48(int arg0) {
-    return func_ov024_02083d00(arg0);
+    return Ov024_VeneerTo_NNSi_FndFreeFromDefaultHeap(arg0);
 }
