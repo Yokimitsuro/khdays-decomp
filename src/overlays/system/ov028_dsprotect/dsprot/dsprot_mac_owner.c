@@ -1,6 +1,8 @@
 /* DS Protect 1.10, emulator check (ov028 0x0208abd0-0x0208acf0): the console's MAC address and
  * owner profile against the defaults of an early emulator (MAC 00:09:BF:00:00:31 with a 1/1
- * birthday and no nickname), or an all-zero MAC. Both checks run inside encrypted ranges. */
+ * birthday and no nickname), or an all-zero MAC. Both checks run inside encrypted ranges.
+ * Reconstruction after taxicat1's decompilation of DS Protect (github.com/taxicat1/dsprot,
+ * branch 1.10). */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 

@@ -1,7 +1,8 @@
 /* DS Protect 1.10, ROM utilities (ov028 0x0208acf0-0x0208af30): a hand-rolled cartridge ROM
  * read and a CRC-32. Both bodies are encrypted in the ROM; tools/dsprot_encode.py re-encrypts
- * the marked ranges after compilation. Written in the spellings that reproduce the library's
- * obfuscated code. */
+ * the marked ranges after compilation. Reconstruction after taxicat1's decompilation of DS
+ * Protect (github.com/taxicat1/dsprot, branch 1.10), whose spellings are the ones that reproduce
+ * the library's obfuscated code. */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 

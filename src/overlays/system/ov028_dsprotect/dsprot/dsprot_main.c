@@ -2,7 +2,8 @@
  * task list of checks through pointers stored with a +0x320 bias (so no call inside the encrypted
  * range needs a relocation), folds the results and calls the optional callback when its verdict
  * holds; the "Not" variants invert the verdict. KH Days calls them from ov000, ov001, ov004,
- * ov005 and ov023. */
+ * ov005 and ov023. Reconstruction after taxicat1's decompilation of DS Protect
+ * (github.com/taxicat1/dsprot, branch 1.10). */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 

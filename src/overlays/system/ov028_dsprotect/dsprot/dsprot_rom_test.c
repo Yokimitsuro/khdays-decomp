@@ -1,7 +1,8 @@
 /* DS Protect 1.10, flashcart check (ov028 0x0208af30-0x0208b040): CRC six ROM pages. A real
  * cartridge mirrors reads below 0x8000 into 0x8000 + (addr & 0x1ff), so pages 0, 0x200 and
  * 0x400 must equal the one at 0x8000 while 0x8200 and 0x8400 differ; a flashcart reads them
- * all as they are. */
+ * all as they are. Reconstruction after taxicat1's decompilation of DS Protect
+ * (github.com/taxicat1/dsprot, branch 1.10). */
 #include "dsprot_types.h"
 #include "dsprot_ranges.h"
 

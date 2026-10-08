@@ -120,6 +120,12 @@ A green `>>> MATCH <<<` means your C reproduces the original exactly.
 
 See the [Nintendo DS decompilation guide](https://decomp.wiki/platforms/nintendo-ds).
 
+## Credits
+
+- The DS Protect 1.10 sources in ov028 (`src/overlays/system/ov028_dsprotect/dsprot/`) and
+  `tools/dsprot_decrypt.py` are reconstructed after taxicat1's decompilation of DS Protect,
+  [taxicat1/dsprot](https://github.com/taxicat1/dsprot) (branch `1.10`).
+
 ## Contributing
 
 Contributions are very welcome; see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
