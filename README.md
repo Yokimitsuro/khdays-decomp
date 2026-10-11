@@ -1,5 +1,7 @@
 # khdays-decomp
 
+[![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-5865F2?logo=discord&logoColor=white)](https://discord.gg/rVeTPhPbsx)
+
 A work-in-progress **matching decompilation** of *Kingdom Hearts 358/2 Days*
 (Nintendo DS). The goal is C source that recompiles to a binary **byte-for-byte
 identical** to the original game code.
@@ -128,6 +130,7 @@ See the [Nintendo DS decompilation guide](https://decomp.wiki/platforms/nintendo
 - The NitroSDK identification harness in `sdk/` compiles the NitroSDK sources of pret's
   decompilation of Pokémon Diamond, [pret/pokediamond](https://github.com/pret/pokediamond),
   and several `libs/nitro` routines were cross-checked against its matched C.
+
 
 ## Contributing
 
