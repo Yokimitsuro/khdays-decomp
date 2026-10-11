@@ -154,7 +154,9 @@ def main():
 
     by_unit = Counter()
     for name, _cur in unnamed + placeholders:
-        m = re.match(r'func_(ov\d+)_', name)
+        # Renamed symbols need not spell out their overlay. Use the same address
+        # space that found the function above, including the legacy-name fallback.
+        m = re.match(r'arm9_(ov\d+)::', ghidra_key(name))
         by_unit[m.group(1) if m else 'main'] += 1
     print('\nworst units:')
     for unit, n in by_unit.most_common(15):
