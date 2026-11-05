@@ -7,6 +7,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov002PageChars {char header[16];int nCharSize;void *pCharData;} Ov002PageChars;
 typedef struct BgPlttSrc {int nFormat,n_pad;u32 dwSize;void *pData;} BgPlttSrc;
@@ -29,7 +30,7 @@ void Ov005_LoadResultBackgroundGraphics(void) {
     Ov005Config *config=&data_ov005_0205b85c;
     void *archive;
     int characterIndex;
-    archive=Archive_LoadFile((const char *)((((u32)data_ov005_0205b810->resultArchive+0x8000U)&0x00fffffcU)<<7|0x80000000U),14);
+    archive=Archive_LoadFile((const char *)ARCHIVE_HANDLE(data_ov005_0205b810->resultArchive, 0),14);
     Res_LoadSpriteSet(&resources,archive,-1,5,1);
     GXS_LoadBGPltt(resources.pPalette->pData,0,resources.pPalette->dwSize);
     GXS_LoadBG1Char(resources.pChar->pCharData,0,resources.pChar->nCharSize);

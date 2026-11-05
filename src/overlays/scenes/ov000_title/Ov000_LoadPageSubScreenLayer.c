@@ -13,6 +13,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov000ResourceBlock {
     u8 pad_0000[0x10];
@@ -69,10 +70,6 @@ extern void *Ov000_FindEntryByTag(Ov000LoadContext *tracker, u32 tag);
 extern void Ov000_TagTracker_InvokeCallback(Ov000LoadContext *tracker, void *entry);
 extern void Ov000_InitSubsystemObject(void *object, int arg);
 
-#define OV000_ARCHIVE_MASK 0x00fffffc
-#define OV000_SUBFILE(base, index) \
-    (((((u32)(base) + 0x8000) & OV000_ARCHIVE_MASK) << 7) | \
-     0x80000000 | (index))
 
 void Ov000_LoadPageSubScreenLayer(void)
 {
@@ -107,16 +104,16 @@ void Ov000_LoadPageSubScreenLayer(void)
         alternateHandle = 0;
         break;
     case 2:
-        alternateHandle = OV000_SUBFILE(container, 1);
+        alternateHandle = ARCHIVE_HANDLE(container, 1);
         break;
     case 3:
-        alternateHandle = OV000_SUBFILE(container, 3);
+        alternateHandle = ARCHIVE_HANDLE(container, 3);
         break;
     case 4:
-        alternateHandle = OV000_SUBFILE(container, 0);
+        alternateHandle = ARCHIVE_HANDLE(container, 0);
         break;
     case 5:
-        alternateHandle = OV000_SUBFILE(container, 2);
+        alternateHandle = ARCHIVE_HANDLE(container, 2);
         break;
     case 0:
     default:

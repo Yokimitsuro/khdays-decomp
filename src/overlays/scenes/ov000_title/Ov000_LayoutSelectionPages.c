@@ -15,6 +15,7 @@
  * declared before pos. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov000LayoutTemplate {
     u32 handle;
@@ -60,10 +61,6 @@ extern void  Ov000_RefreshSelectionGroupDraw(void);
 extern Ov000Pair *Ov000_GetEntryBlock2c(u8 *obj, int entry);
 extern void  Ov000_SetEntryPosition(u8 *obj, int entry, Ov000Pair *pos);
 
-#define OV000_ARCHIVE_MASK 0x00fffffc
-#define OV000_SUBFILE(base, index) \
-    (((((u32)(base) + 0x8000) & OV000_ARCHIVE_MASK) << 7) | \
-     0x80000000 | (index))
 
 void Ov000_LayoutSelectionPages(void)
 {
@@ -87,7 +84,7 @@ void Ov000_LayoutSelectionPages(void)
     case 4:
     case 5:
         container = Msg_OpenContainerAndReadHeader(gOv000UiCmCmoPath, 14);
-        tmpl.handle = OV000_SUBFILE(container, 3);
+        tmpl.handle = ARCHIVE_HANDLE(container, 3);
         break;
     case 0:
     default:

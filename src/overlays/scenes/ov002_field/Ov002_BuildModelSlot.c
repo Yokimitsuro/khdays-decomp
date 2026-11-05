@@ -1,6 +1,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Ov002ModelDesc {
     s8 nKind;               /* 1, 2 and 4 each start their own animation */
@@ -52,7 +53,7 @@ void Ov002_BuildModelSlot(Ov002ModelDesc *pDesc, int nId, int nFlag)
     MI_CpuFill8(pBase->apSlots[nSlot], 0, 0x184);
     Actor_ArmWithMessage(pBase->apSlots[nSlot], pBase->nCount, 0, 0, 0);
     Entity_Register(pBase->apSlots[nSlot],
-                  ((((pBase->nOrder + 0x8000) & 0xfffffc) << 7) | 0x80000000)
+                  (ARCHIVE_HANDLE(pBase->nOrder, 0))
                   | (pDesc->bEnabled & 0x1ff), 1, 0);
     *(int *)((char *)pBase->apSlots[nSlot] + 0x180) = 0x1000;
     pBase->nCount = (s8)(pBase->nCount + 1);

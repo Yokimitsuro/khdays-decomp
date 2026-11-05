@@ -4,6 +4,8 @@
  * in the object manager (heap+0x60c) from a {resAddr, 2, 0, 0} descriptor (ObjNode_InitFromDesc),
  * creates it (VeneerTo_SlotTable_AddEntry slot 5 -> heap[0x5044]), sets frame 0 and scale
  * 1.0, and enables sub-BG mode 1. */
+
+#include "game/archive.h"
 extern char *data_ov008_02090f00;
 extern char  gOv008UiMltResPath[];
 extern void *Msg_OpenContainerAndReadHeader(void *desc, int mode);
@@ -24,7 +26,7 @@ void Ov008_LoadMenuUi(void) {
     SetMasterBrightnessSub(0);
     {
         int desc[4];
-        desc[0] = ((*(int *)(data_ov008_02090f00 + 0x608) + 0x8000 & 0xfffffc) << 7) | 0x80000001;
+        desc[0] = ARCHIVE_HANDLE(*(int *)(data_ov008_02090f00 + 0x608), 1);
         desc[1] = 2;
         desc[2] = 0;
         desc[3] = 0;

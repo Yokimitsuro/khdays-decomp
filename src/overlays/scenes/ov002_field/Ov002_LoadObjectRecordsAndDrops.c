@@ -2,6 +2,7 @@
  * marker drop defaults from the selected eid variant. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov002MarkerRow {
     u8 bId;u8 nKind:4,nHigh:4;char pad2[3];s8 nParam;char pad6[4];
@@ -38,7 +39,7 @@ void Ov002_LoadObjectRecordsAndDrops(void)
     OS_SPrintf(szMemberName,gOv0020Fmt,gOv002EmName,(data_0204c240&4)?data_ov002_0207f114:data_ov002_0207f118);
     nArchive=Ov002_GetRootSub04();
     nFile=MsgArchive_FindEntryByName(Ov002_GetRootSub04(),szMemberName);
-    pRecords=Archive_LoadFile((((nArchive+0x8000)&0xfffffc)<<7)|0x80000000|(nFile&(0xfffffc>>15)),2);
+    pRecords=Archive_LoadFile(ARCHIVE_HANDLE(nArchive, nFile&(0xfffffc>>15)),2);
     pCtx->pOwnedTable=pRecords;
     pCtx->pEntryList=pRecords;
     pRecords->pRows=(Ov002MarkerRow *)((u32)pRecords->pRows+(u32)pRecords);

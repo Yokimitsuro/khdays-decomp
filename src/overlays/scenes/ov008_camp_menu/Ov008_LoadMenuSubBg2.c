@@ -8,6 +8,7 @@
  * (size at +0x10, data at +0x14). */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov008CharacterBlock { u8 pad_0000[0x10]; u32 size; void *data; } Ov008CharacterBlock;
 typedef struct Ov008MenuContext { u8 pad_0000[0x34]; u32 archiveBase; } Ov008MenuContext;
@@ -21,9 +22,6 @@ extern void  GXS_LoadBG2Char(const void *source, u32 offset, u32 size);
 extern void  NNSi_FndFreeFromDefaultHeap(void *allocation);
 extern void  Ov008_LoadLayoutResource(void *ctx, void *desc);
 
-#define OV008_ARCHIVE_MASK 0x00fffffc
-#define OV008_SUBFILE(base, index) \
-    (((((u32)(base) + 0x8000) & OV008_ARCHIVE_MASK) << 7) | 0x80000000 | (index))
 
 void Ov008_LoadMenuSubBg2(int param_1)
 {
@@ -35,7 +33,7 @@ void Ov008_LoadMenuSubBg2(int param_1)
     if (param_1 == 0) {
         return;
     }
-    resource = Archive_LoadFile(OV008_SUBFILE(ctx1->archiveBase, 0x30), 0xe);
+    resource = Archive_LoadFile(ARCHIVE_HANDLE(ctx1->archiveBase, 0x30), 0xe);
     GetResourceSubBlock_CHAR(resource, &block);
     GXS_LoadBG2Char(block->data, 0x4f40, block->size);
     if (resource != 0) {

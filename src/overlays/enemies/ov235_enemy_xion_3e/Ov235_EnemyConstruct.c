@@ -11,6 +11,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef void (*Callback)(void);
 typedef struct { int id[11]; } IdTable;
@@ -139,7 +140,7 @@ void Ov235_EnemyConstruct(char *self)
     ((struct Nib *)*(int *)(self + 0x3b8))->hi &= ~1;
     *(struct Pair **)(self + 0x3bc) = CallocInstance(0x58);
     for (i = 0; i < 8; i++) {
-        (*(struct Pair **)(self + 0x3bc))[i].res = CreateSubitemInstance0xB4((void *)((((*(int *)(self + 0x3c0) + 0x8000) & 0xfffffc) << 7 | 0x80000000)
+        (*(struct Pair **)(self + 0x3bc))[i].res = CreateSubitemInstance0xB4((void *)((ARCHIVE_HANDLE(*(int *)(self + 0x3c0), 0))
             | (i & 0x1ff)));
         Ov107_EnqueueValue(self, (*(struct Pair **)(self + 0x3bc))[i].res);
         *(int *)((*(struct Pair **)(self + 0x3bc))[i].res + 0x5c) |= 2;

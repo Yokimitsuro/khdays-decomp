@@ -36,6 +36,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 extern int data_ov002_0207f624;
 extern u16 data_ov002_0207deb8[];
@@ -90,9 +91,7 @@ void Ov002_SceneApplyPanelRequest(int *pReq)
 
     if (pReq[5] >= 0) {
         *(int *)((char *)ctx + 0x68c) = Archive_LoadFile(
-            ((*(int *)((char *)ctx + 0x7e4) + 0x8000) & 0xfffffc) << 7
-                | 0x80000000
-                | (data_ov002_0207deb8[pReq[5] * 2] & 0x1ff),
+            ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x7e4), data_ov002_0207deb8[pReq[5] * 2] & 0x1ff),
             0xe);
         Res_LoadSpriteSet(pWindow + 10, *(int *)((char *)ctx + 0x68c), 0, 0, 0);
         MIi_CpuCopyFast(*(int **)(pWindow[0xb] + 0x14),

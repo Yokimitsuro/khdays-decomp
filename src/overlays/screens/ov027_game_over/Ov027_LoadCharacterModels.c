@@ -11,6 +11,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Fx32Pair {
     int  x;                   /* 0x00 */
@@ -166,7 +167,7 @@ void Ov027_LoadCharacterModels(void)
                 nKind = pSlot->nMemberKind;
                 RegisterSeqAndInit(&data_ov027_02084364->aModel[nLoaded], data_ov027_02084190[nKind], 0, 6);
                 Snd_RegisterSeqAndBind(&data_ov027_02084364->aAnimSlot[nLoaded], &data_ov027_02084364->aModel[nLoaded],
-                              (((((u32)data_ov027_02084364->pArchive + 0x8000) & 0xfffffc) << 7) | 0x80000000)
+                              (ARCHIVE_HANDLE(data_ov027_02084364->pArchive, 0))
                                   | (data_ov027_020840f0[nKind] & 0x1ff),
                               6);
                 BindAnimTrack(&data_ov027_02084364->aModel[nLoaded], 0, &data_ov027_02084364->aAnimSlot[nLoaded], 0);
@@ -185,7 +186,7 @@ void Ov027_LoadCharacterModels(void)
             RegisterSeqAndInit(&data_ov027_02084364->aModel[0], data_ov027_02084190[19], 0, 6);
         }
         Snd_RegisterSeqAndBind(&data_ov027_02084364->aAnimSlot[0], &data_ov027_02084364->aModel[0],
-                      ((((u32)data_ov027_02084364->pArchive + 0x8000) & 0xfffffc) << 7) | 0x80000002, 6);
+                      ARCHIVE_HANDLE(data_ov027_02084364->pArchive, 2), 6);
         BindAnimTrack(&data_ov027_02084364->aModel[0], 0, &data_ov027_02084364->aAnimSlot[0], 0);
         data_ov027_02084364->aModel[0].vPos = data_ov027_02083e04;
     }

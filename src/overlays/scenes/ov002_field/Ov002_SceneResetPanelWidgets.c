@@ -13,6 +13,7 @@
  */
 
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 extern int data_ov002_0207f628;
 
@@ -40,30 +41,22 @@ void Ov002_SceneResetPanelWidgets(void)
     Tween_Clear((char *)ctx + 0x7a8);
 
     Ov002_RetargetWidget((char *)ctx + 0xe8,
-                        0x80000001
-                            | ((*(int *)((char *)ctx + 0x3c) + 0x8000) & 0xfffffc)
-                                  << 7,
+                        ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x3c), 1),
                         0x3b, 0xd71);
     Ov002_RewindWidget((char *)ctx + 0xe8, 0);
 
     Ov002_RetargetWidget((char *)ctx + 0x508,
-                        0x80000003
-                            | ((*(int *)((char *)ctx + 0x3c) + 0x8000) & 0xfffffc)
-                                  << 7,
+                        ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x3c), 3),
                         0x3c, 0x5ec);
     NNS_G3dMdlSetMdlAlphaAll(*(int *)((char *)ctx + 0x580), 0x16);
 
     Ov002_RetargetWidget((char *)ctx + 0x1f0,
-                        0x80000002
-                            | ((*(int *)((char *)ctx + 0x3c) + 0x8000) & 0xfffffc)
-                                  << 7,
+                        ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x3c), 2),
                         0x3e, 0xccd);
     Ov002_RewindWidget((char *)ctx + 0x1f0, 0);
 
     Ov002_RetargetWidget((char *)ctx + 0x2f8,
-                        (((*(int *)((char *)ctx + 0x3c) + 0x8000) & 0xfffffc)
-                         << 7)
-                            | 0x80000004,
+                        ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x3c), 4),
                         0x39, 0x800);
     NNS_G3dMdlSetMdlAlphaAll(*(int *)((char *)ctx + 0x370), 0);
 
@@ -100,8 +93,6 @@ void Ov002_SceneResetPanelWidgets(void)
     } while (i < 3);
 
     Ov002_RetargetWidget((char *)ctx + 0x400,
-                        0x80000005
-                            | ((*(int *)((char *)ctx + 0x3c) + 0x8000) & 0xfffffc)
-                                  << 7,
+                        ARCHIVE_HANDLE(*(int *)((char *)ctx + 0x3c), 5),
                         0x3a, 0x5ec);
 }

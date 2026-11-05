@@ -2,6 +2,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct PaletteData {char pad0[8];u32 size;void *data;} PaletteData;
 typedef struct CharacterData {char pad0[16];u32 size;void *data;} CharacterData;
@@ -16,7 +17,7 @@ extern void NNSi_FndFreeFromDefaultHeap(void *);
 void Ov005_LoadResultBackground(void) {
     SpriteResSet resources;
     void *archive;
-    archive=Archive_LoadFile((((data_ov005_0205b80c->resultArchive+0x8000)&0xfffffc)<<7)|0x80000000,14);
+    archive=Archive_LoadFile(ARCHIVE_HANDLE(data_ov005_0205b80c->resultArchive, 0),14);
     Res_LoadSpriteSet(&resources,archive,-1,2,0);
     GX_LoadBGPltt(resources.palette->data,0,resources.palette->size);
     GX_LoadBG3Char(resources.character->data,0,resources.character->size);

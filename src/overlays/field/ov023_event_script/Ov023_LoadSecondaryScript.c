@@ -8,6 +8,7 @@
  * marks the secondary script running (+0x875e8). */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov023Scene {
     u8   pad_00000[0x1511c];
@@ -59,7 +60,7 @@ void Ov023_LoadSecondaryScript(int nWorld, u8 *pLine)
     }
     pText = Msg_OpenContainerAndReadHeader(szPath, 0xf);
     Stream_DecodeIntoStagingBuffer(data_ov023_0208a784.pScene->script2,
-                  ((((u32)pText + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (func_020200b4(pLine + 2) & (0xfffffc >> 15)),
+                  ARCHIVE_HANDLE(pText, func_020200b4(pLine + 2) & (0xfffffc >> 15)),
                   pLine, &data_ov023_0208a784.pScene->pStagingTail);
     ZeroHalfThenFree(pText);
     MI_CpuCopy8(aSaved1, data_ov023_0208a784.pScene->aStaging1, 0x104);

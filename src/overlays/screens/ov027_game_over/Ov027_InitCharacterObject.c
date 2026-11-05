@@ -10,6 +10,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Fx32Pair {
     int  x;                   /* 0x00 */
@@ -156,7 +157,7 @@ extern const Ov027Data data_ov027_02083ee0;
 
 void Ov027_InitCharacterObject(Ov027Object *pObject)
 {
-    Ov002_Slot_LoadCellFile(pObject, ((((u32)data_ov027_02084364->pArchive + 0x8000) & 0xfffffc) << 7) | 0x80000001);
+    Ov002_Slot_LoadCellFile(pObject, ARCHIVE_HANDLE(data_ov027_02084364->pArchive, 1));
     pObject->nAlpha = (pObject->nAlpha & ~0x1f) | 0x1f;
     pObject->nDepth = 0x3e;
     if ((data_0204c240.nBits & 2) || data_0204c240.nRoom >= 10000) {

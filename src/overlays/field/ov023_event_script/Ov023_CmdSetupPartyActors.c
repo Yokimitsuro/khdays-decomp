@@ -12,6 +12,7 @@
  * by group) and field 0x2487 (5 bits) takes the kind itself.  Returns 1. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov023SessionSlot {
     int  nField00;            /* 0x00 */
@@ -100,16 +101,16 @@ int Ov023_CmdSetupPartyActors(void)
         } else {
             nFlags = 0;
         }
-        TailForwardTrackEntry((u16)(i + 4), (void *)(((((u32)apText[i] + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (nFlags & 0x1ff)), 1, 0xd);
+        TailForwardTrackEntry((u16)(i + 4), (void *)(ARCHIVE_HANDLE(apText[i], nFlags & 0x1ff)), 1, 0xd);
         switch (nKind) {
         case 1:
         case 2:
         case 7:
-            TailForwardTrackEntry((u16)(i + 8), (void *)(((((u32)apText[i] + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (nFlags & 0x1ff)), 1, 0xd);
+            TailForwardTrackEntry((u16)(i + 8), (void *)(ARCHIVE_HANDLE(apText[i], nFlags & 0x1ff)), 1, 0xd);
             break;
         case 9:
         case 0x13:
-            TailForwardTrackEntry((u16)(i + 8), (void *)(((((u32)apText[i] + 0x8000) & 0xfffffc) << 7) | 0x80000000 | ((nFlags + 0x50) & 0x1ff)), 1, 0xd);
+            TailForwardTrackEntry((u16)(i + 8), (void *)(ARCHIVE_HANDLE(apText[i], (nFlags + 0x50) & 0x1ff)), 1, 0xd);
             break;
         }
         ZeroHalfThenFree(apText[i]);

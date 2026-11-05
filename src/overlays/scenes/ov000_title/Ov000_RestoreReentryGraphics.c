@@ -6,6 +6,7 @@
  * No-op tail when heap[2] is absent. */
 
 #include "game/engine.h"
+#include "game/archive.h"
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void  Bg_LoadPaletteForScreen(int, void *, void *, int, int);
@@ -25,7 +26,7 @@ void Ov000_RestoreReentryGraphics(void) {
     Gfx_EnqueueTableCmdAtC(5, (void *)h[0x5d], 0, *(int *)(h[0x5d] + 8));
     if (h[2] != 0) {
         void *res;
-        void *handle = Archive_LoadFile(((h[2] + 0x8000 & 0xfffffc) << 7) | 0x80000002, 0xe);
+        void *handle = Archive_LoadFile(ARCHIVE_HANDLE(h[2], 2), 0xe);
         GetResourceSubBlock_CHAR2(handle, &res);
         DC_FlushRange(*(void **)((char *)res + 0x14), *(int *)((char *)res + 0x10));
         GXS_LoadBG1Char(*(void **)((char *)res + 0x14), 0x9000, *(int *)((char *)res + 0x10));

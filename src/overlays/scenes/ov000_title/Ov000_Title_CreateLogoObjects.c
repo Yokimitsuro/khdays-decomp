@@ -1,6 +1,7 @@
 /* Loads the title's cell resource and creates the ten logo objects at their positions. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 extern void *NNSi_FndGetCurrentRootHeap(void);
 extern void ObjNode_InitFromDesc(void *mgr, void *desc);
@@ -49,11 +50,10 @@ void Ov000_Title_CreateLogoObjects(void) {
 
     if (context->resourceAlternate != 0) {
         address =
-            ((context->resourceAlternate + 0x8000 & 0xfffffc) << 7) |
-            0x80000001;
+            ARCHIVE_HANDLE(context->resourceAlternate, 1);
     } else {
         address =
-            ((context->resourcePrimary + 0x8000 & 0xfffffc) << 7) | 0x80000002;
+            ARCHIVE_HANDLE(context->resourcePrimary, 2);
     }
     descriptor.address = address;
     descriptor.kind = 2;

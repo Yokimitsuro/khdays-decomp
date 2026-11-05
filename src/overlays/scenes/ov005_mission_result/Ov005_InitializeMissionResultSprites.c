@@ -7,6 +7,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov005SpriteManager {char data[0x4a80];} Ov005SpriteManager;
 typedef struct Ov005ResultContext {u32 resultArchive,localizedResultArchive;char unknown08[76];Ov005SpriteManager spriteManager;} Ov005ResultContext;
@@ -42,11 +43,11 @@ void Ov005_InitializeMissionResultSprites(void) {
     MIi_CpuClearFast(0,G2_GetBG0ScrPtr(),0x800);
     MIi_CpuClearFast(0,G2_GetBG3ScrPtr(),0x800);
     Ov005_InitSubsystemObject(&context->spriteManager,0);
-    descriptor.resourceId=(((data_ov005_0205b810->resultArchive+0x8000)&0xfffffc)<<7)|0x80000002;
+    descriptor.resourceId=ARCHIVE_HANDLE(data_ov005_0205b810->resultArchive, 2);
     descriptor.type=2;descriptor.mode=0;descriptor.variant=0;
     Ov005_InitFromDescAndMark(&context->spriteManager,&descriptor);
-    func_ov005_0204e0b0(&context->spriteManager,(((data_ov005_0205b810->localizedResultArchive+0x8000)&0xfffffc)<<7)|0x80000001);
-    Ov005_LoadBlockProcessAndFree(&context->spriteManager,(((data_ov005_0205b810->resultArchive+0x8000)&0xfffffc)<<7)|0x80000005,111);
+    func_ov005_0204e0b0(&context->spriteManager,ARCHIVE_HANDLE(data_ov005_0205b810->localizedResultArchive, 1));
+    Ov005_LoadBlockProcessAndFree(&context->spriteManager,ARCHIVE_HANDLE(data_ov005_0205b810->resultArchive, 5),111);
     for(index=1;index<=111;index++) {
         void *entry=Ov005_FindEntryById(&context->spriteManager,index);
         Ov005_ReleaseTwoSlotsEx_2(&context->spriteManager,entry,0);

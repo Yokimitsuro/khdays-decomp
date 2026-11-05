@@ -7,6 +7,7 @@
  * returns the scene's running state fn. arg selects the entry variant (0=fresh). */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef void          *StateFn;
 
@@ -89,11 +90,11 @@ StateFn Ov000_FreshBootGfxSetup(int arg) {
         sub[2] = (sub[2] & ~3) | 1;
     }
 
-    RegisterSeqAndInit((void *)(h + 3), ((h[1] + 0x8000 & 0xfffffc) << 7) | 0x80000000, 1, 0xe);
+    RegisterSeqAndInit((void *)(h + 3), ARCHIVE_HANDLE(h[1], 0), 1, 0xe);
     BindAnimTrack((void *)(h + 3), 0, (void *)(h + 0x3b), 0);
     BindAnimTrack((void *)(h + 3), 2, (void *)(h + 0x3b), 0);
     Projection_LoadDefaults((void *)(h + 0x45));
-    h[0x53] = Archive_LoadFile(((h[1] + 0x8000 & 0xfffffc) << 7) | 0x80000001, 0xe);
+    h[0x53] = Archive_LoadFile(ARCHIVE_HANDLE(h[1], 1), 0xe);
 
     {
         int i = 0;

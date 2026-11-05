@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     u8 pad_00[0x10];
@@ -61,8 +62,7 @@ void Ov006_RefreshCharacterSelectPortrait(void)
     }
 
     portraitArchive = Archive_LoadFile(
-        (((context->resourceArchiveEntry + 0x8000) & 0xfffffc) << 7) |
-            0x80000000,
+        ARCHIVE_HANDLE(context->resourceArchiveEntry, 0),
         0xe);
 
     switch (data_ov006_02056664->selectedPortraitIndex) {

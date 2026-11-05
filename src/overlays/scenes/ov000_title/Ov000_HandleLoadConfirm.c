@@ -29,6 +29,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov000GameSave {
     u32 aData[0x1cac / 4];
@@ -136,7 +137,7 @@ void Ov000_HandleLoadConfirm(void)
         } else {
             u32 *hdr = Msg_OpenContainerAndReadHeader(gOv000TtlTtlPath_3, 0xe);
             void *buf = Archive_LoadFile(
-                ((((u32)hdr + 0x8000) & 0xfffffc) << 7) | 0x80000003, 0xe);
+                ARCHIVE_HANDLE(hdr, 3), 0xe);
             *gGameState = *(Ov000GameSave *)buf;
             if (buf != 0) {
                 NNSi_FndFreeFromDefaultHeap(buf);

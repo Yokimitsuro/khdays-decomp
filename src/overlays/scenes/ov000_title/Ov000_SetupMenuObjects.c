@@ -46,6 +46,7 @@
 /* Same five-word shape the matched Ov000_LoadPageSubScreenLayer passes to this initialiser. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov000ResourceTrackerConfig {
     u32 entryCapacity;
@@ -83,27 +84,27 @@ void Ov000_SetupMenuObjects(void)
     cursor = cursorBase + 0x4800;
 
     Ov000_Container_Init(ctx, &capacity);
-    Ov000_LoadAndInitResourceSections(ctx, ((base[0x21] + 0x8000 & 0xfffffc) << 7) | 0x80000006);
+    Ov000_LoadAndInitResourceSections(ctx, ARCHIVE_HANDLE(base[0x21], 6));
     Ov000_TagTracker_InvokeCallback(ctx, Ov000_FindEntryByTag(ctx, 0));
     base[0x3450] = Ov000_FindEntryByTag(ctx, 1);
     base[0x3451] = Ov000_FindEntryByTag(ctx, 2);
 
-    desc[0] = ((base[0x21] + 0x8000 & 0xfffffc) << 7) | 0x80000005;
+    desc[0] = ARCHIVE_HANDLE(base[0x21], 5);
     desc[1] = 1;
     desc[2] = 0;
     desc[3] = 0;
     desc[4] = 2;
-    desc[5] = ((base[0x21] + 0x8000 & 0xfffffc) << 7) | 0x80000004;
+    desc[5] = ARCHIVE_HANDLE(base[0x21], 4);
     Ov000_InitSubsystemObject(title, desc);
     Ov000_SetEntrySlotsVisible(title, Ov000_FindEntryById(title, 1), 0);
     Ov000_SetEntrySlotsVisible(title, Ov000_FindEntryById(title, 2), 0);
 
-    desc[0] = ((base[0x21] + 0x8000 & 0xfffffc) << 7) | 0x80000002;
+    desc[0] = ARCHIVE_HANDLE(base[0x21], 2);
     desc[1] = 2;
     desc[2] = 0;
     desc[3] = 0;
     desc[4] = 0x15;
-    desc[5] = ((base[0x21] + 0x8000 & 0xfffffc) << 7) | 0x80000001;
+    desc[5] = ARCHIVE_HANDLE(base[0x21], 1);
     Ov000_InitSubsystemObject(cursor, desc);
     base[0x3452] = Ov000_FindEntryById(cursor, 2);
     base[0x3453] = Ov000_FindEntryById(cursor, 3);

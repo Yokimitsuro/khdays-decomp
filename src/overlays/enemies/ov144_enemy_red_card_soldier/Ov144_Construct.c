@@ -15,6 +15,7 @@
  * keeps the `orr r1` flag store ahead of the list call's argument setup. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 struct Bit0 {
     unsigned bit0 : 1;
@@ -108,7 +109,7 @@ void Ov144_Construct(char *self)
     NNS_G3dRenderObjSetCallBack(*(int *)(*(int *)(self + 0x384) + 0x88) + 0x20, Ov144_NodeMatrixCallback, 0, 6, 3);
     (*(void (**)(char *, int, int))(self + 0x1dc))(self, 0, 1);
     *(int *)(self + 0x394) = Ov107_CreateNamedResourceBinding(Ov107_PackTextureHandle((int)self, 1), gOv144MoveName);
-    *(int *)(self + 0x388) = CreateSubitemInstance0xB4((void *)((((Ov107_GetActorManager()[0x22] + 0x8000) & 0xfffffc) << 7) | 0x80000007));
+    *(int *)(self + 0x388) = CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(Ov107_GetActorManager()[0x22], 7)));
     ((struct Bit0 *)(*(int *)(self + 0x388) + 0x5c))->bit0 = 1;
     Ov107_EnqueueValue((int)self, *(int *)(self + 0x388));
     *(int *)(*(int *)(self + 0x388) + 0x5c) |= 2;
@@ -119,7 +120,7 @@ void Ov144_Construct(char *self)
     *(int *)(self + 0x38c) = CreateSubitemInstance0xB4(Ov107_PackTextureHandle((int)self, 2));
     RegisterSubscriberSlot(*(int *)(self + 0x398), *(int *)(self + 0x38c));
     *(int *)(*(int *)(self + 0x38c) + 0x5c) |= 2;
-    item = actor->subitem3f8 = (struct Subitem *)CreateSubitemInstance0xB4((void *)((((Ov107_GetActorManager()[0x22] + 0x8000) & 0xfffffc) << 7) | 0x80000000));
+    item = actor->subitem3f8 = (struct Subitem *)CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(Ov107_GetActorManager()[0x22], 0)));
     Ov107_EnqueueValue((int)self, (int)item);
     item->flags5c |= 2;
     p = List_InsertSorted(actor->pool144, 4, 0x64);

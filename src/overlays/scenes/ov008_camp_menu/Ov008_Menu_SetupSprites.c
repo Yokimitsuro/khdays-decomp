@@ -14,6 +14,8 @@
  * its second argument. Pages 8, 9, 12 and anything above 14 set up nothing.
  */
 
+#include "game/archive.h"
+
 typedef struct {
     int cellSrc0;                /* 0x00 source offset for the primary cell */
     int cellSrc1;                /* 0x04 source offset for the committed cell */
@@ -47,27 +49,27 @@ void Ov008_Menu_SetupSprites(int id)
 
     switch (id) {
     case 0: case 1: case 2: case 3: case 10: case 11:
-        req.handle = (((data_ov008_02090fa4->cellSrc0 + 0x8000) & 0x00fffffc) << 7) | 0x80000001;
+        req.handle = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc0, 1);
         req.count = 2; req.f8 = 0; req.fc = 0;
         ObjNode_InitFromDesc(data_ov008_02090fa4->bufB, &req, 0);
-        h = (((data_ov008_02090fa4->cellSrc1 + 0x8000) & 0x00fffffc) << 7) | 0x80000000;
+        h = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc1, 0);
         if (h != 0) DispObjList_AddResource(data_ov008_02090fa4->bufB, h);
         break;
     case 13: case 14:
-        req.handle = (((data_ov008_02090fa4->cellSrc0 + 0x8000) & 0x00fffffc) << 7) | 0x80000002;
+        req.handle = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc0, 2);
         req.count = 2; req.f8 = 0; req.fc = 0;
         ObjNode_InitFromDesc(data_ov008_02090fa4->bufB, &req, 0);
         break;
     case 4: case 5: case 6: case 7:
-        req.handle = (((data_ov008_02090fa4->cellSrc0 + 0x8000) & 0x00fffffc) << 7) | 0x80000003;
+        req.handle = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc0, 3);
         req.count = 1; req.f8 = 0; req.fc = 0;
         ObjNode_InitFromDesc(data_ov008_02090fa4->bufA, &req, 0);
-        h = (((data_ov008_02090fa4->cellSrc1 + 0x8000) & 0x00fffffc) << 7) | 0x80000002;
+        h = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc1, 2);
         if (h != 0) DispObjList_AddResource(data_ov008_02090fa4->bufA, h);
-        req.handle = (((data_ov008_02090fa4->cellSrc0 + 0x8000) & 0x00fffffc) << 7) | 0x80000002;
+        req.handle = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc0, 2);
         req.count = 2; req.f8 = 0; req.fc = 0;
         ObjNode_InitFromDesc(data_ov008_02090fa4->bufB, &req, 0);
-        h = (((data_ov008_02090fa4->cellSrc1 + 0x8000) & 0x00fffffc) << 7) | 0x80000001;
+        h = ARCHIVE_HANDLE(data_ov008_02090fa4->cellSrc1, 1);
         if (h != 0) DispObjList_AddResource(data_ov008_02090fa4->bufB, h);
         break;
     }

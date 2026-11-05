@@ -4,6 +4,8 @@
  * pose 0x4a, creates the +0x3c4 effect (Ov255_CreateShakeTask), allocates the two-pair +0x3c0 table
  * (the first item from the gOv255MsXionSharePackPath_2 resource, the second from pose 0x4b; both hidden)
  * and reserves the +0x38c shape (a placement at the +0x64 pose, flag bit 1). */
+
+#include "game/archive.h"
 typedef void (*Callback)(void);
 struct Word8 { unsigned int lo : 8; };
 
@@ -44,7 +46,7 @@ void Ov255_PartnerCtor(char *self)
     Ov107_EnqueueValue(*(int *)(self + 0x384), *(int *)(self + 0x388));
     *(int *)(self + 0x3c4) = Ov255_CreateShakeTask(self);
     *(int **)(self + 0x3c0) = CallocInstance(0x10);
-    (*(int **)(self + 0x3c0))[0] = CreateSubitemInstance0xB4((void *)((((res + 0x8000) & 0xfffffc) << 7) | 0x80000001));
+    (*(int **)(self + 0x3c0))[0] = CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(res, 1)));
     Ov107_EnqueueValue((int)self, (*(int **)(self + 0x3c0))[0]);
     *(int *)((*(int **)(self + 0x3c0))[0] + 0x5c) |= 2;
     (*(int **)(self + 0x3c0))[2] = CreateSubitemInstance0xB4(Ov107_PackTextureHandle(*(int *)(self + 0x384), 0x4b));

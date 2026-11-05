@@ -10,6 +10,7 @@
  * function scope and row / counter / rowBase zeroed in that order. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov011Scene {
     u8    pad_0000[0x0c];
@@ -116,10 +117,10 @@ void Ov011_SetupTitleBackgrounds(void)
     void *pReg;
 
     data_ov011_0205e960.pScene->hTileset0 = (void *)Loader_RequestFile(
-        (const void *)((((u32)(data_ov011_0205e960.pScene->nBgVramBase + 0x8000) & 0x00fffffc) << 7) | 0x80000001),
+        (const void *)ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nBgVramBase, 1),
         0xe);
     data_ov011_0205e960.pScene->hTileset1 = (void *)Loader_RequestFile(
-        (const void *)((((u32)(data_ov011_0205e960.pScene->nBgVramBase + 0x8000) & 0x00fffffc) << 7) | 0x80000000),
+        (const void *)ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nBgVramBase, 0),
         0xe);
 
     MIi_CpuClearFast(0xffffffff, (u8 *)G2_GetBG0CharPtr() + 0x3000, 0x40);
@@ -144,7 +145,7 @@ void Ov011_SetupTitleBackgrounds(void)
 
     data_ov011_0205e960.pScene->hRegistered = (void *)AllocAndRegisterOrFree2(
         &pReg,
-        (const void *)((((u32)(data_ov011_0205e960.pScene->nBgVramBase + 0x8000) & 0x00fffffc) << 7) | 0x80000007),
+        (const void *)ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nBgVramBase, 7),
         0xe);
     GFXi_EnqueueCommand(0x11, 0, *(int *)((u8 *)pReg + 0xc), 0x200);
     GFXi_EnqueueCommand(0x21, 0, *(int *)((u8 *)pReg + 0xc), 0x200);

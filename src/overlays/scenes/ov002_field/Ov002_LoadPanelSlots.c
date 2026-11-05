@@ -36,6 +36,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     void *pScreen;
@@ -107,7 +108,7 @@ int Ov002_LoadPanelSlots(Ov002PanelSlot *pSlots, SpriteResSet *pDst,
     nCount = 0;
     ctx->bLoadedMask = 0;
     pArc = Archive_LoadFile(
-        0x80000001 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7, 0xe);
+        ARCHIVE_HANDLE(ctx->nArchiveGroup, 1), 0xe);
     Res_LoadSpriteSet(&sLow, pArc, 0, 0, 0);
     Res_LoadSpriteSet(&sHigh, pArc, 0, 1, 1);
 
@@ -170,14 +171,12 @@ int Ov002_LoadPanelSlots(Ov002PanelSlot *pSlots, SpriteResSet *pDst,
     for (j = 0; j < 4; j++) {
         if (ctx->ahHelpPltA[j] == 0) {
             ctx->ahHelpPltA[j] = Archive_LoadFile(
-                ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7 | 0x80000000
-                | (data_ov002_0207dba8[j] & 0x1ff), 0xe);
+                ARCHIVE_HANDLE(ctx->nArchiveGroup, data_ov002_0207dba8[j] & 0x1ff), 0xe);
             NNS_G2dGetUnpackedPaletteData(ctx->ahHelpPltA[j], &ctx->aHelpPltA[j]);
         }
         if (ctx->ahHelpPltB[j] == 0) {
             ctx->ahHelpPltB[j] = Archive_LoadFile(
-                ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7 | 0x80000000
-                | (data_ov002_0207dbb8[j] & 0x1ff), 0xe);
+                ARCHIVE_HANDLE(ctx->nArchiveGroup, data_ov002_0207dbb8[j] & 0x1ff), 0xe);
             NNS_G2dGetUnpackedPaletteData(ctx->ahHelpPltB[j], &ctx->aHelpPltB[j]);
         }
     }

@@ -27,6 +27,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 extern void  RegisterSeqAndInit(void *node, u32 desc, int a, int b);
 extern void  NNS_G3dMdlSetMdlPolygonIDAll(int list, int a);
@@ -54,7 +55,7 @@ void Ov008_Menu_InitPanelSubObject(u8 *panel, int resBase, int subId, int sceneI
         if (slot != 1) charFlags += 0x50;
         break;
     }
-    descriptor = ((resBase + 0x8000) & 0xfffffc) << 7 | 0x80000000;
+    descriptor = ARCHIVE_HANDLE(resBase, 0);
     RegisterSeqAndInit((u16 *)(panel + 4), descriptor | (0xfffffc >> 0xf & charFlags), 1, panel[2] + 7);
     NNS_G3dMdlSetMdlPolygonIDAll(*(int *)(panel + 0x7c), 0x3f);
     SceneNode_SetFlag40((u16 *)(panel + 4), 1);

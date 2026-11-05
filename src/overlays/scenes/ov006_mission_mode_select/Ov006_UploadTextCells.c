@@ -9,6 +9,7 @@
  *     uses sub-resource 4. Other states do nothing but free the pack. */
 
 #include "game/engine.h"
+#include "game/archive.h"
 
 struct Src { int a[6]; };                    /* [2]=+8 [3]=+0xc palette; [4]=+0x10 [5]=+0x14 char */
 struct Cell { int f0; struct Src *pChar; struct Src *pPltt; };
@@ -32,7 +33,7 @@ void Ov006_UploadTextCells(int state, int p2, int p3, int param4) {
     int iVar2;
     unsigned int base0 = (unsigned int)*data_ov006_02056664;
 
-    piVar1 = (struct Cell *)Archive_LoadFile(((base0 + 0x8000 & 0xfffffc) << 7) | 0x80000000,
+    piVar1 = (struct Cell *)Archive_LoadFile(ARCHIVE_HANDLE(base0, 0),
                                           0xe, 0xfffffc);
     switch (state) {
     case 0:

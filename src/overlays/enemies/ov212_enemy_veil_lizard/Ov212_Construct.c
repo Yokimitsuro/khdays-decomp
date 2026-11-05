@@ -17,6 +17,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef void (*Callback)(void);
 typedef struct { int w[4]; } Quat;
@@ -167,7 +168,7 @@ void Ov212_Construct(char *self)
     for (i = 0; i < 10; i++) {
         if (i <= 1) {
             node = CreateSubitemInstance0xB4((void *)((ids.id[i] & 0x1ff)
-                | (((*(int *)(Ov107_GetActorManager() + 0x88) + 0x8000) & 0xfffffc) << 7 | 0x80000000)));
+                | (ARCHIVE_HANDLE(*(int *)(Ov107_GetActorManager() + 0x88), 0))));
         } else {
             node = CreateSubitemInstance0xB4(Ov107_PackTextureHandle(self, ids.id[i]));
         }

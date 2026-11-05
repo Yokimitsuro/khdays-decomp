@@ -13,6 +13,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 struct PanelSubCfg {
     int flags00;
@@ -127,7 +128,7 @@ void Ov032_CreateSubObject(char *self)
         cfg[2].flags00 |= 1;
     }
     Ov022_PublishGroupUpdate(*(void **)(self + 0x2644), self,
-                        (((*(int *)(self + 0x2bd0) + 0x8000) & 0xfffffc) << 7) | 0x80000000 | ((nSlot + 0x8c) & 0x1ff),
+                        ARCHIVE_HANDLE(*(int *)(self + 0x2bd0), (nSlot + 0x8c) & 0x1ff),
                         cfg, 3, count);
     v = *(signed char *)(data_0204c4d8 + 0x10);
     if (v >= 0) {

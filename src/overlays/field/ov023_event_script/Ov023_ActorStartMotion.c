@@ -10,6 +10,7 @@
  * the slot set.  Track 0 also records the frame (+0x1a40) and name (+0x1a44) on the actor. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov023Motion {
     int  nField00;            /* 0x00 */
@@ -89,7 +90,7 @@ void Ov023_ActorStartMotion(Ov023Actor *pActor, int nTrack)
         }
         if (strcmp(pMotion->szName + (nLength - 3), gOv023P2Name_2) == 0) {
             Snd_RegisterSeqAndBind(pActor->pSlots, pActor->pEntity->anim,
-                          (void *)(((((u32)pActor->pMotionText + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (pMotion->nFrame & (0xfffffc >> 15))),
+                          (void *)(ARCHIVE_HANDLE(pActor->pMotionText, pMotion->nFrame & (0xfffffc >> 15))),
                           0xd);
         } else {
             if (strcmp(pMotion->szName + (nLength - 2), gOv023ZName) == 0) {

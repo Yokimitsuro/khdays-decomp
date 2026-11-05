@@ -14,6 +14,8 @@
  * slot byte is `((unsigned char *)self)[9]` -- the `*(u8 *)(self + 9)` spelling lets mwcc hoist
  * `self + 9` out of the loop into a spill slot.
  */
+
+#include "game/archive.h"
 extern void func_ov022_0209fb60(int a, int b, int c);
 extern void Ov022_SetSlotClaim(int a, int b, int c);
 extern void Ov002_BuildPanelIdSummary(int a, int b, int c);
@@ -63,8 +65,7 @@ void Ov100_BindChannelsAndSlotMap(int self) {
         case 12:
             if (*(int *)(base + 0x2c2c) == 0) {
                 RegisterSeqAndInit((void *)(base + 0x2c30),
-                              (((*(int *)(self + 0x2bd0) + 0x8000) & 0xfffffc) << 7) | 0x80000000
-                                  | ((*(unsigned char *)(self + 0x918) + 0xbe) & 0x1ff),
+                              ARCHIVE_HANDLE(*(int *)(self + 0x2bd0), (*(unsigned char *)(self + 0x918) + 0xbe) & 0x1ff),
                               1, ((unsigned char *)self)[9] + 7);
                 NNS_G3dMdlSetMdlPolygonIDAll(*(void **)(base + 0x2ca8), 0x3f);
                 SceneNode_SetFlag40((void *)(base + 0x2c30), 1);

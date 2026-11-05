@@ -6,6 +6,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov002PeerRow Ov002PeerRow;
 typedef struct Ov002PeerRecord {
@@ -51,7 +52,7 @@ void Ov002_LoadWorldLinkResources(int nWorld,int nResourceContext)
         NNSi_FndFreeFromDefaultHeap(pCtx->pOwnedTable);
         pCtx->pOwnedTable=0;
     }
-    pCtx->pOwnedTable=Archive_LoadFile(((((u32)pCtx->pArchiveIndex+0x8000)&0xfffffc)<<7)|0x80000000,2);
+    pCtx->pOwnedTable=Archive_LoadFile(ARCHIVE_HANDLE(pCtx->pArchiveIndex, 0),2);
     pCtx->pTable=pCtx->pOwnedTable;
     pTable=pCtx->pTable;
     for(i=0;i<pTable->nCount;i++) {
@@ -75,7 +76,7 @@ void Ov002_LoadWorldLinkResources(int nWorld,int nResourceContext)
     pCtx->bWorldReady=1;
     pCtx->nNoticeBits=0;
     pCtx->nLinkMode=nWorld;
-    Ov002_LoadGateModelTable(((((u32)pCtx->pArchiveIndex+0x8000)&0xfffffc)<<7)|0x80000001);
+    Ov002_LoadGateModelTable(ARCHIVE_HANDLE(pCtx->pArchiveIndex, 1));
     INITi_CpuClear32_0x01ff86fc(0,pCtx->apPrimaryHooks,16);
     INITi_CpuClear32_0x01ff86fc(0,pCtx->apSecondaryHooks,16);
     MI_CpuFill8(pCtx->aHookState,0,128);

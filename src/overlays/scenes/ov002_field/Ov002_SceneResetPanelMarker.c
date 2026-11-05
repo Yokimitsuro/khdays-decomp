@@ -15,6 +15,7 @@
 
 #include "nitro/fx_types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     fx32 a[16];
@@ -73,8 +74,7 @@ void Ov002_SceneResetPanelMarker(void)
     pWrite[1] = 0;
     pWrite[2] = 0;
     Ov002_PlaceWidget(&s->markerWidget,
-                        0x80000006
-                            | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                        ARCHIVE_HANDLE(s->nFileBase, 6),
                         &v, 0xa000, 0xe);
     SceneNode_SetFlag40(&s->markerWidget, 1);
     BindAnimTrack(&s->markerWidget, 3, s->markerWidget.sub0e0, 0);

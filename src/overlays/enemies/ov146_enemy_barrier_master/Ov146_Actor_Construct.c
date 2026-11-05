@@ -9,6 +9,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef void (*Callback)(void);
 typedef struct { VecFx32 min; VecFx32 max; } Box;
@@ -89,7 +90,7 @@ void Ov146_Actor_Construct(char *self)
 
         if (i < 3) {
             item = CreateSubitemInstance0xB4((void *)((ids.id[i] & 0x1ff)
-                | ((((*(int *)(Ov107_GetActorManager() + 0x88) + 0x8000) & 0xfffffc) << 7) | 0x80000000)));
+                | (ARCHIVE_HANDLE(*(int *)(Ov107_GetActorManager() + 0x88), 0))));
         } else {
             item = CreateSubitemInstance0xB4(Ov107_PackTextureHandle(self, ids.id[i]));
         }

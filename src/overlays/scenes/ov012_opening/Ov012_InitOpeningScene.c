@@ -3,6 +3,7 @@
  * callback. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct SpriteResSet {
     int words[3];
@@ -67,7 +68,7 @@ void *Ov012_InitOpeningScene(int alternateMode) {
     GXS_LoadBGPltt(&data_ov012_0205c2d0, 0x1a0, 0x20);
     *(void **)(root + 0x85a4) = root + 0x8b4c;
     header = Msg_OpenContainerAndReadHeader(gOv012OpOpPath, 0xe);
-    archiveEntry = (((u32)header + 0x8000) & 0x00fffffc) << 7 | 0x80000000;
+    archiveEntry = ARCHIVE_HANDLE(header, 0);
     *(void **)(root + 0x8bf8) = Archive_LoadFile(archiveEntry, 0xe);
     *(void **)(root + 0x8bfc) =
         Archive_LoadFile(archiveEntry | (GetLanguage() & 0x1ff), 0xe);

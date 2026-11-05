@@ -9,11 +9,12 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 #define ENTRY_ALT_ARCHIVE 0x10000
 #define ENTRY_MEMBER_MASK 0x1ff
 #define ARCHIVE_ID(hArchive, nMember) \
-    ((((hArchive) + 0x8000) & 0xfffffc) << 7 | 0x80000000 | (nMember))
+    (ARCHIVE_HANDLE((hArchive), nMember))
 
 typedef struct Ov008PageB {
     u8  pad_000[0x30];

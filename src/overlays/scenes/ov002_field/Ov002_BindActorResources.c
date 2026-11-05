@@ -20,6 +20,8 @@
  * orientation and no spelling of the condition recovers it.
  */
 
+#include "game/archive.h"
+
 extern void RegisterSeqAndInit(unsigned short *pNode, unsigned int nKey, int nMode,
                           int nHeap);
 extern void NNS_G3dMdlSetMdlPolygonIDAll(int nList, int nMask);
@@ -56,7 +58,7 @@ void Ov002_BindActorResources(unsigned char *pActor, int nBank, int nSlot,
         break;
     }
 
-    nBase = 0x80000000 | ((nBank + 0x8000) & 0x00fffffc) << 7;
+    nBase = ARCHIVE_HANDLE(nBank, 0);
     RegisterSeqAndInit((unsigned short *)(pActor + 4), nBase | (nAnimId & 0x1ff), 1,
                   pActor[2] + 7);
     NNS_G3dMdlSetMdlPolygonIDAll(*(int *)(pActor + 0x7c), 0x3f);

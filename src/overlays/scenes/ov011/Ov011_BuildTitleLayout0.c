@@ -7,6 +7,7 @@
  * register in the display block shifts. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov011Pane {
     void *pBuffer;
@@ -90,11 +91,9 @@ void Ov011_BuildTitleLayout0(void)
     NNSi_FndFreeFromDefaultHeap(pTop->pBuffer);
     NNSi_FndFreeFromDefaultHeap(pBottom->pBuffer);
     pTop->pBuffer = Archive_LoadFile(
-        ((data_ov011_0205e960.pScene->nArchiveBase + 0x8000 & 0xfffffc) << 7)
-            | 0x80000002, 0xe);
+        ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nArchiveBase, 2), 0xe);
     pBottom->pBuffer = Archive_LoadFile(
-        ((data_ov011_0205e960.pScene->nArchiveBase + 0x8000 & 0xfffffc) << 7)
-            | 0x80000003, 0xe);
+        ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nArchiveBase, 3), 0xe);
     GFXi_EnqueueCommand(0xa, 0, data_ov011_0205e960.pScene->aPalette, 0x800);
     GFXi_EnqueueCommand(0x1a, 0, data_ov011_0205e960.pScene->aPalette, 0x800);
     GX_SetVisiblePlane(0x17);

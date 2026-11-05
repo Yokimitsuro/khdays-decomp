@@ -4,6 +4,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov000ResourceBlock {
     u8 pad_0000[0x10];
@@ -62,10 +63,6 @@ extern void Ov000_LoadAndInitResourceSections(Ov000ResourceTracker *tracker, u32
 extern void *Ov000_FindEntryByTag(Ov000ResourceTracker *tracker, u32 tag);
 extern void Ov000_TagTracker_InvokeCallback(Ov000ResourceTracker *tracker, void *entry);
 
-#define OV000_ARCHIVE_MASK 0x00fffffc
-#define OV000_SUBFILE(base, index) \
-    (((((u32)(base) + 0x8000) & OV000_ARCHIVE_MASK) << 7) | \
-     0x80000000 | (index))
 
 void Ov000_StartNewGameMode(void)
 {
@@ -84,7 +81,7 @@ void Ov000_StartNewGameMode(void)
     data_ov000_0205ac28->pendingMode = 2;
 
     context = data_ov000_0205ac28;
-    resource = Archive_LoadFile(OV000_SUBFILE(context->archiveBase, 0), 14);
+    resource = Archive_LoadFile(ARCHIVE_HANDLE(context->archiveBase, 0), 14);
     Res_LoadSpriteSet(&cell, resource, 0, 0, 0);
     GXS_LoadBGPltt(cell.palette->data, 0, cell.palette->size);
 
@@ -93,16 +90,16 @@ void Ov000_StartNewGameMode(void)
         alternateHandle = 0;
         break;
     case 2:
-        alternateHandle = OV000_SUBFILE(container, 2);
+        alternateHandle = ARCHIVE_HANDLE(container, 2);
         break;
     case 3:
-        alternateHandle = OV000_SUBFILE(container, 0);
+        alternateHandle = ARCHIVE_HANDLE(container, 0);
         break;
     case 4:
-        alternateHandle = OV000_SUBFILE(container, 3);
+        alternateHandle = ARCHIVE_HANDLE(container, 3);
         break;
     case 5:
-        alternateHandle = OV000_SUBFILE(container, 1);
+        alternateHandle = ARCHIVE_HANDLE(container, 1);
         break;
     case 0:
     default:
@@ -133,7 +130,7 @@ void Ov000_StartNewGameMode(void)
     Ov000_Container_Init(&context->resourceTracker, &trackerConfig);
     Ov000_LoadAndInitResourceSections(
         &context->resourceTracker,
-        OV000_SUBFILE(data_ov000_0205ac28->archiveBase, 2));
+        ARCHIVE_HANDLE(data_ov000_0205ac28->archiveBase, 2));
     entry = Ov000_FindEntryByTag(&context->resourceTracker, 0);
     Ov000_TagTracker_InvokeCallback(&context->resourceTracker, entry);
 }

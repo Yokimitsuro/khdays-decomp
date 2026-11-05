@@ -6,6 +6,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct Ov000CharacterBlock {
     u8 pad_0000[0x10];
@@ -60,10 +61,6 @@ extern void *G2_GetBG2CharPtr(void);
 extern void MIi_CpuClearFast(
     u32 value, void *destination, u32 size);
 
-#define OV000_ARCHIVE_MASK 0x00fffffc
-#define OV000_SUBFILE(base, index) \
-    (((((u32)(base) + 0x8000) & OV000_ARCHIVE_MASK) << 7) | \
-     0x80000000 | (index))
 
 void Ov000_LoadListSceneGraphics(void)
 {
@@ -82,16 +79,16 @@ void Ov000_LoadListSceneGraphics(void)
         alternateHandle = 0;
         break;
     case 2:
-        alternateHandle = OV000_SUBFILE(container, 1);
+        alternateHandle = ARCHIVE_HANDLE(container, 1);
         break;
     case 3:
-        alternateHandle = OV000_SUBFILE(container, 3);
+        alternateHandle = ARCHIVE_HANDLE(container, 3);
         break;
     case 4:
-        alternateHandle = OV000_SUBFILE(container, 0);
+        alternateHandle = ARCHIVE_HANDLE(container, 0);
         break;
     case 5:
-        alternateHandle = OV000_SUBFILE(container, 2);
+        alternateHandle = ARCHIVE_HANDLE(container, 2);
         break;
     case 0:
     default:
@@ -100,7 +97,7 @@ void Ov000_LoadListSceneGraphics(void)
     }
 
     resource =
-        Archive_LoadFile(OV000_SUBFILE(context->archiveBase, 3), 14);
+        Archive_LoadFile(ARCHIVE_HANDLE(context->archiveBase, 3), 14);
     Res_LoadSpriteSet(&cell, resource, 0, 0, 0);
     GX_LoadBGPltt(cell.palette->data, 0, cell.palette->size);
 
@@ -123,7 +120,7 @@ void Ov000_LoadListSceneGraphics(void)
     }
 
     resource =
-        Archive_LoadFile(OV000_SUBFILE(context->archiveBase, 0), 14);
+        Archive_LoadFile(ARCHIVE_HANDLE(context->archiveBase, 0), 14);
     Res_LoadSpriteSet(&cell, resource, 0, 0, 0);
     GXS_LoadBGPltt(cell.palette->data, 0, cell.palette->size);
     GXS_LoadBG3Char(cell.character->data, 0, cell.character->size);

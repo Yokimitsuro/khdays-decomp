@@ -1,3 +1,5 @@
+
+#include "game/archive.h"
 extern int *NNSi_FndGetCurrentRootHeap(void);
 extern int *Msg_OpenContainerAndReadHeader(void *res, int b, int *c);
 extern void Ov007_ReleaseAndFreeField2644(int *out, int arg);
@@ -58,7 +60,7 @@ void *Ov007_SceneInit(int param_1, int param_2, int param_3, int param_4) {
     heap[0x16af] = 0;
     Ov007_SetupSubDisplay();
     heap[1] = (int)Archive_LoadFile(
-        (int)(((((unsigned)heap[0] + 0x8000) & 0xfffffc) << 7) | 0x80000000), 0xe);
+        (int)(ARCHIVE_HANDLE(heap[0], 0)), 0xe);
     Res_LoadSpriteSet(heap + 5, (int *)heap[1], heap[0x16af], heap[0x16af], heap[0x16af]);
     GFXi_EnqueueCommand(0x11, 0x2000, *(int *)(heap[7] + 0xc), *(int *)(heap[7] + 8));
     Gfx_EnqueueTableCmdAt14(1, heap[6], 0, *(int *)(heap[6] + 0x10));
@@ -66,7 +68,7 @@ void *Ov007_SceneInit(int param_1, int param_2, int param_3, int param_4) {
         int iVar9 = *(int *)(heap[5] + 8);
         Gfx_EnqueueTableCmdAtC(1, heap[5], 0, iVar9);
 
-        fr.l24[0] = ((((unsigned)heap[0] + 0x8000) & 0xfffffc) << 7) | 0x80000001;
+        fr.l24[0] = ARCHIVE_HANDLE(heap[0], 1);
         fr.l24[1] = 1;
         fr.l24[2] = 0;
         fr.l24[3] = 0;

@@ -3,6 +3,7 @@
  * +0xe0 child on layer 4 and refreshed. */
 
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 extern char *data_ov106_020b8b60;
 extern const VecFx32 data_ov106_020b8a6c;
@@ -17,7 +18,7 @@ void Ov106_LayoutMarkerWidget(void)
     VecFx32 pos = data_ov106_020b8a6c;
 
     Ov106_PlaceWidget(data_ov106_020b8b60 + 0x8bc4,
-                        (((*(int *)(data_ov106_020b8b60 + 0x8b48) + 0x8000) & 0xfffffc) << 7) | 0x80000002,
+                        ARCHIVE_HANDLE(*(int *)(data_ov106_020b8b60 + 0x8b48), 2),
                         &pos, 0xa000, 5);
     SceneNode_SetFlag40(data_ov106_020b8b60 + 0x8bc4, 1);
     Widget_SetTagWord(data_ov106_020b8b60 + 0x8bc4, 0x7fff);

@@ -2,6 +2,7 @@
  * new-item indicators and installs the touch callbacks. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef void (*EntryCallback)(void);
 typedef struct Ov005SpriteManager {char data[0x4a80];} Ov005SpriteManager;
@@ -37,11 +38,11 @@ void Ov005_InitializeResultSprites(void) {
     int id,index,y;
     u32 i;
     Ov005_InitSubsystemObject(manager,0);
-    descriptor.resourceId=(((data_ov005_0205b80c->resultArchive+0x8000)&0xfffffc)<<7)|0x80000001;
+    descriptor.resourceId=ARCHIVE_HANDLE(data_ov005_0205b80c->resultArchive, 1);
     descriptor.type=1;descriptor.mode=0;descriptor.variant=0;
     Ov005_InitFromDescAndMark(manager,&descriptor);
-    func_ov005_0204e0b0(manager,(((data_ov005_0205b80c->localizedResultArchive+0x8000)&0xfffffc)<<7)|0x80000000);
-    Ov005_LoadBlockProcessAndFree(manager,(((data_ov005_0205b80c->resultArchive+0x8000)&0xfffffc)<<7)|0x80000004,49);
+    func_ov005_0204e0b0(manager,ARCHIVE_HANDLE(data_ov005_0205b80c->localizedResultArchive, 0));
+    Ov005_LoadBlockProcessAndFree(manager,ARCHIVE_HANDLE(data_ov005_0205b80c->resultArchive, 4),49);
     Ov005_SetControlBit0AtA7C(manager,0);
     data_ov005_0205b80c->spriteManager=manager;
     for(id=1;id<=49;id++) {

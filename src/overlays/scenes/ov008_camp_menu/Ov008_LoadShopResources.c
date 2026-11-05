@@ -15,11 +15,10 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 #define HEAP_FILE   0xe
-#define CELL_MASK   0x00fffffc
 #define SLOT_MASK   0x1ff
-#define CELL_HANDLE(src, cell) (((((src) + 0x8000) & CELL_MASK) << 7) | 0x80000000 | (cell))
 #define ROW_TEXT_CAPACITY 0xc0
 #define ROW_TEXT_SIZE     0x600
 #define ROW_TEXT_ALLOC    0x610  /* header + text + 4 spare */
@@ -98,12 +97,12 @@ void Ov008_LoadShopResources(void)
     ctx->pContainerB = Msg_OpenContainerAndReadHeader(gOv008UiShopResI18NPath, HEAP_FILE);
     Ov008_Container_Init(ctx->trackerB, &config);
     Ov008_Container_Init(ctx->tracker, &config);
-    pFile = Archive_LoadFile(CELL_HANDLE(ctx->pContainerA, 0), HEAP_FILE);
+    pFile = Archive_LoadFile(ARCHIVE_HANDLE(ctx->pContainerA, 0), HEAP_FILE);
     Res_LoadSpriteSet(&setMain, pFile, -1, 1, 1);
     GX_LoadBGPltt(setMain.pPalette->pData, 0, setMain.pPalette->nSize);
     nSlot = data_ov008_0208fef2[ctx->nPage * 4];
     if (nSlot >= 0) {
-        pBlock = Archive_LoadFile(CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK), HEAP_FILE);
+        pBlock = Archive_LoadFile(ARCHIVE_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK), HEAP_FILE);
         GetResourceSubBlock_CHAR2(pBlock, &pChar);
         DC_FlushRange(pChar->pData, pChar->nSize);
         GX_LoadBG2Char(pChar->pData, 0, pChar->nSize);

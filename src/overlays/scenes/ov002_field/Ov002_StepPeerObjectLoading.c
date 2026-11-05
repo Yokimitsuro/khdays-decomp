@@ -5,6 +5,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Slot_0201f468 { char pad0[12]; int nRequestId; } Slot_0201f468;
 typedef struct Ov002PeerObjectDesc { u8 bFlags,nArchiveMember; } Ov002PeerObjectDesc;
@@ -70,7 +71,7 @@ int Ov002_StepPeerObjectLoading(void)
             pCtx->nNextObject++;
             if(pPeer->apObjects[i]->bFlags&0x80) {
                 pObjects=pPeer->apObjects;
-                ResCache_Acquire((((((u32)pCtx->pArchiveIndex+0x8000)&0xfffffc)<<7)|0x80000000)|(pObjects[i]->nArchiveMember&0x1ff),&pCtx->pendingObject.pResource,0);
+                ResCache_Acquire((ARCHIVE_HANDLE(pCtx->pArchiveIndex, 0))|(pObjects[i]->nArchiveMember&0x1ff),&pCtx->pendingObject.pResource,0);
                 pCtx->pendingObject.pDescriptor=pObjects[i];
                 pCtx->nLoadState=2;
                 break;

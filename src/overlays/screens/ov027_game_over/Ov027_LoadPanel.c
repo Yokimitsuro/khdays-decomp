@@ -11,6 +11,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Fx32Pair {
     int  x;                   /* 0x00 */
@@ -153,7 +154,7 @@ void Ov027_LoadPanel(void)
     DispatchByPartType(1, pSet->pScreen, pSet->pChar, pSet->pPalette, 7, 1);
     data_ov027_02084364->panel.pBlock =
         AllocAndRegisterOrFree(&data_ov027_02084364->panel.pData,
-                      ((((u32)data_ov027_02084364->pArchive + 0x8000) & 0xfffffc) << 7) | 0x80000000, 0xf);
+                      ARCHIVE_HANDLE(data_ov027_02084364->pArchive, 0), 0xf);
     if (!(data_0204c240.nBits & 4)) {
         Ov027_LayoutChoicePanel();
         for (i = 0; i < data_ov027_02084364->nSlots; i++) {

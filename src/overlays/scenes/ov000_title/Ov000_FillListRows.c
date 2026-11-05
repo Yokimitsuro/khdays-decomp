@@ -13,6 +13,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     void *pVariantA; /* +0x00  item i+1  */
@@ -39,13 +40,13 @@ void Ov000_FillListRows(void) {
     Ov000SceneContext *context = NNSi_FndGetCurrentRootHeap();
     Ov000Row *row = context->rows;
     u16 *values = Archive_LoadFile(
-        (((context->nResourceBase + 0x8000) & 0xfffffc) << 7) | 0x80000007,
+        ARCHIVE_HANDLE(context->nResourceBase, 7),
         14);
     u16 *next_value = values;
     int i;
 
     context->pRowResource = Archive_LoadFile(
-        (((context->nResourceBase + 0x8000) & 0xfffffc) << 7) | 0x80000008,
+        ARCHIVE_HANDLE(context->nResourceBase, 8),
         14);
 
     for (i = 0; i < 28; i++, row++) {

@@ -11,6 +11,7 @@
 
 #include "nitro/fx_types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     char pad000[0x78];
@@ -56,8 +57,7 @@ void Ov002_SceneResetPanelBackdrop(void)
     Tween_Clear(&s->tweenBackdrop);
 
     Ov002_RetargetWidget(&s->backdropWidget,
-                        0x80000001
-                            | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                        ARCHIVE_HANDLE(s->nFileBase, 1),
                         0x38, 0x614);
     SceneNode_Enable(&s->backdropWidget);
 

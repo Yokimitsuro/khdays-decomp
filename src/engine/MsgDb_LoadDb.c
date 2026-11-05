@@ -4,6 +4,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     int   pBuf0;
@@ -45,7 +46,7 @@ int MsgDb_LoadDb(int id, int mode)
     entry->nUnk10 = mode;
     h = Msg_OpenContainerAndReadHeader(gDbDbPath, mode);
 
-    flags = (0x80000000 | ((((u32)h + 0x8000) & 0xfffffc) << 7)) | (0x1ff & packIndex);
+    flags = ARCHIVE_HANDLE(h, 0x1ff & packIndex);
     h2 = Archive_LoadFile(flags, mode);
 
     ZeroHalfThenFree(h);
@@ -63,7 +64,7 @@ int MsgDb_LoadDb(int id, int mode)
         h = Msg_OpenContainerAndReadHeader(gDbDbPath_2, mode);
         if (id == 0x18) packIndex = packIndex - 1;
 
-        flags = (0x80000000 | ((((u32)h + 0x8000) & 0xfffffc) << 7)) | (0x1ff & packIndex);
+        flags = ARCHIVE_HANDLE(h, 0x1ff & packIndex);
         h2 = Archive_LoadFile(flags, mode);
 
         ZeroHalfThenFree(h);

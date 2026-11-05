@@ -21,6 +21,8 @@ int ParseSlotQuantityId(void *world, char *name) {
             quantity = quantity * 10 + (name[i + 2] - '0');
         }
         value = *(int *)((char *)world + slot * 4 + 0x48c);
+        /* The archive handle (game/archive.h) spelled out, the index first: written as
+         * ARCHIVE_HANDLE(value, quantity & 0x1ff) mwcc orders the ORs otherwise, 4 bytes short. */
         return (quantity & 0x1ff) | (0x80000000 | (((value + 0x8000) & 0xfffffc) << 7));
     }
     return (int)name;

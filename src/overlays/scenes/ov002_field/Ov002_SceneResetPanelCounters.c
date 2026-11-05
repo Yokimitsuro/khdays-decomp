@@ -11,6 +11,7 @@
  */
 
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     int nMode;
@@ -52,8 +53,7 @@ void Ov002_SceneResetPanelCounters(void)
     Tween_Clear(&s->tweenDepth);
 
     Ov002_RetargetWidget(s->totalWidget,
-                        0x80000000
-                            | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                        ARCHIVE_HANDLE(s->nFileBase, 0),
                         0x3d, 0x5ec);
 
     for (i = 0; i < 10; i++) {
@@ -63,8 +63,7 @@ void Ov002_SceneResetPanelCounters(void)
     }
 
     Ov002_RetargetWidget(s->rowWidget,
-                        0x80000006
-                            | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                        ARCHIVE_HANDLE(s->nFileBase, 6),
                         0x3d, 0x5ec);
     SceneNode_SetFlag40(s->rowWidget, 1);
 }

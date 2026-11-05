@@ -1,3 +1,5 @@
+
+#include "game/archive.h"
 #pragma opt_strength_reduction off
 #pragma opt_loop_invariants off
 #pragma opt_propagation off
@@ -186,13 +188,13 @@ int Ov003_SceneInit(int param_1) {
         *(volatile unsigned short *)0x04001008 =
             *(volatile unsigned short *)0x04001008 & 0x43 | 0xf00;
         CamAnim_Start((unsigned int *)(root + 0x58),
-                      (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 | 0x80000001),
+                      (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 1)),
                       0x00fffffcU, 0x04001008);
         CamAnim_Start((unsigned int *)(root + 0x2c),
-                      (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 | 0x80000002),
+                      (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 2)),
                       *(int *)(root + 0x20) + 0x8000);
         RegisterSeqAndInit(root + 0x84,
-                      (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 | 0x80000008), 1, 0);
+                      (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 8)), 1, 0);
     }
 #pragma opt_common_subs off
     /* per-entry actor/cell registration */
@@ -207,16 +209,14 @@ int Ov003_SceneInit(int param_1) {
         puVar14 = root + 0x738;
         do {
             OS_SPrintf((char *)auStack_30, (const char *)gOv003PFmt, uVar7, iVar12 + 1);
-            RegisterSeqAndInit(puVar16, (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 |
-                          0x80000000 | (iVar12 + 3U & 0x00fffffcU >> 0xf)), 1, 0);
+            RegisterSeqAndInit(puVar16, (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 0) | (iVar12 + 3U & 0x00fffffcU >> 0xf)), 1, 0);
             SceneNode_AttachToModelJoint((int)puVar16, (int)(root + 0x84), auStack_30);
-            RegisterSeqAndInit(puVar9, (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 |
-                          0x80000007), 1, 0);
+            RegisterSeqAndInit(puVar9, (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 7)), 1, 0);
             SceneNode_AttachToModelJoint((int)puVar9, (int)(root + 0x84), auStack_30);
             signed char *entry = (signed char *)root + iVar12;
             RegisterSeqAndInit(puVar10, *(unsigned int **)(&data_ov003_0204f8f8[entry[6] * 4]), 1, 6);
             Snd_RegisterSeqAndBind((unsigned int *)puVar4, (int)puVar10,
-                          (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 | 0x80000000 |
+                          (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 0) |
                           ((int)data_ov003_0204f8d0[entry[6]] & 0x00fffffcU >> 0xf)), 6);
             SceneNode_AttachToModelJoint((int)puVar10, (int)(root + 0x84), auStack_30);
             BindAnimTrack((int)puVar10, 0, (int)puVar4, 0);
@@ -224,8 +224,7 @@ int Ov003_SceneInit(int param_1) {
 #pragma opt_propagation on
             uVar7 = (unsigned int)data_ov003_0204f8bc[entry[6]];
             if (uVar7 != 0xffffffff) {
-                RegisterSeqAndInit(puVar14, (unsigned int *)((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 |
-                              0x80000000 | (uVar7 & 0x00fffffcU >> 0xf)), 1, 6);
+                RegisterSeqAndInit(puVar14, (unsigned int *)(ARCHIVE_HANDLE(*(int *)(root + 0x20), 0) | (uVar7 & 0x00fffffcU >> 0xf)), 1, 6);
                 SceneNode_AttachToModelJoint((int)puVar14, (int)(root + 0x84), auStack_30);
                 BindAnimTrack((int)puVar14, 0, (int)(puVar14 + 0x70), 0);
                 ((Ov003EntryFlags *)((char *)root + iVar12 * 4 + 0x1000))->hasExtra = 1;
@@ -252,7 +251,7 @@ int Ov003_SceneInit(int param_1) {
     }
     iVar6 = 0;
     GX_SetBankForSubBG(4);
-    uVar5 = Archive_LoadFile((*(int *)(root + 0x20) + 0x8000U & 0x00fffffcU) << 7 | 0x80000000, 0xe);
+    uVar5 = Archive_LoadFile(ARCHIVE_HANDLE(*(int *)(root + 0x20), 0), 0xe);
     *(unsigned int *)(root + 0xedc) = uVar5;
     iVar12 = GetLanguage() == 1;
     if (iVar12 != 0) {

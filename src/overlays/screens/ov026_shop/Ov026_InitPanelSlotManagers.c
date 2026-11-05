@@ -8,14 +8,13 @@
  * +0xbfb0) is initialised with cell 1, two slots, forwarded to table
  * 0208fef1's slot, loaded with resource 02090e30 (27 entries) and forwarded
  * to table 0208fef0's slot (else cell 2).  Handles are
- * (((src + 0x8000) & 0xfffffc) << 7) | 0x80000000 | slot.
+ * ARCHIVE_HANDLE(src, slot) (game/archive.h).
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
-#define CELL_MASK   0x00fffffc
 #define SLOT_MASK   0x1ff
-#define CELL_HANDLE(src, cell) (((((src) + 0x8000) & CELL_MASK) << 7) | 0x80000000 | (cell))
 
 typedef struct Ov008SlotManagerCfg {
     u32 handle;               /* 0x00 */
@@ -56,7 +55,7 @@ void Ov026_InitPanelSlotManagers(void)
     int nSlot;
 
     ctx = data_ov026_02091368;
-    cfg.handle = CELL_HANDLE(ctx->pContainerA, 3);
+    cfg.handle = ARCHIVE_HANDLE(ctx->pContainerA, 3);
     cfg.nSlots = 1;
     cfg.f8 = 0;
     cfg.fc = 0;
@@ -66,16 +65,16 @@ void Ov026_InitPanelSlotManagers(void)
     ctx->hSlotsB = ctx->managerB;
     nSlot = data_ov026_0209114b[ctx->nPage * 4];
     if (nSlot >= 0) {
-        DispObjList_AddResource(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
+        DispObjList_AddResource(ctx->hSlotsB, ARCHIVE_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     }
     Ov026_LoadBlockProcessAndFree(ctx->managerB, gOv026UiShopSpUoPath, 0xf);
     nSlot = data_ov026_02091148[ctx->nPage * 4];
     if (nSlot >= 0) {
-        ctx->nCell = DispObjList_AddResource(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
+        ctx->nCell = DispObjList_AddResource(ctx->hSlotsB, ARCHIVE_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     } else {
-        ctx->nCell = DispObjList_AddResource(ctx->hSlotsB, CELL_HANDLE(ctx->pContainerA, 2));
+        ctx->nCell = DispObjList_AddResource(ctx->hSlotsB, ARCHIVE_HANDLE(ctx->pContainerA, 2));
     }
-    cfg.handle = CELL_HANDLE(ctx->pContainerA, 1);
+    cfg.handle = ARCHIVE_HANDLE(ctx->pContainerA, 1);
     cfg.nSlots = 2;
     cfg.f8 = 0;
     cfg.fc = 0;
@@ -85,13 +84,13 @@ void Ov026_InitPanelSlotManagers(void)
     ctx->hSlots = ctx->managerA;
     nSlot = data_ov026_02091149[ctx->nPage * 4];
     if (nSlot >= 0) {
-        DispObjList_AddResource(ctx->hSlots, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
+        DispObjList_AddResource(ctx->hSlots, ARCHIVE_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     }
     Ov026_LoadBlockProcessAndFree(ctx->managerA, gOv026UiShopSpLoPath, 0x1b);
     nSlot = data_ov026_02091148[ctx->nPage * 4];
     if (nSlot >= 0) {
-        DispObjList_AddResource(ctx->hSlots, CELL_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
+        DispObjList_AddResource(ctx->hSlots, ARCHIVE_HANDLE(ctx->pContainerB, nSlot & SLOT_MASK));
     } else {
-        DispObjList_AddResource(ctx->hSlots, CELL_HANDLE(ctx->pContainerA, 2));
+        DispObjList_AddResource(ctx->hSlots, ARCHIVE_HANDLE(ctx->pContainerA, 2));
     }
 }

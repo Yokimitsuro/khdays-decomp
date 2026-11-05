@@ -8,6 +8,7 @@
  * (GX_LoadBG1Char), then free the transient load handle. */
 
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef void *StateFn;
 
@@ -28,7 +29,7 @@ StateFn Ov000_LogoFadeState3(void) {
         Gfx_EnqueueTableCmdAtC(5, (void *)h[0x5a], 0, *(int *)(h[0x5a] + 8));
         if (h[2] != 0) {
             void *res;
-            void *handle = Archive_LoadFile(((h[2] + 0x8000 & 0xfffffc) << 7) | 0x80000000, 0xe);
+            void *handle = Archive_LoadFile(ARCHIVE_HANDLE(h[2], 0), 0xe);
             GetResourceSubBlock_CHAR2(handle, &res);
             DC_FlushRange(*(void **)((char *)res + 0x14), *(int *)((char *)res + 0x10));
             GX_LoadBG1Char(*(void **)((char *)res + 0x14), 0x7000, *(int *)((char *)res + 0x10));

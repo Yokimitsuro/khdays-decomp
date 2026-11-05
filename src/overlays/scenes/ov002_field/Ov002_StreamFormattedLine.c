@@ -11,6 +11,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 extern void Ov002_FormatEventScriptName(int a, char *out);
 extern u32  MsgArchive_FindEntryByName(int a, char *b);
@@ -27,7 +28,7 @@ void Ov002_StreamFormattedLine(int param_1, u32 *param_2)
     v = MsgArchive_FindEntryByName(*(int *)(ctx + 4), local);
     Stream_DecodeIntoStagingBuffer(
         (u32 *)(ctx + 8),
-        (((*(int *)(ctx + 4) + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (v & (0xfffffc >> 15)),
+        ARCHIVE_HANDLE(*(int *)(ctx + 4), v & (0xfffffc >> 15)),
         param_2,
         (u8 **)(ctx + 0x859c));
 }

@@ -7,6 +7,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov002PeerRecord { s8 bKind,nRows,nObjects,nArchiveMember; } Ov002PeerRecord;
 typedef struct Ov002RosterTable { u8 nCount; char pad1[3]; Ov002PeerRecord *entries[1]; } Ov002RosterTable;
@@ -56,7 +57,7 @@ void Ov002_LoadPeerIntoSlot(int nSlot,int nPeer)
     if(pCtx->slots[nSlot]>=0) pCtx->aSlotMappings[pCtx->slots[nSlot]]=-1;
     pCtx->aSlotMappings[nPeer]=nSlot;
     pCtx->slots[nSlot]=nPeer;
-    Entity_LoadAndAttach((u16)((u16)nSlot), (((((u32)pCtx->pArchiveIndex+0x8000)&0xfffffc)<<7)|0x80000000)|(pPeer->nArchiveMember&0x1ff));
+    Entity_LoadAndAttach((u16)((u16)nSlot), (ARCHIVE_HANDLE(pCtx->pArchiveIndex, 0))|(pPeer->nArchiveMember&0x1ff));
     for(i=0;i<data_02042a1d;i++) {
         int nKind=gPartyMembers[i].bMemberKind;
         if(nKind==0x11) pCtx->bResourceKinds|=4;

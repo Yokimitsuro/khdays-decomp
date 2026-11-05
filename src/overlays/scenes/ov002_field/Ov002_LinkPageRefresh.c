@@ -24,6 +24,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov002LinkWidget {
     char pad000[0x3c];
@@ -74,14 +75,10 @@ void Ov002_LinkPageRefresh(int nStep, int nArg)
     pCtx->nArg = nArg;
     nPacked = Ov002_Res_GetEntryOffset(pCtx->sub00c, nStep);
     if ((nPacked & 0x10000) != 0) {
-        Ov002_AppendEntry((((pCtx->nBase8 + 0x8000) & 0xfffffc) << 7)
-                            | 0x80000000
-                            | (nPacked & 0x1ff),
+        Ov002_AppendEntry(ARCHIVE_HANDLE(pCtx->nBase8, nPacked & 0x1ff),
                             Ov002_LoadBackgroundSet, 0);
     } else {
-        Ov002_AppendEntry((((pCtx->nBase4 + 0x8000) & 0xfffffc) << 7)
-                            | 0x80000000
-                            | (nPacked & 0x1ff),
+        Ov002_AppendEntry(ARCHIVE_HANDLE(pCtx->nBase4, nPacked & 0x1ff),
                             Ov002_LoadBackgroundSet, 0);
     }
 

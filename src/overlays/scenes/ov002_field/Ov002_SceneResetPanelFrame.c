@@ -10,6 +10,7 @@
  */
 
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct {
     char pad000[0xe0];
@@ -43,8 +44,7 @@ void Ov002_SceneResetPanelFrame(void)
     v = data_ov002_0207e184;
 
     Ov002_PlaceWidget(&s->frameWidget,
-                        0x80000002
-                            | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                        ARCHIVE_HANDLE(s->nFileBase, 2),
                         &v, 0xa000, 5);
     SceneNode_SetFlag40(&s->frameWidget, 1);
     Widget_SetTagWord(&s->frameWidget, 0x7fff);

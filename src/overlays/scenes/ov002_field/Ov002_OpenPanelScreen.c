@@ -27,6 +27,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef struct {
     void *pScreen;
@@ -241,12 +242,12 @@ int Ov002_OpenPanelScreen(Ov002PanelParams *pParams)
     if (ctx->bBg2Is256Colour != 0) {
         sBg.bUnk04 = 0;
         nClassArg = -1;
-        sBg.nKey = 0x80000003 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7;
+        sBg.nKey = ARCHIVE_HANDLE(ctx->nArchiveGroup, 3);
         sBg.bUnk08 = (data_0204c240 & 4) == 0;
     } else {
         sBg.bUnk04 = 0;
         nClassArg = 0;
-        sBg.nKey = 0x80000000 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7;
+        sBg.nKey = ARCHIVE_HANDLE(ctx->nArchiveGroup, 0);
         sBg.bUnk08 = 1;
     }
     ctx->hClass0020 = InstantiateClass(data_ov002_0207e8b4, 0);
@@ -260,7 +261,7 @@ int Ov002_OpenPanelScreen(Ov002PanelParams *pParams)
 
     if (ctx->bBg2Is256Colour != 0) {
         pArc = Archive_LoadFile(
-            0x80000002 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7, 0xe);
+            ARCHIVE_HANDLE(ctx->nArchiveGroup, 2), 0xe);
         bLangVariant = GetLanguage() == 1;
         if (bLangVariant != 0) {
             Res_LoadSpriteSet(&sRes, pArc, 0, 0, 0);
@@ -271,14 +272,14 @@ int Ov002_OpenPanelScreen(Ov002PanelParams *pParams)
         }
     } else {
         pArc = Archive_LoadFile(
-            0x80000004 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7, 0xe);
+            ARCHIVE_HANDLE(ctx->nArchiveGroup, 4), 0xe);
         bLangVariant = GetLanguage() == 1;
         if (bLangVariant != 0) {
             Res_LoadSpriteSet(&sRes, pArc, 0, 0, 0);
         } else {
             Res_LoadSpriteSet(&sRes, pArc, 0, -1, 0);
             pExtra = Archive_LoadFile(
-                0x80000000 | ((ctx->nArchiveGroupAlt + 0x8000) & 0xfffffc) << 7,
+                ARCHIVE_HANDLE(ctx->nArchiveGroupAlt, 0),
                 0xe);
             GetResourceSubBlock_CHAR2(pExtra, &sRes.pChar);
         }
@@ -297,10 +298,10 @@ int Ov002_OpenPanelScreen(Ov002PanelParams *pParams)
         bLangVariant = GetLanguage() == 1;
         if (bLangVariant != 0) {
             sChar.nKey =
-                0x80000005 | ((ctx->nArchiveGroup + 0x8000) & 0xfffffc) << 7;
+                ARCHIVE_HANDLE(ctx->nArchiveGroup, 5);
         } else {
             sChar.nKey =
-                0x80000001 | ((ctx->nArchiveGroupAlt + 0x8000) & 0xfffffc) << 7;
+                ARCHIVE_HANDLE(ctx->nArchiveGroupAlt, 1);
         }
         ctx->hCharClass = InstantiateClass(data_ov002_0207e9e0, &sChar);
         if (LoadGlobalU16At0() != 0x2a) {

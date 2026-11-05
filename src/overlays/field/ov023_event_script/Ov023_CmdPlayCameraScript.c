@@ -9,6 +9,7 @@
  * (+0x100).  Returns 1. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov023Camera {
     u8   pad_000[0x3c];
@@ -64,7 +65,7 @@ int Ov023_CmdPlayCameraScript(Ov023ScriptCtx *pCtx, u8 *pOperand)
     }
     pText = Msg_OpenContainerAndReadHeader(gOv023EvEcamPath, 0xd);
     CamAnim_Start(pCtx->pEvent->aCamera[nCamera].player,
-                  ((((u32)pText + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (nLine & (0xfffffc >> 15)));
+                  ARCHIVE_HANDLE(pText, nLine & (0xfffffc >> 15)));
     ZeroHalfThenFree(pText);
     Obj_SetIndirectWord(pCtx->pEvent->aCamera[nCamera].player, 0);
     Obj_SetWord54(pCtx->pEvent->aCamera[nCamera].player, nArg);

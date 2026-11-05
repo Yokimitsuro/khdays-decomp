@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct Ov239ResourceTransform {
     VecFx32 position;
@@ -147,14 +148,12 @@ void Ov239_InitializeActorResources(Ov239Actor *actor)
     subitem->flags |= 2;
 
     subitem = actor->subitem3ac =
-        CreateSubitemInstance0xB4((void *)((((actor->cachedResourceId + 0x8000) & 0xfffffc) << 7)
-                      | 0x80000001));
+        CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(actor->cachedResourceId, 1)));
     Ov107_EnqueueValue(actor, subitem);
     subitem->flags |= 2;
 
     actor->subitem3b4 =
-        CreateSubitemInstance0xB4((void *)((((actor->cachedResourceId + 0x8000) & 0xfffffc) << 7)
-                      | 0x80000000));
+        CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(actor->cachedResourceId, 0)));
     subitem = actor->subitem3b4;
     Ov107_EnqueueValue(actor, subitem);
     subitem->flags |= 2;

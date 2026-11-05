@@ -11,6 +11,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct AiState AiState;
 typedef struct CreatedItem CreatedItem;
@@ -183,8 +184,7 @@ void func_ov107_020c6624(AiState *self, StateData *data)
     List_Init(self->list_22c);
     List_Init(self->list_260);
     self->field_3c = ObjList_New();
-    self->field_1a8 = CreateSubitemInstance0xB4((((Ov107_GetActorManager()->spriteSet_88 + 0x8000)
-                                      & 0xfffffc) << 7) | 0x80000000 | 6);
+    self->field_1a8 = CreateSubitemInstance0xB4(ARCHIVE_HANDLE(Ov107_GetActorManager()->spriteSet_88, 6));
     self->field_1a8->flags_5c |= 2;
     self->field_310 = -1;
     self->field_311.flag = 0;

@@ -1,5 +1,6 @@
 
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 extern int data_ov002_0207f628;
 
@@ -23,6 +24,6 @@ void Ov002_RestartEmitters(void)
     vOffset.z = 0;
 
     Ov002_PlaceWidget(pOwner + 0xec8,
-                        (((*(int *)(pOwner + 0x40) + 0x8000) & 0xfffffc) << 7) | 0x80000000,
+                        ARCHIVE_HANDLE(*(int *)(pOwner + 0x40), 0),
                         &vOffset, 0x614, 0xf);
 }

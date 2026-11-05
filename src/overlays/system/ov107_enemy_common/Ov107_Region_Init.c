@@ -5,6 +5,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 typedef void (*Callback)(void);
 
@@ -132,8 +133,7 @@ void Ov107_Region_Init(StatusNode *self, int tableIndex)
     fx->onBusy = Ov107_Region_DrawStatusFx4;
     fx->owner = self;
 
-    fx = CreateSubitemInstance0xB4((void *)((((Ov107_GetActorManager()->field_88 + 0x8000)
-                                  & 0xfffffc) << 7) | 0x80000008));
+    fx = CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(Ov107_GetActorManager()->field_88, 8)));
     self->field_114 = fx;
     RegisterSubscriberSlot(self->group104, fx);
     fx->onBusy = Ov107_Region_DrawStatusFx8;

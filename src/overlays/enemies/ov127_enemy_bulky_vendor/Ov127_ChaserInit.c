@@ -30,6 +30,8 @@
  * together with the tag derived from the current thread's stack bottom.
  */
 
+#include "game/archive.h"
+
 typedef struct { int nX, nY, nZ; } VecFx32;
 
 struct SpawnVolume {
@@ -98,8 +100,7 @@ void Ov127_ChaserInit(int *self)
     nThread = Ov107_GetActorManager();
     *(int *)self[0xe5] =
         CreateSubitemInstance0xB4((aOwnerTag[0] & 0x1ff) |
-                      (((*(int *)(nThread + 0x88) + 0x8000) & 0xfffffc) << 7 |
-                       0x80000000));
+                      (ARCHIVE_HANDLE(*(int *)(nThread + 0x88), 0)));
     Ov107_EnqueueValue(self, *(int *)self[0xe5]);
     *(unsigned int *)(*(int *)self[0xe5] + 0x5c) |= 2;
 

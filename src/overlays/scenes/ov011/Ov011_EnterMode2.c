@@ -11,6 +11,7 @@
  * file's index. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov011Scene {
     u8    pad_00000[4];
@@ -49,8 +50,7 @@ void Ov011_EnterMode2(void)
     VBlank_UnregisterCallback(1, gOv011SfVName);
     NNSi_FndFreeFromDefaultHeap(data_ov011_0205e960.pScene->pBuffer);
     data_ov011_0205e960.pScene->pBuffer = Archive_LoadFile(
-        ((data_ov011_0205e960.pScene->nArchiveBase + 0x8000 & 0xfffffc) << 7)
-            | 0x80000004, 0xe);
+        ARCHIVE_HANDLE(data_ov011_0205e960.pScene->nArchiveBase, 4), 0xe);
     *(volatile u32 *)0x04000000 &= ~0xe000;
     *(volatile u32 *)0x04001000 &= ~0xe000;
     *(volatile u32 *)0x04000018 = 0;

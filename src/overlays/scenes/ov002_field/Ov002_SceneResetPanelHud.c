@@ -11,6 +11,7 @@
  */
 
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef struct {
     char pad000[0x78];
@@ -52,7 +53,7 @@ void Ov002_SceneResetPanelHud(void)
     s->nFadeMask = Obj_GetFrameCount();
 
     RegisterSeqAndInit(&s->hudWidget,
-                  0x80000000 | ((s->nFileBase + 0x8000) & 0xfffffc) << 7,
+                  ARCHIVE_HANDLE(s->nFileBase, 0),
                   1, 0xe);
     SceneNode_SetFlag40(&s->hudWidget, 1);
 

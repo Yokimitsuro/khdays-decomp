@@ -12,6 +12,7 @@
  */
 
 #include "game/engine.h"
+#include "game/archive.h"
 
 extern int NNSi_FndAllocFromDefaultExpHeap(int size);
 extern void Ov022_TakeChannelBlock(int a, int b, int c);
@@ -63,7 +64,6 @@ void Ov062_BuildPeerGroup(int self) {
         p.f00 |= 1;
     }
     Ov022_PublishGroupUpdateFixed(*(int *)(self + 0x2644), self,
-                        (((*(int *)(self + 0x2bd0) + 0x8000) & 0xfffffc) << 7) | 0x80000000
-                            | ((*slot + 0xbe) & 0x1ff),
+                        ARCHIVE_HANDLE(*(int *)(self + 0x2bd0), (*slot + 0xbe) & 0x1ff),
                         &p);
 }

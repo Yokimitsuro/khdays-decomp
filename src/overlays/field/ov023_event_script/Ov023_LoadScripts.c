@@ -10,6 +10,7 @@
  * and the state moves on to Ov023_SceneReady (0208337c). */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct Ov023Scene {
     u8   pad_00000[0x4b88];
@@ -77,7 +78,7 @@ void *Ov023_LoadScripts(void)
     nSubObject = Ov002_GetRootSub04();
     nEncoded = MsgArchive_FindEntryByName(Ov002_GetRootSub04(), szLine);
     Stream_DecodeIntoStagingBuffer(data_ov023_0208a784.pScene->message,
-                  (((nSubObject + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (nEncoded & (0xfffffc >> 15)),
+                  ARCHIVE_HANDLE(nSubObject, nEncoded & (0xfffffc >> 15)),
                   pScene->szName, &pScene->pStagingTail);
     data_ov023_0208a784.pScene->nWord5118 = 0x10000;
     return Ov023_SceneRun;

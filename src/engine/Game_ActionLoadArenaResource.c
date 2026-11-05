@@ -23,6 +23,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 extern int   ByteCode_ResolveOperand(int st, short *cmd);
 extern void  Game_PushObjectSlot(int *st, int *slot, int a, u32 *operand);
@@ -79,7 +80,7 @@ int Game_ActionLoadArenaResource(int *param_1, short *param_2)
             slot = *(int *)(param_1[0x4a] + func_020200b4(path) * 4 + 0x48c);
             if (path[0] == '0') v = MsgArchive_FindEntryByName(slot, path + 2);
             else v = func_020200b4(path + 2);
-            uVar6 = (((slot + 0x8000) & 0xfffffc) << 7) | 0x80000000;
+            uVar6 = ARCHIVE_HANDLE(slot, 0);
             result = FileLoader_LoadInto((char *)((v & (0xfffffc >> 0xf)) | uVar6),
                                    (int)dst_base + owner, avail, uVar6);
         }

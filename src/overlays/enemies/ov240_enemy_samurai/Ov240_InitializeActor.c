@@ -1,3 +1,5 @@
+
+#include "game/archive.h"
 #pragma opt_dead_assignments off
 #pragma opt_propagation off
 /* Constructor of the ov240 enemy: resolves the overlay's config into +0x384, installs the
@@ -126,10 +128,10 @@ void Ov240_InitializeActor(struct Ov240Actor *self)
     item->flags5c |= 2;
     #pragma opt_scheduling off
         { struct Ov240Actor *owner = self; struct Subitem **out = &self->subitem3ac;
-        item = *out = CreateSubitemInstance0xB4((void *)((((self->config384 + 0x8000) & 0xfffffc) << 7) | 0x80000001));
+        item = *out = CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(self->config384, 1)));
         Ov107_EnqueueValue(owner, item); }
     item->flags5c |= 2;
-    item = self->subitem3b4 = CreateSubitemInstance0xB4((void *)((((self->config384 + 0x8000) & 0xfffffc) << 7) | 0x80000000));
+    item = self->subitem3b4 = CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(self->config384, 0)));
     Ov107_EnqueueValue(self, item);
     item->flags5c |= 2;
     item = self->subitem3bc = CreateSubitemInstance0xB4(Ov107_PackTextureHandle(self, 2));

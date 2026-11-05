@@ -1,3 +1,5 @@
+
+#include "game/archive.h"
 #pragma thumb on
 /* Load the ov106 scene's font and caption: the player name is fetched, the gOv106EvEvDpPath resource
  * loads (mode 0xf) and the +0x8e50 caption is drawn from it into +0x8594 (colour from the +0x8e52
@@ -30,7 +32,7 @@ void *Ov106_LoadFontAndCaption(void)
     res = Msg_OpenContainerAndReadHeader(path, 0xf);
     scene = data_ov106_020b8b60;
     Stream_DecodeIntoStagingBuffer(data_ov106_020b8b60,
-                  ((((int)res + 0x8000) & 0xfffffc) << 7) | 0x80000000 | (func_020200b4(scene + 0x8e52) & 0x1ff),
+                  ARCHIVE_HANDLE((int)res, func_020200b4(scene + 0x8e52) & 0x1ff),
                   scene + 0x8e50, scene + 0x8594);
     ZeroHalfThenFree(res);
     *(int *)(data_ov106_020b8b60 + 0x8e40) = InstantiateClass(data_ov106_020b8b20, 0);

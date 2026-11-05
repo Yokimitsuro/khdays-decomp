@@ -1,6 +1,7 @@
 /* Initialises the reward menu's resource tracker and loads its sections from the result archive. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef int (*ResourceCallback)(int);
 typedef struct Ov000ResourceTrackerConfig {u32 entryCapacity,nodeCapacity,auxiliaryCapacity;ResourceCallback entryCallback,nodeCallback;} Ov000ResourceTrackerConfig;
@@ -20,5 +21,5 @@ void Ov005_InitializeResourceTracker(void) {
     config.entryCallback=Ov005_ResourceEntryCallback;
     config.nodeCallback=Ov005_ResourceNodeCallback;
     Ov005_Container_Init(&context->resourceTracker,&config);
-    Ov005_LoadAndInitResourceSections(&context->resourceTracker,(((data_ov005_0205b80c->resultArchive+0x8000)&0xfffffc)<<7)|0x80000003);
+    Ov005_LoadAndInitResourceSections(&context->resourceTracker,ARCHIVE_HANDLE(data_ov005_0205b80c->resultArchive, 3));
 }

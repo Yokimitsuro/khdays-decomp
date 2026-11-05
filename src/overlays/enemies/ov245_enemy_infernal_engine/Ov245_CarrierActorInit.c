@@ -9,6 +9,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/archive.h"
 
 typedef void (*Callback)(void);
 struct w8 { unsigned int lo : 8, rest : 24; };
@@ -78,10 +79,10 @@ void Ov245_CarrierActorInit(int selfArg) {
     *(int *)(self + 0x3a0) = InsertSortedEntryWithKey(*(int *)(self + 0x384), 3, gOv245BoneTag00Name);
     os = Ov107_GetActorManager();
     ((struct Ov245Self *)self)->slots[0].pItem =
-        CreateSubitemInstance0xB4((void *)((((*(int *)((char *)os + 0x88) + 0x8000) & 0x00fffffc) << 7) | 0x80000000));
+        CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(*(int *)((char *)os + 0x88), 0)));
     os = Ov107_GetActorManager();
     ((struct Ov245Self *)self)->slots[1].pItem =
-        CreateSubitemInstance0xB4((void *)((((*(int *)((char *)os + 0x88) + 0x8000) & 0x00fffffc) << 7) | 0x80000003));
+        CreateSubitemInstance0xB4((void *)(ARCHIVE_HANDLE(*(int *)((char *)os + 0x88), 3)));
     ((struct Ov245Self *)self)->slots[2].pItem = CreateSubitemInstance0xB4(Ov107_PackTextureHandle(pool, 0x1a));
     for (i = 0; i < 3; i++) {
         Ov107_EnqueueValue(self, ((struct Ov245Self *)self)->slots[i].pItem);

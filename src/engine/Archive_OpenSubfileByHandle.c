@@ -1,7 +1,9 @@
-/* Opens a file inside a packed archive by its handle: the handle encodes the archive header's
- * address and the entry index, whose offset and size are read from the header's tables. */
+/* Opens a file inside a packed archive by its handle (game/archive.h): the handle names the archive
+ * header (ARCHIVE_HANDLE_HEADER) and the subfile (ARCHIVE_HANDLE_INDEX), whose offset and size are
+ * read from the header's tables. */
 
 #include "nitro/types.h"
+#include "game/archive.h"
 
 typedef struct FSArchive FSArchive;
 typedef struct FSFile FSFile;
@@ -12,8 +14,8 @@ extern BOOL FS_OpenFileDirect(FSFile *file, FSArchive *archive, u32 image_top, u
 BOOL Archive_OpenSubfileByHandle(FSFile *file, u32 id)
 {
     u32 mask = 0x00fffffc;
-    u32 base = ((id >> 7) & mask) + 0x01ff8000;
-    u16 idx  = (u16)(id & (mask >> 15));
+    u32 base = ARCHIVE_HANDLE_HEADER(id);
+    u16 idx  = (u16)ARCHIVE_HANDLE_INDEX(id);
     u8 *p = (u8 *)base;
     u32 top = *(u32 *)(p + 0xc) + ((u32)*(u16 *)(p + idx * 2 + 0x10) << 9);
     FSArchive *arc = *(FSArchive **)(p + 8);
