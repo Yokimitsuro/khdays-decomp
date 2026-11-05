@@ -131,7 +131,7 @@ struct Actor {
     void *field_18c;                /* 0x18c */
     VecFx32 vChaseTarget;           /* 0x190 */
     u8 field_19c;                   /* 0x19c */
-    u8 field_19d;                   /* 0x19d */
+    u8 nLevel;                      /* 0x19d: an enemy's level (Ov107_AiState_LoadStats) */
     u8 field_19e;                   /* 0x19e */
     u8 field_19f;                   /* 0x19f */
     void *field_1a0;                /* 0x1a0 */
@@ -155,14 +155,14 @@ struct Actor {
     void (*pfnAction)();            /* 0x1cc */
     void (*pfnOnHit)();             /* 0x1d0 */
     void (*pfnOnDefeat)();          /* 0x1d4 */
-    void (*pfnSlotEvent)();         /* 0x1d8 */
+    void (*pfnSetAttackPower)();    /* 0x1d8: sets an attack's power (Ov107_SetAttackPower) */
     void (*pfnPlayAnim)();          /* 0x1dc */
     void (*pfnRequestSubState)();   /* 0x1e0 */
     void (*pfnRequestSubStateIfIdle)(); /* 0x1e4 */
     void (*pfnOnRetired)();         /* 0x1e8 */
-    void *field_1ec;                /* 0x1ec */
-    void *field_1f0;                /* 0x1f0 */
-    int field_1f4;                  /* 0x1f4 */
+    void (*pfnLoadStats)();         /* 0x1ec: loads the stats of a level (Ov107_AiState_LoadStats) */
+    void (*pfnLoadMsUpRecord)();    /* 0x1f0: Ov107_LoadMsUpRecord */
+    void (*pfnSetHomeAndReach)();   /* 0x1f4: Ov107_SetHomeAndReach, the spawner's */
     void *field_1f8;                /* 0x1f8 */
     ActorBox bounds;                /* 0x1fc */
     void *pAiState;                 /* 0x214: state block of the AI task +0x030 creates */

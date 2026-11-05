@@ -8,7 +8,7 @@
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int gOv214PackPathFmt;
 extern void *CallocInstance(int size);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern void Ov214_ConstructActor(void *obj);
 
 void *Ov214_AllocActorWithName(int arg)
@@ -20,6 +20,6 @@ void *Ov214_AllocActorWithName(int arg)
     OS_SPrintf(name, (const char *)&gOv214PackPathFmt, ENEMY_MORNING_STAR);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov214_ConstructActor;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

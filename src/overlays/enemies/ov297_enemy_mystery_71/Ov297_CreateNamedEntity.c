@@ -7,7 +7,7 @@
 
 extern void *CallocInstance(int size);
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern int gOv297PackPathFmt;
 extern void Ov297_Construct(void *obj);
 
@@ -20,6 +20,6 @@ void *Ov297_CreateNamedEntity(int arg)
     OS_SPrintf(name, (const char *)&gOv297PackPathFmt, ENEMY_MYSTERY_71);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov297_Construct;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

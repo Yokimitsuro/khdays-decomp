@@ -6,7 +6,7 @@
 extern int gOv243PackPathFmt;
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *CallocInstance(int size);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern void Ov243_Construct(void *obj);
 
 void *Ov243_CreateNamedEntity(int arg)
@@ -18,6 +18,6 @@ void *Ov243_CreateNamedEntity(int arg)
     OS_SPrintf(name, (const char *)&gOv243PackPathFmt, ENEMY_COGSWORTH);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov243_Construct;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

@@ -52,7 +52,7 @@ src/overlays/enemies/ov277_enemy_dark_follower/Ov277_SetHeadingDegrees.c:
     complete
     .text       start:0x020cd170 end:0x020cd1b8
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_RelaySlotEvent.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_SetAttackPower.c:
     complete
     .text       start:0x020cd1b8 end:0x020cd24c
 

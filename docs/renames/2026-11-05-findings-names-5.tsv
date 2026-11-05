@@ -1,0 +1,5 @@
+# The enemy's hooks, read from the constructor that installs them: the AiState constructor
+# (Ov107_AiState_Init) and the Darkside's and dark follower's overrides of Ov107_SetAttackPower.
+func_ov107_020c6624	Ov107_AiState_Init	ov107
+Ov244_RelaySlotEvent	Ov244_SetAttackPower	ov244
+Ov277_RelaySlotEvent	Ov277_SetAttackPower	ov277

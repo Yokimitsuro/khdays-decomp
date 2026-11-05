@@ -6,7 +6,7 @@
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int gOv264PackPathFmt;
 extern void *CallocInstance(int size);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern void Ov264_initActor(void *obj);
 
 void *Ov264_AllocActorWithName(int arg)
@@ -18,6 +18,6 @@ void *Ov264_AllocActorWithName(int arg)
     OS_SPrintf(name, (const char *)&gOv264PackPathFmt, ENEMY_SPIKED_CRAWLER);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov264_initActor;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

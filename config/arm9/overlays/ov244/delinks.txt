@@ -48,7 +48,7 @@ src/overlays/enemies/ov244_enemy_darkside/Ov244_SetHeadingDegrees.c:
     complete
     .text       start:0x020cd130 end:0x020cd178
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_RelaySlotEvent.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_SetAttackPower.c:
     complete
     .text       start:0x020cd178 end:0x020cd20c
 

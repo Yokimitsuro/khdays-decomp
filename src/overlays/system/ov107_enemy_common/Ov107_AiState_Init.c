@@ -1,7 +1,9 @@
 /* Constructs an AiState on top of the base actor node (Ov107_InitActorNode): sets flag 0x40,
  * installs this subclass's callbacks, binds the state data table `data` at +0x1a0, seeds the
  * scale/timer fields, initialises the two lists at +0x22c/+0x260, attaches the +0x3c object and
- * the +0x1a8 item, then runs the record-load callbacks at +0x1ec/+0x1f0 and the +0x18c hook.
+ * the +0x1a8 item, then loads its stats for the level data_0204252c holds (+0x1ec,
+ * Ov107_AiState_LoadStats), its ms_up record data_02042530 (+0x1f0, Ov107_LoadMsUpRecord) and
+ * runs the +0x18c hook.
  * With a table bound, it creates attachment slot 6 for an entry of kind 4, slots 5 and 7 for an
  * entry of kind 8, and otherwise slot 7 when any field_24 value exceeds 0x100; every created
  * item gets Ov107_RenderAtOwnerSphere at +0x6c, and slot 7's item points back at this state at +0x84.
@@ -86,14 +88,14 @@ struct AiState {
     int (*field_1cc)(AiState *, int);
     int field_1d0;
     void (*field_1d4)(AiState *);
-    void (*field_1d8)(AiState *, int, int);
+    void (*pSetAttackPower)(AiState *, int, int);
     void *field_1dc;
     int (*field_1e0)(AiState *);
     void (*field_1e4)(AiState *);
     void (*field_1e8)(AiState *);
-    void (*field_1ec)(AiState *, int);
-    void (*field_1f0)(AiState *, u8);
-    void (*field_1f4)(AiState *, int, int);
+    void (*pLoadStats)(AiState *, int);
+    void (*pLoadMsUpRecord)(AiState *, u8);
+    void (*pSetHomeAndReach)(AiState *, int, int);
     void (*field_1f8)(AiState *);
     char pad1fc[0x18];
     int field_214;
@@ -134,7 +136,7 @@ extern void Ov107_Actor_DetachFromRegion(AiState *self, void *param);
 extern void Ov107_AiState_PostTickBase(AiState *self);
 extern int Ov107_ResolveActorContact(AiState *a, AiState *b);
 extern int func_ov107_020c73a0(AiState *self, int event);
-extern void Ov107_AiState_LoadStats(AiState *self, int recordIndex);
+extern void Ov107_AiState_LoadStats(AiState *self, int nLevel);
 extern void Ov107_LoadMsUpRecord(AiState *self, u8 recordIndex);
 extern void Ov107_SetHomeAndReach(AiState *self, int a, int b);
 extern void Ov107_ResetStanceBase(AiState *self);
@@ -145,7 +147,7 @@ extern void Ov107_RenderAtOwnerSphere(CreatedItem *self, int region);
 extern u8 data_0204252c;
 extern u8 data_02042530;
 
-void func_ov107_020c6624(AiState *self, StateData *data)
+void Ov107_AiState_Init(AiState *self, StateData *data)
 {
     int i;
 
@@ -162,15 +164,15 @@ void func_ov107_020c6624(AiState *self, StateData *data)
     self->flags40 |= 4;
     self->field_4c = Ov107_ResolveActorContact;
     self->field_1cc = func_ov107_020c73a0;
-    self->field_1ec = Ov107_AiState_LoadStats;
-    self->field_1f0 = Ov107_LoadMsUpRecord;
-    self->field_1f4 = Ov107_SetHomeAndReach;
+    self->pLoadStats = Ov107_AiState_LoadStats;
+    self->pLoadMsUpRecord = Ov107_LoadMsUpRecord;
+    self->pSetHomeAndReach = Ov107_SetHomeAndReach;
     self->field_1f8 = Ov107_ResetStanceBase;
     self->field_1d0 = 0;
     self->field_1e0 = 0;
     self->field_1e4 = 0;
     self->field_1d4 = Ov107_AiState_OnDefeat;
-    self->field_1d8 = Ov107_SetAttackPower;
+    self->pSetAttackPower = Ov107_SetAttackPower;
     self->field_1dc = 0;
     self->field_1e8 = 0;
     self->field_1c9 = 1;
@@ -193,15 +195,15 @@ void func_ov107_020c6624(AiState *self, StateData *data)
     self->field_30c = 1;
 
     {
-        u8 recordIndex = data_0204252c;
-        if (self->field_1ec != 0) {
-            self->field_1ec(self, recordIndex);
+        u8 nLevel = data_0204252c;
+        if (self->pLoadStats != 0) {
+            self->pLoadStats(self, nLevel);
         }
     }
     {
         u8 recordIndex = data_02042530;
-        if (self->field_1f0 != 0) {
-            self->field_1f0(self, recordIndex);
+        if (self->pLoadMsUpRecord != 0) {
+            self->pLoadMsUpRecord(self, recordIndex);
         }
     }
     if (self->field_18c != 0) {

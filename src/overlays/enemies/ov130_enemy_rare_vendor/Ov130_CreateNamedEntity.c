@@ -7,7 +7,7 @@
 
 extern int CallocInstance(int a);
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
-extern void func_ov107_020c6624(int a, int b);
+extern void Ov107_AiState_Init(int a, int b);
 extern const char gOv130PackPathFmt[];
 extern void Ov130_ChaserInit(int);
 
@@ -18,6 +18,6 @@ int Ov130_CreateNamedEntity(int param_1) {
     OS_SPrintf(buf, gOv130PackPathFmt, ENEMY_RARE_VENDOR);
     *(int *)(obj + 0x1a4) = Ov107_OpenCachedResourceByName(buf);
     *(int *)(obj + 0x18c) = (int)Ov130_ChaserInit;
-    func_ov107_020c6624(obj, param_1);
+    Ov107_AiState_Init(obj, param_1);
     return obj;
 }

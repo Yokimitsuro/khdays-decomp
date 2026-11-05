@@ -8,7 +8,7 @@
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int gOv216PackPathFmt;
 extern void *CallocInstance(int size);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern void Ov216_Construct(void *obj);
 
 void *Ov216_AllocActorWithName(int arg)
@@ -20,6 +20,6 @@ void *Ov216_AllocActorWithName(int arg)
     OS_SPrintf(name, (const char *)&gOv216PackPathFmt, ENEMY_SCORCHING_SPHERE);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov216_Construct;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

@@ -56,7 +56,7 @@ extern int JointModel_New(void *record, int kind);
 extern int Ov237_CreateSparkEmitter(char *self);
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int Ov107_OpenCachedResourceByName(char *buf);
-extern void func_ov107_020c6624(int obj, int arg);
+extern void Ov107_AiState_Init(int obj, int arg);
 extern void Res_RequestIdPair(int resourceId);
 extern const JointNames data_ov237_020d19f8;
 extern const IdTable19 data_ov237_020d1a20;
@@ -207,7 +207,7 @@ void Ov237_Construct(char *self)
         OS_SPrintf(buf, gOv237PackPathFmt, *(u8 *)(*(int *)(self + 0x4a4) + 0x19c));
         *(int *)(*(int *)(self + 0x4a4) + 0x1a4) = Ov107_OpenCachedResourceByName(buf);
         *(void **)(*(int *)(self + 0x4a4) + 0x18c) = Ov237_Construct;
-        func_ov107_020c6624(*(int *)(self + 0x4a4), *(int *)(self + 0x1a0));
+        Ov107_AiState_Init(*(int *)(self + 0x4a4), *(int *)(self + 0x1a0));
         *(u16 *)(*(int *)(self + 0x4a4) + 0x1ae) |= 8;
     }
     Res_RequestIdPair(0x12d);

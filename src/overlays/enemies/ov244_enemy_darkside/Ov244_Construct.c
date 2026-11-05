@@ -30,7 +30,7 @@ extern void Ov244_CreateRegistryEntryAndLink_2(void);
 extern void Ov244_Update(void);
 extern void Ov244_SetHeadingDegrees(void);
 extern void Ov244_HitFilter(void);
-extern void Ov244_RelaySlotEvent(void);
+extern void Ov244_SetAttackPower(void);
 extern void Ov244_RebindCollisionSlot(void);
 extern void func_ov244_020cd20c(void);
 extern void Ov244_RunSubNodeCallbacksArg(void);
@@ -90,7 +90,7 @@ void Ov244_Construct(char *self)
     *(Callback *)(self + 0x34) = Ov244_Update;
     *(Callback *)(self + 0x38) = Ov244_SetHeadingDegrees;
     *(Callback *)(self + 0x1d0) = Ov244_HitFilter;
-    *(Callback *)(self + 0x1d8) = Ov244_RelaySlotEvent;
+    *(Callback *)(self + 0x1d8) = Ov244_SetAttackPower;
     *(Callback *)(self + 0x1dc) = Ov244_RebindCollisionSlot;
     *(Callback *)(self + 0x1d4) = func_ov244_020cd20c;
     *(Callback *)(self + 0x1ec) = Ov244_RunSubNodeCallbacksArg;

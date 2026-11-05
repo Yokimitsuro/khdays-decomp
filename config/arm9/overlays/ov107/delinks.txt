@@ -413,7 +413,7 @@ src/overlays/system/ov107_enemy_common/Ov107_RenderAtOwnerSphere.c:
     complete
     .text       start:0x020c65d8 end:0x020c6624
 
-src/overlays/system/ov107_enemy_common/func_ov107_020c6624.c:
+src/overlays/system/ov107_enemy_common/Ov107_AiState_Init.c:
     complete
     .text       start:0x020c6624 end:0x020c68ec
 

@@ -6,7 +6,7 @@
 
 extern int CallocInstance(int a);
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
-extern void func_ov107_020c6624(int a, int b);
+extern void Ov107_AiState_Init(int a, int b);
 extern const char gOv213PackPathFmt[];
 extern void Ov213_Construct(int);
 int Ov213_CreateNamedEntity(int param_1) {
@@ -16,6 +16,6 @@ int Ov213_CreateNamedEntity(int param_1) {
     OS_SPrintf(buf, gOv213PackPathFmt, ENEMY_INVISIBLE);
     *(int *)(obj + 0x1a4) = Ov107_OpenCachedResourceByName(buf);
     *(int *)(obj + 0x18c) = (int)&Ov213_Construct;
-    func_ov107_020c6624(obj, param_1);
+    Ov107_AiState_Init(obj, param_1);
     return obj;
 }

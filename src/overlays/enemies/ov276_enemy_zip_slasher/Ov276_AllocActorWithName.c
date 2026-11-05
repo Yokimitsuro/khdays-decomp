@@ -8,7 +8,7 @@
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern int gOv276PackPathFmt;
 extern void *CallocInstance(int size);
-extern void func_ov107_020c6624(void *obj, int arg);
+extern void Ov107_AiState_Init(void *obj, int arg);
 extern void Ov276_EnemyConstruct(void *obj);
 
 void *Ov276_AllocActorWithName(int arg)
@@ -20,6 +20,6 @@ void *Ov276_AllocActorWithName(int arg)
     OS_SPrintf(name, (const char *)&gOv276PackPathFmt, ENEMY_ZIP_SLASHER);
     *(int *)((int)obj + 0x1a4) = Ov107_OpenCachedResourceByName(name);
     *(void **)((int)obj + 0x18c) = Ov276_EnemyConstruct;
-    func_ov107_020c6624(obj, arg);
+    Ov107_AiState_Init(obj, arg);
     return obj;
 }

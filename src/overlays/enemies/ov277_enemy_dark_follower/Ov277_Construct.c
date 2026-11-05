@@ -30,7 +30,7 @@ extern void Ov277_CreateRegistryEntryAndLink_2(void);
 extern void Ov277_Update(void);
 extern void Ov277_SetHeadingDegrees(void);
 extern void Ov277_HitFilter(void);
-extern void Ov277_RelaySlotEvent(void);
+extern void Ov277_SetAttackPower(void);
 extern void Ov277_RebindCollisionSlot(void);
 extern void func_ov277_020cd24c(void);
 extern void Ov277_RunSubNodeCallbacksArg(void);
@@ -90,7 +90,7 @@ void Ov277_Construct(char *self)
     *(Callback *)(self + 0x34) = Ov277_Update;
     *(Callback *)(self + 0x38) = Ov277_SetHeadingDegrees;
     *(Callback *)(self + 0x1d0) = Ov277_HitFilter;
-    *(Callback *)(self + 0x1d8) = Ov277_RelaySlotEvent;
+    *(Callback *)(self + 0x1d8) = Ov277_SetAttackPower;
     *(Callback *)(self + 0x1dc) = Ov277_RebindCollisionSlot;
     *(Callback *)(self + 0x1d4) = func_ov277_020cd24c;
     *(Callback *)(self + 0x1ec) = Ov277_RunSubNodeCallbacksArg;
