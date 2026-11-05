@@ -1,6 +1,6 @@
-/* ov025 menu entry table, 0x020b4f64-0x020b5158 (.data): the 25 entries of the
- * records menu (the same layout as ov008's item menu table 02090598).  Each
- * entry names its item id, the text and help-text records, the anchor slot,
+/* ov025 Preferences table, 0x020b4f64-0x020b5158 (.data): the 25 settings of the
+ * camp's Preferences page (the same layout as ov008's table 02090598).  Each
+ * entry names its id, the text and help-text records, the anchor slot,
  * a lock state, an enabled flag (raised by Ov025_Config_Setup 0209c62c for
  * entry 0) and up to three sub-entries (id, text, help) counted by nSubCount;
  * 0209c00c picks a sub-entry by column, 0209bfa8 / 0209cd5c read the sub

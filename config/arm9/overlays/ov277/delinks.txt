@@ -480,7 +480,7 @@ src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiTargetAndFace.c:
     complete
     .text       start:0x020d23e0 end:0x020d24a8
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiFadeInTick.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiRiseTick.c:
     complete
     .text       start:0x020d24a8 end:0x020d2534
 
@@ -500,11 +500,11 @@ src/overlays/enemies/ov277_enemy_dark_follower/Ov277_ApproachTick.c:
     complete
     .text       start:0x020d2754 end:0x020d28bc
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiEnterFadeIn.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiEnterSink.c:
     complete
     .text       start:0x020d28bc end:0x020d28f8
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_FadeInSubObject.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_SinkIntoGround.c:
     complete
     .text       start:0x020d28f8 end:0x020d2988
 
@@ -520,7 +520,7 @@ src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiEnterPursuit.c:
     complete
     .text       start:0x020d2d88 end:0x020d2e0c
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_EasePursuitSpeed.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_RiseFromGround.c:
     complete
     .text       start:0x020d2e0c end:0x020d2eb4
 
@@ -564,11 +564,11 @@ src/overlays/enemies/ov277_enemy_dark_follower/Ov277_Action6Callback.c:
     complete
     .text       start:0x020d33b0 end:0x020d347c
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiEnterFadeOut.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiEnterSinkAndStay.c:
     complete
     .text       start:0x020d347c end:0x020d34b8
 
-src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiFadeOutTick.c:
+src/overlays/enemies/ov277_enemy_dark_follower/Ov277_AiSinkTick.c:
     complete
     .text       start:0x020d34b8 end:0x020d3548
 

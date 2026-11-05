@@ -16,7 +16,7 @@ Ov182_AiApplyHeadingAndNormal kind:function(arm,size=0xb4) addr:0x020cea80
 Ov182_stateSetFlagsClearBitInit kind:function(arm,size=0x74) addr:0x020ceb34
 Ov182_AiStep_QueueStoredActionIfActive kind:function(arm,size=0x3c) addr:0x020ceba8
 Ov182_stateAcquireAimInit kind:function(arm,size=0xc8) addr:0x020cebe4
-Ov182_AiFadeInSlowTick kind:function(arm,size=0x8c) addr:0x020cecac
+Ov182_AiRiseSlowTick kind:function(arm,size=0x8c) addr:0x020cecac
 Ov182_SpawnHook kind:function(arm,size=0x4c) addr:0x020ced38
 Ov182_CircleTick kind:function(arm,size=0x248) addr:0x020ced84
 Ov182_SetPose2ThenAdvanceSlot kind:function(arm,size=0x34) addr:0x020cefcc
@@ -28,7 +28,7 @@ Ov182_SetPose5ThenAdvanceSlot kind:function(arm,size=0x34) addr:0x020cf3cc
 Ov182_GuardFieldCClearField1cAdvance kind:function(arm,size=0x34) addr:0x020cf400
 Ov182_ChargeUpTick kind:function(arm,size=0x230) addr:0x020cf434
 Ov182_evalHermiteSplinePath kind:function(arm,size=0x264) addr:0x020cf664
-Ov182_AiFadeInTick kind:function(arm,size=0xa4) addr:0x020cf8c8
+Ov182_AiRiseTick kind:function(arm,size=0xa4) addr:0x020cf8c8
 Ov182_stateAnimAimAtTarget kind:function(arm,size=0x6c) addr:0x020cf96c
 Ov182_stEasePoseCheckFlags kind:function(arm,size=0x84) addr:0x020cf9d8
 Ov182_stateScaleVecMagnitudeGate kind:function(arm,size=0x64) addr:0x020cfa5c
@@ -48,7 +48,7 @@ Ov182_BeginSteerSweep kind:function(arm,size=0xe4) addr:0x020d0484
 Ov182_SteerSweep kind:function(arm,size=0xf0) addr:0x020d0568
 Ov182_BeginState5AndClear kind:function(arm,size=0x9c) addr:0x020d0658
 Ov182_GuardFieldCClearField1cAdvance_2 kind:function(arm,size=0x34) addr:0x020d06f4
-Ov182_TimerInterp394ThenAdvance kind:function(arm,size=0x78) addr:0x020d0728
+Ov182_AiSinkTick kind:function(arm,size=0x78) addr:0x020d0728
 Ov182_AiSetStanceAndEnd kind:function(arm,size=0x78) addr:0x020d07a0
 data_ov182_020d0818 kind:data(any) addr:0x020d0818
 data_ov182_020d0824 kind:data(any) addr:0x020d0824

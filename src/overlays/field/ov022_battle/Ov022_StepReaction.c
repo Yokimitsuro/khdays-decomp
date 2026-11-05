@@ -54,13 +54,13 @@ struct ReactionCtx {
     u8 pad10[8];
     struct ActorSlot *aSlots[11];/* 0x18 */
     u8 pad44[0x10];
-    int nTrack;                  /* 0x54 */
+    u8 *pLevelAnim;                 /* 0x54: the cast's level animation (its grid entry) */
 };
 
 #define WAIT_HOLD 0x3000
 
 extern void Ov022_ApplyReactionHit(struct ReactionCtx *pCtx, struct ActorSlot *pSlot);
-extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, int nTrack, u16 *pFlags,
+extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget, u16 *pFlags,
                                 int nBinding);
 extern unsigned short Sequence_UpdateTracks(u16 *pFlags, int nDelta);
 
@@ -86,7 +86,7 @@ int Ov022_StepReaction(struct ReactionCtx *pCtx, int nDelta)
         if (Sequence_UpdateTracks(&pSlot->nSlotFlags, nDelta) != 0) {
             pSlot->nTimer = 0;
             pSlot->nState = 2;
-            Ov022_BindBlockAnimations(pCtx, pCtx->nTrack + 4, &pSlot->nSlotFlags, 1);
+            Ov022_BindBlockAnimations(pCtx, pCtx->pLevelAnim + 4, &pSlot->nSlotFlags, 1);
             nLoop = pSlot->nLoopFlags;
             pSlot->aEntryFlags[2] = nLoop;
             pSlot->aEntryFlags[1] = nLoop;

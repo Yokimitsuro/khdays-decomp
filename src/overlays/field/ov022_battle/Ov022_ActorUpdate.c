@@ -129,7 +129,7 @@ extern void Ov022_UpdateRumble(struct Actor *pActor);
 extern void Ov022_UpdateSubsystems(struct Actor *pActor);
 extern int func_ov022_020ad7b0(struct Actor *pActor);
 extern int Ov022_IsState9Or6WithFlag200(void *pObj);
-extern void Ov002_GetPanelWord0220Alt(int nId, int nOn);
+extern void Ov002_ShowSeatHpGauge(int nSeat, int bOn);
 extern void Ov022_SpendDecodeBudget(struct Actor *pActor);
 extern void Ov022_ComputeAimPoint(VecFx32 *pOut, struct Actor *pActor);
 extern void Ov107_MoveNodeAndRelayout(struct Sub *pSub, const VecFx32 *pPos);
@@ -254,10 +254,10 @@ void Ov022_ActorUpdate(struct Actor *pActor)
         if (func_ov022_020ad7b0(pActor) != 0
             && Ov022_IsState9Or6WithFlag200(pActor->subC) == 0) {
             if (pActor->nHp != 0) {
-                Ov002_GetPanelWord0220Alt(pActor->nId, 1);
+                Ov002_ShowSeatHpGauge(pActor->nId, 1);
             }
         } else {
-            Ov002_GetPanelWord0220Alt(pActor->nId, 0);
+            Ov002_ShowSeatHpGauge(pActor->nId, 0);
         }
     }
     Ov022_SpendDecodeBudget(pActor);

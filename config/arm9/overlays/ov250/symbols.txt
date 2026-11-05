@@ -16,7 +16,7 @@ Ov250_AiApplyHeadingAndNormal kind:function(arm,size=0xb4) addr:0x020d06d0
 Ov250_stateSetFlagsClearBitInit kind:function(arm,size=0x74) addr:0x020d0784
 Ov250_AiStep_QueueStoredActionIfActive kind:function(arm,size=0x3c) addr:0x020d07f8
 Ov250_stateAcquireAimInit kind:function(arm,size=0xc8) addr:0x020d0834
-Ov250_AiFadeInSlowTick kind:function(arm,size=0x8c) addr:0x020d08fc
+Ov250_AiRiseSlowTick kind:function(arm,size=0x8c) addr:0x020d08fc
 Ov250_SpawnHook kind:function(arm,size=0x4c) addr:0x020d0988
 Ov250_CircleTick kind:function(arm,size=0x22c) addr:0x020d09d4
 Ov250_SetPose2ThenAdvanceSlot kind:function(arm,size=0x34) addr:0x020d0c00
@@ -28,7 +28,7 @@ Ov250_SetPose5ThenAdvanceSlot kind:function(arm,size=0x34) addr:0x020d1000
 Ov250_GuardFieldCClearField1cAdvance kind:function(arm,size=0x34) addr:0x020d1034
 Ov250_ChargeUpTick kind:function(arm,size=0x230) addr:0x020d1068
 Ov250_evalHermiteSplinePath kind:function(arm,size=0x264) addr:0x020d1298
-Ov250_AiFadeInTick kind:function(arm,size=0xa4) addr:0x020d14fc
+Ov250_AiRiseTick kind:function(arm,size=0xa4) addr:0x020d14fc
 Ov250_stateAnimAimAtTarget kind:function(arm,size=0x6c) addr:0x020d15a0
 Ov250_stEasePoseCheckFlags kind:function(arm,size=0x84) addr:0x020d160c
 Ov250_stateScaleVecMagnitudeGate kind:function(arm,size=0x64) addr:0x020d1690
@@ -48,7 +48,7 @@ Ov250_BeginSteerSweep kind:function(arm,size=0xe4) addr:0x020d24fc
 Ov250_SteerSweep kind:function(arm,size=0xf0) addr:0x020d25e0
 Ov250_BeginRecover kind:function(arm,size=0x9c) addr:0x020d26d0
 Ov250_GuardFieldCClearField1cAdvance_2 kind:function(arm,size=0x34) addr:0x020d276c
-Ov250_TimerInterp394ThenAdvance kind:function(arm,size=0x78) addr:0x020d27a0
+Ov250_AiSinkTick kind:function(arm,size=0x78) addr:0x020d27a0
 Ov250_AiSetStanceAndEnd kind:function(arm,size=0x78) addr:0x020d2818
 data_ov250_020d2890 kind:data(any) addr:0x020d2890
 data_ov250_020d289c kind:data(any) addr:0x020d289c

@@ -20,7 +20,7 @@ extern void  Ov008_SetCtxField9750(int a);
 extern void  Ov008_SetCtxByte9751(unsigned int a, int b);
 extern void  Ov008_SetCtxWord9758(unsigned int a, int b);
 extern char *data_ov008_02090f00;
-extern unsigned short data_0204c23c;
+extern unsigned short gMissionNumber;
 extern void  Ov008_RouteCommittedPageState(void);
 
 struct SlotByte { unsigned char b0 : 1, b123 : 3; };
@@ -41,7 +41,7 @@ void *Ov008_CommitSelectedPage(int p1, int p2, int p3, int p4) {
         Ov008_ResetPartyMemberAndLayout(*(int *)(slot + 4), 0);
     }
     Ov008_InitCampaignMenuContext(0);
-    Ov008_SetCtxField967c(data_0204c23c);
+    Ov008_SetCtxField967c(gMissionNumber);
     Ov008_SetCtxField9750((unsigned char)Ov008_CountOccupiedSlots());
     i = 0;
     off = 0;

@@ -76,7 +76,7 @@ struct ReactionCtx {
     int nSlot;                       /* 0x0c */
     u8 pad10[8];
     struct ActorSlot *aSlots[15];    /* 0x18 */
-    void *pOwner;                    /* 0x54 */
+    void *pLevelAnim;                    /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;            /* 0x58 */
 };
 
@@ -95,7 +95,7 @@ extern void MTX_MultVec33(struct VecFx32 *pVec, struct MtxFx33 *pMtx,
 extern void VEC_Add(struct VecFx32 *a, struct VecFx32 *b, struct VecFx32 *pOut);
 extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget,
                                 u16 *pAnim, int nIndex);
-extern void func_ov022_020b15a4(void *pOwner, u16 *pAnim);
+extern void func_ov022_020b15a4(void *pLevelAnim, u16 *pAnim);
 extern int Ov022_ClampReactionForKind10(int nKind, int nReaction);
 extern void func_ov022_0208acdc(struct ReactionCtx *pCtx, struct VecFx32 *pAt,
                                 int nReaction);
@@ -128,7 +128,7 @@ void Ov022_LaunchSlotPart(struct ReactionCtx *pCtx)
     MTX_RotY33_(&mtx, nSin, nCos);
     MTX_MultVec33(&vecAt, &mtx, &vecAt);
     VEC_Add(&vecAt, &pActor->vecAt, &vecAt);
-    Ov022_BindBlockAnimations(pCtx, (u8 *)pCtx->pOwner + 4, &pSlot->nFlags, 0);
+    Ov022_BindBlockAnimations(pCtx, (u8 *)pCtx->pLevelAnim + 4, &pSlot->nFlags, 0);
     pPart = 0;
     pSlot->vecAt = vecAt;
     pSlot->nAngle = nAngle;
@@ -145,7 +145,7 @@ void Ov022_LaunchSlotPart(struct ReactionCtx *pCtx)
         i = i + 1;
     }
     if ((pSlot->nBoundMask & (1 << i)) == 0) {
-        func_ov022_020b15a4(pCtx->pOwner, pPart->anim);
+        func_ov022_020b15a4(pCtx->pLevelAnim, pPart->anim);
         pSlot->nBoundMask = pSlot->nBoundMask | (1 << i);
     }
     Ov022_BindBlockAnimations(pCtx, pPart->anim, &pPart->nSlotFlags, 1);

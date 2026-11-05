@@ -1,5 +1,5 @@
-/* State dispatcher: when an action is pending (+0x1c7 not -1) resets the per-action flags and full
- * alpha, makes it current (+0x1c6) and installs the step that starts that action; then marks
+/* State dispatcher: when an action is pending (+0x1c7 not -1) resets the per-action flags and the full
+ * height scale (+0x390), makes it current (+0x1c6) and installs the step that starts that action; then marks
  * nothing pending. */
 
 struct bf { unsigned b : 8; };
@@ -9,14 +9,14 @@ extern void Ov244_SetVisFlagsEnterState(void);
 extern void Ov244_AiTargetAndFace(void);
 extern void Ov244_StartSidestep(void);
 extern void Ov244_SetPose3ThenAdvanceSlot(void);
-extern void Ov244_AiEnterFadeIn(void);
+extern void Ov244_AiEnterSink(void);
 extern void Ov244_BounceEntry(void);
 extern void Ov244_AiEnterPursuit(void);
 extern void Ov244_PoseSetAngleFieldsThenAdvance(void);
 extern void Ov244_ConfigSubStateThenAdvanceSlot(void);
 extern void Ov244_FaceTargetAndWindUp(void);
 extern void Ov244_Action6Callback(void);
-extern void Ov244_AiEnterFadeOut(void);
+extern void Ov244_AiEnterSinkAndStay(void);
 extern void Ov244_AiSetStanceAndEnd(void);
 
 void Ov244_DispatchSubStateByte(int *node) {
@@ -42,7 +42,7 @@ void Ov244_DispatchSubStateByte(int *node) {
             SetIndexedSlot(node, 1, Ov244_SetPose3ThenAdvanceSlot);
             break;
         case 6:
-            SetIndexedSlot(node, 1, Ov244_AiEnterFadeIn);
+            SetIndexedSlot(node, 1, Ov244_AiEnterSink);
             break;
         case 7:
             SetIndexedSlot(node, 1, Ov244_BounceEntry);
@@ -63,7 +63,7 @@ void Ov244_DispatchSubStateByte(int *node) {
             SetIndexedSlot(node, 1, Ov244_Action6Callback);
             break;
         case 0xb:
-            SetIndexedSlot(node, 1, Ov244_AiEnterFadeOut);
+            SetIndexedSlot(node, 1, Ov244_AiEnterSinkAndStay);
             break;
         case 0xc:
             SetIndexedSlot(node, 1, Ov244_AiSetStanceAndEnd);

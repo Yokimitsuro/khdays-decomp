@@ -1,6 +1,6 @@
-/* State step: acquires the nearest target and faces it, posts pose 0, sets the alpha to its
- * minimum, sets bit 0 of +0x1ae, clears bit 0 of the model's flag byte, clears the timer and
- * installs the slow fade-in step. */
+/* State step: acquires the nearest target and faces it, posts pose 0, sets the height scale
+ * (+0x394) to its minimum, sets bit 0 of +0x1ae, clears bit 0 of the model's flag byte, clears the timer and
+ * installs the slow rise step. */
 
 #include "game/enemy_common.h"
 
@@ -9,7 +9,7 @@ extern int Ov107_FindNearestObject();
 extern void VEC_Subtract();
 extern fx16 FX_Atan2();
 extern void SetIndexedSlot(void *obj, int idx, void *value);
-extern void Ov184_AiFadeInSlowTick(void);
+extern void Ov184_AiRiseSlowTick(void);
 void Ov184_stateAcquireAimInit(int *node) {
     int *state = (int *)node[1];
     int t = Ov107_FindNearestObject(*state, 0);
@@ -27,5 +27,5 @@ void Ov184_stateAcquireAimInit(int *node) {
     *(unsigned short *)(*state + 0x1ae) |= 1;
     ((struct bf *)(*(int *)(*state + 0x388) + 8))->b &= ~1;
     state[7] = 0;
-    SetIndexedSlot(node, *(signed char *)(node + 8), Ov184_AiFadeInSlowTick);
+    SetIndexedSlot(node, *(signed char *)(node + 8), Ov184_AiRiseSlowTick);
 }

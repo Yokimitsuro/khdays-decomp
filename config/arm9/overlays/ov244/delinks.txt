@@ -480,7 +480,7 @@ src/overlays/enemies/ov244_enemy_darkside/Ov244_AiTargetAndFace.c:
     complete
     .text       start:0x020d2448 end:0x020d2510
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_AiFadeInTick.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_AiRiseTick.c:
     complete
     .text       start:0x020d2510 end:0x020d259c
 
@@ -500,11 +500,11 @@ src/overlays/enemies/ov244_enemy_darkside/Ov244_ApproachTick.c:
     complete
     .text       start:0x020d27bc end:0x020d2924
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_AiEnterFadeIn.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_AiEnterSink.c:
     complete
     .text       start:0x020d2924 end:0x020d2960
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_FadeInSubObject.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_SinkIntoGround.c:
     complete
     .text       start:0x020d2960 end:0x020d29f0
 
@@ -520,7 +520,7 @@ src/overlays/enemies/ov244_enemy_darkside/Ov244_AiEnterPursuit.c:
     complete
     .text       start:0x020d2df0 end:0x020d2e74
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_EasePursuitSpeed.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_RiseFromGround.c:
     complete
     .text       start:0x020d2e74 end:0x020d2f1c
 
@@ -564,11 +564,11 @@ src/overlays/enemies/ov244_enemy_darkside/Ov244_Action6Callback.c:
     complete
     .text       start:0x020d3418 end:0x020d34e4
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_AiEnterFadeOut.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_AiEnterSinkAndStay.c:
     complete
     .text       start:0x020d34e4 end:0x020d3520
 
-src/overlays/enemies/ov244_enemy_darkside/Ov244_AiFadeOutTick.c:
+src/overlays/enemies/ov244_enemy_darkside/Ov244_AiSinkTick.c:
     complete
     .text       start:0x020d3520 end:0x020d35b0
 

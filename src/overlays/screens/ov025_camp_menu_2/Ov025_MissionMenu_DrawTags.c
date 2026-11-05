@@ -105,7 +105,7 @@ extern int   GameState_IsFlagSet(int nFlag);                                   /
 extern void  Ov025_ApplyTempFieldsByTag(int nOwner, u32 nTag, int nX, int nY); /* Ov008_SetTagValueDup */
 extern void  Ov025_ConfigureEntryByTag_2(int nOwner, u32 nTag, short nX, short nY); /* Ov008_SetTagValueAndNotify */
 extern u32   GameState_GetField(int nField, int nBits);                       /* GameState_GetField */
-extern u32   Ov025_BuildRankMask2(Ov008MissionMenu *pMenu, u32 nWord);    /* Ov008_BuildRankMask2 */
+extern u32   Ov025_BuildBadgeMask2(Ov008MissionMenu *pMenu, u32 nWord);    /* Ov008_BuildBadgeMask2 */
 extern u8    Ov025_UpdateMissionSummaryTier(Ov008MissionListEntry *pEntry);         /* Ov008_UpdateMissionSummaryTier */
 extern unsigned char   Ov025_GetPageAByte14F3(void);                                  /* cleared mission count */
 extern void *Ov025_FindEntryByTag(int nOwner, int nTag);                  /* ov008_FindEntryByTag */
@@ -192,7 +192,7 @@ void Ov025_MissionMenu_DrawTags(Ov008MissionMenu *pMenu)
         }
     } else {
         GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_STATUS, 3);
-        nMask = Ov025_BuildRankMask2(pMenu, pEntry->nFileNumber);
+        nMask = Ov025_BuildBadgeMask2(pMenu, pEntry->nFileNumber);
         nRanks = 0;
         if (nMask & 1) {
             nRanks++;

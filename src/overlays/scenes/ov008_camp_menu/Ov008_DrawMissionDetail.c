@@ -43,7 +43,7 @@
 #define SLOT_B          0x1a
 
 typedef struct Ov008MissionListEntry {
-    u16   nWord;              /* 0x00 */
+    u16   nFileNumber;              /* 0x00: the mission's file (mi/mi/<number>) */
     u16   missionId;          /* 0x02 */
     u16   nCategory;          /* 0x04 */
     u16   nShownNumber;              /* 0x06 */
@@ -126,7 +126,7 @@ void Ov008_DrawMissionDetail(Ov008MissionMenu *pMenu, int nTab)
         nColour = COLOUR_NORMAL;
         pEntry = Ov008_GetNextMissionEntry_5(Ov008_GetCtxField967c());
         if (Ov008_GetCtxObject9634() != 0) {
-            pNode = Ov008_MissionMenu_FindEntry(pMenu, pEntry->nWord);
+            pNode = Ov008_MissionMenu_FindEntry(pMenu, pEntry->nFileNumber);
         }
         Ov008_MissionMenu_DrawMissionText(pMenu, pEntry, pNode);
         Ov008_MissionMenu_DrawInfo(pMenu, pEntry, pNode);
@@ -213,7 +213,7 @@ void Ov008_DrawMissionDetail(Ov008MissionMenu *pMenu, int nTab)
         if (Ov008_GetCtxObject9634() == 0) {
             nSet = 0;
             nTotal = 0;
-            Ov008_CountGroupFlagsSet2(pMenu, pEntry->nWord, &nSet, &nTotal);
+            Ov008_CountGroupFlagsSet2(pMenu, pEntry->nFileNumber, &nSet, &nTotal);
             Text_FormatUtf16(aCount, 4, data_ov008_02090994, nSet, nTotal);
             Obj_InvokeInnerVtable4(pMenu->countSurface);
             Text_DrawWithShadow(pMenu->countSurface, 2, 7, COLOUR_NORMAL, aCount, 1);

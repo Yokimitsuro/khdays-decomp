@@ -64,7 +64,7 @@ extern SharedPlayerRecord gPartyMembers;
 extern GameplayThresholdSnapshot data_0204c254;
 extern GameplayRules data_0204c248;
 extern GameplaySessionConfig data_0204c240;
-extern u16 data_0204c23c;
+extern u16 gMissionNumber;
 
 extern void Ov008_UpdateCursorSprite(void);
 extern int Ov008_IsSessionReady(void);
@@ -107,7 +107,7 @@ void *Ov008_TransferSessionSnapshotState(void)
             data_ov008_02090f00->thresholdSnapshot = data_0204c254;
             data_ov008_02090f00->ruleSnapshot = data_0204c248;
             data_ov008_02090f00->sessionConfig = data_0204c240;
-            data_ov008_02090f00->sessionValue = data_0204c23c;
+            data_ov008_02090f00->sessionValue = gMissionNumber;
             result = (void *)Ov008_WaitForSnapshotTransferState;
         }
     } else {

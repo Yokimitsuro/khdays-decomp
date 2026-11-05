@@ -76,7 +76,7 @@ src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_stateAcquireAimInit.c:
     complete
     .text       start:0x020d2824 end:0x020d28ec
 
-src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_AiFadeInSlowTick.c:
+src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_AiRiseSlowTick.c:
     complete
     .text       start:0x020d28ec end:0x020d2978
 
@@ -124,7 +124,7 @@ src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_evalHermiteSplinePath.c:
     complete
     .text       start:0x020d32a4 end:0x020d3508
 
-src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_AiFadeInTick.c:
+src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_AiRiseTick.c:
     complete
     .text       start:0x020d3508 end:0x020d35ac
 
@@ -204,7 +204,7 @@ src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_GuardFieldCClearField1cAdva
     complete
     .text       start:0x020d4334 end:0x020d4368
 
-src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_TimerInterp394ThenAdvance.c:
+src/overlays/enemies/ov184_enemy_mega_shadow_4/Ov184_AiSinkTick.c:
     complete
     .text       start:0x020d4368 end:0x020d43e0
 

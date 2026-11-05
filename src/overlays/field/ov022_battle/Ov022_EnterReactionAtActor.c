@@ -58,14 +58,14 @@ struct ReactionCtx {
     u8 pad00[0x44];
     struct ActorSlot *pSlot;     /* 0x44 */
     u8 pad48[0xc];
-    int nTrack;                  /* 0x54 */
+    u8 *pLevelAnim;                 /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;        /* 0x58 */
 };
 
 #define ANGLE_UNBIAS(a) ((u16)((a) - 0x8000))
 #define ANGLE_BIAS(a) ((a) + 0x8000)
 
-extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, int nTrack, u16 *pFlags,
+extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget, u16 *pFlags,
                                 int nBinding);
 extern int Ov022_ClampReactionForKind10(int nKind, int nMode);
 extern void func_ov022_0208acdc(struct ReactionCtx *pCtx, VecFx32 *pAim,
@@ -85,7 +85,7 @@ void Ov022_EnterReactionAtActor(struct ReactionCtx *pCtx)
     pSlot->nSlotIndex = (u8)pActor->nSlotIndex;
     pSlot->nSeq = pSlot->nSeq + 1;
     pSlot->vecScratch = pActor->vecPos;
-    Ov022_BindBlockAnimations(pCtx, pCtx->nTrack + 4, &pSlot->nSlotFlags, 0);
+    Ov022_BindBlockAnimations(pCtx, pCtx->pLevelAnim + 4, &pSlot->nSlotFlags, 0);
     nReaction = Ov022_ClampReactionForKind10(pSlot->nKind, 0);
     func_ov022_0208acdc(pCtx, &pSlot->vecScratch, nReaction);
     pSlot->vecAim = pSlot->vecScratch;

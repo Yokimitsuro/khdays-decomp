@@ -53,7 +53,7 @@ struct ReactionCtx {
     int nCue;                        /* 0x10 */
     int nKind;                       /* 0x14 */
     u8 pad18[0x3c];
-    u8 *pOwner;                      /* 0x54 */
+    u8 *pLevelAnim;                      /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;            /* 0x58 */
     short aHitIds[8];                /* 0x5c */
     u16 nMsgId;                      /* 0x6c */
@@ -83,7 +83,7 @@ extern void func_ov022_020b19ec(int *pAnimReq, int nMode);
 extern void Ov022_BuildEntryLabelText(struct ReactionCtx *pCtx, int nSlot);
 extern unsigned short Ov022_MarshalStateHalf12(struct ReactionCtx *pCtx, int nKind, int *pSlot);
 extern int MsgQueue_Contains(unsigned int nMsgId);
-extern int func_ov022_020b1510(u8 *pOwner);
+extern int func_ov022_020b1510(u8 *pLevelAnim);
 extern int Ov022_StepCueTrack(u8 *pCueTrack, int nCue);
 extern void Ov022_BeginSubStateDispatch(struct ReactionCtx *pCtx);
 extern void func_ov022_0208a624(struct ReactionCtx *pCtx, int nKind);
@@ -129,7 +129,7 @@ void Ov022_StepReactionState(struct ReactionCtx *pCtx, int nDelta)
         break;
     case 3:
         if (!FLAG_SET(pCtx->nFlags, FLAG_OWNER_BIT)
-            && func_ov022_020b1510(pCtx->pOwner) != 0) {
+            && func_ov022_020b1510(pCtx->pLevelAnim) != 0) {
             pCtx->nFlags |= FLAG_OWNER_BIT;
         }
         if (!FLAG_SET(pCtx->nFlags, FLAG_CUE_DONE)

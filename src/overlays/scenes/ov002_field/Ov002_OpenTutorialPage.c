@@ -13,6 +13,7 @@
 
 #include "nitro/types.h"
 #include "game/engine.h"
+#include "game/archive.h"
 
 extern int *data_ov002_0207f9fc;
 extern char gOv002UiTutorialRootTextPath[];
@@ -55,9 +56,7 @@ void *Ov002_OpenTutorialPage(u16 nTutorial)
     *(int *)(hud + 4) = Msg_OpenContainerAndReadHeader(gOv002UiBtlttrTtrPath, 0xe);
     *(int *)(hud + 8) = Msg_OpenContainerAndReadHeader(gOv002UiBtlttrTtrPath_2, 0xe);
     Ov002_AppendEntry((int)gOv002UiBtlttrTtrPath_3, (int)Ov002_TakePageIntoSubObject, 0);
-    Ov002_AppendEntry(0x80000030 |
-                        (((*(int *)(hud + 8) + 0x8000) & 0xfffffc) << 7),
-                        (int)Ov002_UploadPageToSubBg2Char, 0);
+    Ov002_AppendEntry(ARCHIVE_HANDLE(*(int *)(hud + 8), 0x30), (int)Ov002_UploadPageToSubBg2Char, 0);
     *(int *)(hud + 0x30) = *(u16 *)hud == 0x12;
     *(int *)(hud + 0x28) = 2;
     if (*(int *)(hud + 0x30) != 0) {

@@ -15,8 +15,8 @@
  *    chain (party/enemy/HUD/camera/panel/etc. - the func_ov002_* calls) and the sub-object
  *    allocators (Ov002_AllocSceneState, Ov002_EnsureSceneManager(0x792b), ...);
  *  - allocates the 0x40-entry u16 table at heap+0x8dac from GameState_GetField (unless flag 4 is set);
- *  - when the global mode byte data_0204c240 is 0, maps the mission id to the next-scene id in
- *    data_0204c23c (the scene-transition table);
+ *  - in the story (the field record data_0204c240 0), sets the mission's number gMissionNumber from
+ *    the record's first word: 1-6 are their own number, eight others are mapped by a switch;
  *  - returns Ov002_UpdatePendingRequest when a link session is active (Session_IsActive), else
  *    Ov002_TickGameplayState - the scene's first tick handler.
  *
@@ -30,7 +30,7 @@
 #include "nitro/types.h"
 
 extern int   data_ov002_0207fa00;
-extern short data_0204c23c;
+extern short gMissionNumber;
 extern u8    data_0204c240;
 extern u8    data_0204c248;
 extern u8    data_0204c254;
@@ -210,16 +210,16 @@ void *Ov002_ConstructGameplayScene(void *param_1)
     if (data_0204c240 == 0) {
         short sv = *(short *)rec;
         switch (sv) {
-        case 5:     data_0204c23c = 4;    break;
-        case 6:     data_0204c23c = 5;    break;
-        case 4:     data_0204c23c = 6;    break;
-        case 0x6c:  data_0204c23c = 0x25; break;
-        case 0x6f:  data_0204c23c = 0x4a; break;
-        case 0x514: data_0204c23c = 0x5b; break;
-        case 0x72:  data_0204c23c = 0x5c; break;
-        case 0x515: data_0204c23c = 0x5d; break;
+        case 5:     gMissionNumber = 4;    break;
+        case 6:     gMissionNumber = 5;    break;
+        case 4:     gMissionNumber = 6;    break;
+        case 0x6c:  gMissionNumber = 0x25; break;
+        case 0x6f:  gMissionNumber = 0x4a; break;
+        case 0x514: gMissionNumber = 0x5b; break;
+        case 0x72:  gMissionNumber = 0x5c; break;
+        case 0x515: gMissionNumber = 0x5d; break;
         default:
-            if (sv >= 1 && sv <= 6) data_0204c23c = sv;
+            if (sv >= 1 && sv <= 6) gMissionNumber = sv;
             break;
         }
     }

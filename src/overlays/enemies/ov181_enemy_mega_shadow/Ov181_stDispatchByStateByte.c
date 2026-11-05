@@ -1,5 +1,5 @@
-/* State dispatcher: when an action is pending (+0x1c7 not -1) resets the per-action flags and full
- * alpha, makes it current (+0x1c6) and installs the step that starts that action; then marks
+/* State dispatcher: when an action is pending (+0x1c7 not -1) resets the per-action flags and the full
+ * height scale (+0x394), makes it current (+0x1c6) and installs the step that starts that action; then marks
  * nothing pending. */
 
 struct bf { unsigned b : 8; };

@@ -1,6 +1,14 @@
+/* Loads an enemy's stats for its level nLevel (kept at +0x19d): ten words (+0x370) from its class's
+ * subfile (+0x19c) of the actor manager's archive, then the level's 8-byte record of "Ms/BL.bin".
+ * The record's +0 times the class's base HP (+0x1a0's +0) sets the HP and its maximum (+0x218,
+ * +0x21a; at least 1, three times as much with mode flag 4, 80 % without flag 2); its +3 times
+ * each of the class's eight attacks gives that attack's power to the pSetAttackPower hook, its +4
+ * times the class's eight words fills +0x2bc; then the class's flags and speeds. Level 0 gives
+ * 1 HP and no power; with no class data the enemy has 1 HP and every value 0. */
 
 #include "nitro/types.h"
 #include "game/enemy_common.h"
+#include "game/archive.h"
 
 typedef struct Path {
     char name[10];
@@ -70,7 +78,7 @@ typedef struct AiState {
     int field_58;
     char pad05c[0x19c - 0x5c];
     u8 field_19c;
-    u8 field_19d;
+    u8 nLevel;                /* 0x19d: the enemy's level, the ms_bl record */
     u8 field_19e;
     u8 field_19f;
     StateData *field_1a0;
@@ -79,9 +87,9 @@ typedef struct AiState {
     u16 field_1b0;
     int field_1b4[4];
     char pad1c4[0x14];
-    UpdateFn field_1d8;
+    UpdateFn pSetAttackPower; /* 0x1d8: attack i's power (Ov107_SetAttackPower) */
     char pad1dc[0x14];
-    NotifyFn field_1f0;
+    NotifyFn pLoadMsUpRecord; /* 0x1f0: Ov107_LoadMsUpRecord */
     char pad1f4[0x24];
     s16 nMaxHp;
     s16 nHp;
@@ -126,7 +134,7 @@ static inline int ApplyFlags(u8 flags, int value)
     return value;
 }
 
-void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
+void Ov107_AiState_LoadStats(AiState *self, int nLevel)
 {
     void *file;
     u8 recordByte4;
@@ -140,10 +148,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
 
     path = *(const Path *)gOv107MsBlPath;
 
-    file = Archive_LoadFile((char *)((((*(u32 *)((char *)Ov107_GetActorManager()
-                                              + 0x80) + 0x8000) & 0xfffffc) << 7)
-                                | ((u32)0x8000 << 16)
-                                | (self->field_19c & 0x1ff)), 0xb);
+    file = Archive_LoadFile((char *)ARCHIVE_HANDLE(*(u32 *)((char *)Ov107_GetActorManager() + 0x80),
+                                                 self->field_19c & 0x1ff), 0xb);
     i = 0;
     src = (char *)file;
     for (; i < 10; i++) {
@@ -152,17 +158,17 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
     }
     NNSi_FndFreeFromDefaultHeap(file);
 
-    self->field_19d = recordIndex;
+    self->nLevel = nLevel;
     file = Archive_LoadFile(path.name, 0xb);
     recordBytes = (const u8 *)file + 2;
-    recordBytes += self->field_19d * 8;
+    recordBytes += self->nLevel * 8;
     coefficient = *(const s16 *)recordBytes;
     recordByte3 = recordBytes[3];
     recordByte4 = recordBytes[4];
     NNSi_FndFreeFromDefaultHeap(file);
 
     if (self->field_1a0 != 0) {
-        if (self->field_19d == 0) {
+        if (self->nLevel == 0) {
             scale = 1;
         } else {
             scale = ((coefficient * (self->field_1a0->field_00 << 4)) + 0x800) >> 12;
@@ -181,14 +187,14 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
         for (i = 0; i < 8; i++) {
             if (self->field_1a0->field_04[i].field_00 != 0) {
                 int value;
-                if (self->field_19d == 0) {
+                if (self->nLevel == 0) {
                     value = 0;
                 } else {
                     value = (((self->field_1a0->field_04[i].field_00 << 4)
                               * recordByte3) + 0x800) >> 12;
                 }
-                if (self->field_1d8 != 0) {
-                    self->field_1d8(self, i, value);
+                if (self->pSetAttackPower != 0) {
+                    self->pSetAttackPower(self, i, value);
                 }
                 self->field_28c[i].field_01 = self->field_1a0->field_04[i].field_02_low;
                 self->field_28c[i].field_02 = self->field_1a0->field_04[i].field_02_high;
@@ -198,7 +204,7 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
 
         for (i = 0; i < 8; i++) {
             int value;
-            if (self->field_19d == 0) {
+            if (self->nLevel == 0) {
                 value = 0;
             } else {
                 value = ((self->field_1a0->field_24[i] << 4)
@@ -209,8 +215,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
 
         {
             int value = self->field_1a0->field_53;
-            if (self->field_1f0 != 0) {
-                self->field_1f0(self, value);
+            if (self->pLoadMsUpRecord != 0) {
+                self->pLoadMsUpRecord(self, value);
             }
         }
         if (self->field_1a0->field_5c_bit1 != 0) {
@@ -245,8 +251,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
         self->nHp = 1;
         src = (char *)self;
         for (i = 0; i < 8; i++, src += 6) {
-            if (self->field_1d8 != 0) {
-                self->field_1d8(self, i, 0);
+            if (self->pSetAttackPower != 0) {
+                self->pSetAttackPower(self, i, 0);
             }
             src[0x28d] = 0;
             src[0x28e] = 0;
@@ -257,8 +263,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
         for (i = 0; i < 4; i++) {
             self->field_1b4[i] = 0;
         }
-        if (self->field_1f0 != 0) {
-            self->field_1f0(self, 0);
+        if (self->pLoadMsUpRecord != 0) {
+            self->pLoadMsUpRecord(self, 0);
         }
         Ov107_AiState_LoadResistances((char *)self, 0);
     }

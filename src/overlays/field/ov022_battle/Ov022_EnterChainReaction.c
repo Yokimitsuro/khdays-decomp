@@ -86,7 +86,7 @@ struct ReactionCtx {
     int nSlot;                       /* 0x0c */
     u8 pad10[8];
     struct ActorSlot *aSlots[15];    /* 0x18 */
-    void *pOwner;                    /* 0x54 */
+    void *pLevelAnim;                    /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;            /* 0x58 */
 };
 
@@ -114,7 +114,7 @@ extern VecFx32 *func_ov022_020ad0c0(struct Actor *pActor);
 extern int FX_Atan2Idx(int x, int z);
 extern void ScaleVec3Fx12(int nFactor, VecFx32 *pSrc,
                           VecFx32 *pDst);
-extern void func_ov022_020b15a4(void *pOwner, u16 *pBinding);
+extern void func_ov022_020b15a4(void *pLevelAnim, u16 *pBinding);
 
 typedef char Ov022ResetCarrierRequires32BitUnsigned[(sizeof(unsigned int) == 4) ? 1 : -1];
 
@@ -143,7 +143,7 @@ void Ov022_EnterChainReaction(struct ReactionCtx *pCtx)
     MTX_RotY33_(&mtx, data_0203d210[nTrig], data_0203d210[nTrig + 1]);
     MTX_MultVec33(&vecAim, &mtx, &vecAim);
     VEC_Add(&vecAim, &pActor->vecAim, &vecAim);
-    Ov022_BindBlockAnimations(pCtx, (u8 *)pCtx->pOwner + 4, &pSlot->nFlags, 0);
+    Ov022_BindBlockAnimations(pCtx, (u8 *)pCtx->pLevelAnim + 4, &pSlot->nFlags, 0);
     func_ov022_0208acdc(pCtx, &vecAim, Ov022_ClampReactionForKind10(pSlot->nKind, 0));
     /* MWCC ARM32 matching device. Both assignments zero-extend a 32-bit
      * value; the upper word is therefore always zero. The first assignment
@@ -174,7 +174,7 @@ void Ov022_EnterChainReaction(struct ReactionCtx *pCtx)
     for (nPart = 0; nPart < pSlot->nParts; nPart++) {
         pPart = &pSlot->pParts[nPart];
         if ((pSlot->nBoundMask & (1 << nPart)) == 0) {
-            func_ov022_020b15a4(pCtx->pOwner, pPart->binding);
+            func_ov022_020b15a4(pCtx->pLevelAnim, pPart->binding);
             pSlot->nBoundMask = pSlot->nBoundMask | (1 << nPart);
         }
         pPart->nGroup = (u8)pActor->nSlotIndex;

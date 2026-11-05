@@ -2621,7 +2621,7 @@ src/overlays/scenes/ov008_camp_menu/Ov008_LoadMenuBgWithAltChars.c:
     complete
     .text       start:0x0206a474 end:0x0206a564
 
-src/overlays/scenes/ov008_camp_menu/Ov008_SetupItemMenu.c:
+src/overlays/scenes/ov008_camp_menu/Ov008_Config_Setup.c:
     complete
     .text       start:0x0206a564 end:0x0206a700
 
@@ -3029,7 +3029,7 @@ src/overlays/scenes/ov008_camp_menu/Ov008_FindListObjectByKey_2.c:
     complete
     .text       start:0x0206fd50 end:0x0206fda0
 
-src/overlays/scenes/ov008_camp_menu/Ov008_BuildRankMask.c:
+src/overlays/scenes/ov008_camp_menu/Ov008_BuildBadgeMask.c:
     complete
     .text       start:0x0206fda0 end:0x0206fe08
 
@@ -3385,7 +3385,7 @@ src/overlays/scenes/ov008_camp_menu/Ov008_MissionMenu_FindEntry.c:
     complete
     .text       start:0x020760a0 end:0x020760f0
 
-src/overlays/scenes/ov008_camp_menu/Ov008_BuildRankMask2.c:
+src/overlays/scenes/ov008_camp_menu/Ov008_BuildBadgeMask2.c:
     complete
     .text       start:0x020760f0 end:0x02076158
 

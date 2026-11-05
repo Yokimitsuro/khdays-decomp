@@ -22,7 +22,7 @@ Ov114_StartSidestep kind:function(arm,size=0x4c) addr:0x020ccf28
 Ov114_CircleDecision kind:function(arm,size=0x1a0) addr:0x020ccf74
 Ov114_SetPose3ThenAdvanceSlot kind:function(arm,size=0x34) addr:0x020cd114
 Ov114_ApproachTick kind:function(arm,size=0x168) addr:0x020cd148
-Ov114_AiEnterFadeIn kind:function(arm,size=0x3c) addr:0x020cd2b0
+Ov114_AiEnterSink kind:function(arm,size=0x3c) addr:0x020cd2b0
 Ov114_SinkIntoGround kind:function(arm,size=0x90) addr:0x020cd2ec
 Ov114_BounceEntry kind:function(arm,size=0x1e4) addr:0x020cd37c
 Ov114_BounceTick kind:function(arm,size=0x21c) addr:0x020cd560
@@ -38,7 +38,7 @@ Ov114_FaceTargetAndWindUp kind:function(arm,size=0xf0) addr:0x020cdb14
 Ov114_AiSwingRecover kind:function(arm,size=0x44) addr:0x020cdc04
 Ov114_WindupTick kind:function(arm,size=0x15c) addr:0x020cdc48
 Ov114_Action6Callback kind:function(arm,size=0xcc) addr:0x020cdda4
-Ov114_AiEnterFadeOut kind:function(arm,size=0x3c) addr:0x020cde70
+Ov114_AiEnterSinkAndStay kind:function(arm,size=0x3c) addr:0x020cde70
 Ov114_AiSinkTick kind:function(arm,size=0x90) addr:0x020cdeac
 Ov114_AiSetStanceAndEnd kind:function(arm,size=0x78) addr:0x020cdf3c
 data_ov114_020cdfb4 kind:data(any) addr:0x020cdfb4

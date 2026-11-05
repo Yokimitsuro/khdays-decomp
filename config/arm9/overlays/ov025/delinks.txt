@@ -3045,7 +3045,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_FindListObjectByKey_2.c:
     complete
     .text       start:0x020a52f4 end:0x020a5344
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_BuildRankMask.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_BuildBadgeMask.c:
     complete
     .text       start:0x020a5344 end:0x020a53ac
 
@@ -3401,7 +3401,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_MissionMenu_FindEntry.c:
     complete
     .text       start:0x020ab6f8 end:0x020ab748
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_BuildRankMask2.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_BuildBadgeMask2.c:
     complete
     .text       start:0x020ab748 end:0x020ab7b0
 

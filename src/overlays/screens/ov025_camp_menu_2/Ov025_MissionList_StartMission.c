@@ -1,5 +1,5 @@
 /* Ov025_MissionList_StartMission -- Ov025_MissionList_StartMission: launch the selected mission (the listed
- * entry of the current id, 02084ff0 / 0208dc54).  The id is kept in data_0204c23c and the menu
+ * entry of the current id, 02084ff0 / 0208dc54).  The id is kept in gMissionNumber and the menu
  * left into the mission (ov002 0206d970 with the entry's payload); the session info
  * (data_0204c240) takes the payload as room, 0x13 in its second byte and the entry's status
  * (+0x18) in its seventh; flag 0x18ca is cleared, and set again when the 9630 object is up
@@ -17,11 +17,11 @@ typedef struct GameplayThresholdSnapshot {
 } GameplayThresholdSnapshot;
 
 typedef struct Ov008MissionListEntry {
-    u16  nFileNumber;               /* 0x00: the mission's payload for ov002 */
+    u16  nFileNumber;         /* 0x00: the mission's file, the payload for ov002 */
     u16  missionId;           /* 0x02 */
     u16  nCategory;           /* 0x04 */
     u8   pad_06[0x18 - 0x6];
-    int  nStatus;             /* 0x18 */
+    int  nKind;               /* 0x18: the row's kind: 0 story, 4 Mission Mode, 1/2 its badges */
     u8   pad_1c[4];
     GameplayThresholdSnapshot thresholds; /* 0x20 */
 } Ov008MissionListEntry;
@@ -36,10 +36,10 @@ typedef struct Ov008SessionInfo {
     u8   nField01;            /* 0x01 */
     u16  nRoom;               /* 0x02: the mission payload */
     u16  nField04;            /* 0x04 */
-    u8   nStatus;             /* 0x06 */
+    u8   nKind;               /* 0x06: the mission row's kind */
 } Ov008SessionInfo;
 
-extern u16   data_0204c23c;                                         /* the current mission id */
+extern u16   gMissionNumber;                                         /* the current mission id */
 extern Ov008SessionInfo data_0204c240;
 extern GameplayThresholdSnapshot data_0204c254;
 extern Ov008MissionMenu *Ov025_GetPageB(void);                 /* Ov025_GetPageB */
@@ -60,7 +60,7 @@ void Ov025_MissionList_StartMission(void)
     pMenu = Ov025_GetPageB();
     pEntry = Ov025_GetNextMissionEntry_5(Ov025_GetCtxField967c());
     if (pEntry != 0) {
-        data_0204c23c = Ov025_GetCtxField967c();
+        gMissionNumber = Ov025_GetCtxField967c();
         Ov002_PostResultReport(pEntry->nFileNumber);
     }
     data_0204c240.nRoom = pEntry->nFileNumber;
@@ -71,15 +71,15 @@ void Ov025_MissionList_StartMission(void)
         GameState_SetFlag(0x18ca);
         if (Ov025_GetCtxObject9634() == 0) {
             data_0204c240.nBits = 1;
-            data_0204c240.nStatus = pEntry->nStatus;
+            data_0204c240.nKind = pEntry->nKind;
         } else {
             data_0204c240.nBits = 3;
-            data_0204c240.nStatus = pEntry->nStatus;
+            data_0204c240.nKind = pEntry->nKind;
             data_0204c254 = pEntry->thresholds;
         }
     } else {
         data_0204c240.nBits = 0;
-        data_0204c240.nStatus = pEntry->nStatus;
+        data_0204c240.nKind = pEntry->nKind;
     }
     if (GameState_IsFlagSet(pEntry->nCategory + 0x3bc9) == 0) {
         GameState_SetFlag(pEntry->nCategory + 0x3bc9);

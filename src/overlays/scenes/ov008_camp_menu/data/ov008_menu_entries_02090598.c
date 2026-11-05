@@ -1,5 +1,5 @@
-/* ov008 menu entry table, 0x02090598-0x0209078c (.data): the 25 entries of
- * the Mission Mode item menu.  Each entry names its item id, the text and
+/* ov008 Preferences table, 0x02090598-0x0209078c (.data): the 25 settings of
+ * the camp's Preferences page (screen 5, Ov008_Config_Setup).  Each entry names its id, the text and
  * help-text records, the anchor slot, a lock state (0206a824 / 0206a8e0
  * switch on it), an enabled flag (raised by 0206a138 for entries 15..18 and
  * 24, by 0206a564 for entry 0) and up to three sub-entries (id, text, help)

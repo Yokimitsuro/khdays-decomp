@@ -76,7 +76,7 @@ src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_stateAcquireAimInit.c:
     complete
     .text       start:0x020d4474 end:0x020d453c
 
-src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_AiFadeInSlowTick.c:
+src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_AiRiseSlowTick.c:
     complete
     .text       start:0x020d453c end:0x020d45c8
 
@@ -124,7 +124,7 @@ src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_evalHermiteSplinePath.c:
     complete
     .text       start:0x020d4ed8 end:0x020d513c
 
-src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_AiFadeInTick.c:
+src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_AiRiseTick.c:
     complete
     .text       start:0x020d513c end:0x020d51e0
 
@@ -204,7 +204,7 @@ src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_GuardFieldCClearField1cAdv
     complete
     .text       start:0x020d63ac end:0x020d63e0
 
-src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_TimerInterp394ThenAdvance.c:
+src/overlays/enemies/ov251_enemy_gigas_shadow_2/Ov251_AiSinkTick.c:
     complete
     .text       start:0x020d63e0 end:0x020d6458
 

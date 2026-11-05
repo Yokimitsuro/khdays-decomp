@@ -29,7 +29,7 @@ typedef struct GameState {char unknown00[4];int rewardTotal04,rewardTotal08,rewa
 typedef struct MsgDbRecordHeader {short nSlot,nDbId;int nField04,nField08;} MsgDbRecordHeader;
 typedef struct RewardRecord {MsgDbRecordHeader header;int recordId,missionId;u32 scaleReward0c,scaleReward04,scaleReward08,items[5],weightedTables[5];} RewardRecord;
 extern Ov002DayClock data_0204c240;
-extern u16 data_0204c23c;
+extern u16 gMissionNumber;
 extern Ov002MissionResult data_0204c32c;
 extern Ov002PanelThresholds data_0204c254;
 extern Ov002SessionBoard data_0204c300;
@@ -56,7 +56,7 @@ void Ov005_InitializeResultConfiguration(void) {
     Ov005MissionListEntry *missionEntry;
     int index;
     u8 flags=data_0204c240.nModeFlags;
-    u16 missionIndex=data_0204c23c;
+    u16 missionIndex=gMissionNumber;
     Ov005MissionListConfig listConfig;
     config->sceneId=data_0204c240.nMinutes;
     listConfig=data_ov005_0205b3b0;

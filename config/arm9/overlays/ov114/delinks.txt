@@ -100,7 +100,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_ApproachTick.c:
     complete
     .text       start:0x020cd148 end:0x020cd2b0
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterFadeIn.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterSink.c:
     complete
     .text       start:0x020cd2b0 end:0x020cd2ec
 
@@ -164,7 +164,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_Action6Callback.c:
     complete
     .text       start:0x020cdda4 end:0x020cde70
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterFadeOut.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterSinkAndStay.c:
     complete
     .text       start:0x020cde70 end:0x020cdeac
 

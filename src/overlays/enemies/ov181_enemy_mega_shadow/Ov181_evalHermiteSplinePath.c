@@ -1,6 +1,6 @@
 /* AI step: moves the actor along a cubic Hermite curve from its start point to a point beside the
  * target, capping the per-frame step at 0x800 and facing the target; at the end of the curve posts
- * pose 7 and installs the fade-in step. Without a target it queues action 2 instead. */
+ * pose 7 and installs the rise step. Without a target it queues action 2 instead. */
 
 #include "game/enemy_common.h"
 
@@ -13,7 +13,7 @@ extern void VEC_Subtract(void *a, void *b, void *out);
 extern int VEC_Mag(void *v);
 extern void VEC_Normalize(void *src, void *dst);
 extern fx16 FX_Atan2(int x, int z);
-extern void Ov181_AiFadeInTick(void);
+extern void Ov181_AiRiseTick(void);
 extern short data_0203d210[];
 
 void Ov181_evalHermiteSplinePath(int *param_1) {
@@ -64,7 +64,7 @@ void Ov181_evalHermiteSplinePath(int *param_1) {
             Ov107_PostTagUpdate((Actor *)(*state), 7, 0);
             ((struct hw60 *)(*state + 0x60))->hi &= ~2;
             state[7] = 0;
-            SetIndexedSlot(param_1, *(signed char *)(param_1 + 8), Ov181_AiFadeInTick);
+            SetIndexedSlot(param_1, *(signed char *)(param_1 + 8), Ov181_AiRiseTick);
         }
     }
 }

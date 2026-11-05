@@ -27,7 +27,7 @@ extern char gOv025UiCmCmPath[];
 extern char gOv025UiCmCmbPath[];
 extern char data_ov025_020b4a64[];
 extern char data_ov025_020b4aec[];
-extern u16 data_0204c23c;
+extern u16 gMissionNumber;
 
 #define CTX (*(volatile int *)((char *)data_ov025_020b5744 + 4))
 #define UCTX ((Ov008UiContext *)CTX)
@@ -158,7 +158,7 @@ void Ov025_InitCampaignMenuContext(int initialMode)
         }
         if (found != 0) {
             Ov025_SetCtxField9678(0);
-            Ov025_SetCtxField967c(data_0204c23c);
+            Ov025_SetCtxField967c(gMissionNumber);
             Ov025_SetCtxObject9630(1);
             Ov025_SetCtxObject9634(1);
             Ov025_SetTargetSlot(1, -1);

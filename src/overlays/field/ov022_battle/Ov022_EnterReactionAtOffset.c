@@ -65,14 +65,14 @@ struct ReactionCtx {
     u8 pad10[8];
     struct ActorSlot *aSlots[11];/* 0x18 */
     u8 pad44[0x10];
-    int nTrack;                  /* 0x54 */
+    u8 *pLevelAnim;                 /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;        /* 0x58 */
 };
 
 /* Two signed halfwords per angle step: the sine first, then the cosine. */
 extern short data_0203d210[];
 
-extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, int nTrack,
+extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget,
                                 u16 *pFlags, int nArg3);
 extern VecFx32 *func_ov022_0208a96c(struct ReactionCtx *pCtx);
 extern void MTX_RotY33_(struct MtxFx33 *pMtx, int nSin, int nCos);
@@ -108,7 +108,7 @@ void Ov022_EnterReactionAtOffset(struct ReactionCtx *pCtx)
     pSlot->nSlotIndex = (s8)pActor->nSlotIndex;
     nFacing = nBack + HALF_TURN;
     pSlot->nSeq = pSlot->nSeq + 1;
-    Ov022_BindBlockAnimations(pCtx, pCtx->nTrack + 4, &pSlot->nSlotFlags, 0);
+    Ov022_BindBlockAnimations(pCtx, pCtx->pLevelAnim + 4, &pSlot->nSlotFlags, 0);
     pOffset = func_ov022_0208a96c(pCtx);
     nIndex = nFacing >> 4;
     vecAim = *pOffset;

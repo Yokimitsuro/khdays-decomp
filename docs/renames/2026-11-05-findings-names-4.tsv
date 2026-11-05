@@ -1,0 +1,63 @@
+# The same round, read again: what DECOMP_FINDINGS 1.4 said of a name that its copies and siblings
+# still carried.
+#
+# The Shadow's sink and rise (ov114, renamed in -2.tsv) are also in the Darkside's (ov244) and the
+# dark follower's (ov277) overlays, the same C: each HandleMessage_2 passes +0x390 as the Y of
+# Srt_SetScaleXYZ. The two steps that start a sink (actions 6 and 0xb) faded nothing either: action
+# 6 sinks and then moves flat (action 7), action 0xb sinks and stays (action 0xc).
+Ov114_AiEnterFadeIn	Ov114_AiEnterSink	ov114
+Ov114_AiEnterFadeOut	Ov114_AiEnterSinkAndStay	ov114
+Ov244_AiEnterFadeIn	Ov244_AiEnterSink	ov244
+Ov244_AiEnterFadeOut	Ov244_AiEnterSinkAndStay	ov244
+Ov244_AiFadeInTick	Ov244_AiRiseTick	ov244
+Ov244_AiFadeOutTick	Ov244_AiSinkTick	ov244
+Ov244_FadeInSubObject	Ov244_SinkIntoGround	ov244
+Ov244_EasePursuitSpeed	Ov244_RiseFromGround	ov244
+Ov277_AiEnterFadeIn	Ov277_AiEnterSink	ov277
+Ov277_AiEnterFadeOut	Ov277_AiEnterSinkAndStay	ov277
+Ov277_AiFadeInTick	Ov277_AiRiseTick	ov277
+Ov277_AiFadeOutTick	Ov277_AiSinkTick	ov277
+Ov277_FadeInSubObject	Ov277_SinkIntoGround	ov277
+Ov277_EasePursuitSpeed	Ov277_RiseFromGround	ov277
+#
+# The Mega Shadow's (ov181-184) and the Gigas Shadow's (ov250, ov251) height scale is +0x394: their
+# HandleMessage passes it as the Y of Srt_SetScaleXYZ. These three raise the model out of the ground
+# and flatten it back into it; they fade nothing.
+Ov181_AiFadeInTick	Ov181_AiRiseTick	ov181
+Ov181_AiFadeInSlowTick	Ov181_AiRiseSlowTick	ov181
+Ov181_TimerInterp394ThenAdvance	Ov181_AiSinkTick	ov181
+Ov182_AiFadeInTick	Ov182_AiRiseTick	ov182
+Ov182_AiFadeInSlowTick	Ov182_AiRiseSlowTick	ov182
+Ov182_TimerInterp394ThenAdvance	Ov182_AiSinkTick	ov182
+Ov183_AiFadeInTick	Ov183_AiRiseTick	ov183
+Ov183_AiFadeInSlowTick	Ov183_AiRiseSlowTick	ov183
+Ov183_TimerInterp394ThenAdvance	Ov183_AiSinkTick	ov183
+Ov184_AiFadeInTick	Ov184_AiRiseTick	ov184
+Ov184_AiFadeInSlowTick	Ov184_AiRiseSlowTick	ov184
+Ov184_TimerInterp394ThenAdvance	Ov184_AiSinkTick	ov184
+Ov250_AiFadeInTick	Ov250_AiRiseTick	ov250
+Ov250_AiFadeInSlowTick	Ov250_AiRiseSlowTick	ov250
+Ov250_TimerInterp394ThenAdvance	Ov250_AiSinkTick	ov250
+Ov251_AiFadeInTick	Ov251_AiRiseTick	ov251
+Ov251_AiFadeInSlowTick	Ov251_AiRiseSlowTick	ov251
+Ov251_TimerInterp394ThenAdvance	Ov251_AiSinkTick	ov251
+#
+# The panel's +0x220 holds each seat's HP gauge (Ov002_SetSeatHpGauge, -1.tsv): its two siblings
+# show or hide that gauge and return it.
+Ov002_GetPanelWord0220Alt	Ov002_ShowSeatHpGauge	ov002
+Ov002_GetPanelWord0220Idx	Ov002_GetSeatHpGauge	ov002
+#
+# ov008's twin of Ov025_Config_Setup: it opens the Preferences page (screen 5), no item menu.
+Ov008_SetupItemMenu	Ov008_Config_Setup	ov008
+#
+# The mission being played: its number in Mission Mode or the story (Ov008_StartSelectedMission and
+# Ov008_CommitSynchronizedSnapshotState write it, the field's emblems and the results read it).
+data_0204c23c	gMissionNumber	main
+#
+# The badges a mission has: the kinds of its file's records in the missions' list (1 the ordeal
+# badge, 2 the blazon, 4 the unity badge), which the list's rows draw lit by the game state's bits at
+# 0x92b + 4 x the mission. No ranks.
+Ov008_BuildRankMask	Ov008_BuildBadgeMask	ov008
+Ov008_BuildRankMask2	Ov008_BuildBadgeMask2	ov008
+Ov025_BuildRankMask	Ov025_BuildBadgeMask	ov025
+Ov025_BuildRankMask2	Ov025_BuildBadgeMask2	ov025

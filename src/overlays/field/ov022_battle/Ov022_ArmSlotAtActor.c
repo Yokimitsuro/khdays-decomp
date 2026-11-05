@@ -83,14 +83,14 @@ struct ReactionCtx {
     u8 pad10[8];
     struct ActorSlot *aSlots[11];    /* 0x18 */
     u8 pad44[0x10];
-    int nTrack;                      /* 0x54 */
+    u8 *pLevelAnim;                     /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;            /* 0x58 */
 };
 
 /* Two signed halfwords per angle step: the sine first, then the cosine. */
 extern short data_0203d210[];
 
-extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, int nTrack,
+extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget,
                                 u16 *pFlags, int nArg3);
 extern VecFx32 *func_ov022_0208a96c(struct ReactionCtx *pCtx);
 extern void MTX_RotY33_(struct MtxFx33 *pMtx, int nSin, int nCos);
@@ -108,7 +108,7 @@ extern void VEC_Subtract(VecFx32 *pA, VecFx32 *pB,
 extern int FX_Atan2Idx(int x, int z);
 extern void VEC_MultAdd(int nScale, VecFx32 *pVec,
                         VecFx32 *pAdd, VecFx32 *pDst);
-extern void func_ov022_020b15a4(int nTrack, u16 *pBinding);
+extern void func_ov022_020b15a4(u8 *pLevelAnim, u16 *pBinding);
 
 #define HALF_TURN 0x8000
 #define SLOT_FLAG_ARMED 0x20
@@ -145,7 +145,7 @@ void Ov022_ArmSlotAtActor(struct ReactionCtx *pCtx)
     MTX_RotY33_(&mtx, data_0203d210[nIndex * 2], data_0203d210[nIndex * 2 + 1]);
     MTX_MultVec33(&vecAim, &mtx, &vecAim);
     VEC_Add(&vecAim, &pActor->vecAim, &vecAim);
-    Ov022_BindBlockAnimations(pCtx, pCtx->nTrack + 4, &pSlot->nSlotFlags, 0);
+    Ov022_BindBlockAnimations(pCtx, pCtx->pLevelAnim + 4, &pSlot->nSlotFlags, 0);
     nReaction = Ov022_ClampReactionForKind10(pSlot->nKind, 0);
     func_ov022_0208acdc(pCtx, &vecAim, nReaction);
     pSlot->vecAim = vecAim;
@@ -174,11 +174,11 @@ void Ov022_ArmSlotAtActor(struct ReactionCtx *pCtx)
     while (i < pSlot->nParts) {
         pPart = &pSlot->pParts[i];
         if ((pSlot->nBoundMask & (1 << i)) == 0) {
-            func_ov022_020b15a4(pCtx->nTrack, pPart->binding);
+            func_ov022_020b15a4(pCtx->pLevelAnim, pPart->binding);
             pSlot->nBoundMask = pSlot->nBoundMask | (1 << i);
         }
         pPart->nSlotIndex = (u8)pActor->nSlotIndex;
-        Ov022_BindBlockAnimations(pCtx, (int)pPart->binding, &pPart->nSlotFlags, 1);
+        Ov022_BindBlockAnimations(pCtx, pPart->binding, &pPart->nSlotFlags, 1);
         i = i + 1;
     }
 }

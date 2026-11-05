@@ -7,7 +7,7 @@ extern int Ov107_FindNearestObject();
 extern void VEC_Subtract();
 extern fx16 FX_Atan2();
 extern void SetIndexedSlot(void *obj, int idx, void *value);
-extern void Ov277_AiFadeInTick(void);
+extern void Ov277_AiRiseTick(void);
 void Ov277_AiTargetAndFace(int *node) {
     int *state = (int *)node[1];
     int t = Ov107_FindNearestObject(*state, 0);
@@ -25,5 +25,5 @@ void Ov277_AiTargetAndFace(int *node) {
     *(unsigned short *)(*state + 0x1ae) |= 1;
     ((struct bf *)(*(int *)(*state + 0x388) + 8))->b &= ~1;
     state[17] = 0;
-    SetIndexedSlot(node, *(signed char *)(node + 8), Ov277_AiFadeInTick);
+    SetIndexedSlot(node, *(signed char *)(node + 8), Ov277_AiRiseTick);
 }

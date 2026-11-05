@@ -2382,7 +2382,7 @@ data_0204c22c kind:bss addr:0x0204c22c
 gMsgQueue kind:bss addr:0x0204c230
 gSoundMgr kind:bss addr:0x0204c234
 data_0204c238 kind:bss addr:0x0204c238
-data_0204c23c kind:bss addr:0x0204c23c
+gMissionNumber kind:bss addr:0x0204c23c
 data_0204c240 kind:bss addr:0x0204c240
 data_0204c248 kind:bss addr:0x0204c248
 data_0204c254 kind:bss addr:0x0204c254

@@ -77,7 +77,7 @@ typedef struct Ov008ItemRecord {
 } Ov008ItemRecord;
 
 typedef struct Ov008MissionListEntry {
-    u16 nWord;                /* 0x00 */
+    u16 nFileNumber;                /* 0x00: the mission's file (mi/mi/<number>) */
     u16 missionId;            /* 0x02 */
 } Ov008MissionListEntry;
 
@@ -127,7 +127,7 @@ void Ov025_MissionMenu_BuildRewardRows(Ov008MissionMenu *pMenu, Ov008MissionList
         pReward = 0;
         MsgDb_FetchRecord(&pReward, DB_REWARD, i, DB_SLOT);
         if (pReward != 0) {
-            if (pReward->nWord == pEntry->nWord) {
+            if (pReward->nWord == pEntry->nFileNumber) {
                 MIi_CpuCopy16(pReward, &reward, sizeof(reward));
             }
             DispatchByNodeKind(&pReward);

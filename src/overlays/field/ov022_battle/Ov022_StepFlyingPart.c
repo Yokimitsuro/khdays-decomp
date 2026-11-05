@@ -68,7 +68,7 @@ struct ReactionCtx {
     int nSlot;                       /* 0x0c */
     u8 pad10[8];
     struct ActorSlot *aSlots[15];    /* 0x18 */
-    void *pOwner;                    /* 0x54 */
+    void *pLevelAnim;                    /* 0x54: the cast's level animation (its grid entry) */
     struct Actor *pActor;            /* 0x58 */
 };
 

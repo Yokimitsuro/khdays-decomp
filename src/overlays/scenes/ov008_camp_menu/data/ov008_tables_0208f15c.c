@@ -27,7 +27,7 @@
  *   data_ov008_0208f538: Ov008_SaveMenu_BuildTextSurfaces
  *   data_ov008_0208f560: Ov008_SaveMenu_BuildTextSurfaces
  *   data_ov008_0208f588: Ov008_SaveMenu_BuildLayout, Ov008_TickPageScroll, Ov008_RefreshSaveRowDigits, Ov008_SaveMenu_RefreshRows
- *   data_ov008_0208f5e8: Ov008_SetupItemMenu
+ *   data_ov008_0208f5e8: Ov008_Config_Setup
  *   data_ov008_0208f5f8: Ov008_DrawMenuPageTexts
  *   data_ov008_0208f618: Ov008_SetupMenuSurface
  *   data_ov008_0208f648: Ov008_LayoutMissionEntries

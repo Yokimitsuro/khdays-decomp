@@ -62,7 +62,7 @@ typedef struct Ov008MenuContext {
 extern Ov008MenuContext *data_ov008_02090f00;
 extern Ov002MissionMember gPartyMembers[4];
 extern Ov002DayClock data_0204c240;
-extern u16 data_0204c23c;
+extern u16 gMissionNumber;
 extern Ov002PanelThresholds data_0204c254;
 extern Ov002TallyRules data_0204c248;
 
@@ -114,7 +114,7 @@ int Ov008_CommitSynchronizedSnapshotState(void)
             data_0204c240 = context->sharedSnapshot.dayClock;
             data_0204c240.values[2] = 0;
             ((u8 *)&data_0204c240)[0] = 7;
-            data_0204c23c = context->sharedSnapshot.sessionValue;
+            gMissionNumber = context->sharedSnapshot.sessionValue;
             data_0204c254 = context->sharedSnapshot.panelThresholds;
             data_0204c248 = context->sharedSnapshot.tallyRules;
         }

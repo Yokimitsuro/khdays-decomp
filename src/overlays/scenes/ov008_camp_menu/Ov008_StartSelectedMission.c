@@ -1,5 +1,5 @@
 /* Ov008_StartSelectedMission -- Ov008_StartSelectedMission: commit the mission named by
- * the context.  Records its id (data_0204c23c) when it is listed, fills the game
+ * the context.  Records its id (gMissionNumber) when it is listed, fills the game
  * mode record (mission entry word, timer 0, sub 0x13, flags 0xf or 7 in a
  * session, mission kind byte) and copies the entry's seven threshold words, sets
  * the mission's unlock flag (0x3bc9 + slot) if not yet set, plays the start cue
@@ -12,7 +12,7 @@
 #include "game/engine.h"
 
 typedef struct Ov008MissionListEntry {
-    u16 nWord;                /* 0x00 */
+    u16 nFileNumber;          /* 0x00: the mission's file (mi/mi/<number>) */
     u8  pad_02[2];
     u16 nCategory;                /* 0x04 */
     u8  pad_06[0x18 - 0x06];
@@ -28,7 +28,7 @@ typedef struct GameplayThresholdSnapshot {
 typedef struct GameMode {
     u8  nFlags;               /* 0x00 */
     u8  nSub;                 /* 0x01 */
-    u16 nWord;                /* 0x02 */
+    u16 nFileNumber;          /* 0x02: the mission's file */
     u16 nTimer;               /* 0x04 */
     u8  nKind;                /* 0x06 */
 } GameMode;
@@ -43,7 +43,7 @@ typedef struct Ov008PageB {
 #define FLAG_TARGET_SLOT0 0x200a
 #define MODE_SUB_MISSION 0x13
 
-extern u16 data_0204c23c;                                  /* current mission id */
+extern u16 gMissionNumber;                                  /* current mission id */
 extern GameMode data_0204c240;
 extern GameplayThresholdSnapshot data_0204c254;
 
@@ -61,9 +61,9 @@ void Ov008_StartSelectedMission(void)
 
     pEntry = Ov008_GetNextMissionEntry_5(Ov008_GetCtxField967c());
     if (pEntry != 0) {
-        data_0204c23c = Ov008_GetCtxField967c();
+        gMissionNumber = Ov008_GetCtxField967c();
     }
-    data_0204c240.nWord = pEntry->nWord;
+    data_0204c240.nFileNumber = pEntry->nFileNumber;
     data_0204c240.nTimer = 0;
     data_0204c240.nSub = MODE_SUB_MISSION;
     data_0204c240.nFlags = Session_IsActive() != 0 ? 7 : 0xf;

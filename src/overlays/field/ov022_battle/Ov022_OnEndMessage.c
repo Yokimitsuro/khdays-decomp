@@ -82,7 +82,7 @@ struct ReactionCtx {
     int nKind;                   /* 0x14 */
     struct ActorSlot *aSlots[11];/* 0x18 */
     u8 pad44[0x10];
-    u8 *pTrack;                  /* 0x54 */
+    u8 *pLevelAnim;                  /* 0x54: the cast's level animation (its grid entry) */
 };
 
 /* Ov022Actor */
@@ -97,7 +97,7 @@ extern void func_ov022_0208b6c0(struct ReactionCtx *pCtx, struct SlotPart *pPart
                                 VecFx32 *pAt, int nReaction);
 extern void func_ov022_0208acdc(struct ReactionCtx *pCtx, VecFx32 *pAim,
                                 int nReaction);
-extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, u8 *pTrack,
+extern void Ov022_BindBlockAnimations(struct ReactionCtx *pCtx, void *pTarget,
                                 struct AnimBlock *pAnim, int nMode);
 extern void func_ov022_0208a6b0(struct ReactionCtx *pCtx);
 extern void Ov022_BeginSubStateDispatch(struct ReactionCtx *pCtx);
@@ -153,7 +153,7 @@ void Ov022_OnEndMessage(struct EndMessage *pMsg)
         }
         pSlot->nTimer = 0;
         func_ov022_0208acdc(pCtx, &pSlot->anim.vecAt, pMsg->nReaction);
-        Ov022_BindBlockAnimations(pCtx, pCtx->pTrack + 4, &pSlot->anim, ANIM_MODE);
+        Ov022_BindBlockAnimations(pCtx, pCtx->pLevelAnim + 4, &pSlot->anim, ANIM_MODE);
         nSeed = pSlot->nRepeat;
         pSlot->anim.aEntryFlags[2] = nSeed;
         pSlot->anim.aEntryFlags[1] = nSeed;

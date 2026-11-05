@@ -15,7 +15,7 @@ typedef struct Ov022BattleObject {
 } Ov022BattleObject;
 
 extern u8 func_ov022_020882bc(int entityId);
-extern int Ov002_GetPanelWord0220Idx(int entityIndex);
+extern int Ov002_GetSeatHpGauge(int nSeat);
 extern unsigned short Sequence_UpdateTracks(u16 *timer, int amount);
 extern int data_0204c240;
 
@@ -23,7 +23,7 @@ void Ov022_PlayHitFeedback(Ov022BattleObject *object, int amount) {
     if ((*(u8 *)&data_0204c240 & 4) == 0) {
         return;
     }
-    Ov002_GetPanelWord0220Idx(func_ov022_020882bc(*((u8 *)object + 9)));
+    Ov002_GetSeatHpGauge(func_ov022_020882bc(*((u8 *)object + 9)));
     if ((object->flags464 & 0x8000000000000ULL) != 0) {
         object->timer8dc = 0x6000;
         Sequence_UpdateTracks(&object->animation7d4, amount);

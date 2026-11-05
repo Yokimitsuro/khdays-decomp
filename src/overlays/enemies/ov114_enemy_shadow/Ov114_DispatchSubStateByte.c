@@ -9,14 +9,14 @@ extern void Ov114_SetVisFlagsEnterState(void);
 extern void Ov114_AiTargetAndFace(void);
 extern void Ov114_StartSidestep(void);
 extern void Ov114_SetPose3ThenAdvanceSlot(void);
-extern void Ov114_AiEnterFadeIn(void);
+extern void Ov114_AiEnterSink(void);
 extern void Ov114_BounceEntry(void);
 extern void Ov114_AiEnterPursuit(void);
 extern void Ov114_PoseSetAngleFieldsThenAdvance(void);
 extern void Ov114_ConfigSubStateThenAdvanceSlot(void);
 extern void Ov114_FaceTargetAndWindUp(void);
 extern void Ov114_Action6Callback(void);
-extern void Ov114_AiEnterFadeOut(void);
+extern void Ov114_AiEnterSinkAndStay(void);
 extern void Ov114_AiSetStanceAndEnd(void);
 
 void Ov114_DispatchSubStateByte(int *node) {
@@ -42,7 +42,7 @@ void Ov114_DispatchSubStateByte(int *node) {
             SetIndexedSlot(node, 1, Ov114_SetPose3ThenAdvanceSlot);
             break;
         case 6:
-            SetIndexedSlot(node, 1, Ov114_AiEnterFadeIn);
+            SetIndexedSlot(node, 1, Ov114_AiEnterSink);
             break;
         case 7:
             SetIndexedSlot(node, 1, Ov114_BounceEntry);
@@ -63,7 +63,7 @@ void Ov114_DispatchSubStateByte(int *node) {
             SetIndexedSlot(node, 1, Ov114_Action6Callback);
             break;
         case 0xb:
-            SetIndexedSlot(node, 1, Ov114_AiEnterFadeOut);
+            SetIndexedSlot(node, 1, Ov114_AiEnterSinkAndStay);
             break;
         case 0xc:
             SetIndexedSlot(node, 1, Ov114_AiSetStanceAndEnd);

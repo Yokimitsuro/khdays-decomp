@@ -5,14 +5,15 @@
  * 0206fb2c); the text slot (+0x4: 0 / 4, else game flag 0x3bc9 + slot)
  * picks the slot tag from 0208f9b0 -- 0208f9e0 for a started mission
  * without the object -- at (3, 4 * row + 1), or the locked tag 0x6d.
- * During a transition the mission status (3 bits at 0x2ca4 + 3 * id with a
+ * During a transition the mission's Mission Mode rank (3 bits at 0x2ca4 + 3 * id), with a
  * transfer: tags 0x96 .. 0x93 at (0x18, 4 * row + 2), 0x93 notified for 0;
- * else 0x2a4c + 3 * id: 0x90 notified at (0x16 / 0x17, y), 0x92 / 0x91 /
- * 0x90 at (0x19 - (stage - 1), y) for stages 1 / 2 / 3, or 0x90 notified at
- * (0x17, y)) marks the row; otherwise the rank mask (0206fda0) and the
- * reward flags (0x92b + 4 * id) fill the three tiles at (0x15 + i, 4 * row
- * + 1) with 0x82 / 0x83 (rank) or 0x84 / 0x85 (bonus), 0x82 notified for an
- * unused tile; 0x8d is notified at (0x17, 4 * row + 2) and the cleared /
+ * else its crowns (0x2a4c + 3 * id): 0x90 notified at (0x16 / 0x17, y), 0x92 / 0x91 /
+ * 0x90 at (0x19 - (stage - 1), y) for 1 / 2 / 3 crowns, or 0x90 notified at
+ * (0x17, y)) marks the row; otherwise the badges the mission has (the kinds of its file's
+ * records, Ov025_BuildBadgeMask) and the badge bits (0x92b + 4 * id: bit 0 the ordeal badge,
+ * 1 the blazon, 3 the unity badge) fill the three tiles at (0x15 + i, 4 * row + 1) with 0x82 /
+ * 0x83 (an ordeal badge or blazon found / not yet) or 0x84 / 0x85 (the unity badge), 0x82
+ * notified for an unused tile; 0x8d is notified at (0x17, 4 * row + 2) and the cleared /
  * started badge follows (special entry or flag 2: 0x8d / 0x98 / 0x87 at
  * (0x17 / 0x17 / 0x18); plain: 0x8c / 0x97), then 0x86 at (0x18, 4 * row).
  * The row's rank surface (+0x1ec + 0x3c * row) shows the rank (+0x6) with a
@@ -40,25 +41,25 @@
 #define ROWS_PER_PAGE   6
 #define FLAG_TEXT_SLOT_BASE 0x3bc9
 #define FIELD_MISSION_STATUS 0x28e4
-#define FIELD_MISSION_TRANSFER 0x2ca4
-#define FIELD_MISSION_STAGE 0x2a4c
-#define FIELD_MISSION_REWARDS 0x92b
+#define FIELD_MISSION_MODE_RANK 0x2ca4
+#define FIELD_MISSION_CROWNS 0x2a4c
+#define FIELD_MISSION_BADGES 0x92b
 #define TAG_LOCKED      0x6d
-#define TAG_RANK_DONE   0x82
-#define TAG_RANK_OPEN   0x83
-#define TAG_BONUS_DONE  0x84
-#define TAG_BONUS_OPEN  0x85
+#define TAG_BADGE_FOUND   0x82
+#define TAG_BADGE_MISSING   0x83
+#define TAG_UNITY_FOUND  0x84
+#define TAG_UNITY_MISSING  0x85
 #define TAG_ROW         0x86
 #define TAG_STARTED_ALT 0x87
 #define TAG_CLEARED_PLAIN 0x8c
 #define TAG_BADGE       0x8d
-#define TAG_STAGE       0x90
-#define TAG_STAGE_2     0x91
-#define TAG_STAGE_1     0x92
-#define TAG_TRANSFER_0  0x93
-#define TAG_TRANSFER_3  0x94
-#define TAG_TRANSFER_2  0x95
-#define TAG_TRANSFER_1  0x96
+#define TAG_CROWN       0x90
+#define TAG_CROWN_2     0x91
+#define TAG_CROWN_1     0x92
+#define TAG_MODE_RANK_0  0x93
+#define TAG_MODE_RANK_3  0x94
+#define TAG_MODE_RANK_2  0x95
+#define TAG_MODE_RANK_1  0x96
 #define TAG_STARTED_PLAIN 0x97
 #define TAG_STARTED     0x98
 #define COLOUR_NORMAL   0xf1
@@ -69,11 +70,11 @@
 #define TEXT_LOCKED     4
 #define TEXT_REWARD_FIRST 0x15
 #define TEXT_COUNT_BASE 0xe
-#define RANK_TILES      3
+#define BADGE_TILES      3
 #define TILE_X_FIRST    0x15
 
 typedef struct Ov008MissionListEntry {
-    u16   nWord;              /* 0x00 */
+    u16   nFileNumber;              /* 0x00: the mission's file (mi/mi/<number>) */
     u16   missionId;          /* 0x02 */
     u16   nCategory;          /* 0x04 */
     u16   nShownNumber;              /* 0x06 */
@@ -131,7 +132,7 @@ extern int   Ov025_DefaultStepDone(Ov008MissionList *pList, Ov008MissionListEntr
 extern int   GameState_IsFlagSet(int nFlag);                                   /* GameState_IsFlagSet */
 extern void  Ov025_SetTagValueDup(int nOwner, u32 nTag, short nX, short nY); /* Ov008_SetTagValueDup */
 extern void  Ov025_ConfigureEntryByTag(int nOwner, u32 nTag, short nX, short nY); /* Ov008_SetTagValueAndNotify2 */
-extern u32   Ov025_BuildRankMask(Ov008MissionList *pList, u32 nWord);    /* Ov008_BuildRankMask */
+extern u32   Ov025_BuildBadgeMask(Ov008MissionList *pList, u32 nWord);    /* Ov008_BuildBadgeMask */
 extern Ov008MissionNameNode *Ov025_FindListObjectByKey_2(Ov008MissionList *pList, u32 nWord); /* find the name node */
 extern void  Ov025_BindDescriptor0(Ov008RowSurface *pSurface);
 extern void  Obj_InvokeInnerVtable4(void *pSurface);                              /* Obj_InvokeInnerVtable4 */
@@ -160,19 +161,19 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
     int nSet;
     u32 nTotal;
     int bTransition;
-    u8 nBonus;
+    u8 nUnity;
     int bUnlocked;
     int nRow;
     int nY;
     int bDim;
     int nOwner;
     int bObject;
-    u32 nStage;
+    u32 nValue;
     int nY2;
     int nX;
-    u32 nMask;
-    u8 nRanks;
-    u8 nRewards;
+    u32 nKinds;
+    u8 nBadgeTiles;
+    u8 nBadges;
     u32 i;
     u32 nTag;
     int bCleared;
@@ -217,84 +218,84 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
     nY = nRow * 4;
     if (bTransition != 0) {
         if (pList->bEntryGate != 0) {
-            nStage = GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_TRANSFER, 3);
+            nValue = GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_MODE_RANK, 3);
             nY2 = nY + 2;
-            switch (nStage) {
+            switch (nValue) {
             case 1:
-                Ov025_SetTagValueDup(nOwner, TAG_TRANSFER_1, 0x18, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_MODE_RANK_1, 0x18, (short)nY2);
                 break;
             case 2:
-                Ov025_SetTagValueDup(nOwner, TAG_TRANSFER_2, 0x18, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_MODE_RANK_2, 0x18, (short)nY2);
                 break;
             case 3:
-                Ov025_SetTagValueDup(nOwner, TAG_TRANSFER_3, 0x18, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_MODE_RANK_3, 0x18, (short)nY2);
                 break;
             case 4:
-                Ov025_SetTagValueDup(nOwner, TAG_TRANSFER_0, 0x18, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_MODE_RANK_0, 0x18, (short)nY2);
                 break;
             case 0:
             default:
-                Ov025_ConfigureEntryByTag(nOwner, TAG_TRANSFER_0, 0x18, (short)nY2);
+                Ov025_ConfigureEntryByTag(nOwner, TAG_MODE_RANK_0, 0x18, (short)nY2);
                 break;
             }
         } else {
-            nStage = GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_STAGE, 3);
+            nValue = GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_CROWNS, 3);
             nY2 = nY + 2;
-            nX = 0x19 - (nStage - 1);
-            Ov025_ConfigureEntryByTag(nOwner, TAG_STAGE, 0x16, (short)nY2);
-            Ov025_ConfigureEntryByTag(nOwner, TAG_STAGE, 0x17, (short)nY2);
-            switch (nStage) {
+            nX = 0x19 - (nValue - 1);
+            Ov025_ConfigureEntryByTag(nOwner, TAG_CROWN, 0x16, (short)nY2);
+            Ov025_ConfigureEntryByTag(nOwner, TAG_CROWN, 0x17, (short)nY2);
+            switch (nValue) {
             case 1:
-                Ov025_SetTagValueDup(nOwner, TAG_STAGE_1, (short)nX, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_CROWN_1, (short)nX, (short)nY2);
                 break;
             case 2:
-                Ov025_SetTagValueDup(nOwner, TAG_STAGE_2, (short)nX, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_CROWN_2, (short)nX, (short)nY2);
                 break;
             case 3:
-                Ov025_SetTagValueDup(nOwner, TAG_STAGE, (short)nX, (short)nY2);
+                Ov025_SetTagValueDup(nOwner, TAG_CROWN, (short)nX, (short)nY2);
                 break;
             default:
-                Ov025_ConfigureEntryByTag(nOwner, TAG_STAGE, 0x17, (short)nY2);
+                Ov025_ConfigureEntryByTag(nOwner, TAG_CROWN, 0x17, (short)nY2);
                 break;
             }
         }
     } else {
-        nMask = Ov025_BuildRankMask(pList, pEntry->nWord);
-        nRanks = 0;
-        if (nMask & 1) {
-            nRanks++;
+        nKinds = Ov025_BuildBadgeMask(pList, pEntry->nFileNumber);
+        nBadgeTiles = 0;
+        if (nKinds & 1) {
+            nBadgeTiles++;
         }
-        if (nMask & 2) {
-            nRanks++;
+        if (nKinds & 2) {
+            nBadgeTiles++;
         }
-        nBonus = 0;
-        if (nMask & 8) {
-            nBonus++;
+        nUnity = 0;
+        if (nKinds & 8) {
+            nUnity++;
         }
-        nRewards = GameState_GetField(pEntry->missionId * 4 + FIELD_MISSION_REWARDS, 4);
-        for (i = 0; (int)i < RANK_TILES; i++) {
+        nBadges = GameState_GetField(pEntry->missionId * 4 + FIELD_MISSION_BADGES, 4);
+        for (i = 0; (int)i < BADGE_TILES; i++) {
             nTag = -1;
             if (i <= 1) {
-                if ((int)i < nRanks) {
-                    if (nRewards & (1 << i)) {
-                        nTag = TAG_RANK_DONE;
+                if ((int)i < nBadgeTiles) {
+                    if (nBadges & (1 << i)) {
+                        nTag = TAG_BADGE_FOUND;
                     } else {
-                        nTag = TAG_RANK_OPEN;
+                        nTag = TAG_BADGE_MISSING;
                     }
                 }
             } else if (i == 2) {
-                if (nBonus != 0) {
-                    if (nRewards & (1 << (i + 1))) {
-                        nTag = TAG_BONUS_DONE;
+                if (nUnity != 0) {
+                    if (nBadges & (1 << (i + 1))) {
+                        nTag = TAG_UNITY_FOUND;
                     } else {
-                        nTag = TAG_BONUS_OPEN;
+                        nTag = TAG_UNITY_MISSING;
                     }
                 }
             }
             if (nTag != -1) {
                 Ov025_SetTagValueDup(nOwner, nTag, (short)(i + TILE_X_FIRST), (short)(nY + 1));
             } else {
-                Ov025_ConfigureEntryByTag(nOwner, TAG_RANK_DONE, (short)(i + TILE_X_FIRST), (short)(nY + 1));
+                Ov025_ConfigureEntryByTag(nOwner, TAG_BADGE_FOUND, (short)(i + TILE_X_FIRST), (short)(nY + 1));
             }
         }
         nY2 = nY + 2;
@@ -331,7 +332,7 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
     }
     pNode = 0;
     if (Ov025_GetCtxObject9634() != 0) {
-        pNode = Ov025_FindListObjectByKey_2(pList, pEntry->nWord);
+        pNode = Ov025_FindListObjectByKey_2(pList, pEntry->nFileNumber);
     }
     nGlyph = GLYPH_SPACE;
     if (Ov025_GetCtxObject9634() != 0) {
@@ -408,7 +409,7 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
     if (bTransition == 0) {
         nSet = 0;
         nTotal = 0;
-        Ov025_CountGroupFlagsSet(pList, pEntry->nWord, &nSet, &nTotal);
+        Ov025_CountGroupFlagsSet(pList, pEntry->nFileNumber, &nSet, &nTotal);
         Obj_InvokeInnerVtable4(&pList->aRowDotSurface[nRow]);
         Text_FormatUtf16(aCount, 4, data_ov025_020b5370, nSet, nTotal);
         Text_DrawWithShadow(&pList->aRowDotSurface[nRow], 2, 7, nColour, aCount, 1);
