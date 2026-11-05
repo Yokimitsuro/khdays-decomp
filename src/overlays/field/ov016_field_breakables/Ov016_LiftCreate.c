@@ -20,7 +20,7 @@ typedef struct Ov016LiftDef {
 typedef struct Ov016Lift {
     u8 pad_000[0xc];
     void *pfnStep;            /* 0x0c: state function */
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8 pad_011[3];
     u16 nStateField;          /* 0x14: GameState field */
     u8  nStateBit;            /* 0x16 */
@@ -48,11 +48,11 @@ typedef struct Ov016Lift {
 extern Ov016Lift *Ov002_ClaimPoolEntry(Ov016LiftDef *pClass, int nSlot);   /* take a piece from the class table */
 extern int   Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int nSlot, int nKind,
                                  int nParamA, int nParamB, int nParamC, int nFacing, int nFlag); /* place the node */
-extern void  Ov002_List_SetBit(int nBucket, int nMode);
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);              /* register the piece */
+extern void  Ov002_List_SetBit(int nRoom, int nMode);
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);              /* register the piece */
 extern void *Ov016_LiftStep(Ov016Lift *pSelf);                       /* Ov016_LiftStep */
 
-Ov016Lift *Ov016_LiftCreate(Ov016LiftDef *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short nFacing,
+Ov016Lift *Ov016_LiftCreate(Ov016LiftDef *pClass, u16 nSlot, u8 nRoom, VecFx32 *pPos, short nFacing,
                                u16 nField, u8 nBit, u16 nTriggerField, u8 nTriggerBit,
                                int nTop, int nBottom, int nSpeed, int nWait)
 {
@@ -69,7 +69,7 @@ Ov016Lift *Ov016_LiftCreate(Ov016LiftDef *pClass, u16 nSlot, u8 nBucket, VecFx32
         pLift->nNodeFlagsB |= 0x20;
     }
     pLift->nFacing = nFacing;
-    pLift->nBucket = nBucket;
+    pLift->nRoom = nRoom;
     pLift->pfnStep = (void *)Ov016_LiftStep;
     pLift->nStateField = nField;
     pLift->nStateBit = nBit;
@@ -82,7 +82,7 @@ Ov016Lift *Ov016_LiftCreate(Ov016LiftDef *pClass, u16 nSlot, u8 nBucket, VecFx32
     pLift->nTriggerField = nTriggerField;
     pLift->nTriggerBit = nTriggerBit;
     pLift->home = *pPos;
-    Ov002_List_SetBit(nBucket, 1);
-    Ov002_PushBucketNode(nBucket, pLift);
+    Ov002_List_SetBit(nRoom, 1);
+    Ov002_PushBucketNode(nRoom, pLift);
     return pLift;
 }

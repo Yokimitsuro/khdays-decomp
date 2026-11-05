@@ -34,7 +34,7 @@ typedef struct Ov021PrizeBoxDef {
 typedef struct Ov021ItemCommand {
     u8   nByte0;              /* 0x00 (the command kind goes here) */
     u8   nLow : 2;            /* 0x01 */
-    u8   nBucket : 6;
+    u8   nRoom : 6;
     char nSpawnId;            /* 0x02 */
     u8   nItem;               /* 0x03 */
     u8   nByte4;              /* 0x04 */
@@ -46,7 +46,7 @@ typedef struct Ov021PrizeBox {
     u8   pad_000[8];
     Ov021PrizeBoxDef *pDef;   /* 0x008 */
     u8   pad_00c[4];
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012: bit 2 = model bound, bit 3 = in the room */
     u8   pad_014[0x2c - 0x14];
@@ -128,7 +128,7 @@ void *Ov021_PrizeBoxStep(Ov021PrizeBox *pSelf)
             if (Session_GetLocalPlayerIndex() == 0) {
                 command.nSpawnId = pSelf->nSpawnId;
                 command.nItem = Ov002_FindKeyEntryIndex(pDef->aPrize[pSelf->nPrize].nValue);
-                command.nBucket = pSelf->nBucket;
+                command.nRoom = pSelf->nRoom;
                 command.position = pSelf->position;
                 command.nLow = 1;
                 command.nByte4 = 0;
@@ -141,7 +141,7 @@ void *Ov021_PrizeBoxStep(Ov021PrizeBox *pSelf)
             aDrop[0] = nAmount;
             aDrop[2] = nAmount;
             aDrop[3] = nAmount;
-            Ov002_SpawnAllDrops(aDrop, pSelf->nBucket, &pSelf->position);
+            Ov002_SpawnAllDrops(aDrop, pSelf->nRoom, &pSelf->position);
             break;
         }
         case 2:

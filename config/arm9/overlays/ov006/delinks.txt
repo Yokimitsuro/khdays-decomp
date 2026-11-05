@@ -152,11 +152,11 @@ src/overlays/scenes/ov006_mission_mode_select/Ov006_IsSceneState4.c:
     complete
     .text       start:0x0204d5f8 end:0x0204d610
 
-src/overlays/scenes/ov006_mission_mode_select/Ov006_MenuEntryToSlot.c:
+src/overlays/scenes/ov006_mission_mode_select/Ov006_SelectPlaceToCharacter.c:
     complete
     .text       start:0x0204d610 end:0x0204d700
 
-src/overlays/scenes/ov006_mission_mode_select/Ov006_MenuSlotToEntry.c:
+src/overlays/scenes/ov006_mission_mode_select/Ov006_CharacterToSelectPlace.c:
     complete
     .text       start:0x0204d700 end:0x0204d800
 

@@ -4,11 +4,11 @@
  * maps day/progress thresholds to the three mission-summary tier values.
  *
  * Readers:
- *   data_ov008_0208ee84: Ov008_MainMenu_RecalculateMissionSummary, Ov008_FindFirstThresholdRow
+ *   data_ov008_0208ee84: Ov008_WorldMap_RecalculateMissionSummary, Ov008_FindFirstThresholdRow
  *   data_ov008_0208ee86: Ov008_GetTableValue
- *   data_ov008_0208ee88: Ov008_MainMenu_RecalculateMissionSummary
- *   data_ov008_0208ee89: Ov008_MainMenu_RecalculateMissionSummary
- *   data_ov008_0208ee8a: Ov008_MainMenu_RecalculateMissionSummary
+ *   data_ov008_0208ee88: Ov008_WorldMap_RecalculateMissionSummary
+ *   data_ov008_0208ee89: Ov008_WorldMap_RecalculateMissionSummary
+ *   data_ov008_0208ee8a: Ov008_WorldMap_RecalculateMissionSummary
  *   data_ov008_0208f021: (no C reader yet)
  */
 

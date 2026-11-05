@@ -3,10 +3,10 @@
 #include "nitro/fx_types.h"
 
 extern char *Ov002_ClaimPoolEntry(void *pClass, int nSlot);
-extern int Ov002_GetCtxTableByte(int nBucket);
+extern int Ov002_GetCtxTableByte(int nRoom);
 extern unsigned int strlen(const char *s);
 extern void strcpy(void *pDst, const void *pSrc);
-extern void Ov002_PushBucketNode(int nBucket, char *pEntry);
+extern void Ov002_PushBucketNode(int nRoom, char *pEntry);
 extern void Ov002_SpareEntryStep(void);
 
 /* Spawn one spare entry of a class.
@@ -17,7 +17,7 @@ extern void Ov002_SpareEntryStep(void);
  * than counted - and two flags arm the park handler and the wide slot. The
  * state machine is installed last and the entry is pushed into its bucket.
  */
-char *Ov002_SpawnSpareEntry(void *pClass, int nSlot, int nBucket, const VecFx32 *pPos,
+char *Ov002_SpawnSpareEntry(void *pClass, int nSlot, int nRoom, const VecFx32 *pPos,
                           u16 wStateField, unsigned char bStateWidth,
                           signed char bQueuedWidth, signed char nCount,
                           const char *pName, const char *pLine,
@@ -26,7 +26,7 @@ char *Ov002_SpawnSpareEntry(void *pClass, int nSlot, int nBucket, const VecFx32 
     char *pEntry;
 
     pEntry = Ov002_ClaimPoolEntry(pClass, nSlot);
-    Ov002_GetCtxTableByte(nBucket);
+    Ov002_GetCtxTableByte(nRoom);
 
     *(VecFx32 *)(pEntry + 0x1c) = *pPos;
 
@@ -67,7 +67,7 @@ char *Ov002_SpawnSpareEntry(void *pClass, int nSlot, int nBucket, const VecFx32 
 
     *(unsigned char *)(pEntry + 0x2d) = (unsigned char)nSlot;
 
-    *(unsigned char *)(pEntry + 0x10) = (unsigned char)nBucket;
+    *(unsigned char *)(pEntry + 0x10) = (unsigned char)nRoom;
     *(int *)(pEntry + 0x0c) = (int)Ov002_SpareEntryStep;
     *(u16 *)(pEntry + 0x12) |= 8;
 
@@ -75,6 +75,6 @@ char *Ov002_SpawnSpareEntry(void *pClass, int nSlot, int nBucket, const VecFx32 
     *(unsigned char *)(pEntry + 0x16) = bStateWidth;
     *(unsigned char *)(pEntry + 0x17) = *(signed char *)(pEntry + 0x2e);
 
-    Ov002_PushBucketNode(nBucket, pEntry);
+    Ov002_PushBucketNode(nRoom, pEntry);
     return pEntry;
 }

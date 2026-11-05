@@ -6,7 +6,7 @@
  *
  * Readers:
  *   data_ov008_0208f044: Ov008_BindUiAnimTracks
- *   data_ov008_0208f050: Ov008_UpdatePanelBrightnessTweens, Ov008_MainMenu_InitPanelContext, Ov008_ReleaseRowSurfaces, Ov008_DrawMenuPanels
+ *   data_ov008_0208f050: Ov008_UpdatePanelBrightnessTweens, Ov008_WorldMap_InitPanelContext, Ov008_ReleaseRowSurfaces, Ov008_DrawMenuPanels
  */
 
 #include "nitro/types.h"

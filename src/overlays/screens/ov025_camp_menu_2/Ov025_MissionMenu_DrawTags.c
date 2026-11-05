@@ -63,9 +63,9 @@
 #define CLEARED_ALL     12
 
 typedef struct Ov008MissionListEntry {
-    u16 nWord;                /* 0x00 */
+    u16 nFileNumber;                /* 0x00 */
     u16 missionId;            /* 0x02 */
-    u16 nTextSlot;            /* 0x04 */
+    u16 nCategory;            /* 0x04 */
     u8  pad_06[6];
     u8  bSpecial;             /* 0x0c */
     u8  pad_0d[7];
@@ -138,17 +138,17 @@ void Ov025_MissionMenu_DrawTags(Ov008MissionMenu *pMenu)
     bObject = Ov025_GetCtxObject9630();
     bTransition = Ov025_GetCtxObject9634();
     tags = data_ov025_020b47ec;
-    if (pEntry->nTextSlot == 0) {
+    if (pEntry->nCategory == 0) {
         bUnlocked = 1;
-    } else if (pEntry->nTextSlot == 4) {
+    } else if (pEntry->nCategory == 4) {
         bUnlocked = 1;
     } else {
-        bUnlocked = GameState_IsFlagSet(pEntry->nTextSlot + FLAG_TEXT_SLOT_BASE);
+        bUnlocked = GameState_IsFlagSet(pEntry->nCategory + FLAG_TEXT_SLOT_BASE);
     }
     if (bUnlocked == 0) {
         Ov025_ApplyTempFieldsByTag(nOwner, TAG_LOCKED, (short)2, (short)2);
     } else {
-        Ov025_ApplyTempFieldsByTag(nOwner, tags.aTag[pEntry->nTextSlot], (short)2, (short)2);
+        Ov025_ApplyTempFieldsByTag(nOwner, tags.aTag[pEntry->nCategory], (short)2, (short)2);
     }
     if (bTransition != 0) {
         if (pMenu->bTransfer != 0) {
@@ -192,7 +192,7 @@ void Ov025_MissionMenu_DrawTags(Ov008MissionMenu *pMenu)
         }
     } else {
         GameState_GetField(pEntry->missionId * 3 + FIELD_MISSION_STATUS, 3);
-        nMask = Ov025_BuildRankMask2(pMenu, pEntry->nWord);
+        nMask = Ov025_BuildRankMask2(pMenu, pEntry->nFileNumber);
         nRanks = 0;
         if (nMask & 1) {
             nRanks++;

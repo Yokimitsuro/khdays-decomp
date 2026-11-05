@@ -75,8 +75,8 @@
 typedef struct Ov008MissionListEntry {
     u16   nWord;              /* 0x00 */
     u16   missionId;          /* 0x02 */
-    u16   nTextSlot;          /* 0x04 */
-    u16   nRank;              /* 0x06 */
+    u16   nCategory;          /* 0x04 */
+    u16   nShownNumber;              /* 0x06 */
     u16   nCount;             /* 0x08 */
     u8    pad_0a[2];
     u8    bSpecial;           /* 0x0c */
@@ -198,21 +198,21 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
             bDim = Ov025_DefaultStepDone(pList, pEntry) == 0;
         }
     }
-    if (pEntry->nTextSlot == 0) {
+    if (pEntry->nCategory == 0) {
         bUnlocked = 1;
-    } else if (pEntry->nTextSlot == 4) {
+    } else if (pEntry->nCategory == 4) {
         bUnlocked = 1;
     } else {
-        bUnlocked = GameState_IsFlagSet(pEntry->nTextSlot + FLAG_TEXT_SLOT_BASE);
+        bUnlocked = GameState_IsFlagSet(pEntry->nCategory + FLAG_TEXT_SLOT_BASE);
     }
     tags = data_ov025_020b4660;
     tagsStarted = data_ov025_020b4690;
     if (bUnlocked == 0) {
         Ov025_SetTagValueDup(nOwner, TAG_LOCKED, 3, (short)(nRow * 4 + 1));
     } else if (bObject == 0 && Ov008_IsMissionStarted(pEntry)) {
-        Ov025_SetTagValueDup(nOwner, tagsStarted.aTag[pEntry->nTextSlot], 3, (short)(nRow * 4 + 1));
+        Ov025_SetTagValueDup(nOwner, tagsStarted.aTag[pEntry->nCategory], 3, (short)(nRow * 4 + 1));
     } else {
-        Ov025_SetTagValueDup(nOwner, tags.aTag[pEntry->nTextSlot], 3, (short)(nRow * 4 + 1));
+        Ov025_SetTagValueDup(nOwner, tags.aTag[pEntry->nCategory], 3, (short)(nRow * 4 + 1));
     }
     nY = nRow * 4;
     if (bTransition != 0) {
@@ -346,10 +346,10 @@ void Ov025_DrawMissionRow(Ov008MissionList *pList, int nIndex, Ov008MissionListE
     Ov025_BindDescriptor0(&pList->aRowInfoSurface[nRow]);
     pInfo = pList->aRowInfoSurface;
     Obj_InvokeInnerVtable4(&pInfo[nRow]);
-    Text_FormatUtf16(aRank, 4, data_ov025_020b535c, pEntry->nRank, nGlyph);
+    Text_FormatUtf16(aRank, 4, data_ov025_020b535c, pEntry->nShownNumber, nGlyph);
     Text_DrawWithShadow(&pList->aRowInfoSurface[nRow], 0, 5, nColour, aRank, 1);
     if (Ov025_GetCtxObject9634() == 0 || pList->bEntryGate != 0) {
-        nSlot = pEntry->nTextSlot;
+        nSlot = pEntry->nCategory;
         if (bUnlocked != 0) {
             Ov025_SetupAndConfigure(&pList->aRowInfoSurface[nRow], Ov025_GetNextMissionEntry_4(nSlot), 0x60);
         }

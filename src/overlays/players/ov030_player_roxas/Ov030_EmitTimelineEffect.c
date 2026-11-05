@@ -15,7 +15,7 @@ struct StructOut;
 struct StructM;
 
 extern void func_ov022_020ad44c(VecFx32 *, struct TimelineActor *);
-extern void Ov022_ScaleRowValues(struct TimelineActor *, int, int *, int *);
+extern void Ov022_ScaleMoveDamage(struct TimelineActor *, int, int *, int *);
 extern int Ov022_RunCommandHandlers(struct TimelineActor *, struct StructOut *, int *, int);
 extern void Ov022_SendAimMessage(void *, int, struct StructM *);
 
@@ -175,7 +175,7 @@ void Ov030_EmitTimelineEffect(struct TimelineActorOwner *this) {
             sb.f08 |= 0x420;
             arg = 0x12c0;
         }
-        Ov022_ScaleRowValues(p, arg, &sb.f00, &sb.f04);
+        Ov022_ScaleMoveDamage(p, arg, &sb.f00, &sb.f04);
     }
     sb.f0c = 0;
     sb.f14 = 0xa00;

@@ -2,8 +2,8 @@
  * Ov302_ParseRecordListAppendMatches returns. */
 
 extern int Ov302_ParseRecordListAppendMatches(void *a, void *b, void *c, void *cb);
-extern void Ov302_RecordFilter_KindZero(void);
+extern void Ov302_RecordFilter_StoryRow(void);
 
 int Ov302_AppendRecordsKindZero(void *a, void *b, void *c) {
-    return Ov302_ParseRecordListAppendMatches(a, b, c, Ov302_RecordFilter_KindZero);
+    return Ov302_ParseRecordListAppendMatches(a, b, c, Ov302_RecordFilter_StoryRow);
 }

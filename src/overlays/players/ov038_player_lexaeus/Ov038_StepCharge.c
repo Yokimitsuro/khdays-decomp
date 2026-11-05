@@ -16,7 +16,7 @@ extern void Ov038_BindChargeTracks(int p2, int a);
 extern void Ov038_BindDefaultAnims(int self, void *block);
 extern void Ov038_RearmSequenceSlots(int self, void *block, int a);
 extern unsigned short Sequence_UpdateTracks(void *p, int a);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern int Ov022_IsSlotReady(void *p);
 
 extern int data_ov038_020b4ca0;

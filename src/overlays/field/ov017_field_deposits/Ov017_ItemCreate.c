@@ -12,7 +12,7 @@
 typedef struct Ov017Item {
     u8   pad_000[0xc];
     void *pfnStep;            /* 0x00c */
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012 */
     u16  nStateField;         /* 0x014: GameState field */
@@ -34,10 +34,10 @@ typedef struct Ov017Item {
 } Ov017Item;
 
 extern Ov017Item *Ov002_ClaimPoolEntry(void *pClass, int nSlot);      /* take a piece from the class table */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);         /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);         /* register the piece */
 extern void *Ov017_ItemStep(Ov017Item *pSelf);                  /* Ov017_ItemStep */
 
-void Ov017_ItemCreate(void *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short nFacing, u16 nField, u8 nBit, u16 nTakenField, u8 nTakenBit, short nItemId)
+void Ov017_ItemCreate(void *pClass, u16 nSlot, u8 nRoom, VecFx32 *pPos, short nFacing, u16 nField, u8 nBit, u16 nTakenField, u8 nTakenBit, short nItemId)
 {
     Ov017Item *pPiece;
     u8 nState;
@@ -60,11 +60,11 @@ void Ov017_ItemCreate(void *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short 
     pPiece->nState = nState;
     pPiece->nTakenField = nTakenField;
     pPiece->nTakenBit = nTakenBit;
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov017_ItemStep;
     pPiece->nPieceFlags |= 8;
     pPiece->nStateField = nField;
     pPiece->nStateBit = nBit;
     pPiece->nField17 = 1;
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
 }

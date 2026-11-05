@@ -18,7 +18,7 @@ extern int Actor_ArmWithMessage(int nNode, int nZero, void *pObj,
                          Ov002PlaceParams *pParams, int nFlag);
 extern void Actor_SetVecAndSyncChild(char *pNode, VecFx32 *pPos);
 extern int Ov002_TakeEntryOfKind1(void);
-extern void Ov002_PushBucketNode(int nBucket, char *pElement);
+extern void Ov002_PushBucketNode(int nRoom, char *pElement);
 extern void Ov002_Element_PickTick(char *pElement);
 
 /* Spawn one timed element of a class.
@@ -29,7 +29,7 @@ extern void Ov002_Element_PickTick(char *pElement);
  * starts in state 3, and the per-frame handler is installed before the node
  * goes into its bucket.
  */
-void Ov002_SpawnTimedElementAt(char *pClass, int nSlot, int nBucket, VecFx32 *pPos,
+void Ov002_SpawnTimedElementAt(char *pClass, int nSlot, int nRoom, VecFx32 *pPos,
                          short nAngle, u16 wStateField,
                          unsigned char bStateWidth, short nKey)
 {
@@ -59,12 +59,12 @@ void Ov002_SpawnTimedElementAt(char *pClass, int nSlot, int nBucket, VecFx32 *pP
     *(unsigned char *)(pElement + 0x1ba) = (unsigned char)nSlot;
     *(unsigned char *)(pElement + 0x1b4) = 3;
 
-    *(unsigned char *)(pElement + 0x10) = (unsigned char)nBucket;
+    *(unsigned char *)(pElement + 0x10) = (unsigned char)nRoom;
     *(int *)(pElement + 0x0c) = (int)Ov002_Element_PickTick;
     *(u16 *)(pElement + 0x12) |= 8;
     *(u16 *)(pElement + 0x14) = wStateField;
     *(unsigned char *)(pElement + 0x16) = bStateWidth;
     *(unsigned char *)(pElement + 0x17) = 1;
 
-    Ov002_PushBucketNode(nBucket, pElement);
+    Ov002_PushBucketNode(nRoom, pElement);
 }

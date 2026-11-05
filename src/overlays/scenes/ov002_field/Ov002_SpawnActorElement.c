@@ -11,7 +11,7 @@ extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *ab);
 extern void Actor_SetVecAndSyncChild(char *pNode, VecFx32 *pPos);
 extern short EntityMgr_GetCollEntryField14(int nId, int nSpot);
 extern char *strncpy(char *pDst, const char *pSrc, unsigned int nSize);
-extern void Ov002_PushBucketNode(int nBucket, char *pElement);
+extern void Ov002_PushBucketNode(int nRoom, char *pElement);
 extern void *Ov002_ElementPhase_WatchStateBit(char *pElement);
 
 /* Spawn one actor element of a class.
@@ -22,7 +22,7 @@ extern void *Ov002_ElementPhase_WatchStateBit(char *pElement);
  * copied in, the slot, handler, game-state descriptor and name are stamped,
  * and the class's kind decides which of the four modes get a track.
  */
-char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nBucket,
+char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nRoom,
                           u16 wStateField, unsigned char bStateWidth,
                           const char *pName, signed char bTrackIndex,
                           int nSpot, VecFx32 *pPos, const VecFx32 *pBound,
@@ -36,7 +36,7 @@ char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nBucket,
 
     pElement = Ov002_ClaimPoolEntry(pClass, nSlot);
     pOwner = *(char **)(pElement + 8);
-    nId = Ov002_GetCtxTableByte(nBucket);
+    nId = Ov002_GetCtxTableByte(nRoom);
 
     Actor_ArmWithMessage((int)(pElement + 0x1c), 0, pElement, 0, 1);
 
@@ -55,7 +55,7 @@ char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nBucket,
         *(VecFx32 *)(pElement + 0xdc) = *pBound;
     }
 
-    *(unsigned char *)(pElement + 0x10) = (unsigned char)nBucket;
+    *(unsigned char *)(pElement + 0x10) = (unsigned char)nRoom;
     *(int *)(pElement + 0x0c) = (int)Ov002_ElementPhase_WatchStateBit;
     *(u16 *)(pElement + 0x14) = wStateField;
     *(unsigned char *)(pElement + 0x16) = bStateWidth;
@@ -92,6 +92,6 @@ char *Ov002_SpawnActorElement(char *pClass, int nSlot, int nBucket,
         break;
     }
 
-    Ov002_PushBucketNode(nBucket, pElement);
+    Ov002_PushBucketNode(nRoom, pElement);
     return pElement;
 }

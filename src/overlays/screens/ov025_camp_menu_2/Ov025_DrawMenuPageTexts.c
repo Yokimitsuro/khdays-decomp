@@ -30,22 +30,22 @@
 #define ENTRY_ID_NARROW_B 0x14d
 #define FX_ONE         0x1000
 
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  pad_05;
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
 typedef struct Ov008MenuAnchor {
     int nA;                   /* 0x00 */
@@ -91,7 +91,7 @@ typedef struct Ov008MenuContext {
 } Ov008MenuContext;
 
 extern const Ov008MenuAnchorTable data_ov025_020b4158;
-extern Ov008MenuEntryDef data_ov025_020b4f64[];
+extern Ov008ConfigSetting gOv025ConfigSettings[];
 extern Ov008MenuContext *Ov025_GetPageA(void);                     /* Ov008_GetMenuContext */
 extern Ov008MenuList *Ov025_GetPageItem(int nListId, u32 nSelection); /* list of the selection */
 extern int   Ov025_GetContext(void);                                 /* Ov008_GetContext */
@@ -117,7 +117,7 @@ void Ov025_DrawMenuPageTexts(void)
     u16 j;
     u16 nSubCount;
     Ov008MenuContext *pCtx;
-    Ov008MenuEntryDef *pEntry;
+    Ov008ConfigSetting *pEntry;
     Ov008MenuAnchor *pAnchor;
     char *pText;
     int nSubText;
@@ -130,7 +130,7 @@ void Ov025_DrawMenuPageTexts(void)
     Ov025_BindSharedPixels(pCtx->textSurface);
     Obj_InvokeInnerVtable4(pCtx->textSurface);
     for (i = 0; i < pList->nCount; i++) {
-        pEntry = &data_ov025_020b4f64[pList->nFirst + i];
+        pEntry = &gOv025ConfigSettings[pList->nFirst + i];
         nId = pEntry->nId;
         pAnchor = &anchors.aAnchor[pEntry->nAnchor];
         nText = pEntry->nText;
@@ -170,11 +170,11 @@ void Ov025_DrawMenuPageTexts(void)
     pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, pCtx->nLabelIndex);
     Ov025_BindSharedPixels(pCtx->textSurface);
     Ov025_DrawPageAElementWithShadow(pText, 0xfa, 2, 2, COLOUR_LABEL, 1);
-    if (data_ov025_020b4f64[pSel->nEntry].bEnabled != 0) {
-        pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, data_ov025_020b4f64[pSel->nEntry].nHelpText);
+    if (gOv025ConfigSettings[pSel->nEntry].bEnabled != 0) {
+        pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, gOv025ConfigSettings[pSel->nEntry].nHelpText);
         Ov025_FitTextFieldFont(pCtx->textSurface, pText, 0xf0);
         Ov025_DrawPageAElementWithShadow(pText, 8, 0x98, 2, COLOUR_TEXT, 1);
-        pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, data_ov025_020b4f64[pSel->nEntry].aSub[pSel->aSub[pSel->nEntry]].nHelpText);
+        pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, gOv025ConfigSettings[pSel->nEntry].aSub[pSel->aSub[pSel->nEntry]].nHelpText);
         Ov025_FitTextFieldFont(pCtx->textSurface, pText, 0xf0);
         Ov025_DrawPageAElementWithShadow(pText, 8, 0xa4, 4, COLOUR_TEXT, 1);
     } else {

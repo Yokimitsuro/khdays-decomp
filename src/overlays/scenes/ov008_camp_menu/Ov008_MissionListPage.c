@@ -14,7 +14,7 @@
 
 typedef struct Ov008MissionListEntry {
     u8  pad_00[4];
-    u16 nSlot;                /* 0x04 */
+    u16 nCategory;                /* 0x04 */
 } Ov008MissionListEntry;
 
 typedef struct Ov008MissionList {
@@ -40,7 +40,7 @@ typedef struct Ov008MissionList {
 
 extern u16  Ov008_GetCurrentListId(void);                                    /* mission entry count */
 extern Ov008MissionListEntry *Ov008_GetNextMissionEntry_2(int nIndex);
-extern void Ov008_MainMenu_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_MainMenu_UpdateSelectionText */
+extern void Ov008_WorldMap_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_WorldMap_UpdateSelectionText */
 extern int  Ov008_GetCtxObject9634(void);                                    /* page transition active */
 extern int  Ov008_GetCtxObject9630(void);                                    /* Ov008_GetCtxObject9630 */
 extern void Ov008_LayoutMissionDots(Ov008MissionList *pList);                 /* Ov008_LayoutMissionDots */
@@ -86,7 +86,7 @@ void Ov008_MissionListPage(Ov008MissionList *pList, int nDir)
         if (pList->bAnimating != 0) {
             bLocked = 1;
         }
-        Ov008_MainMenu_UpdateSelectionText(pEntry->nSlot, bLocked);
+        Ov008_WorldMap_UpdateSelectionText(pEntry->nCategory, bLocked);
     }
     if (Ov008_GetCtxObject9634() == 0) {
         if (Ov008_GetCtxObject9630() == 0 && pList->bTouchEnabled == 0) {

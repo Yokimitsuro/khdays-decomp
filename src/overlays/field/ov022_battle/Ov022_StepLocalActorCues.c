@@ -52,7 +52,7 @@ extern int Session_GetLocalPlayerIndex(void);
 extern int Slot_Spawn(int nKindId, int nCue, VecFx32 *pPos, unsigned int nFlags);
 extern int SoundSeqHandle_IsActive(int hSpawn);
 extern void Handle_WritePayloadIfLive(int hSpawn, VecFx32 *pPos);
-extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nA, int nCue);
+extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nSeqArc, int nSeq);
 extern void Ov022_StepReactionCues(struct Actor *pActor);
 
 void Ov022_StepLocalActorCues(struct Actor *pActor)

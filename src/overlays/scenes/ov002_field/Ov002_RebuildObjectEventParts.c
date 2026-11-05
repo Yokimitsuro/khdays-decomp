@@ -38,7 +38,7 @@ extern void Ov107_StartObject(Ov107Object *);
 extern int Ov107_Spawner_AddSlot(Ov107Object *,u8,u8,int,s8,u32);
 extern void Ov107_SetPartBinding(Ov107Object *,int,int);
 extern void Ov107_Spawner_FreeDataBlocks(Ov107Object *);
-extern void Ov002_StartSlotAnim(int,int,int,VecFx32 *,int);
+extern void Ov002_StartSpawnerTrigger(int,int,int,VecFx32 *,int);
 
 void Ov002_RebuildObjectEventParts(u8 nSlotIndex)
 {
@@ -84,7 +84,7 @@ void Ov002_RebuildObjectEventParts(u8 nSlotIndex)
             pRecord->bStateAndValue.nState|=1;
             Ov107_Spawner_FreeDataBlocks(pSlot->pObject);
         } else {
-            Ov002_StartSlotAnim(nSlotIndex,pSlot->bEntryIndex,pSlot->nMode,&pSlot->vAt,1);
+            Ov002_StartSpawnerTrigger(nSlotIndex,pSlot->bEntryIndex,pSlot->nMode,&pSlot->vAt,1);
             if(pSlot->pObject->pStateCallback) pSlot->pObject->pStateCallback(pSlot->pObject,1);
         }
     }

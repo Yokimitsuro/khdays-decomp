@@ -13,10 +13,10 @@ typedef struct Ov008MissionListState {
 } Ov008MissionListState;
 
 typedef struct Ov008MissionListEntry {
-    u16  nWord;               /* 0x00 */
+    u16  nFileNumber;               /* 0x00 */
     u16  nMissionId;          /* 0x02 */
     u8   pad_04[0x14];
-    int  nStatus;             /* 0x18 */
+    int  nKind;             /* 0x18 */
     int  nDay;                /* 0x1c */
 } Ov008MissionListEntry;
 
@@ -37,7 +37,7 @@ int Ov025_Reports_IsDaySpanComplete(Ov008MissionListState *pMissions, Ov008Missi
         }
     }
     for (pEntry = Ov025_FindListObjectWithField10Zero(pChallenges, 0); pEntry != 0; pEntry = Ov025_FindListObjectWithField10Zero(pChallenges, pEntry)) {
-        if (pEntry->nDay >= nFirstDay && pEntry->nDay <= nLastDay && pEntry->nStatus != 4 && GameState_GetField(pEntry->nMissionId * 3 + 0x2a4c, 3) == 0) {
+        if (pEntry->nDay >= nFirstDay && pEntry->nDay <= nLastDay && pEntry->nKind != 4 && GameState_GetField(pEntry->nMissionId * 3 + 0x2a4c, 3) == 0) {
             return 0;
         }
     }

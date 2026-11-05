@@ -11,7 +11,7 @@
 
 struct Mtx33 { int m[9]; };
 
-extern void Ov022_PlayEntityVoice(int pActor, int a, int b);
+extern void Ov022_PlayEntityVoice(int pActor, int nSeqArc, int nSeq);
 extern void Ov057_ResetSequenceState(int pActor, void *block);
 extern void MTX_RotY33_(struct Mtx33 *m, int sin, int cos);
 extern void MTX_MultVec33(const VecFx32 *v, const struct Mtx33 *m, VecFx32 *dst);

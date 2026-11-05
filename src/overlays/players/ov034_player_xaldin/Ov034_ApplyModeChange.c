@@ -30,7 +30,7 @@ extern void Ov034_enterState1ConfigAnims(int self, int p);
 extern void Ov034_enterState3ConfigAnims(int self, int p);
 extern void Ov034_ClearTimer(int self, int p);
 extern void Ov034_initGlobalSlotBaseRefs(int self);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void Ov022_SetAnimState(int self, int mode);
 extern void Ov002_DrawEntryWithPalette(void *a, int b, int c, int d);
 extern void BindAnimTrack(int a, int b, int c, short d);

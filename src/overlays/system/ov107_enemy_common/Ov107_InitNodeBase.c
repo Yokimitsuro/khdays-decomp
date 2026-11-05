@@ -13,8 +13,8 @@ struct StateFlags {
 
 extern int data_ov107_020cbb00;
 extern void Ov107_DestroyInstance(void);
-extern void Ov107_SetBit1OfField0x40(void);
-extern void Ov107_SetBit0OfField0x40(void);
+extern void Ov107_Node_SetRunning(void);
+extern void Ov107_Node_SetShown(void);
 extern void Ov107_EmitIdEvent(void);
 extern void Ov107_LinkToManagerList(u16 *node);
 
@@ -26,8 +26,8 @@ void Ov107_InitNodeBase(u16 *node) {
     *(void **)((char *)node + 8) = (void *)Ov107_DestroyInstance;
     *(int *)((char *)node + 0xc) = 0;
     *(int *)((char *)node + 0x10) = 0;
-    *(void **)((char *)node + 0x14) = (void *)Ov107_SetBit1OfField0x40;
-    *(void **)((char *)node + 0x18) = (void *)Ov107_SetBit0OfField0x40;
+    *(void **)((char *)node + 0x14) = (void *)Ov107_Node_SetRunning;
+    *(void **)((char *)node + 0x18) = (void *)Ov107_Node_SetShown;
     *(int *)((char *)node + 0x1c) = 0;
     *(int *)((char *)node + 0x20) = 0;
     *(void **)((char *)node + 0x24) = (void *)Ov107_EmitIdEvent;

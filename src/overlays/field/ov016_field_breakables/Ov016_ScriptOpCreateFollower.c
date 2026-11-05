@@ -11,7 +11,7 @@ extern int   ScriptVm_ReadOperandInt(int vm, u16 *pc);            /* ScriptVm_Re
 extern int   ScriptVm_ReadOperandFx32(int vm, u16 *pc);            /* ScriptVm_ReadOperandFx32 */
 extern long long func_02020400(int nNumerator, int nDenominator); /* _s32_div_f */
 extern void *Ov002_GetModuleSlot(int nSlot);            /* class table of a slot */
-extern void *Ov016_FollowerCreate(void *pClass, u16 nSlot, u16 nBucket, u16 nField, u8 nBit,
+extern void *Ov016_FollowerCreate(void *pClass, u16 nSlot, u16 nRoom, u16 nField, u8 nBit,
                                  int nPlayer, int nRange, int nSeconds, int nTurnRate, int nCone); /* Ov016_FollowerCreate */
 
 int Ov016_ScriptOpCreateFollower(int vm, u16 *pc)

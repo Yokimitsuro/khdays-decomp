@@ -28,7 +28,12 @@ typedef void (*NNSG3dSbcHandler)(struct NNSG3dRenderState *, u32);
 typedef struct NNSG3dRenderObj {
     u32 flags;
     NNSG3dResMdl * volatile pResMdl;
-    u8 pad08_20[0x18];
+    void *anmMat;                       /* 0x08: the material animations */
+    void *funcBlendMat;                 /* 0x0c */
+    void *anmJnt;                       /* 0x10: the joint animations, an NNSG3dAnmObj list */
+    void *funcBlendJnt;                 /* 0x14 */
+    void *anmVis;                       /* 0x18: the visibility animations */
+    void *funcBlendVis;                 /* 0x1c */
     void *pUserData;
     u8 userSlot;
     u8 userByte;

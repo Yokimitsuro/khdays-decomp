@@ -1,5 +1,5 @@
 /* Bounce entry of the ov114 enemy: sets bit 0 of the actor's +0x1ae and bit 1 of the +0x60
- * high byte, deactivates the +0x388 shape, seeds the +0x390 value with 0xcc and plays
+ * high byte, deactivates the +0x388 shape, seeds the height scale +0x390 with 0xcc (flat) and plays
  * animation 6 (looped). Two random headings (yaw within +-0x3244, scaled to 10.0 plus a random
  * 0..4.0) go to +0x1c and +0x28, the +4 position is copied to +0x34, a third random yaw to
  * +0x40 and +0x44 is cleared before the cd560 tick takes over. */

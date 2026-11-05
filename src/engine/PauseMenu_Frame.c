@@ -3,7 +3,7 @@
  * when PauseMenu_GetMode reports it inactive or B (bit 3 of the pressed keys) is pressed; while the
  * post-confirm timer (+0xc8) runs it counts down. Otherwise, unless game field 0x2483 is set, it
  * moves the entry cursor (+0xd4, TabPanel_HandleUpDown) and on A (bit 0): entry 0 resumes (closes the
- * menu); a later entry either hands over to the overlay (Ov023_FlushTextBox, +0xe0 set, next step
+ * menu); a later entry either hands over to the overlay (Ov023_RequestEventSkip, +0xe0 set, next step
  * PauseMenu_OpenIfAllowed) or, when LoadGlobalU16At0 bit 1 is set, switches to the yes/no confirmation layout
  * (+0xd0 = 2, "no" selected, panels redrawn) handled by PauseMenu_ConfirmFrame. Each frame without a
  * switch refreshes the panels for the current entry (Input_DebounceSlot) and ends with ForwardQuery64Result. */
@@ -41,7 +41,7 @@ extern int GameState_IsFlagSet(int flag);                 /* GameState_IsFlagSet
 extern void TabPanel_HandleUpDown(int *pIndex);
 extern int LoadGlobalU16At0(void);
 extern void SoundMgr_StopAllSePlayers(void);
-extern void Ov023_FlushTextBox(void);
+extern void Ov023_RequestEventSkip(void);
 extern void setDualArrayEntry(int a, void (*step)(void), int b);
 extern void SubObject_SetupDraws(void);
 extern void SubObject_NudgeAndRedraw(void *panel, int index, int state);
@@ -77,7 +77,7 @@ void PauseMenu_Frame(void)
                 if (!(LoadGlobalU16At0() & 2)) {
                     SoundMgr_StopAllSePlayers();
                     PlaySound(0, 1);
-                    Ov023_FlushTextBox();
+                    Ov023_RequestEventSkip();
                     ctx->handedOver = 1;
                     setDualArrayEntry(1, PauseMenu_OpenIfAllowed, 0);
                     return;

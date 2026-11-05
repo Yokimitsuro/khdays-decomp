@@ -18,7 +18,7 @@ typedef struct Ov021EmblemMessage {
 
 typedef struct Ov021Emblem {
     u8   pad_000[0x10];
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011[0x2b4 - 0x11];
     u8   nState;              /* 0x2b4 */
     u8   pad_2b5[7];
@@ -53,7 +53,7 @@ void Ov021_EmblemHandleMessage(Ov021Emblem *pSelf, Ov021EmblemMessage *pMessage)
         PlaySoundChecked(0, 0xf);
         return;
     }
-    if (pSelf->nBucket != Ov002_GetSlotTableByte(Ov022_GetEntryField66(QueryActiveStateOrDelegate()))) {
+    if (pSelf->nRoom != Ov002_GetSlotTableByte(Ov022_GetEntryField66(QueryActiveStateOrDelegate()))) {
         return;
     }
     Slot_Spawn(0, 0xf, func_ov022_020881f8(QueryActiveStateOrDelegate()), 0);

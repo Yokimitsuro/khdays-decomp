@@ -18,7 +18,7 @@ extern int data_ov077_020b9b80;
 
 extern void Ov077_PublishAttachAnchor(int self);
 extern void Ov077_EnterStateAndPlayVoice(int self, void *p);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void Ov077_BindAnimsWithIndex(int self, void *p, int flag);
 extern void Ov077_ReleaseGlobalSlotIfSet(int self, void *p);
 extern void Ov077_BindDefaultAnimsAtBase(int self, void *p);

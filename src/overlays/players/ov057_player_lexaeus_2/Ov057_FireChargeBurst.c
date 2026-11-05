@@ -40,7 +40,7 @@ struct Params {
 
 extern void Ov022_FillEightHalvesMinus1At0x2bd4(int pActor);
 extern void func_ov022_020ad44c(struct Emit *emit, int pActor);
-extern void Ov022_ScaleRowValues(int pActor, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(int pActor, int spin, void *a, void *b);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern int Ov022_RunCommandHandlers(int pActor, struct Emit *emit, void *params);
 extern void Ov022_MarshalNetworkRecord(int pActor, int event, VecFx32 *pos, int range,
@@ -107,7 +107,7 @@ void Ov057_FireChargeBurst(int pActor)
     emit.nRange = 0x1000;
     emit.pAnchor = (char *)pActor + 0x2bd4;
     emit.nFlags28 = 0;
-    Ov022_ScaleRowValues(pActor, burstSpin, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(pActor, burstSpin, &prm.pA, &prm.pB);
 
     prm.uFlags = 0x205;
     if (*(int *)(pSceneBlock + 4) == 2 && (*(unsigned int *)pActor & 0x10000) == 0) {

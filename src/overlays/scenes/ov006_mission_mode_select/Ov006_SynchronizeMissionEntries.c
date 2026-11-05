@@ -9,7 +9,7 @@
 typedef void (*MissionCallback)(void);
 
 extern void MI_CpuFill8(void *dst, int value, u32 size);
-extern int Ov006_MenuSlotToEntry(int entry);
+extern int Ov006_CharacterToSelectPlace(int entry);
 extern int Ov006_CanAdvancePastIntro(void);
 extern void Ov006_UpdateAndGetIdleHandler(void);
 extern void Ov006_UpdateMissionEntrySynchronization(void);
@@ -30,7 +30,7 @@ MissionCallback Ov006_SynchronizeMissionEntries(void) {
             entries[i].flags.selectable = (mask & (1 << i)) != 0;
         }
         if (data_ov006_020565e4.pContext->localMode != 0) {
-            entries[0].characterId = Ov006_MenuSlotToEntry(0);
+            entries[0].characterId = Ov006_CharacterToSelectPlace(0);
         }
         data_ov006_020565e4.pContext->sentEntries =
             data_ov006_020565e4.pContext->liveEntries;
@@ -52,7 +52,7 @@ MissionCallback Ov006_SynchronizeMissionEntries(void) {
                 entries[i].flags.selectable = (mask & (1 << i)) != 0;
             }
             if (data_ov006_020565e4.pContext->localMode != 0) {
-                entries[0].characterId = Ov006_MenuSlotToEntry(0);
+                entries[0].characterId = Ov006_CharacterToSelectPlace(0);
             }
             data_ov006_020565e4.pContext->sentEntries =
                 data_ov006_020565e4.pContext->liveEntries;

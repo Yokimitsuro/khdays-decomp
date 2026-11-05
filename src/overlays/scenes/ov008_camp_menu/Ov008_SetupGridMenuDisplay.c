@@ -9,7 +9,7 @@
  * 0x4008, sub BG0 0x4080, BG1 0x4290, BG2 0x4490, BG3 0x4690), the render
  * mode word set to 1 and the first main BG1 character cleared.
  *
- * MMIO through held volatile register pointers as in Ov008_MainMenu_SetupDisplay.
+ * MMIO through held volatile register pointers as in Ov008_WorldMap_SetupDisplay.
  * Codegen (this function only, under `opt_propagation off`): the main BG3CNT
  * address is a pointer local that mwcc keeps in r4 across the four sub-bank
  * calls and derives BG1CNT from (`sub r3, r4, #4` in the first group, then

@@ -7,7 +7,7 @@ extern u8 data_0204c240;
 extern char *Ov002_ClaimPoolEntry(void *pClass, int nSlot);
 extern void Actor_ArmWithMessage(char *pObj, int a, void *pOwner, int c, int d);
 extern void Actor_SetVecAndSyncChild(char *pNode, const VecFx32 *pPos);
-extern void Ov002_PushBucketNode(int nBucket, char *pElement);
+extern void Ov002_PushBucketNode(int nRoom, char *pElement);
 extern void strcpy(void *pDst, const void *pSrc);
 
 extern void Ov002_ElementGatherActors(void);
@@ -22,7 +22,7 @@ extern void Ov002_ElementPromptStep(void);
  * pending bit raised, no pose and no progress, and takes the caller's prompt
  * text when there is one.
  */
-char *Ov002_SpawnLineElement(char *pClass, int nSlot, int nBucket, u16 wStateField,
+char *Ov002_SpawnLineElement(char *pClass, int nSlot, int nRoom, u16 wStateField,
                           u8 bStateWidth, const VecFx32 *pPos, short nAngle,
                           const void *pText)
 {
@@ -40,7 +40,7 @@ char *Ov002_SpawnLineElement(char *pClass, int nSlot, int nBucket, u16 wStateFie
     *(VecFx32 *)(pElement + 0x1c) = *(VecFx32 *)(pElement + 0xe0);
 
     *(int *)(pElement + 0x28) = *(short *)(pClass + 0x68);
-    *(u8 *)(pElement + 0x10) = (u8)nBucket;
+    *(u8 *)(pElement + 0x10) = (u8)nRoom;
 
     if ((data_0204c240 & 4) != 0) {
         pfnStep = Ov002_ElementGatherActors;
@@ -53,7 +53,7 @@ char *Ov002_SpawnLineElement(char *pClass, int nSlot, int nBucket, u16 wStateFie
     *(u8 *)(pElement + 0x16) = bStateWidth;
     *(u8 *)(pElement + 0x17) = 0;
 
-    Ov002_PushBucketNode(nBucket, pElement);
+    Ov002_PushBucketNode(nRoom, pElement);
 
     *(u8 *)(pElement + 0x1b5) = 0x80;
     *(signed char *)(pElement + 0x1b4) = -1;

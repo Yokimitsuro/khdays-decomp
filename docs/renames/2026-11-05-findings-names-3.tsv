@@ -1,0 +1,9 @@
+# The same round, third pass: what Ov002_FormatResultLine formats is an event script's name, the
+# field's own by its number (the field root's +0x8baa) when it is given none; ov023's script
+# loader, ov106 and the movie player (the script machine's group 3, ov012's opening) name their
+# files with it.
+Ov002_FormatResultLine	Ov002_FormatEventScriptName	ov002
+#
+# NitroSDK: the ROM archive setup FS_Init calls (fs/rom.c FSi_InitRom), which keeps the "rom"
+# archive in fsi_arc_rom.
+func_0200afb8	FSi_InitRom	main

@@ -17,7 +17,7 @@ typedef struct Ov016HazardDef {
 typedef struct Ov016Hazard {
     u8 pad_000[0xc];
     void *pfnStep;            /* 0x0c */
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8  pad_011[3];
     u16 nStateField;          /* 0x14: GameState field */
     u8  nStateBit;            /* 0x16 */
@@ -34,29 +34,29 @@ typedef struct Ov016Hazard {
 } Ov016Hazard;
 
 extern Ov016Hazard *Ov002_ClaimPoolEntry(Ov016HazardDef *pClass, int nSlot); /* take a piece from the class table */
-extern int   Ov002_GetCtxTableByte(int nBucket);                            /* bucket -> seat slot */
+extern int   Ov002_GetCtxTableByte(int nRoom);                            /* bucket -> seat slot */
 extern void  Actor_ArmWithMessage(void *pNode, int nA, void *pOwner, void *pB, int nMode);
 extern void  Actor_SetVecAndSyncChild(void *pTransform, VecFx32 *pVec);              /* Actor_SetVecAndSyncChild */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);              /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);              /* register the piece */
 extern void *Ov016_HazardStep(Ov016Hazard *pSelf);                     /* Ov016_HazardStep */
 
-Ov016Hazard *Ov016_HazardCreate(Ov016HazardDef *pClass, u16 nSlot, u8 nBucket, u16 nField, u8 nBit, VecFx32 *pPos, short nFacing)
+Ov016Hazard *Ov016_HazardCreate(Ov016HazardDef *pClass, u16 nSlot, u8 nRoom, u16 nField, u8 nBit, VecFx32 *pPos, short nFacing)
 {
     Ov016Hazard *pPiece;
 
     pPiece = Ov002_ClaimPoolEntry(pClass, nSlot);
-    Ov002_GetCtxTableByte(nBucket);
+    Ov002_GetCtxTableByte(nRoom);
     Actor_ArmWithMessage(pPiece->renderNode, 0, pPiece, 0, 1);
     Actor_SetVecAndSyncChild(pPiece->transform, pPos);
     pPiece->nFacing = nFacing;
     pPiece->bActive = 1;
     pPiece->start = pPiece->position;
     pPiece->nSequence = pClass->nSequence;
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov016_HazardStep;
     pPiece->nField17 = 0;
     pPiece->nStateField = nField;
     pPiece->nStateBit = nBit;
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
     return pPiece;
 }

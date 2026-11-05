@@ -1028,7 +1028,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_BelowMax.c:
     complete
     .text       start:0x02089c34 end:0x02089c58
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_IsEncounterEligible.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_IsMissionModeRowListed.c:
     complete
     .text       start:0x02089c58 end:0x02089dac
 
@@ -1036,15 +1036,15 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_CanTriggerActionInRange.c:
     complete
     .text       start:0x02089dac end:0x02089e2c
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_KindZero.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_StoryRow.c:
     complete
     .text       start:0x02089e2c end:0x02089e40
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_KindNonZero.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_MissionModeEntry.c:
     complete
     .text       start:0x02089e40 end:0x02089e54
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_Kind4Id10.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_RecordFilter_TutorialRow.c:
     complete
     .text       start:0x02089e54 end:0x02089e78
 
@@ -1377,11 +1377,11 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_SortListByKey.c:
     complete
     .text       start:0x0208cdc4 end:0x0208cde0
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_SetupDisplay.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_SetupDisplay.c:
     complete
     .text       start:0x0208cde0 end:0x0208d05c
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_SetupToolbar.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_SetupToolbar.c:
     complete
     .text       start:0x0208d05c end:0x0208d2a4
 
@@ -1397,15 +1397,15 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_UpdateThresholdSlot.c:
     complete
     .text       start:0x0208d408 end:0x0208d454
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_SetupTextSurfaces.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_SetupTextSurfaces.c:
     complete
     .text       start:0x0208d454 end:0x0208d69c
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_InitObjectListRetry.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_InitObjectListRetry.c:
     complete
     .text       start:0x0208d69c end:0x0208d730
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_StateTick.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_StateTick.c:
     complete
     .text       start:0x0208d730 end:0x0208d904
 
@@ -1417,7 +1417,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_TickMenuTimer.c:
     complete
     .text       start:0x0208d9a4 end:0x0208da58
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_UpdateSelectionText.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_UpdateSelectionText.c:
     complete
     .text       start:0x0208da58 end:0x0208dbbc
 
@@ -1465,7 +1465,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_Menu_ForwardToWidgets.c:
     complete
     .text       start:0x0208dd48 end:0x0208dd74
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_RecalculateMissionSummary.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_RecalculateMissionSummary.c:
     complete
     .text       start:0x0208dd74 end:0x0208ded0
 
@@ -1533,7 +1533,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_UpdatePanelBrightnessTweens.c:
     complete
     .text       start:0x0208e4f0 end:0x0208e5a4
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_MainMenu_InitPanelContext.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_WorldMap_InitPanelContext.c:
     complete
     .text       start:0x0208e5a4 end:0x0208e9ec
 
@@ -2337,7 +2337,7 @@ src/overlays/screens/ov025_camp_menu_2/Ov025_GetDecimalDigit.c:
     complete
     .text       start:0x0209be44 end:0x0209bf18
 
-src/overlays/screens/ov025_camp_menu_2/Ov025_SelectTierIfActive.c:
+src/overlays/screens/ov025_camp_menu_2/Ov025_Config_GetTabTitleRecord.c:
     complete
     .text       start:0x0209bf18 end:0x0209bf40
 

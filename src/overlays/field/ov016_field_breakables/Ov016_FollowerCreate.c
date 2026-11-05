@@ -16,7 +16,7 @@ typedef struct Ov016FollowerDef Ov016FollowerDef;
 typedef struct Ov016Follower {
     u8 pad_000[0xc];
     void *pfnStep;            /* 0x0c */
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8  pad_011[3];
     u16 nStateField;          /* 0x14: GameState field */
     u8  nStateBit;            /* 0x16 */
@@ -43,11 +43,11 @@ typedef struct Ov016Follower {
 extern Ov016Follower *Ov002_ClaimPoolEntry(Ov016FollowerDef *pClass, int nSlot); /* take a piece from the class table */
 extern int   Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int nSlot, int nKind,
                                  int nParamA, int nParamB, int nParamC, int nFacing, int nFlag); /* place the node */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);              /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);              /* register the piece */
 extern void *Ov016_FollowerStep(Ov016Follower *pSelf);                   /* Ov016_FollowerStep */
 extern const VecFx32 data_02041dc8;                                       /* the zero vector */
 
-Ov016Follower *Ov016_FollowerCreate(Ov016FollowerDef *pClass, u16 nSlot, u8 nBucket, u16 nField, u8 nBit,
+Ov016Follower *Ov016_FollowerCreate(Ov016FollowerDef *pClass, u16 nSlot, u8 nRoom, u16 nField, u8 nBit,
                                    int nPlayer, int nRange, int nSeconds, int nTurnRate, int nCone)
 {
     Ov016Follower *pFollower;
@@ -57,7 +57,7 @@ Ov016Follower *Ov016_FollowerCreate(Ov016FollowerDef *pClass, u16 nSlot, u8 nBuc
     pFollower->nScale = 0x1000;
     Actor_SetVecAndSyncChild(pFollower->transform, &data_02041dc8);
     pFollower->nFacing = 0;
-    pFollower->nBucket = nBucket;
+    pFollower->nRoom = nRoom;
     pFollower->pfnStep = (void *)Ov016_FollowerStep;
     pFollower->nStateField = nField;
     pFollower->nStateBit = nBit;
@@ -71,6 +71,6 @@ Ov016Follower *Ov016_FollowerCreate(Ov016FollowerDef *pClass, u16 nSlot, u8 nBuc
     pFollower->nPlayer = nPlayer;
     pFollower->nAngle = 0x8000;
     pFollower->nCone = nCone;
-    Ov002_PushBucketNode(nBucket, pFollower);
+    Ov002_PushBucketNode(nRoom, pFollower);
     return pFollower;
 }

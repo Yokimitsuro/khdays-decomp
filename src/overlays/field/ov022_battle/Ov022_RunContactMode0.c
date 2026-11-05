@@ -26,7 +26,7 @@ typedef struct {
 
 /* Ov022ScaledFanSlot: a contact slot whose fan offset / radius / spread follow the actor's scale */
 struct ScaledFanSlot {
-    int nFace;                   /* 0x00 */
+    int fxDamageFactor;          /* 0x00: given to Ov022_ComputeStrengthDamage */
     int nStartFrame;             /* 0x04 */
     int nEndFrame;               /* 0x08 */
     volatile int nPushX;                  /* 0x0c */
@@ -43,7 +43,7 @@ struct ScaledFanSlot {
 
 /* Ov022ComboSlot */
 struct ComboSlot {
-    int nFace;                   /* 0x00 */
+    int fxDamageFactor;          /* 0x00: given to Ov022_ComputeStrengthDamage */
     int nStartFrame;             /* 0x04 */
     int nEndFrame;               /* 0x08 */
     int nPushX;                  /* 0x0c */
@@ -78,7 +78,7 @@ struct PushView {
 
 /* Ov022SweepHit: the 40-byte hit context the command handlers take */
 struct SweepHit {
-    int nFace;                   /* 0x00 */
+    int nDamage;                 /* 0x00: the hit's damage, Ov022_ComputeStrengthDamage's */
     void *pPart;                 /* 0x04 */
     u32 nFlags;                  /* 0x08 */
     int nMatchMask;              /* 0x0c */
@@ -151,7 +151,7 @@ extern void Ov022_ApplyScaleControl(void *pControl, VecFx32 *pVec, int *pRadius,
 extern void VEC_Add(VecFx32 *pA, VecFx32 *pB, VecFx32 *pOut);
 extern int Ov022_SearchMatchingRow(struct Actor *pActor, int bFull, int *pMatchMask,
                                u8 *pAmount);                   /* Ov022_SearchMatchingRow */
-extern int Ov022_ComputeStrengthDamage(struct Actor *pActor, int nFace, int nMatchMask, int bFull);
+extern int Ov022_ComputeStrengthDamage(struct Actor *pActor, int fxDamageFactor, int nMatchMask, int bFull);
 extern int Slot_EvalPackedParam(int nId, int nRule);
 extern int Ov022_RunCommandHandlers(struct Actor *pActor, struct FanQuery *pFan,
                                struct SweepHit *pCtx);          /* Ov022_RunCommandHandlers */
@@ -202,7 +202,7 @@ void Ov022_RunContactMode0(struct Actor *pActor, struct ScaledFanSlot *pSlot, sh
     ctx.nMatchMask = HIT_MATCH_ANY;
     ctx.nAmount = 0;
     ctx.bMatched = Ov022_SearchMatchingRow(pActor, bFull, &ctx.nMatchMask, &ctx.nAmount);
-    ctx.nFace = Ov022_ComputeStrengthDamage(pActor, pSlot->nFace, ctx.nMatchMask, bFull);
+    ctx.nDamage = Ov022_ComputeStrengthDamage(pActor, pSlot->fxDamageFactor, ctx.nMatchMask, bFull);
     ctx.nFlags = HIT_FLAG_BIT2;
     pHitIds = (short *)pSlot->nPushX;
 

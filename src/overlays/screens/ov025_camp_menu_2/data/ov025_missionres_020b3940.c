@@ -1,7 +1,7 @@
 /* ov025 mission resource descriptor data_ov025_020b3940, 0x020b3940-0x020b394c (.rodata).
  *
  * Opens a mission list (Ov025_InitMissionList 0208a13c) from the resource
- * path, the selector substituted for the ampersand, and the list kind: the main menu's list (Ov008_MainMenu_StateTick 0208d730, kind and selector patched by the scene state; 0208ccbc).
+ * path, the selector substituted for the ampersand, and the list kind: the world map's list (Ov008_WorldMap_StateTick 0208d730, kind and selector patched by the scene state; 0208ccbc).
  */
 
 typedef struct Ov008MissionResourceDescriptor {

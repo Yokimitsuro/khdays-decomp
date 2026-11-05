@@ -5,7 +5,7 @@
  * resource (020883f8), loads the 0x5d entries of member 6 (Ov008_LoadBlockProcessAndFree
  * 0208832c), the input dispatcher 0209d4c8 (02088430) and releases the list slots in mode 2
  * (02088a7c); the option values are loaded (Ov025_Config_LoadValues 0209c084) and entries 4..8
- * hidden, then as many shown as the tier has rows.  The first menu entry (data_ov025_020b4f64)
+ * hidden, then as many shown as the tier has rows.  The first menu entry (gOv025ConfigSettings)
  * is enabled when flag 0x200b is set, or from day 12 on once flag 0x3c2b + the 0x34 tier base
  * (020afda0) is set.  Codegen: declaration order nTracker, i, nCtx, pTier, bVisible (the
  * visibility flag reuses the tracker's r5). */
@@ -21,18 +21,18 @@ typedef struct Ov025ConfigTier {
     u16  nTag;                /* 0x00: the tracker cell tag */
     u8   nRows;               /* 0x02: the rows shown (entries 4..) */
     u8   aRow[15];            /* 0x03 */
-} Ov025ConfigTier;            /* 0x12: data_ov025_020b4ee8[3] */
+} Ov025ConfigTier;            /* 0x12: gOv025ConfigLists[3] */
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16  nId;                 /* 0x00 */
-    u8   nText;               /* 0x02 */
-    u8   nHelpText;           /* 0x03 */
+    u8   nText;               /* 0x02: its name, a cfg_&.s record */
+    u8   nHelpText;           /* 0x03: its help, a cfg_&.s record */
     u8   nAnchor;             /* 0x04 */
     u8   nState;              /* 0x05: lock state */
-    u8   bEnabled;            /* 0x06 */
-    u8   nSubCount;           /* 0x07 */
+    u8   bEnabled;            /* 0x06: 0 shows it as "?" */
+    u8   nSubCount;           /* 0x07: its values; 0 for a heading */
     u8   aSub[0x18];          /* 0x08 */
-} Ov008MenuEntryDef;
+} Ov008ConfigSetting;
 
 typedef struct Ov025ConfigPage {
     s16  nField00;            /* 0x00 */
@@ -56,7 +56,7 @@ extern void *Ov025_FindEntryById(int nCtx, int nId);                /* FindEntry
 extern void  Ov025_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
 extern int   Ov025_GetSlideTableValue(int nIndex);                       /* Ov025_GetTierBase */
 extern Ov008LayoutTemplate data_ov025_020b4148;
-extern Ov008MenuEntryDef data_ov025_020b4f64[];                     /* the menu entry table */
+extern Ov008ConfigSetting gOv025ConfigSettings[];                     /* the Preferences page's settings */
 
 void Ov025_Config_Setup(void)
 {
@@ -100,8 +100,8 @@ void Ov025_Config_Setup(void)
         if (GameState_IsFlagSet(nBase + 0x3c2b) == 0) {
             return;
         }
-        data_ov025_020b4f64[0].bEnabled = 1;
+        gOv025ConfigSettings[0].bEnabled = 1;
         return;
     }
-    data_ov025_020b4f64[0].bEnabled = 1;
+    gOv025ConfigSettings[0].bEnabled = 1;
 }

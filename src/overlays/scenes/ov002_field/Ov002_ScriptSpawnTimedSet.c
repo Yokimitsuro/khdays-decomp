@@ -5,7 +5,7 @@
 
 typedef struct Ov002TimedClassDesc { const char *pName; int nOwnerArg; } Ov002TimedClassDesc;
 typedef struct Ov002TimedSpawnRecord {
-    signed char nSlot, nBucket;
+    signed char nSlot, nRoom;
     short nKey, nFlagIndex, nAngleDegrees;
     VecFx32 vPosition;
 } Ov002TimedSpawnRecord;
@@ -36,7 +36,7 @@ extern Ov002TimedSpawnSet *Ov002_FindHandlerByKey(int wKey);
 extern void *Ov002_CreateTimedClass(int nCount, const Ov002TimedClassDesc *pDesc);
 extern void Ov002_SetModuleSlot(int nModuleId, void *pClass);
 extern int func_02020400(int nNumerator, int nDenominator);
-extern void Ov002_SpawnTimedElementAt(void *pClass, int nSlot, int nBucket, VecFx32 *pPos,
+extern void Ov002_SpawnTimedElementAt(void *pClass, int nSlot, int nRoom, VecFx32 *pPos,
                              short nAngle, unsigned short wField, unsigned char bWidth, short nKey);
 extern void Ov002_AppendPendingId(int nKey);
 extern void Ov002_FreeRootBuffer0x8d7c(void);
@@ -82,7 +82,7 @@ void Ov002_ScriptSpawnTimedSet(int nModuleId, const char *pName, int nOwnerArg)
                     if (pRoot->nState == 1 && GameState_IsFlagSet(pCursor->aRecords[0].nFlagIndex + 9))
                         nKey = 2;
                     Ov002_SpawnTimedElementAt(pClass, pCursor->aRecords[0].nSlot,
-                        pCursor->aRecords[0].nBucket, pPos,
+                        pCursor->aRecords[0].nRoom, pPos,
                         (short)func_02020400(pCursor->aRecords[0].nAngleDegrees << 16, 360),
                         wStateField, 2, (short)nKey);
                     GameState_SetField(wStateField, 2, 1);

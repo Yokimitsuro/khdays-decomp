@@ -17,5 +17,5 @@ void Ov278_ForwardHitToSubObjects(int obj, int a, int b) {
     if (cb != 0) {
         cb(sub, a, b);
     }
-    Ov107_StoreHitInfo(obj, a, b);
+    Ov107_SetHomeAndReach(obj, a, b);
 }

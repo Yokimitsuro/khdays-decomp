@@ -23,7 +23,7 @@ typedef struct Ov008ItemRing {
 
 #define ITEM_STRIDE 0x14
 
-extern u8 data_ov025_020b4f64[];                                  /* item table, byte +7 = selectable */
+extern u8 gOv025ConfigSettings[];                                  /* item table, byte +7 = selectable */
 
 extern Ov008MenuContext *Ov025_GetPageA(void);               /* Ov008_GetMenuContext */
 extern Ov008ItemRing *Ov025_GetPageItem(int nListId, int nSelection);
@@ -47,7 +47,7 @@ int Ov025_FindSelectableItem(s16 nFrom, int nStep)
         nFirst = pRing->nFirst;
         do {
             nIndex = nFirst + (int)(func_02020400(nCount + (nFrom - nFirst), nCount) >> 32);
-            nSel = data_ov025_020b4f64[(short)nIndex * ITEM_STRIDE + 7];
+            nSel = gOv025ConfigSettings[(short)nIndex * ITEM_STRIDE + 7];
             nFrom = nIndex;
             if (nSel != 0) {
                 break;

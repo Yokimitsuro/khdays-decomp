@@ -15,7 +15,7 @@
 extern unsigned short data_0204be08;
 extern unsigned short data_0204be08_params;
 
-extern void Ov023_FlushTextBox(void);
+extern void Ov023_RequestEventSkip(void);
 
 void LatchPendingRequestOnce(void) {
     char *self = *(char **)((char *)&data_0204be08 + 4);
@@ -32,7 +32,7 @@ void LatchPendingRequestOnce(void) {
 
     data_0204be08 = 1;
     MsgQueue_Post(0x11, (void *)&data_0204be08_params, 2);
-    Ov023_FlushTextBox();
+    Ov023_RequestEventSkip();
     GameState_SetField(0x2484, 1, 1);
     *(int *)(self + 0xe8) = 1;
 }

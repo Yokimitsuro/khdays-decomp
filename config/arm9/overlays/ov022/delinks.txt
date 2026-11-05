@@ -2386,7 +2386,7 @@ src/overlays/field/ov022_battle/Ov022_SearchMatchingRow.c:
     complete
     .text       start:0x020a22f0 end:0x020a23a4
 
-src/overlays/field/ov022_battle/Ov022_ScaleRowValues.c:
+src/overlays/field/ov022_battle/Ov022_ScaleMoveDamage.c:
     complete
     .text       start:0x020a23a4 end:0x020a2424
 

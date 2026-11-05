@@ -19,7 +19,7 @@
 typedef struct Ov008MissionListEntry {
     u8  pad_00[2];
     u16 missionId;            /* 0x02 */
-    u16 nTextSlot;            /* 0x04 */
+    u16 nCategory;            /* 0x04 */
 } Ov008MissionListEntry;
 
 typedef struct Ov008MissionMenu {
@@ -40,7 +40,7 @@ extern u32  GameState_GetField(int nField, int nBits);                         /
 extern int  Ov025_IsField8LeField56c(Ov008MissionMenu *pMenu, Ov008MissionListEntry *pEntry); /* rank <= cap */
 extern int  Ov025_DefaultStepDone_2(Ov008MissionMenu *pMenu, Ov008MissionListEntry *pEntry); /* helper (ignores its arguments) */
 extern void Ov025_SetCtxField967c(u32 nMissionId);                          /* Ov008_SetCtxField967c */
-extern void Ov025_MainMenu_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_MainMenu_UpdateSelectionText */
+extern void Ov025_WorldMap_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_WorldMap_UpdateSelectionText */
 extern void Ov025_MissionMenu_DrawTags(Ov008MissionMenu *pMenu);                 /* redraw rows */
 extern void Ov025_DrawMissionDetail(Ov008MissionMenu *pMenu, int nPage);      /* redraw page panel */
 
@@ -89,7 +89,7 @@ void Ov025_MissionMenuStep(Ov008MissionMenu *pMenu, int nStep)
         }
         nIndex += nStep;
     }
-    Ov025_MainMenu_UpdateSelectionText(pEntry->nTextSlot, 0);
+    Ov025_WorldMap_UpdateSelectionText(pEntry->nCategory, 0);
     Ov025_MissionMenu_DrawTags(pMenu);
     Ov025_DrawMissionDetail(pMenu, pMenu->nPage);
 }

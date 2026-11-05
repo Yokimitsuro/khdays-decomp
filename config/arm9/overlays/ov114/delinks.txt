@@ -80,7 +80,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_AiTargetAndFace.c:
     complete
     .text       start:0x020ccdd4 end:0x020cce9c
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_AiFadeInTick.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_AiRiseTick.c:
     complete
     .text       start:0x020cce9c end:0x020ccf28
 
@@ -104,7 +104,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterFadeIn.c:
     complete
     .text       start:0x020cd2b0 end:0x020cd2ec
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_FadeInSubObject.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_SinkIntoGround.c:
     complete
     .text       start:0x020cd2ec end:0x020cd37c
 
@@ -120,7 +120,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterPursuit.c:
     complete
     .text       start:0x020cd77c end:0x020cd800
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_EasePursuitSpeed.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_RiseFromGround.c:
     complete
     .text       start:0x020cd800 end:0x020cd8a8
 
@@ -168,7 +168,7 @@ src/overlays/enemies/ov114_enemy_shadow/Ov114_AiEnterFadeOut.c:
     complete
     .text       start:0x020cde70 end:0x020cdeac
 
-src/overlays/enemies/ov114_enemy_shadow/Ov114_AiFadeOutTick.c:
+src/overlays/enemies/ov114_enemy_shadow/Ov114_AiSinkTick.c:
     complete
     .text       start:0x020cdeac end:0x020cdf3c
 

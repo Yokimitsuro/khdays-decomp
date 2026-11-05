@@ -11,7 +11,7 @@ extern int   ScriptVm_ReadOperandInt(int vm, u16 *pc);            /* ScriptVm_Re
 extern int   ScriptVm_ReadOperandFx32(int vm, u16 *pc);            /* ScriptVm_ReadOperandFx32 */
 extern long long func_02020400(int nNumerator, int nDenominator); /* _s32_div_f */
 extern void *Ov002_GetModuleSlot(int nSlot);            /* class table of a slot */
-extern void *Ov016_BreakableCreate(void *pClass, u16 nSlot, u16 nBucket, VecFx32 *pPos, short nFacing,
+extern void *Ov016_BreakableCreate(void *pClass, u16 nSlot, u16 nRoom, VecFx32 *pPos, short nFacing,
                                  u16 nField, u8 nBit, int nDropKey, int nDropArg);   /* Ov016_BreakableCreate */
 
 int Ov016_ScriptOpCreateBreakable(int vm, u16 *pc)

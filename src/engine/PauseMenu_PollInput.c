@@ -37,7 +37,7 @@ extern u8 gPauseAllowed;
 extern u8 data_0204be04;
 extern unsigned short gPadPressed;    /* keys pressed this frame */
 
-extern void Ov023_FlushTextBox(void);
+extern void Ov023_RequestEventSkip(void);
 extern int Ov023_ScriptTestStatusBit3(void);
 extern int Ov002_Scene_IsIdle(void);
 extern int Ov002_Field_IsActive(void);
@@ -54,7 +54,7 @@ int PauseMenu_PollInput(void)
             return 0;
         }
         if (ctx->opened == 0 && data_0204be08.state == 1) {
-            Ov023_FlushTextBox();
+            Ov023_RequestEventSkip();
             GameState_SetField(0x2484, 1, 1);
             ctx->opened = 1;
             return 0;

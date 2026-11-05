@@ -12,7 +12,7 @@
 
 extern int func_ov022_02083f0c(void);
 extern void Ov002_Camera_SetMode(int owner, int what, int arg);
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern unsigned short Sequence_UpdateTracks(void *req, int tick);
 extern void Ov062_RebindAnimTracks(char *node, int mode);
 extern void Ov062_AdvanceRequest(char *self, char *row, int tick);

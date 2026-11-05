@@ -1,10 +1,10 @@
 /* Ov008_Shop_DrawRow -- Ov008_DrawShopRowText: draw the texts of shop row
  * nRow for record pRecord on the panel's text surface (+0xc160, 16 px per
  * row).  The price style (4 = available, 6 = greyed) follows the tab
- * (+0xc250): 0 (buy) wants munny for the price (+0x8), no level flag (+0x28)
+ * (+0xc250): 0 (buy) wants heart points for the price (+0x8), no level flag (+0x28)
  * and the stock cap (02082234) above the owned count (GameState 0x810);
  * 1 (sell) wants a sellable item def (+0x8e) with spare copies (0208b0d0);
- * 2 wants points, the cap and the requirements (020830c8); 3 (recipes) is
+ * 2 wants munny, the cap and the requirements (020830c8); 3 (recipes) is
  * available past the category price cap (+0xc574 + 2 * category, +0x6) or
  * with a level requirement (+0x20).  On tab 3 the price (or the "sold out"
  * text 02090eb0) is drawn at x 0xd0 while scroll (+0xc3c8) + row is below
@@ -83,8 +83,8 @@ typedef struct Ov008PanelContext {
 
 typedef struct GameState {
     u8  pad_0000[8];
-    u32 nPoints;              /* 0x008 */
-    u32 nMunny;               /* 0x00c */
+    u32 nMunny;               /* 0x008: munny */
+    u32 nHeartPoints;         /* 0x00c: heart points */
     u8  pad_0010[0x810 - 0x10];
     u8  aItemCount[0x8d0];    /* 0x810 */
 } GameState;
@@ -115,14 +115,14 @@ void Ov008_Shop_DrawRow(int nRow, Ov008ParamRecord *pRecord)
     nMode = GetLanguage();
     switch (ctx->nTab) {
     case TAB_BUY:
-        nStyle = (pRecord->nPrice <= gGameState->nMunny && pRecord->bLevelReached == 0
+        nStyle = (pRecord->nPrice <= gGameState->nHeartPoints && pRecord->bLevelReached == 0
             && gGameState->aItemCount[pRecord->pItemDef->nItemId] < Ov008_PanelAlpha(pRecord)) ? STYLE_ON : STYLE_OFF;
         break;
     case TAB_SELL:
         nStyle = (pRecord->pItemDef->nSellable == 1 && Ov008_CountSpareItemsOfChild(pRecord) > 0) ? STYLE_ON : STYLE_OFF;
         break;
     case TAB_TRADE:
-        nStyle = (pRecord->nPrice <= gGameState->nPoints
+        nStyle = (pRecord->nPrice <= gGameState->nMunny
             && gGameState->aItemCount[pRecord->pItemDef->nItemId] < Ov008_PanelAlpha(pRecord)
             && Ov008_AreRequirementsMet(pRecord) != 0) ? STYLE_ON : STYLE_OFF;
         break;

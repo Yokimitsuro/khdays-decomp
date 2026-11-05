@@ -49,7 +49,7 @@ extern unsigned short Sequence_UpdateTracks(struct Sequence *pSeq, int nDelta);
 extern void Anim_SetFrameWrapped(struct Sequence *pSeq, int nWhich, int nFrame);
 extern int Ov022_IsSlotReady(struct Run *pRun);
 extern void func_ov022_02094b80(struct Run *pRun, int nSet);
-extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nA, int nCue);
+extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nSeqArc, int nSeq);
 
 void Ov022_StepRunSequences(struct Run *pRun, int nDelta)
 {

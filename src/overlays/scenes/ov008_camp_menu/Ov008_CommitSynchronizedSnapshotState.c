@@ -72,7 +72,7 @@ extern int Ov008_Link_IsLocal(void);
 extern int Ov008_IsSessionReady(void);
 extern void Ov008_SendMenuMessage(u8 messageType);
 extern int Slot4_GetIfOccupied(int slot);
-extern void Ov008_RefreshSaveSlotWidget(int slot);
+extern void Ov008_RefreshSeatCharacter(int slot);
 
 int Ov008_CommitSynchronizedSnapshotState(void)
 {
@@ -99,7 +99,7 @@ int Ov008_CommitSynchronizedSnapshotState(void)
         slot = 0;
         do {
             if (Slot4_GetIfOccupied(slot) != 0) {
-                Ov008_RefreshSaveSlotWidget(slot);
+                Ov008_RefreshSeatCharacter(slot);
                 gPartyMembers[slot] =
                     data_ov008_02090f00->sharedSnapshot.missionMembers[slot];
                 ((u8 *)&gPartyMembers[slot])[0] = (u8)slot;

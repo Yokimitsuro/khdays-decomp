@@ -40,7 +40,7 @@ extern int Ov024_MobiClip_PlayerPollAbort(void);
 extern void Ov024_MobiClip_StopPlayback(void);
 extern void Ov024_MobiClip_StepScreenFade(struct MobiClipPlayer *pPlayer);
 extern void Ov024_MobiClip_PlaybackIdleState(void);
-extern void SetWordAt0x588To1(void *pStream);
+extern void ActionScript_RequestSkip(void *pStream);
 extern int Game_RunActionScript(void *pStream);
 extern void Obj_ResetBothSubBlocksAndArm(void *pStream);
 extern void GX_DispOff(void);
@@ -71,7 +71,7 @@ void *Ov024_MobiClip_UpdatePlayback(void)
             if (player->wFlags & 4) {
                 if (Ov024_MobiClip_PlayerPollAbort() != 0) {
                     if (player->wFlags & 1) {
-                        SetWordAt0x588To1(player->obj);
+                        ActionScript_RequestSkip(player->obj);
                     }
                     goto drain;
                 }
@@ -116,7 +116,7 @@ void *Ov024_MobiClip_UpdatePlayback(void)
                 } while (Ov024_MobiClip_PlayerPollAbort() == 0);
             }
             if (player->wFlags & 1) {
-                SetWordAt0x588To1(player->obj);
+                ActionScript_RequestSkip(player->obj);
             }
         }
         Ov024_MobiClip_StopPlayback();

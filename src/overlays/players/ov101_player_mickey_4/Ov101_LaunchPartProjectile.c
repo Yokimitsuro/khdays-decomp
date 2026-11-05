@@ -31,7 +31,7 @@ struct Params {
 extern int Anim_GetLengthQ12(unsigned short *p, unsigned int idx);                  /* Anim_GetLengthQ12 */
 extern int Anim_GetFrame(unsigned short *p, unsigned int idx);                  /* Anim_GetFrame */
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern void Ov022_ScaleRowValues(char *obj, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *obj, int spin, void *a, void *b);
 extern void Ov022_RunReachHandlers(char *obj, struct Launch *launch, struct Params *params);
 extern char *data_ov101_020bc0e0;
 void Ov101_LaunchPartProjectile(char *part)
@@ -57,7 +57,7 @@ void Ov101_LaunchPartProjectile(char *part)
     vLift.z = 0;
     VEC_Add(&launch.vFrom, &vLift, &launch.vTo);
     prm.uFlags = 0x625;
-    Ov022_ScaleRowValues(obj, 0x2400, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(obj, 0x2400, &prm.pA, &prm.pB);
     prm.b25 &= ~1;
     prm.b25 &= ~2;
     prm.w0c = 0;

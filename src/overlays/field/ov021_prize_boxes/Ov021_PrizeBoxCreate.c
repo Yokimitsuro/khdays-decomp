@@ -39,7 +39,7 @@ typedef struct Ov021PrizeBoxDef {
 typedef struct Ov021PrizeBox {
     u8   pad_000[0xc];
     void *pfnStep;            /* 0x00c */
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012 */
     u16  nStateField;         /* 0x014: GameState field */
@@ -67,13 +67,13 @@ extern void  Ov002_PlaceElementNode(void *pPiece, void *pNode, int *aPlace, int 
 extern void  Ov002_BuildSpawnPosition(VecFx32 *pStart, VecFx32 *pPos, int *aPlace); /* start position from the placement */
 extern int   Ov002_TakeEntryOfKind1(void);                               /* take a spawn id from the low band */
 extern void  Ov002_AppendPendingId(int nKey);                           /* request an item's resources */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);          /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);          /* register the piece */
 extern int   Ov002_GetStateWord(void);                               /* the mission id */
-extern void  Ov002_List_SetBit(int nBucket, int nMode);             /* mark the bucket */
+extern void  Ov002_List_SetBit(int nRoom, int nMode);             /* mark the bucket */
 extern void *Ov021_PrizeBoxStep(Ov021PrizeBox *pSelf);               /* Ov021_PrizeBoxStep */
 extern const s8 data_ov021_02080f18[];                                /* track lengths in frames */
 
-Ov021PrizeBox *Ov021_PrizeBoxCreate(Ov021PrizeBoxDef *pClass, u16 nSlot, u8 nBucket, u16 nField, u8 nBit, VecFx32 *pPos, short nFacing)
+Ov021PrizeBox *Ov021_PrizeBoxCreate(Ov021PrizeBoxDef *pClass, u16 nSlot, u8 nRoom, u16 nField, u8 nBit, VecFx32 *pPos, short nFacing)
 {
     VecFx32 start;
     int aPlace[5];
@@ -86,7 +86,7 @@ Ov021PrizeBox *Ov021_PrizeBoxCreate(Ov021PrizeBoxDef *pClass, u16 nSlot, u8 nBuc
     pPiece->nFacing = nFacing;
     pPiece->start = start;
     pPiece->nTop = aPlace[2];
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov021_PrizeBoxStep;
     pPiece->nPieceFlags |= 0x48;
     pPiece->nField17 = 0;
@@ -109,9 +109,9 @@ Ov021PrizeBox *Ov021_PrizeBoxCreate(Ov021PrizeBoxDef *pClass, u16 nSlot, u8 nBuc
     } else {
         pPiece->nPrize = -1;
     }
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
     if (Ov002_GetStateWord() == 0x41d) {
-        Ov002_List_SetBit(nBucket, 1);
+        Ov002_List_SetBit(nRoom, 1);
     }
     return pPiece;
 }

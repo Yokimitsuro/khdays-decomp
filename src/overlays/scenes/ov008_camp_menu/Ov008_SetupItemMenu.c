@@ -5,7 +5,7 @@
  * resource as its first word to the context, loads the slot-6 block (0x5d
  * entries), installs the dispatcher 0206b3f8, walks the list nodes (mode 2),
  * refreshes the pick set (02069ca4), hides widgets 4..8 and shows the first
- * (table byte +2) of them again.  The "unseen" marker (data_ov008_02090598
+ * (table byte +2) of them again.  The "unseen" marker (gOv008ConfigSettings
  * byte 6) is set when flag 0x200b is set, or once day 12 is reached and the
  * flag 0x3c2b + 02079264(0x34) is set; then the markers are armed.
  */
@@ -34,24 +34,24 @@ typedef struct Ov008SlotTable {
 } Ov008SlotTable;
 
 extern Ov008LayoutTemplate data_ov008_0208f5e8;
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  nState;               /* 0x05: lock state */
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
-extern Ov008MenuEntryDef data_ov008_02090598[];
+extern Ov008ConfigSetting gOv008ConfigSettings[];
 extern Ov008MenuContext *Ov008_GetMenuContext(void);                     /* Ov008_GetMenuContext */
 extern Ov008SlotTable *Ov008_GetPageTableEntry(unsigned int nListId);
 extern int   Ov008_GetCtxBlock9500(void);                                 /* Ov008_GetCtxBlock9500 */
@@ -67,7 +67,7 @@ extern void  Ov008_Config_LoadValues(void);
 extern void *Ov008_FindEntryById(int nCtx, int nId);                    /* FindEntryById */
 extern void  Ov008_SetEntrySlotsVisible(int nCtx, void *pEntry, int bVisible); /* SetEntrySlotsVisible */
 extern int   Ov008_GetSlideTableValue(int nId);
-extern void  Ov008_ArmUnseenMarkers(void);                                 /* Ov008_ArmUnseenMarkers */
+extern void  Ov008_Config_EnableModeSettings(void);                                 /* Ov008_Config_EnableModeSettings */
 extern void  Ov008_DispatchMenuInput(void);                                 /* menu dispatcher */
 
 void Ov008_SetupItemMenu(void)
@@ -103,10 +103,10 @@ void Ov008_SetupItemMenu(void)
         nDay = GameState_GetField(0, 9);
         nFlag = Ov008_GetSlideTableValue(0x34);
         if (nDay >= DAY_TIER_UNLOCK && GameState_IsFlagSet(nFlag + FLAG_TIER_BASE) != 0) {
-            data_ov008_02090598[0].bEnabled = 1;
+            gOv008ConfigSettings[0].bEnabled = 1;
         }
     } else {
-        data_ov008_02090598[0].bEnabled = 1;
+        gOv008ConfigSettings[0].bEnabled = 1;
     }
-    Ov008_ArmUnseenMarkers();
+    Ov008_Config_EnableModeSettings();
 }

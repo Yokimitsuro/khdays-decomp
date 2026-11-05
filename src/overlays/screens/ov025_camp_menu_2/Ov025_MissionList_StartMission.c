@@ -17,9 +17,9 @@ typedef struct GameplayThresholdSnapshot {
 } GameplayThresholdSnapshot;
 
 typedef struct Ov008MissionListEntry {
-    u16  nWord;               /* 0x00: the mission's payload for ov002 */
+    u16  nFileNumber;               /* 0x00: the mission's payload for ov002 */
     u16  missionId;           /* 0x02 */
-    u16  nTextSlot;           /* 0x04 */
+    u16  nCategory;           /* 0x04 */
     u8   pad_06[0x18 - 0x6];
     int  nStatus;             /* 0x18 */
     u8   pad_1c[4];
@@ -61,9 +61,9 @@ void Ov025_MissionList_StartMission(void)
     pEntry = Ov025_GetNextMissionEntry_5(Ov025_GetCtxField967c());
     if (pEntry != 0) {
         data_0204c23c = Ov025_GetCtxField967c();
-        Ov002_PostResultReport(pEntry->nWord);
+        Ov002_PostResultReport(pEntry->nFileNumber);
     }
-    data_0204c240.nRoom = pEntry->nWord;
+    data_0204c240.nRoom = pEntry->nFileNumber;
     data_0204c240.nField04 = 0;
     data_0204c240.nField01 = 0x13;
     GameState_ClearFlag(0x18ca);
@@ -81,8 +81,8 @@ void Ov025_MissionList_StartMission(void)
         data_0204c240.nBits = 0;
         data_0204c240.nStatus = pEntry->nStatus;
     }
-    if (GameState_IsFlagSet(pEntry->nTextSlot + 0x3bc9) == 0) {
-        GameState_SetFlag(pEntry->nTextSlot + 0x3bc9);
+    if (GameState_IsFlagSet(pEntry->nCategory + 0x3bc9) == 0) {
+        GameState_SetFlag(pEntry->nCategory + 0x3bc9);
     }
     if (pMenu->bTransfer == 0) {
         Ov025_CampaignModeHookNoOp(0);

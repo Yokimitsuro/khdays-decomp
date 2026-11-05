@@ -35,7 +35,7 @@ struct Params {
 
 extern void func_ov022_020ad44c(struct Emit *emit, char *self);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern void Ov022_ScaleRowValues(char *self, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *self, int spin, void *a, void *b);
 extern int Ov022_RunCommandHandlers(char *self, struct Emit *emit, void *params);
 extern void func_ov022_020ad28c(char *self, char *pos, int nSound, int nVariant);
 extern short data_0203d210[];
@@ -76,7 +76,7 @@ void Ov033_FireForwardBurst(char *self)
     emit.nRange = 0x1000;
     emit.pAnchor = 0;
     emit.nFlags28 = 0;
-    Ov022_ScaleRowValues(self, 0xa00, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(self, 0xa00, &prm.pA, &prm.pB);
     prm.vExtent.x = 0xa00;
     prm.vExtent.z = 0xa00;
     prm.w0c = 0;

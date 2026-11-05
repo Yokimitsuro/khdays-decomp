@@ -13,7 +13,7 @@ extern void BindAnimTrack(void *animation, int track, void *table, short mode); 
 extern void Anim_SetFrameWrapped(void *animation, int track, int frame);                /* Anim_SetFrameWrapped */
 extern unsigned short Sequence_UpdateTracks(void *animation, int delta);                            /* Sequence_UpdateTracks */
 extern int Ov022_IsState9Or6WithFlag200(char *emitter);
-extern int Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern int Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 
 void Ov049_StepEffectSlot(char *self, char *slot, int dt)
 {

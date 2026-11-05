@@ -19,11 +19,11 @@ typedef struct Ov016Owner {
 
 typedef struct Ov016Follower {
     u8 pad_000[0x10];
-    u8 nBucket;               /* 0x10 */
+    u8 nRoom;               /* 0x10 */
 } Ov016Follower;
 
 extern int  Ov002_Event_GetField18(void);                    /* record set state */
-extern int  Ov002_GetCtxTableByte(int nBucket);             /* bucket -> seat slot */
+extern int  Ov002_GetCtxTableByte(int nRoom);             /* bucket -> seat slot */
 extern Ov016Owner *Ov002_GetPieceOwner(int nSlot);        /* seat owner */
 extern void *List_First(void *pList);                  /* List_First */
 extern void Ov233_NotifyPartsThenBase(Ov016Piece *pPiece, int nKind);
@@ -38,7 +38,7 @@ void Ov016_FollowerComplete(Ov016Follower *pSelf)
     if (Ov002_Event_GetField18() == -1) {
         return;
     }
-    pOwner = Ov002_GetPieceOwner(Ov002_GetCtxTableByte(pSelf->nBucket));
+    pOwner = Ov002_GetPieceOwner(Ov002_GetCtxTableByte(pSelf->nRoom));
     if (pOwner == 0) {
         return;
     }

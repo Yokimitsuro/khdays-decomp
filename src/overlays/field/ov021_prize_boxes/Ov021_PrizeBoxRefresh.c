@@ -27,7 +27,7 @@ typedef struct Ov021PrizeBox {
     u8   pad_000[8];
     Ov021PrizeBoxDef *pDef;   /* 0x008 */
     u8   pad_00c[4];
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011[0x2c - 0x11];
     u8   renderNode[0xe0 - 0x2c]; /* 0x02c: the binding block sits at +0x148 */
     VecFx32 position;         /* 0x0e0 */
@@ -38,7 +38,7 @@ typedef struct Ov021PrizeBox {
     char nPrize;              /* 0x1be: index into the class's prize list */
 } Ov021PrizeBox;
 
-extern int   Ov002_GetCtxTableByte(int nBucket);                       /* bucket -> seat slot */
+extern int   Ov002_GetCtxTableByte(int nRoom);                       /* bucket -> seat slot */
 extern void  Render_SubmitNode(void *pNode, int nId, int nArg, void *pParams); /* Render_SubmitNode */
 extern int   Ov002_GetStateWord(void);                              /* the mission id */
 extern void  Actor_SetBindingByte(void *pBinding, int nIndex, u8 nValue);   /* Actor_SetBindingByte */
@@ -53,7 +53,7 @@ void Ov021_PrizeBoxRefresh(Ov021PrizeBox *pSelf)
 
     pDef = pSelf->pDef;
     if ((pSelf->nFlags & 1) == 0) {
-        Render_SubmitNode(pSelf->renderNode, (u16)(Ov002_GetCtxTableByte(pSelf->nBucket)), 0, 0);
+        Render_SubmitNode(pSelf->renderNode, (u16)(Ov002_GetCtxTableByte(pSelf->nRoom)), 0, 0);
         if (Ov002_GetStateWord() == 0x41d) {
             Actor_SetBindingByte(pSelf->binding, 3, 1);
         } else {

@@ -10,7 +10,7 @@
 extern void BindAnimTrack(void *animation, int track, void *table, short mode);   /* BindAnimTrack */
 extern unsigned short Sequence_UpdateTracks(void *animation, int delta);                            /* Sequence_UpdateTracks */
 extern void Ov048_BindAnimsAndFaceOwner(char *self, char *slot);
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 
 void Ov048_StepSequenceSlot(char *self, char *slot, int dt)
 {

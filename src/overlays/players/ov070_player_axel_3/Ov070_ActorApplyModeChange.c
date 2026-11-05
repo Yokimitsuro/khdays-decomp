@@ -16,7 +16,7 @@
  * keeps both adds inside the arm and reverses the parameter copies.
  */
 extern void Ov070_initClearSubBlockField10(char *self, char *pBlock);
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern void Ov070_ArmState3(char *pObj, int nTime);
 extern void Ov022_SetAnimState(char *self, int nState);
 

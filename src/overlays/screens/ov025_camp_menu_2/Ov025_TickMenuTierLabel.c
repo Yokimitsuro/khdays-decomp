@@ -1,5 +1,5 @@
 /* Ov025_TickMenuTierLabel -- Ov008_TickMenuTierLabel: once a second (60 frames) pick
- * the tier label for the current menu entry (Ov025_SelectTierIfActive on the list id,
+ * the tier label for the current menu entry (Ov025_Config_GetTabTitleRecord on the list id,
  * selection and previous label index), then redraw the label field: clear the
  * text surface, fit the glyph set to the label text (max width 0xa0), draw it
  * with a shadow at (0xfa, 2) and queue the surface upload.
@@ -25,7 +25,7 @@ typedef struct Ov008MenuContext {
 #define LABEL_COLOUR       0x821
 
 extern Ov008MenuContext *Ov025_GetPageA(void);               /* Ov008_GetMenuContext */
-extern int Ov025_SelectTierIfActive(int nListId, unsigned int nSelection, int nPrev); /* SelectTierIfActive */
+extern int Ov025_Config_GetTabTitleRecord(int nListId, unsigned int nSelection, int nPrev);
 extern void Obj_InvokeInnerVtable8(void *pSurface, int a, int b, int c, int d);  /* Obj_InvokeInnerVtable8 */
 extern char *Ov025_GetVarRecordByIndex(void *pRecords, int nIndex);     /* GetVarRecordByIndex */
 extern int Ov025_FitTextFieldFont(void *pField, char *pText, int nMaxWidth); /* Ov008_FitTextFieldFont */
@@ -41,7 +41,7 @@ void Ov025_TickMenuTierLabel(void)
     pCtx->nLabelTimer++;
     if (pCtx->nLabelTimer > LABEL_CYCLE_FRAMES) {
         pCtx->nLabelTimer = 0;
-        pCtx->nLabelIndex = Ov025_SelectTierIfActive(pCtx->nListId, (u16)pCtx->nSelection, pCtx->nLabelIndex);
+        pCtx->nLabelIndex = Ov025_Config_GetTabTitleRecord(pCtx->nListId, (u16)pCtx->nSelection, pCtx->nLabelIndex);
     }
     Obj_InvokeInnerVtable8(pCtx->labelField, 0, 2, 0x100, 0x10);
     pText = Ov025_GetVarRecordByIndex(pCtx->varRecords, pCtx->nLabelIndex);

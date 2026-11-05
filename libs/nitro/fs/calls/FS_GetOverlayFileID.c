@@ -3,12 +3,12 @@
 
 #include "nitro/fs.h"
 
-extern FSArchive data_02046334;       /* fsi_arc_rom */
+extern FSArchive fsi_arc_rom;
 
 FSFileID FS_GetOverlayFileID(const FSOverlayInfo *p_ovi)
 {
     FSFileID ret;
-    ret.arc = &data_02046334;
+    ret.arc = &fsi_arc_rom;
     ret.file_id = p_ovi->header.file_id;
     return ret;
 }

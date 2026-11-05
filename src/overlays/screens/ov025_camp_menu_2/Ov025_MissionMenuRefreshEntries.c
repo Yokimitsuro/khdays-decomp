@@ -18,7 +18,7 @@
 typedef struct Ov008MissionListEntry {
     u8  pad_00[2];
     u16 missionId;            /* 0x02 */
-    u16 nTextSlot;            /* 0x04 */
+    u16 nCategory;            /* 0x04 */
     u8  pad_06[6];
     u8  bSpecial;             /* 0x0c */
     u8  pad_0d[7];
@@ -41,8 +41,8 @@ extern int  Ov025_GetCtxObject9630(void);                                    /* 
 extern int  Ov025_GetCtxObject9634(void);                                    /* page transition active */
 extern Ov008MissionListEntry *Ov025_GetNextMissionEntry_5(u32 nMissionId);        /* find the listed mission */
 extern void Ov025_EncodeCursorAction(int nSlot);                               /* cursor pick */
-extern void Ov025_MainMenu_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_MainMenu_UpdateSelectionText */
-extern void Ov025_MainMenu_RecalculateMissionSummary(void);                                    /* Ov008_MainMenu_RecalculateMissionSummary */
+extern void Ov025_WorldMap_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_WorldMap_UpdateSelectionText */
+extern void Ov025_WorldMap_RecalculateMissionSummary(void);                                    /* Ov008_WorldMap_RecalculateMissionSummary */
 extern u16  Ov025_GetCurrentListId(void);                                    /* mission entry count */
 extern Ov008MissionListEntry *Ov025_GetNextMissionEntry(Ov008MissionListEntry *pEntry); /* Ov008_GetNextMissionEntry */
 extern u32  GameState_GetField(int nField, int nBits);                         /* GameState_GetField */
@@ -66,11 +66,11 @@ void Ov025_MissionMenuRefreshEntries(Ov008MissionMenu *pMenu)
     if (pMenu->bTransfer != 0) {
         pEntry = Ov025_GetNextMissionEntry_5(nMissionId);
         if (pEntry != 0) {
-            nSlot = pEntry->nTextSlot;
+            nSlot = pEntry->nCategory;
             Ov025_EncodeCursorAction(nSlot);
-            Ov025_MainMenu_UpdateSelectionText(nSlot, 0);
+            Ov025_WorldMap_UpdateSelectionText(nSlot, 0);
         }
-        Ov025_MainMenu_RecalculateMissionSummary();
+        Ov025_WorldMap_RecalculateMissionSummary();
     }
     pMenu->nCount = Ov025_GetCurrentListId();
     i = 0;

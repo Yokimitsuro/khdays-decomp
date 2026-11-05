@@ -17,7 +17,7 @@ typedef struct Ov016Owner {
 
 typedef struct Ov016Follower {
     u8 pad_000[0x10];
-    u8 nBucket;               /* 0x10 */
+    u8 nRoom;               /* 0x10 */
     u8 pad_011[0x1ac - 0x11];
     int nRange;               /* 0x1ac */
     int nHoldTimer;           /* 0x1b0 */
@@ -28,7 +28,7 @@ typedef struct Ov016Follower {
 } Ov016Follower;
 
 extern int  Ov002_Event_GetField18(void);                    /* record set state */
-extern int  Ov002_GetCtxTableByte(int nBucket);             /* bucket -> seat slot */
+extern int  Ov002_GetCtxTableByte(int nRoom);             /* bucket -> seat slot */
 extern Ov016Owner *Ov002_GetPieceOwner(int nSlot);        /* seat owner */
 extern void *List_First(void *pList);                  /* List_First */
 extern int  Ov016_FollowerPieceHolds(Ov016Piece *pPiece, VecFx32 *pFrom, int nRange, VecFx32 *pAt, int nAngle, int nCone);
@@ -43,7 +43,7 @@ int Ov016_FollowerCheckPieces(Ov016Follower *pSelf, VecFx32 *pFrom, VecFx32 *pAt
     if (Ov002_Event_GetField18() == -1) {
         return 0;
     }
-    pOwner = Ov002_GetPieceOwner(Ov002_GetCtxTableByte(pSelf->nBucket));
+    pOwner = Ov002_GetPieceOwner(Ov002_GetCtxTableByte(pSelf->nRoom));
     if (pOwner == 0) {
         return 0;
     }

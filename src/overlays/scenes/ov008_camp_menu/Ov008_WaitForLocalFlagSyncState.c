@@ -28,7 +28,7 @@ extern Ov008MenuContext *data_ov008_02090f00;
 
 extern void Ov008_UpdateMenuInput(void);
 extern int Ov008_Link_IsLocal(void);
-extern void Ov008_RefreshSaveSlotWidget(int slot);
+extern void Ov008_RefreshSeatCharacter(int slot);
 extern void Ov008_CommitSelectedPage(void);
 
 void *Ov008_WaitForLocalFlagSyncState(void)
@@ -51,7 +51,7 @@ void *Ov008_WaitForLocalFlagSyncState(void)
         }
     }
 
-    Ov008_RefreshSaveSlotWidget((int)Session_GetLocalPlayerIndex());
+    Ov008_RefreshSeatCharacter((int)Session_GetLocalPlayerIndex());
     GameSession_SetSyncEnabled(0);
     return (void *)Ov008_CommitSelectedPage;
 }

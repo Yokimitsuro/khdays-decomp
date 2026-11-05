@@ -1,7 +1,7 @@
 /* Ov025_TickMenuTimer -- Ov008_TickMenuTimer (180 B, 8 relocs).
  * Per-frame tick for a timed menu element. Once (guarded by flag14dc), when the 64-bit tick
  * counter has advanced past the stored deadline (stored + 0x7fd88 < OS_GetTick()), it marks
- * the flag and fires the one-shot Ov025_MainMenu_UpdateSelectionText(field14e8, field14e4). It always ticks the
+ * the flag and fires the one-shot Ov025_WorldMap_UpdateSelectionText(field14e8, field14e4). It always ticks the
  * sub-object at +4 (Ov025_DrawMenuPanels). Then, if field14e0 is set and GameState_IsFlagSet(0x200d)
  * returns 0, it refreshes widget id 2 with the (u16) value from Ov105_WM_GetLinkLevel via
  * Ov025_ReleaseTwoSlotsEx_2. */
@@ -20,7 +20,7 @@ typedef struct Ov008TimerState {
 } Ov008TimerState;
 
 extern u64   OS_GetTick(void);
-extern void  Ov025_MainMenu_UpdateSelectionText(int a, int b);
+extern void  Ov025_WorldMap_UpdateSelectionText(int a, int b);
 extern void  Ov025_DrawMenuPanels(void *sub);
 extern void *Ov025_GetContext(void);
 extern void *Ov025_FindEntryById(void *ctx, int id);
@@ -36,7 +36,7 @@ void Ov025_TickMenuTimer(Ov008TimerState *param_1)
         u64 now = OS_GetTick();
         if (param_1->stored + 0x7fd88 < now) {
             param_1->flag14dc = 1;
-            Ov025_MainMenu_UpdateSelectionText(param_1->field14e8, param_1->field14e4);
+            Ov025_WorldMap_UpdateSelectionText(param_1->field14e8, param_1->field14e4);
         }
     }
     Ov025_DrawMenuPanels(&param_1->sub_0004);

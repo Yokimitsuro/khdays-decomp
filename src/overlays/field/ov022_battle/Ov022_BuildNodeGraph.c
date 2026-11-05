@@ -1,6 +1,10 @@
 #pragma thumb on
 
-/* Ov022_BuildNodeGraph -- lay out the three node pools of a graph and wire them.
+/* Ov022_BuildNodeGraph -- lay out the three node pools of a keyblade's combo graph and wire them.
+ *
+ * A graph is one of a weapon's combos (graph 0 the ground one, 1 the air one); each node is one
+ * attack (its number in the character's cm.b), its first link the next attack. The three pools
+ * are the chain, its finisher and the branches.
  *
  * Each pool gets one allocation, sized by its count, and keeps that count. The
  * first entry point is the head of the first pool, and the next four are the
@@ -17,16 +21,16 @@
 #include "nitro/types.h"
 
 struct Node {
-    int nValue;                      /* 0x00 */
-    struct Node *pLeft;              /* 0x04 */
-    struct Node *pLeftAlt;           /* 0x08 */
+    int nAttack;                     /* 0x00: the attack's number in cm.b */
+    struct Node *pNext;              /* 0x04: the next attack */
+    struct Node *pNextAlt;           /* 0x08 */
     struct Node *pRight;             /* 0x0c */
     struct Node *pRightAlt;          /* 0x10 */
     int nField14;                    /* 0x14 */
 };
 
 struct NodeDesc {
-    int nValue;                      /* 0x00 */
+    int nAttack;                     /* 0x00 */
     short nLeft;                     /* 0x04 */
     short nRight;                    /* 0x06 */
 };
@@ -96,20 +100,20 @@ void Ov022_BuildNodeGraph(struct Graph *pGraph, int nUnused, u16 *pCounts,
                 /* ppSlot walks the graph's own word array, so [6] is the
                  * pool for this pass -- the ROM keeps one base register for it */
                 pNode = (struct Node *)((u8 *)ppSlot[6] + nOffset);
-                pNode->nValue = pDesc->nValue;
-                pNode->pLeft = 0;
+                pNode->nAttack = pDesc->nAttack;
+                pNode->pNext = 0;
                 pNode->pRight = 0;
-                pNode->pLeftAlt = 0;
+                pNode->pNextAlt = 0;
                 pNode->pRightAlt = 0;
                 pNode->nField14 = 0;
                 nLink = pDesc->nLeft;
                 if (nLink >= 0) {
                     if (nLink != LINK_TO_ENTRY) {
-                        pNode->pLeft = &ppSlot[6][nLink];
+                        pNode->pNext = &ppSlot[6][nLink];
                     } else {
-                        pNode->pLeft = pGraph->aEntry[1];
+                        pNode->pNext = pGraph->aEntry[1];
                         if (pGraph->aPool[1] != 0) {
-                            pNode->pLeftAlt = pGraph->aPool[1];
+                            pNode->pNextAlt = pGraph->aPool[1];
                         }
                     }
                 }

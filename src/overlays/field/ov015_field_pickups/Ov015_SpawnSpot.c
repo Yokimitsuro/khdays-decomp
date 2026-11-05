@@ -33,7 +33,7 @@ typedef struct Ov015SpotDef {
 } Ov015SpotDef;
 
 extern Ov015Spot *Ov002_ClaimPoolEntry(Ov015SpotDef *pClass, int nSlot);  /* take a piece from the class table */
-extern void Ov002_PushBucketNode(int nBucket, Ov015Spot *pPiece);           /* register the piece */
+extern void Ov002_PushBucketNode(int nRoom, Ov015Spot *pPiece);           /* register the piece */
 extern void Ov015_SpotUpdate(void);                                     /* the spot handler block */
 
 Ov015Spot *Ov015_SpawnSpot(Ov015SpotDef *pClass, int nSlot, int nKind, int nField, u8 nBit, int nFacing)

@@ -35,7 +35,7 @@ extern void Ov002_ScriptCmd_SetSessionIdle(void);
 extern void Ov002_ScriptCmd_ThreeOperandStub(void);
 extern void Ov002_ScriptCmd_RestorePanel(void);
 extern void Ov002_ScriptCmd_LoadObjectRecords(void);
-extern void Ov002_ScriptCreateSlotObject(void);
+extern void Ov002_ScriptCreateSpawner(void);
 extern void Ov002_SubmitRequestBlockKind4(void);
 extern void Ov002_ResolveFourDescriptors(void);
 extern void Ov002_ScriptCmd_InitObjectTables(void);
@@ -219,7 +219,7 @@ Ov_Fn data_ov002_0207f134[180] = {
 
     0,
 
-    Ov002_ScriptCreateSlotObject,
+    Ov002_ScriptCreateSpawner,
 
     0,
 

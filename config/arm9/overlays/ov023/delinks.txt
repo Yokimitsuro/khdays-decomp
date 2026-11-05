@@ -152,7 +152,7 @@ src/overlays/field/ov023_event_script/Ov023_SetPendingText.c:
     complete
     .text       start:0x02083a80 end:0x02083aa8
 
-src/overlays/field/ov023_event_script/Ov023_FlushTextBox.c:
+src/overlays/field/ov023_event_script/Ov023_RequestEventSkip.c:
     complete
     .text       start:0x02083aa8 end:0x02083ad0
 

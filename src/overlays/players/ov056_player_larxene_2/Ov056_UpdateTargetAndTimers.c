@@ -13,7 +13,7 @@ extern int Ov022_GetGlobal34(void);
 extern void Ov002_StoreVAndToggleBit25(int a, int b, int c);
 extern int Ov022_FollowGroundRumble(char *self);
 extern void Ov056_CallSubObjThenAdvance(char *self, int tick);
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern int Ov022_IsState9Or6WithFlag200(char *emitter);
 extern void func_ov022_020ad588(char *self);
 

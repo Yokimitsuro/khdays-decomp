@@ -8,7 +8,7 @@ typedef struct { char s[12]; } ResName;
 extern char *data_ov106_020b8b60;
 extern const ResName gOv106EvEvDpPath;
 extern char data_ov106_020b8b20[];
-extern void Ov002_FormatResultLine(int index, char *out);
+extern void Ov002_FormatEventScriptName(int index, char *out);
 extern void *Msg_OpenContainerAndReadHeader(const void *descriptor, int mode);
 extern int func_020200b4(char *pszNumber);
 extern void Stream_DecodeIntoStagingBuffer(void *stream, int id, void *path, void *work);
@@ -24,7 +24,7 @@ void *Ov106_LoadFontAndCaption(void)
     void *res;
     char *scene;
 
-    Ov002_FormatResultLine(0, name);
+    Ov002_FormatEventScriptName(0, name);
     res = path;     /* one local serves as the request buffer, then as the loaded resource */
     *(ResName *)res = gOv106EvEvDpPath;
     res = Msg_OpenContainerAndReadHeader(path, 0xf);

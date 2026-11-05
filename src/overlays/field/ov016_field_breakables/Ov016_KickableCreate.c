@@ -36,7 +36,7 @@ typedef struct Ov016KickableDef {
 typedef struct Ov016Kickable {
     u8 pad_000[0xc];
     void *pfnStep;            /* 0x0c */
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8  pad_011;
     u16 nPieceFlags;          /* 0x12 */
     u16 nStateField;          /* 0x14: GameState field */
@@ -85,14 +85,14 @@ extern int   Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int 
 extern void  Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pPlace);  /* start position */
 extern void  Actor_SetVecAndSyncChild(void *pTransform, VecFx32 *pVec);              /* Actor_SetVecAndSyncChild */
 extern void  Actor_InitEntityLink(void *pBody, void *pRecord);                   /* construct an actor body */
-extern void  Ov002_List_SetBit(int nBucket, int nMode);
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);              /* register the piece */
+extern void  Ov002_List_SetBit(int nRoom, int nMode);
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);              /* register the piece */
 extern Ov016KickableKindRow data_ov016_02082748[];                        /* per-kind rows */
 extern const s8 data_ov016_02082740[];                                    /* per-kind bucket marks */
 extern const VecFx32 data_02041dc8;                                       /* the zero vector */
 extern u8    data_0204c240;                                               /* session bits */
 
-Ov016Kickable *Ov016_KickableCreate(Ov016KickableDef *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short nFacing,
+Ov016Kickable *Ov016_KickableCreate(Ov016KickableDef *pClass, u16 nSlot, u8 nRoom, VecFx32 *pPos, short nFacing,
                                    u16 nField, u8 nBit, u16 nField2, u8 nBit2)
 {
     VecFx32 start;
@@ -110,7 +110,7 @@ Ov016Kickable *Ov016_KickableCreate(Ov016KickableDef *pClass, u16 nSlot, u8 nBuc
     pPiece->nStateField = nField;
     pPiece->nStateBit = nBit;
     pPiece->nSyncFlags = 0;
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = data_ov016_02082748[pClass->nKind].pfnStep;
     pPiece->nPieceFlags |= 8;
     pPiece->nPieceFlags |= 0x40;
@@ -139,8 +139,8 @@ Ov016Kickable *Ov016_KickableCreate(Ov016KickableDef *pClass, u16 nSlot, u8 nBuc
     }
     nMark = data_ov016_02082740[pClass->nKind];
     if (nMark >= 0) {
-        Ov002_List_SetBit(nBucket, nMark);
+        Ov002_List_SetBit(nRoom, nMark);
     }
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
     return pPiece;
 }

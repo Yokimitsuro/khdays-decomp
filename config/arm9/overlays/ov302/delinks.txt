@@ -23,7 +23,7 @@ src/overlays/field/ov302/Ov302_RecordFilter_BelowMax.c:
     complete
     .text       start:0x020cc144 end:0x020cc168
 
-src/overlays/field/ov302/Ov302_IsEncounterEligible.c:
+src/overlays/field/ov302/Ov302_IsMissionModeRowListed.c:
     complete
     .text       start:0x020cc168 end:0x020cc2bc
 
@@ -31,15 +31,15 @@ src/overlays/field/ov302/Ov302_CanTriggerActionInRange.c:
     complete
     .text       start:0x020cc2bc end:0x020cc33c
 
-src/overlays/field/ov302/Ov302_RecordFilter_KindZero.c:
+src/overlays/field/ov302/Ov302_RecordFilter_StoryRow.c:
     complete
     .text       start:0x020cc33c end:0x020cc350
 
-src/overlays/field/ov302/Ov302_RecordFilter_KindNonZero.c:
+src/overlays/field/ov302/Ov302_RecordFilter_MissionModeEntry.c:
     complete
     .text       start:0x020cc350 end:0x020cc364
 
-src/overlays/field/ov302/Ov302_RecordFilter_Kind4Id10.c:
+src/overlays/field/ov302/Ov302_RecordFilter_TutorialRow.c:
     complete
     .text       start:0x020cc364 end:0x020cc388
 

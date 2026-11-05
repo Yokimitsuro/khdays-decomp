@@ -16,7 +16,7 @@
 
 typedef struct Ov016Follower {
     u8 pad_000[0x10];
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8  pad_011[3];
     u16 nStateField;          /* 0x14: GameState field */
     u8  nStateBit;            /* 0x16 */
@@ -41,7 +41,7 @@ static inline int FX_Mul(int a, int b)
     return (int)(((long long)a * b + 0x800) >> 12);
 }
 
-extern int  Ov002_GetCtxTableByte(int nBucket);                 /* bucket -> seat slot */
+extern int  Ov002_GetCtxTableByte(int nRoom);                 /* bucket -> seat slot */
 extern int  Ov002_GetLocalPlayerGroup(void);                        /* the seat being run */
 extern void Ov016_AdvanceFrame(Ov016Follower *pSelf);
 extern VecFx32 *func_ov022_020881f8(int nSeat);               /* where the seat is */
@@ -66,7 +66,7 @@ int Ov016_FollowerStep(Ov016Follower *pSelf)
     u32 nValue;
     u32 nState;
 
-    if (Ov002_GetCtxTableByte(pSelf->nBucket) != Ov002_GetLocalPlayerGroup()) {
+    if (Ov002_GetCtxTableByte(pSelf->nRoom) != Ov002_GetLocalPlayerGroup()) {
         return 0;
     }
     Ov016_AdvanceFrame(pSelf);

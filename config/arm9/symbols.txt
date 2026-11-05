@@ -465,7 +465,7 @@ DefaultStepDone kind:function(arm,size=0x8) addr:0x0200af34
 FSi_RomArchiveProc kind:function(arm,size=0x6c) addr:0x0200af3c
 DefaultStepDone_2 kind:function(arm,size=0x8) addr:0x0200afa8
 FSi_EmptyArchiveProc kind:function(arm,size=0x8) addr:0x0200afb0
-func_0200afb8 kind:function(arm,size=0x148) addr:0x0200afb8
+FSi_InitRom kind:function(arm,size=0x148) addr:0x0200afb8
 FS_TryLoadTable kind:function(arm,size=0x20) addr:0x0200b100
 FSi_GetOverlayBinarySize kind:function(arm,size=0x1c) addr:0x0200b120
 FS_ClearOverlayImage kind:function(arm,size=0x3c) addr:0x0200b13c
@@ -1192,7 +1192,7 @@ ScriptVm_ResolveActorIndex kind:function(thumb,size=0x34) addr:0x02020d10
 Game_UnwindActionStack kind:function(thumb,size=0xdc) addr:0x02020d44
 Camera_UpdateSoundListener kind:function(thumb,size=0x36) addr:0x02020e20
 Game_RunActionScript kind:function(thumb,size=0x1f0) addr:0x02020e58
-SetWordAt0x588To1 kind:function(thumb,size=0xc) addr:0x02021048
+ActionScript_RequestSkip kind:function(thumb,size=0xc) addr:0x02021048
 GetWordAt0x58c kind:function(thumb,size=0xc) addr:0x02021054
 Camera_Init kind:function(thumb,size=0x13c) addr:0x02021060
 MTX_MakeRotXY43 kind:function(thumb,size=0x6c) addr:0x0202119c
@@ -2240,7 +2240,7 @@ data_02046318 kind:bss addr:0x02046318
 data_0204631c kind:bss addr:0x0204631c
 data_02046324 kind:bss addr:0x02046324
 data_0204632c kind:bss addr:0x0204632c
-data_02046334 kind:bss addr:0x02046334
+fsi_arc_rom kind:bss addr:0x02046334
 data_02046390 kind:bss addr:0x02046390
 data_020463ac kind:bss addr:0x020463ac
 data_020463cc kind:bss addr:0x020463cc

@@ -41,7 +41,7 @@ struct Params {
 
 extern void func_ov022_020ad44c(struct Emit *emit, char *self);
 extern void *Ov022_ComputeStrengthDamage(char *self, int a, int b, int c);
-extern void Ov022_ScaleRowValues(char *self, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *self, int spin, void *a, void *b);
 extern int Ov022_RunCommandHandlers(char *self, struct Emit *emit, void *params);
 extern void func_ov022_020ad28c(char *self, char *at, int effect, int arg);
 extern short data_0203d210[];
@@ -92,7 +92,7 @@ void Ov096_AttackBurstTick(char *self)
             spin = 0x1a00;
         }
     }
-    Ov022_ScaleRowValues(self, spin, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(self, spin, &prm.pA, &prm.pB);
     prm.w0c = 0;
     prm.vExtent.x = 0xa00;
     prm.vExtent.y = 0x66;

@@ -1,7 +1,7 @@
 /* Plays the attack voice (the variant depends on the attack kind), binds tracks 0-2 of the effect
  * for that variant, rewound, and activates it. */
 
-extern int Ov022_PlayEntityVoice(int self, int cue, int situation);
+extern int Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void BindAnimTrack(int a, int b, int c, short d);
 extern void Anim_SetFrameWrapped(int a, int b, int c);
 

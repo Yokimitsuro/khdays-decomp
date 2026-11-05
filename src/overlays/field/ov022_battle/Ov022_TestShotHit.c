@@ -17,7 +17,7 @@
  *
  * The early exit is a bare `return;` in an int function: the ROM leaves r0 as
  * the last call left it -- the damage Ov022_ComputeStrengthDamage returned, or
- * the 0 Ov022_ScaleRowValues last stored (`mov r0,#0`) -- and callers read it
+ * the 0 Ov022_ScaleMoveDamage last stored (`mov r0,#0`) -- and callers read it
  * as the hit. Otherwise it hands back the hit resolver's result.
  */
 
@@ -119,7 +119,7 @@ extern u16 FX_Atan2Idx(int x, int z);
 extern int Ov022_SearchMatchingRow(void *pActor, int bEnabled, int *pMatchMask,
                                u8 *pAmount);
 extern int Ov022_ComputeStrengthDamage(void *pActor, int nFactor, int nLevel, int bEnabled);
-extern void Ov022_ScaleRowValues(void *pActor, int nFactor, int *pValue, int *pOther);
+extern void Ov022_ScaleMoveDamage(void *pActor, int nFactor, int *pValue, int *pOther);
 extern int Ov022_TransformNodeValue(struct ReactionCtx *pCtx, struct ShotDesc *pDesc,
                                void *pQuery, struct ActionParams *pParams);
 
@@ -196,7 +196,7 @@ int Ov022_TestShotHit(struct ReactionCtx *pCtx, struct Shot *pShot,
         params.nField04 = 0;
     } else {
         params.nField08 |= PARAM_FLAG_SCALED;
-        Ov022_ScaleRowValues(pShooter, nFactor, &params.nValue, &params.nField04);
+        Ov022_ScaleMoveDamage(pShooter, nFactor, &params.nValue, &params.nField04);
         if ((pDesc->nFlags & DESC_ROW_FLAG) != 0) {
             params.nField08 |= PARAM_FLAG_400;
         }

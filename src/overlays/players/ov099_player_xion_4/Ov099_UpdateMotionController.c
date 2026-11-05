@@ -40,7 +40,7 @@ struct TimelineActorOwner {
 extern int func_ov022_02083f0c(void);
 extern void Ov002_StoreVAndToggleBit25(int handle, int a, int b);
 extern int Ov022_FollowGroundRumble(struct TimelineActor *actor);
-extern void Ov022_PlayEntityVoice(struct TimelineActor *actor, int cue, int mode);
+extern void Ov022_PlayEntityVoice(struct TimelineActor *actor, int nSeqArc, int nSeq);
 extern void Ov099_SpawnEmitters(struct TimelineActorOwner *self);
 extern int Ov099_ov030_UpdatePathMotionState(struct TimelineActorOwner *self,
                                struct TimelineMotionState *motion, int delta);

@@ -4,7 +4,7 @@
 
 #include "nitro/types.h"
 
-extern void Ov022_PlayEntityVoice(int self, int cue, int situation);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern int Ov022_GetWordAt0x348Plus4(void *p);
 extern void BindAnimTrack(void *p, u16 idx, int a, short b);
 extern void Anim_SetFrameWrapped(void *p, int idx, int a);

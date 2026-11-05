@@ -88,7 +88,7 @@ extern int Ov022_IsHoldingItem(struct Actor *pActor, int nKind);
 extern int Ov022_GetMarkerState(int nId);
 extern void func_ov022_020ad2e4(struct Actor *pActor, int nMode);
 extern void func_ov022_02093f24(u8 *pBlk, int nBit);
-extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nA, int nCue);
+extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nSeqArc, int nSeq);
 extern void Ov022_StepEffectTowardCamera(struct Actor *pActor);
 extern void Ov022_MoveEffectTowardCamera(struct Actor *pActor);
 extern void Ov022_StepReactionPhase(u8 *pBlk);

@@ -19,7 +19,7 @@ typedef struct Ov008MissionListEntry {
     u8 pad00[2];
     u16 missionId;
     u8 pad04[0x14];
-    u32 statusFlags;
+    u32 nKind;
 } Ov008MissionListEntry;
 
 extern Ov008MissionResourceDescriptor data_ov008_0208ede0;
@@ -42,7 +42,7 @@ u16 Ov008_CalcMissionCompletionPercent(void *menuState)
     for (missionEntry = Ov008_FindNextMissionEntry(&missionList, 0);
          missionEntry != 0;
          missionEntry = Ov008_FindNextMissionEntry(&missionList, missionEntry)) {
-        if ((missionEntry->statusFlags & 3) != 0) {
+        if ((missionEntry->nKind & 3) != 0) {
             qualifyingCount++;
             progressTotal += GameState_GetField(missionEntry->missionId * 3 + 0x2a4c, 3);
         }

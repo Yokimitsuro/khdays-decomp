@@ -11,7 +11,7 @@
 #include "nitro/types.h"
 
 typedef struct Ov008MissionListEntry {
-    u16  nWord;               /* 0x00 */
+    u16  nFileNumber;               /* 0x00 */
     u16  missionId;           /* 0x02 */
     u8   pad_04[6];
     u16  nBackPayload;        /* 0x0a: the payload of the back entry, negated for ov002 */

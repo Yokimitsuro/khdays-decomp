@@ -3,7 +3,7 @@
  * for a menu scene, called from Ov008_Menu_InitSceneObject.
  *
  * Builds the container name into a stack buffer from the per-scene parameter table
- * (SceneParam[sceneId].f0 feeds the OS_SPrintf format), opens it as message-database
+ * (Ov008CampCharacterRecord[nCharacter].pszFolder feeds the OS_SPrintf format), opens it as message-database
  * unit 0xe and stores the handle at obj+0x1b4. For scene 0xe it re-opens from a fixed
  * name (gOv008RoxasWPath), freeing the first handle. Finally loads the character
  * weapon model into obj+0x4d4.
@@ -16,27 +16,27 @@
 
 #include "game/engine.h"
 
-typedef struct { int f0; unsigned char pad_04[0x30]; } SceneParam;
+typedef struct { int pszFolder; unsigned char pad_04[0x30]; } Ov008CampCharacterRecord;
 
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
 extern void *Msg_OpenContainerAndReadHeader(void *name, int unit);
-extern void Ov008_LoadCharacterWeapon(void *dst, int sceneId, int slot);
-extern SceneParam data_ov008_0208e9c4[];
+extern void Ov008_LoadCharacterWeapon(void *dst, int nCharacter, int slot);
+extern Ov008CampCharacterRecord gOv008CampCharacterRecords[];
 extern char gOv008BaChWPathFmt[];
 extern char gOv008RoxasWPath[];
 
-void Ov008_Menu_LoadSceneText(int obj, int sceneId, int slot, int param4)
+void Ov008_Menu_LoadSceneText(int obj, int nCharacter, int slot, int param4)
 {
     char buf[128];
     int v;
 
-    v = data_ov008_0208e9c4[sceneId].f0;
+    v = gOv008CampCharacterRecords[nCharacter].pszFolder;
     OS_SPrintf(buf, gOv008BaChWPathFmt, v, param4);
     *(void **)(obj + 0x1b4) = Msg_OpenContainerAndReadHeader(buf, 0xe);
-    if (sceneId == 0xe) {
+    if (nCharacter == 0xe) {
         void *old = *(void **)(obj + 0x1b4);
         *(void **)(obj + 0x1b4) = Msg_OpenContainerAndReadHeader(gOv008RoxasWPath, 0xe);
         ZeroHalfThenFree(old);
     }
-    Ov008_LoadCharacterWeapon((void *)(obj + 0x4d4), sceneId, slot);
+    Ov008_LoadCharacterWeapon((void *)(obj + 0x4d4), nCharacter, slot);
 }

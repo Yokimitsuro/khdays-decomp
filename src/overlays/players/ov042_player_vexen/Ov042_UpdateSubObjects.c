@@ -9,7 +9,7 @@ extern void Ov022_ForwardToNodeHandler(int a, int b);
 extern void Ov022_InvokeCallback24IfBit0(int a);
 extern int Ov022_AreStreamsIdle(int a);
 extern int Session_GetLocalPlayerIndex(void);                                                /* Session_GetLocalPlayerIndex */
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern void func_ov022_020ad588(char *self);
 
 void Ov042_UpdateSubObjects(char *self)

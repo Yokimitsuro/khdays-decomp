@@ -49,7 +49,7 @@ extern void  Ov025_ScrollList_HandleTouch(void *pOwner, void *pEntry, void *pArg
 extern void  Ov025_ScrollList_LoadSubScreen(Ov025ScrollList *pList);           /* Ov025_ScrollList_LoadSubScreen: the argument is unused */
 extern void  Ov025_ScrollList_SetupSurfaces(Ov025ScrollList *pList);           /* Ov025_ScrollList_SetupSurfaces */
 extern u32   GameState_GetField(int nField, int nBits);                  /* GameState_GetField */
-extern void  Ov025_MainMenu_UpdateSelectionText(int nDir, int nArg);               /* Ov008_QueueTransition */
+extern void  Ov025_WorldMap_UpdateSelectionText(int nDir, int nArg);               /* Ov008_QueueTransition */
 extern void *Ov025_AllocAndRegisterEntry(void *pfnFlush);                   /* Ov008_ListAppendNode */
 extern int   Ov025_ScrollList_Flush(void);                             /* Ov025_ScrollList_Flush */
 extern int   Ov025_GetBlock4a80(void);                             /* Ov008_GetCtxBlock4a80 */
@@ -93,7 +93,7 @@ int Ov025_ScrollList_Open(Ov025ScrollList *pList)
         if (GameState_GetField(0, 9) >= 357) {
             nDir = 0;
         }
-        Ov025_MainMenu_UpdateSelectionText(nDir, 0);
+        Ov025_WorldMap_UpdateSelectionText(nDir, 0);
         pList->pNode = Ov025_AllocAndRegisterEntry(Ov025_ScrollList_Flush);
         pList->nState++;
         break;

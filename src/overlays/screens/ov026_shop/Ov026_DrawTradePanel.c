@@ -107,7 +107,7 @@ typedef struct Ov008PanelContext {
 
 typedef struct GameState {
     u8  pad_0000[8];
-    u32 nPoints;              /* 0x008 */
+    u32 nMunny;               /* 0x008: munny */
     u8  pad_000c[0x810 - 0xc];
     u8  aItemCount[0x8d0];    /* 0x810 */
 } GameState;
@@ -176,7 +176,7 @@ void Ov026_DrawTradePanel(void)
             nOwned = pState->aItemCount[Ov026_GetChildField14OrNeg1(pDetail->pRecord)];
             pRecord = pDetail->pRecord;
             nTotal = nOwned + pRecord->nBonus;
-            if (pRecord->nPrice <= pState->nPoints) {
+            if (pRecord->nPrice <= pState->nMunny) {
                 if (pDetail->pRecord->nBonus + gGameState->aItemCount[Ov026_GetChildField14OrNeg1(pRecord)] > (u32)nCap) {
                     pDetail->nQuantity = nOwned;
                     pColumns->nLeftSelected = 0;

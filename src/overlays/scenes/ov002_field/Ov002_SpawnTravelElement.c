@@ -9,7 +9,7 @@ extern int Ov002_PlaceElementNode(void *pObj, int nNode, void *pOut,
                                 int nParamB, int nParamC,
                                 int nAngle, int nFlag);
 extern void Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pIn);
-extern void Ov002_PushBucketNode(int nBucket, char *pElement);
+extern void Ov002_PushBucketNode(int nRoom, char *pElement);
 extern void Ov002_TravelElementStep(void);
 
 /* Spawn one travelling element of a class.

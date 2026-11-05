@@ -63,7 +63,7 @@ struct EffectRec {
 };
 
 extern void func_ov022_020ad44c(struct Emit *emit, char *self);
-extern void Ov022_ScaleRowValues(char *self, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *self, int spin, void *a, void *b);
 extern int Ov022_RunCommandHandlers(char *self, struct Emit *emit, void *params);
 extern void Ov022_SendAimMessage(void *pool, int n, struct EffectRec *rec);
 extern short data_0203d210[];
@@ -123,7 +123,7 @@ void Ov076_FireTimedVolley(char *self)
     emit.pAnchor = 0;
     emit.nFlags28 = 0;
     prm.uFlags = 0x205;
-    Ov022_ScaleRowValues(self, 0x800, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(self, 0x800, &prm.pA, &prm.pB);
     prm.w0c = 0;
     prm.vExtent.x = 0xa00;
     prm.vExtent.y = 0x66;

@@ -20,13 +20,15 @@ extern void Ov002_SpawnSpot(int nIndex, int nGroup, int nSlot, int nKind,
                                 VecFx32 *pPlace, int nFlags, int nLevel);
 extern void Ov002_FreeRootBuffer0x8d7c(void);
 
-/* Put out the spots the current state's table asks for.
+/* Put out the mission's emblems (its evi rows) not yet taken.
  *
  * Only the first seat does this, and only when bit 1 of the mode flags is
  * clear. Three ids are queued for loading and the offset table is brought in,
- * then the table for the current state word is walked: each row whose bit is
- * already set in the saved field is skipped, and the rest get a spot spawned
- * at the row's own place, with the row's angle stamped into the context's
+ * then the set for the field's key (the mission's file, the state word) is
+ * walked: each row whose bit (+4: 0, 1 or 3, the missions' list kinds 1, 2
+ * and 4) is already set in the mission's 4 bits at 0x92b + 4 x data_0204c23c
+ * (the mission's number) is skipped, and the rest get a spot spawned at the
+ * row's own place, with the row's s16 at +8 stamped into the context's
  * per-slot table. The buffer is released either way.
  */
 void Ov002_SpawnStateSpots(void)

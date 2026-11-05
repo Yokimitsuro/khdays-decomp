@@ -2,7 +2,7 @@
  * item list nListId (item ring from 02069b7c: first item and count).  When
  * showing, the highlight (+0x4c) moves to the first selectable item from the
  * ring's first (or the first itself when none) and the first is backed up
- * (+0x80).  For each entry of the ring (table data_ov008_02090598, 0x14 per
+ * (+0x80).  For each entry of the ring (table gOv008ConfigSettings, 0x14 per
  * entry) the entry's own widget and its nSubCount sub-widgets (columns from
  * the 2D table) are set visible / hidden; while showing, an enabled entry
  * also gets its current column (+0x4e + 2 * entry) re-picked and applied
@@ -27,22 +27,22 @@ typedef struct Ov008WidgetPick {
     u8    pos[8];             /* 0x08 */
 } Ov008WidgetPick;
 
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  nState;               /* 0x05: lock state */
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
 typedef struct Ov008MenuContext {
     u8  pad_0000[0x4c];
@@ -51,7 +51,7 @@ typedef struct Ov008MenuContext {
     s16 selBackup;            /* 0x80: backed-up highlight */
 } Ov008MenuContext;
 
-extern Ov008MenuEntryDef data_ov008_02090598[];                  /* the menu entry table */
+extern Ov008ConfigSetting gOv008ConfigSettings[];                  /* the Preferences page's settings */
 
 extern Ov008MenuContext *Ov008_GetMenuContext(void);               /* Ov008_GetMenuContext */
 extern int  Ov008_GetContext(void);                            /* Ov008_GetContext */
@@ -71,7 +71,7 @@ void Ov008_ShowItemList(u32 nListId, int bShow)
     int nSel;
     u16 i;
     u16 j;
-    Ov008MenuEntryDef *pItem;
+    Ov008ConfigSetting *pItem;
     s16 nItem;
 
     pCtx = Ov008_GetMenuContext();
@@ -88,7 +88,7 @@ void Ov008_ShowItemList(u32 nListId, int bShow)
     }
     for (i = 0; i < pRing->nCount; i++) {
         nItem = pRing->nFirst + i;
-        pItem = &data_ov008_02090598[nItem];
+        pItem = &gOv008ConfigSettings[nItem];
         Ov008_WidgetRef_Init(&pick, (int)pItem->nId);
         Ov008_SetEntrySlotsVisible(nCtx, pick.pEntry, bShow);
         for (j = 0; j < pItem->nSubCount; j++) {

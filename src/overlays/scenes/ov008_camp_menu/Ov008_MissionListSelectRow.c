@@ -18,7 +18,7 @@
 
 typedef struct Ov008MissionListEntry {
     u8  pad_00[4];
-    u16 nSlot;                /* 0x04 */
+    u16 nCategory;                /* 0x04 */
 } Ov008MissionListEntry;
 
 typedef struct Ov008MissionList {
@@ -40,7 +40,7 @@ typedef struct Ov008MissionList {
 } Ov008MissionList;
 
 extern Ov008MissionListEntry *Ov008_GetNextMissionEntry_2(int nIndex);
-extern void Ov008_MainMenu_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_MainMenu_UpdateSelectionText */
+extern void Ov008_WorldMap_UpdateSelectionText(int nSlot, int bLocked);                  /* Ov008_WorldMap_UpdateSelectionText */
 extern int  func_02020400(int nNum, int nDen);                            /* _s32_div_f */
 extern void Ov008_ScrollListTo(Ov008MissionList *pList, int nPos, int nTarget, int bNow); /* Ov008_ScrollListTo */
 extern void Ov008_PositionListCursor(Ov008MissionList *pList);                 /* Ov008_PositionListCursor */
@@ -63,7 +63,7 @@ void Ov008_MissionListSelectRow(Ov008MissionList *pList, int nRow, int nSound)
         if (pList->bAnimating != 0) {
             bLocked = 1;
         }
-        Ov008_MainMenu_UpdateSelectionText(pEntry->nSlot, bLocked);
+        Ov008_WorldMap_UpdateSelectionText(pEntry->nCategory, bLocked);
     }
     pList->bCellsRefreshed = 1;
     pList->nWord1 = pList->nSelected;

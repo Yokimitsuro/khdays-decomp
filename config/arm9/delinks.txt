@@ -1864,7 +1864,7 @@ libs/nitro/fs/auto/FSi_EmptyArchiveProc.c:
     complete
     .text       start:0x0200afb0 end:0x0200afb8
 
-libs/nitro/fs/calls/func_0200afb8.c:
+libs/nitro/fs/calls/FSi_InitRom.c:
     complete
     .text       start:0x0200afb8 end:0x0200b100
 
@@ -4728,7 +4728,7 @@ src/engine/Game_RunActionScript.c:
     complete
     .text       start:0x02020e58 end:0x02021048
 
-src/engine/SetWordAt0x588To1.c:
+src/engine/ActionScript_RequestSkip.c:
     complete
     .text       start:0x02021048 end:0x02021054
 

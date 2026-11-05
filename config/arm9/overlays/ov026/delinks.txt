@@ -332,7 +332,7 @@ src/overlays/screens/ov026_shop/Ov026_RecordFilter_BelowMax.c:
     complete
     .text       start:0x02084768 end:0x0208478c
 
-src/overlays/screens/ov026_shop/Ov026_IsEncounterEligible.c:
+src/overlays/screens/ov026_shop/Ov026_IsMissionModeRowListed.c:
     complete
     .text       start:0x0208478c end:0x020848e0
 
@@ -340,15 +340,15 @@ src/overlays/screens/ov026_shop/Ov026_CanTriggerActionInRange.c:
     complete
     .text       start:0x020848e0 end:0x02084960
 
-src/overlays/screens/ov026_shop/Ov026_RecordFilter_KindZero.c:
+src/overlays/screens/ov026_shop/Ov026_RecordFilter_StoryRow.c:
     complete
     .text       start:0x02084960 end:0x02084974
 
-src/overlays/screens/ov026_shop/Ov026_RecordFilter_KindNonZero.c:
+src/overlays/screens/ov026_shop/Ov026_RecordFilter_MissionModeEntry.c:
     complete
     .text       start:0x02084974 end:0x02084988
 
-src/overlays/screens/ov026_shop/Ov026_RecordFilter_Kind4Id10.c:
+src/overlays/screens/ov026_shop/Ov026_RecordFilter_TutorialRow.c:
     complete
     .text       start:0x02084988 end:0x020849ac
 

@@ -22,17 +22,17 @@ typedef struct {
     char name1[0x10];
     char name2[0x10];
     char name3[0x10];
-} SceneParam;
+} Ov008CampCharacterRecord;
 
 extern int  NNS_G3dGetResDictIdxByName(void *dict, void *name);
 extern void Ov008_ClearBytes01AndWord160(int subobj);
-extern void Ov008_Menu_InitPanelSubObject(int subobj, int msg, int b, int sceneId, int chr, int slot);
+extern void Ov008_Menu_InitPanelSubObject(int subobj, int msg, int b, int nCharacter, int chr, int slot);
 extern void Ov008_BuildPanelIdSummary(int subobj, char *out, int src);
-extern SceneParam data_ov008_0208e9c4[];
+extern Ov008CampCharacterRecord gOv008CampCharacterRecords[];
 
-void Ov008_Menu_BindScenePanels(int obj, int *pSceneId)
+void Ov008_Menu_BindScenePanels(int obj, int *pCharacter)
 {
-    SceneParam *e = &data_ov008_0208e9c4[*pSceneId];
+    Ov008CampCharacterRecord *e = &gOv008CampCharacterRecords[*pCharacter];
     int dict;
     unsigned int idx;
 
@@ -44,7 +44,7 @@ void Ov008_Menu_BindScenePanels(int obj, int *pSceneId)
         *(unsigned int *)(obj + 0x148) = idx;
         *(int *)(obj + 0x140) = 1;
         Ov008_ClearBytes01AndWord160(obj + 0x1b8);
-        Ov008_Menu_InitPanelSubObject(obj + 0x1b8, *(int *)(obj + 0x1b4), 0, *pSceneId,
+        Ov008_Menu_InitPanelSubObject(obj + 0x1b8, *(int *)(obj + 0x1b4), 0, *pCharacter,
                             *(unsigned char *)(obj + 0x4d4), 1);
         Ov008_BuildPanelIdSummary(obj + 0x1b8, (char *)(obj + 0x480), 0);
         if (*(char *)(obj + 0x1b9) != 0) *(unsigned char *)(obj + 0x1b8) |= 1;
@@ -57,7 +57,7 @@ void Ov008_Menu_BindScenePanels(int obj, int *pSceneId)
         *(unsigned int *)(obj + 0x14c) = idx;
         *(int *)(obj + 0x144) = 1;
         Ov008_ClearBytes01AndWord160(obj + 0x31c);
-        Ov008_Menu_InitPanelSubObject(obj + 0x31c, *(int *)(obj + 0x1b4), 0, *pSceneId,
+        Ov008_Menu_InitPanelSubObject(obj + 0x31c, *(int *)(obj + 0x1b4), 0, *pCharacter,
                             *(unsigned char *)(obj + 0x4d4), 2);
         Ov008_BuildPanelIdSummary(obj + 0x31c, (char *)(obj + 0x480), 0);
         if (*(char *)(obj + 0x31d) != 0) *(unsigned char *)(obj + 0x31c) |= 1;
@@ -70,7 +70,7 @@ void Ov008_Menu_BindScenePanels(int obj, int *pSceneId)
         *(unsigned int *)(obj + 0x148) = idx;
         *(int *)(obj + 0x140) = 1;
         Ov008_ClearBytes01AndWord160(obj + 0x1b8);
-        Ov008_Menu_InitPanelSubObject(obj + 0x1b8, *(int *)(obj + 0x1b4), 0, *pSceneId,
+        Ov008_Menu_InitPanelSubObject(obj + 0x1b8, *(int *)(obj + 0x1b4), 0, *pCharacter,
                             *(unsigned char *)(obj + 0x4d4), 3);
         Ov008_BuildPanelIdSummary(obj + 0x1b8, (char *)(obj + 0x480), 0);
         if (*(char *)(obj + 0x1b9) != 0) *(unsigned char *)(obj + 0x1b8) |= 1;

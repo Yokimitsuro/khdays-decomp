@@ -24,7 +24,7 @@ struct Ov032Actor {
 extern int Ov022_DispatchSpawnRecord(int object, const VecFx32 *at, int mode);
 extern void func_ov022_0208954c(int object, int result, void *source);
 extern void func_ov022_020894cc(int object, int result, int a);
-extern void Ov022_PlayEntityVoice(struct Ov032Actor *self, int cue, int mode);
+extern void Ov022_PlayEntityVoice(struct Ov032Actor *self, int nSeqArc, int nSeq);
 extern const VecFx32 data_02041dc8;
 extern const struct Masks data_ov032_020b5700;
 

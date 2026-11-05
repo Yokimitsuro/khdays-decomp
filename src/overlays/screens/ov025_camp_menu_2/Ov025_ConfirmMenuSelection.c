@@ -24,24 +24,24 @@ extern int  Ov025_MenuEntrySubCount(int index);
 extern int  Ov025_ClampWrapIndex(int a, int b, int c);
 extern void Ov025_RefreshMenuPage(void);
 extern void MI_CpuCopy8(const void *src, void *dst, unsigned int size);
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  nState;               /* 0x05: lock state */
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
-extern Ov008MenuEntryDef data_ov025_020b4f64[];                    /* the menu entry table */
+extern Ov008ConfigSetting gOv025ConfigSettings[];                    /* the Preferences page's settings */
 
 void Ov025_ConfirmMenuSelection(void)
 {
@@ -50,10 +50,10 @@ void Ov025_ConfirmMenuSelection(void)
     int r = Ov025_MenuEntrySubCount((u16)ctx->sel);
     int idx = ctx->sel * 0x14;
 
-    if ((&data_ov025_020b4f64->nState)[idx] != 0) {
+    if ((&gOv025ConfigSettings->nState)[idx] != 0) {
         return;
     }
-    if ((&data_ov025_020b4f64->bEnabled)[idx] == 0) {
+    if ((&gOv025ConfigSettings->bEnabled)[idx] == 0) {
         PlaySound(0, 4);
         Ov025_RefreshMenuPage();
         return;

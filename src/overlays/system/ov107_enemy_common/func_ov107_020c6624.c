@@ -135,10 +135,10 @@ extern int Ov107_ResolveActorContact(AiState *a, AiState *b);
 extern int func_ov107_020c73a0(AiState *self, int event);
 extern void Ov107_AiState_LoadStats(AiState *self, int recordIndex);
 extern void Ov107_LoadMsUpRecord(AiState *self, u8 recordIndex);
-extern void Ov107_StoreHitInfo(AiState *self, int a, int b);
+extern void Ov107_SetHomeAndReach(AiState *self, int a, int b);
 extern void Ov107_ResetStanceBase(AiState *self);
 extern void Ov107_AiState_OnDefeat(AiState *self);
-extern void Ov107_StoreSlotEvent(AiState *self, int a, int b);
+extern void Ov107_SetAttackPower(AiState *self, int a, int b);
 extern void Ov107_RenderAtOwnerSphere(CreatedItem *self, int region);
 
 extern u8 data_0204252c;
@@ -163,13 +163,13 @@ void func_ov107_020c6624(AiState *self, StateData *data)
     self->field_1cc = func_ov107_020c73a0;
     self->field_1ec = Ov107_AiState_LoadStats;
     self->field_1f0 = Ov107_LoadMsUpRecord;
-    self->field_1f4 = Ov107_StoreHitInfo;
+    self->field_1f4 = Ov107_SetHomeAndReach;
     self->field_1f8 = Ov107_ResetStanceBase;
     self->field_1d0 = 0;
     self->field_1e0 = 0;
     self->field_1e4 = 0;
     self->field_1d4 = Ov107_AiState_OnDefeat;
-    self->field_1d8 = Ov107_StoreSlotEvent;
+    self->field_1d8 = Ov107_SetAttackPower;
     self->field_1dc = 0;
     self->field_1e8 = 0;
     self->field_1c9 = 1;

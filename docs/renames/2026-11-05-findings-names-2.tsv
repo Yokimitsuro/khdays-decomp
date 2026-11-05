@@ -1,0 +1,9 @@
+# The same round, second pass: the mission's level the field root keeps at +0x8bae (an enemy's
+# level is it plus its marker row's adjustment), and the Shadow's (ov114) height scale +0x390,
+# which these four drive to flatten it into the ground (down to 0xcc) and raise it again (1.0):
+# Ov114_HandleMessage passes it as the Y of Srt_SetScaleXYZ. They faded nothing and eased no speed.
+Ov002_GetRootField8bae	Ov002_GetMissionLevel	ov002
+Ov114_AiFadeInTick	Ov114_AiRiseTick	ov114
+Ov114_AiFadeOutTick	Ov114_AiSinkTick	ov114
+Ov114_FadeInSubObject	Ov114_SinkIntoGround	ov114
+Ov114_EasePursuitSpeed	Ov114_RiseFromGround	ov114

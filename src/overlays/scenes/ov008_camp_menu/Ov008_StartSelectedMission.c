@@ -14,7 +14,7 @@
 typedef struct Ov008MissionListEntry {
     u16 nWord;                /* 0x00 */
     u8  pad_02[2];
-    u16 nSlot;                /* 0x04 */
+    u16 nCategory;                /* 0x04 */
     u8  pad_06[0x18 - 0x06];
     int nKind;                /* 0x18 */
     u8  pad_1c[4];
@@ -69,8 +69,8 @@ void Ov008_StartSelectedMission(void)
     data_0204c240.nFlags = Session_IsActive() != 0 ? 7 : 0xf;
     data_0204c240.nKind = pEntry->nKind;
     data_0204c254 = *(GameplayThresholdSnapshot *)pEntry->aThreshold;
-    if (GameState_IsFlagSet(pEntry->nSlot + FLAG_SLOT_BASE) == 0) {
-        GameState_SetFlag(pEntry->nSlot + FLAG_SLOT_BASE);
+    if (GameState_IsFlagSet(pEntry->nCategory + FLAG_SLOT_BASE) == 0) {
+        GameState_SetFlag(pEntry->nCategory + FLAG_SLOT_BASE);
     }
     if (pPage->bSoundReady == 0) {
         Ov008_CampaignModeHookNoOp(0);

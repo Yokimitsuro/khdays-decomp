@@ -20,7 +20,7 @@
 extern int data_ov035_020b4ca0;
 extern void func_ov035_020b3b08(int self);
 extern void Ov035_ArmWithValue(int *p, int v);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void Ov022_SetAnimState(int self, int mode);
 extern int Ov002_GetModeBlendFrames(int a, int b, int c);
 extern void Ov002_ApplyAnimMode(void *a, int b, int c, int d, int e);

@@ -9,7 +9,7 @@ extern int Ov002_PlaceElementNode(void *pObj, int nNode, void *pOut,
                                 int nParamB, int nParamC,
                                 int nAngle, int nFlag);
 extern void Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pIn);
-extern void Ov002_PushBucketNode(int nBucket, char *pPiece);
+extern void Ov002_PushBucketNode(int nRoom, char *pPiece);
 extern void Ov002_DoneTick(void);
 
 /* Bring one piece of a class up and put it on the board.

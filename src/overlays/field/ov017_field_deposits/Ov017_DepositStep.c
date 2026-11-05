@@ -37,7 +37,7 @@ typedef struct Ov017Deposit {
     u8   pad_000[8];
     Ov017DepositDef *pDef;    /* 0x008 */
     u8   pad_00c[4];
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012: bit 2 = model bound, bit 3 = in the room */
     u8   pad_014[0x1c - 0x14];
@@ -155,7 +155,7 @@ void *Ov017_DepositStep(Ov017Deposit *pSelf)
         if (data_0204c240 & 4) {
             u8 aDrop[6] = {0, 0, 0, 0, 0, 0};
             aDrop[0] = (Ov002_GetRootField8d94() * 10 + 0xfff) >> 12;
-            Ov002_SpawnAllDrops(aDrop, pSelf->nBucket, &pSelf->start);
+            Ov002_SpawnAllDrops(aDrop, pSelf->nRoom, &pSelf->start);
         }
         pSelf->nAnimFlags |= 3;
         break;

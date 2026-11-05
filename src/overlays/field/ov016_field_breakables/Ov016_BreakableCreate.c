@@ -21,7 +21,7 @@ typedef struct Ov016BreakableDef {
 typedef struct Ov016Breakable {
     u8 pad_000[0xc];
     void *pfnStep;            /* 0x0c: state function */
-    u8  nBucket;              /* 0x10 */
+    u8  nRoom;              /* 0x10 */
     u8  pad_011;
     u16 nPieceFlags;          /* 0x12 */
     u16 nStateField;          /* 0x14: GameState field */
@@ -53,10 +53,10 @@ extern int   Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int 
 extern void  Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pPlace);  /* start position */
 extern void  Actor_SetVecAndSyncChild(void *pTransform, VecFx32 *pVec);              /* Actor_SetVecAndSyncChild */
 extern void  Actor_SetBindingByte(void *pBlock, int nIndex, u8 nValue);          /* Actor_SetBindingByte */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);              /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);              /* register the piece */
 extern void *Ov016_BreakableStep(Ov016Breakable *pSelf);                  /* Ov016_BreakableStep */
 
-Ov016Breakable *Ov016_BreakableCreate(Ov016BreakableDef *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short nFacing,
+Ov016Breakable *Ov016_BreakableCreate(Ov016BreakableDef *pClass, u16 nSlot, u8 nRoom, VecFx32 *pPos, short nFacing,
                                     u16 nField, u8 nBit, int nDropKey, int nDropArg)
 {
     int aPlace[5];
@@ -83,13 +83,13 @@ Ov016Breakable *Ov016_BreakableCreate(Ov016BreakableDef *pClass, u16 nSlot, u8 n
     pPiece->bActive = 0;
     pPiece->nDropKey = nDropKey;
     pPiece->nDropArg = nDropArg;
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov016_BreakableStep;
     pPiece->nPieceFlags |= 8;
     pPiece->nStateField = nField;
     pPiece->nStateBit = nBit;
     pPiece->nField17 = 0;
     Actor_SetBindingByte(pPiece->binding, 1, 3);
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
     return pPiece;
 }

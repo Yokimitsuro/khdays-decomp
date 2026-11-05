@@ -518,7 +518,7 @@ int SetSelectionIfChanged(int param_1);
 void SetSubEngineGraphicsModeFromTable(int *table);
 void SetSubitemState(void *self, unsigned short idx, short blend, unsigned char value);
 void SetSubitemValueFromIndex(void *pArg1, int param_2, unsigned param_3);
-void SetWordAt0x588To1(int p);
+void ActionScript_RequestSkip(int p);
 void Shutdown3DSubsystem(void);
 int Sleep_Block(void);
 int Sleep_IsAllowed(void);

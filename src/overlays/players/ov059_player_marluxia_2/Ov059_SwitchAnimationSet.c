@@ -14,7 +14,7 @@ extern int data_ov059_020b7320;
 
 extern void Ov059_PublishAttachAnchor(int self);
 extern void Ov059_ArmWithValue(void *p, int a);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void Ov059_BindAnimsMode1(int self, void *p);
 extern void Ov059_BindAnimsMode3(int self, void *p);
 extern void Ov059_PlayVoiceAndBindAnims(int self, void *p);

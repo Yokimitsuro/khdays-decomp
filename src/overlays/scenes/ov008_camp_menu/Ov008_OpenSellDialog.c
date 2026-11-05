@@ -9,7 +9,7 @@
  * counts of 0204be18) are read; on tab 0 widget 6 of the secondary context
  * (+0x7530) is shown 0x12 rows below its block and the right column takes
  * selection 2 with the negated price, otherwise widget 5 is shown while
- * the points (+0x8) are below 999999, which also selects the left column,
+ * the munny (+0x8) is below 999999, which also selects the left column,
  * whose base takes the price.  The dialog's step (+0x14) and mark (+0x18)
  * reset; its two counter cells (+0x4 kind 0 at the panel's row +0xe, +0x8
  * kind 0xb) are created, and with stock the first shows, the second shows
@@ -18,7 +18,7 @@
  * on tab 0, whether the item can still be bought (a recipe record with its
  * three fields set, or a level requirement (+0x20) exactly one above the
  * level table (0204be18 +0x1168 by +0x4), or an owned count one below the
- * cap (02082234) less the delta, or munny (+0xc) below twice the price) --
+ * cap (02082234) less the delta, or heart points (+0xc) below twice the price) --
  * caption 0x21 / 0xe -- and on tab 1 whether exactly one spare item exists
  * -- caption 0x22 / 0x11.  Widget 6 shows while nothing is pending; the
  * selection (+0x1c) mirrors the nibble, which is then set to 1 with the
@@ -135,8 +135,8 @@ typedef struct Ov008PanelContext {
 
 typedef struct GameState {
     u8  pad_0000[8];
-    u32 nPoints;              /* 0x008 */
-    u32 nMunny;               /* 0x00c */
+    u32 nMunny;               /* 0x008: munny */
+    u32 nHeartPoints;         /* 0x00c: heart points */
     u8  pad_0010[0x810 - 0x10];
     u8  aItemCount[0x1168 - 0x810]; /* 0x810 */
     u16 aLevel[1];            /* 0x1168 */
@@ -231,10 +231,10 @@ int Ov008_OpenSellDialog(void)
         pEntry = Ov008_FindEntryById(pWidgetsB, WIDGET_BUY);
         pBlock = Ov008_GetEntryBlock2c(pWidgetsB, pEntry);
         pos = *pBlock;
-        Ov008_SetEntrySlotsVisible(pWidgetsB, pEntry, gGameState->nPoints != MUNNY_MAX);
+        Ov008_SetEntrySlotsVisible(pWidgetsB, pEntry, gGameState->nMunny != MUNNY_MAX);
         Ov008_SetEntryPos(pWidgetsB, pEntry, &pos);
         Ov008_ReleaseTwoSlotsEx(pWidgetsB, pEntry, 0);
-        bShow = gGameState->nPoints == MUNNY_MAX ? COL_OFF : COL_ON;
+        bShow = gGameState->nMunny == MUNNY_MAX ? COL_OFF : COL_ON;
         ctx->columns.nLeftSelected = bShow;
         ctx->columns.nLeftBase = pDialog->pRecord->nPrice;
     }
@@ -272,7 +272,7 @@ int Ov008_OpenSellDialog(void)
             }
         }
         if (!bLast) {
-            if (gGameState->nMunny >= pRecord->nPrice << 1) {
+            if (gGameState->nHeartPoints >= pRecord->nPrice << 1) {
                 bAfford = 0;
             }
         }

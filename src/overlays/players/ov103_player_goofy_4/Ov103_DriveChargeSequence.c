@@ -11,7 +11,7 @@
  * codegen-cracks.md. Matched byte-exact on the first compile with that shape. */
 extern void Ov103_RebindAnimTracks(int p2, int a);
 extern unsigned short Sequence_UpdateTracks(void *p, int a);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern int Ov022_IsSlotReady(void *p);
 
 void Ov103_DriveChargeSequence(int self, int p2, int p3) {

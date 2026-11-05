@@ -36,7 +36,7 @@ extern void func_ov022_020ad44c(VecFx32 *out, char *self);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
 extern void *Ov022_ComputeStrengthDamage(char *self, int spin, int a, int b);
-extern void Ov022_ScaleRowValues(char *self, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *self, int spin, void *a, void *b);
 extern int Ov022_RunReachHandlers(char *self, struct EmitPair *emit, void *params);
 extern void Ov022_MarshalNetworkRecord(char *self, int record, VecFx32 *at, int scale, unsigned int angle, int kind);
 extern short data_0203d210[];
@@ -68,7 +68,7 @@ void Ov060_FireTwinBurst(char *self)
     emit.nFlags24 = 0;
     prm.pA = Ov022_ComputeStrengthDamage(self, 0x1b00, 0, 1);
     prm.uFlags = 0x225;
-    Ov022_ScaleRowValues(self, 0x1b00, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(self, 0x1b00, &prm.pA, &prm.pB);
     prm.w0c = 0;
     prm.w20 = 0;
     prm.b10 = 0;

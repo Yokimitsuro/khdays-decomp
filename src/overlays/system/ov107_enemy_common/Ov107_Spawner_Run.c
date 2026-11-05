@@ -22,7 +22,9 @@ typedef struct Ov107Object Ov107Object;
 
 struct flags16 { u16 lo : 8, hi : 8; };
 
-/* An s16 kept in [0, max] by its setter. Ov286_SpendHitPointsOnHit and its ov285/ov294-296/ov147
+/* The enemy's HP: the most (+0x218) and what is left (+0x21a), kept in [0, max] by its setter.
+ * Ov107_AiState_LoadStats sets both from the level's record, Ov107_AiState_ApplyHit takes the value
+ * down to the defeat. Ov286_SpendHitPointsOnHit and its ov285/ov294-296/ov147
  * siblings clamp +0x21a into [0, +0x218] the same way; that those objects are this one is
  * not established. */
 typedef struct {
@@ -50,7 +52,7 @@ struct AiState {
     u8 pad1ec[0x1f4 - 0x1ec];
     void (*field_1f4)(AiState *self, const VecFx32 *pos, int field_110); /* +0x1f4 */
     u8 pad1f8[0x218 - 0x1f8];
-    ClampedS16 pair218;                                         /* +0x218 */
+    ClampedS16 hp;                                              /* +0x218 */
     u8 pad21c[0x2d0 - 0x21c];
     u32 field_2d0;                                              /* +0x2d0 owner tag */
     Ov107Object *pSpawner;                                      /* +0x2d4 */
@@ -176,8 +178,8 @@ void Ov107_Spawner_Run(Ov107Object *obj, int op)
             if (actor == 0)
                 continue;
 
-            /* Refill the timer to its maximum through the usual [0, max] clamp. */
-            actor->pair218.value = ClampRange(actor->pair218.max, 0, actor->pair218.max);
+            /* Refill the HP to its maximum through the usual [0, max] clamp. */
+            actor->hp.value = ClampRange(actor->hp.max, 0, actor->hp.max);
 
             actor->field_1c5 &= ~0x17;
             if (obj->field_f4 != 0) {

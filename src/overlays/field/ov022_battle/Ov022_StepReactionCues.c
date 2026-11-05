@@ -91,7 +91,7 @@ extern int Ov022_IsByte8ZeroOr3(u8 *pAnimReq);
 extern int SoundSeqHandle_IsActive(int hVoice);
 extern void Handle_WritePayloadIfLive(int hVoice, VecFx32 *pPos);
 extern int Rand16NextScaled(int nRange);                                   /* Rand16NextScaled */
-extern int Ov022_PlayEntityVoice(struct Actor *pActor, int nVoice, int nArg);   /* Ov022_PlayEntityVoice */
+extern int Ov022_PlayEntityVoice(struct Actor *pActor, int nSeqArc, int nSeq);   /* Ov022_PlayEntityVoice */
 
 void Ov022_StepReactionCues(struct Actor *pActor)
 {

@@ -1000,7 +1000,7 @@ src/overlays/scenes/ov002_field/Ov002_StepPanelScreen.c:
     complete
     .text       start:0x0205693c end:0x02056a54
 
-src/overlays/scenes/ov002_field/Ov002_GetPanelWord0220.c:
+src/overlays/scenes/ov002_field/Ov002_SetSeatHpGauge.c:
     complete
     .text       start:0x02056a54 end:0x02056a78
 
@@ -3560,7 +3560,7 @@ src/overlays/scenes/ov002_field/Ov002_ReleaseWorldMusic.c:
     complete
     .text       start:0x0206d798 end:0x0206d834
 
-src/overlays/scenes/ov002_field/Ov002_FormatResultLine.c:
+src/overlays/scenes/ov002_field/Ov002_FormatEventScriptName.c:
     complete
     .text       start:0x0206d834 end:0x0206d86c
 
@@ -3744,7 +3744,7 @@ src/overlays/scenes/ov002_field/Ov002_GetRootField8d94.c:
     complete
     .text       start:0x0206e6d0 end:0x0206e6e8
 
-src/overlays/scenes/ov002_field/Ov002_GetRootField8bae.c:
+src/overlays/scenes/ov002_field/Ov002_GetMissionLevel.c:
     complete
     .text       start:0x0206e6e8 end:0x0206e700
 
@@ -4372,7 +4372,7 @@ src/overlays/scenes/ov002_field/Ov002_FindSiblingOfKindE.c:
     complete
     .text       start:0x02072ba8 end:0x02072bcc
 
-src/overlays/scenes/ov002_field/Ov002_GetEffectiveHeight.c:
+src/overlays/scenes/ov002_field/Ov002_GetMarkerEnemyLevel.c:
     complete
     .text       start:0x02072bcc end:0x02072c00
 
@@ -4456,7 +4456,7 @@ src/overlays/scenes/ov002_field/Ov002_RecreateObjectSlot.c:
     complete
     .text       start:0x020739ec end:0x02073a10
 
-src/overlays/scenes/ov002_field/Ov002_CreateSlotObjectAndStart.c:
+src/overlays/scenes/ov002_field/Ov002_CreateSpawner.c:
     complete
     .text       start:0x02073a10 end:0x02073bdc
 
@@ -4464,7 +4464,7 @@ src/overlays/scenes/ov002_field/Ov002_CreateObjectSlot.c:
     complete
     .text       start:0x02073bdc end:0x02073c34
 
-src/overlays/scenes/ov002_field/Ov002_StartSlotAnim.c:
+src/overlays/scenes/ov002_field/Ov002_StartSpawnerTrigger.c:
     complete
     .text       start:0x02073c34 end:0x02073d0c
 
@@ -4668,7 +4668,7 @@ src/overlays/scenes/ov002_field/Ov002_ScriptCmd_LoadObjectRecords.c:
     complete
     .text       start:0x02074d7c end:0x02074d86
 
-src/overlays/scenes/ov002_field/Ov002_ScriptCreateSlotObject.c:
+src/overlays/scenes/ov002_field/Ov002_ScriptCreateSpawner.c:
     complete
     .text       start:0x02074d88 end:0x02074e7e
 

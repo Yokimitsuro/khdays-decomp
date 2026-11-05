@@ -16,7 +16,7 @@ typedef struct Ov021PlayerActor {
 
 typedef struct Ov021Emblem {
     u8   pad_000[0x10];
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011[0x2a8 - 0x11];
     VecFx32 position;         /* 0x2a8 */
 } Ov021Emblem;
@@ -42,7 +42,7 @@ int Ov021_EmblemFindPlayer(Ov021Emblem *pSelf)
             int nGroup;
 
             pActor = (Ov021PlayerActor *)GetEntryField20ByIndex(nPlayer);
-            if ((pActor->nFlags & 0x10000) == 0 && (nGroup = Ov022_GetEntryField66(nPlayer)) >= 0 && pSelf->nBucket == Ov002_GetSlotTableByte(nGroup)) {
+            if ((pActor->nFlags & 0x10000) == 0 && (nGroup = Ov022_GetEntryField66(nPlayer)) >= 0 && pSelf->nRoom == Ov002_GetSlotTableByte(nGroup)) {
                 if (VEC_Distance(func_ov022_020881f8(nPlayer), &pSelf->position) <= nReach) {
                     return nPlayer;
                 }

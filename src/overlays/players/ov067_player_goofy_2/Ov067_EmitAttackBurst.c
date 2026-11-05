@@ -76,7 +76,7 @@ extern void Ov022_FillEightHalvesMinus1At0x2bd4(int self);
 extern void func_ov022_020ad44c(VecFx32 *out, int self);
 extern void ScaleVec3Fx12(int scale, const VecFx32 *v, VecFx32 *out);
 extern void VEC_Add(const VecFx32 *a, const VecFx32 *b, VecFx32 *out);
-extern void Ov022_ScaleRowValues(int self, int spin, int *a, int *b);
+extern void Ov022_ScaleMoveDamage(int self, int spin, int *a, int *b);
 extern int Ov022_RunReachHandlers(struct Actor *self, struct EmitPair *emit, struct Params *params);
 extern void Ov022_MarshalNetworkRecord(int self, int record, VecFx32 *at, int scale, unsigned int angle, int kind);
 extern struct GlobalState *data_ov067_020b7380;
@@ -146,7 +146,7 @@ int Ov067_EmitAttackBurst(struct Actor *self)
     if (((struct AttackRig *)rigBytes)->uAlternateFlags != 0) {
         prm.uFlags |= 0x420;
     }
-    Ov022_ScaleRowValues((int)self, spin, &prm.nScaledValue, &prm.nScaledOther);
+    Ov022_ScaleMoveDamage((int)self, spin, &prm.nScaledValue, &prm.nScaledOther);
     spin = FinalizeParams(&prm);
     if (Ov022_RunReachHandlers(self, &emit, &prm) != 0) {
         spin = 0;

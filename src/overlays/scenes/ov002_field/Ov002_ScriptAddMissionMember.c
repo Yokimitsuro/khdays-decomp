@@ -25,7 +25,7 @@ extern u8 data_0204c240, data_02042a1d, data_02042a1c;
 extern Ov002MissionMember gPartyMembers[];
 extern void Ov002_EmitEntriesForSetBits(void);
 extern void Ov002_ScatterPlaceByIndex(const VecFx32 *pPlace, int nAngle, int nIndex, VecFx32 *pOut);
-extern int Ov002_GetRootField8bae(void);
+extern int Ov002_GetMissionLevel(void);
 
 /* Append a member using marker zero as its initial placement, then restore
  * the four halfwords of that member's header in place.
@@ -52,7 +52,7 @@ void Ov002_ScriptAddMissionMember(int nMemberKind, int nBehaviorId, int nLevelBi
         pSession->pMarkers[nIndex].nKind = pSession->pMarkers[0].nKind;
         Ov002_ScatterPlaceByIndex(&pSession->pMarkers[0].place, pSession->pMarkers[0].nOwner,
             nIndex, &pSession->pMarkers[nIndex].place);
-        PartyMember_RebuildDerived(nIndex, 0, nMemberKind, nLevelBias + Ov002_GetRootField8bae());
+        PartyMember_RebuildDerived(nIndex, 0, nMemberKind, nLevelBias + Ov002_GetMissionLevel());
         PartyMember_RefreshDialogue(nIndex, nBehaviorId);
         Ov002MissionMemberHead *pHeadWords2And6, *pHeadWord4;
         pHead = (Ov002MissionMemberHead *)((char *)gPartyMembers + nIndex * 0x104);

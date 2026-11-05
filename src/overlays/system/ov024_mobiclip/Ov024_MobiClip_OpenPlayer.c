@@ -41,7 +41,7 @@ extern void Font_LoadUTF16(void *dst, void *src);
 extern void GX_LoadBGPltt(const void *src, int offset, int size);
 extern void GXS_LoadBGPltt(const void *src, int offset, int size);
 extern void StoreGlobalArrayEntry(int slot, void *table);
-extern void Ov002_FormatResultLine(int index, char *out);
+extern void Ov002_FormatEventScriptName(int index, char *out);
 extern int Ov002_GetRootSub04(void);
 extern int MsgArchive_FindEntryByName(int sector, const char *path);
 extern void Stream_DecodeIntoStagingBuffer(void *stream, int id, void *path, void *work);
@@ -81,7 +81,7 @@ void *Ov024_MobiClip_OpenPlayer(struct MobiClipOpenArgs *args)
     StoreGlobalArrayEntry(3, data_ov024_02093974);
 
     if (args->nSector == 0) {
-        Ov002_FormatResultLine(0, szPath);
+        Ov002_FormatEventScriptName(0, szPath);
         *(int *)(player + 0x8a24) = Ov002_GetRootSub04();
         nSector = Ov002_GetRootSub04();
         nLength = MsgArchive_FindEntryByName(Ov002_GetRootSub04(), szPath);

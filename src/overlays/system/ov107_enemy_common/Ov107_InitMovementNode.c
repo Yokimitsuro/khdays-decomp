@@ -16,7 +16,7 @@ extern void Ov107_Spawner_FreeDataBlocks(int node);
 extern void Ov107_StartObject(int node);
 extern void Ov107_DestroyActorInstance(void);
 extern void Ov107_Spawner_ReleaseDeadActors(void);
-extern void func_ov107_020c0ea0(void);
+extern void Ov107_Spawner_Tick(void);
 extern void Ov107_MovementNode_SetRequest(void);
 extern const VecFx32 data_02041dc8;
 
@@ -26,7 +26,7 @@ void Ov107_InitMovementNode(u16 *node) {
     *(void **)(node + 4) = (void *)Ov107_DestroyActorInstance;
     *(void **)(node + 0x1a) = (void *)Ov107_Spawner_ReleaseDeadActors;
     if (Session_GetLocalPlayerIndex() == 0) {
-        *(void **)(node + 6) = (void *)func_ov107_020c0ea0;
+        *(void **)(node + 6) = (void *)Ov107_Spawner_Tick;
         *(void **)(node + 10) = (void *)Ov107_MovementNode_SetRequest;
     }
     *(int *)((char *)node + 0x44) = 0;

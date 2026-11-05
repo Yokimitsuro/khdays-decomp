@@ -68,11 +68,11 @@ src/overlays/system/ov107_enemy_common/Ov107_InitNodeBase.c:
     complete
     .text       start:0x020c0c94 end:0x020c0cfc
 
-src/overlays/system/ov107_enemy_common/Ov107_SetBit1OfField0x40.c:
+src/overlays/system/ov107_enemy_common/Ov107_Node_SetRunning.c:
     complete
     .text       start:0x020c0cfc end:0x020c0d14
 
-src/overlays/system/ov107_enemy_common/Ov107_SetBit0OfField0x40.c:
+src/overlays/system/ov107_enemy_common/Ov107_Node_SetShown.c:
     complete
     .text       start:0x020c0d14 end:0x020c0d2c
 
@@ -100,7 +100,7 @@ src/overlays/system/ov107_enemy_common/Ov107_DestroyActorInstance.c:
     complete
     .text       start:0x020c0e6c end:0x020c0ea0
 
-src/overlays/system/ov107_enemy_common/func_ov107_020c0ea0.c:
+src/overlays/system/ov107_enemy_common/Ov107_Spawner_Tick.c:
     complete
     .text       start:0x020c0ea0 end:0x020c1268
 
@@ -457,7 +457,7 @@ src/overlays/system/ov107_enemy_common/Ov107_AiState_OnDefeat.c:
     complete
     .text       start:0x020c7da4 end:0x020c8000
 
-src/overlays/system/ov107_enemy_common/Ov107_StoreSlotEvent.c:
+src/overlays/system/ov107_enemy_common/Ov107_SetAttackPower.c:
     complete
     .text       start:0x020c8000 end:0x020c8014
 
@@ -473,7 +473,7 @@ src/overlays/system/ov107_enemy_common/Ov107_LoadMsUpRecord.c:
     complete
     .text       start:0x020c887c end:0x020c88dc
 
-src/overlays/system/ov107_enemy_common/Ov107_StoreHitInfo.c:
+src/overlays/system/ov107_enemy_common/Ov107_SetHomeAndReach.c:
     complete
     .text       start:0x020c88dc end:0x020c88fc
 

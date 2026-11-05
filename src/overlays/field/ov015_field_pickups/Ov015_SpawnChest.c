@@ -87,10 +87,10 @@ extern int  Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int n
 extern void Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pPlace);  /* start position */
 extern void Actor_SetVecAndSyncChild(void *pTransform, VecFx32 *pVec);                 /* Actor_SetVecAndSyncChild */
 extern void Actor_InitEntityLink(void *pBody, void *pRecord);                       /* construct an actor body */
-extern void Ov002_PushBucketNode(int nBucket, Ov015Chest *pPiece);           /* register the piece */
+extern void Ov002_PushBucketNode(int nRoom, Ov015Chest *pPiece);           /* register the piece */
 extern void Ov015_ChestUpdate(void);                                       /* Ov015_ChestUpdate */
 
-Ov015Chest *Ov015_SpawnChest(Ov015ChestDef *pClass, u16 nSlot, int nBucket, VecFx32 *pPos,
+Ov015Chest *Ov015_SpawnChest(Ov015ChestDef *pClass, u16 nSlot, int nRoom, VecFx32 *pPos,
                                 short nFacing, u16 nField, u8 nBit)
 {
     VecFx32 start;
@@ -111,7 +111,7 @@ Ov015Chest *Ov015_SpawnChest(Ov015ChestDef *pClass, u16 nSlot, int nBucket, VecF
     pChest->nStateField = nField;
     pChest->nStateBit = nBit;
     pChest->nStateBits = 0;
-    pChest->nKind = nBucket;
+    pChest->nKind = nRoom;
     pChest->pHandlers = (void *)Ov015_ChestUpdate;
     pChest->nFlags |= 0x48;
     pChest->nStep = 0;
@@ -127,6 +127,6 @@ Ov015Chest *Ov015_SpawnChest(Ov015ChestDef *pClass, u16 nSlot, int nBucket, VecF
     pChest->nWord480 = 0;
     pChest->nWord484 = 0;
     pPiece->bHasBody = 1;
-    Ov002_PushBucketNode(nBucket, pChest);
+    Ov002_PushBucketNode(nRoom, pChest);
     return pChest;
 }

@@ -11,7 +11,7 @@
 typedef struct Ov021Emblem {
     u8   pad_000[0xc];
     void *pfnStep;            /* 0x00c */
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012 */
     u16  nStateField;         /* 0x014: GameState field */
@@ -29,10 +29,10 @@ typedef struct Ov021Emblem {
 
 extern Ov021Emblem *Ov002_ClaimPoolEntry(void *pClass, int nSlot);    /* take a piece from the class table */
 extern void  Actor_ArmWithMessage(void *pNode, int nA, void *pOwner, void *pB, int nMode);
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);          /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);          /* register the piece */
 extern void *Ov021_EmblemStep(Ov021Emblem *pSelf);                 /* Ov021_EmblemStep */
 
-void Ov021_EmblemCreate(void *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, short nFacing, u16 nField, u8 nBit)
+void Ov021_EmblemCreate(void *pClass, u16 nSlot, u8 nRoom, VecFx32 *pPos, short nFacing, u16 nField, u8 nBit)
 {
     Ov021Emblem *pPiece;
 
@@ -43,10 +43,10 @@ void Ov021_EmblemCreate(void *pClass, u16 nSlot, u8 nBucket, VecFx32 *pPos, shor
     pPiece->nState = 0;
     pPiece->nPlayer = -1;
     pPiece->nTimer = 0x12c000;
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov021_EmblemStep;
     pPiece->nStateField = nField;
     pPiece->nStateBit = nBit;
     pPiece->nField17 = 0xff;
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
 }

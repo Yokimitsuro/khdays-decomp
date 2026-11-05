@@ -32,7 +32,8 @@ struct SlotPool {
     u8 pad0002[6];
     u32 nKindMask;                 /* 0x0008 */
     u8 pad000c[0xc];
-    struct Slot *apSlots[16];      /* 0x0018 */
+    struct Slot *apSlots[15];      /* 0x0018: one for each magic the pool builds */
+    void *pLevelAnim;              /* 0x0054: the cast's level animation (its grid entry) */
     void *pActor;                  /* 0x0058 */
 };
 

@@ -17,7 +17,7 @@
 
 typedef struct Ov008MissionListEntry {
     u8  pad_00[4];
-    u16 nSlot;                /* 0x04 */
+    u16 nCategory;                /* 0x04 */
 } Ov008MissionListEntry;
 
 typedef struct Ov008MissionList {
@@ -33,7 +33,7 @@ extern void Ov008_FeedScrollInput(u32 nWord);                               /* O
 extern u32  Ov008_GetCtxField967c(void);                                    /* Ov008_GetCtxField967c */
 extern Ov008MissionListEntry *Ov008_GetNextMissionEntry_5(u32 nMissionId);        /* find the listed mission */
 extern void Ov008_EncodeCursorAction(int nSlot);                               /* cursor pick */
-extern void Ov008_MainMenu_UpdateSelectionText(int nSlot, int nArg);                     /* Ov008_MainMenu_UpdateSelectionText */
+extern void Ov008_WorldMap_UpdateSelectionText(int nSlot, int nArg);                     /* Ov008_WorldMap_UpdateSelectionText */
 extern u16  Ov008_GetCurrentListId(void);                                    /* mission entry count */
 extern u32  Ov008_StepCursorToAcceptedSlot(Ov008MissionList *pList, int nCell);      /* Ov008_StepCursorToAcceptedSlot */
 
@@ -67,9 +67,9 @@ void Ov008_MissionListOpen(Ov008MissionList *pList)
     }
     pEntry = Ov008_GetNextMissionEntry_5(Ov008_GetCtxField967c());
     if (pEntry != 0) {
-        pList->nCursorSlot = pEntry->nSlot;
+        pList->nCursorSlot = pEntry->nCategory;
         Ov008_EncodeCursorAction(pList->nCursorSlot);
-        Ov008_MainMenu_UpdateSelectionText(pList->nCursorSlot, 0);
+        Ov008_WorldMap_UpdateSelectionText(pList->nCursorSlot, 0);
         return;
     }
     pList->nCursorSlot = 0;

@@ -59,8 +59,8 @@ struct Obj {
     int (*field_1d0)(struct Obj *, struct HitSource *, struct HitPacket *);
     void (*field_1d4)(struct Obj *, struct Obj *);
     u8 pad1d8[0x40];
-    short field_218;
-    short field_21a;
+    short nMaxHp;
+    short nHp;
     u8 pad21c[0x38];
     int field_254;
     int field_258;
@@ -170,16 +170,16 @@ int Ov107_AiState_ApplyHit(struct Obj *obj, struct HitSource *source, struct Hit
     if (protectedObject->field_1ac & 0x100) {
         int kind = protectedObject->field_179;
         if (kind == 1 || (u32)kind == 2) {
-            if (obj->field_21a - amount <= 0) return 0;
+            if (obj->nHp - amount <= 0) return 0;
         }
     }
     if (obj->field_1ac & 0x100) {
-        if (obj->field_21a - amount <= 0) {
+        if (obj->nHp - amount <= 0) {
             packet->field_28 = 0;
             return 1;
         }
     }
-    previousAmount = obj->field_21a;
+    previousAmount = obj->nHp;
     obj->field_25c = source;
     if (packet->field_14 >= 0) {
         obj->field_258 = packet->field_14;
@@ -263,11 +263,11 @@ int Ov107_AiState_ApplyHit(struct Obj *obj, struct HitSource *source, struct Hit
                     ((void (*)(struct Obj *, void *, int))obj->header.ai.field_24)(obj, &message, 12);
                 }
             }
-            if (obj->field_218 > 0) {
-                maximum = obj->field_218;
+            if (obj->nMaxHp > 0) {
+                maximum = obj->nMaxHp;
                 accumulated = 0;
                 before = func_02020400(previousAmount << 12, maximum);
-                after = func_02020400(obj->field_21a << 12, maximum);
+                after = func_02020400(obj->nHp << 12, maximum);
                 for (i = 0; i < 5; i++) {
                     if (obj->field_314[i].field_00 >= 0 && obj->field_314[i].field_04 > 0 &&
                         obj->field_314[i].field_08 > 0 && obj->field_1a0 != 0 &&
@@ -299,7 +299,7 @@ int Ov107_AiState_ApplyHit(struct Obj *obj, struct HitSource *source, struct Hit
                     MsgQueue_Post(4, &event, sizeof(ImpactMsg));
                 }
             }
-            if (obj->field_21a == 0) {
+            if (obj->nHp == 0) {
                 if (obj->field_179 == 1) {
                     for (i = 0; i < 4; i++) {
                         struct Manager *manager = Ov107_GetActorManager();

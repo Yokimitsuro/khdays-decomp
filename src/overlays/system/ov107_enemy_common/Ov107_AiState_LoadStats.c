@@ -83,8 +83,8 @@ typedef struct AiState {
     char pad1dc[0x14];
     NotifyFn field_1f0;
     char pad1f4[0x24];
-    s16 field_218;
-    s16 field_21a;
+    s16 nMaxHp;
+    s16 nHp;
     char pad21c[0x70];
     OutputEntry field_28c[8];
     s16 field_2bc[8];
@@ -175,8 +175,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
         if (scale < 1) {
             scale = 1;
         }
-        self->field_218 = (s16)scale;
-        self->field_21a = (s16)scale;
+        self->nMaxHp = (s16)scale;
+        self->nHp = (s16)scale;
 
         for (i = 0; i < 8; i++) {
             if (self->field_1a0->field_04[i].field_00 != 0) {
@@ -241,8 +241,8 @@ void Ov107_AiState_LoadStats(AiState *self, int recordIndex)
         self->field_2d8 = self->field_1a0->field_62 << 4;
         Ov107_AiState_LoadResistances((char *)self, 0);
     } else {
-        self->field_218 = 1;
-        self->field_21a = 1;
+        self->nMaxHp = 1;
+        self->nHp = 1;
         src = (char *)self;
         for (i = 0; i < 8; i++, src += 6) {
             if (self->field_1d8 != 0) {

@@ -884,7 +884,7 @@ src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_BelowMax.c:
     complete
     .text       start:0x02055110 end:0x02055134
 
-src/overlays/scenes/ov009_camp_save/Ov009_IsEncounterEligible.c:
+src/overlays/scenes/ov009_camp_save/Ov009_IsMissionModeRowListed.c:
     complete
     .text       start:0x02055134 end:0x02055288
 
@@ -892,15 +892,15 @@ src/overlays/scenes/ov009_camp_save/Ov009_CanTriggerActionInRange.c:
     complete
     .text       start:0x02055288 end:0x02055308
 
-src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_KindZero.c:
+src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_StoryRow.c:
     complete
     .text       start:0x02055308 end:0x0205531c
 
-src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_KindNonZero.c:
+src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_MissionModeEntry.c:
     complete
     .text       start:0x0205531c end:0x02055330
 
-src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_Kind4Id10.c:
+src/overlays/scenes/ov009_camp_save/Ov009_RecordFilter_TutorialRow.c:
     complete
     .text       start:0x02055330 end:0x02055354
 

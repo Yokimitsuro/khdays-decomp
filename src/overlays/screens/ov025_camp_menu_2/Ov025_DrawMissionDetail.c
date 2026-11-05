@@ -45,8 +45,8 @@
 typedef struct Ov008MissionListEntry {
     u16   nWord;              /* 0x00 */
     u16   missionId;          /* 0x02 */
-    u16   nTextSlot;          /* 0x04 */
-    u16   nRank;              /* 0x06 */
+    u16   nCategory;          /* 0x04 */
+    u16   nShownNumber;              /* 0x06 */
     u16   nCount;             /* 0x08 */
     u8    pad_0a[0x18 - 0xa];
     int   nKind;              /* 0x18 */
@@ -132,12 +132,12 @@ void Ov025_DrawMissionDetail(Ov008MissionMenu *pMenu, int nTab)
         Ov025_MissionMenu_DrawInfo(pMenu, pEntry, pNode);
         Ov025_DrawMissionInfoText(pMenu, pEntry, pNode);
         Ov025_SwitchMenuTab(pMenu, nTab);
-        if (pEntry->nTextSlot == 0) {
+        if (pEntry->nCategory == 0) {
             bUnlocked = 1;
-        } else if (pEntry->nTextSlot == 4) {
+        } else if (pEntry->nCategory == 4) {
             bUnlocked = 1;
         } else {
-            bUnlocked = GameState_IsFlagSet(pEntry->nTextSlot + FLAG_TEXT_SLOT_BASE);
+            bUnlocked = GameState_IsFlagSet(pEntry->nCategory + FLAG_TEXT_SLOT_BASE);
         }
         nGlyph = GLYPH_SPACE;
         if (Ov025_GetCtxObject9634() != 0) {
@@ -149,12 +149,12 @@ void Ov025_DrawMissionDetail(Ov008MissionMenu *pMenu, int nTab)
                 }
             }
         }
-        Text_FormatUtf16(aRank, 4, data_ov025_020b5464, pEntry->nRank, nGlyph);
+        Text_FormatUtf16(aRank, 4, data_ov025_020b5464, pEntry->nShownNumber, nGlyph);
         Ov025_BindDescriptor0B(pMenu->rankSurface);
         Obj_InvokeInnerVtable4(pMenu->rankSurface);
         Text_DrawWithShadow(pMenu->rankSurface, 0, 6, nColour, aRank, 1);
         if (Ov025_GetCtxObject9634() == 0 || pMenu->bTransfer != 0) {
-            nSlot = pEntry->nTextSlot;
+            nSlot = pEntry->nCategory;
             if (bUnlocked != 0) {
                 Ov025_SetupAndConfigure_2(pMenu->rankSurface, Ov025_GetNextMissionEntry_4(nSlot), 0x68);
             }

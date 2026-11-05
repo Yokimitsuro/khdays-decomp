@@ -9,7 +9,7 @@
  * BG0..3 control words 8 / 0x104 / 0x204 / 0x304 with priorities 0..3, its
  * DISPCNT mode bits, the sub LCD powered, and both DISPCNTs every layer on.
  *
- * MMIO through held volatile register pointers as in Ov008_MainMenu_SetupDisplay.
+ * MMIO through held volatile register pointers as in Ov008_WorldMap_SetupDisplay.
  */
 
 #include "nitro/types.h"

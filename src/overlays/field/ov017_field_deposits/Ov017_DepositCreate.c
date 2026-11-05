@@ -25,7 +25,7 @@ typedef struct Ov017DepositDef {
 typedef struct Ov017Deposit {
     u8   pad_000[0xc];
     void *pfnStep;            /* 0x00c */
-    u8   nBucket;             /* 0x010 */
+    u8   nRoom;             /* 0x010 */
     u8   pad_011;
     u16  nPieceFlags;         /* 0x012 */
     u16  nStateField;         /* 0x014: GameState field */
@@ -53,10 +53,10 @@ typedef struct Ov017Deposit {
 extern Ov017Deposit *Ov002_ClaimPoolEntry(Ov017DepositDef *pClass, int nSlot); /* take a piece from the class table */
 extern void  Ov002_PlaceElementNode(void *pPiece, void *pNode, int *aPlace, int nSlot, int nKind, int nA, int nB, int nC, int nFacing, int nOne);
 extern void  Ov002_BuildSpawnPosition(VecFx32 *pStart, VecFx32 *pPos, int *aPlace); /* start position from the placement */
-extern void  Ov002_PushBucketNode(int nBucket, void *pPiece);          /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, void *pPiece);          /* register the piece */
 extern void *Ov017_DepositStep(Ov017Deposit *pSelf);                /* Ov017_DepositStep */
 
-Ov017Deposit *Ov017_DepositCreate(Ov017DepositDef *pClass, u16 nSlot, u8 nBucket, u16 nField, u8 nBit, u16 nHitField, u8 nHitBit, u16 nMaxHits, VecFx32 *pPos, short nFacing)
+Ov017Deposit *Ov017_DepositCreate(Ov017DepositDef *pClass, u16 nSlot, u8 nRoom, u16 nField, u8 nBit, u16 nHitField, u8 nHitBit, u16 nMaxHits, VecFx32 *pPos, short nFacing)
 {
     VecFx32 start;
     int aPlace[5];
@@ -70,7 +70,7 @@ Ov017Deposit *Ov017_DepositCreate(Ov017DepositDef *pClass, u16 nSlot, u8 nBucket
     aPlace[2] += 0x2000;
     pPiece->start = start;
     pPiece->nTop = aPlace[2];
-    pPiece->nBucket = nBucket;
+    pPiece->nRoom = nRoom;
     pPiece->pfnStep = (void *)Ov017_DepositStep;
     pPiece->nPieceFlags |= 0xc8;
     pPiece->nStateField = nField;
@@ -87,6 +87,6 @@ Ov017Deposit *Ov017_DepositCreate(Ov017DepositDef *pClass, u16 nSlot, u8 nBucket
     pPiece->nCrackFrame = 0;
     pPiece->nHitField = nHitField;
     pPiece->nHitBit = nHitBit;
-    Ov002_PushBucketNode(nBucket, pPiece);
+    Ov002_PushBucketNode(nRoom, pPiece);
     return pPiece;
 }

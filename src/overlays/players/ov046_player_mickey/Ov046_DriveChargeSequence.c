@@ -8,7 +8,7 @@
  * `pop {r3,r4,r5,pc}` instructions rather than branches. See codegen-cracks.md. */
 extern void Ov046_BindChargeTracks(int p2, int a);
 extern unsigned short Sequence_UpdateTracks(void *p, int a);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern int Ov022_IsSlotReady(void *p);
 
 void Ov046_DriveChargeSequence(int self, int p2, int p3) {

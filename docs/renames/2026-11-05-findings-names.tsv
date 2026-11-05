@@ -1,0 +1,97 @@
+# What the running game and the bodies show (DECOMP_FINDINGS 1.4 and 1.5 at a2b0478b8, checked
+# against each body).
+#
+# The camp's screen 1 is the holo-missions' world map, not a main menu: its +0x13fc table is
+# UI/cm/str/world_id_&.s.z and its entries are worlds (ov008 for Mission Mode, ov025 its copy).
+Ov008_MainMenu_InitObjectListRetry	Ov008_WorldMap_InitObjectListRetry	ov008
+Ov008_MainMenu_InitPanelContext	Ov008_WorldMap_InitPanelContext	ov008
+Ov008_MainMenu_RecalculateMissionSummary	Ov008_WorldMap_RecalculateMissionSummary	ov008
+Ov008_MainMenu_SetupDisplay	Ov008_WorldMap_SetupDisplay	ov008
+Ov008_MainMenu_SetupTextSurfaces	Ov008_WorldMap_SetupTextSurfaces	ov008
+Ov008_MainMenu_SetupToolbar	Ov008_WorldMap_SetupToolbar	ov008
+Ov008_MainMenu_StateTick	Ov008_WorldMap_StateTick	ov008
+Ov008_MainMenu_UpdateSelectionText	Ov008_WorldMap_UpdateSelectionText	ov008
+Ov025_MainMenu_InitObjectListRetry	Ov025_WorldMap_InitObjectListRetry	ov025
+Ov025_MainMenu_InitPanelContext	Ov025_WorldMap_InitPanelContext	ov025
+Ov025_MainMenu_RecalculateMissionSummary	Ov025_WorldMap_RecalculateMissionSummary	ov025
+Ov025_MainMenu_SetupDisplay	Ov025_WorldMap_SetupDisplay	ov025
+Ov025_MainMenu_SetupTextSurfaces	Ov025_WorldMap_SetupTextSurfaces	ov025
+Ov025_MainMenu_SetupToolbar	Ov025_WorldMap_SetupToolbar	ov025
+Ov025_MainMenu_StateTick	Ov025_WorldMap_StateTick	ov025
+Ov025_MainMenu_UpdateSelectionText	Ov025_WorldMap_UpdateSelectionText	ov025
+#
+# The Preferences page (screen 5): its settings (25 records of 0x14 bytes, UI/cm/str/cfg_&.s.z's
+# records), the tab lists and the pages; the function that enables Mission Mode's settings 15-18
+# and 24, and the tab's title record (1 Player-Unique Settings, 2 Universal Settings).
+data_ov008_02090598	gOv008ConfigSettings	ov008
+data_ov025_020b4f64	gOv025ConfigSettings	ov025
+data_ov008_0209051c	gOv008ConfigLists	ov008
+data_ov025_020b4ee8	gOv025ConfigLists	ov025
+data_ov008_02090504	gOv008ConfigPages	ov008
+data_ov025_020b4ed0	gOv025ConfigPages	ov025
+Ov008_ArmUnseenMarkers	Ov008_Config_EnableModeSettings	ov008
+Ov008_SelectTierIfActive	Ov008_Config_GetTabTitleRecord	ov008
+Ov025_SelectTierIfActive	Ov025_Config_GetTabTitleRecord	ov025
+#
+# The missions' list (UI/cm/msl_&.msi.z): the row test of Mission Mode's list and the record
+# filters by kind (0 the story's row, 1/2/4 Mission Mode's entries, file 10 kind 4 the tutorial).
+Ov004_IsEncounterEligible	Ov004_IsMissionModeRowListed	ov004
+Ov005_IsEncounterEligible	Ov005_IsMissionModeRowListed	ov005
+Ov008_IsEncounterEligible	Ov008_IsMissionModeRowListed	ov008
+Ov009_IsEncounterEligible	Ov009_IsMissionModeRowListed	ov009
+Ov025_IsEncounterEligible	Ov025_IsMissionModeRowListed	ov025
+Ov026_IsEncounterEligible	Ov026_IsMissionModeRowListed	ov026
+Ov302_IsEncounterEligible	Ov302_IsMissionModeRowListed	ov302
+Ov004_RecordFilter_KindZero	Ov004_RecordFilter_StoryRow	ov004
+Ov005_RecordFilter_KindZero	Ov005_RecordFilter_StoryRow	ov005
+Ov008_RecordFilter_KindZero	Ov008_RecordFilter_StoryRow	ov008
+Ov009_RecordFilter_KindZero	Ov009_RecordFilter_StoryRow	ov009
+Ov025_RecordFilter_KindZero	Ov025_RecordFilter_StoryRow	ov025
+Ov026_RecordFilter_KindZero	Ov026_RecordFilter_StoryRow	ov026
+Ov302_RecordFilter_KindZero	Ov302_RecordFilter_StoryRow	ov302
+Ov004_RecordFilter_KindNonZero	Ov004_RecordFilter_MissionModeEntry	ov004
+Ov005_RecordFilter_KindNonZero	Ov005_RecordFilter_MissionModeEntry	ov005
+Ov008_RecordFilter_KindNonZero	Ov008_RecordFilter_MissionModeEntry	ov008
+Ov009_RecordFilter_KindNonZero	Ov009_RecordFilter_MissionModeEntry	ov009
+Ov025_RecordFilter_KindNonZero	Ov025_RecordFilter_MissionModeEntry	ov025
+Ov026_RecordFilter_KindNonZero	Ov026_RecordFilter_MissionModeEntry	ov026
+Ov302_RecordFilter_KindNonZero	Ov302_RecordFilter_MissionModeEntry	ov302
+Ov004_RecordFilter_Kind4Id10	Ov004_RecordFilter_TutorialRow	ov004
+Ov005_RecordFilter_Kind4Id10	Ov005_RecordFilter_TutorialRow	ov005
+Ov008_RecordFilter_Kind4Id10	Ov008_RecordFilter_TutorialRow	ov008
+Ov009_RecordFilter_Kind4Id10	Ov009_RecordFilter_TutorialRow	ov009
+Ov025_RecordFilter_Kind4Id10	Ov025_RecordFilter_TutorialRow	ov025
+Ov026_RecordFilter_Kind4Id10	Ov026_RecordFilter_TutorialRow	ov026
+Ov302_RecordFilter_Kind4Id10	Ov302_RecordFilter_TutorialRow	ov302
+data_02046334	fsi_arc_rom	main
+#
+# An enemy's level, its HP, its home and reach and its attacks' power; the field's spawners (the
+# script op that makes one, its setup, its trigger sphere, its tick) and a node's state bits.
+Ov002_GetEffectiveHeight	Ov002_GetMarkerEnemyLevel	ov002
+Ov002_ScriptCreateSlotObject	Ov002_ScriptCreateSpawner	ov002
+Ov002_CreateSlotObjectAndStart	Ov002_CreateSpawner	ov002
+Ov002_StartSlotAnim	Ov002_StartSpawnerTrigger	ov002
+Ov107_StoreHitInfo	Ov107_SetHomeAndReach	ov107
+Ov107_StoreSlotEvent	Ov107_SetAttackPower	ov107
+func_ov107_020c0ea0	Ov107_Spawner_Tick	ov107
+Ov107_SetBit0OfField0x40	Ov107_Node_SetShown	ov107
+Ov107_SetBit1OfField0x40	Ov107_Node_SetRunning	ov107
+#
+# The characters: the select's places and the data folders' character numbers, the camp's records
+# by character, the seat's camp record and the seat's character word; the panel's HP gauge setter;
+# the player overlays' own moves' damage.
+Ov006_MenuEntryToSlot	Ov006_SelectPlaceToCharacter	ov006
+Ov006_MenuSlotToEntry	Ov006_CharacterToSelectPlace	ov006
+Ov008_MenuEntryToSlot	Ov008_SelectPlaceToCharacter	ov008
+Ov008_MenuSlotToEntry	Ov008_CharacterToSelectPlace	ov008
+data_ov008_0208e9c4	gOv008CampCharacterRecords	ov008
+Ov008_RecordInputCoords	Ov008_StoreSeatCampRecord	ov008
+Ov008_RefreshSaveSlotWidget	Ov008_RefreshSeatCharacter	ov008
+Ov008_GetEntryStatusByte	Ov008_GetSeatCharacter	ov008
+Ov002_GetPanelWord0220	Ov002_SetSeatHpGauge	ov002
+Ov022_ScaleRowValues	Ov022_ScaleMoveDamage	ov022
+#
+# The event script's skip request (the pause's Skip): Game_RunActionScript unwinds to the kept
+# target when +0x584 and +0x588 of the event's state are both set.
+SetWordAt0x588To1	ActionScript_RequestSkip	main
+Ov023_FlushTextBox	Ov023_RequestEventSkip	ov023

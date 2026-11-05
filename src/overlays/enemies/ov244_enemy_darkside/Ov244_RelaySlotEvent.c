@@ -1,10 +1,10 @@
 /* Slot event relay: after the base 020c8000 handling, event 3 forwards (0, arg) and event 4
  * forwards (1, arg) to the +0x1d8 hook of each of the two +0x400 parts. */
-extern void Ov107_StoreSlotEvent(int self, int event, int arg);
+extern void Ov107_SetAttackPower(int self, int event, int arg);
 
 void Ov244_RelaySlotEvent(int self, int event, int arg) {
     int i;
-    Ov107_StoreSlotEvent(self, event, arg);
+    Ov107_SetAttackPower(self, event, arg);
     if (event == 3) {
         int mode = 0;
         for (i = 0; i < 2; i++) {

@@ -1,16 +1,16 @@
-/* ov008 scene parameter table data_ov008_0208e9c4, 0x0208e9c4-0x0208edd4 (.rodata).
+/* ov008 camp's records by character, gOv008CampCharacterRecords, 0x0208e9c4-0x0208edd4 (.rodata).
  *
- * One 52-byte entry per scene id: the two-letter code that 0205a138 prints
- * into the resource name (gOv008BaChWPathFmt), and the two dictionary
+ * One 52-byte entry per character (the camp's member 0): its data folder's code (ba/ch/<code>/)
+ * that 0205a138 prints into the resource name (gOv008BaChWPathFmt), and the two dictionary
  * names 0205a1fc looks up (02016f10) for the panels when they are set.
  */
 
-typedef struct Ov008SceneParam {
-    const char *pCode;        /* 0x00: two-letter scene code, formatted into the resource name */
-    char aNameLeft[16];       /* 0x04: dictionary entry for the left panel, empty when none */
-    char aNameRight[16];      /* 0x14: dictionary entry for the right panel */
+typedef struct Ov008CampCharacterRecord {
+    const char *pCode;        /* 0x00: the character's data folder code, formatted into the resource name */
+    char aNameLeft[16];       /* 0x04: a weapon node, the left panel's, empty when none */
+    char aNameRight[16];      /* 0x14: a weapon node, the right panel's */
     char aReserved[16];       /* 0x24 */
-} Ov008SceneParam;
+} Ov008CampCharacterRecord;
 
 extern char gOv008R2Name;
 extern char gOv008GoName;
@@ -33,7 +33,7 @@ extern char gOv008XiName;
 extern char gOv008AxName;
 extern char gOv008RoName;
 
-const Ov008SceneParam data_ov008_0208e9c4[20] = {
+const Ov008CampCharacterRecord gOv008CampCharacterRecords[20] = {
     { &gOv008RoName, "ro_w_tg_L", "ro_w_tg_R", "" },
     { &gOv008AxName, "ax_h_L", "ax_h_R", "" },
     { &gOv008XiName, "xig_h_L", "xig_h_R", "" },

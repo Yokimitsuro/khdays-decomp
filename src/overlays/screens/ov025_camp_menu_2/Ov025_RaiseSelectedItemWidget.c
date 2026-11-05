@@ -33,24 +33,24 @@ typedef struct Ov008SelCtx {
 #define ITEM_STRIDE 0x14
 #define RAISE_FX32  0x8000
 
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  nState;               /* 0x05: lock state */
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
-extern Ov008MenuEntryDef data_ov025_020b4f64[];                    /* the menu entry table */
+extern Ov008ConfigSetting gOv025ConfigSettings[];                    /* the Preferences page's settings */
 
 extern Ov008SelCtx *Ov025_GetPageA(void);                     /* Ov008_GetMenuContext */
 extern int  Ov025_GetContext(void);                             /* Ov008_GetContext */
@@ -76,14 +76,14 @@ void Ov025_RaiseSelectedItemWidget(void)
     Ov025_DispatchFrom2DTable(&pick, ctx->sel, (p + 1)[ctx->sel]);
     pos = pick.pos;
     Ov025_SwapParamOverrides(nCtx, pick.pEntry);
-    if (data_ov025_020b4f64[ctx->sel].bEnabled != 0) {
+    if (gOv025ConfigSettings[ctx->sel].bEnabled != 0) {
         Ov025_ReleaseTwoSlots_2(nCtx, pick.pEntry);
     } else {
         Ov025_PushSubitemSet(nCtx, pick.pEntry, 0);
     }
     nBackup = *pBackup;
     if (*p != nBackup) {
-        if (data_ov025_020b4f64[nBackup].bEnabled != 0 && data_ov025_020b4f64[nBackup].nSubCount != 0) {
+        if (gOv025ConfigSettings[nBackup].bEnabled != 0 && gOv025ConfigSettings[nBackup].nSubCount != 0) {
             Ov025_DispatchFrom2DTable(&pick, *pBackup, (pBackup + 1)[nBackup]);
             Ov025_WidgetRef_Hide(&pick);
         }

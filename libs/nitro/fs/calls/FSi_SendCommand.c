@@ -468,10 +468,9 @@ extern void MATH_CalcHMACSHA1(u8 *digest, const void *src, int len, const void *
 #define DGT_Hash2CalcHmac MATH_CalcHMACSHA1
 extern CARDRomRegion data_02046324;   /* fsi_ovt9 */
 extern CARDRomRegion data_0204632c;   /* fsi_ovt7 */
-extern FSArchive data_02046334;       /* fsi_arc_rom */
+extern FSArchive fsi_arc_rom;
 #define fsi_ovt9 data_02046324
 #define fsi_ovt7 data_0204632c
-#define fsi_arc_rom data_02046334
 /* fsi_digest_key_ptr / fsi_digest_key_len: two adjacent .data statics of fs_overlay.c (the
  * pointer names the 64-byte fsi_def_digest_key in .rodata), read together off one base. */
 extern struct { const void *ptr; int len; } data_020422c4;

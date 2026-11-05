@@ -40,7 +40,7 @@ struct Ov063Controller {
 extern int func_ov022_02083f0c(void);
 extern void Ov002_StoreVAndToggleBit25(int handle, int a, int b);
 extern int Ov022_FollowGroundRumble(struct Ov063Actor *actor);
-extern void Ov022_PlayEntityVoice(struct Ov063Actor *actor, int cue, int mode);
+extern void Ov022_PlayEntityVoice(struct Ov063Actor *actor, int nSeqArc, int nSeq);
 extern void Ov063_SpawnEmitters(struct Ov063Controller *self);
 extern int Ov063_ov030_UpdatePathMotionState(struct Ov063Controller *self,
                                struct Ov063MotionState *motion, int delta);

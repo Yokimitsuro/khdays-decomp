@@ -58,7 +58,7 @@ extern Ov022CreationDescriptor data_ov022_020b2e80;
 extern Ov022LimitConfig data_0204c77c;
 extern Ov022LimitConfig data_0204c784;
 
-extern int Ov002_GetRootField8bae(void);
+extern int Ov002_GetMissionLevel(void);
 extern int Ov029_AcquireOverlaySlot(int proc, int group);
 
 void Ov022_SetupPartyRootAndEntry(void)
@@ -70,7 +70,7 @@ void Ov022_SetupPartyRootAndEntry(void)
     u16 limit;
 
     object = (Ov022RootOrEntry *)data_ov022_020b2e78.root04;
-    PartyMember_RebuildDerived(1, 0, 5, Ov002_GetRootField8bae());
+    PartyMember_RebuildDerived(1, 0, 5, Ov002_GetMissionLevel());
     PartyState_SaveTables();
 
     data_ov022_020b2e78.descriptor08.duplicateType04 = 1;

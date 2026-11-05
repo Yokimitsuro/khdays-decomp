@@ -40,7 +40,7 @@ typedef struct Ov023WorldTable {
     const char *apCode[12];   /* 0x00 */
 } Ov023WorldTable;
 
-extern void  Ov002_FormatResultLine(int nLine, char *pOut);            /* build a text line */
+extern void  Ov002_FormatEventScriptName(int nLine, char *pOut);            /* build a text line */
 extern int   Ov002_GetRootSub04(void);                             /* the text sub-object */
 extern int   Ov002_GetSceneHandle(void);
 extern int OS_SPrintf(char *dst, const char *fmt, ...);
@@ -64,7 +64,7 @@ void *Ov023_LoadScripts(void)
 
     data_ov023_0208a784.pScene->pActors = data_ov023_0208a784.pScene->aActors;
     world = data_ov023_02089d14;
-    Ov002_FormatResultLine(0, szLine);
+    Ov002_FormatEventScriptName(0, szLine);
     data_ov023_0208a784.pScene->nSubObject = Ov002_GetRootSub04();
     data_ov023_0208a784.pScene->nHandle = Ov002_GetSceneHandle();
     OS_SPrintf(szPath, gOv023EvEvSPath);

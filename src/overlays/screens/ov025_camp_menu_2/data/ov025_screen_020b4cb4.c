@@ -1,4 +1,4 @@
-/* ov025 screen hooks data_ov025_020b4cb4, 0x020b4cb4-0x020b4cf8 (.data): the main menu screen (Ov008_MainMenu_StateTick 0208d730 / teardown 0208d904 / timer 0208d9a4, flags 1, 0x1500-byte state).
+/* ov025 screen hooks data_ov025_020b4cb4, 0x020b4cb4-0x020b4cf8 (.data): the holo-missions' world map screen (Ov008_WorldMap_StateTick 0208d730 / teardown 0208d904 / timer 0208d9a4, flags 1, 0x1500-byte state).
  */
 
 typedef void (*Ov008HookFn)(void);
@@ -20,12 +20,12 @@ typedef struct Ov008ScreenHooks {
     Ov008HookFn apfnHook[7];  /* 0x28 .. 0x40 */
 } Ov008ScreenHooks;
 
-extern void Ov025_MainMenu_StateTick(void);
+extern void Ov025_WorldMap_StateTick(void);
 extern void Ov025_TeardownFieldScene(void);
 extern void Ov025_TickMenuTimer(void);
 
 Ov008ScreenHooks data_ov025_020b4cb4 = {
-    Ov025_MainMenu_StateTick,  /* pfnOpen */
+    Ov025_WorldMap_StateTick,  /* pfnOpen */
     Ov025_TeardownFieldScene,  /* pfnStep */
     Ov025_TickMenuTimer,  /* pfnClose */
     1,  /* nFlags */

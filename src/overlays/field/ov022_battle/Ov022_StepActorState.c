@@ -74,7 +74,7 @@ struct Actor {
 
 extern void Ov022_TakeDriftStep(struct Actor *pActor, VecFx32 *pOutStep);
 /* Ov022_PlayEntityVoice */
-extern u32 Ov022_PlayEntityVoice(struct Actor *pActor, u32 nA, u32 nB);
+extern u32 Ov022_PlayEntityVoice(struct Actor *pActor, u32 nSeqArc, u32 nSeq);
 /* Ov022_ActorSetState */
 extern int Ov022_ActorSetState(struct Actor *pActor, int nState);
 /* SceneNode_Enable */

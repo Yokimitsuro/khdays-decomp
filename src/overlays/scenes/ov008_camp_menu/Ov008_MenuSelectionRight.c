@@ -1,6 +1,6 @@
 /* Ov008_MenuSelectionRight -- Ov008_MenuSelectionRight: the "right" action on the
  * highlighted item (ctx->sel at 0x4c).  The selection block is backed up first
- * (0x4c -> 0x80, 0x34 bytes).  A locked item (the entry's lock state (data_ov008_02090598[sel].nState) == 0)
+ * (0x4c -> 0x80, 0x34 bytes).  A locked item (the entry's lock state (gOv008ConfigSettings[sel].nState) == 0)
  * moves the highlight to the next selectable item via Ov008_FindSelectableItem
  * (sel + 1, wrapping, step 1) when one exists; kind 1 increments the item's count
  * and re-clamps it against Ov008_MenuEntrySubCount(sel) through Ov008_ClampWrapIndex.
@@ -30,24 +30,24 @@ extern int  Ov008_MenuEntrySubCount(int nIndex);                         /* item
 extern int  Ov008_ClampWrapIndex(int nValue, int nMin, int nMax);     /* ClampWrapIndex */
 extern int  Ov008_FindSelectableItem(s16 nFrom, int nStep);               /* next selectable item, -1 if none */
 extern void Ov008_RefreshMenuPage(void);                               /* menu refresh */
-typedef struct Ov008MenuSubEntry {
+typedef struct Ov008ConfigValue {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
-} Ov008MenuSubEntry;
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
+} Ov008ConfigValue;
 
-typedef struct Ov008MenuEntryDef {
+typedef struct Ov008ConfigSetting {
     s16 nId;                  /* 0x00 */
-    u8  nText;                /* 0x02 */
-    u8  nHelpText;            /* 0x03 */
+    u8  nText;                /* 0x02: its name, a cfg_&.s record */
+    u8  nHelpText;            /* 0x03: its help, a cfg_&.s record */
     u8  nAnchor;              /* 0x04 */
     u8  nState;               /* 0x05: lock state */
-    u8  bEnabled;             /* 0x06 */
-    u8  nSubCount;            /* 0x07 */
-    Ov008MenuSubEntry aSub[3]; /* 0x08 */
-} Ov008MenuEntryDef;
+    u8  bEnabled;             /* 0x06: 0 shows it as "?" */
+    u8  nSubCount;            /* 0x07: its values; 0 for a heading */
+    Ov008ConfigValue aSub[3]; /* 0x08 */
+} Ov008ConfigSetting;
 
-extern Ov008MenuEntryDef data_ov008_02090598[];
+extern Ov008ConfigSetting gOv008ConfigSettings[];
 
 void Ov008_MenuSelectionRight(void)
 {
@@ -59,7 +59,7 @@ void Ov008_MenuSelectionRight(void)
     Ov008_GetPageItem(ctx->nListId, (u16)ctx->nSelection);
     MI_CpuCopy8(p, &ctx->field80, 0x34);
     sel = ctx->sel;
-    switch (data_ov008_02090598[sel].nState) {
+    switch (gOv008ConfigSettings[sel].nState) {
     case KIND_COUNT:
         (p + 1)[sel] += 1;
         *(p + p[0] + 1) = Ov008_ClampWrapIndex(*(p + p[0] + 1), 0, Ov008_MenuEntrySubCount((u16)*p));

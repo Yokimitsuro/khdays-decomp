@@ -30,7 +30,7 @@ typedef struct SessionSlotInfo {
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
 extern void  MI_CpuFill8(void *pDst, int nValue, u32 nSize);
 extern SessionSlotInfo *Slot4_GetIfOccupied(int nSlot);                 /* Slot4_GetIfOccupied */
-extern int   Ov008_MenuSlotToEntry(int nMemberKind);                /* member kind -> packet target */
+extern int   Ov008_CharacterToSelectPlace(int nMemberKind);                /* member kind -> packet target */
 extern void *Ov008_MissionLobbyPoll(void);                           /* Ov008_MissionLobbyPoll */
 
 static inline void Ov008_BuildGroupMessage(MissionContext *pCtx)
@@ -47,7 +47,7 @@ static inline void Ov008_BuildGroupMessage(MissionContext *pCtx)
         for (i = 0; i < SLOT_COUNT; i++) {
             pInfo = Slot4_GetIfOccupied(i);
             if (pInfo != 0) {
-                pPacket[i].characterId = Ov008_MenuSlotToEntry(pInfo->nMemberKind);
+                pPacket[i].characterId = Ov008_CharacterToSelectPlace(pInfo->nMemberKind);
             }
             pPacket[i].flags.request = 1;
             pPacket[i].flags.selectable = (nMask & (1 << i)) != 0;

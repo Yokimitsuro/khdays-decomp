@@ -68,7 +68,7 @@ extern int  Ov008_GetCtxObject9634(void);                                    /* 
 extern void Ov008_InitMissionList(void *pList, Ov008MissionResourceDescriptor *pDescriptor); /* Ov008_InitMissionList */
 extern void Ov008_MissionListOpen(Ov008MissionList *pList);                 /* Ov008_MissionListOpen */
 extern void Ov008_InitMissionListProgress(Ov008MissionList *pList);                 /* Ov008_InitMissionListProgress */
-extern void Ov008_MainMenu_RecalculateMissionSummary(void);                                    /* Ov008_MainMenu_RecalculateMissionSummary */
+extern void Ov008_WorldMap_RecalculateMissionSummary(void);                                    /* Ov008_WorldMap_RecalculateMissionSummary */
 extern void Ov008_LoadMissionListGraphics(Ov008MissionList *pList);                 /* Ov008_LoadMissionListGraphics (pList unused) */
 extern void Ov008_InitMissionListRowSurfaces(Ov008MissionList *pList);                 /* Ov008_InitMissionListRowSurfaces */
 extern void *Ov008_AllocCodeNode(void *pFn);                              /* Ov008_AllocCodeNode */
@@ -123,7 +123,7 @@ int Ov008_MissionListInitStep(Ov008MissionList *pList)
         }
         Ov008_MissionListOpen(pList);
         Ov008_InitMissionListProgress(pList);
-        Ov008_MainMenu_RecalculateMissionSummary();
+        Ov008_WorldMap_RecalculateMissionSummary();
         Ov008_LoadMissionListGraphics(pList);
         Ov008_InitMissionListRowSurfaces(pList);
         pList->pListNode = Ov008_AllocCodeNode(Ov008_FlushMissionListGraphics);

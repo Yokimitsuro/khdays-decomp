@@ -27,7 +27,7 @@ typedef struct Ov015Trigger {
 
 extern Ov015Trigger *Ov002_ClaimPoolEntry(void *pClass, int nSlot);   /* take a piece from the class table */
 extern void strcpy(char *pDst, const char *pSrc);             /* StrCopy */
-extern void Ov002_PushBucketNode(int nBucket, Ov015Trigger *pPiece);  /* register the piece */
+extern void Ov002_PushBucketNode(int nRoom, Ov015Trigger *pPiece);  /* register the piece */
 extern void Ov015_CutsceneStep2(void);                               /* Ov015_CutsceneStep2: the handler block */
 
 Ov015Trigger *Ov015_SpawnTrigger(void *pClass, int nSlot, int nKind, int nField, u8 nBit, VecFx32 *pCentre, int nParam, s8 nShape, VecFx32 *pExtent, const char *pName)

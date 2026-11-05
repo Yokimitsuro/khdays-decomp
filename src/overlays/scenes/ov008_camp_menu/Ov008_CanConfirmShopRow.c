@@ -1,10 +1,10 @@
 /* Ov008_CanConfirmShopRow -- Ov008_CanConfirmShopRow: whether the shop's selected
  * row (record list at ctx+0xc3d0, row index at ctx+0xc3c4) can be confirmed
- * on the current tab (ctx+0xc250).  Buy (tab 0): munny (GameState +0xc)
+ * on the current tab (ctx+0xc250).  Buy (tab 0): the heart points (GameState +0xc)
  * covers the price, the owned count of the item is below the record's cap and
  * the record's lock word (+0x28) is clear.  Sell (tab 1): the item is flagged
  * sellable (item def +0x8e == 1) and at least one copy is unequipped.  Redeem
- * (tab 2): the points total (GameState +0x8) covers the price, the record's
+ * (tab 2): the munny (GameState +0x8) covers the price, the record's
  * count plus the owned count fits under the cap, and the record's
  * requirements are met.  Returns 1 / 0.
  * NOTE: the row is read through the view pointer twice (apRows and nRow); mwcc
@@ -47,8 +47,8 @@ typedef struct Ov008PanelContext {
 
 typedef struct GameState {
     u8  pad_0000[0x8];
-    u32 nPoints;              /* 0x008 */
-    u32 nMunny;               /* 0x00c */
+    u32 nMunny;               /* 0x008: munny */
+    u32 nHeartPoints;         /* 0x00c: heart points */
     u8  pad_0010[0x810 - 0x10];
     u8  aItemCount[0x8d0];    /* 0x810 */
 } GameState;
@@ -75,7 +75,7 @@ int Ov008_CanConfirmShopRow(void)
     pRecord = pView->apRows[pView->nRow];
     switch (nTab) {
     case TAB_BUY:
-        if (gGameState->nMunny >= pRecord->nPrice) {
+        if (gGameState->nHeartPoints >= pRecord->nPrice) {
             nItem = Ov008_GetChildField14OrNeg1(pRecord);
             nCap = Ov008_PanelAlpha(pRecord);
             if (gGameState->aItemCount[nItem] < nCap && pRecord->bLocked == 0) {
@@ -89,7 +89,7 @@ int Ov008_CanConfirmShopRow(void)
         }
         break;
     case TAB_REDEEM:
-        if (gGameState->nPoints >= pRecord->nPrice) {
+        if (gGameState->nMunny >= pRecord->nPrice) {
             nItem = Ov008_GetChildField14OrNeg1(pRecord);
             nCap = Ov008_PanelAlpha(pRecord);
             if (pRecord->nCount + gGameState->aItemCount[nItem] <= (u32)nCap) {

@@ -28,7 +28,7 @@
 
 extern int VEC_Mag();
 extern int VEC_Normalize();
-extern int Ov022_ScaleRowValues();
+extern int Ov022_ScaleMoveDamage();
 extern int Ov022_RunReachHandlers();
 extern int Ov022_PlayEntityVoice();
 
@@ -103,7 +103,7 @@ void Ov044_RequestSpawnAtObject(int *base, Obj *obj, int unused, char *r3p)
     t &= ~2;
     reqB.flag25 = t;
     reqB.b10 = 0;
-    Ov022_ScaleRowValues(ent, 0x12c0, &reqB.o0, &reqB.o1);
+    Ov022_ScaleMoveDamage(ent, 0x12c0, &reqB.o0, &reqB.o1);
 
     if (Ov022_RunReachHandlers(ent, &reqA, &reqB.o0) != 0) {
         flag = 1;

@@ -3,9 +3,11 @@
  *
  * Every field of the stream is one 32-bit word, narrowed to the field it
  * lands in. The header gives the mode and the channel count; the channels
- * are allocated from the default heap and each read in turn: five words,
+ * are allocated from the default heap and each read in turn: five words (a hit's damage
+ * factor, its first and last frame, the push out and up),
  * two flag bits, a level clamped to 3, and a tail whose layout the grid
- * mode picks (mode 0 four words and a halfword and two bytes, mode 1 a
+ * mode picks (mode 0 four words and a halfword and two bytes: the hit's place, its radius and
+ * its spread's cosine, mode 1 a
  * byte, a word and two bytes, mode 2 two bytes and six words). The grid is
  * then reset with every cell cleared.
  */
@@ -17,11 +19,11 @@
 
 /* Ov022ChannelTail0 */
 struct ChannelTail0 {
-    int nA;                      /* 0x00 */
-    int nB;                      /* 0x04 */
-    int nC;                      /* 0x08 */
-    int nD;                      /* 0x0c */
-    u16 nE;                      /* 0x10 */
+    int fxHitX;                  /* 0x00 */
+    int fxHitY;                  /* 0x04 */
+    int fxHitZ;                  /* 0x08 */
+    int fxRadius;                /* 0x0c */
+    u16 nSpreadCos;              /* 0x10 */
     u8 nF;                       /* 0x12 */
     u8 nG;                       /* 0x13 */
 };
@@ -50,11 +52,11 @@ struct ChannelTail2 {
 
 /* Ov022Channel */
 struct Channel {
-    int nA;                      /* 0x00 */
-    int nB;                      /* 0x04 */
-    int nC;                      /* 0x08 */
-    int nD;                      /* 0x0c */
-    int nE;                      /* 0x10 */
+    int fxDamageFactor;          /* 0x00 */
+    int nStartFrame;             /* 0x04 */
+    int nEndFrame;               /* 0x08 */
+    int fxPushOut;               /* 0x0c */
+    int fxPushUp;                /* 0x10 */
     u8 bFlag0 : 1;               /* 0x14 bit 0 */
     u8 bFlag1 : 1;               /* bit 1 */
     u8 nRest14 : 6;
@@ -120,11 +122,11 @@ void Ov022_UnpackChannelGrid(struct ChannelGrid *pGrid, int nUnused, int *pSrc)
     pGrid->pChannels = NNSi_FndAllocFromDefaultExpHeap(pGrid->nCount * sizeof(struct Channel));
     for (i = 0; i < pGrid->nCount; i++) {
         pChannel = &pGrid->pChannels[i];
-        pChannel->nA = pSrc[0];
-        pChannel->nB = pSrc[1];
-        pChannel->nC = pSrc[2];
-        pChannel->nD = pSrc[3];
-        pChannel->nE = pSrc[4];
+        pChannel->fxDamageFactor = pSrc[0];
+        pChannel->nStartFrame = pSrc[1];
+        pChannel->nEndFrame = pSrc[2];
+        pChannel->fxPushOut = pSrc[3];
+        pChannel->fxPushUp = pSrc[4];
         pChannel->bFlag0 = (u8)pSrc[5];
         pChannel->bFlag1 = (u8)pSrc[6];
         pChannel->nLevel = pSrc[7];
@@ -135,11 +137,11 @@ void Ov022_UnpackChannelGrid(struct ChannelGrid *pGrid, int nUnused, int *pSrc)
         switch (pGrid->nMode) {
         case 0:
             pTail0 = &pChannel->tail.t0;
-            pTail0->nA = pSrc[0];
-            pTail0->nB = pSrc[1];
-            pTail0->nC = pSrc[2];
-            pTail0->nD = pSrc[3];
-            pTail0->nE = pSrc[4];
+            pTail0->fxHitX = pSrc[0];
+            pTail0->fxHitY = pSrc[1];
+            pTail0->fxHitZ = pSrc[2];
+            pTail0->fxRadius = pSrc[3];
+            pTail0->nSpreadCos = pSrc[4];
             pTail0->nF = pSrc[5];
             pTail0->nG = pSrc[6];
             pSrc += 7;

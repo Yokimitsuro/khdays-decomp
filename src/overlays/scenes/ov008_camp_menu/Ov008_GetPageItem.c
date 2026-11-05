@@ -1,7 +1,7 @@
 /* Item index of page arg0, or NULL past its count. */
 
 extern unsigned char *Ov008_GetPageTableEntry(int arg0);
-extern char data_ov008_02090504[];
+extern char gOv008ConfigPages[];
 
 void *Ov008_GetPageItem(int arg0, int index)
 {
@@ -11,5 +11,5 @@ void *Ov008_GetPageItem(int arg0, int index)
         return 0;
     }
 
-    return data_ov008_02090504 + (table + index)[3] * 4;
+    return gOv008ConfigPages + (table + index)[3] * 4;
 }

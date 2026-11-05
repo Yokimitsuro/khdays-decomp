@@ -18,7 +18,7 @@ extern int data_ov094_020bc240;
 
 extern void Ov094_PublishAttachAnchor(int self);
 extern void Ov094_EnterStateAndPlayVoice(int self, void *p);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern void Ov094_BindAnimsWithIndex(int self, void *p, int flag);
 extern void Ov094_ReleaseGlobalSlotIfSet(int self, void *p);
 extern void Ov094_BindDefaultAnimsAtBase(int self, void *p);

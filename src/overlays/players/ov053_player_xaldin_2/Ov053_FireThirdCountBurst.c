@@ -36,7 +36,7 @@ struct Params {
 };
 
 extern void func_ov022_020ad44c(struct Emit *emit, char *self);
-extern void Ov022_ScaleRowValues(char *self, int spin, void *a, void *b);
+extern void Ov022_ScaleMoveDamage(char *self, int spin, void *a, void *b);
 extern int Ov022_RunCommandHandlers(char *self, struct Emit *emit, void *params);
 extern void Ov022_MarshalNetworkRecord(char *self, int record, VecFx32 *at, int scale, unsigned int angle, int kind);
 extern short data_0203d210[];
@@ -64,7 +64,7 @@ void *Ov053_FireThirdCountBurst(char *self)
     emit.nRange = 0x1000;
     emit.pAnchor = self + 0x2bd4;
     emit.nFlags28 = 0;
-    Ov022_ScaleRowValues(self, 0x2100, &prm.pA, &prm.pB);
+    Ov022_ScaleMoveDamage(self, 0x2100, &prm.pA, &prm.pB);
     prm.uFlags = 0x425;
     prm.w0c = 0;
     prm.vExtent.x = 0xa00;

@@ -11,7 +11,7 @@
 #include "game/engine.h"
 
 extern unsigned short *Ov008_GetSharedRecord(void);
-extern void  Ov008_RecordInputCoords(unsigned short *init);
+extern void  Ov008_StoreSeatCampRecord(unsigned short *init);
 extern void  Ov008_SetCtxField9678(int page);
 
 typedef struct { unsigned short a, b, c; } Cursor0205714c;
@@ -25,10 +25,10 @@ void Ov008_PrimeSubSceneFromCursor(int arg) {
     init = *(Cursor0205714c *)cur;
 
     if (arg < 0) {
-        Ov008_RecordInputCoords(0);
+        Ov008_StoreSeatCampRecord(0);
         return;
     }
     Ov008_SetCtxField9678(arg);
     *((char *)&init + 3) = (char)arg;
-    Ov008_RecordInputCoords((unsigned short *)&init);
+    Ov008_StoreSeatCampRecord((unsigned short *)&init);
 }

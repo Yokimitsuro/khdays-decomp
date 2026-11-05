@@ -80,7 +80,7 @@ extern int   Ov002_PlaceElementNode(void *pPiece, void *pNode, int *pPlace, int 
                                  int nParamA, int nParamB, int nParamC, int nFacing, int nFlag); /* place the node */
 extern void  Ov002_BuildSpawnPosition(VecFx32 *pOut, VecFx32 *pPos, int *pPlace);  /* start position */
 extern void  MIi_CpuClear16(u16 nData, void *pDst, u32 nSize);
-extern void  Ov002_PushBucketNode(int nBucket, Ov015Pickup *pPiece);          /* register the piece */
+extern void  Ov002_PushBucketNode(int nRoom, Ov015Pickup *pPiece);          /* register the piece */
 
 Ov015Pickup *Ov015_SpawnPickup(Ov015PickupDef *pClass, u16 nSlot, u16 nKind, u16 nField, u8 nBit,
                                  u16 nField2, u8 nBit2, VecFx32 *pPos, short nFacing, int nKeys, short *aKey)

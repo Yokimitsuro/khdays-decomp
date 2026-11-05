@@ -27,7 +27,7 @@ typedef struct Ov008SlotInfo {
 
 #define MISSION_CONTEXT (data_ov008_02090f24.pContext)
 extern void  MI_CpuFill8(void *pDst, int nValue, u32 nSize);
-extern int   Ov008_MenuEntryToSlot(int nEntry);                     /* Ov008_MenuEntryToSlot */
+extern int   Ov008_SelectPlaceToCharacter(int nEntry);                     /* Ov008_SelectPlaceToCharacter */
 extern void  Ov008_MissionResolveDuplicateIds(void);                           /* lobby refresh */
 extern void *Ov008_RefreshListView(void);                           /* next lobby state */
 
@@ -48,7 +48,7 @@ static inline void Ov008_ForwardJoinedSlots(MissionContext *pCtx)
         MI_CpuFill8(&info, 0, sizeof(info));
         if (pPacket[i].flags.selectable) {
             info.nKind = INFO_KIND_JOINED;
-            info.nSlot = Ov008_MenuEntryToSlot(pPacket[i].characterId);
+            info.nSlot = Ov008_SelectPlaceToCharacter(pPacket[i].characterId);
             CopyToSlotTable8(&info, nSlot);
             nSlot++;
         }

@@ -1,7 +1,7 @@
 /*
  * Ov002_StreamFormattedLine - format a result line and stream it into the staging buffer.
  * Called from the ov002 gameplay path. Builds a text line for param_1 via
- * Ov002_FormatResultLine into a 12-byte stack scratch, encodes it with MsgArchive_FindEntryByName (against
+ * Ov002_FormatEventScriptName into a 12-byte stack scratch, encodes it with MsgArchive_FindEntryByName (against
  * the sub-object at ctx+4), then packs a descriptor word and hands it to Stream_DecodeIntoStagingBuffer
  * together with the context's staging buffer (ctx+8) and its tail pointer (ctx+0x859c).
  *
@@ -12,7 +12,7 @@
 
 #include "nitro/types.h"
 
-extern void Ov002_FormatResultLine(int a, char *out);
+extern void Ov002_FormatEventScriptName(int a, char *out);
 extern u32  MsgArchive_FindEntryByName(int a, char *b);
 extern void Stream_DecodeIntoStagingBuffer(u32 *dst, u32 desc, u32 *src, u8 **staging);
 extern int  data_ov002_0207fa00;
@@ -23,7 +23,7 @@ void Ov002_StreamFormattedLine(int param_1, u32 *param_2)
     char local[12];
     u32 v;
 
-    Ov002_FormatResultLine(param_1, local);
+    Ov002_FormatEventScriptName(param_1, local);
     v = MsgArchive_FindEntryByName(*(int *)(ctx + 4), local);
     Stream_DecodeIntoStagingBuffer(
         (u32 *)(ctx + 8),

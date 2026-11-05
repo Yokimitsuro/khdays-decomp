@@ -11,7 +11,7 @@
 
 typedef struct { int m[9]; } Mtx33;
 
-extern int Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern int Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern void BindAnimTrack(void *animation, int track, void *table, short mode);   /* BindAnimTrack */
 extern void Anim_SetFrameWrapped(void *animation, int track, int frame);                /* Anim_SetFrameWrapped */
 extern void MTX_Identity33_(Mtx33 *m);

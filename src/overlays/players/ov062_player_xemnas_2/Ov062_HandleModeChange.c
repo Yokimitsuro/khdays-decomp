@@ -5,7 +5,7 @@
  * as mode 1 and then recorded as the current mode (+0x6bc) afterwards. */
 extern void Ov062_BindMissionBlock(char *self);
 extern void Ov062_ActivateAndStep(char *self, char *pBlock);
-extern void Ov022_PlayEntityVoice(char *self, int nSound, int nVariant);
+extern void Ov022_PlayEntityVoice(char *self, int nSeqArc, int nSeq);
 extern void Ov062_EnterState4(char *self, char *pBlock);
 extern void Ov022_SetAnimState(char *self, int nState);
 extern char *data_ov062_020b80e0;

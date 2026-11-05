@@ -20,7 +20,7 @@ extern void Ov002_BuildSpawnPosition(VecFx32 *,VecFx32 *,Ov002PlaceParams *);
 extern Ov002StateFn Ov002_OnPieceDefeated;
 extern void Ov002_PushBucketNode(int,Ov002PieceElement *);
 extern int Ov002_List_SetBit(int,int);
-Ov002PieceElement *Ov002_CreatePlacedPiece(Ov002PieceClass *pClass,u16 nEntry,int nBucket,VecFx32 *pPosition,short nAngle,short nDropScale,u16 nRequestId,u8 nRequestSlot)
+Ov002PieceElement *Ov002_CreatePlacedPiece(Ov002PieceClass *pClass,u16 nEntry,int nRoom,VecFx32 *pPosition,short nAngle,short nDropScale,u16 nRequestId,u8 nRequestSlot)
 {
     Ov002PlaceParams placement;
     VecFx32 vPlaced;
@@ -38,15 +38,15 @@ Ov002PieceElement *Ov002_CreatePlacedPiece(Ov002PieceClass *pClass,u16 nEntry,in
     pPiece->bDropsOn=0;
     pPiece->nAnimCounter=0;
     pPiece->nReplays=0;
-    pPiece->bBucket=nBucket;
+    pPiece->bBucket=nRoom;
     pPiece->pfnPhase=Ov002_OnPieceDefeated;
     pPiece->wFlags|=8;
     pPiece->wFlags|=0x40;
     pPiece->wRequestId=nRequestId;
     pPiece->bRequestSlot=nRequestSlot;
     pPiece->bStateDirty=0;
-    Ov002_PushBucketNode(nBucket,pPiece);
-    if(pClass->nRequestA==0x2b)Ov002_List_SetBit(nBucket,2);
-    else Ov002_List_SetBit(nBucket,1);
+    Ov002_PushBucketNode(nRoom,pPiece);
+    if(pClass->nRequestA==0x2b)Ov002_List_SetBit(nRoom,2);
+    else Ov002_List_SetBit(nRoom,1);
     return pPiece;
 }

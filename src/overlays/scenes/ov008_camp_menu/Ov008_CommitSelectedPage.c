@@ -10,7 +10,7 @@
 
 extern void  Ov008_ResetDisplayForPageList(void);
 extern void  Ov008_ReleaseMenuUi(void);
-extern void  Ov008_RefreshSaveSlotWidget(int a);
+extern void  Ov008_RefreshSeatCharacter(int a);
 extern int   Slot4_GetIfOccupied(int slot);
 extern void  Ov008_ResetPartyMemberAndLayout(int a, int b);
 extern void  Ov008_InitCampaignMenuContext(int a);
@@ -32,7 +32,7 @@ void *Ov008_CommitSelectedPage(int p1, int p2, int p3, int p4) {
     Ov008_ResetDisplayForPageList();
     *(int *)(data_ov008_02090f00 + 0x18) = 3;
     Ov008_ReleaseMenuUi();
-    Ov008_RefreshSaveSlotWidget(Session_GetLocalPlayerIndex());
+    Ov008_RefreshSeatCharacter(Session_GetLocalPlayerIndex());
     SetSelectionIfChanged(0x1f);
     InvokeSubStructAndStampByte(0x40, 10);
     slot = Slot4_GetIfOccupied(Session_GetLocalPlayerIndex());

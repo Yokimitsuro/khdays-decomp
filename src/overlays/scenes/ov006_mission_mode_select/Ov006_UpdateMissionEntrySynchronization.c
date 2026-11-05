@@ -14,7 +14,7 @@ typedef struct {
 } MissionResourceSlot;
 
 extern void MI_CpuFill8(void *dst, int value, u32 size);
-extern int Ov006_MenuEntryToSlot(int characterId);
+extern int Ov006_SelectPlaceToCharacter(int characterId);
 extern int Ov006_CanAdvancePastIntro(void);
 extern void Ov006_MissionResolveDuplicateIds(void);
 extern void Ov006_GetIdleHandlerGated(void);
@@ -41,7 +41,7 @@ MissionCallback Ov006_UpdateMissionEntrySynchronization(void) {
                 MI_CpuFill8(&slot, 0, sizeof(slot));
                 if (entries[entryIndex].flags.selectable) {
                     slot.active = 1;
-                    slot.resourceSlot = Ov006_MenuEntryToSlot(
+                    slot.resourceSlot = Ov006_SelectPlaceToCharacter(
                         entries[entryIndex].characterId);
                     CopyToSlotTable8(&slot, outputIndex);
                     outputIndex = (outputIndex + 1) & 0xff;
@@ -99,7 +99,7 @@ MissionCallback Ov006_UpdateMissionEntrySynchronization(void) {
                         MI_CpuFill8(&slot, 0, sizeof(slot));
                         if (entries[entryIndex].flags.selectable) {
                             slot.active = 1;
-                            slot.resourceSlot = Ov006_MenuEntryToSlot(
+                            slot.resourceSlot = Ov006_SelectPlaceToCharacter(
                                 entries[entryIndex].characterId);
                             CopyToSlotTable8(&slot, outputIndex);
                             outputIndex = (outputIndex + 1) & 0xff;
@@ -141,7 +141,7 @@ MissionCallback Ov006_UpdateMissionEntrySynchronization(void) {
                         MI_CpuFill8(&slot, 0, sizeof(slot));
                         if (entries[entryIndex].flags.selectable) {
                             slot.active = 1;
-                            slot.resourceSlot = Ov006_MenuEntryToSlot(
+                            slot.resourceSlot = Ov006_SelectPlaceToCharacter(
                                 entries[entryIndex].characterId);
                             CopyToSlotTable8(&slot, outputIndex);
                             outputIndex = (outputIndex + 1) & 0xff;

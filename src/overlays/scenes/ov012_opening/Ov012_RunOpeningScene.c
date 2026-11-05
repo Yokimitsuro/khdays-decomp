@@ -16,7 +16,7 @@ extern int GetMasterBrightnessMain(void);
 extern int GetMasterBrightnessSub(void);
 extern void Obj_ResetBothSubBlocksAndArm(void *script);
 extern int Game_RunActionScript(void *script);
-extern void SetWordAt0x588To1(void *script);
+extern void ActionScript_RequestSkip(void *script);
 extern void Session_SetMoviePlaying(int value);
 extern void MsgQueue_SetMoviePlaying(int value);
 extern int Ov012_IsCounterAt16(void);
@@ -54,7 +54,7 @@ void *Ov012_RunOpeningScene(void) {
                     if ((*(u16 *)(context + 2) & 4) != 0) {
                         if (Ov012_IsCounterAt16() != 0) {
                             if ((*(u16 *)(context + 2) & 1) != 0) {
-                                SetWordAt0x588To1(context + 4);
+                                ActionScript_RequestSkip(context + 4);
                             }
                             break;
                         }
@@ -101,7 +101,7 @@ void *Ov012_RunOpeningScene(void) {
                     OS_WaitVBlankIntr();
                 }
                 if ((*(u16 *)(context + 2) & 1) != 0) {
-                    SetWordAt0x588To1(context + 4);
+                    ActionScript_RequestSkip(context + 4);
                 }
             }
             Ov024_MobiClip_StopPlayback();

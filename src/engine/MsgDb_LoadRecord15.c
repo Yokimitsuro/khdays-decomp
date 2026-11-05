@@ -11,7 +11,7 @@
 typedef struct DbRecord {
     u16 a0;                             /* +0x00 */
     u16 a2;                             /* +0x02 */
-    u16 a4;                             /* +0x04 */
+    u16 nIconId;                        /* +0x04: the panel's picture + 1 (ui/pnl/3d_&.pak.z, the shop's 2D sheet) */
     s16 a6;                             /* +0x06 */
     s8 b8;                              /* +0x08 */
     u8 b9;                              /* +0x09 */
@@ -50,7 +50,7 @@ typedef struct DbObject {
     int index;                          /* +0x14 */
     int a0;                             /* +0x18 */
     int a2;                             /* +0x1c */
-    u16 a4;                             /* +0x20 */
+    u16 nIconId;                        /* +0x20: the record's +0x04, 1-based */
     s16 a6;                             /* +0x22 */
     int b8;                             /* +0x24 */
     u8 b9;                              /* +0x28 */
@@ -112,7 +112,7 @@ int MsgDb_LoadRecord15(DbObject **out, int id, int keep)
         (*out)->index = id;
         (*out)->a0 = rec->a0;
         (*out)->a2 = rec->a2;
-        (*out)->a4 = rec->a4;
+        (*out)->nIconId = rec->nIconId;
         (*out)->a6 = rec->a6;
         (*out)->bb = rec->bb;
         (*out)->bc = rec->bc;

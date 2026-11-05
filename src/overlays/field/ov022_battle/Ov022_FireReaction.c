@@ -61,7 +61,7 @@ extern int Ov022_KindToGroup(int nKind);
 extern int func_ov022_02093a7c(int nKind);
 extern void Ov022_ApplyScaledDamage(struct Actor *pActor, int nDamage, int nScale);
 extern void func_ov022_02093900(struct Actor *pActor, int nLayers);
-extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nA, int nCue);
+extern void Ov022_PlayEntityVoice(struct Actor *pActor, int nSeqArc, int nSeq);
 extern void Ov022_PlayCueForKind(struct Actor *pActor, int nKind, int nA);
 extern void Ov022_DriveOwnedSound(struct Actor *pActor, int nParam, int nKind,
                                 int nA);

@@ -316,7 +316,7 @@ src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_BelowMax.c:
     complete
     .text       start:0x0204e788 end:0x0204e7ac
 
-src/overlays/scenes/ov005_mission_result/Ov005_IsEncounterEligible.c:
+src/overlays/scenes/ov005_mission_result/Ov005_IsMissionModeRowListed.c:
     complete
     .text       start:0x0204e7ac end:0x0204e900
 
@@ -324,15 +324,15 @@ src/overlays/scenes/ov005_mission_result/Ov005_CanTriggerActionInRange.c:
     complete
     .text       start:0x0204e900 end:0x0204e980
 
-src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_KindZero.c:
+src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_StoryRow.c:
     complete
     .text       start:0x0204e980 end:0x0204e994
 
-src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_KindNonZero.c:
+src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_MissionModeEntry.c:
     complete
     .text       start:0x0204e994 end:0x0204e9a8
 
-src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_Kind4Id10.c:
+src/overlays/scenes/ov005_mission_result/Ov005_RecordFilter_TutorialRow.c:
     complete
     .text       start:0x0204e9a8 end:0x0204e9cc
 

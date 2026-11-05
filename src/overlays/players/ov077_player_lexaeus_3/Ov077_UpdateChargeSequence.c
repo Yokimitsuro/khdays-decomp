@@ -16,7 +16,7 @@ extern void Ov077_SetSequenceAnimation(int p2, int a);
 extern void Ov077_BindDefaultAnims(int self, void *block);
 extern void Ov077_RearmSequenceMode(int self, void *block, int a);
 extern unsigned short Sequence_UpdateTracks(void *p, int a);
-extern void Ov022_PlayEntityVoice(int self, int a, int b);
+extern void Ov022_PlayEntityVoice(int self, int nSeqArc, int nSeq);
 extern int Ov022_IsSlotReady(void *p);
 
 extern int data_ov077_020b9b80;
