@@ -11,7 +11,7 @@ extern void Session_Init_2(void);
 extern void CloseDebugOverlay(void);
 extern void MsgQueue_Init_2(void);
 extern void Session_Shutdown(void);
-extern int data_0204c024;   /* the main heap arena the three tasks allocate from */
+extern int gMainHeap;   /* the main heap arena the three tasks allocate from */
 
 /* A 16-colour BGR555 palette (black, white, black, red, green, blue, yellow, magenta, cyan, ...)
  * loaded by ov000 0204d358 and ov027 02083ccc. */
@@ -28,7 +28,7 @@ GameClassDescriptor data_0204297c = {
     Session_Init,  /* pfnCtor */
     Session_Destroy,  /* pfnMethod */
     0x30,  /* nAuxSize */
-    &data_0204c024,  /* pArena */
+    &gMainHeap,  /* pArena */
 };
 
 GameClassDescriptor data_02042990 = {
@@ -37,7 +37,7 @@ GameClassDescriptor data_02042990 = {
     Session_Init_2,  /* pfnCtor */
     CloseDebugOverlay,  /* pfnMethod */
     0x74,  /* nAuxSize */
-    &data_0204c024,  /* pArena */
+    &gMainHeap,  /* pArena */
 };
 
 GameClassDescriptor data_020429a4 = {
@@ -46,7 +46,7 @@ GameClassDescriptor data_020429a4 = {
     MsgQueue_Init_2,  /* pfnCtor */
     Session_Shutdown,  /* pfnMethod */
     0x760, /* nAuxSize */
-    &data_0204c024,  /* pArena */
+    &gMainHeap,  /* pArena */
 };
 
 /* Two small tables read by 02031600 / 02031618. */

@@ -1,13 +1,13 @@
 /* Frees every session buffer and releases both service instances. */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
-extern void ExpHeap_Free(u32 a, u32 b);
 extern void Session_ShutdownHookNoOp(void);
 extern void VeneerTo_Obj_Destroy(void *p);
 
 extern u32 **gMsgQueue;
-extern u32 *data_0204c024;
+extern GameHeap *gMainHeap;
 
 void Session_Shutdown(void)
 {
@@ -29,7 +29,7 @@ void Session_Shutdown(void)
             r5 = 0;
             do {
                 p = (u32 *)(r7 + r6[1] + r5);
-                ExpHeap_Free(p[1], (u32)data_0204c024);
+                ExpHeap_Free((void *)p[1], gMainHeap);
                 r4++;
                 r5 += 0xc;
             } while (r4 < 2);
@@ -37,7 +37,7 @@ void Session_Shutdown(void)
             j++;
         } while (j < (int)r6[2]);
     }
-    ExpHeap_Free(r6[1], (u32)data_0204c024);
+    ExpHeap_Free((void *)r6[1], gMainHeap);
     Session_ShutdownHookNoOp();
     r5 = 0x758;
     r4 = 0;

@@ -4,27 +4,27 @@
  * global (gObjSystem[1]) while its destructor callback (obj[6], if any) runs, restores the
  * previous value, unlinks it from the object registry (Obj_UnlinkNode), frees its auxiliary buffer
  * (obj[8]) if present, frees the object itself through the heap wrapper (ExpHeap_Free with
- * data_0204c024[0]), leaves the arena, and returns the object's saved field obj[3].
+ * gMainHeap[0]), leaves the arena, and returns the object's saved field obj[3].
  *
  * ARM. Matching notes: cache the destructor pointer in a local (obj[6] is loaded once for the null
  * check AND the call) and declare the saved-global local BEFORE the arena handle so mwcc keeps the
  * object in r5 and the saved value in r6 (declaring them the other way swaps the pair).
  */
 
-extern int  Heap_SetCurrent(int arena);      /* enter/leave scoped allocator arena */
+#include "game/heap.h"
+
 extern void Obj_UnlinkNode(int node);        /* Obj_UnlinkNode */
 extern void NNSi_FndFreeFromDefaultHeap(void *p);
-extern void ExpHeap_Free(void *obj, void *heap);
 extern int  gObjSystem[];
-extern int  data_0204c024[];
+extern GameHeap *gMainHeap;
 
 int Obj_Destroy(int *param_1)
 {
     int uVar3;
     void (*cb)(void);
-    int iVar2;
+    GameHeap *previous;
 
-    iVar2 = Heap_SetCurrent(param_1[7]);
+    previous = Heap_SetCurrent((GameHeap *)param_1[7]);
     uVar3 = gObjSystem[1];
     gObjSystem[1] = (int)param_1;
     cb = (void (*)(void))param_1[6];
@@ -38,7 +38,7 @@ int Obj_Destroy(int *param_1)
     if (param_1[8] != 0) {
         NNSi_FndFreeFromDefaultHeap((void *)param_1[8]);
     }
-    ExpHeap_Free(param_1, (void *)data_0204c024[0]);
-    Heap_SetCurrent(iVar2);
+    ExpHeap_Free(param_1, gMainHeap);
+    Heap_SetCurrent(previous);
     return uVar3;
 }

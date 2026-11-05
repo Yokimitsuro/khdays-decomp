@@ -3,14 +3,15 @@
  * descriptor's constructor with `obj` as the current object; the ctor's return becomes the
  * object's initial per-frame state fn (obj+0x14). Descriptor: +0/+2 u16 magics, +4 ctor,
  * +8 method, +0xc auxSize, +0x10 arenaRef. */
-extern int Heap_SetCurrent(int arena);
-extern void *AllocFromExpHeapWrapper(int size, int arena);
+
+#include "game/heap.h"
 extern void MI_CpuFill8(void *dst, int val, int n);
 extern void Obj_LinkNode(int obj);
 extern char gObjSystem;
 
 int *RunClassConstructor(int *obj, unsigned short *desc, int ctorArg) {
-    int def, saved, token;
+    int def, saved;
+    GameHeap *token;
     obj[0] = 0;
     obj[1] = ((int *)&gObjSystem)[1];
     *(unsigned short *)((char *)obj + 0x10) = desc[0];
@@ -24,11 +25,11 @@ int *RunClassConstructor(int *obj, unsigned short *desc, int ctorArg) {
     obj[5] = 0;
     obj[6] = *(int *)((char *)desc + 8);
     obj[10] = 0;
-    token = Heap_SetCurrent(obj[7]);
+    token = Heap_SetCurrent((GameHeap *)obj[7]);
     if (obj[9] == 0) {
         obj[8] = 0;
     } else {
-        obj[8] = (int)AllocFromExpHeapWrapper(obj[9], obj[7]);
+        obj[8] = (int)AllocFromExpHeapWrapper(obj[9], (GameHeap *)obj[7]);
         MI_CpuFill8((void *)obj[8], 0, obj[9]);
     }
     Obj_LinkNode((int)obj);

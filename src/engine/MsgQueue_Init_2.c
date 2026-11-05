@@ -1,6 +1,7 @@
 #include "nitro/types.h"
 
 #include "game/class_descriptor.h"
+#include "game/heap.h"
 #pragma thumb on
 /* MsgQueue_Init_2 = MsgQueue_Init (THUMB). Sets up the message-queue context: it lives at the base of
  * the current root heap and is published in gMsgQueue. The queue gets two entries (0x20 bytes
@@ -35,13 +36,11 @@ typedef struct MsgQueueClassIds {
 } MsgQueueClassIds;
 
 extern MsgQueueCtx *NNSi_FndGetCurrentRootHeap(void);
-extern void *AllocFromExpHeapWrapper(u32 size, int **heap);               /* AllocFromExpHeapWrapper */
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, int **heap);
 extern void Table6_ResetAll(void);                                /* Table6_ResetAll */
 extern int InstantiateClass(const GameClassDescriptor *desc, int param);  /* InstantiateClass */
 extern void MsgQueue_GetHeap(void);                                /* MsgQueue_GetHeap */
 extern MsgQueueCtx *gMsgQueue;
-extern int **data_0204c024;
+extern GameHeap *gMainHeap;
 extern const GameClassDescriptor data_02042110;
 extern const MsgQueueClassIds data_02042108;
 
@@ -60,10 +59,10 @@ void *MsgQueue_Init_2(void)
     ctx[n] = NNSi_FndGetCurrentRootHeap();
     gMsgQueue = ctx[n];
     ctx[n]->count = 2;
-    ctx[n]->entries = AllocFromExpHeapWrapper(ctx[n]->count * sizeof(MsgQueueEntry), data_0204c024);
+    ctx[n]->entries = AllocFromExpHeapWrapper(ctx[n]->count * sizeof(MsgQueueEntry), gMainHeap);
     for (i = 0; i < ctx[n]->count; i++) {
         for (j = 0; j < 2; j++) {
-            ctx[n]->entries[i].slots[j].pBuffer = ExpHeap_AllocOrDefault(0x1e0, 0x20, data_0204c024);
+            ctx[n]->entries[i].slots[j].pBuffer = ExpHeap_AllocOrDefault(0x1e0, 0x20, gMainHeap);
             ctx[n]->entries[i].slots[j].writeOffset = 0;
             ctx[n]->entries[i].slots[j].state = 0;
         }

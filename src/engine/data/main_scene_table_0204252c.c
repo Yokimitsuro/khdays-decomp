@@ -20,7 +20,7 @@ typedef struct SceneEntry {
 
 extern void Boot_InitScene(void);   /* BootTask_Construct */
 extern void func_02020974(void);
-extern int data_0204c024;          /* the main heap arena */
+extern int gMainHeap;          /* the main heap arena */
 extern int gOv000TitleSceneClass, gOv002FieldSceneClass, data_ov003_0204f8e4, gOv004CalendarSceneClass,
            gOv005MissionResultSceneClass, gOv006MissionSelectSceneClass, data_ov011_0205e8a0, data_ov006_02056220,
            gOv007MonologueSceneClass, gOv012OpeningSceneClass, gOv010ConnectionErrorSceneClass, gOv008MissionCampSceneClass;
@@ -36,7 +36,7 @@ GameClassDescriptor gBootTaskClass = {
     Boot_InitScene,  /* pfnCtor */
     func_02020974,  /* pfnMethod */
     8,     /* nAuxSize */
-    &data_0204c024,  /* pArena */
+    &gMainHeap,  /* pArena */
 };
 
 SceneEntry gSceneTable[20] = {

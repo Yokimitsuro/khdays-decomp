@@ -10,6 +10,7 @@
 
 #include "nitro/types.h"
 #include "nitro/fx_types.h"
+#include "game/heap.h"
 
 typedef struct Fx32Pair {
     int  x;                   /* 0x00 */
@@ -147,7 +148,6 @@ extern void  ReleaseField74AndCleanup(Ov027Model *pModel);                     /
 extern void  NNSi_FndFreeFromDefaultHeap(void *pBlock);
 extern void  ZeroHalfThenFree(void *pArchive);                         /* close an archive */
 extern void  TileTextRenderer_Destroy(void *pText);                            /* TileText_Release */
-extern void  FontResource_Destroy(void *pFont);                            /* Font_Release */
 extern void  Gfx_Reset2DEngines(void);                                   /* GX_Init */
 extern int   Session_GetLocalPlayerIndex(void);                                   /* Session_GetLocalPlayerIndex */
 extern void  Ov002_PauseMissionScene(void);                             /* Session_End */

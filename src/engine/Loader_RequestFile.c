@@ -14,7 +14,6 @@ extern char *Msg_BuildLangPath(char *name);
 extern int FS_OpenFile(void *file, const char *path);
 extern void *Loader_SetupLZDecompress(
     char *self, void *file, int existing, int maxSize, int **heap, int id);
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, int **heapPP);
 extern int FS_CloseFile(char *file);
 extern int OS_SendMessage(char *q, void *msg, int flags);
 extern int gFileLoader[];
@@ -63,7 +62,7 @@ void *Loader_RequestFile(const void *data, int id)
         self[1] = 1;
     } else {
         self[11] = self[4] - self[3];
-        self[10] = (int)ExpHeap_AllocOrDefault(self[11], 0x20, (int **)gFileLoader[5]);
+        self[10] = (int)ExpHeap_AllocOrDefault(self[11], 0x20, (GameHeap *)gFileLoader[5]);
         self[1] = 0;
     }
 

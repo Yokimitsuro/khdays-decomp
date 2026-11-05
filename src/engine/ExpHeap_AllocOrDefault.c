@@ -1,10 +1,12 @@
-/* Allocates memory with the given alignment from the given expanded heap, or from the default game
- * heap when none is given. */
+/* Allocates memory with the given alignment from the given game heap's expanded heap, or from the
+ * current heap when none is given. */
 
-extern void *NNS_FndAllocFromExpHeapEx(int heap, unsigned size, int align);
-extern int **gCurrentHeap;
+#include "game/heap.h"
 
-void *ExpHeap_AllocOrDefault(unsigned size, int align, int **heapPP) {
-    if (heapPP == 0) heapPP = gCurrentHeap;
-    return NNS_FndAllocFromExpHeapEx(*(int *)heapPP, size, align);
+extern void *NNS_FndAllocFromExpHeapEx(struct NNSiFndHeapHead *heap, u32 size, int alignment);
+extern GameHeap *gCurrentHeap;
+
+void *ExpHeap_AllocOrDefault(u32 size, int alignment, GameHeap *heap) {
+    if (heap == 0) heap = gCurrentHeap;
+    return NNS_FndAllocFromExpHeapEx(heap->handle, size, alignment);
 }

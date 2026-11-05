@@ -13,6 +13,7 @@
  */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
 typedef struct {
     u16 palette[2];
@@ -54,8 +55,6 @@ static inline u16 PriRet(volatile u16 *reg, int p) {
 }
 
 extern Ov010Context *NNSi_FndGetCurrentRootHeap(void);
-extern int Heap_GetCurrent(void);
-extern void Heap_SetCurrent(int value);
 extern void Gfx_Reset2DEngines(void);
 extern void SetGameMode(int value);
 extern void GX_SetBankForBG(int bank);
@@ -79,7 +78,7 @@ extern void Ov010_TitleBootStep(void);
 void *Ov010_TitleSceneInit(u32 parameter) {
     InitFrame frame;
     Ov010Context *context;
-    int previous_state;
+    GameHeap *previous_state;
     u32 bg3cnt;
     void *buffer;
 

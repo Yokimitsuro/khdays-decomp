@@ -1,9 +1,12 @@
-/* Frees a block to the given expanded heap, or to the current heap when none is given. */
+/* Frees a block to the given game heap's expanded heap, or to the current heap when none is
+ * given. */
 
-extern int NNS_FndFreeToExpHeap();
-extern int gCurrentHeap;
+#include "game/heap.h"
 
-int ExpHeap_Free(int block, int *heap) {
-    if (heap == 0) heap = *(int **)&gCurrentHeap;
-    return NNS_FndFreeToExpHeap(*heap, block);
+extern int NNS_FndFreeToExpHeap(struct NNSiFndHeapHead *heap, void *block);
+extern GameHeap *gCurrentHeap;
+
+int ExpHeap_Free(void *block, GameHeap *heap) {
+    if (heap == 0) heap = gCurrentHeap;
+    return NNS_FndFreeToExpHeap(heap->handle, block);
 }

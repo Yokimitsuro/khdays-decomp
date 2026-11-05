@@ -30,6 +30,7 @@
 #include "nitro/os_types.h"
 
 #include "game/scene.h"
+#include "game/heap.h"
 typedef u32 FSOverlayID;
 
 extern u32 OVERLAY_1_ID[1];
@@ -48,7 +49,6 @@ extern void  OS_GetOwnerInfo(OSOwnerInfo *info);
 extern void  Msg_SetLanguage(int language, int unused);
 extern int   func_02016264(void *list);           /* init global list             */
 extern int   FS_TryLoadTable(int a, int b);       /* 0x0200b100  resource table   */
-extern int   AllocFromExpHeapWrapper(int handle, int arena);
 extern void  Obj_InitSystem(void);
 extern void  Callbacks_Init(void);
 extern void  SoundCtx_Init(void);
@@ -84,7 +84,7 @@ extern void  SetMasterBrightnessSub(int brightness);
 /* ---- globals ---- */
 extern unsigned char data_027e0060;   /* current scene id (0 = none)              */
 extern void         *data_027e0350;   /* boot resource list head                  */
-extern int           data_0204c024;   /* default arena ref                        */
+extern GameHeap     *gMainHeap;   /* the main heap                            */
 extern unsigned char data_0204c215;   /* "present pending" flag                   */
 extern unsigned char gPauseMode;   /* display mode byte (0/1/2)                */
 extern unsigned char gObjSystem;   /* frame-rate/skip mode byte                */
@@ -133,7 +133,7 @@ int main(void) {
 
     /* --- 3. boot resource tables + root/boot task --- */
     func_02016264(&data_027e0350);
-    data_020442a0.handle = AllocFromExpHeapWrapper(FS_TryLoadTable(0, 0), data_0204c024);
+    data_020442a0.handle = (int)AllocFromExpHeapWrapper(FS_TryLoadTable(0, 0), gMainHeap);
     FS_TryLoadTable(data_020442a0.handle, FS_TryLoadTable(0, 0));
     Obj_InitSystem();
     data_0204c215 = 0;

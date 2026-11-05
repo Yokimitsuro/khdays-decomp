@@ -1,0 +1,12 @@
+# The game's two heaps (DECOMP_FINDINGS 1.5): Ov001_CreateMainAndSubHeaps makes a main expanded
+# heap of 0xc8000 bytes from the main arena's low end and a sub heap of the rest; ov001's boot keeps
+# each with its allocator (a 0x14-byte GameHeap: the heap handle, then the NNSFndAllocator) and
+# points gMainHeap and gSubHeap at them. The sub heap is the default one gCurrentHeap starts on and
+# Heap_SetCurrent(0) returns to.
+data_0204c024	gMainHeap	main
+data_0204c02c	gSubHeap	main
+data_0204c030	gSubHeapHandle	main
+data_0204c034	gSubHeapAllocator	main
+data_0204c044	gMainHeapHandle	main
+data_0204c048	gMainHeapAllocator	main
+func_ov001_0204cf5c	Ov001_InitGameHeaps	ov001

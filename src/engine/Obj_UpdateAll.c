@@ -32,7 +32,7 @@ void Obj_UpdateAll(int paused)
             break;
         default:
             if (paused == 0 || (obj[0] & 4)) {
-                int arena = Heap_SetCurrent(obj[7]);
+                GameHeap *arena = Heap_SetCurrent((GameHeap *)obj[7]);
                 int cb = ((int (*)(void))((int *)gObjSystem[1])[5])();
 
                 Heap_SetCurrent(arena);

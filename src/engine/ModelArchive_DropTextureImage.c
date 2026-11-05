@@ -2,6 +2,7 @@
  * archive's block is shrunk to end where its texture member's images start (texInfo.ofsTex, +0x14
  * of the texture block). */
 
+
 extern int Archive_GetMember(int a, int b, int c);
 extern int NNS_G3dGetTex(int entry);
 extern void ExpHeap_ResizeBlock(int a, int b, int c, int d);

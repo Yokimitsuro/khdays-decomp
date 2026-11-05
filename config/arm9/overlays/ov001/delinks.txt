@@ -30,6 +30,6 @@ src/overlays/system/ov001_boot/Ov001_CreateMainAndSubHeaps.c:
     complete
     .text       start:0x0204ce40 end:0x0204cf5c
 
-src/overlays/system/ov001_boot/func_ov001_0204cf5c.c:
+src/overlays/system/ov001_boot/Ov001_InitGameHeaps.c:
     complete
     .text       start:0x0204cf5c end:0x0204cfe4

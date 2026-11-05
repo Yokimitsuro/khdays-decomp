@@ -7,6 +7,7 @@
  * scale 1.0). Returns TRUE. */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
 typedef struct NNSSndHeap *NNSSndHeapHandle;
 
@@ -50,8 +51,7 @@ typedef struct SoundCtx {
 } SoundCtx;
 
 extern SoundCtx *gSoundMgr;
-extern int **data_0204c024;
-extern void *AllocFromExpHeapWrapper(u32 size, int **heap);
+extern GameHeap *gMainHeap;
 extern void MI_CpuFill8(void *dest, int data, u32 size);
 extern void NNS_SndInit(void);
 extern NNSSndHeapHandle NNS_SndHeapCreate(void *startAddress, u32 size);   /* NNS_SndHeapCreate */
@@ -65,7 +65,7 @@ BOOL SoundCtx_Init(void)
     if (gSoundMgr != 0) {
         return 1;
     }
-    ctx = AllocFromExpHeapWrapper(sizeof(SoundCtx), data_0204c024);
+    ctx = AllocFromExpHeapWrapper(sizeof(SoundCtx), gMainHeap);
     gSoundMgr = ctx;
     MI_CpuFill8(ctx, 0, sizeof(SoundCtx));
     NNS_SndInit();

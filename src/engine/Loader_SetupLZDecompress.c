@@ -1,9 +1,10 @@
 /* Reads an LZ-compressed file's header, allocates (or checks) the destination buffer for its
  * decompressed size and initialises the decompression context; returns the buffer. */
 
+#include "game/heap.h"
+
 extern int FS_ReadFile(void *file, void *buf, int size);
 extern void MI_InitUncompContextLZ(void *a, void *buf, void *hdr);
-extern void *ExpHeap_AllocOrDefault(unsigned size, int align, int **heapPP);
 
 void *Loader_SetupLZDecompress(char *self, void *file, int existing, int maxSize, int **heap) {
     int hdr;
@@ -13,7 +14,7 @@ void *Loader_SetupLZDecompress(char *self, void *file, int existing, int maxSize
     FS_ReadFile(file, &hdr, 4);
     size = (unsigned)hdr >> 8;
     if (existing == 0) {
-        buf = ExpHeap_AllocOrDefault(size, 0x20, heap);
+        buf = ExpHeap_AllocOrDefault(size, 0x20, (GameHeap *)heap);
     } else {
         if ((int)size > maxSize) return 0;
         buf = (void *)existing;

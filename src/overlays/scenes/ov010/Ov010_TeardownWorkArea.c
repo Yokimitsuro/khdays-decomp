@@ -9,7 +9,7 @@ extern void OS_ResetSystem(int result);
  * the slot and signal completion (-2). */
 void Ov010_TeardownWorkArea(void) {
     int *root = NNSi_FndGetCurrentRootHeap();
-    int saved = Heap_GetCurrent();
+    GameHeap *saved = Heap_GetCurrent();
 
     Heap_SetCurrent(0);
     if (*root != 0) {

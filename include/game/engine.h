@@ -7,6 +7,7 @@
 #include "nitro/fx_types.h"
 #include "game/actor.h"
 #include "game/ai_task.h"
+#include "game/heap.h"
 
 void AccumulateVec3Scaled(int *a, int *b, int scale, int flag);
 void Actor_ArmWithMessage(void *obj, int a, int b, void *c, int d);
@@ -15,7 +16,6 @@ int Actor_ResolveGround(VecFx32 *pos, int *self, int *pOut);
 void Actor_SetBindingByte(char *p, int i, char v);
 void Actor_SetVecAndSyncChild(void *pPtr, const VecFx32 *src);
 int Actor_StartMotion(void *obj, int p2, int p3, int p4);
-int AllocFromExpHeapWrapper(int size, int *heap);
 int Angle_TurnToward(int currentAngle, int targetAngle, int maxStep, int *outAngle);
 void AnimObj_BindTrackAtLastFrame(void *self, unsigned short idx, short blend, unsigned char value);
 void AnimStream_Advance(int obj, int delta);
@@ -158,8 +158,6 @@ int Entity_Register(void *obj, void *pP2, int p3, int p4);
 void Entity_SubmitRenderNode(int param_1, int param_2, int param_3, int param_4);
 void Entity_Tick(int index);
 int EventRecord_Init(unsigned int *param_1, unsigned int *param_2, unsigned int param_3, int param_4);
-int ExpHeap_Free(int block, int *heap);
-int ExpHeap_ResizeBlock(int *heap, void *memoryBlock, int size);
 void FSi_BindCardTransfer(unsigned int id);
 void FileLoader_FreeRequest(int *request);
 BOOL FileLoader_Init(void);
@@ -167,7 +165,6 @@ int FileLoader_LoadInto(const void *data, void *buffer, int maxSize);
 int FileLoader_LoadSync(const void *data, void *buffer, int size);
 void FileLoader_ThreadMain(void *arg);
 int FindResourceIndexByName(void *a0, void *a1);
-int FontResource_Destroy(void *p);
 int Font_LoadUTF16(int *font, char *name, int arg2, int arg3);
 void ForEachChildDispatch(int this_, int arg1);
 void ForwardQuery64Result(void);
@@ -235,8 +232,6 @@ void Gfx_SetupSubEngine(void);
 int Gfx_ToggleCaptureMode(void *ptr);
 void Gfx_UploadBlock(unsigned char *ptr);
 int Header_InitWithLimits(short *o, short *src);
-int Heap_GetCurrent(void);
-int Heap_SetCurrent(int heap);
 void InitContextEntryOnce(int param_1);
 int InitNodeAndStoreParams(int this_, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 int InitNodeAndStoreParamsMode1(int this_, int arg1, int arg2, int arg3, int arg4);

@@ -530,8 +530,7 @@ extern void MI_CpuFill8(void *dst, u8 data, u32 size);
 #define MI_CpuClear8(dst, size) MI_CpuFill8((dst), 0, (size))
 extern void OS_GetMacAddress(u8 *macAddress);
 #define OS_GetVBlankCount() (*(volatile u32 *)0x027ffc3c)
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, void **heap);   /* Heap_AllocAligned */
-extern void *data_0204c024;                                      /* the heap the helper allocates from */
+extern GameHeap *gMainHeap;                                  /* the heap the helper allocates from */
 #define WH_RAND_INIT(x) (sWh_nRand = (u32)(x))
 #define WH_RAND()       (sWh_nRand = sWh_nRand * 69069UL + 12345)
 #define WH_MATH_MIN(a, b) (((a) < (b)) ? (a) : (b))
@@ -548,7 +547,7 @@ BOOL Ov105_WH_Initialize(void)
     sWh_nRecvBufferSize = 0;
     sWh_nSendBufferSize = 0;
 
-    sWh_pWmBuffer = ExpHeap_AllocOrDefault(0xf00, 0x20, (void **)data_0204c024);
+    sWh_pWmBuffer = ExpHeap_AllocOrDefault(0xf00, 0x20, gMainHeap);
 
     sWh_pReceiver = NULL;
     sMyAid = 0;

@@ -17,7 +17,7 @@ typedef struct Quat {
 
 extern void ContextEntry_Set(void);
 extern void func_0203123c(void);
-extern int data_0204c024;
+extern int gMainHeap;
 
 /* NitroSystem G3D material SBC (NNSi_G3dFuncSbc_MAT): the diffuse/ambient colour-field mask selected by
  * the material's three flag bits. */
@@ -56,7 +56,7 @@ const int data_02042108[2] = { 15, 17 };
 
 /* Class descriptor of the transfer-channel task MsgQueue_Init_2 instantiates twice
  * (InstantiateClass): class 2, group 0xf, constructor 02031228, method 0203123c, a 4-byte state,
- * arena data_0204c024. */
+ * arena gMainHeap. */
 const GameClassDescriptor data_02042110 = {
-    2, 0xf, ContextEntry_Set, func_0203123c, 4, &data_0204c024,
+    2, 0xf, ContextEntry_Set, func_0203123c, 4, &gMainHeap,
 };

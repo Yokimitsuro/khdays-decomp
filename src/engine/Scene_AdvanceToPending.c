@@ -15,6 +15,8 @@
  *   class descriptor with pendArg; latch curId=pendId and clear the pending pair.
  * Scene 1 (boot/logo) -> overlayId 0 (ov000), classDesc @0x0205a9c0. */
 
+#include "game/heap.h"
+
 typedef struct SceneEntry {
     int   overlayId;   /* FS overlay index; -1 = scene has no overlay */
     void *classDesc;   /* InstantiateClass descriptor */
@@ -31,12 +33,12 @@ typedef struct SceneCtl {
 extern int  data_0204bda4;           /* record base; +4 aliases gSceneCtl (obj) */
 extern char gSceneCtl[];         /* SceneCtl (obj..pendArg); cleared by Scene_ClearPending */
 extern SceneEntry gSceneTable[];   /* g_SceneTable, indexed by scene id */
-extern void *data_0204c02c;
+extern GameHeap *gSubHeap;
 
 extern int  Instance_ReleaseIfDead(void *obj);
 extern void UnloadOverlaySync(int module, int overlayId);
 extern void Callbacks_Init(void);
-extern void HeapState_Recreate(void *);
+extern void HeapState_Recreate(GameHeap *heap);
 extern void LoadOverlaySync(int module, int overlayId);
 extern void *InstantiateClass(void *classDesc, int arg);   /* InstantiateClass */
 extern void Word_Set(void *obj, int);
@@ -50,7 +52,7 @@ int Scene_AdvanceToPending(void) {
                 UnloadOverlaySync(0, s->entry->overlayId);
             }
             Callbacks_Init();
-            HeapState_Recreate(data_0204c02c);
+            HeapState_Recreate(gSubHeap);
             s->obj = 0;
             s->curId = 0;
         }

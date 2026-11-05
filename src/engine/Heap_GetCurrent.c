@@ -1,6 +1,9 @@
 /* Returns the current heap (gCurrentHeap). */
-extern int gCurrentHeap;
 
-int Heap_GetCurrent(void) {
+#include "game/heap.h"
+
+extern GameHeap *gCurrentHeap;
+
+GameHeap *Heap_GetCurrent(void) {
     return gCurrentHeap;
 }

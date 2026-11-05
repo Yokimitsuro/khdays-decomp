@@ -1,10 +1,12 @@
-/* Allocates 4-byte-aligned memory from the given expanded heap, or from the default game heap when
- * none is given. */
+/* Allocates 4-byte-aligned memory from the given game heap's expanded heap, or from the current
+ * heap when none is given. */
 
-extern int NNS_FndAllocFromExpHeapEx();
-extern int gCurrentHeap;
+#include "game/heap.h"
 
-int AllocFromExpHeapWrapper(int size, int *heap) {
-    if (heap == 0) heap = *(int **)&gCurrentHeap;
-    return NNS_FndAllocFromExpHeapEx(*heap, size, 4);
+extern void *NNS_FndAllocFromExpHeapEx(struct NNSiFndHeapHead *heap, u32 size, int alignment);
+extern GameHeap *gCurrentHeap;
+
+void *AllocFromExpHeapWrapper(u32 size, GameHeap *heap) {
+    if (heap == 0) heap = gCurrentHeap;
+    return NNS_FndAllocFromExpHeapEx(heap->handle, size, 4);
 }

@@ -6,6 +6,7 @@
  * Returns TRUE. */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
 typedef struct OSThreadQueue {
     struct OSThread *head;
@@ -34,13 +35,11 @@ typedef struct FileLoader {
 } FileLoader;
 
 extern FileLoader gFileLoader;
-extern int **data_0204c024;             /* default heap */
+extern GameHeap *gMainHeap;             /* the main heap */
 extern void *data_0204bc1c;             /* request queue */
 extern void *data_0204bc3c[32];         /* request queue buffer */
 extern char data_0204bcbc[];            /* loader thread */
 extern char data_027e0350[];            /* loader thread stack top (DTCM) */
-extern void *AllocFromExpHeapWrapper(u32 size, int **heap);
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, int **heap);
 extern void MI_CpuFill8(void *dest, int data, u32 size);
 extern void FS_InitFile(void *file);
 extern void EnqueueGfxCmd0(void);
@@ -55,12 +54,12 @@ BOOL FileLoader_Init(void)
     int i;
 
     if (gFileLoader.work == 0) {
-        gFileLoader.work = AllocFromExpHeapWrapper(0x1800, data_0204c024);
+        gFileLoader.work = AllocFromExpHeapWrapper(0x1800, gMainHeap);
         MI_CpuFill8(gFileLoader.work, 0, 0x1800);
-        gFileLoader.reader = ExpHeap_AllocOrDefault(0x420, 0x20, data_0204c024);
-        gFileLoader.reader2 = ExpHeap_AllocOrDefault(0x460, 0x20, data_0204c024);
+        gFileLoader.reader = ExpHeap_AllocOrDefault(0x420, 0x20, gMainHeap);
+        gFileLoader.reader2 = ExpHeap_AllocOrDefault(0x460, 0x20, gMainHeap);
         FS_InitFile(gFileLoader.reader2 + 0x400);
-        gFileLoader.pool = AllocFromExpHeapWrapper(0x600, data_0204c024);
+        gFileLoader.pool = AllocFromExpHeapWrapper(0x600, gMainHeap);
         for (i = 0; i < 32; i++) {
             gFileLoader.pool[i].next = (i < 31) ? &gFileLoader.pool[i + 1] : 0;
         }

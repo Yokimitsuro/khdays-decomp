@@ -1,5 +1,5 @@
 /* Runs every entry of the current effect list (data_0204c22c): with the list's +0x6c request clear
- * the +0x68 state resets; inside the effect arena (data_0204c02c, Heap_SetCurrent) each of the +8
+ * the +0x68 state resets; inside the effect arena (gSubHeap, Heap_SetCurrent) each of the +8
  * entries (+4 array, 12 bytes each) is stepped by CmdPacket_Dispatch; the request is then consumed. */
 
 #include "game/engine.h"
@@ -18,14 +18,14 @@ typedef struct {
 } EffectList;
 
 extern EffectList *data_0204c22c;
-extern int data_0204c02c;
+extern GameHeap *gSubHeap;
 extern void CmdPacket_Dispatch(EffectEntry *entry);
 
 void EffectList_Step(void)
 {
     EffectList *list = data_0204c22c;
     int i;
-    int old;
+    GameHeap *old;
 
     if (list == 0) {
         return;
@@ -33,7 +33,7 @@ void EffectList_Step(void)
     if (list->request == 0) {
         list->state = 0;
     }
-    old = Heap_SetCurrent(data_0204c02c);
+    old = Heap_SetCurrent(gSubHeap);
     for (i = 0; i < list->count; i++) {
         CmdPacket_Dispatch(&list->entries[i]);
     }

@@ -1,17 +1,18 @@
+
+#include "game/heap.h"
 #pragma thumb on
 /* Ov000_InitSaveSystem -- Scene 1 (boot/logo) save-system init + sub-mode probe, ov000.
  * THUMB. Runs once (guarded by the data_0204be14 work-buffer handle): grabs an OS
  * lock id (fatal on error), allocates the 0x2018-byte save work buffer from the boot
- * arena (data_0204c024), unlocks the CARD backup, then probes the save state to pick
+ * arena (gMainHeap), unlocks the CARD backup, then probes the save state to pick
  * the boot sub-mode returned to the scene ctor: 3 if Ov000_IdentifyBackup says "fresh",
  * 5 if Ov000_VerifySaveSignature says "recover", else 0. Re-locks and returns the mode. */
 
 extern void          *data_0204be14;
 extern unsigned short  data_0204be10;
-extern void          *data_0204c024;
+extern void          *gMainHeap;
 extern int   OS_GetLockID(void);
 extern void  OS_Terminate(void);
-extern void *ExpHeap_AllocOrDefault(int size, int align, void *heap);
 extern void  CARD_LockBackup(int deviceId);
 extern int   Ov000_IdentifyBackup(void);
 extern int   Ov000_VerifySaveSignature(void);
@@ -27,7 +28,7 @@ int Ov000_InitSaveSystem(void) {
     if (data_0204be10 == -3) {
         OS_Terminate();
     }
-    data_0204be14 = ExpHeap_AllocOrDefault(0x2018, 0x20, data_0204c024);
+    data_0204be14 = ExpHeap_AllocOrDefault(0x2018, 0x20, gMainHeap);
     CARD_LockBackup(data_0204be10);
     if (Ov000_IdentifyBackup() == 0) {
         mode = 3;

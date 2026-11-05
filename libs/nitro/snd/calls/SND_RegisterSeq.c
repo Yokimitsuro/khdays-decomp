@@ -28,7 +28,7 @@ void *SND_RegisterSeq(int a, int b) {
 
     v = gFileLoader[0x14 / 4];
     if (v == 0) {
-        v = Heap_GetCurrent();
+        v = (int)Heap_GetCurrent();
     }
     p->w8 = v;
     p->wc = Archive_LoadFile(a, b);

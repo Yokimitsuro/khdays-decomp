@@ -6,6 +6,7 @@
  * 0x3c0-byte scratch block is allocated from the default heap (+0x5c). */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
 typedef struct PacketSlot {
     void *buf;                          /* +0x0 */
@@ -24,9 +25,8 @@ typedef struct PacketCtx {
 
 extern PacketCtx *data_0204c22c;
 extern char data_027e07fc[];
-extern int **data_0204c024;
+extern GameHeap *gMainHeap;
 extern int Session_GetLinkMode(void);
-extern void *AllocFromExpHeapWrapper(u32 size, int **heap);
 
 void Session_LayoutPacketSlots(int mode)
 {
@@ -67,5 +67,5 @@ void Session_LayoutPacketSlots(int mode)
         ctx->slot[i].len = 0;
         ctx->slot[i].state = 0;
     }
-    ctx->scratch = AllocFromExpHeapWrapper(0x3c0, data_0204c024);
+    ctx->scratch = AllocFromExpHeapWrapper(0x3c0, gMainHeap);
 }

@@ -1,7 +1,9 @@
-/* Resizes a memory block of an expanded heap (NNS_FndResizeForMBlockExpHeap). */
+/* Resizes a memory block of a game heap's expanded heap (NNS_FndResizeForMBlockExpHeap). */
 
-extern int NNS_FndResizeForMBlockExpHeap();
+#include "game/heap.h"
 
-int ExpHeap_ResizeBlock(int *heap, void *memoryBlock, int size) {
-    return NNS_FndResizeForMBlockExpHeap(*heap, memoryBlock, size);
+extern u32 NNS_FndResizeForMBlockExpHeap(struct NNSiFndHeapHead *heap, void *memoryBlock, u32 size);
+
+u32 ExpHeap_ResizeBlock(GameHeap *heap, void *memoryBlock, u32 size) {
+    return NNS_FndResizeForMBlockExpHeap(heap->handle, memoryBlock, size);
 }

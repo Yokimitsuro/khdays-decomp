@@ -2,7 +2,7 @@
  * enable (bit 16 of 0x04001000), then runs
  * BootInitHookNoOp/GX_Init/OS_InitTick/RTC_Init/StoreGlobalPairAt118(0x500,0x2400)/GX_DispOff/SetMasterBrightnessMain(0x10)/SetMasterBrightnessSub(0x10)/GfxQueue_Configure(&data_0204be24,0x20)/Boot_InitVBlank
  * to prep subsystems, enables IRQ mask 0x40000, arms IME (0x04000208), and finally dispatches the
- * ov001 subsystems (func_ov001_0204cf5c heap allocators, Ov001_ClearVideoMemory GX clear,
+ * ov001 subsystems (Ov001_InitGameHeaps heap allocators, Ov001_ClearVideoMemory GX clear,
  * Ov001_SetupDisplayRegs DISPCNT setup, Ov001_InitTouchPanel misc, Ov001_SeedMathRandContexts RNG
  * seed). */
 
@@ -16,7 +16,7 @@ extern void StoreGlobalPairAt118(int a, int b);
 extern void GX_DispOff(void);
 extern void GfxQueue_Configure(void *p, int n);
 extern void OS_EnableIrqMask(int mask);
-extern void func_ov001_0204cf5c(void);
+extern void Ov001_InitGameHeaps(void);
 extern void Ov001_ClearVideoMemory(void);
 extern void Ov001_SetupDisplayRegs(void);
 extern void Ov001_InitTouchPanel(void);
@@ -46,7 +46,7 @@ void Ov001_BootInit(void) {
     OS_EnableIrqMask(0x40000);
     dummy = *reg208;
     *reg208 = 1;
-    func_ov001_0204cf5c();
+    Ov001_InitGameHeaps();
     Ov001_ClearVideoMemory();
     Ov001_SetupDisplayRegs();
     Ov001_InitTouchPanel();

@@ -4,11 +4,12 @@
  * context (+0x400) is set up (MI_InitUncompContextLZ). The block after the header is fed at once
  * (func_02004484); unless that already finished (*pDone), block 0 of the double buffer is queued
  * with FS_ReadFileAsync. Returns the destination (0 when it does not fit). */
+
+#include "game/heap.h"
 typedef struct FSFile FSFile;
 
 extern int FS_ReadFile(FSFile *p_file, void *dst, int len);   /* FS_ReadFile */
 extern int FS_ReadFileAsync(FSFile *p_file, void *dst, int len);
-extern void *ExpHeap_AllocOrDefault(unsigned size, int align, int **heapPP);
 extern void MI_InitUncompContextLZ(void *context, void *dest, void *header);
 extern int func_02004484(void *context, void *src, int len);
 extern char *gFileLoader[];
@@ -22,7 +23,7 @@ void *Stream_StartUncomp(char *rd, FSFile *file, void *dest, int *pSize, int **h
     *(int *)(rd + 0x418) = FS_ReadFile(file, rd, 0x200);
     size = *(unsigned *)rd >> 8;
     if (dest == 0) {
-        dest = ExpHeap_AllocOrDefault(size, 0x20, heap);
+        dest = ExpHeap_AllocOrDefault(size, 0x20, (GameHeap *)heap);
     } else if (size > *pSize) {
         return 0;
     }

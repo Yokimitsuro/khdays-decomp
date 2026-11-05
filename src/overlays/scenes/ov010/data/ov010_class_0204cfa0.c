@@ -9,7 +9,7 @@
 
 extern void Ov010_TitleSceneInit(void);
 extern void Ov010_TeardownWorkArea(void);
-extern int data_0204c024;
+extern int gMainHeap;
 
 GameClassDescriptor gOv010ConnectionErrorSceneClass = {
     0,  /* nClassId */
@@ -17,5 +17,5 @@ GameClassDescriptor gOv010ConnectionErrorSceneClass = {
     Ov010_TitleSceneInit,  /* pfnCtor */
     Ov010_TeardownWorkArea,  /* pfnMethod */
     256,  /* nAuxSize */
-    &data_0204c024,  /* pArena */
+    &gMainHeap,  /* pArena */
 };

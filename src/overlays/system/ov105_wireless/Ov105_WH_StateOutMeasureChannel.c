@@ -507,8 +507,7 @@ extern void MI_CpuFill8(void *dst, u8 data, u32 size);
 #define MI_CpuClear8(dst, size) MI_CpuFill8((dst), 0, (size))
 extern void OS_GetMacAddress(u8 *macAddress);
 #define OS_GetVBlankCount() (*(volatile u32 *)0x027ffc3c)
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, void **heap);   /* Heap_AllocAligned */
-extern void *data_0204c024;                                      /* the heap the helper allocates from */
+extern void *gMainHeap;                                      /* the heap the helper allocates from */
 #define WH_RAND_INIT(x) (sWh.nRand = (u32)(x))
 #define WH_RAND()       (sWh.nRand = sWh.nRand * 69069UL + 12345)
 #define WH_MATH_MIN(a, b) (((a) < (b)) ? (a) : (b))

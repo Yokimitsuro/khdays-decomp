@@ -32,7 +32,7 @@ int ResCache_Acquire(int a, Slot_0201f468 **out, int c) {
 
     v = gFileLoader[0x14 / 4];
     if (v == 0) {
-        v = Heap_GetCurrent();
+        v = (int)Heap_GetCurrent();
     }
     p->w8 = v;
     p->wc = Loader_RequestFile(a, c);

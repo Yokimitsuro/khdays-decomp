@@ -3,6 +3,7 @@
  * the text frame for the given mode. */
 
 #include "nitro/types.h"
+#include "game/heap.h"
 
 typedef struct Ov000MessageArchive {
     u32 words[3];
@@ -55,7 +56,6 @@ extern void Text_DrawDirectional(Ov000TileTextRenderer *renderer, int x, int y,
 extern void Text_UploadTileBuffer(Ov000TileTextRenderer *renderer);
 extern void FrameStep_UpdateTaskQueue(void);
 extern void TileTextRenderer_Destroy(Ov000TileTextRenderer *renderer);
-extern void FontResource_Destroy(Ov000FontResource *font);
 extern void Ov000_FreeResourceRecordBuffer(Ov000MessageArchive *archive);
 
 extern const char gOv000UiLoadLrdTextPath[];

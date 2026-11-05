@@ -5,4 +5,4 @@ Ov001_SetupDisplayRegs kind:function(arm,size=0x118) addr:0x0204cbb4
 Ov001_SeedMathRandContexts kind:function(arm,size=0xb0) addr:0x0204cccc
 Ov001_BootInit kind:function(arm,size=0xc4) addr:0x0204cd7c
 Ov001_CreateMainAndSubHeaps kind:function(arm,size=0x11c) addr:0x0204ce40
-func_ov001_0204cf5c kind:function(arm,size=0x88) addr:0x0204cf5c
+Ov001_InitGameHeaps kind:function(arm,size=0x88) addr:0x0204cf5c

@@ -49,7 +49,6 @@ extern void OS_Terminate(void);
 extern int func_02004484(void *state, void *src, int len);
 extern void DC_FlushAll(void);
 extern void DC_FlushRange(void *addr, u32 len);
-extern void *ExpHeap_AllocOrDefault(u32 size, int align, int **heapPP);
 extern void FS_ReadFile(FSFile *file, void *dst, u32 len);
 extern void FS_CloseFile(FSFile *file);
 
@@ -107,7 +106,7 @@ void *Archive_LoadFile(char *name, u32 kind)
         }
     } else {
         size = file.bottom - file.top;
-        buf = ExpHeap_AllocOrDefault(size, 0x20, (int **)gFileLoader[5]);
+        buf = ExpHeap_AllocOrDefault(size, 0x20, (GameHeap *)gFileLoader[5]);
         if (buf != 0) {
             FS_ReadFile(&file, buf, size);
         }

@@ -32,7 +32,7 @@ int ResSlot_Release(struct S *p)
             p->field_04 = 0;
         }
         p->field_10 = 0;
-        ExpHeap_Free((int)p->field_0c, p->field_08);
+        ExpHeap_Free(p->field_0c, (GameHeap *)p->field_08);
         p->field_0c = 0;
         return 1;
     }
